@@ -135,19 +135,33 @@
   </div>
 </section>
   <footer>
-    © 2026 ALANYA TOUR ORGANIZATIONS
+  © 2026 ALANYA TOUR ORGANIZATIONS
   </footer>
-  <script>
-    const select = document.getElementById('languageSelect');
-    const browserLang = (navigator.language || 'ru').slice(0,2);
-    if(['ru','en','tr','de'].includes(browserLang)) select.value = browserLang;
-    function updateLang(lang) {
-      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-        el.textContent = el.getAttribute('data-' + lang);
-      });
-    }
-    updateLang(select.value);
-    select.addEventListener('change', e => updateLang(e.target.value));
-  </script>
-</body>
-</html>
+<section id="contacts" class="contacts">
+  <h2>Контакты</h2>
+
+  <div class="contact-grid">
+    <div>
+      <b>WhatsApp / телефон</b><br>
+      <a href="https://wa.me/905387045999" target="_blank">+90 538 704 59 99</a>
+    </div>
+
+    <div>
+      <b>Адрес</b><br>
+      Sarıtaş Hotel Yanı, Tosmur, Ahmet Tokuş Blv. No:13,<br>
+      07400 Alanya/Antalya
+    </div>
+
+    <div>
+      <b>Часы работы</b><br>
+      Ежедневно: 08:00–01:00<br>
+      Онлайн-поддержка: 24/7
+    </div>
+  </div>
+
+  <iframe
+    title="Alanya Tour Organizations location"
+    src="https://maps.google.com/maps?q=Sarıtaş%20Hotel%20Yanı%2C%20Tosmur%2C%20Ahmet%20Tokuş%20Blv.%20No%3A13%2C%2007400%20Alanya%2FAntalya&t=&z=16&ie=UTF8&iwloc=&output=embed"
+    loading="lazy">
+  </iframe>
+</section>
