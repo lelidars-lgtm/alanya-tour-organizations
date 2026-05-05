@@ -31,3 +31,28 @@
   transform: translateY(40px);
   animation: fadeUp 1.2s ease forwards;
 }
+.about-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 32px;
+  object-fit: cover;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.45);
+}
+
+@media (max-width: 980px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    order: -1;
+  }
+}
