@@ -57,9 +57,16 @@
   }
 }
 .section {
+  padding: 80px 7%;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
   width: 100%;
-  max-width: 100%;
-}.cards {
-  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
   width: 100%;
 }
