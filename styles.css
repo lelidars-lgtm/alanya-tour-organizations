@@ -56,3 +56,10 @@
     order: -1;
   }
 }
+.section {
+  width: 100%;
+  max-width: 100%;
+}.cards {
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}
