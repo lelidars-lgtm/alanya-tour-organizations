@@ -31,7 +31,26 @@
   transform: translateY(40px);
   animation: fadeUp 1.2s ease forwards;
 }
+/* ===== LUXURY TITLE ===== */
+.lux-title {
+  font-size: clamp(44px, 6vw, 84px);
+  font-weight: 800;
+  line-height: 1.05;
 
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #fde68a,
+    #ffffff
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease forwards;
+}
 /* ===== SUBTITLE ===== */
 .lux-subtitle {
   font-size: 20px;
