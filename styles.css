@@ -295,10 +295,10 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    90deg,
-    rgba(0,0,0,0.58),
-    rgba(0,0,0,0.18)
-  );
+  90deg,
+  rgba(0,0,0,0.12),
+  rgba(0,0,0,0.02)
+);
 }
 
 .hero-content {
