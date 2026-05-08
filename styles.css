@@ -342,3 +342,33 @@ footer{
     max-width:none;
   }
 }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 58px;
+  height: auto;
+  display: block;
+}
+
+.logo strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.logo span {
+  display: block;
+  color: #d97706;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 900;
+}
+
+.header {
+  width: 100%;
+}
