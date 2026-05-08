@@ -457,3 +457,51 @@ body {
   font-weight: 700;
   letter-spacing: 2px;
 }
+/* FIX HEADER + LOGO */
+
+.header {
+  height: 96px;
+  padding: 16px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.logo h1 {
+  font-size: 30px;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  display: block;
+  font-size: 13px;
+  color: #d28a00;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-top: 4px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.hero {
+  min-height: calc(100vh - 96px);
+}
