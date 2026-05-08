@@ -10,36 +10,109 @@ body{
 
 a{color:inherit}
 
+/* ===== HEADER ===== */
+
 .header{
   position:sticky;
   top:0;
-  z-index:20;
+  z-index:100;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:18px 7%;
-  background:rgba(255,255,255,.94);
-  border-bottom:1px solid #e8e0d6;
+
+  padding:10px 7%;
+
+  background:rgba(255,255,255,.92);
+
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(0,0,0,.04);
+
+  box-shadow:0 4px 18px rgba(0,0,0,.04);
 }
 
+/* ===== LOGO ===== */
+
 .logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  text-decoration:none;
+}
+
+.logo img{
+  width:46px;
+  height:46px;
+
+  object-fit:contain;
+
+  mix-blend-mode:multiply;
+}
+
+.logo h1{
+  margin:0;
+
+  font-size:22px;
+  line-height:.92;
+
   font-weight:900;
-  font-size:20px;
-  line-height:1.1;
+
+  letter-spacing:-1px;
+
+  color:#111111;
 }
 
 .logo span{
   display:block;
-  color:#d97706;
-  font-size:12px;
+
+  margin-top:4px;
+
+  font-size:10px;
+
   letter-spacing:3px;
+
+  font-weight:800;
+
+  color:#d28a00;
 }
+
+/* ===== NAVIGATION ===== */
 
 nav{
   display:flex;
-  gap:22px;
   align-items:center;
+  gap:24px;
+
+  font-size:15px;
   font-weight:700;
+}
+
+nav a{
+  text-decoration:none;
+  color:#111;
+
+  transition:.25s ease;
+}
+
+nav a:hover{
+  color:#d28a00;
+}
+
+select{
+  padding:8px 14px;
+
+  border-radius:999px;
+
+  border:1px solid #ddd6cc;
+
+  background:white;
+
+  font-weight:700;
+
+  cursor:pointer;
 }
 
 nav a{text-decoration:none}
