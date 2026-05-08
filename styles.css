@@ -11,15 +11,14 @@ body{
 a{color:inherit}
 
 .header{
-  position:sticky;
-  top:0;
+  position:relative;
   z-index:20;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:6px 7%;
-  background:rgba(255,255,255,.94);
-  border-bottom:1px solid #e8e0d6;
+  padding:18px 7%;
+  background:white;
+  border-bottom:1px solid #ece7df;
 }
 
 .logo{
@@ -445,26 +444,20 @@ body {
 }
 
 .logo img{
-  width:34px;
-  height:34px;
-  object-fit:contain;
+  width:52px;
+  height:52px;
 }
 
 .logo h1{
+  font-size:22px;
   margin:0;
-  font-size:18px;
-  line-height:1;
 }
 
 .logo span{
-  display:block;
-  color:#d28a00;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:2px;
+  font-size:11px;
+  letter-spacing:3px;
 }
 .header {
-  height: 64px;
   padding: 6px 7%;
   background: white;
 }
@@ -486,9 +479,11 @@ body {
   letter-spacing: 2px;
 }
 
-.hero {
-  min-height: calc(100vh - 64px);
-}
+.hero{
+  min-height:100vh;
+  background-size:cover;
+  background-position:center top;
+  padding:60px 7% 80px;
 }
 nav{
   display:flex;
