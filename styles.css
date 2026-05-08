@@ -511,3 +511,18 @@ nav {
 .hero {
   min-height: calc(100vh - 96px);
 }
+nav{
+  display:flex;
+  gap:20px;
+  align-items:center;
+  font-weight:700;
+  font-size:14px;
+}
+
+select{
+  padding:7px 12px;
+  border-radius:999px;
+  border:1px solid #d6cabd;
+  background:white;
+  font-weight:700;
+}
