@@ -463,53 +463,32 @@ body {
   font-weight:800;
   letter-spacing:2px;
 }
-/* FIX HEADER + LOGO */
-
 .header {
-  height: 96px;
-  padding: 16px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+  height: 64px;
+  padding: 6px 7%;
+  background: white;
 }
 
 .logo img {
-  width: 58px;
-  height: 58px;
+  width: 34px;
+  height: 34px;
   object-fit: contain;
   mix-blend-mode: multiply;
 }
 
 .logo h1 {
-  font-size: 30px;
-  line-height: 1;
+  font-size: 18px;
   margin: 0;
-  letter-spacing: -1px;
 }
 
 .logo span {
-  display: block;
-  font-size: 13px;
-  color: #d28a00;
-  font-weight: 800;
-  letter-spacing: 3px;
-  margin-top: 4px;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  gap: 26px;
+  font-size: 10px;
+  letter-spacing: 2px;
 }
 
 .hero {
-  min-height: calc(100vh - 96px);
+  min-height: calc(100vh - 64px);
+}
 }
 nav{
   display:flex;
