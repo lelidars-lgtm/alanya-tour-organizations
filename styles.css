@@ -432,7 +432,10 @@ body {
   .about-image img:hover {
     transform: none;
   }
-  
+}
+
+/* LOGO */
+
 .logo {
   display: flex;
   align-items: center;
