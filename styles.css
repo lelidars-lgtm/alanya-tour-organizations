@@ -432,4 +432,15 @@ body {
   .about-image img:hover {
     transform: none;
   }
+  
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
 }
