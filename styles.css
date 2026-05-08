@@ -440,7 +440,17 @@ body {
 }
 
 .logo img {
-  width: 65px;
-  height: 65px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
+}
+
+.logo h1 {
+  margin: 0;
+}
+
+.logo span {
+  color: #d28a00;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
