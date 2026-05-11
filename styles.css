@@ -372,3 +372,65 @@ footer{
 .header {
   width: 100%;
 }
+/* ===== NAVBAR UPDATE ===== */
+
+.special-link{
+  color:#d28a00 !important;
+  font-weight:900;
+}
+
+.nav-dropdown{
+  position:relative;
+}
+
+.dropdown-toggle{
+  cursor:pointer;
+}
+
+.dropdown-menu{
+  position:absolute;
+  top:34px;
+  left:0;
+  min-width:260px;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:18px;
+  box-shadow:0 18px 45px rgba(0,0,0,.12);
+  padding:10px;
+  display:none;
+  z-index:9999;
+}
+
+.nav-dropdown:hover .dropdown-menu{
+  display:block;
+}
+
+.dropdown-menu a{
+  display:block;
+  padding:13px 15px;
+  border-radius:12px;
+  color:#111;
+  font-size:14px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.dropdown-menu a:hover{
+  background:#fff3df;
+  color:#d28a00;
+}
+
+.book-now{
+  padding:10px 18px;
+  border-radius:999px;
+  background:#111;
+  color:white !important;
+  font-weight:900;
+}
+
+.book-now:hover{
+  background:#d28a00;
+  color:white !important;
+}
