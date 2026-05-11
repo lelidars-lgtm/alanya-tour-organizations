@@ -461,3 +461,26 @@ footer {
     max-width: none;
   }
 }
+.language-select {
+  border: none;
+  background: transparent;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  color: #111827;
+
+  cursor: pointer;
+  outline: none;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  padding-right: 16px;
+}
+
+.language-select option {
+  color: #111827;
+  background: white;
+}
