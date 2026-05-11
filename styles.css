@@ -60,7 +60,7 @@ a {
 }
 
 .logo-title {
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.5px;
@@ -68,10 +68,10 @@ a {
 }
 
 .logo-subtitle {
-  margin-top: 5px;
-  font-size: 12px;
+  margin-top: 4px;
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: 3px;
+  letter-spacing: 2.5px;
   color: #c99a3d;
 }
 
