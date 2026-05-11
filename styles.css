@@ -421,3 +421,25 @@ footer{
   background:#fff3df;
   color:#d28a00;
 }
+/* LANGUAGE SWITCHER */
+
+.language-switcher{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.globe-icon{
+  font-size:18px;
+  opacity:0.55;
+  color:#555;
+}
+
+.language-switcher select{
+  border:none;
+  background:transparent;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+  outline:none;
+}
