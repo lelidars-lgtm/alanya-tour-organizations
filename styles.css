@@ -24,7 +24,7 @@ a {
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 48px;
+  padding: 0 24px;
 
   position: sticky;
   top: 0;
@@ -44,13 +44,13 @@ a {
 .logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-shrink: 0;
 }
 
 .logo img {
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 58px;
   object-fit: contain;
 }
 
@@ -60,7 +60,7 @@ a {
 }
 
 .logo-title {
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.5px;
@@ -69,7 +69,7 @@ a {
 
 .logo-subtitle {
   margin-top: 5px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 3px;
   color: #c99a3d;
@@ -80,8 +80,7 @@ a {
 .nav {
   display: flex;
   align-items: center;
-  gap: 32px;
-
+  gap: 18px;
   white-space: nowrap;
 }
 
@@ -89,9 +88,9 @@ a {
 .contact-link {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
 
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
 
   color: #111827;
@@ -107,8 +106,8 @@ a {
 }
 
 .arrow-icon {
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
 
   stroke: #c99a3d;
   stroke-width: 2.2;
@@ -123,7 +122,7 @@ a {
 }
 
 .special .fire {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 /* ===== LANGUAGE ===== */
@@ -131,9 +130,11 @@ a {
 .language {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
 
-  font-size: 15px;
+  margin-left: 10px;
+
+  font-size: 14px;
   font-weight: 800;
 
   color: #111827;
@@ -398,16 +399,30 @@ footer {
 
 @media (max-width: 1200px) {
   .header {
-    padding: 0 28px;
+    padding: 0 18px;
   }
 
   .nav {
-    gap: 18px;
+    gap: 13px;
   }
 
   .nav-item,
   .contact-link {
-    font-size: 13px;
+    font-size: 12px;
+  }
+
+  .logo img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .logo-title {
+    font-size: 19px;
+  }
+
+  .logo-subtitle {
+    font-size: 11px;
+    letter-spacing: 2.5px;
   }
 }
 
