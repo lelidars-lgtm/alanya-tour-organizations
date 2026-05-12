@@ -556,10 +556,16 @@ footer {
 
   z-index: 9998;
 
-  background: #0b1220;
+  background: linear-gradient(
+  90deg,
+  #081120 0%,
+  #0c1628 50%,
+  #081120 100%
+);
 
   border-top: 1px solid rgba(255,255,255,.04);
   border-bottom: 1px solid rgba(255,255,255,.04);
+  box-shadow: 0 2px 20px rgba(0,0,0,.18);
 }
 
 .promo-track {
