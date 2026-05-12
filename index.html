@@ -121,12 +121,12 @@
   </svg>
 
   <div class="language-menu">
-    <a href="#">🇷🇺 Russian</a>
-    <a href="#">🇬🇧 English</a>
-    <a href="#">🇹🇷 Turkish</a>
-    <a href="#">🇩🇪 German</a>
-    <a href="#">🇵🇱 Polish</a>
-  </div>
+  <a href="#" data-lang="ru">🇷🇺 Russian</a>
+  <a href="#" data-lang="en">🇬🇧 English</a>
+  <a href="#" data-lang="tr">🇹🇷 Turkish</a>
+  <a href="#" data-lang="de">🇩🇪 German</a>
+  <a href="#" data-lang="pl">🇵🇱 Polish</a>
+</div>
 
 </div>
 
@@ -347,15 +347,35 @@
 </div>
 
 <script>
-  const select = document.getElementById('languageSelect');
-  const browserLang = (navigator.language || 'ru').slice(0,2);
-  if(['ru','en','tr','de'].includes(browserLang)) select.value = browserLang;
+  const userLang = (navigator.language || "en").slice(0, 2);
+  const allowedLangs = ["ru", "en", "tr", "de", "pl"];
+  const currentLang = allowedLangs.includes(userLang) ? userLang : "en";
 
   function updateLang(lang) {
-    document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-      el.textContent = el.getAttribute('data-' + lang);
+    document.querySelectorAll("[data-" + lang + "]").forEach(el => {
+      el.textContent = el.getAttribute("data-" + lang);
     });
+
+    const langLabel = document.querySelector(".language-dropdown > span");
+    if (langLabel) {
+      langLabel.textContent = lang.toUpperCase();
+    }
   }
+
+  updateLang(currentLang);
+
+  document.querySelectorAll(".language-menu a").forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      const lang = this.getAttribute("data-lang");
+
+      if (allowedLangs.includes(lang)) {
+        updateLang(lang);
+      }
+    });
+  });
+</script>
 
   updateLang(select.value);
   select.addEventListener('change', e => updateLang(e.target.value));
