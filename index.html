@@ -27,22 +27,13 @@
   </div>
 </div>
 
+<div class="mobile-menu-btn" id="mobileMenuBtn">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
 <div class="mobile-overlay" id="mobileOverlay"></div>
- <script>
-  const mobileBtn = document.getElementById("mobileMenuBtn");
-  const nav = document.querySelector(".nav");
-  const overlay = document.getElementById("mobileOverlay");
-
-  function toggleMenu() {
-    nav.classList.toggle("active");
-    mobileBtn.classList.toggle("active");
-    overlay.classList.toggle("active");
-  }
-
-  mobileBtn.addEventListener("click", toggleMenu);
-
-  overlay.addEventListener("click", toggleMenu);
-</script>
 
 <nav class="nav">
 
@@ -397,10 +388,17 @@
 
 const mobileBtn = document.getElementById('mobileMenuBtn');
 const nav = document.querySelector('.nav');
+const overlay = document.getElementById('mobileOverlay');
 
-mobileBtn.addEventListener('click', () => {
+function toggleMenu() {
   nav.classList.toggle('active');
-});
+  mobileBtn.classList.toggle('active');
+  overlay.classList.toggle('active');
+}
+
+mobileBtn.addEventListener('click', toggleMenu);
+
+overlay.addEventListener('click', toggleMenu);
 
 </script>
 </body>
