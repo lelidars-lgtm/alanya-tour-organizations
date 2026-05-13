@@ -103,8 +103,8 @@ a {
   stroke-width: 2.2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  fill: none !important
-  display: block;
+  fill: none !important;
+display: block;
   flex-shrink: 0;
 }
 
@@ -603,101 +603,6 @@ footer {
 
   to {
     transform: translateX(-50%);
-  }
-
-}
-/* ===== MOBILE HEADER ===== */
-
-.mobile-menu-btn {
-  display: none;
-}
-
-@media (max-width: 980px) {
-
-  .header {
-    height: 84px;
-
-    flex-direction: row;
-
-    padding: 0 18px;
-  }
-
-  .nav {
-    position: fixed;
-
-    top: 84px;
-    left: -100%;
-
-    width: 82%;
-    max-width: 360px;
-
-    height: calc(100vh - 84px);
-
-    background: rgba(10,15,25,.96);
-
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-
-    flex-direction: column;
-    align-items: flex-start;
-
-    padding: 34px 24px;
-
-    gap: 24px;
-
-    transition: .35s ease;
-
-    z-index: 99999;
-
-    border-right: 1px solid rgba(255,255,255,.06);
-  }
-
-  .nav.active {
-    left: 0;
-  }
-
-  .nav-item,
-  .contact-link {
-    font-size: 15px;
-
-    color: white;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 5px;
-
-    cursor: pointer;
-
-    margin-left: 14px;
-  }
-
-  .mobile-menu-btn span {
-    width: 24px;
-    height: 2px;
-
-    background: #c99a3d;
-
-    border-radius: 999px;
-  }
-
-  .logo-title {
-    font-size: 15px;
-  }
-
-  .logo-subtitle {
-    font-size: 8px;
-  }
-
-  .language {
-    margin-left: auto;
-  }
-
-  .promo-bar {
-    top: 84px;
   }
 
 }
