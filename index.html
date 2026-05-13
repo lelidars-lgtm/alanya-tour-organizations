@@ -26,7 +26,11 @@
         <div class="logo-subtitle">ORGANIZATIONS</div>
       </div>
     </div>
-
+<div class="mobile-menu-btn" id="mobileMenuBtn">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
     <nav class="nav">
 
       <div class="nav-item">
@@ -383,3 +387,13 @@
 
 </body>
 </html>
+<script>
+
+const mobileBtn = document.getElementById('mobileMenuBtn');
+const nav = document.querySelector('.nav');
+
+mobileBtn.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
+
+</script>
