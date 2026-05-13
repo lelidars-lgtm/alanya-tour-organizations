@@ -385,21 +385,34 @@
   });
 </script>
 <script>
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const nav = document.querySelector('.nav');
+  const overlay = document.getElementById('mobileOverlay');
+  const aboutDropdown = document.querySelector('.nav-dropdown');
+  const languageDropdown = document.querySelector('.language-dropdown');
 
-const mobileBtn = document.getElementById('mobileMenuBtn');
-const nav = document.querySelector('.nav');
-const overlay = document.getElementById('mobileOverlay');
+  function toggleMenu() {
+    nav.classList.toggle('active');
+    mobileBtn.classList.toggle('active');
+    overlay.classList.toggle('active');
+  }
 
-function toggleMenu() {
-  nav.classList.toggle('active');
-  mobileBtn.classList.toggle('active');
-  overlay.classList.toggle('active');
-}
+  mobileBtn.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', toggleMenu);
 
-mobileBtn.addEventListener('click', toggleMenu);
+  aboutDropdown.addEventListener('click', function(e) {
+    if (window.innerWidth <= 980) {
+      e.stopPropagation();
+      this.classList.toggle('open');
+    }
+  });
 
-overlay.addEventListener('click', toggleMenu);
-
+  languageDropdown.addEventListener('click', function(e) {
+    if (window.innerWidth <= 980) {
+      e.stopPropagation();
+      this.classList.toggle('open');
+    }
+  });
 </script>
 </body>
 </html>
