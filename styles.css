@@ -860,11 +860,6 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .about-image,
-  .about-image-wrapper {
-    order: -1;
-  }
-
   .section h2,
   .contacts h2,
   .about h2 {
