@@ -332,16 +332,41 @@ h1 {
 /* ===== CONTACTS ===== */
 
 .contacts {
-  padding: 80px 7%;
-  background: linear-gradient(180deg, #111827 0%, #0b1423 100%);
+  position: relative;
+  padding: 34px 7% 80px;
+  background: linear-gradient(180deg, #081120 0%, #0b1423 100%);
   color: white;
+  overflow: hidden;
+}
+
+.contacts::before {
+  content: "";
+  position: absolute;
+  top: -180px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  height: 320px;
+  background: radial-gradient(
+    circle,
+    rgba(201,154,61,.20) 0%,
+    rgba(201,154,61,.08) 35%,
+    rgba(8,17,32,0) 72%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contacts > * {
+  position: relative;
+  z-index: 2;
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
-  margin: 30px 0;
+  margin: 24px 0;
 }
 
 .contact-grid div {
@@ -366,9 +391,9 @@ iframe {
   height: 380px;
   border: 0;
   border-radius: 28px;
+  margin-bottom: 8px;
   box-shadow: 0 24px 70px rgba(0,0,0,.32);
 }
-
 /* ===== FOOTER ===== */
 
 footer {
