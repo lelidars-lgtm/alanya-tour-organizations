@@ -936,3 +936,27 @@ footer {
   }
 
 }
+@media (max-width: 980px) {
+
+  #mobileMenuBtn {
+    position: fixed;
+    top: 26px;
+    right: 24px;
+    z-index: 99999;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(5, 10, 25, 0.55);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+}
