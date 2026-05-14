@@ -976,3 +976,13 @@ footer {
     transform: translateX(-50%);
   }
 }
+@media (max-width: 980px) {
+  .about-text {
+    order: 1;
+  }
+
+  .about-image-wrapper {
+    order: 2;
+    margin-top: 42px;
+  }
+}
