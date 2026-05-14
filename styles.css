@@ -878,3 +878,16 @@ footer {
   }
 
 }
+@media (max-width: 980px) {
+
+  .language-dropdown:hover .language-menu {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  .language-dropdown.open .language-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+}
