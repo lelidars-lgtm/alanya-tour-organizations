@@ -438,10 +438,54 @@ h1 {
   letter-spacing: 1.4px;
   font-weight: 500;
 }
+/* ===== MAP ===== */
 
+.map-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  margin-top: 34px;
+
+  border-radius: 34px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  background: rgba(10,16,30,0.65);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.58),
+    0 0 55px rgba(13,65,160,0.24),
+    0 0 24px rgba(201,154,61,0.14);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.map-wrapper::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  pointer-events: none;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 -20px 40px rgba(0,0,0,0.18);
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 460px;
+  border: none;
+  display: block;
+}
 /* ===== CONTACTS MOBILE ===== */
 
 @media (max-width: 768px) {
+
   .contacts {
     padding: 70px 6% 34px;
   }
@@ -460,6 +504,11 @@ h1 {
   .map-wrapper {
     margin-top: 28px;
     border-radius: 26px;
+
+    box-shadow:
+      0 26px 70px rgba(0,0,0,0.62),
+      0 0 42px rgba(13,65,160,0.22),
+      0 0 18px rgba(201,154,61,0.12);
   }
 
   .map-wrapper iframe {
@@ -475,6 +524,7 @@ h1 {
     line-height: 1.6;
     letter-spacing: 1px;
   }
+
 }
 /* ===== WHATSAPP POPUP ===== */
 
