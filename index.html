@@ -391,6 +391,7 @@
   const overlay = document.getElementById('mobileOverlay');
   const aboutDropdown = document.querySelector('.nav-dropdown');
   const languageDropdown = document.querySelector('.language-dropdown');
+  const languageClose = document.querySelector('.language-close');
 
   function toggleMenu() {
     nav.classList.toggle('active');
@@ -414,7 +415,10 @@
       this.classList.toggle('open');
     }
   });
+
+  languageClose.addEventListener('click', function(e) {
+    e.stopPropagation();
+    languageDropdown.classList.remove('open');
+  });
 </script>
-</body>
-</html>
 
