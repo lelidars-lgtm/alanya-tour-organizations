@@ -476,6 +476,8 @@ h1 {
     position: relative;
     overflow: hidden;
 
+cursor: pointer;
+    
     padding: 28px 26px;
     border-radius: 28px;
 
@@ -493,10 +495,11 @@ h1 {
 
     line-height: 1.65;
 
-    transition:
-      transform .28s ease,
-      box-shadow .28s ease,
-      border-color .28s ease;
+      transition:
+  transform .38s cubic-bezier(.22,.61,.36,1),
+  box-shadow .38s ease,
+  border-color .38s ease,
+  background .38s ease;
 
     box-shadow:
       0 24px 55px rgba(0,0,0,0.34),
@@ -543,7 +546,6 @@ h1 {
     0 0 55px rgba(13,65,160,0.20),
     0 0 18px rgba(201,154,61,0.10),
     inset 0 1px 0 rgba(255,255,255,0.12);
-}
 
 }
 /* ===== CONTACTS MOBILE ===== */
