@@ -922,3 +922,17 @@ footer {
   }
 
 }
+@media (max-width: 768px) {
+
+  .hero-content,
+  .hero-text,
+  .hero-description,
+  .hero-buttons,
+  .hero-search,
+  .hero-card,
+  .hero-cta,
+  .hero-overlay-card {
+    display: none !important;
+  }
+
+}
