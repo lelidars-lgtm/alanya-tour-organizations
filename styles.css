@@ -420,7 +420,6 @@ footer {
   align-items: center;
   flex-shrink: 0;
 }
-
 /* ===== LANGUAGE PREMIUM DROPDOWN ===== */
 
 .language-dropdown {
@@ -429,9 +428,10 @@ footer {
 
 .language-menu {
   position: absolute;
-  top: 58px;
+  top: calc(100% + 12px);
   right: 0;
-  width: 210px;
+
+  width: 220px;
   background: rgba(15, 15, 18, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -445,10 +445,11 @@ footer {
   z-index: 99999;
 }
 
-.language-dropdown:hover .language-menu {
+.language-dropdown:hover .language-menu,
+.language-dropdown.open .language-menu {
   opacity: 1;
   visibility: visible;
-  top: 66px;
+  top: calc(100% + 12px);
 }
 
 .language-menu a {
