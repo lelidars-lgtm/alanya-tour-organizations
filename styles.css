@@ -1034,3 +1034,37 @@ footer {
   }
 
 }
+@media (max-width: 980px) {
+
+  .language-menu {
+    position: absolute;
+    padding-top: 58px !important;
+  }
+
+  .language-close {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: transparent;
+
+    color: #d4a64a;
+
+    font-size: 34px;
+    font-weight: 300;
+
+    cursor: pointer;
+
+    z-index: 100003;
+  }
+
+}
