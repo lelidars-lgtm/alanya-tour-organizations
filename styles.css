@@ -294,7 +294,32 @@ h1 {
   object-fit: cover;
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
 }
+.about-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  overflow: visible;
+}
 
+.about-image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -30px;
+  background: url('turkey-map.jpg') center/cover no-repeat;
+  filter: blur(45px);
+  transform: scale(1.2);
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.about-image-wrapper img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 760px;
+  border-radius: 28px;
+}
 /* ===== CONTACTS ===== */
 
 .contacts {
