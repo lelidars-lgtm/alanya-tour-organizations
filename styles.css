@@ -342,7 +342,15 @@ h1 {
 
 .contacts {
   padding: 80px 7%;
-  background: white;
+
+  background:
+    linear-gradient(
+      180deg,
+      #111827 0%,
+      #0b1423 100%
+    );
+
+  color: white;
 }
 
 .contact-grid {
@@ -354,9 +362,22 @@ h1 {
 
 .contact-grid div {
   padding: 25px;
+
   border-radius: 24px;
-  background: #faf7f2;
+
+  background:
+    rgba(255,255,255,.04);
+
+  border:
+    1px solid rgba(255,255,255,.06);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
   line-height: 1.6;
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.22);
 }
 
 .contact-grid a {
