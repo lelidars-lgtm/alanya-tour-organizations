@@ -490,6 +490,75 @@ h1 {
   border: none;
   display: block;
 }
+
+/* ===== CONTACT CARDS DESKTOP ONLY ===== */
+
+@media (min-width: 769px) {
+
+  .contact-grid div {
+    position: relative;
+    overflow: hidden;
+
+    padding: 28px 26px;
+    border-radius: 28px;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,0.075) 0%,
+        rgba(255,255,255,0.035) 100%
+      );
+
+    border: 1px solid rgba(255,255,255,0.09);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    line-height: 1.65;
+
+    transition:
+      transform .28s ease,
+      box-shadow .28s ease,
+      border-color .28s ease;
+
+    box-shadow:
+      0 24px 55px rgba(0,0,0,0.34),
+      inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+
+  .contact-grid div::before {
+    content: "";
+
+    position: absolute;
+    top: -60px;
+    right: -60px;
+
+    width: 150px;
+    height: 150px;
+
+    background:
+      radial-gradient(
+        circle,
+        rgba(201,154,61,0.18) 0%,
+        rgba(201,154,61,0.06) 38%,
+        rgba(201,154,61,0) 70%
+      );
+
+    pointer-events: none;
+  }
+
+  .contact-grid div:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(201,154,61,0.20);
+
+    box-shadow:
+      0 30px 70px rgba(0,0,0,0.42),
+      0 0 35px rgba(13,65,160,0.14),
+      inset 0 1px 0 rgba(255,255,255,0.10);
+  }
+
+}
 /* ===== CONTACTS MOBILE ===== */
 
 @media (max-width: 768px) {
