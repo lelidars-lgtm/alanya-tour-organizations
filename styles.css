@@ -333,7 +333,7 @@ h1 {
 
 .contacts {
   position: relative;
-  padding: 90px 7% 80px;
+  padding: 90px 7% 40px;
   background: linear-gradient(180deg, #081120 0%, #0b1423 100%);
   color: white;
   overflow: hidden;
@@ -366,7 +366,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
-  margin: 24px 0;
+  margin: 24px 0 0;
 }
 
 .contact-grid div {
@@ -386,23 +386,96 @@ h1 {
   text-decoration: none;
 }
 
-iframe {
-  width: 100%;
-  height: 380px;
-  border: 0;
-  border-radius: 28px;
-  margin-bottom: 8px;
-  box-shadow: 0 24px 70px rgba(0,0,0,.32);
+/* ===== MAP ===== */
+
+.map-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin-top: 34px;
+  border-radius: 34px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(15, 80, 180, 0.18),
+    0 0 18px rgba(201,154,61,0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 460px;
+  border: none;
+  display: block;
+}
+
 /* ===== FOOTER ===== */
 
-footer {
-  padding: 30px;
+.footer-strip {
+  position: relative;
+  margin-top: -1px;
+  padding: 34px 20px;
   text-align: center;
-  background: #050505;
-  color: white;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8,12,24,0.92) 0%,
+      rgba(3,6,14,0.98) 100%
+    );
+  border-top: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    0 -10px 40px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
+.footer-strip p {
+  margin: 0;
+  color: rgba(255,255,255,0.88);
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: 1.4px;
+  font-weight: 500;
+}
+
+/* ===== CONTACTS MOBILE ===== */
+
+@media (max-width: 768px) {
+  .contacts {
+    padding: 70px 6% 34px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 22px;
+  }
+
+  .contact-grid div {
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .map-wrapper {
+    margin-top: 28px;
+    border-radius: 26px;
+  }
+
+  .map-wrapper iframe {
+    height: 320px;
+  }
+
+  .footer-strip {
+    padding: 26px 18px;
+  }
+
+  .footer-strip p {
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+  }
+}
 /* ===== WHATSAPP POPUP ===== */
 
 .whatsapp-popup {
