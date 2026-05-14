@@ -306,7 +306,7 @@ h1 {
   content: "";
   position: absolute;
   inset: -30px;
-  background: url('turkey-map.jpg') center/cover no-repeat;
+  background: url('map-turkey.jpg') center/cover no-repeat;
   filter: blur(45px);
   transform: scale(1.2);
   opacity: 0.35;
