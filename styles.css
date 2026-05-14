@@ -868,3 +868,26 @@ footer {
     height: 220px;
   }
 }
+/* MOBILE HERO BACKGROUND */
+@media (max-width: 768px) {
+
+  .hero {
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(3, 8, 20, 0.30) 0%,
+        rgba(3, 8, 20, 0.15) 30%,
+        rgba(3, 8, 20, 0.45) 100%
+      ),
+      url('mobile-hero.jpg');
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    min-height: 100svh;
+    padding-top: 120px;
+    padding-bottom: 40px;
+  }
+
+}
