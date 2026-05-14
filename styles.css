@@ -19,18 +19,27 @@ a {
 .header {
   width: 100%;
   height: 104px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 0 24px;
+
   position: sticky;
   top: 0;
   z-index: 9999;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+
+  background: rgba(8, 17, 32, 0.82);
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border-bottom: 1px solid rgba(201, 154, 61, 0.18);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.04);
 }
 
 /* ===== LOGO ===== */
