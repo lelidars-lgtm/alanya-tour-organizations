@@ -966,23 +966,24 @@ footer {
 
   #mobileMenuBtn {
     position: fixed;
-    top: 26px;
-    right: 24px;
-    z-index: 99999;
+    top: 34px;
+    right: 22px;
 
-    width: 42px;
-    height: 42px;
+    z-index: 100000;
+
+    width: 34px;
+    height: 34px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 12px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
 
-    background: rgba(5, 10, 25, 0.55);
-    backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(255,255,255,0.08);
+    padding: 0;
   }
 
 }
