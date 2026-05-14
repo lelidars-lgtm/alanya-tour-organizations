@@ -333,7 +333,7 @@ h1 {
 
 .contacts {
   position: relative;
-  padding: 34px 7% 80px;
+  padding: 90px 7% 80px;
   background: linear-gradient(180deg, #081120 0%, #0b1423 100%);
   color: white;
   overflow: hidden;
@@ -991,17 +991,12 @@ footer {
   }
 
   .about-image-wrapper {
-    margin-top: 18px;
-    margin-bottom: 6px;
-  }
+  margin-top: 18px;
+  margin-bottom: 26px;
+}
 
   .contacts {
     padding-top: 18px;
-  }
-
-  .contacts h2 {
-    margin-top: -24px;
-    margin-bottom: 22px;
   }
 
   .contact-grid div {
