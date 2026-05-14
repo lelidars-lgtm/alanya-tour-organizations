@@ -525,15 +525,25 @@ h1 {
   }
 
   .contact-grid div:hover {
-    transform: translateY(-4px);
+  transform:
+    translateY(-10px)
+    scale(1.015);
 
-    border-color: rgba(201,154,61,0.20);
+  border-color: rgba(201,154,61,0.34);
 
-    box-shadow:
-      0 30px 70px rgba(0,0,0,0.42),
-      0 0 35px rgba(13,65,160,0.14),
-      inset 0 1px 0 rgba(255,255,255,0.10);
-  }
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.09) 0%,
+      rgba(255,255,255,0.045) 100%
+    );
+
+  box-shadow:
+    0 38px 90px rgba(0,0,0,0.50),
+    0 0 55px rgba(13,65,160,0.20),
+    0 0 18px rgba(201,154,61,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
 
 }
 /* ===== CONTACTS MOBILE ===== */
