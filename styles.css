@@ -1025,3 +1025,19 @@ footer {
   }
 
 }
+@media (max-width: 980px) {
+
+  .about-image-wrapper {
+    margin-bottom: -18px;
+  }
+
+  .contacts {
+    padding-top: 18px;
+  }
+
+  .contacts h2 {
+    margin-top: -24px;
+    margin-bottom: 22px;
+  }
+
+}
