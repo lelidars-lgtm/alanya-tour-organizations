@@ -636,7 +636,7 @@ footer {
 
 .promo-bar {
   width: 100%;
-  height: 44px;
+  height: 34px;
 
   display: flex;
   align-items: center;
@@ -648,12 +648,10 @@ footer {
 
   z-index: 9998;
 
-  background: linear-gradient(
-  90deg,
-  #081120 0%,
-  #0c1628 50%,
-  #081120 100%
-);
+background: rgba(4, 10, 20, 0.72);
+
+backdrop-filter: blur(14px);
+-webkit-backdrop-filter: blur(14px);
 
   border-top: 1px solid rgba(255,255,255,.04);
   border-bottom: 1px solid rgba(255,255,255,.04);
@@ -970,6 +968,35 @@ footer {
 
   .about {
     padding-top: 130px;
+  }
+
+}
+@media (max-width: 980px) {
+
+  .header {
+
+    background: linear-gradient(
+      180deg,
+      rgba(11, 20, 36, 0.82) 0%,
+      rgba(11, 20, 36, 0.68) 100%
+    );
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom:
+      1px solid rgba(255,255,255,.05);
+
+    box-shadow:
+      0 8px 30px rgba(0,0,0,.18);
+  }
+
+  .logo-title {
+    color: rgba(255,255,255,.92);
+  }
+
+  .language {
+    color: rgba(255,255,255,.92);
   }
 
 }
