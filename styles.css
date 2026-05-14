@@ -973,10 +973,3 @@ footer {
   }
 
 }
-@media (max-width: 980px) {
-  .whatsapp-popup {
-    position: static;
-    margin: 28px 22px;
-    max-width: none;
-  }
-}
