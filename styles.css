@@ -1003,3 +1003,61 @@ h1 {
     min-height: auto;
   }
 }
+/* ===== DESKTOP PREMIUM STATS ===== */
+
+.premium-stats{
+  margin-top:28px;
+  padding:30px 36px;
+
+  border-radius:28px;
+
+  border:1px solid rgba(214,162,74,.24);
+
+  background:
+    radial-gradient(circle at left, rgba(214,162,74,.10), transparent 40%),
+    linear-gradient(135deg,#08111f,#050b16);
+
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+
+  gap:24px;
+}
+
+.stat-item{
+  text-align:center;
+}
+
+.stat-item strong{
+  display:block;
+
+  font-size:42px;
+  line-height:1;
+
+  margin-bottom:10px;
+
+  font-weight:900;
+
+  color:#d6a24a;
+
+  letter-spacing:-1px;
+}
+
+.stat-item span{
+  color:rgba(255,255,255,.72);
+
+  font-size:14px;
+
+  letter-spacing:.6px;
+
+  text-transform:uppercase;
+}
+
+/* MOBILE OFF */
+
+@media(max-width:980px){
+
+  .premium-stats{
+    display:none;
+  }
+
+}
