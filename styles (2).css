@@ -285,37 +285,36 @@ h1{
 /* CATEGORY IMAGES */
 
 .sea-card{
-  background-image:url("images/categories/sea.jpg");
+  background-image:url("sea.jpg");
 }
 
 .extreme-card{
-  background-image:url("images/categories/extreme.jpg");
+  background-image:url("extreme.jpg");
 }
 
 .nature-card{
-  background-image:url("images/categories/nature.jpg");
+  background-image:url("nature.jpg");
 }
 
 .history-card{
-  background-image:url("images/categories/history.jpg");
+  background-image:url("history.jpg");
 }
 
 .family-card{
-  background-image:url("images/categories/family.jpg");
+  background-image:url("family.jpg");
 }
 
 .air-card{
-  background-image:url("images/categories/air.jpg");
+  background-image:url("air.jpg");
 }
 
 .watersports-card{
-  background-image:url("images/categories/watersports.jpg");
+  background-image:url("watersports.jpg");
 }
 
 .wellness-card{
-  background-image:url("images/categories/wellness.jpg");
+  background-image:url("wellness.jpg");
 }
-
 /* SIDEBAR */
 
 .tour-sidebar{
