@@ -289,7 +289,7 @@ h1 {
 /* ===== MAIN CATEGORIES ===== */
 
 .main-categories-section {
-  padding: 90px 7%;
+  padding: 40px 7% 28px;
   background:
     radial-gradient(circle at top left, rgba(214,162,74,.16), transparent 30%),
     linear-gradient(135deg,#06111f,#020814);
@@ -645,7 +645,7 @@ h1 {
 
 .about {
   position: relative;
-  padding: 90px 7% 80px;
+  padding: 58px 7% 80px;
   background: #111827;
   color: white;
   overflow: hidden;
@@ -1144,6 +1144,28 @@ h1 {
 
   .desktop-vip-bar {
     display: none !important;
+  }
+
+}
+@media (min-width: 981px) {
+
+  .main-categories-section {
+    padding-bottom: 28px !important;
+  }
+
+  .categories-layout {
+    align-items: start !important;
+  }
+
+  .tour-sidebar {
+    position: sticky;
+    top: 150px;
+    height: auto !important;
+  }
+
+  .about {
+    margin-top: 0 !important;
+    padding-top: 58px !important;
   }
 
 }
