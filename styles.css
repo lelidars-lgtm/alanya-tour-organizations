@@ -350,14 +350,6 @@ h1 {
 .watersports-card{background-image:url("watersports.jpg");}
 .wellness-card{background-image:url("wellness.jpg");}
 
-@media(max-width:1300px){
- .main-categories-grid{
-  display:grid;
-  grid-template-columns:repeat(4, minmax(0, 1fr));
-  gap:22px;
-  min-width:0;
-}
-
 @media(max-width:980px){
   .categories-layout{
     grid-template-columns:1fr;
