@@ -1232,9 +1232,56 @@ h1 {
   }
 
 }
-
 @media (max-width: 980px) {
+
   .vip-service-premium {
-    display: none !important;
+    display: grid !important;
+    grid-template-columns: 46px 1fr;
+    gap: 14px;
+
+    margin: 22px 0 0;
+    padding: 18px;
+
+    border-radius: 22px;
+    border: 1px solid rgba(214,162,74,.38);
+
+    background: linear-gradient(
+      135deg,
+      rgba(214,162,74,.12),
+      rgba(255,255,255,.025)
+    );
   }
+
+  .vip-service-premium .vip-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .vip-service-text h3 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    color: #d6a24a;
+    letter-spacing: 1.5px;
+  }
+
+  .vip-service-text p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255,255,255,.76);
+  }
+
+  .vip-service-premium a {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 13px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(214,162,74,.55);
+    color: #d6a24a;
+    font-size: 12px;
+    font-weight: 900;
+  }
+
 }
+
