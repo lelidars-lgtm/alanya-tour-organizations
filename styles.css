@@ -331,15 +331,25 @@ h1 {
   margin:0 auto;
 
   display:grid;
-  grid-template-columns:minmax(0,1fr) 360px;
+
+  grid-template-columns:
+  minmax(0,1fr)
+  340px;
+
   gap:28px;
-  align-items:start;
+
+  align-items:stretch;
 }
 
 .main-categories-grid{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+
+  grid-template-columns:
+  repeat(2,minmax(0,1fr));
+
   gap:28px;
+
+  align-content:start;
 }
 
 .tour-sidebar{
@@ -360,7 +370,7 @@ h1 {
 
   border:1px solid rgba(214,162,74,.28);
 
-  height:fit-content;
+  height:100%;
 }
 /* ===== CATEGORY CARDS ===== */
 
