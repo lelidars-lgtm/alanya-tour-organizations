@@ -212,7 +212,7 @@ h1 {
 /* ===== MAIN CATEGORIES ===== */
 
 .main-categories-section {
-  padding: 90px 7%;
+  padding: 120px 7% 90px;
   background:
     radial-gradient(circle at top left, rgba(214,162,74,.18), transparent 28%),
     linear-gradient(135deg,#06111f,#020814);
@@ -222,12 +222,12 @@ h1 {
 .main-categories-head {
   text-align: center;
   max-width: 900px;
-  margin: 0 auto 54px;
+  margin: 0 auto 70px;
 }
 
 .main-categories-head span {
   display: inline-block;
-  padding: 10px 22px;
+  padding: 10px 24px;
   border: 1px solid rgba(214,162,74,.55);
   border-radius: 999px;
   color: #d6a24a;
@@ -237,7 +237,7 @@ h1 {
 }
 
 .main-categories-head h2 {
-  margin: 24px 0 12px;
+  margin: 26px 0 14px;
   font-size: clamp(36px,5vw,58px);
   line-height: 1;
   letter-spacing: -2px;
@@ -245,35 +245,35 @@ h1 {
 
 .main-categories-head p {
   margin: 0;
-  color: rgba(255,255,255,.68);
+  color: rgba(255,255,255,.72);
   font-size: 18px;
 }
 
 .categories-layout {
   display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 34px;
   align-items: start;
 }
 
 .main-categories-grid {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 22px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
 }
 
 /* ===== CATEGORY CARDS WITH PHOTOS ===== */
 
 .category-card {
   position: relative;
-  min-height: 245px;
-  padding: 32px 24px 26px;
-  border-radius: 26px;
-  border: 1px solid rgba(214,162,74,.34);
+  min-height: 420px;
+  padding: 28px 24px 30px;
+  border-radius: 30px;
+  border: 1px solid rgba(214,162,74,.35);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0 22px 60px rgba(0,0,0,.28);
+  box-shadow: 0 22px 60px rgba(0,0,0,.32);
   overflow: hidden;
   transition: .35s ease;
   display: flex;
@@ -287,15 +287,24 @@ h1 {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0,0,0,.14) 0%, rgba(0,0,0,.38) 48%, rgba(0,0,0,.82) 100%),
-    radial-gradient(circle at top right, rgba(214,162,74,.18), transparent 35%);
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.12) 0%,
+      rgba(0,0,0,.36) 42%,
+      rgba(0,0,0,.86) 100%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(214,162,74,.20),
+      transparent 38%
+    );
   z-index: -1;
 }
 
 .category-card:hover {
   transform: translateY(-8px);
   border-color: rgba(214,162,74,.85);
-  box-shadow: 0 32px 80px rgba(0,0,0,.45);
+  box-shadow: 0 32px 80px rgba(0,0,0,.48);
 }
 
 .category-icon {
@@ -305,8 +314,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
-  font-size: 27px;
+  margin-bottom: 22px;
+  font-size: 26px;
   background: rgba(7,17,31,.86);
   border: 1px solid rgba(214,162,74,.65);
   position: relative;
@@ -316,22 +325,25 @@ h1 {
 
 .category-card h3 {
   margin: 0 0 14px;
-  font-size: 20px;
-  line-height: 1.15;
-  letter-spacing: .6px;
+  font-size: 24px;
+  line-height: 1.08;
+  letter-spacing: .4px;
   position: relative;
   z-index: 2;
   color: #fff;
+  text-shadow: 0 3px 18px rgba(0,0,0,.55);
 }
 
 .category-card p {
   margin: 0;
-  color: rgba(255,255,255,.82);
+  color: rgba(255,255,255,.88);
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.55;
   position: relative;
   z-index: 2;
 }
+
+/* картинки лежат в корне сайта */
 
 .sea-card { background-image: url("sea.jpg"); }
 .extreme-card { background-image: url("extreme.jpg"); }
@@ -341,6 +353,34 @@ h1 {
 .air-card { background-image: url("air.jpg"); }
 .watersports-card { background-image: url("watersports.jpg"); }
 .wellness-card { background-image: url("wellness.jpg"); }
+
+@media (max-width: 1100px) {
+  .categories-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .main-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .main-categories-section {
+    padding: 70px 22px 70px;
+  }
+
+  .main-categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card {
+    min-height: 360px;
+  }
+
+  .category-card h3 {
+    font-size: 26px;
+  }
+}
 
 /* ===== SIDEBAR ===== */
 
