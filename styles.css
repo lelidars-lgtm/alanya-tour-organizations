@@ -1081,138 +1081,114 @@ h1 {
 
 }
 /* =====================================================
-   PREMIUM RIGHT PANEL — DESKTOP
+   DESKTOP VIP RIBBON
+   ONLY DESKTOP VERSION
 ===================================================== */
 
 @media (min-width: 981px) {
 
-  .side-panel,
-  .promo-side,
-  .right-column {
-    position: relative;
-    overflow: hidden;
+  .desktop-vip-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 34px;
+
+    margin-top: 34px;
+    padding: 30px 34px;
     border-radius: 34px;
-    padding: 34px 30px;
+
     background:
-      radial-gradient(circle at top left,
-      rgba(255,190,80,.14) 0%,
-      rgba(255,190,80,0) 35%),
-      linear-gradient(
-      180deg,
-      #08111d 0%,
-      #09192d 100%);
-    border: 1px solid rgba(255,190,80,.34);
+      radial-gradient(circle at left, rgba(255,190,80,.12), transparent 30%),
+      linear-gradient(90deg, #09111f 0%, #0a1830 100%);
+
+    border: 1px solid rgba(255,190,80,.28);
 
     box-shadow:
-      0 0 0 1px rgba(255,190,80,.08),
-      0 20px 60px rgba(0,0,0,.45),
-      0 0 80px rgba(255,190,80,.06);
-
-    min-height: 100%;
+      0 20px 60px rgba(0,0,0,.34),
+      0 0 50px rgba(255,190,80,.08);
   }
 
-  .side-panel::before,
-  .promo-side::before,
-  .right-column::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(
-      135deg,
-      rgba(255,215,120,.10),
-      transparent 22%,
-      transparent 78%,
-      rgba(255,215,120,.06)
-      );
-    pointer-events: none;
+  .vip-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex: 1;
   }
 
-  /* GOLD TITLE */
+  .desktop-vip-bar .vip-icon {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  .side-panel h2,
-  .promo-side h2,
-  .right-column h2 {
+    font-size: 34px;
+    background: linear-gradient(180deg, #ffdf8d, #ffb62e);
+    color: #08111d;
 
-    font-size: 44px;
-    line-height: 1;
-    margin-bottom: 22px;
+    box-shadow: 0 0 30px rgba(255,190,80,.22);
+  }
+
+  .vip-bar-content h3 {
+    margin: 0 0 8px;
+    font-size: 42px;
     font-weight: 900;
-    letter-spacing: .06em;
-    text-transform: uppercase;
+    letter-spacing: .04em;
 
-    background: linear-gradient(
-      180deg,
-      #fff3c1 0%,
-      #ffd76a 28%,
-      #ffbc42 60%,
-      #fff1b8 100%
-    );
-
+    background: linear-gradient(180deg, #fff0bc 0%, #ffc94c 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    text-shadow:
-      0 0 18px rgba(255,195,77,.22);
-
   }
 
-  /* PREMIUM TEXT */
-
-  .side-panel p,
-  .promo-side p,
-  .right-column p {
-
-    color: rgba(255,255,255,.82);
-    font-size: 16px;
+  .vip-bar-content p {
+    margin: 0;
+    color: rgba(255,255,255,.78);
     line-height: 1.7;
-    margin-bottom: 26px;
-
+    font-size: 16px;
+    max-width: 720px;
   }
 
-  /* GLOW BUTTON */
+  .vip-bar-stats {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
 
-  .side-panel .vip-btn,
-  .promo-side .vip-btn,
-  .right-column .vip-btn {
+  .vip-mini-stat {
+    text-align: center;
+  }
 
+  .vip-mini-stat strong {
+    display: block;
+    font-size: 30px;
+    font-weight: 900;
+    color: #ffc44d;
+  }
+
+  .vip-mini-stat span {
+    color: rgba(255,255,255,.64);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+
+  .vip-bar-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    padding: 15px 28px;
+    padding: 16px 28px;
     border-radius: 999px;
 
-    background:
-      linear-gradient(
-      180deg,
-      #ffe49a 0%,
-      #ffcb5a 45%,
-      #f0a81f 100%
-      );
-
+    text-decoration: none;
+    background: linear-gradient(180deg, #ffe39a, #ffbc35);
     color: #08111d;
+
     font-weight: 900;
     letter-spacing: .08em;
-    text-transform: uppercase;
-    text-decoration: none;
 
-    box-shadow:
-      0 10px 28px rgba(255,190,80,.26),
-      0 0 24px rgba(255,190,80,.16);
-
-    transition: .35s ease;
-  }
-
-  .side-panel .vip-btn:hover,
-  .promo-side .vip-btn:hover,
-  .right-column .vip-btn:hover {
-
-    transform: translateY(-3px);
-    box-shadow:
-      0 18px 40px rgba(255,190,80,.34),
-      0 0 40px rgba(255,190,80,.24);
-
+    box-shadow: 0 12px 30px rgba(255,190,80,.24);
   }
 
 }
