@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Пиратская яхта в Алании | ADMIRAL BLACK</title>
+
+<style>
+    :root{
+      --navy:#06101d;
+      --gold:#d6a24a;
+      --gold2:#f3c66d;
+      --text:#fff;
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(214,162,74,.32);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:linear-gradient(180deg,#050b14,#07111f 45%,#050b14);
+      color:var(--text);
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    .page{
+      width:min(1160px,calc(100% - 36px));
+      margin:auto;
+      padding-bottom:70px;
+    }
+
+    .hero{
+      min-height:720px;
+      padding:34px 0 70px;
+      background:
+      linear-gradient(
+90deg,
+rgba(5,11,20,.96) 0%,
+rgba(5,11,20,.82) 32%,
+rgba(5,11,20,.42) 58%,
+rgba(5,11,20,.12) 100%
+),
+        url("images/admiral-black-hero.jpg") center/cover no-repeat;
+      border-bottom:1px solid var(--line);
+    }
+
+    .breadcrumbs{
+      color:rgba(255,255,255,.7);
+      font-size:14px;
+      margin-bottom:70px;
+    }
+
+    .breadcrumbs span{color:var(--gold2)}
+
+    .hero-content{max-width:590px}
+
+    .eyebrow{
+      color:var(--gold2);
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:13px;
+      margin-bottom:16px;
+    }
+
+    h1{
+  font-family:Georgia,serif;
+  font-size:clamp(42px,5vw,72px);
+  line-height:.95;
+  text-transform:uppercase;
+  font-weight:500;
+  margin-bottom:22px;
+  max-width:720px;
+}
+
+    .subtitle{
+      color:var(--gold2);
+      font-size:24px;
+      line-height:1.3;
+      margin-bottom:18px;
+      max-width:520px;
+    }
+
+    p{
+      color:var(--muted);
+      line-height:1.75;
+      font-size:16px;
+      margin-bottom:14px;
+    }
+
+    .hero-text{
+      font-size:17px;
+      max-width:540px;
+      margin-bottom:28px;
+    }
+
+    .hero-icons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+      margin-bottom:24px;
+    }
+
+    .hero-icon{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#fff;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+
+    .ico{
+      width:42px;
+      height:42px;
+      border:1px solid var(--gold);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      color:var(--gold2);
+      font-size:20px;
+    }
+
+    .tour-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 30px;
+    }
+
+ .tour-tag{
+  padding:11px 16px;
+  border-radius:999px;
+  border:1px solid rgba(214,162,74,.42);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.02)
+    );
+  color:var(--gold2);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  backdrop-filter:blur(14px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 10px 22px rgba(0,0,0,.28);
+}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:54px;
+      padding:0 28px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:#111;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:13px;
+    }
+
+    .section-card{
+      margin-top:26px;
+      padding:28px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+      box-shadow:0 24px 60px rgba(0,0,0,.32);
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:34px;
+      align-items:start;
+    }
+
+    h2,h3{
+      color:var(--gold2);
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-size:17px;
+      margin-bottom:22px;
+    }
+
+    .highlight-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .highlight{
+      display:flex;
+      gap:12px;
+      color:rgba(255,255,255,.82);
+      line-height:1.45;
+      font-size:15px;
+    }
+
+    .highlight::before{
+      content:"✓";
+      color:var(--gold2);
+      width:24px;
+      height:24px;
+      border:1px solid var(--gold);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+      font-size:12px;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      overflow:hidden;
+    }
+
+    .info-card{
+      padding:26px;
+      border-right:1px solid rgba(214,162,74,.22);
+      background:rgba(255,255,255,.035);
+      min-height:220px;
+    }
+
+    .info-card:last-child{border-right:none}
+
+    .info-card h3{font-size:15px}
+
+    .price{
+      font-family:Georgia,serif;
+      color:var(--gold2);
+      font-size:44px;
+      margin:8px 0;
+    }
+
+    .small-list{
+      display:grid;
+      gap:12px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.4;
+    }
+
+    .small-list div::before{
+      content:"✓ ";
+      color:var(--gold2);
+    }
+
+    .gallery-layout{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:14px;
+    }
+
+    .gallery-layout img{
+      width:100%;
+      height:100%;
+      min-height:230px;
+      object-fit:cover;
+      border-radius:18px;
+      border:1px solid var(--line);
+      cursor:pointer;
+      transition:.3s ease;
+    }
+
+    .gallery-layout img:hover{
+      transform:scale(1.015);
+      filter:brightness(1.08);
+    }
+
+    .gallery-small{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .extra-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin-top:26px;
+    }
+
+    .extra-card{
+      padding:26px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.045);
+      box-shadow:0 18px 44px rgba(0,0,0,.25);
+    }
+
+    .extra-card h3{
+      font-size:15px;
+    }
+
+    .icon-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:16px;
+    }
+
+    .icon-item{
+      display:grid;
+      gap:7px;
+      justify-items:center;
+      text-align:center;
+      min-width:64px;
+    }
+
+    .icon-item span{
+      color:var(--gold2);
+      font-size:23px;
+    }
+
+    .cta{
+      margin-top:26px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      padding:28px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+    }
+
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.86);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      padding:24px;
+    }
+
+    .lightbox.active{display:flex}
+
+    .lightbox img{
+      max-width:92vw;
+      max-height:88vh;
+      border-radius:18px;
+      border:1px solid var(--line);
+    }
+
+    .close{
+      position:absolute;
+      top:22px;
+      right:28px;
+      color:white;
+      font-size:34px;
+      cursor:pointer;
+    }
+
+    @media(max-width:900px){
+      .hero{min-height:auto}
+      .breadcrumbs{margin-bottom:44px}
+
+      .two-col,
+      .info-grid,
+      .gallery-layout,
+      .extra-grid{
+        grid-template-columns:1fr;
+      }
+
+      .info-card{
+        border-right:none;
+        border-bottom:1px solid rgba(214,162,74,.22);
+      }
+
+      .gallery-small{
+        grid-template-columns:1fr;
+      }
+
+      .cta{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="page">
+    <div class="breadcrumbs">Home › Sea Experiences › <span>Пиратская яхта</span></div>
+
+    <div class="hero-content"
+         data-category="sea-experiences"
+         data-tags="family-friendly kids-friendly foam-party pirate-yacht swimming-stops buffet-lunch transfer-included music-animation alanya-harbor dolphins-view sunset-route all-inclusive bestseller budget-friendly">
+
+      <div class="eyebrow">Sea Experience</div>
+      <h1>Пиратская яхта в Алании</h1>
+
+      <div class="subtitle">Полный день отдыха с морем, музыкой, пенной вечеринкой и яркими эмоциями.</div>
+
+      <p class="hero-text">
+        Просторная яхта ADMIRAL BLACK, купание у побережья Алании, морские пещеры,
+        виды на Красную башню, пляж Клеопатры, анимация и атмосфера настоящего праздника.
+      </p>
+
+      <div class="hero-icons">
+        <div class="hero-icon"><span class="ico">⏱</span>6 часов</div>
+        <div class="hero-icon"><span class="ico">🍽</span>Шведский стол</div>
+        <div class="hero-icon"><span class="ico">🚐</span>Трансфер</div>
+        <div class="hero-icon"><span class="ico">🫧</span>Пенная вечеринка</div>
+      </div>
+
+      <div class="tour-tags">
+        <span class="tour-tag">Sea Experience</span>
+        <span class="tour-tag">Foam Party</span>
+        <span class="tour-tag">All Inclusive</span>
+        <span class="tour-tag">Pirate Yacht</span>
+        <span class="tour-tag">Family Friendly</span>
+        <span class="tour-tag">Swimming Stops</span>
+        <span class="tour-tag">Buffet Lunch</span>
+        <span class="tour-tag">Transfer Included</span>
+        <span class="tour-tag">Best Seller</span>
+      </div>
+
+      <a class="btn" target="_blank" href="https://wa.me/905387045999?text=Здравствуйте!%20Хочу%20забронировать%20пиратскую%20яхту%20ADMIRAL%20BLACK%20в%20Алании.">
+        Book on WhatsApp →
+      </a>
+    </div>
+  </div>
+</section>
+
+<main class="page">
+
+  <section class="section-card two-col">
+    <div>
+      <h2>About this experience</h2>
+      <p>Пиратская яхта в Алании — это не просто морская прогулка, а полноценный день отдыха с атмосферой праздника, музыки и ярких эмоций.</p>
+      <p>Маршрут начинается из самого сердца Алании — городского порта, откуда открываются панорамные виды на Красную башню и крепость.</p>
+      <p>Первая остановка — историческая верфь Терсане. Далее яхта проходит вдоль Пиратской пещеры, Пещеры влюблённых и Фосфорной пещеры.</p>
+      <p>Во второй части маршрута — пляж Клеопатры и Новая гавань. Если повезёт, можно увидеть дельфинов в естественной среде.</p>
+    </div>
+
+    <div>
+      <h2>Highlights</h2>
+      <div class="highlight-list">
+        <div class="highlight">Пенная вечеринка и анимация на борту</div>
+        <div class="highlight">Купание у исторической верфи Терсане</div>
+        <div class="highlight">Пиратская, Пещера влюблённых и Фосфорная пещера</div>
+        <div class="highlight">Виды на Красную башню и крепость Алании</div>
+        <div class="highlight">Пляж Клеопатры и Новая гавань</div>
+        <div class="highlight">Возможность увидеть дельфинов в море</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Details</h3>
+        <div class="small-list">
+          <div>Общее время: 6 часов</div>
+          <div>С 09:00 до 15:00</div>
+          <div>Каждый день</div>
+          <div>Маршрут из порта Алании</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3>Price</h3>
+        <div class="price">€25</div>
+        <p>per person</p>
+        <p>Дети 0–4 бесплатно<br>5–11 лет — половина цены</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Included</h3>
+        <div class="small-list">
+          <div>Страховка</div>
+          <div>Трансфер</div>
+          <div>Обед — шведский стол</div>
+          <div>Безлимитные безалкогольные напитки</div>
+          <div>Пенная вечеринка и анимация</div>
+          <div>Wi-Fi, душ, туалет</div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h3>Not included</h3>
+        <div class="small-list">
+          <div>Услуги фотографа</div>
+          <div>Импортные напитки</div>
+          <div>Личные расходы</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2>Photo Gallery</h2>
+
+    <div class="gallery-layout">
+      <img src="images/admiral-black-hero.jpg" alt="ADMIRAL BLACK yacht in Alanya" onclick="openLightbox(this.src)">
+
+      <div class="gallery-small">
+        <img src="images/admiral-black-foam-party.jpg" alt="Foam party on ADMIRAL BLACK" onclick="openLightbox(this.src)">
+        <img src="images/admiral-black-family.jpg" alt="Family moments on ADMIRAL BLACK" onclick="openLightbox(this.src)">
+      </div>
+    </div>
+  </section>
+
+ <section class="luxury-info-grid">
+
+  <div class="luxury-info-card">
+    <div class="luxury-icon">⏱</div>
+    <h3>Tour time</h3>
+    <p><strong>Общее время:</strong><br>6 часов</p>
+    <p><strong>Время программы:</strong><br>с 09:00 до 15:00</p>
+    <p><strong>Дни проведения:</strong><br>каждый день</p>
+    <div class="gold-divider">✦</div>
+  </div>
+
+  <div class="luxury-info-card">
+    <div class="luxury-icon">▣</div>
+    <h3>What to bring</h3>
+
+    <div class="bring-list">
+      <span>Полотенце</span>
+      <span>Очки</span>
+      <span>Купальник</span>
+      <span>Солнцезащитный крем</span>
+      <span>Обувь по погоде</span>
+      <span>Вода</span>
+      <span>Камера / телефон</span>
+    </div>
+
+    <div class="gold-divider">✦</div>
+  </div>
+
+  <div class="luxury-info-card">
+    <div class="luxury-icon">👨‍👩‍👧</div>
+    <h3>Child policy</h3>
+    <p><strong>0–4 года:</strong><br>бесплатно</p>
+    <p><strong>5–11 лет:</strong><br>половина цены</p>
+    <div class="gold-divider">✦</div>
+  </div>
+
+  <div class="luxury-info-card">
+    <div class="luxury-icon">🚐</div>
+    <h3>Pickup information</h3>
+    <p>Место сбора: отель или адрес апартаментов.</p>
+    <p>Точное время трансфера подтверждается после бронирования.</p>
+    <div class="gold-divider">✦</div>
+  </div>
+
+</section>
+  <section class="cta">
+    <div>
+      <h2>Have questions?</h2>
+      <p>Напишите нам в WhatsApp — подскажем детали маршрута, наличие мест и время трансфера.</p>
+    </div>
+
+    <a class="btn" target="_blank" href="https://wa.me/905387045999?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20про%20пиратскую%20яхту%20ADMIRAL%20BLACK.">
+      Chat on WhatsApp →
+    </a>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="close">×</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  function openLightbox(src){
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('active');
+  }
+</script>
+
+</body>
+</html>
