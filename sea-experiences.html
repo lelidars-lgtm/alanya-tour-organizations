@@ -4,7 +4,98 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Пиратская яхта в Алании | ADMIRAL BLACK</title>
+.luxury-info-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:30px;
+}
 
+.luxury-info-card{
+  min-height:430px;
+  padding:30px;
+  text-align:left;
+  background:linear-gradient(180deg,rgba(11,22,38,.98),rgba(5,12,22,.98));
+  border:1px solid rgba(214,162,74,.35);
+  border-radius:26px;
+  box-shadow:0 20px 55px rgba(0,0,0,.35);
+}
+
+.luxury-icon{
+  width:78px;
+  height:78px;
+  margin:0 auto 24px;
+  border-radius:50%;
+  border:2px solid rgba(214,162,74,.75);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gold2);
+  font-size:34px;
+  background:rgba(214,162,74,.06);
+}
+
+.luxury-info-card h3{
+  text-align:center;
+  color:var(--gold2);
+  font-family:Georgia,serif;
+  font-size:22px;
+  letter-spacing:.08em;
+  margin-bottom:26px;
+}
+
+.luxury-info-card p{
+  color:rgba(255,255,255,.82);
+  font-size:17px;
+  line-height:1.7;
+  margin-bottom:18px;
+}
+
+.luxury-info-card strong{
+  color:#fff;
+}
+
+.bring-list{
+  display:grid;
+  gap:13px;
+}
+
+.bring-list span{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  color:rgba(255,255,255,.84);
+  font-size:16px;
+}
+
+.bring-list span::before{
+  content:"✓";
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  border:1px solid rgba(214,162,74,.7);
+  color:var(--gold2);
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+}
+
+.gold-divider{
+  text-align:center;
+  color:var(--gold2);
+  margin-top:28px;
+  opacity:.9;
+}
+
+@media(max-width:900px){
+  .luxury-info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .luxury-info-card{
+    min-height:auto;
+  }
+}
   <style>
     :root{
       --navy:#06101d;
@@ -551,48 +642,51 @@ background:rgba(214,162,74,.06);
     </div>
   </section>
 
-  <section class="extra-grid">
+ <section class="extra-grid luxury-info-grid">
 
-    <div class="extra-card">
-      <h3>Tour time</h3>
-      <p><strong>Общее время:</strong> 6 часов</p>
-      <p><strong>Время программы:</strong> с 09:00 до 15:00</p>
-      <p><strong>Дни проведения:</strong> каждый день</p>
-    </div>
-
-  <div class="extra-card">
-  <h3>What to bring</h3>
-
-  <div class="bring-list">
-    <span>Полотенце</span>
-    <span>Очки</span>
-    <span>Купальник</span>
-    <span>Солнцезащитный крем</span>
-    <span>Обувь по погоде</span>
-    <span>Вода</span>
-    <span>Камера / телефон</span>
+  <div class="extra-card luxury-info-card">
+    <div class="luxury-icon">⏱</div>
+    <h3>Tour time</h3>
+    <p><strong>Общее время:</strong><br>6 часов</p>
+    <p><strong>Время программы:</strong><br>с 09:00 до 15:00</p>
+    <p><strong>Дни проведения:</strong><br>каждый день</p>
+    <div class="gold-divider">✦</div>
   </div>
-</div>
 
-      <p>Полотенце, очки, купальник, солнцезащитный крем.</p>
-      <p>Одежда по погоде. Обувь: шлёпки, сандалии или кроссовки.</p>
-      <p>Вода, камера и телефон для связи.</p>
+  <div class="extra-card luxury-info-card">
+    <div class="luxury-icon">▣</div>
+    <h3>What to bring</h3>
+
+    <div class="bring-list">
+      <span>Полотенце</span>
+      <span>Очки</span>
+      <span>Купальник</span>
+      <span>Солнцезащитный крем</span>
+      <span>Обувь по погоде</span>
+      <span>Вода</span>
+      <span>Камера / телефон</span>
     </div>
 
-    <div class="extra-card">
-      <h3>Child policy</h3>
-      <p><strong>0–4 года:</strong> бесплатно</p>
-      <p><strong>5–11 лет:</strong> половина цены</p>
-    </div>
+    <div class="gold-divider">✦</div>
+  </div>
 
-    <div class="extra-card">
-      <h3>Pickup information</h3>
-      <p>Место сбора: отель или адрес апартаментов.</p>
-      <p>Точное время трансфера подтверждается после бронирования.</p>
-    </div>
+  <div class="extra-card luxury-info-card">
+    <div class="luxury-icon">👨‍👩‍👧</div>
+    <h3>Child policy</h3>
+    <p><strong>0–4 года:</strong><br>бесплатно</p>
+    <p><strong>5–11 лет:</strong><br>половина цены</p>
+    <div class="gold-divider">✦</div>
+  </div>
 
-  </section>
+  <div class="extra-card luxury-info-card">
+    <div class="luxury-icon">🚐</div>
+    <h3>Pickup information</h3>
+    <p>Место сбора: отель или адрес апартаментов.</p>
+    <p>Точное время трансфера подтверждается после бронирования.</p>
+    <div class="gold-divider">✦</div>
+  </div>
 
+</section>
   <section class="cta">
     <div>
       <h2>Have questions?</h2>
