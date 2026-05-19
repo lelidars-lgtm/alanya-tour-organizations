@@ -93,7 +93,7 @@
       display:flex;
       flex-wrap:wrap;
       gap:20px;
-      margin-bottom:32px;
+      margin-bottom:24px;
     }
 
     .hero-icon{
@@ -115,6 +115,26 @@
       place-items:center;
       color:var(--gold2);
       font-size:20px;
+    }
+
+    .tour-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 30px;
+    }
+
+    .tour-tag{
+      padding:10px 15px;
+      border-radius:999px;
+      border:1px solid rgba(214,162,74,.38);
+      background:rgba(255,255,255,.045);
+      color:var(--gold2);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      backdrop-filter:blur(10px);
     }
 
     .btn{
@@ -332,6 +352,7 @@
     @media(max-width:900px){
       .hero{min-height:auto}
       .breadcrumbs{margin-bottom:44px}
+
       .two-col,
       .info-grid,
       .gallery-layout,
@@ -362,7 +383,10 @@
   <div class="page">
     <div class="breadcrumbs">Home › Sea Experiences › <span>Пиратская яхта</span></div>
 
-    <div class="hero-content">
+    <div class="hero-content"
+         data-category="sea-experiences"
+         data-tags="family-friendly kids-friendly foam-party pirate-yacht swimming-stops buffet-lunch transfer-included music-animation alanya-harbor dolphins-view sunset-route all-inclusive bestseller budget-friendly">
+
       <div class="eyebrow">Sea Experience</div>
       <h1>Пиратская яхта в Алании</h1>
 
@@ -377,7 +401,19 @@
         <div class="hero-icon"><span class="ico">⏱</span>6 часов</div>
         <div class="hero-icon"><span class="ico">🍽</span>Шведский стол</div>
         <div class="hero-icon"><span class="ico">🚐</span>Трансфер</div>
-        <div class="hero-icon"><span class="ico">☁</span>Пенная вечеринка</div>
+        <div class="hero-icon"><span class="ico">🫧</span>Пенная вечеринка</div>
+      </div>
+
+      <div class="tour-tags">
+        <span class="tour-tag">Sea Experience</span>
+        <span class="tour-tag">Foam Party</span>
+        <span class="tour-tag">All Inclusive</span>
+        <span class="tour-tag">Pirate Yacht</span>
+        <span class="tour-tag">Family Friendly</span>
+        <span class="tour-tag">Swimming Stops</span>
+        <span class="tour-tag">Buffet Lunch</span>
+        <span class="tour-tag">Transfer Included</span>
+        <span class="tour-tag">Best Seller</span>
       </div>
 
       <a class="btn" target="_blank" href="https://wa.me/905387045999?text=Здравствуйте!%20Хочу%20забронировать%20пиратскую%20яхту%20ADMIRAL%20BLACK%20в%20Алании.">
