@@ -8,13 +8,11 @@
   <style>
     :root{
       --navy:#06101d;
-      --navy2:#0b1626;
       --gold:#d6a24a;
       --gold2:#f3c66d;
       --text:#fff;
       --muted:rgba(255,255,255,.72);
       --line:rgba(214,162,74,.32);
-      --card:rgba(255,255,255,.055);
       --radius:24px;
     }
 
@@ -38,7 +36,7 @@
       min-height:720px;
       padding:34px 0 70px;
       background:
-        linear-gradient(90deg,rgba(5,11,20,.94) 0%,rgba(5,11,20,.74) 36%,rgba(5,11,20,.18) 100%),
+        linear-gradient(90deg,rgba(5,11,20,.94) 0%,rgba(5,11,20,.72) 38%,rgba(5,11,20,.18) 100%),
         url("images/admiral-black-hero.jpg") center/cover no-repeat;
       border-bottom:1px solid var(--line);
     }
@@ -51,7 +49,7 @@
 
     .breadcrumbs span{color:var(--gold2)}
 
-    .hero-content{max-width:570px}
+    .hero-content{max-width:590px}
 
     .eyebrow{
       color:var(--gold2);
@@ -75,14 +73,19 @@
       font-size:24px;
       line-height:1.3;
       margin-bottom:18px;
-      max-width:500px;
+      max-width:520px;
+    }
+
+    p{
+      color:var(--muted);
+      line-height:1.75;
+      font-size:16px;
+      margin-bottom:14px;
     }
 
     .hero-text{
-      color:var(--muted);
       font-size:17px;
-      line-height:1.7;
-      max-width:520px;
+      max-width:540px;
       margin-bottom:28px;
     }
 
@@ -118,7 +121,6 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:12px;
       min-height:54px;
       padding:0 28px;
       border-radius:999px;
@@ -143,7 +145,7 @@
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:34px;
-      align-items:center;
+      align-items:start;
     }
 
     h2,h3{
@@ -152,13 +154,6 @@
       letter-spacing:.13em;
       font-size:17px;
       margin-bottom:22px;
-    }
-
-    p{
-      color:var(--muted);
-      line-height:1.75;
-      font-size:16px;
-      margin-bottom:14px;
     }
 
     .highlight-list{
@@ -187,18 +182,9 @@
       font-size:12px;
     }
 
-    .image-box img{
-      width:100%;
-      height:310px;
-      object-fit:cover;
-      border-radius:20px;
-      border:1px solid var(--line);
-    }
-
     .info-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
-      gap:0;
       overflow:hidden;
     }
 
@@ -242,7 +228,7 @@
     .gallery-layout img{
       width:100%;
       height:100%;
-      min-height:210px;
+      min-height:230px;
       object-fit:cover;
       border-radius:18px;
       border:1px solid var(--line);
@@ -261,58 +247,45 @@
       gap:14px;
     }
 
-   <section class="extra-grid">
-  <div class="extra-card">
-    <h3>Tour time</h3>
-    <p><strong>Общее время:</strong> 6 часов</p>
-    <p><strong>Время программы:</strong> с 09:00 до 15:00</p>
-    <p><strong>Дни проведения:</strong> каждый день</p>
-  </div>
+    .extra-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin-top:26px;
+    }
 
-  <div class="extra-card">
-    <h3>What to bring</h3>
-    <p>Полотенце, очки, купальник, солнцезащитный крем.</p>
-    <p>Одежду берите по погоде. Обувь: шлёпки, сандалии или кроссовки.</p>
-    <p>Возьмите воду, камеру и телефон для связи.</p>
-  </div>
-
-  <div class="extra-card">
-    <h3>Child policy</h3>
-    <p><strong>0–4 года:</strong> бесплатно</p>
-    <p><strong>5–11 лет:</strong> половина цены</p>
-  </div>
-
-  <div class="extra-card">
-    <h3>Pickup information</h3>
-    <p>Место сбора: отель или адрес апартаментов.</p>
-    <p>Точное время трансфера подтверждается после бронирования.</p>
-  </div>
-</section>
     .extra-card{
       padding:26px;
       border-radius:var(--radius);
       border:1px solid var(--line);
       background:rgba(255,255,255,.045);
+      box-shadow:0 18px 44px rgba(0,0,0,.25);
+    }
+
+    .extra-card h3{
+      font-size:15px;
     }
 
     .icon-row{
       display:flex;
       flex-wrap:wrap;
-      gap:18px;
+      gap:16px;
       color:var(--muted);
-      font-size:14px;
+      font-size:13px;
+      margin-bottom:16px;
     }
 
     .icon-item{
       display:grid;
-      gap:8px;
+      gap:7px;
       justify-items:center;
       text-align:center;
+      min-width:64px;
     }
 
     .icon-item span{
       color:var(--gold2);
-      font-size:24px;
+      font-size:23px;
     }
 
     .cta{
@@ -359,10 +332,26 @@
     @media(max-width:900px){
       .hero{min-height:auto}
       .breadcrumbs{margin-bottom:44px}
-      .two-col,.info-grid,.gallery-layout,.extra-grid{grid-template-columns:1fr}
-      .info-card{border-right:none;border-bottom:1px solid rgba(214,162,74,.22)}
-      .gallery-small{grid-template-columns:1fr}
-      .cta{flex-direction:column;align-items:flex-start}
+      .two-col,
+      .info-grid,
+      .gallery-layout,
+      .extra-grid{
+        grid-template-columns:1fr;
+      }
+
+      .info-card{
+        border-right:none;
+        border-bottom:1px solid rgba(214,162,74,.22);
+      }
+
+      .gallery-small{
+        grid-template-columns:1fr;
+      }
+
+      .cta{
+        flex-direction:column;
+        align-items:flex-start;
+      }
     }
   </style>
 </head>
@@ -385,10 +374,10 @@
       </p>
 
       <div class="hero-icons">
-        <div class="hero-icon"><span class="ico">⏱</span>Full Day</div>
-        <div class="hero-icon"><span class="ico">🍽</span>Buffet Lunch</div>
-        <div class="hero-icon"><span class="ico">🚐</span>Transfer</div>
-        <div class="hero-icon"><span class="ico">☁</span>Foam Party</div>
+        <div class="hero-icon"><span class="ico">⏱</span>6 часов</div>
+        <div class="hero-icon"><span class="ico">🍽</span>Шведский стол</div>
+        <div class="hero-icon"><span class="ico">🚐</span>Трансфер</div>
+        <div class="hero-icon"><span class="ico">☁</span>Пенная вечеринка</div>
       </div>
 
       <a class="btn" target="_blank" href="https://wa.me/905387045999?text=Здравствуйте!%20Хочу%20забронировать%20пиратскую%20яхту%20ADMIRAL%20BLACK%20в%20Алании.">
@@ -404,8 +393,9 @@
     <div>
       <h2>About this experience</h2>
       <p>Пиратская яхта в Алании — это не просто морская прогулка, а полноценный день отдыха с атмосферой праздника, музыки и ярких эмоций.</p>
-      <p>С первых минут вы погружаетесь в живую атмосферу: танцевальные шоу, развлекательная программа и знаменитая пенная вечеринка прямо на борту.</p>
-      <p>Просторная яхта с комфортными зонами отдыха и продуманной программой позволяет наслаждаться каждым моментом без спешки.</p>
+      <p>Маршрут начинается из самого сердца Алании — городского порта, откуда открываются панорамные виды на Красную башню и крепость.</p>
+      <p>Первая остановка — историческая верфь Терсане. Далее яхта проходит вдоль Пиратской пещеры, Пещеры влюблённых и Фосфорной пещеры.</p>
+      <p>Во второй части маршрута — пляж Клеопатры и Новая гавань. Если повезёт, можно увидеть дельфинов в естественной среде.</p>
     </div>
 
     <div>
@@ -426,10 +416,10 @@
       <div class="info-card">
         <h3>Details</h3>
         <div class="small-list">
+          <div>Общее время: 6 часов</div>
+          <div>С 09:00 до 15:00</div>
+          <div>Каждый день</div>
           <div>Маршрут из порта Алании</div>
-          <div>Остановки для купания</div>
-          <div>Морские пещеры</div>
-          <div>Подходит для семей</div>
         </div>
       </div>
 
@@ -437,6 +427,7 @@
         <h3>Price</h3>
         <div class="price">€25</div>
         <p>per person</p>
+        <p>Дети 0–4 бесплатно<br>5–11 лет — половина цены</p>
       </div>
 
       <div class="info-card">
@@ -446,8 +437,7 @@
           <div>Трансфер</div>
           <div>Обед — шведский стол</div>
           <div>Безлимитные безалкогольные напитки</div>
-          <div>Пенная вечеринка</div>
-          <div>Анимация</div>
+          <div>Пенная вечеринка и анимация</div>
           <div>Wi-Fi, душ, туалет</div>
         </div>
       </div>
@@ -477,25 +467,41 @@
   </section>
 
   <section class="extra-grid">
+
+    <div class="extra-card">
+      <h3>Tour time</h3>
+      <p><strong>Общее время:</strong> 6 часов</p>
+      <p><strong>Время программы:</strong> с 09:00 до 15:00</p>
+      <p><strong>Дни проведения:</strong> каждый день</p>
+    </div>
+
     <div class="extra-card">
       <h3>What to bring</h3>
+
       <div class="icon-row">
         <div class="icon-item"><span>▤</span>Полотенце</div>
-        <div class="icon-item"><span>◒</span>Купальник</div>
         <div class="icon-item"><span>◉</span>Очки</div>
-        <div class="icon-item"><span>▣</span>Камера</div>
+        <div class="icon-item"><span>◒</span>Купальник</div>
+        <div class="icon-item"><span>▣</span>Телефон</div>
       </div>
+
+      <p>Полотенце, очки, купальник, солнцезащитный крем.</p>
+      <p>Одежда по погоде. Обувь: шлёпки, сандалии или кроссовки.</p>
+      <p>Вода, камера и телефон для связи.</p>
     </div>
 
     <div class="extra-card">
       <h3>Child policy</h3>
-      <p>Условия для детей уточняются при бронировании. Для семейных групп возможны специальные варианты размещения.</p>
+      <p><strong>0–4 года:</strong> бесплатно</p>
+      <p><strong>5–11 лет:</strong> половина цены</p>
     </div>
 
     <div class="extra-card">
       <h3>Pickup information</h3>
-      <p>Точное время трансфера подтверждается после бронирования в зависимости от района отеля или апартаментов.</p>
+      <p>Место сбора: отель или адрес апартаментов.</p>
+      <p>Точное время трансфера подтверждается после бронирования.</p>
     </div>
+
   </section>
 
   <section class="cta">
