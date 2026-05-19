@@ -1,68 +1,489 @@
 <!DOCTYPE html>
-        <div class="tour-badges">
-          <span class="badge gold">Bestseller</span>
-          <span class="badge">Sea Adventure</span>
-          <span class="badge">Family Friendly</span>
-        </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sea Experiences | Alanya Tour Organizations</title>
+
+  <style>
+    :root {
+      --navy: #07111f;
+      --navy-2: #0b1626;
+      --gold: #d6a24a;
+      --gold-soft: #f3c66d;
+      --text: #ffffff;
+      --muted: rgba(255,255,255,.72);
+      --line: rgba(214,162,74,.28);
+      --shadow: 0 26px 70px rgba(0,0,0,.38);
+      --radius: 26px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(214,162,74,.15), transparent 34%),
+        linear-gradient(180deg,#050b14 0%, #07111f 42%, #050b14 100%);
+      color:white;
+      min-height:100vh;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .sea-page{
+      width:min(1180px, calc(100% - 36px));
+      margin:auto;
+      padding:60px 0 80px;
+    }
+
+    .category-head{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:34px;
+      align-items:end;
+      margin-bottom:34px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:var(--gold-soft);
+      font-size:13px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:38px;
+      height:1px;
+      background:var(--gold);
+    }
+
+    h1{
+      font-family:Georgia, serif;
+      font-size:clamp(42px,6vw,78px);
+      line-height:.92;
+      font-weight:500;
+      letter-spacing:-.04em;
+      text-transform:uppercase;
+    }
+
+    h1 span{
+      color:var(--gold-soft);
+    }
+
+    .category-text{
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.75;
+      border-left:1px solid var(--line);
+      padding-left:22px;
+    }
+
+    .tour-card{
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) minmax(360px,.86fr);
+      min-height:560px;
+      border-radius:var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.025)),
+        var(--navy-2);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .tour-media{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .tour-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .tour-media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(5,11,20,.05), rgba(5,11,20,.58) 82%),
+        linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.55));
+    }
+
+    .tour-badges{
+      position:absolute;
+      top:22px;
+      left:22px;
+      right:22px;
+      z-index:2;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      height:32px;
+      padding:0 12px;
+      border-radius:999px;
+      background:rgba(5,11,20,.64);
+      border:1px solid rgba(214,162,74,.42);
+      backdrop-filter:blur(10px);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .badge.gold{
+      background:linear-gradient(135deg,var(--gold),#f2c46c);
+      color:#101010;
+      border:none;
+      font-weight:700;
+    }
+
+    .tour-content{
+      padding:42px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:28px;
+    }
+
+    .tour-topline{
+      color:var(--gold-soft);
+      font-size:13px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .tour-title{
+      font-family:Georgia, serif;
+      font-size:clamp(36px,4vw,58px);
+      line-height:.96;
+      font-weight:500;
+      letter-spacing:-.035em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .tour-desc{
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.75;
+      max-width:520px;
+    }
+
+    .tour-info-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      margin:26px 0;
+    }
+
+    .info-item{
+      padding:16px;
+      border-radius:18px;
+      background:rgba(255,255,255,.055);
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .info-label{
+      color:rgba(255,255,255,.5);
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:7px;
+    }
+
+    .info-value{
+      font-size:15px;
+      font-weight:700;
+    }
+
+    .highlights{
+      display:grid;
+      gap:10px;
+      margin-bottom:26px;
+    }
+
+    .highlight{
+      display:flex;
+      gap:10px;
+      color:rgba(255,255,255,.82);
+      font-size:15px;
+      line-height:1.45;
+    }
+
+    .highlight::before{
+      content:"✦";
+      color:var(--gold-soft);
+    }
+
+    .tour-bottom{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:20px;
+      align-items:center;
+      padding-top:24px;
+      border-top:1px solid rgba(214,162,74,.25);
+    }
+
+    .price small{
+      display:block;
+      color:rgba(255,255,255,.54);
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:4px;
+    }
+
+    .price strong{
+      font-family:Georgia, serif;
+      color:var(--gold-soft);
+      font-size:34px;
+      font-weight:500;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      min-height:50px;
+      padding:0 22px;
+      border-radius:14px;
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+      transition:.28s ease;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--gold),#f2c46c);
+      color:#101010;
+    }
+
+    .btn-secondary{
+      border:1px solid rgba(214,162,74,.55);
+      background:rgba(255,255,255,.035);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .note{
+      margin-top:22px;
+      color:rgba(255,255,255,.52);
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    @media(max-width:900px){
+
+      .category-head{
+        grid-template-columns:1fr;
+      }
+
+      .category-text{
+        border-left:none;
+        padding-left:0;
+      }
+
+      .tour-card{
+        grid-template-columns:1fr;
+      }
+
+      .tour-content{
+        padding:28px;
+      }
+    }
+
+    @media(max-width:560px){
+
+      .sea-page{
+        width:calc(100% - 22px);
+      }
+
+      .tour-info-grid{
+        grid-template-columns:1fr;
+      }
+
+      .tour-bottom{
+        grid-template-columns:1fr;
+      }
+
+      .btn{
+        width:100%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<main class="sea-page">
+
+  <section class="category-head">
+
+    <div>
+      <div class="eyebrow">Sea Experiences</div>
+
+      <h1>
+        Sea tours in <span>Alanya</span>
+      </h1>
+    </div>
+
+    <p class="category-text">
+      Sea experiences are the most atmospheric way to feel Alanya:
+      pirate ships, swimming stops, foam parties, turquoise water,
+      caves, sunset routes and private yacht moments.
+    </p>
+
+  </section>
+
+  <article class="tour-card">
+
+    <div class="tour-media">
+
+      <img src="images/pirate-ship-tour.jpg" alt="Pirate Ship Tour">
+
+      <div class="tour-badges">
+        <span class="badge gold">Bestseller</span>
+        <span class="badge">Sea Adventure</span>
+        <span class="badge">Family Friendly</span>
       </div>
 
-      <div class="tour-content">
-        <div>
-          <div class="tour-topline">Pirate Ship Tour</div>
-          <h2 class="tour-title">Foam, sea & Alanya coast</h2>
+    </div>
 
-          <p class="tour-desc">
-            A full day on a pirate-style boat with music, swimming stops, sea views, entertainment
-            and the famous foam party. The route follows the most beautiful parts of the Alanya coast —
-            from the Red Tower area to caves, Cleopatra Beach and open-sea swimming moments.
-          </p>
+    <div class="tour-content">
 
-          <div class="tour-info-grid">
-            <div class="info-item">
-              <div class="info-label">Duration</div>
-              <div class="info-value">Full day</div>
-            </div>
-            <div class="info-item">
-              <div class="info-label">Start</div>
-              <div class="info-value">Alanya Harbor</div>
-            </div>
-            <div class="info-item">
-              <div class="info-label">Best for</div>
-              <div class="info-value">Families & groups</div>
-            </div>
-            <div class="info-item">
-              <div class="info-label">Vibe</div>
-              <div class="info-value">Fun & energetic</div>
-            </div>
-          </div>
+      <div>
 
-          <div class="highlights">
-            <div class="highlight">Swimming stops near the most scenic parts of Alanya coastline.</div>
-            <div class="highlight">Foam party, music and entertainment directly on board.</div>
-            <div class="highlight">Views of the Red Tower, caves and Cleopatra Beach area.</div>
-          </div>
+        <div class="tour-topline">
+          Pirate Ship Tour
         </div>
 
-        <div>
-          <div class="tour-bottom">
-            <div class="price">
-              <small>from</small>
-              <strong>€25</strong>
-            </div>
+        <h2 class="tour-title">
+          Foam, sea & Alanya coast
+        </h2>
 
-            <div class="actions">
-              <a class="btn btn-secondary" href="#">View details →</a>
-              <a class="btn btn-primary" href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20book%20Pirate%20Ship%20Tour%20in%20Alanya." target="_blank" rel="noopener">Book on WhatsApp →</a>
-            </div>
+        <p class="tour-desc">
+          A full day on a pirate-style boat with music, swimming stops,
+          sea views, entertainment and the famous foam party.
+          The route follows the most beautiful parts of the Alanya coast —
+          from the Red Tower area to caves, Cleopatra Beach
+          and open-sea swimming moments.
+        </p>
+
+        <div class="tour-info-grid">
+
+          <div class="info-item">
+            <div class="info-label">Duration</div>
+            <div class="info-value">Full day</div>
           </div>
 
-          <p class="note">
-            Price and program details may vary by season, boat type and hotel transfer area.
-            Final availability is confirmed through WhatsApp.
-          </p>
+          <div class="info-item">
+            <div class="info-label">Start</div>
+            <div class="info-value">Alanya Harbor</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Best for</div>
+            <div class="info-value">Families & groups</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Vibe</div>
+            <div class="info-value">Fun & energetic</div>
+          </div>
+
         </div>
+
+        <div class="highlights">
+
+          <div class="highlight">
+            Swimming stops near the most scenic parts of Alanya coastline.
+          </div>
+
+          <div class="highlight">
+            Foam party, music and entertainment directly on board.
+          </div>
+
+          <div class="highlight">
+            Views of the Red Tower, caves and Cleopatra Beach area.
+          </div>
+
+        </div>
+
       </div>
-    </article>
-  </main>
+
+      <div>
+
+        <div class="tour-bottom">
+
+          <div class="price">
+            <small>from</small>
+            <strong>€25</strong>
+          </div>
+
+          <div class="actions">
+
+            <a class="btn btn-secondary" href="#">
+              View details →
+            </a>
+
+            <a class="btn btn-primary"
+               href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20book%20Pirate%20Ship%20Tour%20in%20Alanya."
+               target="_blank">
+
+              Book on WhatsApp →
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <p class="note">
+          Price and program details may vary by season,
+          boat type and hotel transfer area.
+          Final availability is confirmed through WhatsApp.
+        </p>
+
+      </div>
+
+    </div>
+
+  </article>
+
+</main>
+
 </body>
 </html>
