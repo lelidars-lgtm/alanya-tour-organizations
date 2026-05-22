@@ -42,30 +42,41 @@
 
     /* ===== HERO ===== */
 
-   .sea-hero{
+.sea-hero{
   position:relative;
   min-height:620px;
   padding:34px 0 70px;
 
   background:
-    linear-gradient(90deg,rgba(4,12,22,.78) 0%,rgba(4,12,22,.52) 42%,rgba(4,12,22,.12) 100%),
-    linear-gradient(180deg,rgba(4,12,22,.02),rgba(4,12,22,.62)),
-    url("images/sea-experiences/sea-category-hero.jpg") center/cover no-repeat;
+    linear-gradient(
+      90deg,
+      rgba(4,12,22,.78) 0%,
+      rgba(4,12,22,.42) 42%,
+      rgba(4,12,22,.10) 100%
+    ),
+    url("images/sea-experiences/sea-category-hero.jpg")
+    center center/cover no-repeat;
 
-  border-bottom:1px solid rgba(214,162,74,.22);
+  border-bottom:1px solid rgba(214,162,74,.18);
   overflow:hidden;
 }
 
-    .sea-hero::after{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-     height:110px;
-      background:linear-gradient(180deg,transparent,#04101d);
-      pointer-events:none;
-    }
+  .sea-hero::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:90px;
+
+  background:linear-gradient(
+    180deg,
+    transparent,
+    rgba(4,16,29,.72)
+  );
+
+  pointer-events:none;
+}
 
     .sea-hero-inner{
       position:relative;
