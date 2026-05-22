@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sea Experiences | ALANYA TOUR ORGANIZATIONS</title>
+
+  <style>
+    :root{
+      --bg:#050b14;
+      --navy:#071321;
+      --navy2:#0d1b2e;
+      --gold:#d6a24a;
+      --gold2:#f3c66d;
+      --text:#fff;
+      --muted:rgba(255,255,255,.74);
+      --line:rgba(214,162,74,.36);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at top,rgba(214,162,74,.08),transparent 30%),
+        linear-gradient(180deg,#050b14,#07111f 46%,#050b14);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    .page{
+      width:min(1180px,calc(100% - 36px));
+      margin:auto;
+    }
+
+    .sea-hero{
+      position:relative;
+      min-height:720px;
+      display:flex;
+      align-items:center;
+      padding:44px 0 88px;
+      background:
+        linear-gradient(90deg,rgba(5,11,20,.94) 0%,rgba(5,11,20,.76) 42%,rgba(5,11,20,.34) 100%),
+        url("sea.jpg") center/cover no-repeat;
+      border-bottom:1px solid rgba(214,162,74,.25);
+      overflow:hidden;
+    }
+
+    .sea-hero::after{
+      content:"";
+      position:absolute;
+      inset:auto 0 0;
+      height:170px;
+      background:linear-gradient(180deg,transparent,var(--bg));
+      pointer-events:none;
+    }
+
+    .sea-hero .page{position:relative;z-index:2}
+
+    .breadcrumbs{
+      color:rgba(255,255,255,.72);
+      font-size:14px;
+      margin-bottom:84px;
+    }
+
+    .breadcrumbs span{color:var(--gold2)}
+
+    .eyebrow{
+      color:var(--gold2);
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:13px;
+      font-weight:900;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(50px,7vw,104px);
+      line-height:.92;
+      text-transform:uppercase;
+      font-weight:500;
+      max-width:860px;
+      margin-bottom:24px;
+      text-shadow:0 18px 44px rgba(0,0,0,.55);
+    }
+
+    .hero-subtitle{
+      max-width:650px;
+      color:rgba(255,255,255,.82);
+      line-height:1.8;
+      font-size:18px;
+    }
+
+    .category-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:30px;
+      max-width:840px;
+    }
+
+    .category-tag{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(214,162,74,.40);
+      background:rgba(255,255,255,.045);
+      color:var(--gold2);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      backdrop-filter:blur(12px);
+    }
+
+    .category-intro{
+      padding:44px 0 10px;
+    }
+
+    .intro-card{
+      padding:30px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at top left,rgba(214,162,74,.10),transparent 34%),
+        linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.025));
+      box-shadow:0 24px 60px rgba(0,0,0,.34);
+    }
+
+    .intro-card p{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:16px;
+      max-width:900px;
+    }
+
+    .tours-section{
+      padding:34px 0 90px;
+    }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:30px;
+      margin-bottom:28px;
+    }
+
+    .section-head h2{
+      color:var(--gold2);
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:14px;
+      margin-bottom:10px;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      line-height:1.65;
+      max-width:560px;
+    }
+
+    .tours-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .tour-card{
+      position:relative;
+      display:block;
+      min-height:100%;
+      border-radius:28px;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at top,rgba(214,162,74,.08),transparent 35%),
+        linear-gradient(180deg,#101827,#07111f);
+      border:1px solid rgba(214,162,74,.34);
+      box-shadow:0 18px 54px rgba(0,0,0,.34);
+      transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease;
+    }
+
+    .tour-card:hover{
+      transform:translateY(-7px);
+      border-color:rgba(243,198,109,.78);
+      box-shadow:0 28px 76px rgba(0,0,0,.48),0 0 32px rgba(214,162,74,.10);
+    }
+
+    .tour-image{
+      position:relative;
+      height:250px;
+      overflow:hidden;
+      background:#0a1422;
+    }
+
+    .tour-image img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      transition:transform .65s ease,filter .65s ease;
+    }
+
+    .tour-card:hover .tour-image img{
+      transform:scale(1.07);
+      filter:brightness(1.05);
+    }
+
+    .tour-badge{
+      position:absolute;
+      top:16px;
+      left:16px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(214,162,74,.55);
+      background:rgba(5,11,20,.68);
+      color:var(--gold2);
+      font-size:10px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-weight:900;
+      backdrop-filter:blur(10px);
+    }
+
+    .tour-body{
+      padding:24px;
+    }
+
+    .tour-kicker{
+      color:var(--gold);
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+
+    .tour-body h3{
+      font-family:Georgia,"Times New Roman",serif;
+      color:white;
+      font-size:29px;
+      line-height:1.05;
+      font-weight:500;
+      margin-bottom:14px;
+    }
+
+    .tour-body p{
+      color:rgba(255,255,255,.72);
+      line-height:1.68;
+      font-size:15px;
+      margin-bottom:18px;
+    }
+
+    .tour-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:16px 0 20px;
+    }
+
+    .tour-meta span{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      color:rgba(255,255,255,.82);
+      font-size:12px;
+    }
+
+    .card-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--gold2);
+      font-size:13px;
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .coming-soon{
+      opacity:.72;
+    }
+
+    .coming-soon .card-link{
+      color:rgba(255,255,255,.58);
+    }
+
+    @media(max-width:980px){
+      .sea-hero{
+        min-height:auto;
+        padding:34px 0 70px;
+      }
+
+      .breadcrumbs{margin-bottom:48px}
+
+      .section-head{
+        display:block;
+      }
+
+      .tours-grid{
+        grid-template-columns:1fr;
+      }
+
+      .tour-image{height:260px}
+    }
+
+    @media(max-width:560px){
+      .page{width:min(100% - 28px,1180px)}
+      .sea-hero{padding-top:28px}
+      h1{font-size:48px}
+      .hero-subtitle{font-size:16px}
+      .intro-card{padding:22px}
+      .tour-body h3{font-size:26px}
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="sea-hero">
+  <div class="page">
+    <div class="breadcrumbs">Home › <span>Sea Experiences</span></div>
+
+    <div class="eyebrow">Sea Experiences</div>
+    <h1>Mediterranean Sea Experiences</h1>
+
+    <p class="hero-subtitle">
+      Explore Alanya’s most beautiful sea tours: pirate yacht, relax boat,
+      catamaran, fishing experiences, luxury yacht cruises, Suluada and hidden Gazipaşa bays.
+    </p>
+
+    <div class="category-tags">
+      <span class="category-tag">Yacht Tours</span>
+      <span class="category-tag">Hidden Bays</span>
+      <span class="category-tag">Fishing</span>
+      <span class="category-tag">Luxury Cruise</span>
+      <span class="category-tag">Family Friendly</span>
+      <span class="category-tag">Sunset Mood</span>
+    </div>
+  </div>
+</section>
+
+<main class="page">
+
+  <section class="category-intro">
+    <div class="intro-card">
+      <div class="eyebrow">Choose Your Sea Experience</div>
+      <p>
+        This category brings together all sea-based experiences: lively pirate yachts,
+        quiet relax boats, private fishing, luxury yacht cruises and beautiful bay routes.
+        Each card opens a dedicated page with details, photos and booking options.
+      </p>
+    </div>
+  </section>
+
+  <section class="tours-section">
+    <div class="section-head">
+      <div>
+        <h2>Available Sea Tours</h2>
+        <p>Select a tour and open the full experience page.</p>
+      </div>
+    </div>
+
+    <div class="tours-grid">
+
+      <a href="pirate-yacht.html" class="tour-card">
+        <div class="tour-image">
+          <img src="images/admiral-black-hero.jpg" alt="Pirate Yacht in Alanya">
+          <span class="tour-badge">Best Seller</span>
+        </div>
+        <div class="tour-body">
+          <div class="tour-kicker">Sea Experience</div>
+          <h3>Pirate Yacht</h3>
+          <p>Music, animation, foam party, swimming stops and a full day on the sea.</p>
+          <div class="tour-meta"><span>6 hours</span><span>Family friendly</span><span>Lunch included</span></div>
+          <div class="card-link">View Experience →</div>
+        </div>
+      </a>
+
+      <a href="relax-boat-tour.html" class="tour-card">
+        <div class="tour-image">
+          <img src="images/relax-boat/relax-card.jpg" alt="Relax Boat Tour in Alanya">
+          <span class="tour-badge">Small Group</span>
+        </div>
+        <div class="tour-body">
+          <div class="tour-kicker">Calm Sea Escape</div>
+          <h3>Relax Boat Tour</h3>
+          <p>Quiet bays, calm atmosphere, no loud party mood and peaceful Mediterranean views.</p>
+          <div class="tour-meta"><span>5–6 hours</span><span>10–15 guests</span><span>Hidden bays</span></div>
+          <div class="card-link">View Experience →</div>
+        </div>
+      </a>
+
+      <a href="catamaran.html" class="tour-card coming-soon">
+        <div class="tour-image">
+          <img src="sea.jpg" alt="Catamaran in Alanya">
+          <span class="tour-badge">Sea Tour</span>
+        </div>
+        <div class="tour-body">
+          <div class="tour-kicker">Comfort Yacht</div>
+          <h3>Catamaran</h3>
+          <p>Comfortable sea route with spacious deck, swimming stops and beautiful coastal views.</p>
+          <div class="tour-meta"><span>Sea route</span><span>Swimming</span><span>Comfort deck</span></div>
+          <div class="card-link">Page Coming Soon →</div>
+        </div>
+      </a>
+
+      <a href="private-fishing.html" class="tour-card coming-soon">
+        <div class="tour-image">
+          <img src="sea.jpg" alt="Private Fishing in Alanya">
+          <span class="tour-badge">Private</span>
+        </div>
+        <div class="tour-body">
+          <div class="tour-kicker">Private Experience</div>
+          <h3>Private Fishing</h3>
+          <p>Individual fishing experience for guests who want privacy, sea air and a calm route.</p>
+          <div class="tour-meta"><span>Private</span><span>Fishing</span><span>Calm sea</span></div>
+          <div class="card-link">Page Coming Soon →</div>
+        </div>
+      </a>
+
+      <a href="fishing-tour.html" class="tour-card coming-soon">
+        <div class="tour-image">
+          <img src="sea.jpg" alt="Fishing Tour in Alanya">
+          <span class="tour-badge">Fishing</span>
+        </div>
+        <div class="tour-body">
+          <div class="tour-kicker">Sea Activity</div>
+          <h3>Fishing Tour</h3>
+          <p>Fishing tour on the Mediterranean with coastal views and relaxed sea atmosphere.</p>
+          <div class="tour-meta"><span>Fishing</span><span>Sea views</span><span>Relaxed</span></div>
+          <div class="card-link">Page Coming Soon →</div>
+        </div>
+      </a>
+
+      <a href="luxury-yacht-cruise.html" class="tour-card coming-soon">
+        <div class="tour-image">
+          <img src="sea.jpg" alt="Luxury Yacht Cruise in Alanya">
+          <span class="tour-badge">Luxury</span>
+        </div>
+        <div class="tour-body">
+          <div class="tour-kicker">Premium Sea</div>
+          <h3>Luxury Yacht Cruise</h3>
+          <p>Premium yacht cruise with private mood, beautiful sea views and luxury atmosphere.</p>
+          <div class="tour-meta"><span>Premium</span><span>Private mood</span><span>Sunset</span></div>
+          <div class="card-link">Page Coming Soon →</div>
+        </div>
+      </a>
+
+      <a href="suluada-porto-genovese.html" class="tour-card coming-soon">
+        <div class="tour-image">
+          <img src="sea.jpg" alt="Adrasan Suluada Porto Genovese Bay">
+          <span class="tour-badge">Turquoise Bays</span>
+        </div>
+        <div class="tour-body">
+          <div class="tour-kicker">Adrasan Route</div>
+          <h3>Adrasan – Suluada – Porto Genovese Bay</h3>
+          <p>White beaches, turquoise water and one of the most beautiful bay routes in the region.</p>
+          <div class="tour-meta"><span>Suluada</span><span>Porto Genovese</span><span>Bay route</span></div>
+          <div class="card-link">Page Coming Soon →</div>
+        </div>
+      </a>
+
+      <a href="gazipasa-bays.html" class="tour-card coming-soon">
+        <div class="tour-image">
+          <img src="sea.jpg" alt="Gazipasa Bays">
+          <span class="tour-badge">Hidden Coast</span>
+        </div>
+        <div class="tour-body">
+          <div class="tour-kicker">Gazipaşa Route</div>
+          <h3>Gazipaşa Bays</h3>
+          <p>Delik Deniz, King’s Bay, Antioch ad Cragum, Iotape and Yalan Dünya cave.</p>
+          <div class="tour-meta"><span>Hidden bays</span><span>Ancient coast</span><span>Caves</span></div>
+          <div class="card-link">Page Coming Soon →</div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
