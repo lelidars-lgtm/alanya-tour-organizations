@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Relax Boat Tour | ALANYA TOUR ORGANIZATIONS</title>
+
+<style>
+
+/* ===== RESET ===== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#07111f;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+/* ===== HERO ===== */
+
+.relax-hero{
+  position:relative;
+  min-height:100vh;
+  background-image:url("images/relax-boat/relax-hero.jpg");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  padding:120px 7%;
+}
+
+.relax-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(
+    90deg,
+    rgba(4,10,18,.88) 0%,
+    rgba(4,10,18,.62) 38%,
+    rgba(4,10,18,.18) 100%
+  ),
+  linear-gradient(
+    180deg,
+    rgba(4,10,18,.08),
+    rgba(4,10,18,.86)
+  );
+}
+
+.relax-hero-content{
+  position:relative;
+  z-index:2;
+  max-width:650px;
+}
+
+.hero-label{
+  color:#d6a24a;
+  letter-spacing:.18em;
+  font-size:12px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.relax-hero h1{
+  font-size:clamp(52px,8vw,110px);
+  line-height:.95;
+  margin-bottom:24px;
+  font-weight:500;
+}
+
+.relax-hero p{
+  color:rgba(255,255,255,.78);
+  line-height:1.9;
+  font-size:17px;
+  max-width:560px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:18px;
+  margin-top:36px;
+  flex-wrap:wrap;
+}
+
+.gold-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px 30px;
+  border-radius:999px;
+  text-decoration:none;
+  background:linear-gradient(135deg,#d6a24a,#f2c978);
+  color:#081120;
+  font-weight:700;
+  box-shadow:0 18px 50px rgba(214,162,74,.25);
+}
+
+.glass-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px 30px;
+  border-radius:999px;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(12px);
+  color:#fff;
+}
+
+/* ===== MAIN ===== */
+
+.section{
+  padding:100px 7%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.section-title span{
+  display:block;
+  color:#d6a24a;
+  letter-spacing:.18em;
+  font-size:12px;
+  margin-bottom:14px;
+}
+
+.section-title h2{
+  font-size:clamp(38px,5vw,62px);
+  font-weight:500;
+}
+
+/* ===== ABOUT ===== */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:48px;
+  align-items:start;
+}
+
+.about-text p{
+  color:rgba(255,255,255,.72);
+  line-height:1.95;
+  margin-bottom:22px;
+  font-size:16px;
+}
+
+.facts-box{
+  border-radius:28px;
+  border:1px solid rgba(214,162,74,.38);
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.02)
+  );
+  padding:34px;
+  box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+.fact{
+  padding:22px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.fact:last-child{
+  border-bottom:none;
+}
+
+.fact span{
+  display:block;
+  color:#d6a24a;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.fact strong{
+  font-size:18px;
+  font-weight:500;
+}
+
+/* ===== GALLERY ===== */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.gallery img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  border-radius:28px;
+  border:1px solid rgba(214,162,74,.28);
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+  transition:transform .45s ease;
+}
+
+.gallery img:hover{
+  transform:translateY(-6px);
+}
+
+/* ===== EXPERIENCE ===== */
+
+.experience-box{
+  max-width:1000px;
+  margin:auto;
+  padding:70px 50px;
+  border-radius:34px;
+  border:1px solid rgba(214,162,74,.35);
+  background:
+  radial-gradient(
+    circle at top,
+    rgba(214,162,74,.15),
+    transparent 45%
+  ),
+  linear-gradient(
+    180deg,
+    #101827,
+    #07111f
+  );
+  text-align:center;
+}
+
+.experience-box h2{
+  font-size:clamp(38px,5vw,60px);
+  margin-bottom:24px;
+  font-weight:500;
+}
+
+.experience-box p{
+  color:rgba(255,255,255,.72);
+  line-height:1.9;
+  max-width:760px;
+  margin:auto;
+}
+
+/* ===== CTA ===== */
+
+.cta{
+  text-align:center;
+}
+
+.cta-box{
+  max-width:850px;
+  margin:auto;
+  border-radius:34px;
+  padding:70px 40px;
+  border:1px solid rgba(214,162,74,.35);
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.04),
+    rgba(255,255,255,.02)
+  );
+}
+
+.cta-box h2{
+  font-size:clamp(38px,5vw,60px);
+  margin-bottom:20px;
+  font-weight:500;
+}
+
+.cta-box p{
+  color:rgba(255,255,255,.72);
+  line-height:1.8;
+  margin-bottom:34px;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:980px){
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+  .gallery img{
+    height:300px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .relax-hero{
+    min-height:85vh;
+    padding:120px 6% 70px;
+    background-position:center;
+  }
+
+  .relax-hero::before{
+    background:
+    linear-gradient(
+      180deg,
+      rgba(4,10,18,.35) 0%,
+      rgba(4,10,18,.82) 72%,
+      rgba(4,10,18,.95) 100%
+    );
+  }
+
+  .relax-hero h1{
+    font-size:58px;
+  }
+
+  .section{
+    padding:80px 6%;
+  }
+
+  .experience-box,
+  .cta-box{
+    padding:50px 28px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="relax-hero">
+
+  <div class="relax-hero-content">
+
+    <div class="hero-label">
+      SEA EXPERIENCES
+    </div>
+
+    <h1>
+      Relax<br>
+      Boat Tour
+    </h1>
+
+    <p>
+      A peaceful Mediterranean boat experience in Alanya with hidden bays,
+      calm atmosphere, crystal clear water and unforgettable sunset views.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a
+        class="gold-btn"
+        href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20book%20Relax%20Boat%20Tour."
+      >
+        BOOK ON WHATSAPP
+      </a>
+
+      <a
+        class="glass-btn"
+        href="#gallery"
+      >
+        VIEW GALLERY
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section">
+
+  <div class="section-title">
+    <span>ABOUT THIS EXPERIENCE</span>
+    <h2>Silence, Sea & Hidden Bays</h2>
+  </div>
+
+  <div class="about-grid">
+
+    <div class="about-text">
+
+      <p>
+        Relax Boat Tour is a completely different format of sea experience in Alanya.
+        No loud party atmosphere, no crowded tourist boats and no aggressive animation.
+      </p>
+
+      <p>
+        This experience is built around calmness, privacy and real Mediterranean relaxation.
+        The boat usually hosts only a small number of guests, creating a peaceful
+        and comfortable atmosphere during the entire trip.
+      </p>
+
+      <p>
+        The route includes hidden bays and quiet swimming locations where large pirate
+        yachts and standard excursion boats usually do not go.
+      </p>
+
+      <p>
+        During the trip you can swim in crystal clear water, relax under the sunset,
+        sunbathe on deck or simply enjoy the atmosphere of the sea in silence.
+      </p>
+
+    </div>
+
+    <div class="facts-box">
+
+      <div class="fact">
+        <span>DURATION</span>
+        <strong>5–6 HOURS</strong>
+      </div>
+
+      <div class="fact">
+        <span>GROUP SIZE</span>
+        <strong>10–15 GUESTS</strong>
+      </div>
+
+      <div class="fact">
+        <span>ATMOSPHERE</span>
+        <strong>CALM & RELAXED</strong>
+      </div>
+
+      <div class="fact">
+        <span>PERFECT FOR</span>
+        <strong>COUPLES, FAMILIES & QUIET REST</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section
+  class="section"
+  id="gallery"
+>
+
+  <div class="section-title">
+    <span>PHOTO GALLERY</span>
+    <h2>A Different Way To Feel Alanya</h2>
+  </div>
+
+  <div class="gallery">
+
+    <img
+      src="images/relax-boat/relax-gallery-1.jpg"
+      alt="Relax Boat Tour sunset"
+    >
+
+    <img
+      src="images/relax-boat/relax-gallery-2.jpg"
+      alt="Relax Boat Tour yacht"
+    >
+
+    <img
+      src="images/relax-boat/relax-hero.jpg"
+      alt="Relax Boat Tour hidden bays"
+    >
+
+  </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section class="section">
+
+  <div class="experience-box">
+
+    <div class="hero-label">
+      PREMIUM SEA EXPERIENCE
+    </div>
+
+    <h2>
+      Escape The Crowds
+    </h2>
+
+    <p>
+      Relax Boat Tour is designed for guests who want a slower, quieter and more aesthetic
+      way to enjoy the Mediterranean Sea. This is not a party cruise —
+      this is a peaceful escape with beautiful views, calm bays and sunset atmosphere.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="section cta">
+
+  <div class="cta-box">
+
+    <div class="hero-label">
+      BOOK YOUR EXPERIENCE
+    </div>
+
+    <h2>
+      Relax Boat Tour In Alanya
+    </h2>
+
+    <p>
+      Contact us on WhatsApp and we will help you choose the best day,
+      pickup point and all tour details.
+    </p>
+
+    <a
+      class="gold-btn"
+      href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20book%20Relax%20Boat%20Tour."
+    >
+      BOOK ON WHATSAPP
+    </a>
+
+  </div>
+
+</section>
+
+</body>
+</html>
