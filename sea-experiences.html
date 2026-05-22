@@ -61,7 +61,19 @@
   border-bottom:1px solid rgba(214,162,74,.18);
   overflow:hidden;
 }
-
+.sea-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(
+      circle at 78% 42%,
+      rgba(214,162,74,.16),
+      transparent 36%
+    ),
+    linear-gradient(90deg, rgba(4,12,22,.08), rgba(4,12,22,.34));
+  pointer-events:none;
+}
   .sea-hero::after{
   content:"";
   position:absolute;
