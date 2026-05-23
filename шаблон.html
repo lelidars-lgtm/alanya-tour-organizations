@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TOUR_NAME | ALANYA TOUR ORGANIZATIONS</title>
+
+<style>
+
+:root{
+  --bg:#04101d;
+  --navy:#071625;
+  --gold:#d6a24a;
+  --gold2:#f3c66d;
+  --text:#ffffff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at 50% 0%,rgba(214,162,74,.08),transparent 34%),
+    linear-gradient(180deg,#04101d,#061321 48%,#030a13);
+
+  color:#fff;
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img{
+  display:block;
+  width:100%;
+}
+
+.page{
+  max-width:1220px;
+  margin:auto;
+  padding:0 28px;
+}
+
+/* ===== HERO ===== */
+
+.tour-hero{
+  position:relative;
+  min-height:100vh;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4,10,18,.92) 0%,
+      rgba(4,10,18,.70) 38%,
+      rgba(4,10,18,.18) 100%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(4,10,18,.08),
+      rgba(4,10,18,.88)
+    ),
+
+    url("images/TOUR_FOLDER/hero.jpg")
+    center/cover no-repeat;
+
+  display:flex;
+  align-items:center;
+  padding:120px 0;
+  overflow:hidden;
+}
+
+.tour-hero::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:180px;
+
+  background:linear-gradient(
+    180deg,
+    transparent,
+    #04101d
+  );
+}
+
+.tour-hero-content{
+  position:relative;
+  z-index:2;
+  max-width:760px;
+}
+
+.hero-label{
+  color:#d6a24a;
+  letter-spacing:.18em;
+  font-size:12px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+  font-weight:900;
+}
+
+.tour-hero h1{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(58px,8vw,110px);
+  line-height:.92;
+  margin-bottom:24px;
+  font-weight:500;
+  text-transform:uppercase;
+}
+
+.tour-hero p{
+  color:rgba(255,255,255,.82);
+  line-height:1.9;
+  font-size:18px;
+  max-width:640px;
+}
+
+.hero-price{
+  display:flex;
+  align-items:flex-end;
+  gap:12px;
+  margin:34px 0 26px;
+}
+
+.hero-price small,
+.hero-price span{
+  color:#f3c66d;
+  font-size:14px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.hero-price strong{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:74px;
+  line-height:.85;
+  font-weight:700;
+
+  background:
+  linear-gradient(
+    180deg,
+    #fff2bd 0%,
+    #ffd36c 38%,
+    #d79222 74%,
+    #8d5414 100%
+  );
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.price-divider{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0 0 34px;
+}
+
+.price-divider::before,
+.price-divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(214,162,74,.95),
+    transparent
+  );
+}
+
+.price-divider span{
+  color:#f3c66d;
+  font-size:24px;
+}
+
+.hero-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:36px;
+}
+
+.hero-tags span{
+  padding:11px 14px;
+  border-radius:999px;
+
+  border:1px solid rgba(214,162,74,.34);
+
+  background:rgba(255,255,255,.06);
+
+  backdrop-filter:blur(10px);
+
+  color:#fff;
+
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.gold-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:16px 30px;
+  border-radius:999px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #d6a24a,
+    #f2c978
+  );
+
+  color:#081120;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+
+  box-shadow:
+  0 18px 50px rgba(214,162,74,.25);
+}
+
+.glass-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:16px 30px;
+  border-radius:999px;
+
+  border:1px solid rgba(255,255,255,.15);
+
+  background:rgba(255,255,255,.06);
+
+  backdrop-filter:blur(12px);
+
+  color:#fff;
+}
+
+/* ===== SECTION ===== */
+
+.section{
+  padding:100px 0;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.section-title span{
+  display:block;
+  color:#d6a24a;
+  letter-spacing:.18em;
+  font-size:12px;
+  margin-bottom:14px;
+  text-transform:uppercase;
+}
+
+.section-title h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(38px,5vw,62px);
+  font-weight:500;
+}
+
+.gold-line{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  margin-top:28px;
+}
+
+.gold-line::before,
+.gold-line::after{
+  content:"";
+  width:180px;
+  max-width:26vw;
+  height:1px;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    #d6a24a,
+    transparent
+  );
+}
+
+.gold-line span{
+  color:#f3c66d;
+  font-size:22px;
+}
+
+/* ===== ABOUT ===== */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:48px;
+}
+
+.about-text{
+  padding:36px;
+  border-radius:28px;
+
+  border:1px solid rgba(214,162,74,.28);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.04),
+      rgba(255,255,255,.02)
+    );
+
+  box-shadow:
+  0 25px 70px rgba(0,0,0,.35);
+}
+
+.about-text p{
+  color:rgba(255,255,255,.76);
+  line-height:1.95;
+  margin-bottom:24px;
+  font-size:16px;
+}
+
+.facts-box{
+  border-radius:28px;
+
+  border:1px solid rgba(214,162,74,.38);
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.02)
+  );
+
+  padding:34px;
+
+  box-shadow:
+  0 25px 70px rgba(0,0,0,.35);
+}
+
+.fact{
+  padding:22px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.fact:last-child{
+  border-bottom:none;
+}
+
+.fact span{
+  display:block;
+  color:#d6a24a;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.fact strong{
+  font-size:18px;
+  font-weight:500;
+}
+
+/* ===== PROGRAM ===== */
+
+.program-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.program-card{
+  padding:28px;
+  border-radius:26px;
+
+  border:1px solid rgba(214,162,74,.28);
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.04),
+    rgba(255,255,255,.02)
+  );
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,.28);
+}
+
+.program-card h3{
+  color:#f3c66d;
+  margin-bottom:18px;
+  font-size:17px;
+  font-weight:700;
+}
+
+.program-card ul{
+  list-style:none;
+}
+
+.program-card li{
+  position:relative;
+  padding-left:18px;
+  margin-bottom:12px;
+  color:rgba(255,255,255,.74);
+  line-height:1.7;
+}
+
+.program-card li::before{
+  content:"◆";
+  position:absolute;
+  left:0;
+  top:0;
+  color:#d6a24a;
+  font-size:10px;
+}
+
+/* ===== DETAILS ===== */
+
+.details-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.detail-card{
+  padding:28px;
+  border-radius:26px;
+
+  border:1px solid rgba(214,162,74,.28);
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.04),
+    rgba(255,255,255,.02)
+  );
+}
+
+.detail-card h3{
+  color:#f3c66d;
+  margin-bottom:18px;
+  font-size:15px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.detail-card ul{
+  list-style:none;
+}
+
+.detail-card li{
+  position:relative;
+  padding-left:18px;
+  margin-bottom:12px;
+  color:rgba(255,255,255,.74);
+  line-height:1.7;
+}
+
+.detail-card li::before{
+  content:"◆";
+  position:absolute;
+  left:0;
+  top:0;
+  color:#d6a24a;
+  font-size:10px;
+}
+
+/* ===== GALLERY ===== */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.gallery img{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+
+  border-radius:28px;
+
+  border:1px solid rgba(214,162,74,.28);
+
+  box-shadow:
+  0 20px 60px rgba(0,0,0,.35);
+
+  transition:transform .45s ease;
+}
+
+.gallery img:hover{
+  transform:translateY(-6px);
+}
+
+/* ===== CTA ===== */
+
+.cta-box{
+  max-width:920px;
+  margin:auto;
+
+  border-radius:34px;
+  padding:70px 40px;
+
+  border:1px solid rgba(214,162,74,.35);
+
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.04),
+    rgba(255,255,255,.02)
+  );
+
+  text-align:center;
+}
+
+.cta-box h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(38px,5vw,60px);
+  margin-bottom:20px;
+  font-weight:500;
+}
+
+.cta-box p{
+  color:rgba(255,255,255,.72);
+  line-height:1.8;
+  margin-bottom:34px;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:980px){
+
+  .about-grid,
+  .program-grid,
+  .details-grid,
+  .gallery{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .page{
+    padding:0 18px;
+  }
+
+  .tour-hero{
+    min-height:auto;
+    padding:120px 0 80px;
+  }
+
+  .tour-hero h1{
+    font-size:58px;
+  }
+
+  .section{
+    padding:80px 0;
+  }
+
+  .about-text,
+  .facts-box,
+  .cta-box{
+    padding:26px;
+  }
+
+  .gallery img{
+    height:300px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!--
+MASTER TOUR TEMPLATE
+
+Меняем только:
+TOUR_NAME
+TOUR_FOLDER
+CATEGORY_LABEL
+HERO_DESCRIPTION
+PRICE
+TAGS
+ABOUT_TEXT
+FACTS
+PROGRAM
+DETAILS
+GALLERY
+WHATSAPP_TEXT
+-->
+
+<!-- HERO -->
+
+<section class="tour-hero">
+
+<div class="page">
+
+<div class="tour-hero-content">
+
+<div class="hero-label">
+CATEGORY_LABEL
+</div>
+
+<h1>
+TOUR_NAME_LINE_1<br>
+TOUR_NAME_LINE_2
+</h1>
+
+<p>
+HERO_DESCRIPTION
+</p>
+
+<div class="hero-price">
+<small>FROM</small>
+<strong>€PRICE</strong>
+<span>/ PER PERSON</span>
+</div>
+
+<div class="price-divider">
+<span>⚓</span>
+</div>
+
+<div class="hero-tags">
+<span>TAG_1</span>
+<span>TAG_2</span>
+<span>TAG_3</span>
+<span>TAG_4</span>
+<span>TAG_5</span>
+<span>TAG_6</span>
+</div>
+
+<div class="hero-buttons">
+
+<a
+class="gold-btn"
+href="https://wa.me/905387045999?text=WHATSAPP_BOOKING_TEXT"
+>
+BOOK ON WHATSAPP
+</a>
+
+<a
+class="glass-btn"
+href="#gallery"
+>
+VIEW GALLERY
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section">
+
+<div class="page">
+
+<div class="section-title">
+<span>ABOUT THIS EXPERIENCE</span>
+<h2>ABOUT_TITLE</h2>
+
+<div class="gold-line">
+<span>⚓</span>
+</div>
+</div>
+
+<div class="about-grid">
+
+<div class="about-text">
+
+<p>
+ABOUT_PARAGRAPH_1
+</p>
+
+<p>
+ABOUT_PARAGRAPH_2
+</p>
+
+<p>
+ABOUT_PARAGRAPH_3
+</p>
+
+<p>
+ABOUT_PARAGRAPH_4
+</p>
+
+<p>
+ABOUT_PARAGRAPH_5
+</p>
+
+</div>
+
+<div class="facts-box">
+
+<div class="fact">
+<span>PRICE</span>
+<strong>€PRICE PER PERSON</strong>
+</div>
+
+<div class="fact">
+<span>DURATION</span>
+<strong>DURATION</strong>
+</div>
+
+<div class="fact">
+<span>TIME</span>
+<strong>TOUR_TIME</strong>
+</div>
+
+<div class="fact">
+<span>GROUP SIZE</span>
+<strong>GROUP_SIZE</strong>
+</div>
+
+<div class="fact">
+<span>ATMOSPHERE</span>
+<strong>ATMOSPHERE</strong>
+</div>
+
+<div class="fact">
+<span>PICKUP</span>
+<strong>PICKUP_INFO</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROGRAM -->
+
+<section class="section">
+
+<div class="page">
+
+<div class="section-title">
+
+<span>TOUR PROGRAM</span>
+
+<h2>PROGRAM_TITLE</h2>
+
+<div class="gold-line">
+<span>⚓</span>
+</div>
+
+</div>
+
+<div class="program-grid">
+
+<div class="program-card">
+<h3>PROGRAM_STEP_1_TITLE</h3>
+<ul>
+<li>PROGRAM_STEP_1_POINT_1</li>
+<li>PROGRAM_STEP_1_POINT_2</li>
+<li>PROGRAM_STEP_1_POINT_3</li>
+</ul>
+</div>
+
+<div class="program-card">
+<h3>PROGRAM_STEP_2_TITLE</h3>
+<ul>
+<li>PROGRAM_STEP_2_POINT_1</li>
+<li>PROGRAM_STEP_2_POINT_2</li>
+<li>PROGRAM_STEP_2_POINT_3</li>
+</ul>
+</div>
+
+<div class="program-card">
+<h3>PROGRAM_STEP_3_TITLE</h3>
+<ul>
+<li>PROGRAM_STEP_3_POINT_1</li>
+<li>PROGRAM_STEP_3_POINT_2</li>
+<li>PROGRAM_STEP_3_POINT_3</li>
+</ul>
+</div>
+
+<div class="program-card">
+<h3>PROGRAM_STEP_4_TITLE</h3>
+<ul>
+<li>PROGRAM_STEP_4_POINT_1</li>
+<li>PROGRAM_STEP_4_POINT_2</li>
+<li>PROGRAM_STEP_4_POINT_3</li>
+</ul>
+</div>
+
+<div class="program-card">
+<h3>PROGRAM_STEP_5_TITLE</h3>
+<ul>
+<li>PROGRAM_STEP_5_POINT_1</li>
+<li>PROGRAM_STEP_5_POINT_2</li>
+<li>PROGRAM_STEP_5_POINT_3</li>
+</ul>
+</div>
+
+<div class="program-card">
+<h3>PROGRAM_STEP_6_TITLE</h3>
+<ul>
+<li>PROGRAM_STEP_6_POINT_1</li>
+<li>PROGRAM_STEP_6_POINT_2</li>
+<li>PROGRAM_STEP_6_POINT_3</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- DETAILS -->
+
+<section class="section">
+
+<div class="page">
+
+<div class="section-title">
+
+<span>DETAILS</span>
+
+<h2>DETAILS_TITLE</h2>
+
+<div class="gold-line">
+<span>⚓</span>
+</div>
+
+</div>
+
+<div class="details-grid">
+
+<div class="detail-card">
+<h3>WHAT IS INCLUDED</h3>
+<ul>
+<li>INCLUDED_ITEM_1</li>
+<li>INCLUDED_ITEM_2</li>
+<li>INCLUDED_ITEM_3</li>
+<li>INCLUDED_ITEM_4</li>
+<li>INCLUDED_ITEM_5</li>
+</ul>
+</div>
+
+<div class="detail-card">
+<h3>EXTRA PAYMENT</h3>
+<ul>
+<li>EXTRA_PAYMENT_ITEM_1</li>
+<li>EXTRA_PAYMENT_ITEM_2</li>
+<li>EXTRA_PAYMENT_ITEM_3</li>
+</ul>
+</div>
+
+<div class="detail-card">
+<h3>WHAT TO TAKE</h3>
+<ul>
+<li>WHAT_TO_TAKE_ITEM_1</li>
+<li>WHAT_TO_TAKE_ITEM_2</li>
+<li>WHAT_TO_TAKE_ITEM_3</li>
+<li>WHAT_TO_TAKE_ITEM_4</li>
+<li>WHAT_TO_TAKE_ITEM_5</li>
+</ul>
+</div>
+
+<div class="detail-card">
+<h3>CHILD POLICY</h3>
+<ul>
+<li>CHILD_POLICY_LINE_1</li>
+<li>CHILD_POLICY_LINE_2</li>
+<li>CHILD_POLICY_LINE_3</li>
+</ul>
+</div>
+
+<div class="detail-card">
+<h3>TOUR TIME</h3>
+<ul>
+<li>Total duration: DURATION</li>
+<li>Program time: TOUR_TIME</li>
+<li>Available: AVAILABLE_DAYS</li>
+</ul>
+</div>
+
+<div class="detail-card">
+<h3>PICKUP INFORMATION</h3>
+<ul>
+<li>PICKUP_LINE_1</li>
+<li>PICKUP_LINE_2</li>
+<li>PICKUP_LINE_3</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section
+class="section"
+id="gallery"
+>
+
+<div class="page">
+
+<div class="section-title">
+
+<span>PHOTO GALLERY</span>
+
+<h2>GALLERY_TITLE</h2>
+
+<div class="gold-line">
+<span>⚓</span>
+</div>
+
+</div>
+
+<div class="gallery">
+
+<img
+src="images/TOUR_FOLDER/gallery-1.jpg"
+alt="TOUR_NAME gallery 1"
+>
+
+<img
+src="images/TOUR_FOLDER/gallery-2.jpg"
+alt="TOUR_NAME gallery 2"
+>
+
+<img
+src="images/TOUR_FOLDER/hero.jpg"
+alt="TOUR_NAME gallery 3"
+>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="section">
+
+<div class="page">
+
+<div class="cta-box">
+
+<div class="hero-label">
+BOOK YOUR EXPERIENCE
+</div>
+
+<h2>
+TOUR_NAME In Alanya
+</h2>
+
+<p>
+CTA_DESCRIPTION
+</p>
+
+<a
+class="gold-btn"
+href="https://wa.me/905387045999?text=WHATSAPP_BOOKING_TEXT"
+>
+BOOK ON WHATSAPP
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
