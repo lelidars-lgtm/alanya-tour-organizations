@@ -1,996 +1,381 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Relax Boat Tour | ALANYA TOUR ORGANIZATIONS</title>
-
-<style>
-
-:root{
-  --bg:#04101d;
-  --navy:#071625;
-  --gold:#d6a24a;
-  --gold2:#f3c66d;
-  --text:#ffffff;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:
-    radial-gradient(circle at 50% 0%,rgba(214,162,74,.08),transparent 34%),
-    linear-gradient(180deg,#04101d,#061321 48%,#030a13);
-
-  color:#fff;
-  font-family:Arial,sans-serif;
-  overflow-x:hidden;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-img{
-  display:block;
-  width:100%;
-}
-
-.page{
-  max-width:1220px;
-  margin:auto;
-  padding:0 28px;
-}
-
-/* ===== HERO ===== */
-
-.tour-hero{
-  position:relative;
-  min-height:100vh;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(4,10,18,.92) 0%,
-      rgba(4,10,18,.70) 38%,
-      rgba(4,10,18,.18) 100%
-    ),
-
-    linear-gradient(
-      180deg,
-      rgba(4,10,18,.08),
-      rgba(4,10,18,.88)
-    ),
-
-    url("images/relax-boat/hero.jpg")
-    center/cover no-repeat;
-
-  display:flex;
-  align-items:center;
-  padding:120px 0;
-  overflow:hidden;
-}
-
-.tour-hero::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height:180px;
-
-  background:linear-gradient(
-    180deg,
-    transparent,
-    #04101d
-  );
-}
-
-.tour-hero-content{
-  position:relative;
-  z-index:2;
-  max-width:760px;
-}
-
-.hero-label{
-  color:#d6a24a;
-  letter-spacing:.18em;
-  font-size:12px;
-  text-transform:uppercase;
-  margin-bottom:18px;
-  font-weight:900;
-}
-
-.tour-hero h1{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(58px,8vw,110px);
-  line-height:.92;
-  margin-bottom:24px;
-  font-weight:500;
-  text-transform:uppercase;
-}
-
-.tour-hero p{
-  color:rgba(255,255,255,.82);
-  line-height:1.9;
-  font-size:18px;
-  max-width:640px;
-}
-
-.hero-price{
-  display:flex;
-  align-items:flex-end;
-  gap:12px;
-  margin:34px 0 26px;
-}
-
-.hero-price small,
-.hero-price span{
-  color:#f3c66d;
-  font-size:14px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  margin-bottom:8px;
-}
-
-.hero-price strong{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:74px;
-  line-height:.85;
-  font-weight:700;
-
-  background:
-  linear-gradient(
-    180deg,
-    #fff2bd 0%,
-    #ffd36c 38%,
-    #d79222 74%,
-    #8d5414 100%
-  );
-
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
-.price-divider{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin:0 0 34px;
-}
-
-.price-divider::before,
-.price-divider::after{
-  content:"";
-  flex:1;
-  height:1px;
-
-  background:
-  linear-gradient(
-    90deg,
-    transparent,
-    rgba(214,162,74,.95),
-    transparent
-  );
-}
-
-.price-divider span{
-  color:#f3c66d;
-  font-size:24px;
-}
-
-.hero-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-bottom:36px;
-}
-
-.hero-tags span{
-  padding:11px 14px;
-  border-radius:999px;
-
-  border:1px solid rgba(214,162,74,.34);
-
-  background:rgba(255,255,255,.06);
-
-  backdrop-filter:blur(10px);
-
-  color:#fff;
-
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-}
-
-.gold-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  padding:16px 30px;
-  border-radius:999px;
-
-  background:
-  linear-gradient(
-    135deg,
-    #d6a24a,
-    #f2c978
-  );
-
-  color:#081120;
-  font-weight:900;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-
-  box-shadow:
-  0 18px 50px rgba(214,162,74,.25);
-}
-
-.glass-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  padding:16px 30px;
-  border-radius:999px;
-
-  border:1px solid rgba(255,255,255,.15);
-
-  background:rgba(255,255,255,.06);
-
-  backdrop-filter:blur(12px);
-
-  color:#fff;
-}
-
-/* ===== SECTION ===== */
-
-.section{
-  padding:100px 0;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:70px;
-}
-
-.section-title span{
-  display:block;
-  color:#d6a24a;
-  letter-spacing:.18em;
-  font-size:12px;
-  margin-bottom:14px;
-  text-transform:uppercase;
-}
-
-.section-title h2{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(38px,5vw,62px);
-  font-weight:500;
-}
-
-.gold-line{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:16px;
-  margin-top:28px;
-}
-
-.gold-line::before,
-.gold-line::after{
-  content:"";
-  width:180px;
-  max-width:26vw;
-  height:1px;
-
-  background:
-  linear-gradient(
-    90deg,
-    transparent,
-    #d6a24a,
-    transparent
-  );
-}
-
-.gold-line span{
-  color:#f3c66d;
-  font-size:22px;
-}
-
-/* ===== ABOUT ===== */
-
-.about-grid{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:48px;
-}
-
-.about-text{
-  padding:36px;
-  border-radius:28px;
-
-  border:1px solid rgba(214,162,74,.28);
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.04),
-      rgba(255,255,255,.02)
-    );
-
-  box-shadow:
-  0 25px 70px rgba(0,0,0,.35);
-}
-
-.about-text p{
-  color:rgba(255,255,255,.76);
-  line-height:1.95;
-  margin-bottom:24px;
-  font-size:16px;
-}
-
-.facts-box{
-  border-radius:28px;
-
-  border:1px solid rgba(214,162,74,.38);
-
-  background:
-  linear-gradient(
-    180deg,
-    rgba(255,255,255,.06),
-    rgba(255,255,255,.02)
-  );
-
-  padding:34px;
-
-  box-shadow:
-  0 25px 70px rgba(0,0,0,.35);
-}
-
-.fact{
-  padding:22px 0;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.fact:last-child{
-  border-bottom:none;
-}
-
-.fact span{
-  display:block;
-  color:#d6a24a;
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  margin-bottom:8px;
-}
-
-.fact strong{
-  font-size:18px;
-  font-weight:500;
-}
-
-/* ===== PROGRAM ===== */
-
-.program-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.program-card{
-  padding:28px;
-  border-radius:26px;
-
-  border:1px solid rgba(214,162,74,.28);
-
-  background:
-  linear-gradient(
-    180deg,
-    rgba(255,255,255,.04),
-    rgba(255,255,255,.02)
-  );
-
-  box-shadow:
-  0 20px 60px rgba(0,0,0,.28);
-}
-
-.program-card h3{
-  color:#f3c66d;
-  margin-bottom:18px;
-  font-size:17px;
-  font-weight:700;
-}
-
-.program-card ul{
-  list-style:none;
-}
-
-.program-card li{
-  position:relative;
-  padding-left:18px;
-  margin-bottom:12px;
-  color:rgba(255,255,255,.74);
-  line-height:1.7;
-}
-
-.program-card li::before{
-  content:"◆";
-  position:absolute;
-  left:0;
-  top:0;
-  color:#d6a24a;
-  font-size:10px;
-}
-
-/* ===== DETAILS ===== */
-
-.details-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.detail-card{
-  padding:28px;
-  border-radius:26px;
-
-  border:1px solid rgba(214,162,74,.28);
-
-  background:
-  linear-gradient(
-    180deg,
-    rgba(255,255,255,.04),
-    rgba(255,255,255,.02)
-  );
-}
-
-.detail-card h3{
-  color:#f3c66d;
-  margin-bottom:18px;
-  font-size:15px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-}
-
-.detail-card ul{
-  list-style:none;
-}
-
-.detail-card li{
-  position:relative;
-  padding-left:18px;
-  margin-bottom:12px;
-  color:rgba(255,255,255,.74);
-  line-height:1.7;
-}
-
-.detail-card li::before{
-  content:"◆";
-  position:absolute;
-  left:0;
-  top:0;
-  color:#d6a24a;
-  font-size:10px;
-}
-
-/* ===== GALLERY ===== */
-
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.gallery img{
-  width:100%;
-  height:380px;
-  object-fit:cover;
-
-  border-radius:28px;
-
-  border:1px solid rgba(214,162,74,.28);
-
-  box-shadow:
-  0 20px 60px rgba(0,0,0,.35);
-
-  transition:transform .45s ease;
-}
-
-.gallery img:hover{
-  transform:translateY(-6px);
-}
-
-/* ===== CTA ===== */
-
-.cta-box{
-  max-width:920px;
-  margin:auto;
-
-  border-radius:34px;
-  padding:70px 40px;
-
-  border:1px solid rgba(214,162,74,.35);
-
-  background:
-  linear-gradient(
-    180deg,
-    rgba(255,255,255,.04),
-    rgba(255,255,255,.02)
-  );
-
-  text-align:center;
-}
-
-.cta-box h2{
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(38px,5vw,60px);
-  margin-bottom:20px;
-  font-weight:500;
-}
-
-.cta-box p{
-  color:rgba(255,255,255,.72);
-  line-height:1.8;
-  margin-bottom:34px;
-}
-
-/* ===== MOBILE ===== */
-
-@media(max-width:980px){
-
-  .about-grid,
-  .program-grid,
-  .details-grid,
-  .gallery{
-    grid-template-columns:1fr;
-  }
-
-}
-
-@media(max-width:768px){
-
-  .page{
-    padding:0 18px;
-  }
-
-  .tour-hero{
-    min-height:auto;
-    padding:120px 0 80px;
-  }
-
-  .tour-hero h1{
-    font-size:58px;
-  }
-
-  .section{
-    padding:80px 0;
-  }
-
-  .about-text,
-  .facts-box,
-  .cta-box{
-    padding:26px;
-  }
-
-  .gallery img{
-    height:300px;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relax Boat Tour | Alanya Tour Organizations</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #07111f;
+      color: #fff;
+    }
+
+    .tour-main {
+      background: #07111f;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .tour-hero {
+      position: relative;
+      min-height: 640px;
+      display: flex;
+      align-items: flex-end;
+      padding: 150px 7% 92px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .tour-hero__shade {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(7,17,31,.10), rgba(7,17,31,.96)),
+        linear-gradient(90deg, rgba(7,17,31,.92), rgba(7,17,31,.30));
+      z-index: 1;
+    }
+
+    .tour-hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+    }
+
+    .tour-kicker {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #d6a24a;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+    }
+
+    .tour-hero h1 {
+      margin: 0 0 20px;
+      font-size: clamp(44px, 6vw, 82px);
+      line-height: .95;
+      letter-spacing: -.04em;
+    }
+
+    .tour-hero p {
+      margin: 0;
+      max-width: 650px;
+      font-size: 19px;
+      line-height: 1.75;
+      color: rgba(255,255,255,.82);
+    }
+
+    .tour-section {
+      padding: 78px 7%;
+    }
+
+    .tour-container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .tour-section-head {
+      margin-bottom: 30px;
+    }
+
+    .tour-small-line {
+      display: block;
+      width: 58px;
+      height: 2px;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, #d6a24a, rgba(214,162,74,0));
+    }
+
+    .tour-section h2 {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1.1;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .tour-text {
+      max-width: 900px;
+    }
+
+    .tour-text p {
+      margin: 0 0 18px;
+      font-size: 17px;
+      line-height: 1.9;
+      color: rgba(255,255,255,.78);
+    }
+
+    .tour-details-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .tour-detail-card {
+      min-height: 205px;
+      padding: 28px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+      border: 1px solid rgba(214,162,74,.34);
+      box-shadow: 0 24px 70px rgba(0,0,0,.28);
+    }
+
+    .tour-detail-icon {
+      width: 46px;
+      height: 46px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(214,162,74,.12);
+      border: 1px solid rgba(214,162,74,.36);
+      font-size: 21px;
+    }
+
+    .tour-detail-card h3 {
+      margin: 0 0 12px;
+      color: #d6a24a;
+      font-size: 18px;
+    }
+
+    .tour-detail-card p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255,255,255,.72);
+    }
+
+    .tour-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .tour-gallery-item {
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(214,162,74,.28);
+      box-shadow: 0 24px 70px rgba(0,0,0,.28);
+    }
+
+    .tour-gallery img {
+      width: 100%;
+      height: 320px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .tour-question {
+      text-align: center;
+      padding-bottom: 110px;
+    }
+
+    .tour-question h2 {
+      margin-bottom: 16px;
+    }
+
+    .tour-question p {
+      margin: 0 auto 28px;
+      max-width: 620px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(255,255,255,.76);
+    }
+
+    .tour-whatsapp {
+      display: inline-flex;
+      min-height: 56px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 36px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #d6a24a, #f2d27b);
+      color: #07111f;
+      font-weight: 900;
+      text-decoration: none;
+      letter-spacing: .06em;
+    }
+
+    @media (max-width: 768px) {
+      .tour-hero {
+        min-height: 560px;
+        padding: 120px 22px 58px;
+      }
+
+      .tour-hero h1 {
+        font-size: 44px;
+      }
+
+      .tour-hero p {
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .tour-section {
+        padding: 54px 22px;
+      }
+
+      .tour-details-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .tour-detail-card {
+        min-height: auto;
+        padding: 24px;
+      }
+
+      .tour-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .tour-gallery img {
+        height: 260px;
+      }
+    }
+  </style>
 </head>
 
-<body>
-
-
-
-<!-- HERO -->
-
-<section class="tour-hero">
-
-<div class="page">
-
-<div class="tour-hero-content">
-
-<div class="hero-label">
-SEA EXPERIENCES
-</div>
-
-<h1>
-Relax<br>
-Boat Tour
-</h1>
-
-<p>
-Relax Boat Tour — это спокойный морской отдых в Алании без громкой музыки, анимации и шумных вечеринок. Уединённые бухты, чистая вода, BBQ обед и атмосфера настоящего отдыха на море.
-</p>
-
-<div class="hero-price">
-<small>FROM</small>
-<strong>€25</strong>
-<span>/ PER PERSON</span>
-</div>
-
-<div class="price-divider">
-<span>⚓</span>
-</div>
-
-<div class="hero-tags">
-<span>10–15 Guests</span>
-<span>Hidden Bays</span>
-<span>No Loud Music</span>
-<span>BBQ Lunch</span>
-<span>Unlimited Soft Drinks</span>
-<span>Premium Relax</span>
-</div>
-
-<div class="hero-buttons">
-
-<a
-class="gold-btn"
-href="https://wa.me/905387045999?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20Relax%20Boat%20Tour%20%D0%B2%20%D0%90%D0%BB%D0%B0%D0%BD%D0%B8%D0%B8."
->
-BOOK ON WHATSAPP
-</a>
-
-<a
-class="glass-btn"
-href="#gallery"
->
-VIEW GALLERY
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section class="section">
-
-<div class="page">
-
-<div class="section-title">
-<span>ABOUT THIS EXPERIENCE</span>
-<h2>Silence, Sea & Hidden Bays</h2>
-
-<div class="gold-line">
-<span>⚓</span>
-</div>
-</div>
-
-<div class="about-grid">
-
-<div class="about-text">
-
-<p>
-Relax Boat Tour — это совершенно другой формат морского отдыха в Алании. Без громкой музыки, без анимации и без шумных вечеринок. Здесь главная атмосфера — тишина, спокойствие и настоящее наслаждение морем.
-</p>
-
-<p>
-Небольшое прогулочное судно рассчитано всего на 10–15 гостей, благодаря чему на борту сохраняется приватная и расслабленная атмосфера. Этот тур идеально подойдёт для тех, кто хочет отдохнуть от шума, перезагрузиться и провести день в красивых местах Средиземного моря.
-</p>
-
-<p>
-Главная особенность маршрута — уникальные уединённые бухты и скрытые заливы, куда не заходят большие пиратские яхты и стандартные прогулочные катера. Именно поэтому Relax Boat Tour ощущается совершенно иначе — более камерно, спокойно и по-настоящему атмосферно.
-</p>
-
-<p>
-Во время путешествия вас ждут остановки для купания в чистейшей воде среди живописных бухт Аланьи. Вы сможете плавать в спокойном море, загорать на палубе, отдыхать в тени, читать книгу и наслаждаться тишиной, морским воздухом и шумом волн.
-</p>
-
-<p>
-Этот тур особенно выбирают пары, семьи, гости, уставшие от шумных экскурсий, любители спокойного premium отдыха и те, кто хочет увидеть другую сторону побережья Аланьи. Relax Boat Tour — это не шоу и не party cruise, а день тишины, моря и полного отдыха вдали от суеты.
-</p>
-
-</div>
-
-<div class="facts-box">
-
-<div class="fact">
-<span>PRICE</span>
-<strong>€25 PER PERSON</strong>
-</div>
-
-<div class="fact">
-<span>6 HOURS</span>
-<strong>6 HOURS</strong>
-</div>
-
-<div class="fact">
-<span>TIME</span>
-<strong>09:00 – 15:00</strong>
-</div>
-
-<div class="fact">
-<span>GROUP SIZE</span>
-<strong>10–15 GUESTS</strong>
-</div>
-
-<div class="fact">
-<span>CALM & RELAXED</span>
-<strong>CALM & RELAXED</strong>
-</div>
-
-<div class="fact">
-<span>PICKUP</span>
-<strong>HOTEL / APARTMENT ADDRESS</strong>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PROGRAM -->
-
-<section class="section">
-
-<div class="page">
-
-<div class="section-title">
-
-<span>TOUR PROGRAM</span>
-
-<h2>How The Day Goes</h2>
-
-<div class="gold-line">
-<span>⚓</span>
-</div>
-
-</div>
-
-<div class="program-grid">
-
-<div class="program-card">
-<h3>09:00 — Pickup</h3>
-<ul>
-<li>Pickup from hotel or apartment address</li>
-<li>Comfortable transfer to the harbor</li>
-<li>Meeting with the boat crew</li>
-</ul>
-</div>
-
-<div class="program-card">
-<h3>Departure From Harbor</h3>
-<ul>
-<li>Beginning of the sea journey</li>
-<li>Relaxed atmosphere on board</li>
-<li>No loud music or party animation</li>
-</ul>
-</div>
-
-<div class="program-card">
-<h3>Hidden Bays & Swimming</h3>
-<ul>
-<li>Swimming in crystal clear water</li>
-<li>Quiet hidden Mediterranean bays</li>
-<li>Places away from large tourist boats</li>
-</ul>
-</div>
-
-<div class="program-card">
-<h3>Lunch On Board</h3>
-<ul>
-<li>BBQ and grilled dishes</li>
-<li>Fresh salads and snacks</li>
-<li>Unlimited soft drinks included</li>
-</ul>
-</div>
-
-<div class="program-card">
-<h3>Relax Time</h3>
-<ul>
-<li>Sunbathing on deck</li>
-<li>Reading, resting and enjoying the sea air</li>
-<li>Calm Mediterranean atmosphere</li>
-</ul>
-</div>
-
-<div class="program-card">
-<h3>15:00 — Return</h3>
-<ul>
-<li>Return to Alanya harbor</li>
-<li>Transfer back to hotel or apartment</li>
-<li>End of the tour</li>
-</ul>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- DETAILS -->
-
-<section class="section">
-
-<div class="page">
-
-<div class="section-title">
-
-<span>DETAILS</span>
-
-<h2>Included, Extra Payment & Child Policy</h2>
-
-<div class="gold-line">
-<span>⚓</span>
-</div>
-
-</div>
-
-<div class="details-grid">
-
-<div class="detail-card">
-<h3>WHAT IS INCLUDED</h3>
-<ul>
-<li>BBQ lunch and grilled dishes</li>
-<li>Fresh salads and snacks</li>
-<li>Unlimited soft drinks during the day</li>
-<li>Swimming stops in beautiful bays</li>
-<li>Calm small-group atmosphere</li>
-</ul>
-</div>
-
-<div class="detail-card">
-<h3>EXTRA PAYMENT</h3>
-<ul>
-<li>Alcoholic drinks</li>
-<li>Personal expenses</li>
-<li>Optional photo or video services if available</li>
-</ul>
-</div>
-
-<div class="detail-card">
-<h3>WHAT TO TAKE</h3>
-<ul>
-<li>Towel</li>
-<li>Sunglasses and swimsuit</li>
-<li>Sunscreen</li>
-<li>Water and clothes according to weather conditions</li>
-<li>Flip-flops, sandals or sneakers, camera / phone</li>
-</ul>
-</div>
-
-<div class="detail-card">
-<h3>CHILD POLICY</h3>
-<ul>
-<li>Children 0–3 years old: free</li>
-<li>Children 4–11 years old: half price</li>
-<li>Children must be accompanied by adults</li>
-</ul>
-</div>
-
-<div class="detail-card">
-<h3>TOUR TIME</h3>
-<ul>
-<li>Total duration: 6 HOURS</li>
-<li>Program time: 09:00 – 15:00</li>
-<li>Available: Every day</li>
-</ul>
-</div>
-
-<div class="detail-card">
-<h3>PICKUP INFORMATION</h3>
-<ul>
-<li>Pickup point: hotel or apartment address</li>
-<li>Exact transfer time is confirmed after booking</li>
-<li>Please be ready at the confirmed pickup point</li>
-</ul>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- GALLERY -->
-
-<section
-class="section"
-id="gallery"
->
-
-<div class="page">
-
-<div class="section-title">
-
-<span>PHOTO GALLERY</span>
-
-<h2>A Different Way To Feel Alanya</h2>
-
-<div class="gold-line">
-<span>⚓</span>
-</div>
-
-</div>
-
-<div class="gallery">
-
-<img
-src="images/relax-boat/gallery-1.jpg"
-alt="Relax Boat Tour sunset"
->
-
-<img
-src="images/relax-boat/gallery-2.jpg"
-alt="Relax Boat Tour yacht"
->
-
-<img
-src="images/relax-boat/hero.jpg"
-alt="Relax Boat Tour hidden bays"
->
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="section">
-
-<div class="page">
-
-<div class="cta-box">
-
-<div class="hero-label">
-BOOK YOUR EXPERIENCE
-</div>
-
-<h2>
-Relax Boat Tour In Alanya
-</h2>
-
-<p>
-Напишите нам в WhatsApp — мы подскажем детали маршрута, наличие мест, время трансфера и поможем быстро забронировать Relax Boat Tour.
-</p>
-
-<a
-class="gold-btn"
-href="https://wa.me/905387045999?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20Relax%20Boat%20Tour%20%D0%B2%20%D0%90%D0%BB%D0%B0%D0%BD%D0%B8%D0%B8."
->
-BOOK ON WHATSAPP
-</a>
-
-</div>
-
-</div>
-
-</section>
+<body class="tour-page relax-boat-page">
+
+  <script>
+    const TOUR = {
+      pageClass: "relax-boat-page",
+
+      category: "SEA EXPERIENCE",
+      title: "Relax Boat Tour",
+      subtitle: "A quiet and private sea escape in Alanya with hidden bays, calm atmosphere and no loud music.",
+
+      hero: "images/relax-boat/hero.jpg",
+
+      aboutTitle: "ABOUT THIS EXPERIENCE",
+      aboutText: [
+        "Relax Boat Tour is a completely different format of sea experience in Alanya.",
+        "There is no loud music, no noisy animation and no party atmosphere. This tour is built around silence, calmness and real enjoyment of the Mediterranean Sea.",
+        "The boat is small and usually welcomes only 10–15 guests, which creates a private, relaxed and peaceful atmosphere on board.",
+        "The main feature of the route is hidden bays and quiet swimming spots where large pirate ships and standard tourist boats usually do not go.",
+        "During the tour, guests can swim in clean water, sunbathe, rest in the shade, read a book or simply enjoy the silence of the sea."
+      ],
+
+      details: [
+        {
+          icon: "⏱️",
+          title: "Tour Time",
+          text: "Approx. 09:30 — 15:30"
+        },
+        {
+          icon: "🎒",
+          title: "What to Bring",
+          text: "Swimwear, towel, sunglasses, sunscreen and a light cover-up."
+        },
+        {
+          icon: "👨‍👩‍👧",
+          title: "Child Policy",
+          text: "Suitable for families, couples and guests who prefer a calm atmosphere."
+        },
+        {
+          icon: "🚐",
+          title: "Pickup Information",
+          text: "Hotel pickup is available from Alanya region."
+        }
+      ],
+
+      gallery: [
+        "images/relax-boat/gallery-1.jpg",
+        "images/relax-boat/gallery-2.jpg",
+        "images/relax-boat/gallery-3.jpg"
+      ],
+
+      whatsappText: "Hello! I want to book Relax Boat Tour."
+    };
+  </script>
+
+  <main id="tourRoot" class="tour-main"></main>
+
+  <script>
+    document.body.classList.add(TOUR.pageClass);
+
+    document.getElementById("tourRoot").innerHTML = `
+      <section class="tour-hero" style="background-image: url('${TOUR.hero}')">
+        <div class="tour-hero__shade"></div>
+
+        <div class="tour-hero__content">
+          <span class="tour-kicker">${TOUR.category}</span>
+          <h1>${TOUR.title}</h1>
+          <p>${TOUR.subtitle}</p>
+        </div>
+      </section>
+
+      <section class="tour-section tour-about">
+        <div class="tour-container">
+          <div class="tour-section-head">
+            <span class="tour-small-line"></span>
+            <h2>${TOUR.aboutTitle}</h2>
+          </div>
+
+          <div class="tour-text">
+            ${TOUR.aboutText.map(p => <p>${p}</p>).join("")}
+          </div>
+        </div>
+      </section>
+
+      <section class="tour-section tour-details-section">
+        <div class="tour-container">
+          <div class="tour-details-grid">
+            ${TOUR.details.map(item => `
+              <article class="tour-detail-card">
+                <div class="tour-detail-icon">${item.icon}</div>
+                <h3>${item.title}</h3>
+                <p>${item.text}</p>
+              </article>
+            `).join("")}
+          </div>
+        </div>
+      </section>
+
+      <section class="tour-section tour-gallery-section">
+        <div class="tour-container">
+          <div class="tour-section-head">
+            <span class="tour-small-line"></span>
+            <h2>PHOTO GALLERY</h2>
+          </div>
+
+          <div class="tour-gallery">
+            ${TOUR.gallery.map(img => `
+              <div class="tour-gallery-item">
+                <img src="${img}" alt="${TOUR.title}">
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      </section>
+
+      <section class="tour-section tour-question">
+        <div class="tour-container">
+          <h2>Have questions?</h2>
+          <p>Write to us on WhatsApp and we will help you choose the best option.</p>
+
+          <a 
+            class="tour-whatsapp"
+            href="https://wa.me/905387045999?text=${encodeURIComponent(TOUR.whatsappText)}"
+          >
+            BOOK ON WHATSAPP
+          </a>
+        </div>
+      </section>
+    `;
+  </script>
 
 </body>
 </html>
