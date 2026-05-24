@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title id="pageTitle">Catamaran Tour в Алании | Alanya Tour Organizations</title>
+<style>
+    :root{
+      --bg:#050b14;
+      --navy:#071321;
+      --navy2:#0d1b2e;
+      --gold:#d6a24a;
+      --gold2:#f3c66d;
+      --gold3:#ffcf72;
+      --text:#fff;
+      --muted:rgba(255,255,255,.75);
+      --soft:rgba(255,255,255,.88);
+      --line:rgba(214,162,74,.34);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at top,rgba(214,162,74,.06),transparent 26%),
+        linear-gradient(180deg,#050b14,#07111f 48%,#050b14);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    .page{width:min(1180px,calc(100% - 36px));margin:auto}
+
+    /* ===== HERO ===== */
+    .hero{
+      min-height:760px;
+      padding:34px 0 76px;
+      background:
+        linear-gradient(90deg,rgba(5,11,20,.97) 0%,rgba(5,11,20,.84) 34%,rgba(5,11,20,.48) 62%,rgba(5,11,20,.16) 100%),
+        url("images/catamaran/catamaran-hero.jpg") center/cover no-repeat;
+      border-bottom:1px solid rgba(214,162,74,.25);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:160px;background:linear-gradient(180deg,transparent,var(--bg));pointer-events:none}
+    .hero .page{position:relative;z-index:2}
+    .breadcrumbs{color:rgba(255,255,255,.76);font-size:14px;margin-bottom:70px}
+    .breadcrumbs span{color:var(--gold2)}
+    .hero-content{max-width:650px}
+    .eyebrow{color:var(--gold2);letter-spacing:.22em;text-transform:uppercase;font-size:13px;font-weight:900;margin-bottom:18px}
+    h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,5.4vw,78px);line-height:.95;text-transform:uppercase;font-weight:500;margin-bottom:24px;max-width:720px;text-shadow:0 18px 44px rgba(0,0,0,.55)}
+    .subtitle{color:var(--gold2);font-size:24px;line-height:1.35;margin-bottom:22px;max-width:570px;font-weight:500}
+    p{color:var(--muted);line-height:1.75;font-size:16px;margin-bottom:14px}
+    .hero-text{font-size:14px;max-width:560px;margin-bottom:30px;color:rgba(255,255,255,.84)}
+    .hero-icons{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:24px}
+    .hero-icon{display:flex;align-items:center;gap:12px;color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.04em;font-weight:900}
+    .ico,.circle-icon{width:54px;height:54px;border-radius:50%;border:1px solid rgba(214,162,74,.55);display:flex;align-items:center;justify-content:center;color:var(--gold2);background:rgba(255,255,255,.035);backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 12px 30px rgba(0,0,0,.22);flex:0 0 auto}
+    .icon-svg{width:25px;height:25px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .tour-tags{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
+    .tour-tag{padding:11px 16px;border-radius:999px;border:1px solid rgba(214,162,74,.42);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));color:var(--gold2);font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 22px rgba(0,0,0,.28)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 30px;border-radius:999px;background:linear-gradient(180deg,#ffdb7d,#d99a1e);color:#07111f;font-weight:950;letter-spacing:.08em;text-transform:uppercase;font-size:13px;box-shadow:0 18px 46px rgba(0,0,0,.34),0 0 30px rgba(214,162,74,.18);transition:.28s ease}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 24px 58px rgba(0,0,0,.45),0 0 36px rgba(214,162,74,.28)}
+
+    /* ===== COMMON CARDS ===== */
+    .page-main{padding:34px 0 74px}
+    .section-card{margin-top:30px;padding:30px;border-radius:var(--radius);border:1px solid var(--line);background:radial-gradient(circle at top left,rgba(214,162,74,.08),transparent 34%),linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.025));box-shadow:0 24px 60px rgba(0,0,0,.34);overflow:hidden}
+    .two-col{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:46px;align-items:start}
+    h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size:14px;margin-bottom:22px}
+    .highlight-list{display:grid;gap:14px}
+    .highlight{display:flex;gap:12px;color:rgba(255,255,255,.86);line-height:1.45;font-size:15px}
+    .highlight::before,.check::before{content:"✓";color:var(--gold2);width:24px;height:24px;border:1px solid rgba(214,162,74,.62);border-radius:50%;display:grid;place-items:center;flex:0 0 auto;font-size:13px;background:rgba(214,162,74,.04)}
+
+    /* ===== QUICK INFO / PRICE ===== */
+    .details-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;background:rgba(255,255,255,.025);border:1px solid rgba(214,162,74,.16);overflow:hidden}
+    .details-col{padding:28px;border-right:1px solid rgba(214,162,74,.25);min-height:250px}
+    .details-col:last-child{border-right:none}
+    .details-col h3{font-size:15px}
+    .small-list{display:grid;gap:13px;color:var(--muted);font-size:15px;line-height:1.45}
+    .small-list div{display:flex;gap:8px}
+    .small-list div::before{content:"✓";color:var(--gold2);flex:0 0 auto}
+    .price{font-family:Georgia,"Times New Roman",serif;color:var(--gold2);font-size:50px;margin:8px 0 6px}
+
+    /* ===== PROGRAM ===== */
+    .program-list{display:grid;gap:14px}
+    .program-item{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid rgba(214,162,74,.18)}
+    .program-item:last-child{border-bottom:none}
+    .program-time{color:var(--gold2);font-weight:950;text-transform:uppercase;letter-spacing:.08em;font-size:13px;line-height:1.4}
+    .program-content h3{margin-bottom:8px;font-family:Georgia,"Times New Roman",serif;font-size:18px;letter-spacing:.08em;color:#ffc45c}
+    .program-content p{margin:0;color:rgba(255,255,255,.82);font-size:15px;line-height:1.65}
+
+    /* ===== GALLERY ===== */
+    .gallery-carousel{position:relative;display:grid;grid-template-columns:1fr;gap:16px}
+    .gallery-stage{position:relative;min-height:420px;border-radius:22px;overflow:hidden;border:1px solid rgba(214,162,74,.36);background:rgba(255,255,255,.025);box-shadow:0 22px 48px rgba(0,0,0,.34)}
+    .gallery-stage img{width:100%;height:420px;display:block;object-fit:cover;object-position:center center;cursor:pointer;transition:.35s ease}
+    .gallery-stage img:hover{filter:brightness(1.06);transform:scale(1.01)}
+    .gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,196,92,.55);background:rgba(5,11,20,.58);color:var(--gold2);display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(10px);transition:.25s ease}
+    .gallery-arrow:hover{background:rgba(255,196,92,.12);border-color:rgba(255,220,140,.9);transform:translateY(-50%) scale(1.05)}
+    .gallery-arrow.prev{left:18px}.gallery-arrow.next{right:18px}
+    .gallery-arrow svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+    .gallery-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .gallery-thumb{height:108px;padding:0;border-radius:16px;border:1px solid rgba(214,162,74,.25);background:transparent;overflow:hidden;cursor:pointer;opacity:.68;transition:.25s ease}
+    .gallery-thumb img{width:100%;height:100%;display:block;object-fit:cover;object-position:center center}
+    .gallery-thumb.active,.gallery-thumb:hover{opacity:1;border-color:rgba(255,220,140,.8);box-shadow:0 0 0 1px rgba(255,220,140,.18),0 12px 26px rgba(0,0,0,.28)}
+
+    /* ===== PREMIUM INFO CARDS ===== */
+    .info-cards-section{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px;align-items:stretch}
+    .premium-card{position:relative;min-height:360px;height:100%;padding:26px 24px 22px;display:flex;flex-direction:column;border-radius:30px;background:radial-gradient(circle at top,rgba(255,196,92,.10),transparent 32%),radial-gradient(circle at bottom right,rgba(255,190,60,.045),transparent 28%),linear-gradient(180deg,rgba(10,22,39,.96) 0%,rgba(4,12,25,.99) 100%);border:1px solid rgba(255,196,92,.42);box-shadow:inset 0 0 90px rgba(255,196,92,.035),inset 0 1px 0 rgba(255,255,255,.05),0 14px 44px rgba(0,0,0,.46);overflow:hidden;transition:.35s ease}
+    .premium-card::before{content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,220,140,.9),transparent);opacity:.9}
+    .premium-card::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,.035),transparent 28%,transparent 72%,rgba(214,162,74,.025));pointer-events:none}
+    .premium-card:hover{transform:translateY(-6px);border-color:rgba(255,220,140,.74);box-shadow:0 22px 64px rgba(0,0,0,.56),0 0 36px rgba(214,162,74,.13)}
+    .premium-icon{width:58px;height:58px;margin:0 auto 16px;border-radius:50%;border:2px solid rgba(255,196,92,.72);display:flex;align-items:center;justify-content:center;color:#ffc45c;background:radial-gradient(circle,rgba(255,196,92,.16),rgba(255,196,92,.02));box-shadow:0 0 30px rgba(255,196,92,.08),inset 0 1px 0 rgba(255,255,255,.08)}
+    .premium-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+    .premium-card h3{text-align:center;color:#ffc45c;font-family:Georgia,"Times New Roman",serif;font-size:18px;letter-spacing:.08em;line-height:1.08;margin-bottom:16px}
+    .premium-line{display:flex;flex-direction:column;gap:4px;color:#fff;font-size:15px;line-height:1.35;margin-bottom:8px}
+    .premium-line strong{font-weight:900;color:#fff}.premium-line span{color:rgba(255,255,255,.86)}
+    .thin-divider{height:1px;margin:8px 0 10px;background:linear-gradient(90deg,transparent,rgba(255,196,92,.42),transparent);position:relative}
+    .thin-divider::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:6px;height:6px;border-radius:50%;background:#ffc45c;box-shadow:0 0 15px rgba(255,196,92,.8)}
+    .bring-list{list-style:none;padding:0;margin:0;display:grid;gap:0;flex-grow:1}
+    .bring-list li{position:relative;padding:0 0 7px 32px;margin-bottom:7px;color:rgba(255,255,255,.89);font-size:15px;line-height:1.28;border-bottom:1px solid rgba(255,196,92,.13)}
+    .bring-list li:last-child{border-bottom:none}
+    .bring-list li::before{content:"✓";position:absolute;left:0;top:-2px;width:21px;height:21px;border-radius:50%;border:1px solid rgba(255,196,92,.74);color:#ffc45c;display:grid;place-items:center;font-size:13px;background:rgba(255,196,92,.04)}
+    .card-decor{width:138px;height:1px;margin:auto auto 0;background:linear-gradient(90deg,transparent,#ffc45c,transparent);position:relative;opacity:.9}
+    .card-decor::after{content:"✦";position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);padding:0 12px;color:#ffc45c;font-size:15px;background:#06101d}
+
+    /* ===== CTA ===== */
+    .premium-contact{max-width:980px;margin:28px auto 0;display:flex;justify-content:space-between;align-items:center;gap:30px;padding:22px 30px;border-radius:18px;background:radial-gradient(circle at left,rgba(255,196,92,.08),transparent 35%),linear-gradient(90deg,rgba(18,31,52,.96),rgba(5,14,28,.99));border:1px solid rgba(255,196,92,.38);box-shadow:0 14px 44px rgba(0,0,0,.44),inset 0 1px 0 rgba(255,255,255,.04)}
+    .premium-contact-left{display:flex;align-items:center;gap:24px}
+    .premium-contact-icon{width:54px;height:54px;border-radius:50%;border:2px solid rgba(255,196,92,.62);display:grid;place-items:center;color:#ffc45c;flex:0 0 auto;background:rgba(255,196,92,.04)}
+    .premium-contact-icon svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .premium-contact h3{color:#ffc45c;font-family:Georgia,"Times New Roman",serif;font-size:15px;letter-spacing:.18em;margin-bottom:6px}
+    .premium-contact p{color:rgba(255,255,255,.84);font-size:14px;line-height:1.45;max-width:620px;margin:0}
+    .premium-whatsapp-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 30px;min-width:260px;border-radius:999px;background:linear-gradient(180deg,#ffdb7d,#d99a1e);color:#07111f;font-weight:950;font-size:14px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 12px 36px rgba(255,196,92,.25);transition:.3s ease}
+    .premium-whatsapp-btn:hover{transform:translateY(-4px);box-shadow:0 18px 48px rgba(255,196,92,.38)}
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
+    .lightbox.active{display:flex}.lightbox img{max-width:92vw;max-height:88vh;border-radius:18px;border:1px solid var(--line);box-shadow:0 24px 70px rgba(0,0,0,.65)}
+    .close{position:absolute;top:22px;right:28px;color:white;font-size:34px;cursor:pointer}
+
+    @media(max-width:980px){
+      .page{width:min(100% - 28px,1180px)}
+      .hero{min-height:auto;padding:30px 0 54px;background-position:center}
+      .breadcrumbs{margin-bottom:44px}
+      .two-col,.details-grid,.info-cards-section{grid-template-columns:1fr}
+      .program-item{grid-template-columns:1fr;gap:8px}
+      .details-col{border-right:none;border-bottom:1px solid rgba(214,162,74,.25);min-height:auto}
+      .details-col:last-child{border-bottom:none}
+      .gallery-stage,.gallery-stage img{min-height:300px;height:300px}
+      .gallery-thumbs{grid-template-columns:repeat(3,1fr)}
+      .gallery-thumb{height:86px}
+      .premium-card{min-height:auto}
+      .premium-contact{flex-direction:column;align-items:flex-start}
+      .premium-contact-left{align-items:flex-start}
+      .premium-whatsapp-btn{width:100%;min-width:0}
+    }
+  </style>
+</head>
+
+<body>
+<section class="hero" id="hero">
+  <div class="page">
+    <div class="breadcrumbs">Home › <span id="breadcrumbCategory">Sea Experiences</span> › <span id="breadcrumbTitle">Catamaran Tour</span></div>
+
+    <div class="hero-content"
+      data-category="sea-experiences"
+      data-tags="catamaran-tour sea-experience sunset-tour music-animation foam-party swimming-stops buffet-lunch transfer-included family-friendly all-inclusive alanya"
+      id="heroContent">
+
+      <div class="eyebrow" id="eyebrow">Sea Experience</div>
+
+      <h1 id="tourTitle">
+        Catamaran Tour
+        <br>
+        в Алании
+      </h1>
+
+      <div class="subtitle" id="tourSubtitle">
+        Полный день отдыха с музыкой, купанием, пенной вечеринкой и 9 живописными остановками вдоль побережья.
+      </div>
+
+      <p class="hero-text" id="heroText">
+        Просторный катамаран, 4 полноценные остановки для купания, морские пещеры, Cleopatra Beach, Новая гавань, open sea, buffet lunch, soft drinks и атмосфера настоящего морского праздника.
+      </p>
+
+  <div class="hero-icons" id="heroIcons">
+
+    <div class="hero-icon">
+      <span class="ico">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+          <circle cx="12" cy="13" r="8"/>
+          <path d="M12 13V8"/>
+          <path d="M12 13l3 2"/>
+          <path d="M9 2h6"/>
+          <path d="M12 2v3"/>
+        </svg>
+      </span>
+      6 HOURS
+    </div>
+
+    <div class="hero-icon">
+      <span class="ico">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+          <path d="M7 3v18"/>
+          <path d="M5 3v6a2 2 0 0 0 4 0V3"/>
+          <path d="M17 3v18"/>
+          <path d="M15 3h4v8h-4z"/>
+        </svg>
+      </span>
+      BUFFET LUNCH
+    </div>
+
+    <div class="hero-icon">
+      <span class="ico">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+          <path d="M3 7h13v9H3z"/>
+          <path d="M16 10h3l2 3v3h-5"/>
+          <circle cx="7" cy="18" r="2"/>
+          <circle cx="18" cy="18" r="2"/>
+        </svg>
+      </span>
+      TRANSFER
+    </div>
+
+  </div>
+      <div class="tour-tags" id="tourTags">
+        <span class="tour-tag">SEA EXPERIENCE</span>
+        <span class="tour-tag">CATAMARAN TOUR</span>
+        <span class="tour-tag">FOAM PARTY</span>
+        <span class="tour-tag">9 SCENIC STOPS</span>
+        <span class="tour-tag">4 SWIMMING STOPS</span>
+        <span class="tour-tag">BUFFET LUNCH</span>
+        <span class="tour-tag">TRANSFER INCLUDED</span>
+      </div>
+
+      <a
+        class="btn"
+        id="heroWhatsapp"
+        target="_blank"
+        rel="noopener"
+        href="https://wa.me/905387045999?text=Здравствуйте!%20Хочу%20забронировать%20Catamaran%20Tour%20в%20Алании."
+      >
+        Book on WhatsApp →
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<main class="page page-main">
+
+  <section class="section-card two-col">
+    <div>
+      <h2>About this experience</h2>
+      <div id="aboutText">
+        <p>Catamaran Tour в Алании — это не просто морская прогулка, а полноценный день отдыха с атмосферой праздника, музыки, купания и ярких эмоций на одном из самых впечатляющих маршрутов побережья.</p>
+        <p>Главная особенность этого круиза — уникальный маршрут, который отличается от большинства яхтенных туров региона. Вас ждут 9 живописных остановок вдоль побережья и 4 полноценные остановки для купания в самых красивых локациях Средиземного моря.</p>
+        <p>С первых минут на борту создаётся атмосфера настоящего отдыха: музыка, развлекательная программа, танцевальные шоу и знаменитая пенная вечеринка прямо в открытом море. Просторный катамаран с комфортными зонами отдыха позволяет наслаждаться путешествием без спешки и суеты.</p>
+        <p>Маршрут начинается в самом сердце Аланьи — в городском порту, откуда открываются панорамные виды на Красную башню и древнюю крепость.</p>
+        <p>Во время круиза вас ждут историческая верфь Терсане, Pirates Cave, Lovers Cave, Phosphorus Cave, Cleopatra Beach, Новая гавань, открытое Средиземное море и скрытые бухты для купания и отдыха.</p>
+        <p>В отличие от стандартных морских прогулок Аланьи, этот маршрут включает больше остановок, больше времени для купания и более протяжённый круиз вдоль побережья. Именно поэтому этот тур выбирают гости, которые хотят получить не просто boat tour, а полноценный sea experience.</p>
+        <p>Если повезёт, во время путешествия можно увидеть дельфинов в их естественной среде. После насыщенного дня катамаран возвращается обратно в порт Аланьи, оставляя ощущение настоящего морского праздника.</p>
+      </div>
+    </div>
+
+    <div>
+      <h2>Highlights</h2>
+      <div class="highlight-list" id="highlights">
+        <div class="highlight">Уникальный маршрут с 9 живописными остановками вдоль побережья</div>
+        <div class="highlight">4 полноценные остановки для купания в красивых локациях Средиземного моря</div>
+        <div class="highlight">Историческая верфь Терсане XIII века и виды на крепость Аланьи</div>
+        <div class="highlight">Pirates Cave, Lovers Cave и Phosphorus Cave</div>
+        <div class="highlight">Cleopatra Beach, Новая гавань, open sea и скрытые бухты</div>
+        <div class="highlight">Музыка, DJ atmosphere, танцевальные шоу, анимация и пенная вечеринка</div>
+        <div class="highlight">Возможность увидеть дельфинов в естественной среде</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <div class="details-grid">
+      <div class="details-col">
+        <h3>Details</h3>
+        <div class="small-list" id="detailsList">
+          <div>Общее время: 6 часов</div>
+          <div>Time: 09:00 – 15:00</div>
+          <div>Available: every day</div>
+          <div>Route: Alanya harbor, caves, Cleopatra Beach, hidden bays</div>
+          <div>Pickup: hotel / apartment address</div>
+        </div>
+      </div>
+
+      <div class="details-col">
+        <h3>Price</h3>
+        <div class="price" id="price">€25</div>
+        <p id="priceNote">per person</p>
+        <p id="childrenPrice">Children 0–4 years old: free<br>Children 5–11 years old: half price</p>
+      </div>
+
+      <div class="details-col">
+        <h3>Included</h3>
+        <div class="small-list" id="includedList">
+          <div>Insurance</div>
+          <div>Transfer from hotel or apartment</div>
+          <div>Buffet lunch on board</div>
+          <div>Soft drinks: water, cola, Fanta</div>
+          <div>Animation program</div>
+          <div>Foam party</div>
+          <div>Sunbeds for sunbathing</div>
+          <div>Professional captain</div>
+          <div>Wi-Fi, shower and toilet</div>
+        </div>
+      </div>
+
+      <div class="details-col">
+        <h3>Not included</h3>
+        <div class="small-list" id="notIncludedList">
+          <div>Alcoholic drinks</div>
+          <div>Imported drinks</div>
+          <div>Personal expenses</div>
+          <div>Optional photo or video services</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="section-card program-section">
+    <h2>Program</h2>
+    <div class="program-list" id="programList">
+      <div class="program-item">
+        <div class="program-time">09:00</div>
+        <div class="program-content">
+          <h3>Pickup</h3>
+          <p>Pickup from hotel or apartment address. Comfortable transfer to Alanya harbor and meeting with the boat crew.</p>
+        </div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-time">Harbor</div>
+        <div class="program-content">
+          <h3>Departure From Alanya Harbor</h3>
+          <p>The route starts in the heart of Alanya with panoramic views of the Red Tower, the ancient castle and the coastline.</p>
+        </div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-time">Tersane</div>
+        <div class="program-content">
+          <h3>Historic Shipyard Swimming Stop</h3>
+          <p>First swimming stop near the XIII-century shipyard walls — one of the most atmospheric places in Alanya.</p>
+        </div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-time">Caves</div>
+        <div class="program-content">
+          <h3>Pirates Cave, Lovers Cave & Phosphorus Cave</h3>
+          <p>The catamaran passes along famous sea caves accessible from the sea, with panoramic views and photo moments.</p>
+        </div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-time">Sea Route</div>
+        <div class="program-content">
+          <h3>9 Scenic Stops & 4 Swimming Stops</h3>
+          <p>More stops, more swimming time and a longer cruise along the coast: Cleopatra Beach, New Harbor, open sea and hidden bays.</p>
+        </div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-time">Lunch</div>
+        <div class="program-content">
+          <h3>Buffet Lunch On Board</h3>
+          <p>Buffet lunch with soft drinks including water, cola and Fanta during the day.</p>
+        </div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-time">Fun</div>
+        <div class="program-content">
+          <h3>Music, Animation & Foam Party</h3>
+          <p>DJ atmosphere, music, dancing, animation program and the famous foam party in the open sea.</p>
+        </div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-time">15:00</div>
+        <div class="program-content">
+          <h3>Return</h3>
+          <p>Return to Alanya harbor and transfer back to hotel or apartment address.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card gallery-section">
+    <h2>Photo Gallery</h2>
+
+    <div class="gallery-carousel">
+      <div class="gallery-stage">
+        <button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button">
+          <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
+        </button>
+
+        <img alt="Catamaran Tour in Alanya" id="gallery-current" onclick="openLightbox(this.src)" src="images/catamaran/catamaran-hero.jpg"/>
+
+        <button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button">
+          <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg>
+        </button>
+      </div>
+
+      <div aria-label="Gallery thumbnails" class="gallery-thumbs" id="galleryThumbs">
+        <button class="gallery-thumb active" onclick="setGallery(0)" type="button">
+          <img alt="Catamaran Tour in Alanya" src="images/catamaran/catamaran-hero.jpg"/>
+        </button>
+        <button class="gallery-thumb" onclick="setGallery(1)" type="button">
+          <img alt="Catamaran swimming stops" src="images/catamaran/catamaran-gallery-1.jpg"/>
+        </button>
+        <button class="gallery-thumb" onclick="setGallery(2)" type="button">
+          <img alt="Catamaran sea atmosphere" src="images/catamaran/catamaran-gallery-2.jpg"/>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Основная информация о туре" class="info-cards-section">
+    <div class="premium-card">
+      <div class="premium-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"></circle><path d="M12 13V8"></path><path d="M12 13l3 2"></path><path d="M9 2h6"></path><path d="M12 2v3"></path></svg>
+      </div>
+      <h3>Tour time</h3>
+      <div id="tourTimeCard">
+        <div class="premium-line"><strong>Общее время:</strong><span>6 часов</span></div>
+        <div class="premium-line"><strong>Время программы:</strong><span>09:00 – 15:00</span></div>
+        <div class="premium-line"><strong>Дни проведения:</strong><span>каждый день</span></div>
+      </div>
+      <div class="card-decor"></div>
+    </div>
+
+    <div class="premium-card">
+      <div class="premium-icon">
+        <svg viewBox="0 0 24 24"><rect height="14" rx="2" width="10" x="7" y="6"></rect><path d="M9 6V4h6v2"></path><path d="M9 10h6"></path></svg>
+      </div>
+      <h3>What to bring</h3>
+      <ul class="bring-list" id="bringList">
+        <li>Towel</li>
+        <li>Sunglasses and swimsuit</li>
+        <li>Sunscreen</li>
+        <li>Water</li>
+        <li>Clothes according to weather conditions</li>
+        <li>Flip-flops, sandals or sneakers</li>
+        <li>Camera / phone</li>
+      </ul>
+      <div class="card-decor"></div>
+    </div>
+
+    <div class="premium-card">
+      <div class="premium-icon">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="10" r="2.3"></circle><path d="M3.5 20c.8-4 3-6 5.5-6s4.7 2 5.5 6"></path><path d="M13.5 20c.5-2.9 2-4.6 3.5-4.6 1.7 0 3 1.8 3.5 4.6"></path></svg>
+      </div>
+      <h3>Child policy</h3>
+      <div id="childPolicyCard">
+        <div class="premium-line"><strong>0–4 years old:</strong><span>free</span></div>
+        <div class="premium-line"><strong>5–11 years old:</strong><span>half price</span></div>
+      </div>
+      <div class="card-decor"></div>
+    </div>
+
+    <div class="premium-card">
+      <div class="premium-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 7h13v9H3z"></path><path d="M16 10h3l2 3v3h-5"></path><circle cx="7" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>
+      </div>
+      <h3>Pickup information</h3>
+      <div id="pickupCard">
+        <div class="premium-line"><span>Pickup from hotel or apartment address.</span></div>
+        <div class="premium-line"><span>Comfortable transfer to the harbor.</span></div>
+        <div class="premium-line"><span>Exact pickup time is confirmed after booking.</span></div>
+      </div>
+      <div class="card-decor"></div>
+    </div>
+  </section>
+
+  <section class="premium-contact">
+    <div class="premium-contact-left">
+      <div class="premium-contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z"></path><path d="M9 8.5c.3 2.8 2.1 4.6 5 5"></path></svg>
+      </div>
+      <div>
+        <h3>Have questions?</h3>
+        <p id="questionText">Напишите нам в WhatsApp — подскажем наличие мест, детали маршрута, формат катамарана, остановки для купания и точное время трансфера.</p>
+      </div>
+    </div>
+
+    <a
+      class="premium-whatsapp-btn"
+      href="https://wa.me/905387045999?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20про%20Catamaran%20Tour%20в%20Алании."
+      id="bottomWhatsapp"
+      rel="noopener"
+      target="_blank"
+    >
+      Chat on WhatsApp →
+    </a>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="close">×</span>
+  <img alt="" id="lightbox-img" src=""/>
+</div>
+
+<script>
+  const galleryImages = [
+    {src:'images/catamaran/catamaran-hero.jpg', alt:'Catamaran Tour in Alanya'},
+    {src:'images/catamaran/catamaran-gallery-1.jpg', alt:'Catamaran swimming stops'},
+    {src:'images/catamaran/catamaran-gallery-2.jpg', alt:'Catamaran sea atmosphere'}
+  ];
+
+  let galleryIndex = 0;
+
+  function setGallery(index){
+    galleryIndex = (index + galleryImages.length) % galleryImages.length;
+    const current = document.getElementById('gallery-current');
+    current.src = galleryImages[galleryIndex].src;
+    current.alt = galleryImages[galleryIndex].alt;
+    document.querySelectorAll('.gallery-thumb').forEach((thumb, i) => thumb.classList.toggle('active', i === galleryIndex));
+  }
+
+  function changeGallery(direction){
+    setGallery(galleryIndex + direction);
+  }
+
+  function openLightbox(src){
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('active');
+  }
+</script>
+</body>
+</html>
