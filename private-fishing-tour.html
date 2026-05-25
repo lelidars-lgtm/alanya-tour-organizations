@@ -9,7 +9,22 @@
     *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
     body{font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top,rgba(214,162,74,.06),transparent 26%),linear-gradient(180deg,#050b14,#07111f 48%,#050b14);color:var(--text);overflow-x:hidden}
     a{text-decoration:none;color:inherit}.page{width:min(1180px,calc(100% - 36px));margin:auto}
-    .hero{min-height:760px;padding:34px 0 76px;background:linear-gradient(90deg,rgba(5,11,20,.86) 0%,rgba(5,11,20,.68) 34%,rgba(5,11,20,.34) 62%,rgba(5,11,20,.08) 100%),url("images/private-fishing/private-fishing-hero.jpeg") center/cover no-repeat;border-bottom:1px solid rgba(214,162,74,.25);position:relative;overflow:hidden}
+.hero{
+min-height:760px;
+padding:34px 0 76px;
+background:
+linear-gradient(
+90deg,
+rgba(5,11,20,.58) 0%,
+rgba(5,11,20,.42) 28%,
+rgba(5,11,20,.18) 58%,
+rgba(5,11,20,.04) 100%
+),
+url("images/private-fishing/private-fishing-hero.jpeg")
+center/cover no-repeat;
+position:relative;
+overflow:hidden;
+}
     .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:160px;background:linear-gradient(180deg,transparent,var(--bg));pointer-events:none}.hero .page{position:relative;z-index:2}
     .breadcrumbs{color:rgba(255,255,255,.76);font-size:14px;margin-bottom:70px}.breadcrumbs span{color:var(--gold2)}.hero-content{max-width:650px}
     .eyebrow{color:var(--gold2);letter-spacing:.22em;text-transform:uppercase;font-size:13px;font-weight:900;margin-bottom:18px}
