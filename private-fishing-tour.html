@@ -9,7 +9,21 @@
     *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
     body{font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top,rgba(214,162,74,.06),transparent 26%),linear-gradient(180deg,#050b14,#07111f 48%,#050b14);color:var(--text);overflow-x:hidden}
     a{text-decoration:none;color:inherit}.page{width:min(1180px,calc(100% - 36px));margin:auto}
-    .hero{min-height:760px;padding:34px 0 76px;background:linear-gradient(90deg,rgba(5,11,20,.86) 0%,rgba(5,11,20,.68) 34%,rgba(5,11,20,.34) 62%,rgba(5,11,20,.08) 100%),url("images/private-fishing/private-fishing-hero.jpg") center/cover no-repeat;border-bottom:1px solid rgba(214,162,74,.25);position:relative;overflow:hidden}
+    .hero{
+  min-height:760px;
+  padding:34px 0 76px;
+  background:
+  linear-gradient(
+    90deg,
+    rgba(5,11,20,.86) 0%,
+    rgba(5,11,20,.68) 34%,
+    rgba(5,11,20,.34) 62%,
+    rgba(5,11,20,.08) 100%
+  ),
+  url("images/private-fishing/private-fishing-hero.jpeg")
+  center/cover no-repeat;
+}
+center/cover no-repeat;;border-bottom:1px solid rgba(214,162,74,.25);position:relative;overflow:hidden}
     .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:160px;background:linear-gradient(180deg,transparent,var(--bg));pointer-events:none}.hero .page{position:relative;z-index:2}
     .breadcrumbs{color:rgba(255,255,255,.76);font-size:14px;margin-bottom:70px}.breadcrumbs span{color:var(--gold2)}.hero-content{max-width:650px}
     .eyebrow{color:var(--gold2);letter-spacing:.22em;text-transform:uppercase;font-size:13px;font-weight:900;margin-bottom:18px}
@@ -44,7 +58,11 @@
 </main>
 <div class="lightbox" id="lightbox" onclick="closeLightbox()"><span class="close">×</span><img alt="" id="lightbox-img" src=""/></div>
 <script>
-  const galleryImages=[{src:'images/private-fishing/private-fishing-hero.jpg',alt:'Private Fishing Tour in Alanya'},{src:'images/private-fishing/private-fishing-gallery-1.jpg',alt:'Fishing yacht in Alanya'},{src:'images/private-fishing/private-fishing-gallery-2.jpg',alt:'Fresh catch on private fishing tour'}];
+  const galleryImages = [
+  "images/private-fishing/private-fishing-gallery-1.jpeg",
+  "images/private-fishing/private-fishing-gallery-2.jpeg",
+  "images/private-fishing/private-fishing-gallery-3.jpeg"
+];
   let galleryIndex=0;
   function setGallery(index){galleryIndex=(index+galleryImages.length)%galleryImages.length;const current=document.getElementById('gallery-current');current.src=galleryImages[galleryIndex].src;current.alt=galleryImages[galleryIndex].alt;document.querySelectorAll('.gallery-thumb').forEach((thumb,i)=>thumb.classList.toggle('active',i===galleryIndex));}
   function changeGallery(direction){setGallery(galleryIndex+direction)}
