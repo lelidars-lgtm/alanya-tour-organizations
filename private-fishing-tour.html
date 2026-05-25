@@ -3,588 +3,219 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-
-<title id="pageTitle">
-Private Fishing Tour в Алании | Alanya Tour Organizations
-</title>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+<title id="pageTitle">Private Fishing Tour в Алании | Alanya Tour Organizations</title>
+.hero-content{
+  position:relative;
+  z-index:3;
 }
 
-body{
-background:#020b16;
-color:#fff;
-font-family:Inter,sans-serif;
-overflow-x:hidden;
+.hero-content::before{
+  content:"";
+  position:absolute;
+  left:-120px;
+  top:-80px;
+  width:520px;
+  height:520px;
+  background:radial-gradient(
+    circle,
+    rgba(245,186,84,.18) 0%,
+    rgba(245,186,84,.08) 32%,
+    rgba(245,186,84,0) 72%
+  );
+  pointer-events:none;
+  z-index:-1;
 }
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-img{
-display:block;
-max-width:100%;
-}
-
+    <style>  
+    :root{--bg:#050b14;--navy:#071321;--navy2:#0d1b2e;--gold:#d6a24a;--gold2:#f3c66d;--gold3:#ffcf72;--text:#fff;--muted:rgba(255,255,255,.75);--soft:rgba(255,255,255,.88);--line:rgba(214,162,74,.34);--radius:28px}
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top,rgba(214,162,74,.06),transparent 26%),linear-gradient(180deg,#050b14,#07111f 48%,#050b14);color:var(--text);overflow-x:hidden}
+    a{text-decoration:none;color:inherit}.page{width:min(1180px,calc(100% - 36px));margin:auto}
 .hero{
-position:relative;
 min-height:760px;
 padding:34px 0 76px;
 background:
 linear-gradient(
 90deg,
-rgba(5,11,20,.72) 0%,
-rgba(5,11,20,.54) 34%,
-rgba(5,11,20,.26) 62%,
+rgba(5,11,20,.58) 0%,
+rgba(5,11,20,.42) 28%,
+rgba(5,11,20,.18) 58%,
 rgba(5,11,20,.04) 100%
 ),
 url("images/private-fishing/private-fishing-hero.jpeg")
 center/cover no-repeat;
-display:flex;
-align-items:center;
-}
-
-.hero::after{
-content:"";
-position:absolute;
-inset:0;
-background:
-linear-gradient(
-180deg,
-rgba(2,8,15,.02) 0%,
-rgba(2,8,15,.22) 70%,
-rgba(2,8,15,.9) 100%
-);
-}
-
-.hero-content{
 position:relative;
-z-index:2;
-width:min(1320px,92%);
-margin:auto;
-}
-
-.hero-label{
-display:inline-block;
-margin-bottom:24px;
-font-size:15px;
-font-weight:700;
-letter-spacing:.18em;
-text-transform:uppercase;
-color:#f2bf63;
-}
-
-.hero h1{
-max-width:760px;
-font-size:clamp(72px,9vw,118px);
-line-height:.9;
-font-weight:600;
-font-family:Georgia,serif;
-margin-bottom:28px;
-}
-
-.hero-subtitle{
-max-width:760px;
-font-size:24px;
-line-height:1.45;
-color:#f1c46e;
-margin-bottom:34px;
-}
-
-.hero-text{
-max-width:700px;
-font-size:17px;
-line-height:1.8;
-color:rgba(255,255,255,.9);
-margin-bottom:40px;
-}
-
-.hero-info{
-display:flex;
-flex-wrap:wrap;
-gap:18px;
-margin-bottom:34px;
-}
-
-.info-item{
-display:flex;
-align-items:center;
-gap:14px;
-padding:14px 18px;
-border-radius:999px;
-background:rgba(10,18,30,.58);
-backdrop-filter:blur(10px);
-border:1px solid rgba(223,176,84,.35);
-}
-
-.info-icon{
-width:52px;
-height:52px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-border:1px solid rgba(223,176,84,.4);
-font-size:18px;
-color:#f2bf63;
-}
-
-.info-text{
-font-size:15px;
-font-weight:700;
-text-transform:uppercase;
-}
-
-.hero-tags{
-display:flex;
-flex-wrap:wrap;
-gap:14px;
-}
-
-.hero-tag{
-padding:14px 20px;
-border-radius:999px;
-border:1px solid rgba(223,176,84,.35);
-background:rgba(12,20,33,.52);
-backdrop-filter:blur(8px);
-font-size:14px;
-font-weight:700;
-letter-spacing:.06em;
-text-transform:uppercase;
-color:#f0c266;
-}
-
-.content{
-width:min(1320px,92%);
-margin:auto;
-padding:70px 0 120px;
-}
-
-.section-card{
-position:relative;
-padding:34px;
-border-radius:34px;
-background:
-linear-gradient(
-145deg,
-rgba(14,22,36,.96),
-rgba(3,15,32,.96)
-);
-border:1px solid rgba(214,162,74,.25);
 overflow:hidden;
-margin-bottom:38px;
 }
-
-.section-card::before{
-content:"";
-position:absolute;
-top:-220px;
-left:-180px;
-width:420px;
-height:420px;
-background:radial-gradient(
-circle,
-rgba(214,162,74,.16),
-transparent 70%
-);
-pointer-events:none;
-}
-
-.section-card h2{
-position:relative;
-z-index:2;
-font-size:16px;
-letter-spacing:.18em;
-text-transform:uppercase;
-color:#f2bf63;
-margin-bottom:26px;
-}
-
-.gallery-stage{
-position:relative;
-border-radius:28px;
-overflow:hidden;
-border:1px solid rgba(214,162,74,.2);
-background:#07101b;
-}
-
-.gallery-stage img{
-width:100%;
-height:680px;
-object-fit:cover;
-cursor:pointer;
-}
-
-.gallery-arrow{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-width:54px;
-height:54px;
-border-radius:50%;
-border:1px solid rgba(214,162,74,.35);
-background:rgba(7,14,25,.74);
-backdrop-filter:blur(8px);
-display:flex;
-align-items:center;
-justify-content:center;
-cursor:pointer;
-transition:.25s ease;
-z-index:5;
-}
-
-.gallery-arrow:hover{
-background:rgba(214,162,74,.16);
-}
-
-.gallery-arrow svg{
-width:22px;
-height:22px;
-stroke:#f0c266;
-stroke-width:2;
-fill:none;
-stroke-linecap:round;
-stroke-linejoin:round;
-}
-
-.gallery-arrow.prev{
-left:20px;
-}
-
-.gallery-arrow.next{
-right:20px;
-}
-
-.gallery-thumbs{
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:18px;
-margin-top:24px;
-}
-
-.gallery-thumb{
-border:none;
-padding:0;
-background:none;
-cursor:pointer;
-border-radius:20px;
-overflow:hidden;
-border:2px solid transparent;
-transition:.25s ease;
-}
-
-.gallery-thumb.active{
-border-color:#f0c266;
-}
-
-.gallery-thumb img{
-width:100%;
-height:140px;
-object-fit:cover;
-}
-
-.lightbox{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.92);
-display:flex;
-align-items:center;
-justify-content:center;
-opacity:0;
-pointer-events:none;
-transition:.3s ease;
-z-index:9999;
-padding:30px;
-}
-
-.lightbox.active{
-opacity:1;
-pointer-events:auto;
-}
-
-.lightbox img{
-max-width:100%;
-max-height:92vh;
-border-radius:20px;
-}
-
-.lightbox-close{
-position:absolute;
-top:24px;
-right:28px;
-font-size:42px;
-cursor:pointer;
-color:#fff;
-}
-
-@media(max-width:980px){
-
-.hero{
-min-height:auto;
-padding:120px 0 80px;
-background-position:center;
-}
-
-.hero h1{
-font-size:64px;
-}
-
-.gallery-stage img{
-height:420px;
-}
-
-.gallery-thumbs{
-grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-@media(max-width:640px){
-
-.hero{
-padding:110px 0 70px;
-}
-
-.hero h1{
-font-size:48px;
-}
-
-.hero-subtitle{
-font-size:21px;
-}
-
-.hero-text{
-font-size:15px;
-line-height:1.7;
-}
-
-.info-item{
-width:100%;
-}
-
-.gallery-stage img{
-height:280px;
-}
-
-.gallery-thumb img{
-height:100px;
-}
-
-.section-card{
-padding:22px;
-border-radius:26px;
-}
-
-}
-
-</style>
+    .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:160px;background:linear-gradient(180deg,transparent,var(--bg));pointer-events:none}.hero .page{position:relative;z-index:2}
+    .breadcrumbs{color:rgba(255,255,255,.76);font-size:14px;margin-bottom:70px}.breadcrumbs span{color:var(--gold2)}.hero-content{max-width:650px}
+    .eyebrow{color:var(--gold2);letter-spacing:.22em;text-transform:uppercase;font-size:13px;font-weight:900;margin-bottom:18px}
+    h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,5.4vw,78px);line-height:.95;text-transform:uppercase;font-weight:500;margin-bottom:24px;max-width:720px;text-shadow:0 18px 44px rgba(0,0,0,.55)}
+    .subtitle{color:var(--gold2);font-size:24px;line-height:1.35;margin-bottom:22px;max-width:570px;font-weight:500}p{color:var(--muted);line-height:1.75;font-size:16px;margin-bottom:14px}.hero-text{font-size:14px;max-width:560px;margin-bottom:30px;color:rgba(255,255,255,.84)}
+    .hero-icons{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:24px}.hero-icon{display:flex;align-items:center;gap:12px;color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.04em;font-weight:900}
+    .ico,.circle-icon{width:54px;height:54px;border-radius:50%;border:1px solid rgba(214,162,74,.55);display:flex;align-items:center;justify-content:center;color:var(--gold2);background:rgba(255,255,255,.035);backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 12px 30px rgba(0,0,0,.22);flex:0 0 auto}.icon-svg{width:25px;height:25px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .tour-tags{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}.tour-tag{padding:11px 16px;border-radius:999px;border:1px solid rgba(214,162,74,.42);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));color:var(--gold2);font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 22px rgba(0,0,0,.28)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 30px;border-radius:999px;background:linear-gradient(180deg,#ffdb7d,#d99a1e);color:#07111f;font-weight:950;letter-spacing:.08em;text-transform:uppercase;font-size:13px;box-shadow:0 18px 46px rgba(0,0,0,.34),0 0 30px rgba(214,162,74,.18);transition:.28s ease}.btn:hover{transform:translateY(-3px);box-shadow:0 24px 58px rgba(0,0,0,.45),0 0 36px rgba(214,162,74,.28)}
+    .page-main{padding:34px 0 74px}.section-card{margin-top:30px;padding:30px;border-radius:var(--radius);border:1px solid var(--line);background:radial-gradient(circle at top left,rgba(214,162,74,.08),transparent 34%),linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.025));box-shadow:0 24px 60px rgba(0,0,0,.34);overflow:hidden}.two-col{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:46px;align-items:start}h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size:14px;margin-bottom:22px}
+    .highlight-list{display:grid;gap:14px}.highlight{display:flex;gap:12px;color:rgba(255,255,255,.86);line-height:1.45;font-size:15px}.highlight::before,.check::before{content:"✓";color:var(--gold2);width:24px;height:24px;border:1px solid rgba(214,162,74,.62);border-radius:50%;display:grid;place-items:center;flex:0 0 auto;font-size:13px;background:rgba(214,162,74,.04)}
+    .details-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;background:rgba(255,255,255,.025);border:1px solid rgba(214,162,74,.16);overflow:hidden}.details-col{padding:28px;border-right:1px solid rgba(214,162,74,.25);min-height:250px}.details-col:last-child{border-right:none}.details-col h3{font-size:15px}.small-list{display:grid;gap:13px;color:var(--muted);font-size:15px;line-height:1.45}.small-list div{display:flex;gap:8px}.small-list div::before{content:"✓";color:var(--gold2);flex:0 0 auto}.price{font-family:Georgia,"Times New Roman",serif;color:var(--gold2);font-size:50px;margin:8px 0 6px}
+    .program-list{display:grid;gap:14px}.program-item{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid rgba(214,162,74,.18)}.program-item:last-child{border-bottom:none}.program-time{color:var(--gold2);font-weight:950;text-transform:uppercase;letter-spacing:.08em;font-size:13px;line-height:1.4}.program-content h3{margin-bottom:8px;font-family:Georgia,"Times New Roman",serif;font-size:18px;letter-spacing:.08em;color:#ffc45c}.program-content p{margin:0;color:rgba(255,255,255,.82);font-size:15px;line-height:1.65}
+    .gallery-carousel{position:relative;display:grid;grid-template-columns:1fr;gap:16px}.gallery-stage{position:relative;min-height:420px;border-radius:22px;overflow:hidden;border:1px solid rgba(214,162,74,.36);background:rgba(255,255,255,.025);box-shadow:0 22px 48px rgba(0,0,0,.34)}.gallery-stage img{width:100%;height:420px;display:block;object-fit:cover;object-position:center center;cursor:pointer;transition:.35s ease}.gallery-stage img:hover{filter:brightness(1.06);transform:scale(1.01)}
+    .gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,196,92,.55);background:rgba(5,11,20,.58);color:var(--gold2);display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(10px);transition:.25s ease}.gallery-arrow:hover{background:rgba(255,196,92,.12);border-color:rgba(255,220,140,.9);transform:translateY(-50%) scale(1.05)}.gallery-arrow.prev{left:18px}.gallery-arrow.next{right:18px}.gallery-arrow svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.gallery-thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.gallery-thumb{height:108px;padding:0;border-radius:16px;border:1px solid rgba(214,162,74,.25);background:transparent;overflow:hidden;cursor:pointer;opacity:.68;transition:.25s ease}.gallery-thumb img{width:100%;height:100%;display:block;object-fit:cover;object-position:center center}.gallery-thumb.active,.gallery-thumb:hover{opacity:1;border-color:rgba(255,220,140,.8);box-shadow:0 0 0 1px rgba(255,220,140,.18),0 12px 26px rgba(0,0,0,.28)}
+    .info-cards-section{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px;align-items:stretch}.premium-card{position:relative;min-height:360px;height:100%;padding:26px 24px 22px;display:flex;flex-direction:column;border-radius:30px;background:radial-gradient(circle at top,rgba(255,196,92,.10),transparent 32%),radial-gradient(circle at bottom right,rgba(255,190,60,.045),transparent 28%),linear-gradient(180deg,rgba(10,22,39,.96) 0%,rgba(4,12,25,.99) 100%);border:1px solid rgba(255,196,92,.42);box-shadow:inset 0 0 90px rgba(255,196,92,.035),inset 0 1px 0 rgba(255,255,255,.05),0 14px 44px rgba(0,0,0,.46);overflow:hidden;transition:.35s ease}.premium-card::before{content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,220,140,.9),transparent);opacity:.9}.premium-card::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,.035),transparent 28%,transparent 72%,rgba(214,162,74,.025));pointer-events:none}.premium-card:hover{transform:translateY(-6px);border-color:rgba(255,220,140,.74);box-shadow:0 22px 64px rgba(0,0,0,.56),0 0 36px rgba(214,162,74,.13)}.premium-icon{width:58px;height:58px;margin:0 auto 16px;border-radius:50%;border:2px solid rgba(255,196,92,.72);display:flex;align-items:center;justify-content:center;color:#ffc45c;background:radial-gradient(circle,rgba(255,196,92,.16),rgba(255,196,92,.02));box-shadow:0 0 30px rgba(255,196,92,.08),inset 0 1px 0 rgba(255,255,255,.08)}.premium-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}.premium-card h3{text-align:center;color:#ffc45c;font-family:Georgia,"Times New Roman",serif;font-size:18px;letter-spacing:.08em;line-height:1.08;margin-bottom:16px}.premium-line{display:flex;flex-direction:column;gap:4px;color:#fff;font-size:15px;line-height:1.35;margin-bottom:8px}.premium-line strong{font-weight:900;color:#fff}.premium-line span{color:rgba(255,255,255,.86)}
+    .bring-list{list-style:none;padding:0;margin:0;display:grid;gap:0;flex-grow:1}.bring-list li{position:relative;padding:0 0 7px 32px;margin-bottom:7px;color:rgba(255,255,255,.89);font-size:15px;line-height:1.28;border-bottom:1px solid rgba(255,196,92,.13)}.bring-list li:last-child{border-bottom:none}.bring-list li::before{content:"✓";position:absolute;left:0;top:-2px;width:21px;height:21px;border-radius:50%;border:1px solid rgba(255,196,92,.74);color:#ffc45c;display:grid;place-items:center;font-size:13px;background:rgba(255,196,92,.04)}.card-decor{width:138px;height:1px;margin:auto auto 0;background:linear-gradient(90deg,transparent,#ffc45c,transparent);position:relative;opacity:.9}.card-decor::after{content:"✦";position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);padding:0 12px;color:#ffc45c;font-size:15px;background:#06101d}
+    .premium-contact{max-width:980px;margin:28px auto 0;display:flex;justify-content:space-between;align-items:center;gap:30px;padding:22px 30px;border-radius:18px;background:radial-gradient(circle at left,rgba(255,196,92,.08),transparent 35%),linear-gradient(90deg,rgba(18,31,52,.96),rgba(5,14,28,.99));border:1px solid rgba(255,196,92,.38);box-shadow:0 14px 44px rgba(0,0,0,.44),inset 0 1px 0 rgba(255,255,255,.04)}.premium-contact-left{display:flex;align-items:center;gap:24px}.premium-contact-icon{width:54px;height:54px;border-radius:50%;border:2px solid rgba(255,196,92,.62);display:grid;place-items:center;color:#ffc45c;flex:0 0 auto;background:rgba(255,196,92,.04)}.premium-contact-icon svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.premium-contact h3{color:#ffc45c;font-family:Georgia,"Times New Roman",serif;font-size:15px;letter-spacing:.18em;margin-bottom:6px}.premium-contact p{color:rgba(255,255,255,.84);font-size:14px;line-height:1.45;max-width:620px;margin:0}.premium-whatsapp-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 30px;min-width:260px;border-radius:999px;background:linear-gradient(180deg,#ffdb7d,#d99a1e);color:#07111f;font-weight:950;font-size:14px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 12px 36px rgba(255,196,92,.25);transition:.3s ease}.premium-whatsapp-btn:hover{transform:translateY(-4px);box-shadow:0 18px 48px rgba(255,196,92,.38)}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}.lightbox.active{display:flex}.lightbox img{max-width:92vw;max-height:88vh;border-radius:18px;border:1px solid var(--line);box-shadow:0 24px 70px rgba(0,0,0,.65)}.close{position:absolute;top:22px;right:28px;color:white;font-size:34px;cursor:pointer}
+    @media(max-width:980px){.page{width:min(100% - 28px,1180px)}.hero{min-height:auto;padding:30px 0 54px;background-position:center}.breadcrumbs{margin-bottom:44px}.two-col,.details-grid,.info-cards-section{grid-template-columns:1fr}.program-item{grid-template-columns:1fr;gap:8px}.details-col{border-right:none;border-bottom:1px solid rgba(214,162,74,.25);min-height:auto}.details-col:last-child{border-bottom:none}.gallery-stage,.gallery-stage img{min-height:300px;height:300px}.gallery-thumbs{grid-template-columns:repeat(3,1fr)}.gallery-thumb{height:86px}.premium-card{min-height:auto}.premium-contact{flex-direction:column;align-items:flex-start}.premium-contact-left{align-items:flex-start}.premium-whatsapp-btn{width:100%;min-width:0}}
+  </style>
 </head>
-
 <body>
-
-<section class="hero">
-
-<div class="hero-content">
-
-<div class="hero-label">
-Fishing Experience
-</div>
-
-<h1>
-PRIVATE<br>
-FISHING TOUR<br>
-В АЛАНИИ
-</h1>
-
-<div class="hero-subtitle">
-Индивидуальная морская рыбалка на частной яхте с профессиональным капитаном.
-</div>
-
-<div class="hero-text">
-Private sea experience для вашей компании: открытое Средиземное море,
-профессиональное оборудование, рыбалка, обед из улова, напитки и трансфер от отеля.
-</div>
-
-<div class="hero-info">
-
-<div class="info-item">
-<div class="info-icon">⏱</div>
-<div class="info-text">4 HOURS</div>
-</div>
-
-<div class="info-item">
-<div class="info-icon">🎣</div>
-<div class="info-text">PRIVATE FISHING</div>
-</div>
-
-<div class="info-item">
-<div class="info-icon">🚐</div>
-<div class="info-text">TRANSFER</div>
-</div>
-
-</div>
-
-<div class="hero-tags">
-
-<div class="hero-tag">Fishing Experience</div>
-<div class="hero-tag">Private Tour</div>
-<div class="hero-tag">Open Sea</div>
-<div class="hero-tag">Equipment Included</div>
-<div class="hero-tag">Lunch On Board</div>
-
-</div>
-
-</div>
-</section>
-
-<div class="content">
-
+<section class="hero" id="hero"><div class="page"><div class="breadcrumbs">Home › <span id="breadcrumbCategory">Fishing Experiences</span> › <span id="breadcrumbTitle">Private Fishing Tour</span></div><div class="hero-content" data-category="fishing-experiences" data-tags="private-fishing fishing-tour yacht-fishing professional-captain fishing-equipment open-sea tuna dorado transfer-included lunch-on-board soft-drinks private-tour alanya" id="heroContent"><div class="eyebrow" id="eyebrow">Fishing Experience</div><h1 id="tourTitle">Private Fishing Tour<br>в Алании</h1><div class="subtitle" id="tourSubtitle">Индивидуальная морская рыбалка на частной яхте с профессиональным капитаном.</div><p class="hero-text" id="heroText">Private sea experience для вашей компании: открытое Средиземное море, профессиональное оборудование, рыбалка, обед из улова, напитки и трансфер от отеля.</p><div class="hero-icons" id="heroIcons"><div class="hero-icon"><span class="ico">⏱</span>4 HOURS</div><div class="hero-icon"><span class="ico">🎣</span>PRIVATE FISHING</div><div class="hero-icon"><span class="ico">🚐</span>TRANSFER</div></div><div class="tour-tags" id="tourTags"><span class="tour-tag">FISHING EXPERIENCE</span><span class="tour-tag">PRIVATE TOUR</span><span class="tour-tag">OPEN SEA</span><span class="tour-tag">EQUIPMENT INCLUDED</span><span class="tour-tag">LUNCH ON BOARD</span></div><a class="btn" id="heroWhatsapp" target="_blank" rel="noopener" href="https://wa.me/905387045999?text=Здравствуйте!%20Хочу%20забронировать%20Private%20Fishing%20Tour%20в%20Алании.">Book on WhatsApp →</a></div></div></section>
+<main class="page page-main">
+<section class="section-card two-col"><div><h2>About this experience</h2><div id="aboutText"><p>Индивидуальная морская рыбалка в Аланье — это не просто рыбалка, а полноценный private sea experience на комфортабельной яхте только для вашей компании.</p><p>Вместе с профессиональным капитаном вы отправитесь в открытое Средиземное море, где сможете попробовать настоящую турецкую морскую рыбалку в лучших местах миграции рыбы у побережья Аланьи. Во время тура можно поймать тунца, дорадо, барабульку и другие виды морской рыбы в зависимости от сезона.</p><p>Экскурсия проходит в спокойной, расслабленной атмосфере без шумных групп и туристической суеты. Это идеальный вариант для семьи, компании друзей или тех, кто хочет совместить отдых на яхте, море и азарт настоящей рыбалки.</p><p>ALANYA TOUR ORGANIZATIONS предоставляет современное профессиональное оборудование: спиннинги, trolling setup, снасти и всё необходимое для комфортной рыбалки. Наши капитаны и рыбаки отлично знают лучшие рыболовные точки региона, поэтому шанс на хороший улов здесь действительно высокий.</p><p>После рыбалки капитан приготовит пойманную рыбу прямо на борту. Вас ждёт свежий обед с видом на море, напитки, морской бриз и атмосфера настоящего Mediterranean lifestyle.</p><p>В стоимость также входит трансфер из отеля и обратно.</p><p>Если вы хотите почувствовать настоящее море, красивый private отдых и эмоции живой морской рыбалки — Private Fishing Tour станет одной из самых атмосферных экскурсий в Аланье.</p></div></div><div><h2>Highlights</h2><div class="highlight-list" id="highlights"><div class="highlight">Индивидуальная морская рыбалка только для вашей компании</div><div class="highlight">Комфортабельная частная яхта и профессиональный капитан</div><div class="highlight">Рыбалка в открытом Средиземном море у побережья Аланьи</div><div class="highlight">Возможность поймать тунца, дорадо, барабульку и другую рыбу по сезону</div><div class="highlight">Профессиональные спиннинги, trolling setup, снасти и оборудование</div><div class="highlight">Приготовление пойманной рыбы прямо на борту</div><div class="highlight">Обед, soft drinks и трансфер включены</div></div></div></section>
+<section class="section-card"><div class="details-grid"><div class="details-col"><h3>Details</h3><div class="small-list" id="detailsList"><div>Общее время: 4 часа</div><div>Формат: private fishing tour</div><div>Доступно: каждый день</div><div>Pickup: hotel / apartment address</div><div>Море: open sea fishing near Alanya</div></div></div><div class="details-col"><h3>Price</h3><div class="price" id="price">€100</div><p id="priceNote">1 person</p><p id="childrenPrice">2 persons — €150<br>More than 2 persons — €50 / person<br>Children 0–3 years old: free</p></div><div class="details-col"><h3>Included</h3><div class="small-list" id="includedList"><div>Transfer from hotel or apartment</div><div>Lunch on board</div><div>Fishing tackle and equipment</div><div>Cooking the catch</div><div>Unlimited soft drinks: Cola, Sprite, Fanta, water</div></div></div><div class="details-col"><h3>Not included</h3><div class="small-list" id="notIncludedList"><div>Alcoholic drinks</div><div>Personal expenses</div><div>Optional photo or video services if available</div></div></div></div></section>
+<section class="section-card program-section"><h2>Program</h2><div class="program-list" id="programList"><div class="program-item"><div class="program-time">Pickup</div><div class="program-content"><h3>Hotel / Apartment Pickup</h3><p>Pickup from hotel or apartment address. Comfortable transfer to the harbor and meeting with the captain.</p></div></div><div class="program-item"><div class="program-time">Harbor</div><div class="program-content"><h3>Departure To Open Sea</h3><p>Departure from Alanya harbor on a private fishing yacht. The captain chooses the best fishing points depending on season and sea conditions.</p></div></div><div class="program-item"><div class="program-time">Fishing</div><div class="program-content"><h3>Private Sea Fishing</h3><p>Fishing with professional equipment, spinning rods, trolling setup and guidance from experienced fishermen who know the local migration routes.</p></div></div><div class="program-item"><div class="program-time">Lunch</div><div class="program-content"><h3>Fresh Catch Lunch On Board</h3><p>The captain prepares the caught fish on board. Enjoy fresh food, soft drinks, sea breeze and Mediterranean atmosphere.</p></div></div><div class="program-item"><div class="program-time">Return</div><div class="program-content"><h3>Return Transfer</h3><p>Return to Alanya harbor and transfer back to hotel or apartment address.</p></div></div><div class="program-item"><div class="program-time">Time slots</div><div class="program-content"><h3>Available Tour Times</h3><p>1 — 05:30–09:30<br>2 — 09:30–13:30<br>3 — 13:00–17:00</p></div></div></div></section>
 <section class="section-card gallery-section">
 
 <h2>Photo Gallery</h2>
 
+<div class="gallery-carousel">
+
 <div class="gallery-stage">
 
-<button class="gallery-arrow prev" type="button" onclick="changeGallery(-1)">
+<button
+aria-label="Previous photo"
+class="gallery-arrow prev"
+onclick="changeGallery(-1)"
+type="button">
+
 <svg viewBox="0 0 24 24">
 <path d="M15 18l-6-6 6-6"></path>
 </svg>
+
 </button>
 
 <img
-id="gallery-current"
-src="images/private-fishing/private-fishing-collage.jpeg"
 alt="Private fishing tour collage"
+id="gallery-current"
 onclick="openLightbox(this.src)"
->
+src="images/private-fishing/private-fishing-collage.jpeg"/>
 
-<button class="gallery-arrow next" type="button" onclick="changeGallery(1)">
+<button
+aria-label="Next photo"
+class="gallery-arrow next"
+onclick="changeGallery(1)"
+type="button">
+
 <svg viewBox="0 0 24 24">
 <path d="M9 6l6 6-6 6"></path>
 </svg>
+
 </button>
 
 </div>
 
-<div class="gallery-thumbs">
+<div
+aria-label="Gallery thumbnails"
+class="gallery-thumbs"
+id="galleryThumbs">
 
-<button class="gallery-thumb active" onclick="setGallery(0)">
+<button
+class="gallery-thumb active"
+onclick="setGallery(0)"
+type="button">
+
 <img
-src="images/private-fishing/private-fishing-collage.jpeg"
-alt="Private fishing tour collage">
+alt="Private fishing tour collage"
+src="images/private-fishing/private-fishing-collage.jpeg"/>
+
 </button>
 
-<button class="gallery-thumb" onclick="setGallery(1)">
+<button
+class="gallery-thumb"
+onclick="setGallery(1)"
+type="button">
+
 <img
-src="images/private-fishing/private-fishing-hero.jpeg"
-alt="Private Fishing Tour in Alanya">
+alt="Private Fishing Tour in Alanya"
+src="images/private-fishing/private-fishing-hero.jpeg"/>
+
 </button>
 
-<button class="gallery-thumb" onclick="setGallery(2)">
+<button
+class="gallery-thumb"
+onclick="setGallery(2)"
+type="button">
+
 <img
-src="images/private-fishing/private-fishing-gallery-1.jpeg"
-alt="Fishing yacht in Alanya">
+alt="Fishing yacht in Alanya"
+src="images/private-fishing/private-fishing-gallery-1.jpeg"/>
+
 </button>
 
-<button class="gallery-thumb" onclick="setGallery(3)">
+<button
+class="gallery-thumb"
+onclick="setGallery(3)"
+type="button">
+
 <img
-src="images/private-fishing/private-fishing-gallery-2.jpeg"
-alt="Private fishing yacht top view">
+alt="Private fishing yacht top view"
+src="images/private-fishing/private-fishing-gallery-2.jpeg"/>
+
 </button>
 
-<button class="gallery-thumb" onclick="setGallery(4)">
+<button
+class="gallery-thumb"
+onclick="setGallery(4)"
+type="button">
+
 <img
-src="images/private-fishing/private-fishing-gallery-3.jpeg"
-alt="Lunch on private fishing yacht">
+alt="Lunch on private fishing yacht"
+src="images/private-fishing/private-fishing-gallery-3.jpeg"/>
+
 </button>
+
+</div>
 
 </div>
 
 </section>
-
-</div>
-
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-<div class="lightbox-close">&times;</div>
-<img id="lightbox-img" src="" alt="">
-</div>
-
+<section aria-label="Основная информация о туре" class="info-cards-section"><div class="premium-card"><div class="premium-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"></circle><path d="M12 13V8"></path><path d="M12 13l3 2"></path><path d="M9 2h6"></path><path d="M12 2v3"></path></svg></div><h3>Tour time</h3><div id="tourTimeCard"><div class="premium-line"><strong>Общее время:</strong><span>4 часа</span></div><div class="premium-line"><strong>1 половина дня:</strong><span>05:30 – 09:30</span></div><div class="premium-line"><strong>2 половина дня:</strong><span>09:30 – 13:30</span></div><div class="premium-line"><strong>3 половина дня:</strong><span>13:00 – 17:00</span></div><div class="premium-line"><strong>Дни проведения:</strong><span>каждый день</span></div></div><div class="card-decor"></div></div><div class="premium-card"><div class="premium-icon"><svg viewBox="0 0 24 24"><rect height="14" rx="2" width="10" x="7" y="6"></rect><path d="M9 6V4h6v2"></path><path d="M9 10h6"></path></svg></div><h3>What to bring</h3><ul class="bring-list" id="bringList"><li>Полотенце</li><li>Очки</li><li>Купальник</li><li>Одежда по погоде</li><li>Вода</li><li>Удобная обувь</li><li>Солнцезащитный крем</li><li>Камера / телефон для связи</li></ul><div class="card-decor"></div></div><div class="premium-card"><div class="premium-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="10" r="2.3"></circle><path d="M3.5 20c.8-4 3-6 5.5-6s4.7 2 5.5 6"></path><path d="M13.5 20c.5-2.9 2-4.6 3.5-4.6 1.7 0 3 1.8 3.5 4.6"></path></svg></div><h3>Child policy</h3><div id="childPolicyCard"><div class="premium-line"><strong>0–3 years old:</strong><span>free</span></div></div><div class="card-decor"></div></div><div class="premium-card"><div class="premium-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13v9H3z"></path><path d="M16 10h3l2 3v3h-5"></path><circle cx="7" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg></div><h3>Pickup information</h3><div id="pickupCard"><div class="premium-line"><span>Pickup from hotel or apartment address.</span></div><div class="premium-line"><span>Comfortable transfer to the harbor.</span></div><div class="premium-line"><span>Exact pickup time is confirmed after booking.</span></div></div><div class="card-decor"></div></div></section>
+<section class="premium-contact"><div class="premium-contact-left"><div class="premium-contact-icon"><svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z"></path><path d="M9 8.5c.3 2.8 2.1 4.6 5 5"></path></svg></div><div><h3>Have questions?</h3><p id="questionText">Напишите нам в WhatsApp — подскажем доступное время, формат private fishing, стоимость для вашей компании, детали трансфера и что взять с собой.</p></div></div><a class="premium-whatsapp-btn" href="https://wa.me/905387045999?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20про%20Private%20Fishing%20Tour%20в%20Алании." id="bottomWhatsapp" rel="noopener" target="_blank">Chat on WhatsApp →</a></section>
+</main>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()"><span class="close">×</span><img alt="" id="lightbox-img" src=""/></div>
 <script>
-
 const galleryImages = [
-{
-src:"images/private-fishing/private-fishing-collage.jpeg",
-alt:"Private fishing tour collage"
-},
-{
-src:"images/private-fishing/private-fishing-hero.jpeg",
-alt:"Private Fishing Tour in Alanya"
-},
-{
-src:"images/private-fishing/private-fishing-gallery-1.jpeg",
-alt:"Fishing yacht in Alanya"
-},
-{
-src:"images/private-fishing/private-fishing-gallery-2.jpeg",
-alt:"Private fishing yacht top view"
-},
-{
-src:"images/private-fishing/private-fishing-gallery-3.jpeg",
-alt:"Lunch on private fishing yacht"
-}
+  "images/private-fishing/private-fishing-collage.jpeg",
+  "images/private-fishing/private-fishing-hero.jpeg",
+  "images/private-fishing/private-fishing-gallery-1.jpeg",
+  "images/private-fishing/private-fishing-gallery-2.jpeg",
+  "images/private-fishing/private-fishing-gallery-3.jpeg"
 ];
 
 let galleryIndex = 0;
 
-function setGallery(index){
-
-galleryIndex =
-(index + galleryImages.length) % galleryImages.length;
-
-const current =
-document.getElementById("gallery-current");
-
-current.src = galleryImages[galleryIndex].src;
-current.alt = galleryImages[galleryIndex].alt;
-
-document
-.querySelectorAll(".gallery-thumb")
-.forEach((thumb,i)=>{
-thumb.classList.toggle("active",i===galleryIndex);
-});
-
+function setGallery(index) {
+  galleryIndex = (index + galleryImages.length) % galleryImages.length;
+  const current = document.getElementById('gallery-current');
+  current.src = galleryImages[galleryIndex].src;
+  current.alt = galleryImages[galleryIndex].alt;
+  document.querySelectorAll('.gallery-thumb').forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === galleryIndex);
+  });
 }
 
-function changeGallery(direction){
-setGallery(galleryIndex + direction);
+function changeGallery(direction) {
+  setGallery(galleryIndex + direction);
 }
 
-function openLightbox(src){
-
-document.getElementById("lightbox-img").src = src;
-
-document
-.getElementById("lightbox")
-.classList.add("active");
-
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
 }
 
-function closeLightbox(){
-
-document
-.getElementById("lightbox")
-.classList.remove("active");
-
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
 }
-
 </script>
-
 </body>
 </html>
