@@ -23,8 +23,40 @@ rgba(4,10,18,.08) 100%
 ),
 url("images/gazipasa-bays/gazipasa-hero.jpeg")
 center/cover no-repeat;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:160px;background:linear-gradient(180deg,transparent,var(--bg));box-shadow:inset 0 -180px 220px rgba(2,8,15,.78);pointer-events:none}
-.hero .page{position:relative;z-index:2}
+.hero::after{
+content:"";
+position:absolute;
+left:0;
+right:0;
+bottom:-1px;
+height:260px;
+background:
+linear-gradient(
+180deg,
+rgba(5,11,20,0) 0%,
+rgba(5,11,20,.55) 45%,
+#050b14 100%
+);
+pointer-events:none;
+z-index:1;
+}
+  .hero::before{
+content:"";
+position:absolute;
+left:50%;
+bottom:-54px;
+transform:translateX(-50%);
+width:72%;
+height:110px;
+background:radial-gradient(
+ellipse at center,
+rgba(243,198,109,.22) 0%,
+rgba(243,198,109,.08) 34%,
+rgba(243,198,109,0) 72%
+);
+pointer-events:none;
+z-index:2;
+}
 .breadcrumbs{color:rgba(255,255,255,.76);font-size:14px;margin-bottom:70px}
 .breadcrumbs span{color:var(--gold2)}
 .hero-content{max-width:760px}
@@ -40,7 +72,28 @@ p{color:var(--muted);line-height:1.75;font-size:16px;margin-bottom:14px}
 .tour-tag{padding:11px 16px;border-radius:999px;border:1px solid rgba(214,162,74,.42);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));color:var(--gold2);font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 22px rgba(0,0,0,.28)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 30px;border-radius:999px;background:linear-gradient(180deg,#ffdb7d,#d99a1e);color:#07111f;font-weight:950;letter-spacing:.08em;text-transform:uppercase;font-size:13px;box-shadow:0 18px 46px rgba(0,0,0,.34),0 0 30px rgba(214,162,74,.18);transition:.28s ease}
 .btn:hover{transform:translateY(-3px);box-shadow:0 24px 58px rgba(0,0,0,.45),0 0 36px rgba(214,162,74,.28)}
-.page-main{padding:34px 0 74px}
+.page-main::before{
+content:"✦";
+display:flex;
+align-items:center;
+justify-content:center;
+width:180px;
+height:34px;
+margin:0 auto 18px;
+color:var(--gold2);
+font-size:18px;
+background:
+linear-gradient(90deg,transparent,rgba(243,198,109,.6),transparent);
+background-size:100% 1px;
+background-repeat:no-repeat;
+background-position:center;
+}
+  .page-main{
+position:relative;
+z-index:5;
+padding:0 0 74px;
+margin-top:-72px;
+}
 .section-card{margin-top:30px;padding:30px;border-radius:var(--radius);border:1px solid var(--line);background:radial-gradient(circle at top left,rgba(214,162,74,.08),transparent 34%),linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.025));box-shadow:0 24px 60px rgba(0,0,0,.34);overflow:hidden}
 .two-col{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:46px;align-items:start}
 h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size:14px;margin-bottom:22px}
