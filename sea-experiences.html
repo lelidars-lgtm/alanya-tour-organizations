@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Sea Experiences | ALANYA TOUR ORGANIZATIONS</title>
+
+  <style>
+    :root{
+      --bg:#04101d;
+      --navy:#071625;
+      --navy2:#0b2035;
+      --gold:#d6a24a;
+      --gold2:#f3c66d;
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.76);
+      --line:rgba(214,162,74,.34);
+      --soft:rgba(255,255,255,.08);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at 50% 0%,rgba(214,162,74,.08),transparent 34%),
+        linear-gradient(180deg,#04101d,#061321 48%,#030a13);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{display:block;width:100%}
+
+    .sea-page{
+      max-width:1220px;
+      margin:0 auto;
+      padding:0 28px;
+    }
+
+    /* ===== HERO ===== */
+
+    .sea-hero{
+      position:relative;
+      min-height:560px;
+      padding:34px 0 70px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(4,12,22,.82) 0%,
+          rgba(4,12,22,.58) 34%,
+          rgba(4,12,22,.18) 58%,
+          rgba(4,12,22,.06) 100%
+        ),
+        url("images/sea-experiences/sea-category-hero.jpg") center right/cover no-repeat;
+      border-bottom:1px solid rgba(214,162,74,.18);
+      overflow:hidden;
+    }
+
+    .sea-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 78% 42%, rgba(214,162,74,.16), transparent 36%),
+        linear-gradient(90deg, rgba(4,12,22,.08), rgba(4,12,22,.34));
+      pointer-events:none;
+    }
+
+    .sea-hero::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:90px;
+      background:linear-gradient(180deg, transparent, rgba(4,16,29,.72));
+      pointer-events:none;
+    }
+
+    .sea-hero-inner{
+      position:relative;
+      z-index:2;
+      max-width:1220px;
+      margin:0 auto;
+      padding:0 28px;
+    }
+
+    .breadcrumbs{
+      padding-top:18px;
+      color:rgba(255,255,255,.80);
+      font-size:14px;
+      margin-bottom:64px;
+    }
+
+    .breadcrumbs span{color:var(--gold2)}
+
+    .eyebrow{
+      color:var(--gold2);
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:13px;
+      font-weight:900;
+      margin-bottom:18px;
+    }
+
+    .sea-hero h1{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(46px,5.4vw,74px);
+      line-height:.92;
+      text-transform:uppercase;
+      font-weight:500;
+      max-width:720px;
+      margin-bottom:18px;
+      text-shadow:0 18px 44px rgba(0,0,0,.55);
+    }
+
+    .gold-divider{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      width:min(430px,100%);
+      margin:12px 0 22px;
+      color:var(--gold2);
+    }
+
+    .gold-divider::before,
+    .gold-divider::after{
+      content:"";
+      height:1px;
+      flex:1;
+      background:linear-gradient(90deg,transparent,var(--gold2));
+      opacity:.72;
+    }
+
+    .gold-divider::after{
+      background:linear-gradient(90deg,var(--gold2),transparent);
+    }
+
+    .gold-divider span{
+      font-size:22px;
+      line-height:1;
+    }
+
+    .hero-subtitle{
+      max-width:590px;
+      color:rgba(255,255,255,.86);
+      line-height:1.72;
+      font-size:18px;
+      margin-bottom:30px;
+    }
+
+    .hero-features{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-top:28px;
+    }
+
+    .hero-feature{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:150px;
+      padding:13px 16px;
+      border-radius:999px;
+      border:1px solid rgba(214,162,74,.34);
+      background:rgba(3,12,22,.50);
+      backdrop-filter:blur(10px);
+      color:#fff;
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+
+    .hero-feature svg{
+      width:28px;
+      height:28px;
+      color:var(--gold2);
+      stroke:currentColor;
+      fill:none;
+      stroke-width:1.65;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      flex:0 0 auto;
+    }
+
+    /* ===== COMMON ===== */
+
+    .section-shell{
+      margin-top:0;
+      padding:30px;
+      border-radius:26px;
+      border:1px solid rgba(214,162,74,.28);
+      background:
+        radial-gradient(circle at top left,rgba(214,162,74,.07),transparent 36%),
+        linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));
+      box-shadow:0 26px 70px rgba(0,0,0,.34);
+    }
+
+    .section-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:22px;
+    }
+
+    .section-title{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:27px;
+      line-height:1;
+      color:white;
+      text-transform:uppercase;
+      font-weight:500;
+      position:relative;
+      padding-bottom:12px;
+    }
+
+    .section-title::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:62px;
+      height:2px;
+      background:var(--gold);
+    }
+
+    .view-all{
+      color:var(--gold2);
+      text-transform:uppercase;
+      font-weight:900;
+      letter-spacing:.08em;
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    /* ===== POPULAR ===== */
+
+    .popular-section{
+      position:relative;
+      z-index:3;
+      margin-top:-54px;
+    }
+
+    .popular-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .tour-card{
+      display:block;
+      overflow:hidden;
+      border-radius:16px;
+      border:1px solid rgba(214,162,74,.34);
+      background:linear-gradient(180deg,#071827,#04101d);
+      box-shadow:0 18px 48px rgba(0,0,0,.30);
+      transition:.34s ease;
+      min-height:100%;
+    }
+
+    .tour-card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(243,198,109,.80);
+      box-shadow:0 28px 70px rgba(0,0,0,.46);
+    }
+
+    .tour-image{
+      position:relative;
+      height:235px;
+      overflow:hidden;
+      background:#081625;
+    }
+
+    .tour-image img{
+      height:100%;
+      object-fit:cover;
+      transition:.55s ease;
+    }
+
+    .tour-card:hover .tour-image img{transform:scale(1.06)}
+
+    .badge{
+      position:absolute;
+      top:14px;
+      left:14px;
+      padding:8px 13px;
+      border-radius:999px;
+      color:white;
+      background:linear-gradient(180deg,#f4c36c,#d69b31);
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+    }
+
+    .tour-body{
+      padding:22px;
+    }
+
+    .tour-body h3{
+      font-family:Georgia,"Times New Roman",serif;
+      color:white;
+      font-size:27px;
+      font-weight:500;
+      margin-bottom:10px;
+    }
+
+    .tour-price{
+      display:flex;
+      align-items:flex-end;
+      gap:6px;
+      margin:2px 0 14px;
+      color:var(--gold2);
+    }
+
+    .tour-price small{
+      color:rgba(255,255,255,.72);
+      font-size:13px;
+      line-height:1.1;
+      margin-right:2px;
+    }
+
+    .tour-price strong{
+      font-size:36px;
+      line-height:.95;
+      font-weight:900;
+      letter-spacing:.01em;
+    }
+
+    .tour-price span{
+      color:rgba(255,255,255,.86);
+      font-size:14px;
+      line-height:1.2;
+      margin-bottom:4px;
+    }
+
+    .tour-body p{
+      color:rgba(255,255,255,.82);
+      line-height:1.55;
+      font-size:15px;
+      margin-bottom:16px;
+      min-height:48px;
+    }
+
+    .tour-bottom{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      border-top:1px solid rgba(214,162,74,.22);
+      padding-top:16px;
+    }
+
+    .meta{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      color:rgba(255,255,255,.80);
+      font-size:13px;
+    }
+
+    .meta span{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .meta svg{
+      width:17px;
+      height:17px;
+      color:var(--gold2);
+      stroke:currentColor;
+      fill:none;
+      stroke-width:1.7;
+    }
+
+    .circle-arrow{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      border:1px solid var(--gold2);
+      display:grid;
+      place-items:center;
+      color:var(--gold2);
+      font-size:24px;
+      flex:0 0 auto;
+    }
+
+    /* ===== COLLECTIONS ===== */
+
+    .collections-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      margin-top:24px;
+    }
+
+    .collection-card{
+      scroll-margin-top:24px;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid rgba(214,162,74,.30);
+      background:linear-gradient(180deg,#071827,#04101d);
+      box-shadow:0 18px 48px rgba(0,0,0,.28);
+    }
+
+    .collection-card:target{
+      border-color:rgba(243,198,109,.82);
+      box-shadow:0 0 0 1px rgba(243,198,109,.18),0 28px 70px rgba(0,0,0,.48);
+    }
+
+    .collection-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 18px 12px;
+      gap:12px;
+    }
+
+  .tour-price strong{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:42px;
+  line-height:.95;
+  font-weight:700;
+
+  background:linear-gradient(180deg,#fff0b8 0%,#f3c66d 42%,#c98724 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+
+  text-shadow:0 10px 24px rgba(0,0,0,.42);
+}
+
+    .collection-head a{
+      color:var(--gold2);
+      font-size:11px;
+      font-weight:900;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .collection-img{
+      position:relative;
+      height:235px;
+      overflow:hidden;
+    }
+
+   .collection-img img{
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:.6s ease;
+}
+
+.collection-card:hover .collection-img img{
+  transform:scale(1.04);
+}
+
+    .collection-icon{
+      position:absolute;
+      top:14px;
+      left:14px;
+      width:42px;
+      height:42px;
+      border-radius:8px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(180deg,#f4c36c,#d69b31);
+      color:#05101d;
+      font-size:20px;
+      box-shadow:0 10px 24px rgba(0,0,0,.28);
+    }
+
+    .mini-list{
+      padding:0 18px 18px;
+    }
+
+    .mini-item{
+      display:grid;
+      grid-template-columns:48px 1fr 20px;
+      align-items:center;
+      gap:12px;
+      padding:11px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      color:white;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .mini-item:last-child{border-bottom:none}
+
+    .mini-item img{
+      width:48px;
+      height:48px;
+      border-radius:10px;
+      object-fit:cover;
+      object-position:center;
+      border:1px solid rgba(214,162,74,.22);
+      box-shadow:0 8px 18px rgba(0,0,0,.28);
+    }
+
+    .mini-item span:last-child{
+      color:var(--gold2);
+      font-size:22px;
+    }
+
+    /* ===== CTA ===== */
+
+    .booking-cta{
+      max-width:1020px;
+      margin:30px auto 0;
+      display:grid;
+      grid-template-columns:1fr auto;
+      align-items:center;
+      gap:30px;
+      padding:24px 32px;
+      border-radius:18px;
+      border:1px solid rgba(214,162,74,.34);
+      background:
+        radial-gradient(circle at left,rgba(214,162,74,.12),transparent 34%),
+        linear-gradient(90deg,#071827,#04101d);
+      box-shadow:0 24px 60px rgba(0,0,0,.36);
+    }
+
+    .booking-left{
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+
+    .whatsapp-icon{
+      width:72px;
+      height:72px;
+      border-radius:50%;
+      border:2px solid var(--gold2);
+      display:grid;
+      place-items:center;
+      color:var(--gold2);
+      font-size:34px;
+      flex:0 0 auto;
+    }
+
+    .booking-left h3{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:26px;
+      color:var(--gold2);
+      font-weight:500;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .booking-left p{
+      color:rgba(255,255,255,.82);
+      font-size:15px;
+    }
+
+    .gold-btn{
+      min-width:300px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      padding:18px 28px;
+      border-radius:9px;
+      background:linear-gradient(180deg,#f5cc77,#d9a13a);
+      color:#061321;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      box-shadow:0 18px 44px rgba(214,162,74,.22);
+    }
+
+    /* ===== TRUST ===== */
+
+    .trust-bar{
+      margin:28px 0 54px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border:1px solid rgba(214,162,74,.30);
+      border-radius:16px;
+      background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));
+      overflow:hidden;
+    }
+
+    .trust-item{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:23px 26px;
+      border-right:1px solid rgba(214,162,74,.24);
+      color:white;
+      text-transform:uppercase;
+      font-size:13px;
+      line-height:1.35;
+      letter-spacing:.04em;
+    }
+
+    .trust-item:last-child{border-right:none}
+
+    .trust-item svg{
+      width:30px;
+      height:30px;
+      color:var(--gold2);
+      stroke:currentColor;
+      fill:none;
+      stroke-width:1.6;
+      flex:0 0 auto;
+    }
+
+    /* ===== MOBILE ===== */
+
+    @media(max-width:1060px){
+      .popular-grid,
+      .collections-grid,
+      .trust-bar{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .booking-cta{
+        grid-template-columns:1fr;
+      }
+
+      .gold-btn{
+        width:100%;
+      }
+    }
+
+    @media(max-width:720px){
+      .sea-page,
+      .sea-hero-inner{
+        padding:0 18px;
+      }
+
+      .sea-hero{
+        min-height:auto;
+        padding-bottom:54px;
+      }
+
+      .breadcrumbs{
+        margin-bottom:42px;
+      }
+
+      .sea-hero h1{
+        font-size:52px;
+      }
+
+      .hero-subtitle{
+        font-size:16px;
+      }
+
+      .popular-grid,
+      .collections-grid,
+      .trust-bar{
+        grid-template-columns:1fr;
+      }
+
+      .section-shell{
+        padding:20px;
+        border-radius:22px;
+      }
+
+      .section-top{
+        align-items:flex-start;
+      }
+
+      .tour-image,
+      .collection-img{
+        height:220px;
+      }
+
+      .booking-cta{
+        padding:22px;
+      }
+
+      .booking-left{
+        align-items:flex-start;
+      }
+
+      .whatsapp-icon{
+        width:58px;
+        height:58px;
+        font-size:28px;
+      }
+
+      .trust-item{
+        border-right:none;
+        border-bottom:1px solid rgba(214,162,74,.22);
+      }
+
+      .trust-item:last-child{border-bottom:none}
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="sea-hero">
+  <div class="sea-hero-inner">
+    <div class="breadcrumbs">Home › Tours › <span>Sea Experiences</span></div>
+
+    <div class="eyebrow">Sea Experiences</div>
+
+    <h1>Sea<br>Experiences</h1>
+
+   <div class="gold-divider"><span>⚓</span></div>
+
+    <p class="hero-subtitle">
+      Premium sea tours in Alanya: pirate yachts, hidden bays,
+      catamaran tours, fishing experiences and luxury yacht cruises.
+    </p>
+
+    <div class="hero-features">
+      <div class="hero-feature">
+        <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-5"/></svg>
+        Safety<br>First
+      </div>
+
+      <div class="hero-feature">
+        <svg viewBox="0 0 24 24"><path d="M4 18h16l-2-10-4 4-2-6-2 6-4-4-2 10z"/><path d="M4 21h16"/></svg>
+        Premium<br>Service
+      </div>
+
+      <div class="hero-feature">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/><path d="M14 20c.5-2.8 1.8-4.2 3.4-4.2 1.7 0 3 1.5 3.6 4.2"/></svg>
+        Family<br>Friendly
+      </div>
+
+      <div class="hero-feature">
+        <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/><path d="M18 3v5h5"/></svg>
+        Easy<br>Booking
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="sea-page">
+
+  <section class="popular-section section-shell">
+    <div class="section-top">
+      <h2 class="section-title">Popular Sea Tours</h2>
+      <a class="view-all" href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20see%20all%20sea%20tours%20in%20Alanya." target="_blank">View all tours →</a>
+    </div>
+
+    <div class="popular-grid">
+
+      <a href="pirate-yacht.html" class="tour-card">
+        <div class="tour-image">
+          <img src="images/admiral-black-hero.jpg" alt="Pirate Yacht Tour">
+          <span class="badge">Top Pick</span>
+        </div>
+
+        <div class="tour-body">
+          <h3>Pirate Yacht Tour</h3>
+
+          <div class="tour-price">
+            <small>From</small>
+            <strong>€25</strong>
+            <span>/ per person</span>
+          </div>
+
+          <p>Fun, animation, lunch and foam party.</p>
+
+          <div class="tour-bottom">
+            <div class="meta">
+              <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>6–7 Hours</span>
+              <span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>All Ages</span>
+            </div>
+
+            <div class="circle-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+      <a href="relax-boat-tour.html" class="tour-card">
+  <div class="tour-image">
+    <img src="images/relax-boat/relax-hero.jpg" alt="Relax Boat Tour">
+    <span class="badge">Bestseller</span>
+  </div>
+
+        <div class="tour-body">
+          <h3>Relax Boat Tour</h3>
+
+          <div class="tour-price">
+            <small>From</small>
+            <strong>€25</strong>
+            <span>/ per person</span>
+          </div>
+
+          <p>Swim stops, hidden bays and peaceful sea atmosphere.</p>
+
+          <div class="tour-bottom">
+            <div class="meta">
+              <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>5–6 Hours</span>
+              <span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>Small Group</span>
+            </div>
+
+            <div class="circle-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+     <a href="catamaran.html" class="tour-card">
+
+  <div class="tour-image">
+    <img
+      src="images/catamaran/catamaran-card.jpg"
+      alt="Catamaran Tour"
+    >
+
+    <span class="badge">
+      Sunset Tour
+    </span>
+  </div>
+
+  <div class="tour-body">
+    <h3>Catamaran Tour</h3>
+
+          <div class="tour-price">
+            <small>From</small>
+            <strong>€25</strong>
+            <span>/ per person</span>
+          </div>
+
+          <p>Sunset catamaran experience with music, swimming stops and Mediterranean atmosphere.</p>
+
+          <div class="tour-bottom">
+            <div class="meta">
+              <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>5–6 Hours</span>
+              <span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>All Ages</span>
+            </div>
+
+            <div class="circle-arrow">→</div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+<section class="collections-grid">
+
+  <!-- RELAX & PRIVATE -->
+
+  <div class="collection-card" id="relax-private">
+    <div class="collection-head">
+      <h3>Relax & Private</h3>
+
+      <a href="#relax-private" aria-label="View all Relax & Private tours">View all →</a>
+    </div>
+
+    <div class="collection-img">
+      <img src="images/sea-experiences/relax-private.jpg" alt="Relax and Private Sea Tours">
+      <div class="collection-icon">◇</div>
+    </div>
+
+    <div class="mini-list">
+
+      <a href="pirate-yacht.html" class="mini-item">
+        <img src="images/admiral-black-hero.jpg" alt="Pirate Yacht Tour">
+        Pirate Yacht Tour
+        <span>›</span>
+      </a>
+
+      <a href="relax-boat-tour.html" class="mini-item">
+        <img src="images/relax-boat/relax-hero.jpg" alt="Relax Boat Tour">
+        Relax Boat Tour
+        <span>›</span>
+      </a>
+
+      <a href="catamaran.html" class="mini-item">
+        <img src="images/catamaran/catamaran-card.jpg" alt="Catamaran Tour">
+        Catamaran Tour
+        <span>›</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- FISHING EXPERIENCES -->
+
+<div class="collection-card" id="fishing-experiences">
+  <div class="collection-head">
+    <h3>Fishing Experiences</h3>
+
+    <a href="#fishing-experiences" aria-label="View all Fishing Experiences tours">VIEW ALL →</a>
+  </div>
+
+ <div class="collection-img">
+  <img
+    src="images/group-fishing/fishing-experiences.jpg"
+    alt="Fishing Experiences">
+
+  <div class="collection-icon">⚓</div>
+</div>
+
+  <div class="mini-list">
+
+    <a href="private-fishing-tour.html" class="mini-item">
+      <img
+        src="images/private-fishing/private-fishing-hero.jpeg"
+        alt="Private Fishing Tour">
+
+      Private Fishing Tour in Alanya
+      <span>›</span>
+    </a>
+
+    <a href="fishing-tour.html" class="mini-item">
+      <img
+        src="images/group-fishing/group-fishing-gallery-2.jpeg"
+        alt="Group Fishing Tour">
+
+      Group Fishing Tour
+      <span>›</span>
+    </a>
+
+  </div>
+</div>
+
+  <!-- HIDDEN BAYS -->
+
+  <div class="collection-card" id="hidden-bays-islands">
+  <div class="collection-head">
+    <h3>Hidden Bays & Islands</h3>
+
+    <a href="#hidden-bays-islands" aria-label="View all Hidden Bays & Islands tours">View all →</a>
+  </div>
+
+  <div class="collection-img">
+    <img src="images/sea-experiences/hidden-bays-islands.jpg" alt="Hidden Bays and Islands">
+    <div class="collection-icon">☆</div>
+  </div>
+
+  <div class="mini-list">
+
+    <a href="adrasan-suluada-porto-genovese.html" class="mini-item">
+      <img src="images/adrasan-suluada/adrasan-hero.png" alt="Adrasan Suluada Porto Genovese Bay">
+      Adrasan – Suluada – Porto Genovese Bay
+      <span>›</span>
+    </a>
+
+    <a href="gazipasa-bays.html" class="mini-item">
+      <img src="images/gazipasa-bays/gazipasa-gallery-1.jpeg" alt="Gazipaşa Bays">
+      Gazipaşa Bays
+      <span>›</span>
+    </a>
+
+  </div>
+</div>
+ <div class="collection-card" id="vip-luxury">
+  <div class="collection-head">
+    <h3>VIP & Luxury</h3>
+
+    <a href="#vip-luxury" aria-label="View all VIP & Luxury tours">View all →</a>
+  </div>
+
+  <div class="collection-img">
+    <img src="images/luxury-yacht/luxury-gallery-3.png" alt="VIP & Luxury">
+    <div class="collection-icon">♕</div>
+  </div>
+
+  <div class="mini-list">
+
+    <a href="luxury-yacht-cruise.html" class="mini-item">
+      <img src="images/luxury-yacht/luxury-gallery-4.png" alt="Luxury Yacht Cruise">
+      Luxury Yacht Cruise
+      <span>›</span>
+    </a>
+
+  </div>
+</div>
+</section>
+
+<section class="booking-cta">
+    <div class="booking-left">
+      <div class="whatsapp-icon">☏</div>
+      <div>
+        <h3>Book Your Sea Adventure</h3>
+        <p>Quick and easy booking via WhatsApp</p>
+      </div>
+    </div>
+
+    <a
+      class="gold-btn"
+      href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20book%20a%20sea%20tour%20in%20Alanya."
+      target="_blank">
+      Book on WhatsApp →
+    </a>
+  </section>
+
+  <section class="trust-bar">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3z"/></svg>
+      Best Price<br>Guarantee
+    </div>
+
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M4 10h16"/></svg>
+      Free Cancellation<br>Flexible Booking
+    </div>
+
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      24/7 Support<br>We Are Here
+    </div>
+
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-5"/></svg>
+      Trusted Company<br>Licensed & Insured
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
