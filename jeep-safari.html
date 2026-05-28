@@ -15,6 +15,122 @@
 @media(max-width:980px){.two-col,.details-grid,.info-grid,.gallery-grid{grid-template-columns:1fr}.program-item{grid-template-columns:1fr}.contact-box{flex-direction:column;align-items:flex-start}.gallery-grid img{height:240px}}
 </style>
 </head>
+  <div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-arrow left" onclick="prevImage()">‹</button>
+  <img id="lightboxImg" src="" alt="">
+  <button class="lightbox-arrow right" onclick="nextImage()">›</button>
+</div>
+
+<script>
+const galleryImages = Array.from(document.querySelectorAll(".gallery-grid img"));
+let currentImage = 0;
+
+galleryImages.forEach((img, index) => {
+  img.addEventListener("click", () => {
+    currentImage = index;
+    openLightbox(img.src);
+  });
+});
+
+function openLightbox(src){
+  document.getElementById("lightboxImg").src = src;
+  document.getElementById("lightbox").classList.add("active");
+}
+
+function closeLightbox(){
+  document.getElementById("lightbox").classList.remove("active");
+}
+
+function nextImage(){
+  currentImage = (currentImage + 1) % galleryImages.length;
+  openLightbox(galleryImages[currentImage].src);
+}
+
+function prevImage(){
+  currentImage = (currentImage - 1 + galleryImages.length) % galleryImages.length;
+  openLightbox(galleryImages[currentImage].src);
+}
+</script>
+  .gallery-grid img{
+  cursor:pointer;
+}
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.88);
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+}
+
+.lightbox.active{
+  display:flex;
+}
+
+.lightbox img{
+  max-width:90vw;
+  max-height:86vh;
+  object-fit:contain;
+  border-radius:18px;
+  box-shadow:0 30px 90px rgba(0,0,0,.7);
+}
+
+.lightbox-close,
+.lightbox-arrow{
+  position:absolute;
+  border:none;
+  background:rgba(255,255,255,.08);
+  color:white;
+  cursor:pointer;
+  border-radius:999px;
+  backdrop-filter:blur(10px);
+}
+
+.lightbox-close{
+  top:28px;
+  right:34px;
+  width:48px;
+  height:48px;
+  font-size:32px;
+}
+
+.lightbox-arrow{
+  top:50%;
+  transform:translateY(-50%);
+  width:58px;
+  height:58px;
+  font-size:46px;
+}
+
+.lightbox-arrow.left{
+  left:34px;
+}
+
+.lightbox-arrow.right{
+  right:34px;
+}
+
+@media(max-width:720px){
+  .lightbox{
+    padding:18px;
+  }
+
+  .lightbox-arrow{
+    width:46px;
+    height:46px;
+    font-size:36px;
+  }
+
+  .lightbox-close{
+    width:42px;
+    height:42px;
+    font-size:28px;
+  }
+}
 <body>
 <section class="hero"><div class="page"><div class="breadcrumbs">Home › <span>Extreme & Adventure</span> › <span>Jeep Safari</span></div><div class="eyebrow">Extreme Adventure</div><h1>Jeep Safari in Taurus Mountains</h1><div class="subtitle">Off-road Adventure • Taurus Mountains • Villages & Waterfalls</div><p class="hero-text">Джип-сафари в Таврских горах — это активное приключение, которое сочетает драйв, природу и настоящую атмосферу Турции.</p><div class="hero-icons"><div class="hero-icon"><span>⏱</span>7 HOURS</div><div class="hero-icon"><span>🚙</span>JEEP SAFARI</div><div class="hero-icon"><span>🚐</span>TRANSFER</div></div><div class="tour-tags"><span class="tour-tag">JEEP SAFARI</span><span class="tour-tag">TAURUS MOUNTAINS</span><span class="tour-tag">OFF-ROAD</span><span class="tour-tag">WATERFALL</span><span class="tour-tag">VILLAGES</span></div><a class="btn" href="https://wa.me/905387045999?text=Здравствуйте!%20Хочу%20забронировать%20Jeep%20Safari%20в%20Алании." target="_blank">Book on WhatsApp →</a></div></section>
 <main class="page page-main">
