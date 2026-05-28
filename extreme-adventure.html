@@ -45,41 +45,28 @@ img{display:block;width:100%}
 
 .adventure-hero{
   position:relative;
-  min-height:720px;
-  padding:34px 0 90px;
-
+  min-height:560px;
+  padding:34px 0 70px;
   background:
     linear-gradient(
       90deg,
-      rgba(4,12,22,.88) 0%,
-      rgba(4,12,22,.64) 34%,
-      rgba(4,12,22,.26) 58%,
-      rgba(4,12,22,.10) 100%
+      rgba(4,12,22,.84) 0%,
+      rgba(4,12,22,.60) 34%,
+      rgba(4,12,22,.22) 58%,
+      rgba(4,12,22,.08) 100%
     ),
-
-    url("images/extreme-adventure/extreme-hero.png")
-    center top / 112% no-repeat;
-
+    url("images/extreme-adventure/extreme-hero.png") center right/cover no-repeat;
   border-bottom:1px solid rgba(214,162,74,.18);
   overflow:hidden;
+}
+
 .adventure-hero::before{
   content:"";
   position:absolute;
   inset:0;
-
   background:
-    radial-gradient(
-      circle at 78% 38%,
-      rgba(214,162,74,.20),
-      transparent 42%
-    ),
-
-    linear-gradient(
-      90deg,
-      rgba(4,12,22,.10),
-      rgba(4,12,22,.34)
-    );
-
+    radial-gradient(circle at 78% 42%,rgba(214,162,74,.18),transparent 36%),
+    linear-gradient(90deg,rgba(4,12,22,.08),rgba(4,12,22,.36));
   pointer-events:none;
 }
 
