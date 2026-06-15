@@ -6,7 +6,7 @@
 
 <title>Family Experiences | ALANYA TOUR ORGANIZATIONS</title>
 
-<style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=LWeW1NDDDlb8RdLjljstg-tfg8C_Hbfq3XrzEO7v3-43AEX_QikuYFoy2D7h6a1_aUlMe7uxGU2YAsfOveacFlbQg5pbHPaDHRepLKwYaA355ejLHdXzOZWqYIjTAgZ7oXOZgm2uSsfb0hXQnKlHUH3zwm5tBSQfu5KRXlnJU9ufhcPlyG1stLmUpxcfz5_YbkY6TtsoKiVqnijkqREy9f_AR94Cpn6ixhkD2c6KXYpFEy58hi0Y-4Jd1AmlYQGJ4aTxlEYFBa1w4j18JvZnX3cO1WMNXnFg6dvE-jI_6oYW3BZGFepzjuWP9UEUdOaqRzMgGuN7U2mudPFPJPYPxw" charset="UTF-8"></script><style>
 :root{
   --bg:#04101d;
   --navy:#071625;
@@ -35,7 +35,7 @@ body{
 a{text-decoration:none;color:inherit}
 img{display:block;width:100%}
 
-.family-page{
+.history-page{
   max-width:1650px;
   margin:0 auto;
   padding:0 28px;
@@ -43,34 +43,34 @@ img{display:block;width:100%}
 
 /* ===== HERO ===== */
 
-.family-hero{
+.history-hero{
   position:relative;
   min-height:560px;
   padding:34px 0 70px;
   background:
     linear-gradient(
       90deg,
-      rgba(4,12,22,.88) 0%,
-      rgba(4,12,22,.66) 34%,
-      rgba(4,12,22,.24) 58%,
-      rgba(4,12,22,.10) 100%
+      rgba(4,12,22,.86) 0%,
+      rgba(4,12,22,.62) 34%,
+      rgba(4,12,22,.20) 58%,
+      rgba(4,12,22,.08) 100%
     ),
-    url("images/family-experiences/family-hero.png") center right/cover no-repeat;
+    url("images/history-culture/history-culture-hero.png") center right/cover no-repeat;
   border-bottom:1px solid rgba(214,162,74,.18);
   overflow:hidden;
 }
 
-.family-hero::before{
+.history-hero::before{
   content:"";
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at 78% 42%,rgba(214,162,74,.20),transparent 36%),
-    linear-gradient(90deg,rgba(4,12,22,.10),rgba(4,12,22,.38));
+    radial-gradient(circle at 78% 42%,rgba(214,162,74,.18),transparent 36%),
+    linear-gradient(90deg,rgba(4,12,22,.08),rgba(4,12,22,.36));
   pointer-events:none;
 }
 
-.family-hero::after{
+.history-hero::after{
   content:"";
   position:absolute;
   left:0;
@@ -81,7 +81,7 @@ img{display:block;width:100%}
   pointer-events:none;
 }
 
-.family-hero-inner{
+.history-hero-inner{
   position:relative;
   z-index:2;
   max-width:1650px;
@@ -107,7 +107,7 @@ img{display:block;width:100%}
   margin-bottom:18px;
 }
 
-.family-hero h1{
+.history-hero h1{
   font-family:Georgia,"Times New Roman",serif;
   font-size:clamp(46px,5.4vw,74px);
   line-height:.92;
@@ -118,7 +118,7 @@ img{display:block;width:100%}
   text-shadow:0 18px 44px rgba(0,0,0,.55);
 }
 
-.family-hero h1 span{
+.history-hero h1 span{
   display:block;
   color:var(--gold2);
 }
@@ -247,20 +247,16 @@ img{display:block;width:100%}
 
 /* ===== TOURS GRID ===== */
 
-.family-showcase{
+.history-showcase{
   position:relative;
   z-index:3;
   margin-top:-54px;
 }
 
-.family-grid{
+.history-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:24px;
-}
-
-.family-grid.two-cards{
-  grid-template-columns:repeat(3,1fr);
 }
 
 .tour-card{
@@ -552,8 +548,7 @@ img{display:block;width:100%}
 /* ===== MOBILE ===== */
 
 @media(max-width:1060px){
-  .family-grid,
-  .family-grid.two-cards,
+  .history-grid,
   .trust-bar{
     grid-template-columns:1fr 1fr;
   }
@@ -563,22 +558,21 @@ img{display:block;width:100%}
 }
 
 @media(max-width:720px){
-  .family-page,
-  .family-hero-inner{padding:0 18px}
+  .history-page,
+  .history-hero-inner{padding:0 18px}
 
-  .family-hero{
+  .history-hero{
     min-height:auto;
     padding-bottom:54px;
   }
 
   .breadcrumbs{margin-bottom:42px}
 
-  .family-hero h1{font-size:48px}
+  .history-hero h1{font-size:48px}
 
   .hero-subtitle{font-size:16px}
 
-  .family-grid,
-  .family-grid.two-cards,
+  .history-grid,
   .trust-bar{grid-template-columns:1fr}
 
   .section-shell{
@@ -586,7 +580,7 @@ img{display:block;width:100%}
     border-radius:22px;
   }
 
-  .section-top{align-items:flex-start;flex-direction:column}
+  .section-top{align-items:flex-start}
 
   .tour-image{height:260px}
 
@@ -612,8 +606,8 @@ img{display:block;width:100%}
 
 <body>
 
-<section class="family-hero">
-  <div class="family-hero-inner">
+<section class="history-hero" style='background: linear-gradient(90deg, rgba(4,12,22,.86) 0%, rgba(4,12,22,.62) 34%, rgba(4,12,22,.20) 58%, rgba(4,12,22,.08) 100%), url("images/family-experiences/hero.png") center right/cover no-repeat;'>
+  <div class="history-hero-inner">
     <div class="breadcrumbs">Home › Tours › <span>Family Experiences</span></div>
 
     <div class="eyebrow">Family Adventures & Entertainment</div>
@@ -628,12 +622,12 @@ img{display:block;width:100%}
 
     <div class="hero-features">
       <div class="hero-feature">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M8 15c1.2 1.4 2.5 2 4 2s2.8-.6 4-2"/></svg>
         Family<br>Friendly
       </div>
 
       <div class="hero-feature">
-        <svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><path d="M9 20v-7h6v7"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/><path d="M8 10h8"/></svg>
         Theme<br>Parks
       </div>
 
@@ -643,22 +637,22 @@ img{display:block;width:100%}
       </div>
 
       <div class="hero-feature">
-        <svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.2 5.7.8-4.1 4 1 5.7L12 16l-5.2 2.7 1-5.7-4.1-4 5.7-.8L12 3z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.2 6.4 20.2 7.5 14 3 9.6l6.2-.9L12 3z"/></svg>
         Evening<br>Shows
       </div>
     </div>
   </div>
 </section>
 
-<main class="family-page">
+<main class="history-page">
 
-  <section class="family-showcase section-shell" style="margin-top:-54px;">
+  <section class="history-showcase section-shell" style="margin-top:-54px;">
     <div class="section-top">
       <h2 class="section-title">Popular Family Experiences</h2>
       <a class="view-all" href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20see%20Family%20Experiences%20in%20Alanya." target="_blank">Book on WhatsApp →</a>
     </div>
 
-    <div class="family-grid">
+    <div class="history-grid">
 
       <a href="land-of-legends.html" class="tour-card">
         <div class="tour-image">
@@ -690,9 +684,9 @@ img{display:block;width:100%}
         </div>
       </a>
 
-      <a href="eftalia-island-waterpark.html" class="tour-card">
+      <a href="eftalia-waterpark.html" class="tour-card">
         <div class="tour-image">
-          <img src="images/family-experiences/eftalia-island-waterpark.png" alt="Eftalia Island Waterpark">
+          <img src="images/family-experiences/eftalia-waterpark.png" alt="Eftalia Island Waterpark">
           <span class="badge">Waterpark</span>
           <span class="tour-number">3</span>
         </div>
@@ -700,8 +694,8 @@ img{display:block;width:100%}
           <h3>Eftalia Island Waterpark</h3>
           <div class="tour-price"><small>From</small><strong>€45</strong><span>/ per person</span></div>
           <p>A full day of water fun with slides, pools and family-friendly attractions by the Mediterranean Sea.</p>
-          <div class="tour-tags"><span class="tour-tag">Water Park</span><span class="tour-tag">Slides</span><span class="tour-tag">Family</span></div>
-          <div class="tour-bottom"><div class="meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Full Day</span><span><svg viewBox="0 0 24 24"><path d="M4 17c3-3 5 3 8 0s5 3 8 0"/><path d="M4 12c3-3 5 3 8 0s5 3 8 0"/></svg>Water Fun</span></div><div class="circle-arrow">→</div></div>
+          <div class="tour-tags"><span class="tour-tag">Waterpark</span><span class="tour-tag">Slides</span><span class="tour-tag">Family Fun</span></div>
+          <div class="tour-bottom"><div class="meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Full Day</span><span><svg viewBox="0 0 24 24"><path d="M4 17c3-3 5 3 8 0s5 3 8 0"/><path d="M4 12c3-3 5 3 8 0s5 3 8 0"/></svg>Water</span></div><div class="circle-arrow">→</div></div>
         </div>
       </a>
 
@@ -714,11 +708,11 @@ img{display:block;width:100%}
       <a class="view-all" href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20book%20an%20evening%20family%20show%20in%20Alanya." target="_blank">Book on WhatsApp →</a>
     </div>
 
-    <div class="family-grid two-cards">
+    <div class="history-grid">
 
       <a href="fire-of-alanya.html" class="tour-card">
         <div class="tour-image">
-          <img src="images/family-experiences/fire-of-alanya.png" alt="Fire of Alanya evening show">
+          <img src="images/family-experiences/fire-of-alanya.png" alt="Fire of Alanya Night Show">
           <span class="badge">Night Show</span>
           <span class="tour-number">4</span>
         </div>
@@ -726,8 +720,8 @@ img{display:block;width:100%}
           <h3>Fire of Alanya</h3>
           <div class="tour-price"><small>From</small><strong>€25</strong><span>/ per person</span></div>
           <p>A spectacular Mediterranean night show featuring fire performances, belly dance, Turkish folk dances and live entertainment.</p>
-          <div class="tour-tags"><span class="tour-tag">Fire Show</span><span class="tour-tag">Belly Dance</span><span class="tour-tag">Folk Dance</span></div>
-          <div class="tour-bottom"><div class="meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Evening</span><span><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.2 5.7.8-4.1 4 1 5.7L12 16l-5.2 2.7 1-5.7-4.1-4 5.7-.8L12 3z"/></svg>Show</span></div><div class="circle-arrow">→</div></div>
+          <div class="tour-tags"><span class="tour-tag">Fire Show</span><span class="tour-tag">Belly Dance</span><span class="tour-tag">Evening</span></div>
+          <div class="tour-bottom"><div class="meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Evening</span><span><svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.2 6.4 20.2 7.5 14 3 9.6l6.2-.9L12 3z"/></svg>Show</span></div><div class="circle-arrow">→</div></div>
         </div>
       </a>
 
@@ -738,14 +732,14 @@ img{display:block;width:100%}
     <div class="booking-left">
       <div class="whatsapp-icon">☏</div>
       <div>
-        <h3>Plan Family Fun in Alanya</h3>
-        <p>Book theme parks, dolphin shows, waterparks and evening entertainment via WhatsApp.</p>
+        <h3>Discover Family Experiences</h3>
+        <p>Book theme parks, dolphin shows, waterparks and family entertainment via WhatsApp</p>
       </div>
     </div>
 
     <a
       class="gold-btn"
-      href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20book%20a%20Family%20Experience%20in%20Alanya."
+      href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20book%20Family%20Experiences%20in%20Alanya."
       target="_blank">
       Book on WhatsApp →
     </a>
@@ -753,7 +747,7 @@ img{display:block;width:100%}
 
   <section class="trust-bar">
     <div class="trust-item">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>
       Family<br>Friendly
     </div>
 
@@ -763,7 +757,7 @@ img{display:block;width:100%}
     </div>
 
     <div class="trust-item">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M3 7h13v9H3z"/><path d="M16 10h3l2 3v3h-5"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
       Hotel Pickup<br>Available
     </div>
 
