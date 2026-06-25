@@ -13,166 +13,135 @@
 
   <link rel="stylesheet" href="styles.css" />
 
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=iDW8L0sNAZP15F4Y_lF0EQ2e9CFM-J712EKysP7zwytLqmlxyFlZ3BmQjUbYfyk53wHAmQ-_dB1ckDAsFKre-eytgfT0QjTGX16oyFk0jUSWgA9f8AjlIIeL-r8t0GIXaT-qlAgs3b8QBqwJ9ReSsmrDzFRohJMlQdUqMjc5ZwARKpcHiBIso_Xb7txdijepMdQuBhLwmE0_2GrXQdsORy47bemfu3XURsUcNXpXQOFsuDUNgfJSKmMaMJBF5DOwTQL_2OFHkGlC8eAiazhZXESdqpK9-pfwnTQX7dQFqse9AQ9e2xrOexrPAwkKbOj3" charset="UTF-8"></script><style>
-/* ===== VIP SERVICE AI BORDER — full perimeter, gold + rainbow moving light ===== */
+<style>
+/* VIP SERVICE — Google AI style: gold + rainbow border running strictly around the perimeter */
 .vip-service-premium-link{
   display:block;
   color:inherit;
   text-decoration:none;
 }
 
-.vip-service-premium.vip-google-ai{
+.vip-service-premium.vip-ai-border{
   position:relative;
   overflow:hidden;
   isolation:isolate;
   cursor:pointer;
-  border:1px solid rgba(214,162,74,.36);
+  border:1px solid rgba(214,162,74,.28);
   border-radius:30px;
   background:
-    radial-gradient(circle at 14% 50%, rgba(243,198,109,.13), transparent 26%),
-    radial-gradient(circle at 86% 50%, rgba(66,133,244,.08), transparent 28%),
-    linear-gradient(90deg, rgba(18,22,27,.98), rgba(7,14,25,.99));
+    radial-gradient(circle at 18% 50%, rgba(243,198,109,.12), transparent 30%),
+    radial-gradient(circle at 86% 50%, rgba(60,170,255,.07), transparent 26%),
+    linear-gradient(90deg, rgba(18,22,28,.98), rgba(7,14,25,.98));
   box-shadow:
-    0 0 0 1px rgba(214,162,74,.10),
-    0 18px 54px rgba(0,0,0,.38);
-  transform:translateY(24px) scale(.985);
+    0 0 0 1px rgba(214,162,74,.08),
+    0 24px 80px rgba(0,0,0,.42);
+  transform:translateY(26px) scale(.975);
   opacity:0;
-  animation:vipAiReveal .95s cubic-bezier(.16,1,.3,1) .18s forwards;
+  animation:vipCardReveal .95s cubic-bezier(.16,1,.3,1) .18s forwards;
   transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
 
-.vip-service-premium.vip-google-ai:hover{
-  transform:translateY(-5px) scale(1.008);
-  border-color:rgba(243,198,109,.70);
+.vip-service-premium.vip-ai-border:hover{
+  transform:translateY(-5px) scale(1.01);
+  border-color:rgba(243,198,109,.55);
   box-shadow:
-    0 0 0 1px rgba(255,220,140,.20),
-    0 0 42px rgba(243,198,109,.22),
-    0 0 72px rgba(66,133,244,.10),
-    0 26px 82px rgba(0,0,0,.50);
+    0 0 0 1px rgba(243,198,109,.18),
+    0 0 44px rgba(243,198,109,.22),
+    0 0 70px rgba(90,120,255,.10),
+    0 30px 92px rgba(0,0,0,.52);
 }
 
-.vip-service-premium.vip-google-ai::before{
+/* soft inner premium depth, not the moving line */
+.vip-service-premium.vip-ai-border::after{
   content:"";
   position:absolute;
-  inset:0;
+  inset:1px;
+  border-radius:29px;
+  pointer-events:none;
   z-index:1;
-  pointer-events:none;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.055), transparent 46%),
-    radial-gradient(circle at 9% 50%, rgba(243,198,109,.10), transparent 22%),
-    radial-gradient(circle at 78% 50%, rgba(255,98,184,.055), transparent 28%);
+    linear-gradient(180deg, rgba(255,255,255,.055), transparent 42%),
+    radial-gradient(circle at 12% 50%, rgba(243,198,109,.10), transparent 24%),
+    radial-gradient(circle at 76% 50%, rgba(126,92,255,.08), transparent 30%);
 }
 
-.vip-service-premium.vip-google-ai::after{
-  content:"";
-  position:absolute;
-  inset:-35%;
-  z-index:0;
-  pointer-events:none;
-  background:
-    conic-gradient(from 0deg,
-      transparent 0deg,
-      rgba(243,198,109,.10) 42deg,
-      rgba(66,133,244,.08) 110deg,
-      rgba(52,211,153,.07) 178deg,
-      rgba(255,98,184,.09) 245deg,
-      transparent 330deg
-    );
-  opacity:.55;
-  filter:blur(28px);
-  animation:vipAuraSpin 9s linear infinite;
-}
-
-.vip-service-premium.vip-google-ai > *:not(.vip-ai-frame){
+.vip-service-premium.vip-ai-border > *:not(.vip-ai-svg){
   position:relative;
   z-index:4;
 }
 
-.vip-ai-frame{
+.vip-ai-svg{
   position:absolute;
-  inset:-2px;
+  inset:-1px;
+  width:calc(100% + 2px);
+  height:calc(100% + 2px);
   z-index:3;
-  width:calc(100% + 4px);
-  height:calc(100% + 4px);
   pointer-events:none;
   overflow:visible;
 }
 
-.vip-ai-frame .vip-frame-gold{
+.vip-ai-svg .vip-base-border{
   fill:none;
-  stroke:rgba(214,162,74,.62);
-  stroke-width:1.15;
-  vector-effect:non-scaling-stroke;
+  stroke:url(#vipStaticGradient);
+  stroke-width:1.45;
+  opacity:.82;
 }
 
-.vip-ai-frame .vip-frame-glow{
+.vip-ai-svg .vip-soft-border{
   fill:none;
-  stroke:rgba(255,211,112,.22);
+  stroke:rgba(255,205,100,.22);
   stroke-width:5;
-  opacity:.65;
-  filter:blur(5px);
-  vector-effect:non-scaling-stroke;
+  opacity:.55;
+  filter:blur(6px);
 }
 
-.vip-ai-frame .vip-frame-runner{
+.vip-ai-svg .vip-running-border{
   fill:none;
-  stroke:url(#vipGoogleAiRainbow);
-  stroke-width:3.2;
+  stroke:url(#vipAiGradient);
+  stroke-width:3.4;
   stroke-linecap:round;
   stroke-linejoin:round;
-  stroke-dasharray:175 1765;
+  stroke-dasharray:430 1510;
   stroke-dashoffset:0;
   filter:
-    drop-shadow(0 0 5px rgba(255,231,173,.95))
-    drop-shadow(0 0 14px rgba(243,198,109,.78))
-    drop-shadow(0 0 22px rgba(66,133,244,.35));
-  animation:vipAiBorderRun 4.8s linear infinite;
-  vector-effect:non-scaling-stroke;
+    drop-shadow(0 0 6px rgba(255,212,112,.95))
+    drop-shadow(0 0 16px rgba(126,92,255,.55))
+    drop-shadow(0 0 22px rgba(44,214,255,.30));
+  animation:vipBorderRun 4.6s linear infinite;
 }
 
-.vip-ai-frame .vip-frame-runner.runner-2{
-  stroke-width:2.6;
-  stroke-dasharray:92 1848;
-  stroke-dashoffset:-660;
-  opacity:.92;
-  filter:
-    drop-shadow(0 0 5px rgba(120,230,255,.90))
-    drop-shadow(0 0 17px rgba(138,99,255,.52));
-  animation-duration:4.8s;
-}
-
-.vip-ai-frame .vip-frame-spark{
+.vip-ai-svg .vip-spark-border{
   fill:none;
-  stroke:#fff7cf;
-  stroke-width:5.4;
+  stroke:#fff3be;
+  stroke-width:6;
   stroke-linecap:round;
-  stroke-dasharray:24 1916;
-  stroke-dashoffset:-32;
+  stroke-linejoin:round;
+  stroke-dasharray:42 1898;
+  stroke-dashoffset:-70;
   filter:
     drop-shadow(0 0 7px rgba(255,255,255,1))
-    drop-shadow(0 0 18px rgba(255,186,52,.95));
-  animation:vipAiBorderRun 4.8s linear infinite;
-  vector-effect:non-scaling-stroke;
+    drop-shadow(0 0 18px rgba(255,190,60,1));
+  animation:vipBorderRun 4.6s linear infinite;
 }
 
-.vip-ai-frame .vip-frame-spark.spark-blue{
-  stroke:#7de7ff;
-  stroke-width:4.2;
-  stroke-dasharray:20 1920;
-  stroke-dashoffset:-705;
+.vip-ai-svg .vip-spark-border.vip-spark-2{
+  stroke:#79eaff;
+  stroke-width:4.5;
+  stroke-dasharray:28 1912;
+  stroke-dashoffset:-620;
   filter:
-    drop-shadow(0 0 7px rgba(125,231,255,.95))
-    drop-shadow(0 0 18px rgba(138,99,255,.72));
+    drop-shadow(0 0 8px rgba(121,234,255,.95))
+    drop-shadow(0 0 18px rgba(126,92,255,.80));
 }
 
-.vip-ai-frame .vip-frame-spark.spark-pink{
-  stroke:#ff70c8;
-  stroke-width:3.8;
-  stroke-dasharray:18 1922;
-  stroke-dashoffset:-1190;
+.vip-ai-svg .vip-spark-border.vip-spark-3{
+  stroke:#ffd15f;
+  stroke-width:5.2;
+  stroke-dasharray:34 1906;
+  stroke-dashoffset:-1180;
   filter:
-    drop-shadow(0 0 7px rgba(255,112,200,.90))
-    drop-shadow(0 0 18px rgba(255,180,75,.58));
+    drop-shadow(0 0 8px rgba(255,209,95,.95))
+    drop-shadow(0 0 18px rgba(255,133,37,.75));
 }
 
 .vip-service-premium .vip-discover-btn{
@@ -180,44 +149,39 @@
   align-items:center;
   justify-content:center;
   gap:10px;
-  color:#fff;
   text-decoration:none;
+  color:#fff;
   transition:color .28s ease, transform .28s ease, text-shadow .28s ease;
 }
 
 .vip-service-premium .vip-discover-btn::after{
   content:"→";
   color:#f3c66d;
-  font-size:22px;
+  font-size:24px;
   line-height:1;
   transform:translateY(-1px);
 }
 
-.vip-service-premium.vip-google-ai:hover .vip-discover-btn{
+.vip-service-premium.vip-ai-border:hover .vip-discover-btn{
   color:#f3c66d;
   transform:translateX(3px);
-  text-shadow:0 0 16px rgba(243,198,109,.50);
+  text-shadow:0 0 18px rgba(243,198,109,.48);
 }
 
-@keyframes vipAiBorderRun{
+@keyframes vipBorderRun{
   to{stroke-dashoffset:-1940;}
 }
 
-@keyframes vipAuraSpin{
-  to{transform:rotate(360deg);}
-}
-
-@keyframes vipAiReveal{
-  0%{opacity:0; transform:translateY(24px) scale(.985); filter:blur(8px);}
-  70%{opacity:1; transform:translateY(-3px) scale(1.004); filter:blur(0);}
+@keyframes vipCardReveal{
+  0%{opacity:0; transform:translateY(26px) scale(.975); filter:blur(8px);}
+  70%{opacity:1; transform:translateY(-3px) scale(1.006); filter:blur(0);}
   100%{opacity:1; transform:translateY(0) scale(1); filter:blur(0);}
 }
 
 @media (prefers-reduced-motion: reduce){
-  .vip-service-premium.vip-google-ai,
-  .vip-service-premium.vip-google-ai::after,
-  .vip-ai-frame .vip-frame-runner,
-  .vip-ai-frame .vip-frame-spark{
+  .vip-service-premium.vip-ai-border,
+  .vip-ai-svg .vip-running-border,
+  .vip-ai-svg .vip-spark-border{
     animation:none;
     opacity:1;
     transform:none;
@@ -226,13 +190,15 @@
 }
 
 @media(max-width:720px){
-  .vip-service-premium.vip-google-ai{border-radius:24px;}
-  .vip-ai-frame .vip-frame-runner{stroke-width:2.8; stroke-dasharray:135 1805;}
-  .vip-ai-frame .vip-frame-spark{stroke-width:4.6;}
+  .vip-service-premium.vip-ai-border{border-radius:24px;}
+  .vip-service-premium.vip-ai-border::after{border-radius:23px;}
+  .vip-ai-svg .vip-running-border{stroke-width:3; stroke-dasharray:330 1610;}
+  .vip-ai-svg .vip-spark-border{stroke-width:5;}
 }
 </style>
 
-</head>
+
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=sw0nWDZMgRFDVZjqbWPaGBxU3OaFO5Fex-aoyvIrD8OsENYY5Zit2igsoHN1kYY50sYEh2gf68ED6F6q_M-KQVwIf_sQyUXWpfPKk5qCCn1T6gU4qFen6uO1nNHyQQIX106GVbv97EyQSeOxMvZhTb_h36NvKwZ0WAR_IfyrH93QKwcUPzEC2cyTFuKWui2K7JEQqPu-bKITwOZnFY_AcYhAnbxxKkZLgjYMni1LYlW4q_0t67TSG3eVKCcOAKHYbMJpITj3n-ZtAehsxrqduRc8KBzO1EyhAz6IPiPlSr_CfYuzDhHIj40h5IuXKM34oJ8AsYR7qItoj76GQx9_XQ" charset="UTF-8"></script></head>
 
 <body>
 
@@ -280,12 +246,12 @@
       </svg>
     </div>
 
-    <div class="nav-item">
+    <a href="vip-service.html" class="nav-item">
       <span>VIP SERVICES</span>
       <svg class="arrow-icon" viewBox="0 0 24 24">
         <path d="M7 10L12 15L17 10" />
       </svg>
-    </div>
+    </a>
 
     <div class="nav-item special">
       <span class="fire">🔥</span>
@@ -619,29 +585,38 @@
 </div>
 
   <a href="vip-service.html" class="vip-service-premium-link" aria-label="Open VIP Service category">
-    <div class="vip-service-premium vip-google-ai">
+    <div class="vip-service-premium vip-ai-border">
 
-      <svg class="vip-ai-frame" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <svg class="vip-ai-svg" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true">
         <defs>
-          <linearGradient id="vipGoogleAiRainbow" x1="0%" y1="0%" x2="100%" y2="0%">
+          <linearGradient id="vipStaticGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#d6a24a"/>
+            <stop offset="16%" stop-color="#fff1b8"/>
+            <stop offset="34%" stop-color="#65f2c8"/>
+            <stop offset="50%" stop-color="#3db8ff"/>
+            <stop offset="66%" stop-color="#8a63ff"/>
+            <stop offset="82%" stop-color="#ff62b8"/>
+            <stop offset="100%" stop-color="#f3c66d"/>
+          </linearGradient>
+
+          <linearGradient id="vipAiGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#f3c66d"/>
-            <stop offset="12%" stop-color="#fff2b8"/>
-            <stop offset="26%" stop-color="#63f2c8"/>
-            <stop offset="42%" stop-color="#3db8ff"/>
-            <stop offset="58%" stop-color="#8a63ff"/>
-            <stop offset="74%" stop-color="#ff62b8"/>
-            <stop offset="88%" stop-color="#f3c66d"/>
+            <stop offset="14%" stop-color="#fff4c2"/>
+            <stop offset="28%" stop-color="#61ffcf"/>
+            <stop offset="44%" stop-color="#35d0ff"/>
+            <stop offset="60%" stop-color="#7c5cff"/>
+            <stop offset="76%" stop-color="#ff5ac8"/>
+            <stop offset="90%" stop-color="#f3c66d"/>
             <stop offset="100%" stop-color="#fff1b8"/>
           </linearGradient>
         </defs>
 
-        <rect class="vip-frame-glow" x="4" y="4" width="992" height="92" rx="27" ry="27" pathLength="1940"/>
-        <rect class="vip-frame-gold" x="4" y="4" width="992" height="92" rx="27" ry="27" pathLength="1940"/>
-        <rect class="vip-frame-runner" x="4" y="4" width="992" height="92" rx="27" ry="27" pathLength="1940"/>
-        <rect class="vip-frame-runner runner-2" x="4" y="4" width="992" height="92" rx="27" ry="27" pathLength="1940"/>
-        <rect class="vip-frame-spark" x="4" y="4" width="992" height="92" rx="27" ry="27" pathLength="1940"/>
-        <rect class="vip-frame-spark spark-blue" x="4" y="4" width="992" height="92" rx="27" ry="27" pathLength="1940"/>
-        <rect class="vip-frame-spark spark-pink" x="4" y="4" width="992" height="92" rx="27" ry="27" pathLength="1940"/>
+        <rect class="vip-soft-border" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
+        <rect class="vip-base-border" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
+        <rect class="vip-running-border" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
+        <rect class="vip-spark-border" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
+        <rect class="vip-spark-border vip-spark-2" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
+        <rect class="vip-spark-border vip-spark-3" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
       </svg>
 
       <div class="vip-icon">👑</div>
@@ -654,7 +629,9 @@
         </p>
       </div>
 
-      <span class="vip-discover-btn">DISCOVER VIP</span>
+      <span class="vip-discover-btn">
+        DISCOVER VIP
+      </span>
 
     </div>
   </a>
