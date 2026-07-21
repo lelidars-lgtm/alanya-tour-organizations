@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Extreme & Adventure | ALANYA TOUR ORGANIZATIONS</title>
+
+<style>
+:root{
+  --bg:#03101c;
+  --bg2:#071827;
+  --panel:#081a2b;
+  --panel2:#061421;
+  --gold:#d8a447;
+  --gold2:#f3c66d;
+  --text:#ffffff;
+  --muted:rgba(255,255,255,.76);
+  --line:rgba(216,164,71,.30);
+  --radius:22px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(216,164,71,.07),transparent 32%),
+    linear-gradient(180deg,#03101c 0%,#051522 55%,#020a12 100%);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%}
+
+/* ===== HERO ===== */
+
+.adventure-hero{
+  position:relative;
+  min-height:500px;
+  display:flex;
+  align-items:center;
+  padding:46px clamp(20px,4vw,68px) 76px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3,10,18,.90) 0%,
+      rgba(3,10,18,.68) 34%,
+      rgba(3,10,18,.28) 62%,
+      rgba(3,10,18,.08) 100%
+    ),
+    url("images/extreme-adventure/extreme-hero.png") center right/cover no-repeat;
+  border-bottom:1px solid rgba(216,164,71,.22);
+  overflow:hidden;
+}
+
+.adventure-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 78% 40%,rgba(243,198,109,.14),transparent 36%),
+    linear-gradient(180deg,rgba(0,0,0,.05),rgba(3,16,28,.10));
+  pointer-events:none;
+}
+
+.adventure-hero::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:110px;
+  background:linear-gradient(180deg,transparent,#03101c);
+  pointer-events:none;
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:min(760px,100%);
+}
+
+.breadcrumbs{
+  color:rgba(255,255,255,.74);
+  font-size:14px;
+  margin-bottom:50px;
+}
+
+.breadcrumbs span{color:var(--gold2)}
+
+.eyebrow{
+  color:var(--gold2);
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:16px;
+}
+
+.hero-title{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(48px,6vw,82px);
+  line-height:.92;
+  text-transform:uppercase;
+  font-weight:500;
+  text-shadow:0 20px 46px rgba(0,0,0,.55);
+}
+
+.hero-divider{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  width:min(430px,100%);
+  margin:20px 0;
+  color:var(--gold2);
+}
+
+.hero-divider::before,
+.hero-divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold2));
+  opacity:.72;
+}
+
+.hero-divider::after{
+  background:linear-gradient(90deg,var(--gold2),transparent);
+}
+
+.hero-subtitle{
+  max-width:650px;
+  color:rgba(255,255,255,.86);
+  line-height:1.68;
+  font-size:18px;
+}
+
+.hero-features{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+
+.hero-feature{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 15px;
+  border:1px solid rgba(216,164,71,.34);
+  border-radius:999px;
+  background:rgba(3,13,23,.54);
+  backdrop-filter:blur(10px);
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.hero-feature svg{
+  width:24px;
+  height:24px;
+  color:var(--gold2);
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* ===== MAIN ===== */
+
+.adventure-page{
+  width:100%;
+  padding:0 clamp(18px,3.2vw,58px) 54px;
+}
+
+.adventure-catalog{
+  position:relative;
+  z-index:3;
+  margin-top:-44px;
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:26px;
+  background:
+    radial-gradient(circle at top left,rgba(216,164,71,.07),transparent 34%),
+    linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,.012));
+  box-shadow:0 26px 70px rgba(0,0,0,.34);
+}
+
+/* ===== CATEGORY ===== */
+
+.category{
+  padding:8px 0 30px;
+}
+
+.category + .category{
+  border-top:1px solid rgba(216,164,71,.22);
+  padding-top:30px;
+}
+
+.category-header{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:18px;
+}
+
+.category-icon{
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  color:var(--gold2);
+  border:1px solid rgba(216,164,71,.42);
+  background:rgba(216,164,71,.07);
+  box-shadow:inset 0 0 22px rgba(216,164,71,.05);
+}
+
+.category-icon svg{
+  width:30px;
+  height:30px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.65;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.category-title{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(24px,2.3vw,34px);
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.category-title span{color:var(--gold2)}
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+
+.category-grid.single{
+  grid-template-columns:1fr;
+}
+
+/* ===== CARD ===== */
+
+.tour-card{
+  display:grid;
+  grid-template-columns:minmax(0,1.28fr) minmax(290px,.72fr);
+  min-height:330px;
+  overflow:hidden;
+  border:1px solid rgba(216,164,71,.34);
+  border-radius:18px;
+  background:linear-gradient(180deg,#071827,#04101d);
+  box-shadow:0 18px 46px rgba(0,0,0,.28);
+  transition:.3s ease;
+}
+
+.category-grid:not(.single) .tour-card{
+  display:block;
+  min-height:100%;
+}
+
+.tour-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(243,198,109,.78);
+  box-shadow:0 26px 64px rgba(0,0,0,.42);
+}
+
+.tour-image{
+  position:relative;
+  min-height:100%;
+  height:100%;
+  overflow:hidden;
+  background:#081625;
+}
+
+.category-grid:not(.single) .tour-image{
+  height:250px;
+}
+
+.tour-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:.5s ease;
+}
+
+.tour-card:hover .tour-image img{transform:scale(1.045)}
+
+.badge{
+  position:absolute;
+  top:15px;
+  left:15px;
+  padding:8px 13px;
+  border-radius:999px;
+  background:linear-gradient(180deg,#f5cb75,#d89e36);
+  color:#07121e;
+  font-size:11px;
+  font-weight:950;
+  text-transform:uppercase;
+  box-shadow:0 10px 24px rgba(0,0,0,.22);
+}
+
+.tour-body{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:26px;
+}
+
+.category-grid:not(.single) .tour-body{
+  display:block;
+  padding:22px;
+}
+
+.tour-body h3{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:28px;
+  font-weight:500;
+  margin-bottom:10px;
+}
+
+.tour-price{
+  display:flex;
+  align-items:flex-end;
+  gap:6px;
+  margin-bottom:14px;
+}
+
+.tour-price small{
+  color:rgba(255,255,255,.70);
+  font-size:13px;
+}
+
+.tour-price strong{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:40px;
+  line-height:.94;
+  background:linear-gradient(180deg,#fff0b8,#f3c66d 48%,#c98724);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.tour-price span{
+  color:rgba(255,255,255,.83);
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.tour-description{
+  color:rgba(255,255,255,.80);
+  line-height:1.58;
+  font-size:15px;
+  margin-bottom:18px;
+  min-height:72px;
+}
+
+.tour-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:18px;
+}
+
+.tour-tag{
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(216,164,71,.28);
+  background:rgba(255,255,255,.025);
+  color:var(--gold2);
+  font-size:10px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+
+.tour-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding-top:16px;
+  border-top:1px solid rgba(216,164,71,.20);
+}
+
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  color:rgba(255,255,255,.76);
+  font-size:13px;
+}
+
+.meta span{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+.meta svg{
+  width:17px;
+  height:17px;
+  color:var(--gold2);
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.7;
+}
+
+.circle-arrow{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  border:1px solid var(--gold2);
+  color:var(--gold2);
+  font-size:23px;
+}
+
+/* ===== CTA — APPROVED SEA CATEGORY STYLE ===== */
+
+.booking-cta{
+  width:min(100%,1180px);
+  margin:48px auto 0;
+  display:grid;
+  grid-template-columns:90px 1fr 320px;
+  align-items:center;
+  gap:20px;
+  padding:18px 22px;
+  border-radius:16px;
+  border:1px solid rgba(216,164,71,.34);
+  background:
+    radial-gradient(circle at left,rgba(216,164,71,.12),transparent 34%),
+    linear-gradient(90deg,#071827,#04101d);
+  box-shadow:0 24px 60px rgba(0,0,0,.36);
+}
+
+.booking-left{display:contents}
+
+.whatsapp-icon{
+  width:64px;
+  height:64px;
+  display:grid;
+  place-items:center;
+  background:radial-gradient(circle,rgba(243,198,109,.12),transparent 70%);
+  border-right:1px solid rgba(216,164,71,.45);
+  padding-right:34px;
+}
+
+.whatsapp-icon svg{
+  width:38px;
+  height:38px;
+  fill:none;
+  stroke:url(#ctaGold);
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  filter:drop-shadow(0 0 12px rgba(243,198,109,.25));
+}
+
+.cta-content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.booking-left h3{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:18px;
+  letter-spacing:.05em;
+  color:var(--gold2);
+  font-weight:500;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.booking-left p{
+  color:rgba(255,255,255,.82);
+  font-size:12px;
+  line-height:1.5;
+  max-width:420px;
+}
+
+.cta-line{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:6px 0 16px;
+}
+
+.cta-line span{
+  flex:1;
+  height:1px;
+  background:rgba(216,164,71,.45);
+}
+
+.cta-line i{
+  width:8px;
+  height:8px;
+  background:#d6a24a;
+  transform:rotate(45deg);
+  display:block;
+}
+
+.gold-btn{
+  min-width:300px;
+  height:62px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:18px 30px;
+  border-radius:9px;
+  background:linear-gradient(180deg,#f5cc77,#d9a13a);
+  color:#061321;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  box-shadow:0 18px 44px rgba(216,164,71,.22);
+}
+
+/* ===== TRUST — APPROVED SEA CATEGORY STYLE ===== */
+
+.trust-bar{
+  margin:18px 0 60px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid rgba(216,164,71,.30);
+  border-radius:18px;
+  overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));
+}
+
+.trust-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:22px 24px;
+  border-right:1px solid rgba(216,164,71,.22);
+  color:#fff;
+}
+
+.trust-item:last-child{border-right:none}
+
+.trust-item strong{
+  display:block;
+  font-size:13px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+.trust-item span{
+  display:block;
+  font-size:12px;
+  color:rgba(255,255,255,.72);
+  margin-top:4px;
+  line-height:1.4;
+}
+
+.trust-item svg{
+  width:28px;
+  height:28px;
+  color:var(--gold2);
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.6;
+  flex:0 0 auto;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:1050px){
+  .tour-card{grid-template-columns:1fr}
+  .tour-image{height:300px}
+  .booking-cta{grid-template-columns:1fr}
+  .gold-btn{width:100%}
+  .trust-bar{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .trust-item:nth-child(2){border-right:none}
+  .trust-item:nth-child(-n+2){border-bottom:1px solid rgba(216,164,71,.22)}
+}
+
+@media(max-width:760px){
+  .adventure-hero{
+    min-height:auto;
+    padding:30px 18px 64px;
+  }
+
+  .breadcrumbs{margin-bottom:34px}
+  .hero-title{font-size:48px}
+  .hero-subtitle{font-size:16px}
+
+  .adventure-page{padding:0 16px 40px}
+
+  .adventure-catalog{
+    margin-top:-30px;
+    padding:20px;
+    border-radius:22px;
+  }
+
+  .category-grid,
+  .category-grid.single{
+    grid-template-columns:1fr;
+  }
+
+  .category-header{
+    align-items:flex-start;
+  }
+
+  .category-icon{
+    width:48px;
+    height:48px;
+  }
+
+  .category-title{
+    font-size:24px;
+    padding-top:8px;
+  }
+
+  .tour-card,
+  .category-grid:not(.single) .tour-card{
+    display:block;
+  }
+
+  .tour-image,
+  .category-grid:not(.single) .tour-image{
+    height:230px;
+  }
+
+  .tour-body{padding:21px}
+  .tour-body h3{font-size:25px}
+  .tour-price strong{font-size:36px}
+
+  .booking-cta{padding:22px}
+  .booking-left{align-items:flex-start}
+
+  .whatsapp-icon{
+    width:56px;
+    height:56px;
+  }
+
+  .trust-bar{grid-template-columns:1fr}
+
+  .trust-item{
+    border-right:none;
+    border-bottom:1px solid rgba(216,164,71,.22);
+  }
+
+  .trust-item:last-child{border-bottom:none}
+}
+</style>
+</head>
+
+<body>
+
+<section class="adventure-hero">
+  <div class="hero-inner">
+    <div class="breadcrumbs">Home › Tours › <span>Extreme & Adventure</span></div>
+
+    <div class="eyebrow">Extreme Experiences</div>
+
+    <h1 class="hero-title">Extreme &<br>Adventure</h1>
+
+    <div class="hero-divider">
+<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+<defs><linearGradient id="heroBoltGold" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#fff0b8"/><stop offset="45%" stop-color="#f3c66d"/><stop offset="100%" stop-color="#c98724"/></linearGradient></defs>
+<circle cx="13" cy="13" r="11" fill="none" stroke="url(#heroBoltGold)" stroke-width="1.2"/>
+<path d="M14 4.8L8.8 13h3.6L11 21.2 17.4 11H13.8L14 4.8Z" fill="url(#heroBoltGold)" filter="drop-shadow(0 0 4px rgba(243,198,109,.35))"/>
+</svg></div>
+
+    <p class="hero-subtitle">
+      Discover Alanya's most thrilling adventures — conquer wild rivers, explore the majestic Taurus Mountains and create unforgettable memories with premium outdoor experiences designed for every explorer.
+    </p>
+
+    <div class="hero-features">
+      <div class="hero-feature">
+        <svg viewBox="0 0 24 24"><path d="M4 16c2.7-2.2 5.3 2.2 8 0s5.3 2.2 8 0"/><path d="M5 11h14l-2 4H7l-2-4z"/><path d="M9 8l6 6"/></svg>
+        Rafting
+      </div>
+
+      <div class="hero-feature">
+        <svg viewBox="0 0 24 24"><path d="M3 15h2l2-5h10l2 5h2"/><path d="M6 15h12"/><circle cx="7" cy="17.5" r="2.2"/><circle cx="17" cy="17.5" r="2.2"/></svg>
+        Safari
+      </div>
+
+      <div class="hero-feature">
+        <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="2.5"/><circle cx="16.5" cy="9" r="2"/><path d="M3.5 19c.7-4 2.3-6 4.5-6s3.8 2 4.5 6"/><path d="M12.5 19c.5-3.1 1.8-4.7 4-4.7 2.1 0 3.4 1.6 4 4.7"/></svg>
+        Family Friendly
+      </div>
+
+      <div class="hero-feature">
+        <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-5"/></svg>
+        Safe Programs
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="adventure-page">
+
+  <section class="adventure-catalog">
+
+    <section class="category">
+      <div class="category-header">
+        <div class="category-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 16c2.7-2.2 5.3 2.2 8 0s5.3 2.2 8 0"/>
+            <path d="M5 11h14l-2 4H7l-2-4z"/>
+            <path d="M9 8l6 6"/>
+            <path d="M14.5 6.5l2 2"/>
+          </svg>
+        </div>
+        <h2 class="category-title"><span>Rafting</span> Experiences</h2>
+      </div>
+
+      <div class="category-grid single">
+        <a href="rafting-koprulu-canyon.html" class="tour-card">
+          <div class="tour-image">
+            <img src="images/extreme-adventure/rafting.png" alt="Rafting in Köprülü Canyon">
+            <span class="badge">Adventure</span>
+          </div>
+
+          <div class="tour-body">
+            <h3>Rafting in Köprülü Canyon</h3>
+
+            <div class="tour-price">
+              <small>From</small>
+              <strong>€30</strong>
+              <span>/ per person</span>
+            </div>
+
+            <p class="tour-description">
+              White-water rafting through one of Turkey’s most impressive canyon routes.
+            </p>
+
+            <div class="tour-tags">
+              <span class="tour-tag">Rafting</span>
+              <span class="tour-tag">Canyon</span>
+              <span class="tour-tag">Nature</span>
+            </div>
+
+            <div class="tour-bottom">
+              <div class="meta">
+                <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Full Day</span>
+                <span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>Adventure</span>
+              </div>
+              <div class="circle-arrow">→</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="category">
+      <div class="category-header">
+        <div class="category-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 15h2l2-5h10l2 5h2"/>
+            <path d="M6 15h12"/>
+            <path d="M8 10l1.5-3h5L16 10"/>
+            <circle cx="7" cy="17.5" r="2.2"/>
+            <circle cx="17" cy="17.5" r="2.2"/>
+            <path d="M9 7h6"/>
+          </svg>
+        </div>
+        <h2 class="category-title"><span>Safari</span> Adventures</h2>
+      </div>
+
+      <div class="category-grid">
+
+        <a href="jeep-safari.html" class="tour-card">
+          <div class="tour-image">
+            <img src="images/jeep-safari/hero.png" alt="Jeep Safari">
+            <span class="badge">Bestseller</span>
+          </div>
+
+          <div class="tour-body">
+            <h3>Jeep Safari</h3>
+
+            <div class="tour-price">
+              <small>From</small>
+              <strong>€25</strong>
+              <span>/ per person</span>
+            </div>
+
+            <p class="tour-description">
+              Explore the Taurus Mountains, hidden villages and panoramic viewpoints on Alanya’s most popular off-road adventure.<br>
+              Enjoy energetic routes, refreshing stops and memorable photo locations throughout the day.
+            </p>
+
+            <div class="tour-tags">
+              <span class="tour-tag">Off-Road</span>
+              <span class="tour-tag">Safari</span>
+              <span class="tour-tag">Mountains</span>
+            </div>
+
+            <div class="tour-bottom">
+              <div class="meta">
+                <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Full Day</span>
+                <span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>All Ages</span>
+              </div>
+              <div class="circle-arrow">→</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="quad-safari.html" class="tour-card">
+          <div class="tour-image">
+            <img src="images/quad-safari/hero.png" alt="Quad Safari">
+            <span class="badge">Adrenaline</span>
+          </div>
+
+          <div class="tour-body">
+            <h3>Quad Safari</h3>
+
+            <div class="tour-price">
+              <small>From</small>
+              <strong>€30</strong>
+              <span>/ per person</span>
+            </div>
+
+            <p class="tour-description">
+              Drive your own quad bike through dusty forest trails and exciting off-road tracks surrounded by nature.<br>
+              A dynamic outdoor experience created for guests who want more action and adrenaline.
+            </p>
+
+            <div class="tour-tags">
+              <span class="tour-tag">Quad</span>
+              <span class="tour-tag">Adrenaline</span>
+              <span class="tour-tag">Off-Road</span>
+            </div>
+
+            <div class="tour-bottom">
+              <div class="meta">
+                <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>2–3 Hours</span>
+                <span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>Active</span>
+              </div>
+              <div class="circle-arrow">→</div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="category">
+      <div class="category-header">
+        <div class="category-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle cx="8" cy="8" r="2.5"/>
+            <circle cx="16.5" cy="9" r="2"/>
+            <path d="M3.5 19c.7-4 2.3-6 4.5-6s3.8 2 4.5 6"/>
+            <path d="M12.5 19c.5-3.1 1.8-4.7 4-4.7 2.1 0 3.4 1.6 4 4.7"/>
+          </svg>
+        </div>
+        <h2 class="category-title"><span>Family</span> Adventures</h2>
+      </div>
+
+      <div class="category-grid">
+
+        <a href="family-jeep-safari.html" class="tour-card">
+          <div class="tour-image">
+            <img src="images/extreme-adventure/family-jeep.png" alt="Family Jeep Safari">
+            <span class="badge">Family Tour</span>
+          </div>
+
+          <div class="tour-body">
+            <h3>Family Jeep Safari</h3>
+
+            <div class="tour-price">
+              <small>From</small>
+              <strong>€25</strong>
+              <span>/ per person</span>
+            </div>
+
+            <p class="tour-description">
+              A relaxed safari designed for families with scenic mountain roads, villages and entertaining stops along the way.<br>
+              Comfortable, safe and suitable for adults and children who prefer an easy-going adventure.
+            </p>
+
+            <div class="tour-tags">
+              <span class="tour-tag">Jeep</span>
+              <span class="tour-tag">Family</span>
+              <span class="tour-tag">Soft Adventure</span>
+            </div>
+
+            <div class="tour-bottom">
+              <div class="meta">
+                <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Full Day</span>
+                <span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>All Ages</span>
+              </div>
+              <div class="circle-arrow">→</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="family-buggy-safari.html" class="tour-card">
+          <div class="tour-image">
+            <img src="images/family-buggy/hero.png" alt="Family Buggy Safari">
+            <span class="badge">Family</span>
+          </div>
+
+          <div class="tour-body">
+            <h3>Family Buggy Safari</h3>
+
+            <div class="tour-price">
+              <small>From</small>
+              <strong>€35</strong>
+              <span>/ per person</span>
+            </div>
+
+            <p class="tour-description">
+              Enjoy an easy buggy adventure through beautiful natural landscapes without demanding or extreme driving conditions.<br>
+              Ideal for families seeking fresh air, shared fun and memorable moments together.
+            </p>
+
+            <div class="tour-tags">
+              <span class="tour-tag">Buggy</span>
+              <span class="tour-tag">Family</span>
+              <span class="tour-tag">Nature</span>
+            </div>
+
+            <div class="tour-bottom">
+              <div class="meta">
+                <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>2–3 Hours</span>
+                <span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>Family</span>
+              </div>
+              <div class="circle-arrow">→</div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </section>
+
+  <section class="booking-cta">
+    <div class="booking-left">
+
+      <div class="whatsapp-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64">
+          <defs>
+            <linearGradient id="ctaGold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fff0b8"/>
+              <stop offset="42%" stop-color="#f3c66d"/>
+              <stop offset="100%" stop-color="#c98724"/>
+            </linearGradient>
+          </defs>
+          <path d="M32 10c-11.6 0-21 8.8-21 19.7 0 4.1 1.3 8 3.7 11.2L12 53l12.7-3.2c2.3.8 4.7 1.2 7.3 1.2 11.6 0 21-8.8 21-19.7S43.6 10 32 10z"/>
+          <path d="M24 22.5c1.2 7.5 6.5 13 14.5 15.5"/>
+          <path d="M38.5 38l5-4.7"/>
+          <path d="M24 22.5l-4.6 4.2"/>
+        </svg>
+      </div>
+
+      <div class="cta-content">
+        <h3>Ready for Your Next Adventure?</h3>
+        <div class="cta-line"><span></span><i></i><span></span></div>
+        <p>Choose your experience and receive current availability, pickup details and fast assistance through WhatsApp.</p>
+      </div>
+    </div>
+
+    <a
+      class="gold-btn"
+      href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20book%20an%20Extreme%20and%20Adventure%20tour%20in%20Alanya."
+      target="_blank"
+      rel="noopener">
+      Book on WhatsApp →
+    </a>
+  </section>
+
+  <section class="trust-bar">
+
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24">
+        <path d="M4 16c2.7-2.2 5.3 2.2 8 0s5.3 2.2 8 0"/>
+        <path d="M5 11h14l-2 4H7l-2-4z"/>
+        <path d="M9 8l6 6"/>
+      </svg>
+      <div>
+        <strong>Rafting Experiences</strong>
+        <span>Canyon routes and white-water adventure</span>
+      </div>
+    </div>
+
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 15h2l2-5h10l2 5h2"/>
+        <path d="M6 15h12"/>
+        <circle cx="7" cy="17.5" r="2.2"/>
+        <circle cx="17" cy="17.5" r="2.2"/>
+      </svg>
+      <div>
+        <strong>Safari Adventures</strong>
+        <span>Mountain roads and exciting off-road routes</span>
+      </div>
+    </div>
+
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24">
+        <circle cx="8" cy="8" r="2.5"/>
+        <circle cx="16.5" cy="9" r="2"/>
+        <path d="M3.5 19c.7-4 2.3-6 4.5-6s3.8 2 4.5 6"/>
+        <path d="M12.5 19c.5-3.1 1.8-4.7 4-4.7 2.1 0 3.4 1.6 4 4.7"/>
+      </svg>
+      <div>
+        <strong>Family Adventures</strong>
+        <span>Comfortable programs for adults and children</span>
+      </div>
+    </div>
+
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 15h18"/>
+        <path d="M5 15V8h11l3 4v3"/>
+        <circle cx="7" cy="17.5" r="2"/>
+        <circle cx="17" cy="17.5" r="2"/>
+      </svg>
+      <div>
+        <strong>Hotel Pickup Included</strong>
+        <span>Convenient transfer from your accommodation</span>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+</body>
+</html>
