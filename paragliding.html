@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paragliding in Alanya | ALANYA TOUR ORGANIZATIONS</title>
+  <meta name="description" content="Tandem paragliding in Alanya above Cleopatra Beach, Alanya Castle, the Mediterranean Sea and Taurus Mountains. Daily flights every 2 hours from 10:00 to 17:00. Price €75. Transfer, professional pilot, equipment, briefing and insurance included." />
+
+  <style>
+    :root{
+      --bg:#050b14;
+      --navy:#071321;
+      --navy2:#0d1b2e;
+      --gold:#d6a24a;
+      --gold2:#f3c66d;
+      --gold3:#ffcf72;
+      --text:#fff;
+      --muted:rgba(255,255,255,.75);
+      --soft:rgba(255,255,255,.88);
+      --line:rgba(214,162,74,.34);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at top,rgba(214,162,74,.06),transparent 26%),
+        linear-gradient(180deg,#050b14,#07111f 48%,#050b14);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    .page{
+      width:min(1180px,calc(100% - 36px));
+      margin:auto;
+    }
+
+    .hero{
+      min-height:680px;
+      padding:34px 0 56px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(4,18,48,.72) 0%,
+          rgba(4,18,48,.58) 22%,
+          rgba(6,28,70,.38) 45%,
+          rgba(6,28,70,.12) 68%,
+          rgba(6,28,70,0) 100%
+        ),
+        url("images/paragliding/hero.png") center/cover no-repeat;
+      border-bottom:1px solid rgba(214,162,74,.25);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:auto 0 0 0;
+      height:48px;
+      background:linear-gradient(180deg,transparent,rgba(5,11,20,.58) 60%,var(--bg));
+      pointer-events:none;
+    }
+
+    .hero .page{position:relative;z-index:2}
+
+    .breadcrumbs{
+      color:rgba(255,255,255,.76);
+      font-size:14px;
+      margin-bottom:56px;
+    }
+
+    .breadcrumbs span{color:var(--gold2)}
+
+    .hero-content{max-width:650px;transform:translateY(-8px)}
+
+    .eyebrow{
+      color:var(--gold2);
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:13px;
+      font-weight:900;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(44px,5.4vw,78px);
+      line-height:.95;
+      text-transform:uppercase;
+      font-weight:500;
+      margin-bottom:24px;
+      max-width:720px;
+      text-shadow:0 18px 44px rgba(0,0,0,.55);
+    }
+
+    .subtitle{
+      color:#ffd27d;
+      font-size:24px;
+      line-height:1.35;
+      margin-bottom:22px;
+      max-width:600px;
+      font-weight:500;
+    }
+
+    p{
+      color:var(--muted);
+      line-height:1.75;
+      font-size:16px;
+      margin-bottom:14px;
+    }
+
+    .hero-text{
+      font-size:14px;
+      max-width:590px;
+      margin-bottom:30px;
+      color:rgba(255,255,255,.92);
+    }
+
+    .hero-icons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      margin-bottom:24px;
+    }
+
+    .hero-icon{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      font-weight:900;
+    }
+
+    .ico,
+    .circle-icon{
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      border:1px solid rgba(214,162,74,.55);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--gold2);
+      background:rgba(255,255,255,.035);
+      backdrop-filter:blur(10px);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 12px 30px rgba(0,0,0,.22);
+      flex:0 0 auto;
+    }
+
+    .icon-svg{
+      width:25px;
+      height:25px;
+      stroke:currentColor;
+      fill:none;
+      stroke-width:1.8;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .tour-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 30px;
+      max-width:760px;
+    }
+
+    .tour-tag{
+      padding:11px 16px;
+      border-radius:999px;
+      border:1px solid rgba(214,162,74,.42);
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+      color:var(--gold2);
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      backdrop-filter:blur(14px);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 22px rgba(0,0,0,.28);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      min-height:56px;
+      padding:0 30px;
+      border-radius:999px;
+      background:linear-gradient(180deg,#ffdb7d,#d99a1e);
+      color:#07111f;
+      font-weight:950;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:13px;
+      box-shadow:0 18px 46px rgba(0,0,0,.34),0 0 30px rgba(214,162,74,.18);
+      transition:.28s ease;
+    }
+
+    .btn:hover{transform:translateY(-3px);box-shadow:0 24px 58px rgba(0,0,0,.45),0 0 36px rgba(214,162,74,.28)}
+
+    .page-main{padding:12px 0 74px}
+
+    .section-card{
+      margin-top:30px;
+      padding:30px;
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(circle at top left,rgba(214,162,74,.08),transparent 34%),
+        linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.025));
+      box-shadow:0 24px 60px rgba(0,0,0,.34);
+      overflow:hidden;
+    }
+
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start}
+
+    h2,h3{
+      color:var(--gold2);
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-size:14px;
+      margin-bottom:22px;
+    }
+
+    .highlight-list{display:grid;gap:14px}
+
+    .highlight{
+      display:grid;
+      grid-template-columns:30px minmax(95px,auto) auto 1fr;
+      gap:10px;
+      color:rgba(255,255,255,.86);
+      line-height:1.45;
+      font-size:15px;
+      align-items:start;
+    }
+
+    .highlight::before,
+    .check::before{
+      content:"✓";
+      color:var(--gold2);
+      width:24px;
+      height:24px;
+      border:1px solid rgba(214,162,74,.62);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+      font-size:13px;
+      background:rgba(214,162,74,.04);
+    }
+
+    .highlight > span:first-child,
+    .highlight > b{font-weight:900;color:#fff}
+    .highlight.simple{display:flex;gap:12px}
+    .highlight.simple span{font-weight:400;color:rgba(255,255,255,.86)}
+    .program-sep{color:rgba(255,255,255,.68);font-weight:400}
+    .program-text{font-weight:400;color:rgba(255,255,255,.86)}
+
+    .tour-program-list .highlight{
+      grid-template-columns:30px 170px 20px 1fr;
+      column-gap:10px;
+      align-items:start;
+    }
+
+    .tour-program-list .highlight b{
+      display:block;
+      width:170px;
+    }
+
+    .perfect-list .highlight.simple{
+      min-height:32px;
+      align-items:flex-start;
+    }
+
+    .details-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr 1fr;
+      background:rgba(255,255,255,.025);
+      border:1px solid rgba(214,162,74,.16);
+      overflow:hidden;
+    }
+
+    .details-col{padding:28px;border-right:1px solid rgba(214,162,74,.25);min-height:250px}
+    .details-col:last-child{border-right:none}
+    .details-col h3{font-size:15px}
+
+    .small-list{display:grid;gap:13px;color:var(--muted);font-size:15px;line-height:1.45}
+    .small-list div{display:flex;gap:8px}
+    .small-list div::before{content:"✓";color:var(--gold2);flex:0 0 auto}
+
+    .price{font-family:Georgia,"Times New Roman",serif;color:var(--gold2);font-size:50px;margin:8px 0 6px}
+
+    .gallery-carousel{position:relative;display:grid;grid-template-columns:1fr;gap:16px}
+    .gallery-stage{position:relative;min-height:420px;border-radius:22px;overflow:hidden;border:1px solid rgba(214,162,74,.36);background:rgba(255,255,255,.025);box-shadow:0 22px 48px rgba(0,0,0,.34)}
+    .gallery-stage img{width:100%;height:420px;display:block;object-fit:cover;cursor:pointer;transition:.35s ease}
+    .gallery-stage img:hover{filter:brightness(1.06);transform:scale(1.01)}
+
+    .gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,196,92,.55);background:rgba(5,11,20,.58);color:var(--gold2);display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(10px);transition:.25s ease}
+    .gallery-arrow:hover{background:rgba(255,196,92,.12);border-color:rgba(255,220,140,.9);transform:translateY(-50%) scale(1.05)}
+    .gallery-arrow.prev{left:18px}.gallery-arrow.next{right:18px}
+    .gallery-arrow svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+    .gallery-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .gallery-thumb{height:108px;padding:0;border-radius:16px;border:1px solid rgba(214,162,74,.25);background:transparent;overflow:hidden;cursor:pointer;opacity:.68;transition:.25s ease}
+    .gallery-thumb img{width:100%;height:100%;display:block;object-fit:cover}
+    .gallery-thumb.active,.gallery-thumb:hover{opacity:1;border-color:rgba(255,220,140,.8);box-shadow:0 0 0 1px rgba(255,220,140,.18),0 12px 26px rgba(0,0,0,.28)}
+
+    .info-cards-section{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px;align-items:stretch}
+
+    .premium-card{position:relative;min-height:360px;padding:26px 24px 22px;display:flex;flex-direction:column;border-radius:30px;background:radial-gradient(circle at top,rgba(255,196,92,.10),transparent 32%),radial-gradient(circle at bottom right,rgba(255,190,60,.045),transparent 28%),linear-gradient(180deg,rgba(10,22,39,.96) 0%,rgba(4,12,25,.99) 100%);border:1px solid rgba(255,196,92,.42);box-shadow:inset 0 0 90px rgba(255,196,92,.035),inset 0 1px 0 rgba(255,255,255,.05),0 14px 44px rgba(0,0,0,.46);overflow:hidden;transition:.35s ease}
+    .premium-card::before{content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,220,140,.9),transparent);opacity:.9}
+    .premium-card::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,.035),transparent 28%,transparent 72%,rgba(214,162,74,.025));pointer-events:none}
+    .premium-card:hover{transform:translateY(-6px);border-color:rgba(255,220,140,.74);box-shadow:0 22px 64px rgba(0,0,0,.56),0 0 36px rgba(214,162,74,.13)}
+
+    .premium-icon{width:58px;height:58px;margin:0 auto 16px;border-radius:50%;border:2px solid rgba(255,196,92,.72);display:flex;align-items:center;justify-content:center;color:#ffc45c;background:radial-gradient(circle,rgba(255,196,92,.16),rgba(255,196,92,.02));box-shadow:0 0 30px rgba(255,196,92,.08),inset 0 1px 0 rgba(255,255,255,.08)}
+    .premium-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+    .premium-card h3{text-align:center;color:#ffc45c;font-family:Georgia,"Times New Roman",serif;font-size:18px;letter-spacing:.08em;line-height:1.08;margin-bottom:16px}
+    .premium-line{display:flex;flex-direction:column;gap:4px;color:#fff;font-size:15px;line-height:1.35;margin-bottom:8px}
+    .premium-line strong{font-weight:900;color:#fff}.premium-line span{color:rgba(255,255,255,.86)}
+    .thin-divider{height:1px;margin:8px 0 10px;background:linear-gradient(90deg,transparent,rgba(255,196,92,.42),transparent);position:relative}
+    .thin-divider::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:6px;height:6px;border-radius:50%;background:#ffc45c;box-shadow:0 0 15px rgba(255,196,92,.8)}
+
+    .bring-list{list-style:none;padding:0;margin:0;display:grid;gap:0}
+    .bring-list li{position:relative;padding:0 0 7px 32px;margin-bottom:7px;color:rgba(255,255,255,.89);font-size:15px;line-height:1.28;border-bottom:1px solid rgba(255,196,92,.13)}
+    .bring-list li:last-child{border-bottom:none}
+    .bring-list li::before{content:"✓";position:absolute;left:0;top:-2px;width:21px;height:21px;border-radius:50%;border:1px solid rgba(255,196,92,.74);color:#ffc45c;display:grid;place-items:center;font-size:13px;background:rgba(255,196,92,.04)}
+
+    .card-decor{width:138px;height:1px;margin:auto auto 0;background:linear-gradient(90deg,transparent,#ffc45c,transparent);position:relative;opacity:.9}
+    .card-decor::after{content:"✦";position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);padding:0 12px;color:#ffc45c;font-size:15px;background:#06101d}
+
+    .premium-contact{max-width:980px;margin:28px auto 0;display:flex;justify-content:space-between;align-items:center;gap:30px;padding:22px 30px;border-radius:18px;background:radial-gradient(circle at left,rgba(255,196,92,.08),transparent 35%),linear-gradient(90deg,rgba(18,31,52,.96),rgba(5,14,28,.99));border:1px solid rgba(255,196,92,.38);box-shadow:0 14px 44px rgba(0,0,0,.44),inset 0 1px 0 rgba(255,255,255,.04)}
+    .premium-contact-left{display:flex;align-items:center;gap:24px}
+    .premium-contact-icon{width:54px;height:54px;border-radius:50%;border:2px solid rgba(255,196,92,.62);display:grid;place-items:center;color:#ffc45c;flex:0 0 auto;background:rgba(255,196,92,.04)}
+    .premium-contact-icon svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .premium-contact h3{color:#ffc45c;font-family:Georgia,"Times New Roman",serif;font-size:15px;letter-spacing:.18em;margin-bottom:6px}
+    .premium-contact p{color:rgba(255,255,255,.84);font-size:14px;line-height:1.45;max-width:620px;margin:0}
+    .premium-whatsapp-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 30px;min-width:260px;border-radius:999px;background:linear-gradient(180deg,#ffdb7d,#d99a1e);color:#07111f;font-weight:950;font-size:14px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 12px 36px rgba(255,196,92,.25);transition:.3s ease}
+    .premium-whatsapp-btn:hover{transform:translateY(-4px);box-shadow:0 18px 48px rgba(255,196,92,.38)}
+
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:9999;padding:24px}
+    .lightbox.active{display:flex}.lightbox img{max-width:92vw;max-height:88vh;border-radius:18px;border:1px solid var(--line);box-shadow:0 24px 70px rgba(0,0,0,.65)}.close{position:absolute;top:22px;right:28px;color:white;font-size:34px;cursor:pointer}
+
+    @media(max-width:980px){
+      .hero{min-height:auto;padding:30px 0 54px;background-position:center}
+      .breadcrumbs{margin-bottom:44px}
+      .hero-content{transform:none}
+      .two-col,.details-grid,.info-cards-section{grid-template-columns:1fr}
+      .details-col{border-right:none;border-bottom:1px solid rgba(214,162,74,.25)}
+      .gallery-stage,.gallery-stage img{min-height:300px;height:300px}
+      .gallery-thumbs{grid-template-columns:repeat(2,1fr)}
+      .gallery-thumb{height:86px}
+      .premium-card{min-height:auto}
+      .premium-contact{flex-direction:column;align-items:flex-start}
+      .premium-contact-left{align-items:flex-start}
+      .premium-whatsapp-btn{width:100%;min-width:0}
+      .highlight{grid-template-columns:30px 1fr}.tour-program-list .highlight{grid-template-columns:30px 1fr}.tour-program-list .highlight b{width:auto}.program-sep{display:none}.program-text{grid-column:2}
+    }
+  
+    /* Approved MASTER TOUR program timeline */
+    .program-list{position:relative;display:grid;gap:0}
+    .program-list::before{
+      content:"";position:absolute;left:47px;top:32px;bottom:32px;width:1px;
+      background:linear-gradient(180deg,transparent,rgba(214,162,74,.68) 8%,rgba(214,162,74,.32) 92%,transparent)
+    }
+    .program-step{
+      position:relative;display:grid;grid-template-columns:58px 132px minmax(0,1fr);
+      gap:18px;padding:20px;border-bottom:1px solid rgba(214,162,74,.16)
+    }
+    .program-step:last-child{border-bottom:none}
+    .step-icon{
+      position:relative;z-index:2;width:56px;height:56px;border-radius:50%;
+      display:grid;place-items:center;color:var(--gold2);
+      border:1px solid rgba(214,162,74,.62);background:#091524;
+      box-shadow:0 10px 28px rgba(0,0,0,.28),0 0 22px rgba(214,162,74,.06)
+    }
+    .step-icon svg{
+      width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.75;
+      stroke-linecap:round;stroke-linejoin:round
+    }
+    .step-time{
+      padding-top:9px;color:var(--gold2);font-size:10px;font-weight:900;
+      letter-spacing:.10em;text-transform:uppercase;line-height:1.4
+    }
+    .step-content{padding-top:3px}
+    .step-content h3{
+      font-family:Georgia,"Times New Roman",serif;font-size:17px;line-height:1.25;
+      letter-spacing:.02em;text-transform:none;color:#fff;margin-bottom:5px
+    }
+    .step-content p{margin:0;font-size:14px;line-height:1.5}
+
+    /* FAQ */
+    .faq-list{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;align-items:start
+    }
+    .faq-item{
+      align-self:start;border:1px solid rgba(214,162,74,.28);
+      border-radius:18px;background:rgba(255,255,255,.025);overflow:hidden
+    }
+    .faq-question{
+      width:100%;padding:19px 22px;border:0;background:transparent;color:#fff;
+      text-align:left;font-size:15px;font-weight:800;display:flex;
+      justify-content:space-between;gap:18px;cursor:pointer
+    }
+    .faq-question::after{content:"+";color:var(--gold2);font-size:22px;line-height:1}
+    .faq-item.active .faq-question::after{content:"−"}
+    .faq-answer{display:none;padding:0 22px 18px}
+    .faq-answer p{margin:0}
+    .faq-item.active .faq-answer{display:block}
+
+    /* Important paragliding safety rules */
+    .flight-rules-grid{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;align-items:stretch
+    }
+    .flight-rule{
+      position:relative;min-height:340px;padding:26px 24px 22px;
+      display:flex;flex-direction:column;border-radius:30px;
+      background:
+        radial-gradient(circle at top,rgba(255,196,92,.10),transparent 32%),
+        radial-gradient(circle at bottom right,rgba(255,190,60,.045),transparent 28%),
+        linear-gradient(180deg,rgba(10,22,39,.96),rgba(4,12,25,.99));
+      border:1px solid rgba(255,196,92,.42);
+      box-shadow:inset 0 0 90px rgba(255,196,92,.035),inset 0 1px 0 rgba(255,255,255,.05),0 14px 44px rgba(0,0,0,.46);
+      overflow:hidden
+    }
+    .flight-rule::before{
+      content:"";position:absolute;top:0;left:10%;right:10%;height:1px;
+      background:linear-gradient(90deg,transparent,rgba(255,220,140,.9),transparent)
+    }
+    .flight-rule-icon{
+      width:58px;height:58px;margin:0 auto 16px;border-radius:50%;
+      border:2px solid rgba(255,196,92,.72);display:flex;align-items:center;
+      justify-content:center;color:#ffc45c;
+      background:radial-gradient(circle,rgba(255,196,92,.16),rgba(255,196,92,.02))
+    }
+    .flight-rule-icon svg{
+      width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.75;
+      stroke-linecap:round;stroke-linejoin:round
+    }
+    .flight-rule h3{
+      min-height:52px;display:flex;align-items:center;justify-content:center;
+      text-align:center;color:#ffc45c;font-family:Arial,Helvetica,sans-serif;
+      font-size:17px;font-weight:900;letter-spacing:.08em;line-height:1.2;
+      text-transform:uppercase;margin:0 0 16px
+    }
+    .flight-rule p{
+      margin:0;color:rgba(255,255,255,.86);font-size:15px;line-height:1.5
+    }
+    .flight-rule::after{
+      content:"";width:138px;height:1px;margin:auto auto 0;
+      background:linear-gradient(90deg,transparent,#ffc45c,transparent)
+    }
+    .flight-rules-note{
+      max-width:980px;margin:18px auto 0;padding:15px 20px;border-radius:16px;
+      border:1px solid rgba(255,196,92,.24);background:rgba(255,196,92,.045);
+      color:rgba(255,255,255,.74);font-size:13px;line-height:1.55;text-align:center
+    }
+
+    @media(max-width:980px){
+      .program-list::before{left:32px}
+      .program-step{grid-template-columns:48px minmax(0,1fr);gap:14px;padding:16px 8px}
+      .step-icon{width:48px;height:48px}
+      .step-time{grid-column:2;padding:0 0 2px}
+      .step-content{grid-column:2;padding-top:0}
+      .faq-list{grid-template-columns:1fr}
+      .flight-rules-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .flight-rule{min-height:auto}
+    }
+    @media(max-width:620px){
+      .flight-rules-grid{grid-template-columns:1fr}
+      .flight-rule h3{min-height:auto;font-size:16px}
+    }
+
+  </style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="page">
+    <div class="breadcrumbs">Home › Air Experiences › <span>Paragliding</span></div>
+
+    <div class="hero-content"
+         data-category="air-experiences"
+         data-tags="paragliding tandem-flight cleopatra-beach alanya-castle mediterranean-sea taurus-mountains professional-pilot transfer-included daily-tour adrenaline-flight photo-video active-experience">
+
+      <div class="eyebrow">Air Experience</div>
+      <h1>Paragliding in Alanya</h1>
+
+      <div class="subtitle">Tandem flight above Cleopatra Beach, Alanya Castle, the Mediterranean Sea and the Taurus Mountains.</div>
+
+      <p class="hero-text">
+        Experience the feeling of freedom with a professional tandem paragliding flight above Alanya.
+        Fly from a mountain take-off point and enjoy panoramic views from up to 800 meters.
+      </p>
+
+      <div class="hero-icons">
+        <div class="hero-icon">
+          <span class="ico"><svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13V8"/><path d="M12 13l3 2"/><path d="M9 2h6"/><path d="M12 2v3"/></svg></span>
+          Every 2 Hours
+        </div>
+        <div class="hero-icon">
+          <span class="ico"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 14c3-5 13-5 16 0"/><path d="M5 14c1.5 4 12.5 4 14 0"/><path d="M12 14v6"/><path d="M9 20h6"/></svg></span>
+          Tandem Flight
+        </div>
+        <div class="hero-icon">
+          <span class="ico"><svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 7h13v9H3z"/><path d="M16 10h3l2 3v3h-5"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span>
+          Transfer
+        </div>
+      </div>
+
+      <div class="tour-tags">
+        <span class="tour-tag">Air Experience</span>
+        <span class="tour-tag">Paragliding</span>
+        <span class="tour-tag">Tandem Flight</span>
+        <span class="tour-tag">Cleopatra Beach</span>
+        <span class="tour-tag">800 Meters</span>
+        <span class="tour-tag">Certified Pilot</span>
+        <span class="tour-tag">Daily Tour</span>
+        <span class="tour-tag">Transfer Included</span>
+        <span class="tour-tag">Premium Experience</span>
+      </div>
+
+      <a class="btn" target="_blank" rel="noopener" href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20book%20Paragliding%20in%20Alanya.">
+        Book on WhatsApp →
+      </a>
+    </div>
+  </div>
+</section>
+
+<main class="page page-main">
+
+  <section class="section-card two-col">
+    <div>
+      <h2>About this experience</h2>
+      <p><b>Paragliding in Alanya</b> is one of the most exciting ways to see the Turkish Riviera from above and feel the true freedom of flight.</p>
+      <p>During the flight, you will see the famous <b>Cleopatra Beach</b>, Alanya Castle and the historic peninsula, the azure Mediterranean Sea, the majestic Taurus Mountains and the panoramic coastline from up to 800 meters.</p>
+      <p>The flight is performed in tandem with a professional certified pilot, so the experience is suitable even for guests who have never tried paragliding before.</p>
+      <p>Before take-off, you receive a detailed safety briefing. Then you take off smoothly from the mountain launch area and enjoy breathtaking views over Alanya.</p>
+    </div>
+
+    <div>
+      <h2>Highlights</h2>
+      <div class="highlight-list">
+        <div class="highlight simple"><span>Famous Cleopatra Beach from above</span></div>
+        <div class="highlight simple"><span>Alanya Castle and historic peninsula views</span></div>
+        <div class="highlight simple"><span>Azure Mediterranean Sea and Taurus Mountains</span></div>
+        <div class="highlight simple"><span>Panorama of the city and coastline from up to 800 meters</span></div>
+        <div class="highlight simple"><span>Tandem flight with a certified professional pilot</span></div>
+        <div class="highlight simple"><span>Perfect for adrenaline, freedom and unforgettable emotions</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <div class="details-grid">
+      <div class="details-col">
+        <h3>Details</h3>
+        <div class="small-list">
+          <div>Flights every 2 hours from 10:00 to 17:00</div>
+          <div>Operation days: every day</div>
+          <div>Altitude: up to 800 meters</div>
+          <div>Advance reservation required</div>
+        </div>
+      </div>
+
+      <div class="details-col">
+        <h3>Price</h3>
+        <div class="price">€75</div>
+        <p>per person</p>
+        <p>Children pay full price.</p>
+      </div>
+
+      <div class="details-col">
+        <h3>Included</h3>
+        <div class="small-list">
+          <div>Hotel pick-up and return transfer</div>
+          <div>Tandem flight with a professional pilot</div>
+          <div>Safety briefing and insurance</div>
+          <div>Necessary paragliding equipment</div>
+        </div>
+      </div>
+
+      <div class="details-col">
+        <h3>Not included</h3>
+        <div class="small-list">
+          <div>Photo and video shooting during the flight</div>
+          <div>Personal expenses</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <h2>Tour Program</h2>
+    <div class="program-list">
+      <div class="program-step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M3 7h13v9H3z"/><path d="M16 10h3l2 3v3h-5"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>
+        <div class="step-time">Pickup</div>
+        <div class="step-content"><h3>Hotel or Apartment Transfer</h3><p>Pickup from your hotel or apartment address. The exact time is confirmed after booking according to the selected flight slot.</p></div>
+      </div>
+      <div class="program-step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M4 18l4-7 4 4 3-6 5 9"/><path d="M3 20h18"/></svg></div>
+        <div class="step-time">Mountain</div>
+        <div class="step-content"><h3>Transfer to the Launch Area</h3><p>Travel to the mountain take-off point with panoramic views over Alanya and the Mediterranean coastline.</p></div>
+      </div>
+      <div class="program-step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-5"/></svg></div>
+        <div class="step-time">Briefing</div>
+        <div class="step-content"><h3>Safety Instructions & Equipment</h3><p>The pilot explains the take-off, flight position and landing procedure, then checks and secures all equipment.</p></div>
+      </div>
+      <div class="program-step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M4 13c4-6 12-6 16 0"/><path d="M12 13v8"/><path d="M8 21h8"/></svg></div>
+        <div class="step-time">Flight</div>
+        <div class="step-content"><h3>Tandem Paragliding Flight</h3><p>Fly with a professional pilot above Cleopatra Beach, Alanya Castle, the city and the Mediterranean coast.</p></div>
+      </div>
+      <div class="program-step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M4 18h16"/><path d="M7 15l5 3 5-3"/><path d="M12 5v13"/></svg></div>
+        <div class="step-time">Landing</div>
+        <div class="step-content"><h3>Landing Near Cleopatra Beach</h3><p>The final landing point is chosen by the pilot according to wind, weather and operational conditions.</p></div>
+      </div>
+      <div class="program-step">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M20 7H7v9h13z"/><path d="M7 10H4l-2 3v3h5"/><circle cx="17" cy="18" r="2"/><circle cx="6" cy="18" r="2"/></svg></div>
+        <div class="step-time">Return</div>
+        <div class="step-content"><h3>Return Transfer</h3><p>After the experience and optional photo or video viewing, return transfer is provided to the original pickup point.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card gallery-section">
+    <h2>Photo Gallery</h2>
+
+    <div class="gallery-carousel">
+      <div class="gallery-stage">
+        <button class="gallery-arrow prev" type="button" aria-label="Previous photo" onclick="changeGallery(-1)">
+          <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
+        <img id="gallery-current" src="images/paragliding/gallery-1.png" alt="Paragliding in Alanya" onclick="openLightbox(this.src)">
+
+        <button class="gallery-arrow next" type="button" aria-label="Next photo" onclick="changeGallery(1)">
+          <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="gallery-thumbs" aria-label="Gallery thumbnails">
+        <button class="gallery-thumb active" type="button" onclick="setGallery(0)"><img src="images/paragliding/gallery-1.png" alt="Paragliding mountain takeoff in Alanya"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(1)"><img src="images/paragliding/gallery-2.png" alt="Professional pilot preparing paragliding equipment"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(2)"><img src="images/paragliding/gallery-3.png" alt="Bird-eye view above Cleopatra Beach"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(3)"><img src="images/paragliding/gallery-4.png" alt="Tandem paragliding selfie above Alanya"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(4)"><img src="images/paragliding/gallery-6.png" alt="Emotional tandem paragliding flight above Alanya"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(5)"><img src="images/paragliding/gallery-7.png" alt="Smooth landing on Cleopatra Beach"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-cards-section" aria-label="Main paragliding information">
+
+    <div class="premium-card">
+      <div class="premium-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 13V8"/><path d="M12 13l3 2"/><path d="M9 2h6"/><path d="M12 2v3"/></svg>
+      </div>
+      <h3>Tour time</h3>
+      <div class="premium-line"><strong>Schedule:</strong><span>every 2 hours</span></div>
+      <div class="thin-divider"></div>
+      <div class="premium-line"><strong>Time period:</strong><span>from 10:00 to 17:00</span></div>
+      <div class="thin-divider"></div>
+      <div class="premium-line"><strong>Operation days:</strong><span>every day</span></div>
+      <div class="thin-divider"></div>
+      <div class="premium-line"><strong>Reservation:</strong><span>advance booking required</span></div>
+      <div class="card-decor"></div>
+    </div>
+
+    <div class="premium-card">
+      <div class="premium-icon">
+        <svg viewBox="0 0 24 24"><rect x="7" y="6" width="10" height="14" rx="2"/><path d="M9 6V4h6v2"/><path d="M9 10h6"/></svg>
+      </div>
+      <h3>What to bring</h3>
+      <ul class="bring-list">
+        <li>Comfortable sports clothing</li>
+        <li>Light jacket or windbreaker</li>
+        <li>Lace-up sneakers or sports shoes</li>
+        <li>Sunglasses with a strap</li>
+        <li>Sunscreen</li>
+        <li>Water</li>
+        <li>Money for photo / video package</li>
+        <li>Hair tie for women</li>
+      </ul>
+      <div class="card-decor"></div>
+    </div>
+
+    <div class="premium-card">
+      <div class="premium-icon">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.3"/><path d="M3.5 20c.8-4 3-6 5.5-6s4.7 2 5.5 6"/><path d="M13.5 20c.5-2.9 2-4.6 3.5-4.6 1.7 0 3 1.8 3.5 4.6"/></svg>
+      </div>
+      <h3>Child policy</h3>
+      <div class="premium-line"><strong>Children:</strong><span>full price</span></div>
+      <div class="thin-divider"></div>
+      <div class="premium-line"><strong>Safety:</strong><span>subject to pilot approval and weather conditions</span></div>
+      <div class="card-decor"></div>
+    </div>
+
+    <div class="premium-card">
+      <div class="premium-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 7h13v9H3z"/><path d="M16 10h3l2 3v3h-5"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+      </div>
+      <h3>Pickup information</h3>
+      <div class="premium-line"><span>Customer meeting point: hotel or apartment address.</span></div>
+      <div class="thin-divider"></div>
+      <div class="premium-line"><span>Exact pick-up time is confirmed after reservation according to the selected flight time.</span></div>
+      <div class="card-decor"></div>
+    </div>
+
+  </section>
+
+  <section class="section-card">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" type="button">Do I need previous experience?</button>
+        <div class="faq-answer"><p>No. The flight is tandem and controlled by a professional pilot. You only need to follow the take-off and landing instructions.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button">How long is the flight?</button>
+        <div class="faq-answer"><p>Flight duration depends on wind, weather, passenger weight and the selected launch point. The exact duration cannot be guaranteed in advance.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button">Can the flight be postponed?</button>
+        <div class="faq-answer"><p>Yes. Flights may be delayed, rescheduled or cancelled when wind or weather conditions are unsuitable for safe operation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button">Are photos and videos included?</button>
+        <div class="faq-answer"><p>No. The professional in-flight photo and video package is optional and paid separately.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button">What shoes should I wear?</button>
+        <div class="faq-answer"><p>Wear secure lace-up sports shoes. Sandals, slippers and loose footwear are not suitable for take-off and landing.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button">Can children participate?</button>
+        <div class="faq-answer"><p>Participation depends on age, weight, height, equipment fit, weather and final pilot approval. Child pricing is the same unless otherwise confirmed.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button">Is hotel transfer included?</button>
+        <div class="faq-answer"><p>Yes. Pickup and return transfer are included for the confirmed service area and booking address.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" type="button">Where do we land?</button>
+        <div class="faq-answer"><p>Landing is normally near Cleopatra Beach, but the pilot may change the landing point according to wind and safety conditions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="premium-contact">
+    <div class="premium-contact-left">
+      <div class="premium-contact-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z"/><path d="M9 8.5c.3 2.8 2.1 4.6 5 5"/></svg>
+      </div>
+      <div>
+        <h3>Have questions?</h3>
+        <p>Message us on WhatsApp — we will confirm availability, flight time, transfer details and photo / video package options.</p>
+      </div>
+    </div>
+
+    <a class="premium-whatsapp-btn" target="_blank" rel="noopener" href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20book%20Paragliding%20in%20Alanya.">
+      Chat on WhatsApp →
+    </a>
+  </section>
+
+  <section class="section-card">
+    <h2>Important Paragliding Safety Rules</h2>
+    <div class="flight-rules-grid">
+      <div class="flight-rule">
+        <div class="flight-rule-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-5"/></svg></div>
+        <h3>Pilot Instructions</h3>
+        <p>Guests must follow the pilot’s instructions during preparation, take-off, flight and landing. Final participation approval belongs to the pilot.</p>
+      </div>
+      <div class="flight-rule">
+        <div class="flight-rule-icon"><svg viewBox="0 0 24 24"><path d="M5 20h14"/><path d="M8 17l4-5 4 5"/><path d="M7 8h10"/><path d="M9 4h6"/></svg></div>
+        <h3>Clothing & Equipment</h3>
+        <p>Wear comfortable sports clothing and secure closed shoes. Loose items, jewellery and unsecured phones must be removed or safely stored.</p>
+      </div>
+      <div class="flight-rule">
+        <div class="flight-rule-icon"><svg viewBox="0 0 24 24"><path d="M12 21s7-4.5 7-11a4 4 0 0 0-7-2.6A4 4 0 0 0 5 10c0 6.5 7 11 7 11z"/><path d="M8 12h2l1-3 2 6 1-3h2"/></svg></div>
+        <h3>Health Restrictions</h3>
+        <p>The activity may not be suitable during pregnancy or for guests with serious heart, back, neck, neurological or mobility conditions, recent surgery or severe fear of heights.</p>
+      </div>
+      <div class="flight-rule">
+        <div class="flight-rule-icon"><svg viewBox="0 0 24 24"><path d="M4 16c3-4 6-6 9-6s5 1 7 3"/><path d="M3 19h18"/><path d="M6 7h12"/><path d="M9 4h6"/></svg></div>
+        <h3>Weather & Flight Conditions</h3>
+        <p>Flight time, launch point, route and landing location may change. Unsafe wind or weather conditions may cause delay, rescheduling or cancellation.</p>
+      </div>
+    </div>
+    <p class="flight-rules-note">Safety always has priority over the advertised schedule. The pilot and operator make the final decision regarding participation, launch and landing conditions.</p>
+  </section>
+
+</main>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="close">×</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  const galleryImages = [
+    {src:'images/paragliding/gallery-1.png', alt:'Paragliding mountain takeoff in Alanya'},
+    {src:'images/paragliding/gallery-2.png', alt:'Professional pilot preparing paragliding equipment'},
+    {src:'images/paragliding/gallery-3.png', alt:'Bird-eye view above Cleopatra Beach'},
+    {src:'images/paragliding/gallery-4.png', alt:'Tandem paragliding selfie above Alanya'},
+    {src:'images/paragliding/gallery-6.png', alt:'Emotional tandem paragliding flight above Alanya'},
+    {src:'images/paragliding/gallery-7.png', alt:'Smooth landing on Cleopatra Beach'}
+  ];
+
+  let galleryIndex = 0;
+
+  function setGallery(index){
+    galleryIndex = (index + galleryImages.length) % galleryImages.length;
+    const current = document.getElementById('gallery-current');
+    current.src = galleryImages[galleryIndex].src;
+    current.alt = galleryImages[galleryIndex].alt;
+
+    document.querySelectorAll('.gallery-thumb').forEach((thumb, i) => {
+      thumb.classList.toggle('active', i === galleryIndex);
+    });
+  }
+
+  function changeGallery(direction){setGallery(galleryIndex + direction)}
+
+  function openLightbox(src){
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+
+  function closeLightbox(){document.getElementById('lightbox').classList.remove('active')}
+
+  document.querySelectorAll('.faq-question').forEach(button=>{
+    button.addEventListener('click',()=>{
+      button.closest('.faq-item').classList.toggle('active');
+    });
+  });
+</script>
+</body>
+</html>
