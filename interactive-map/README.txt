@@ -1,18 +1,20 @@
-TRAVEL IS LOVE — INTERACTIVE MAP V10
+V17 — REAL SHARED FILTER INTEGRATION
 
-Open interactive-map.html with internet access.
-This preview includes:
-- original site header/footer and shared styles.css
-- 52 real tour-page links from ato.zip
-- real HERO images for 26 tours from the valid category archives
-- categories, filters, autotravel after 5 seconds, geolocation and nearby tours
+This package uses the actual filter markup from the uploaded ato.zip main page.
 
-Important:
-The archive “4,5,6 КАТЕГОРИИ.zip” was incomplete/corrupted during upload,
-so images for categories 4–6 are not embedded yet. Their tour links still work.
-Re-upload that archive in smaller parts to complete those photographs.
+FILES:
+1) interactive-map/index.html
+2) interactive-map/interactive-map.html
+3) interactive-map/assets/js/shared-filters.js
+4) site-root/index.html — main site page with the official sidebar filter connected
+5) site-root/assets/js/shared-filters.js
 
-V11 update: Wellness & Relax location verified at Çıplaklı Mahallesi, 3002. Sokak, Mevlüt Çavuşoğlu Bulvarı No:4, coordinates 36.5593 N, 32.0125 E. Duplicate template entry removed.
+INSTALLATION:
+- Replace the two HTML files inside /interactive-map/.
+- Add/replace /interactive-map/assets/js/shared-filters.js.
+- Compare and then replace the root site index.html with site-root/index.html.
+- Add /assets/js/shared-filters.js at the site root.
 
+Both pages use the same localStorage key: alanyaTourFilters. Search and selected filter tags persist during navigation between the site and map. Map-native controls (category, price, duration, transfer, family, private) are stored in the same object.
 
-V12: Added real HERO images for History & Culture, Family Experiences and Air Experiences. Added verified Wellness & Relax location at [32.0125, 36.5593].
+Important: Couples and Friends are preserved in shared state, but the current tour data has no couples/friends metadata, so the map does not exclude tours by those two tags until that metadata is added.
