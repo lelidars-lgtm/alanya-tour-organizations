@@ -1,0 +1,12 @@
+{
+  "version": "V24-single-source-original-pages",
+  "original_tour_directory": "/tours/",
+  "map_tour_count": 51,
+  "all_map_targets_exist_in_original_archive": true,
+  "missing_map_targets": [],
+  "unmatched_category_links": [
+    "catamaran.html"
+  ],
+  "duplicated_tour_pages_in_package": false,
+  "behavior": "Card data are fetched from the original /tours/<filename>.html page on every map load; VIEW TOUR opens that same original page."
+}
