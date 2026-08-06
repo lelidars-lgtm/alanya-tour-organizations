@@ -14,7 +14,7 @@ html{scroll-behavior:smooth}
 body{font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top,rgba(214,162,74,.06),transparent 26%),linear-gradient(180deg,#050b14,#07111f 48%,#050b14);color:var(--text);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 .page{width:min(1180px,calc(100% - 36px));margin:auto}
-.hero{min-height:760px;padding:34px 0 76px;background:linear-gradient(90deg,rgba(4,10,18,.78) 0%,rgba(4,10,18,.52) 34%,rgba(4,10,18,.22) 62%,rgba(4,10,18,.08) 100%),url("images/luxury-yacht/luxury-hero.jpeg") center center/cover no-repeat;position:relative;overflow:hidden}
+.hero{min-height:760px;padding:34px 0 76px;background:linear-gradient(90deg,rgba(4,10,18,.78) 0%,rgba(4,10,18,.52) 34%,rgba(4,10,18,.22) 62%,rgba(4,10,18,.08) 100%),url("images/luxury-yacht/luxury-hero.png") center center/cover no-repeat;position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:260px;background:linear-gradient(180deg,rgba(5,11,20,0) 0%,rgba(5,11,20,.55) 45%,#050b14 100%);pointer-events:none;z-index:1}
 .hero::before{content:"";position:absolute;left:50%;bottom:-54px;transform:translateX(-50%);width:72%;height:110px;background:radial-gradient(ellipse at center,rgba(243,198,109,.22) 0%,rgba(243,198,109,.08) 34%,rgba(243,198,109,0) 72%);pointer-events:none;z-index:2}
 .hero .page{position:relative;z-index:2}
@@ -573,6 +573,161 @@ background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
     grid-template-columns:1fr;
   }
 }
+
+
+/* ===== MAKE IT YOURS STRIP ===== */
+.make-it-yours{
+  margin-top:18px;
+  padding:20px 22px;
+  border-radius:20px;
+  border:1px solid rgba(255,196,92,.34);
+  background:
+    radial-gradient(circle at top left,rgba(255,196,92,.08),transparent 36%),
+    linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
+  box-shadow:0 14px 34px rgba(0,0,0,.22);
+}
+.make-it-yours h3{
+  margin:0 0 16px;
+  color:#ffc45c;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:18px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-align:center;
+}
+.make-it-yours-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.make-it-yours-item{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:12px 10px;
+  border-right:1px solid rgba(255,196,92,.14);
+}
+.make-it-yours-item:last-child{border-right:none}
+.make-it-yours-icon{
+  width:34px;
+  height:34px;
+  flex:0 0 auto;
+  border-radius:50%;
+  border:1px solid rgba(255,196,92,.62);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#ffc45c;
+}
+.make-it-yours-icon svg{
+  width:16px;
+  height:16px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.make-it-yours-item strong{
+  display:block;
+  margin-bottom:4px;
+  color:#fff;
+  font-size:12px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.make-it-yours-item span{
+  display:block;
+  color:rgba(255,255,255,.74);
+  font-size:12px;
+  line-height:1.45;
+}
+@media(max-width:980px){
+  .make-it-yours-grid{grid-template-columns:1fr}
+  .make-it-yours-item{
+    border-right:none;
+    border-bottom:1px solid rgba(255,196,92,.14);
+  }
+  .make-it-yours-item:last-child{border-bottom:none}
+}
+
+
+/* ===== SIMPLIFIED EMOTIONAL STRIP ===== */
+.about-yacht-caption{
+  max-width:none;
+  white-space:nowrap;
+}
+
+.make-it-yours h3{
+  font-size:16px !important;
+  margin:0 0 12px !important;
+  letter-spacing:.10em !important;
+}
+
+.make-it-yours-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:10px !important;
+}
+
+.make-it-yours-item{
+  align-items:center !important;
+  min-height:58px;
+  padding:10px 12px !important;
+}
+
+.make-it-yours-item strong{
+  margin-bottom:0 !important;
+  font-size:13px !important;
+  line-height:1.25 !important;
+}
+
+.make-it-yours-item span{
+  display:none !important;
+}
+
+@media(max-width:980px){
+  .make-it-yours-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
+
+/* ===== TWO CAPTIONS ONLY ===== */
+.make-it-yours{
+  padding-top:16px !important;
+}
+
+.make-it-yours-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:10px !important;
+}
+
+.make-it-yours-item{
+  justify-content:center !important;
+  align-items:center !important;
+  min-height:64px !important;
+}
+
+.make-it-yours-item strong{
+  font-size:14px !important;
+}
+
+@media(max-width:980px){
+  .make-it-yours-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
+
+/* ===== CENTER ABOUT CARD ICONS ===== */
+.about-info-icon{
+  margin:0 auto 12px !important;
+}
+
+.about-info-card h3,
+.about-info-card p{
+  text-align:left;
+}
 </style>
 </head>
 <body>
@@ -613,7 +768,9 @@ background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
 </article>
 </div></div><div><h2>Highlights</h2><div class="highlight-list"><div class="highlight">Exclusive use of the yacht for your confirmed private group</div><div class="highlight">Panoramic views of Alanya Castle, sea caves and Cleopatra Beach</div><div class="highlight">A choice of daytime or sunset atmosphere</div><div class="highlight">Space for romantic moments, birthdays and family celebrations</div><div class="highlight">Sun terrace and shaded lounge areas for private relaxation</div><div class="highlight">Personal music through the yacht’s Bluetooth audio system</div></div><div class="about-yacht-visual">
 <img alt="Luxury private yacht sunset cruise in Alanya" src="images/luxury-yacht/luxury-gallery-3.png"/>
-<div class="about-yacht-caption">YOUR PRIVATE SUNSET. YOUR PERFECT MOMENT.</div>
+<div class="about-yacht-caption">ENJOY THE CRUISE ATMOSPHERE</div>
+</div><div class="make-it-yours">
+<div class="make-it-yours-grid"><div class="make-it-yours-item"><div class="make-it-yours-icon"><svg viewbox="0 0 24 24"><circle cx="8" cy="8" r="3"></circle><circle cx="16" cy="9" r="2.5"></circle><path d="M3 20c.6-4.1 2.5-6.3 5-6.3S12.5 15.9 13 20"></path><path d="M13 20c.5-3 1.8-4.7 3.6-4.7 1.7 0 3 1.7 3.4 4.7"></path></svg></div><div><strong>Freedom at Sea</strong></div></div><div class="make-it-yours-item"><div class="make-it-yours-icon"><svg viewbox="0 0 24 24"><path d="M4 15a8 8 0 0 1 16 0"></path><path d="M7 15a5 5 0 0 1 10 0"></path><path d="M12 3v3"></path><path d="M5 8l2 2"></path><path d="M19 8l-2 2"></path></svg></div><div><strong>Only Your People</strong></div></div></div>
 </div></div></section>
 <section class="section-card"><div class="details-grid">
 <div class="details-col"><h3>Yacht</h3><div class="small-list">
