@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>History & Culture | ALANYA TOUR ORGANIZATIONS</title>
+
+<style>
+:root{
+  --bg:#04101d;
+  --navy:#071625;
+  --navy2:#0b2035;
+  --gold:#d6a24a;
+  --gold2:#f3c66d;
+  --text:#ffffff;
+  --muted:rgba(255,255,255,.76);
+  --line:rgba(214,162,74,.34);
+  --soft:rgba(255,255,255,.08);
+  --radius:24px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(214,162,74,.08),transparent 34%),
+    linear-gradient(180deg,#04101d,#061321 48%,#030a13);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%}
+
+.history-page{
+  max-width:1650px;
+  margin:0 auto;
+  padding:0 28px;
+}
+
+/* ===== HERO ===== */
+
+.history-hero{
+  position:relative;
+  min-height:560px;
+  padding:34px 0 70px;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4,12,22,.86) 0%,
+      rgba(4,12,22,.62) 34%,
+      rgba(4,12,22,.20) 58%,
+      rgba(4,12,22,.08) 100%
+    ),
+    url("images/history-culture/history-culture-hero.png") center right/cover no-repeat;
+  border-bottom:1px solid rgba(214,162,74,.18);
+  overflow:hidden;
+}
+
+.history-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 78% 42%,rgba(214,162,74,.18),transparent 36%),
+    linear-gradient(90deg,rgba(4,12,22,.08),rgba(4,12,22,.36));
+  pointer-events:none;
+}
+
+.history-hero::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:90px;
+  background:linear-gradient(180deg,transparent,rgba(4,16,29,.72));
+  pointer-events:none;
+}
+
+.history-hero-inner{
+  position:relative;
+  z-index:2;
+  max-width:1650px;
+  margin:0 auto;
+  padding:0 28px;
+}
+
+.breadcrumbs{
+  padding-top:18px;
+  color:rgba(255,255,255,.80);
+  font-size:14px;
+  margin-bottom:64px;
+}
+
+.breadcrumbs span{color:var(--gold2)}
+
+.eyebrow{
+  color:var(--gold2);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:18px;
+}
+
+.history-hero h1{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(46px,5.4vw,74px);
+  line-height:.92;
+  text-transform:uppercase;
+  font-weight:500;
+  max-width:760px;
+  margin-bottom:18px;
+  text-shadow:0 18px 44px rgba(0,0,0,.55);
+}
+
+.history-hero h1 span{
+  display:block;
+  color:var(--gold2);
+}
+
+.gold-divider{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  width:min(430px,100%);
+  margin:12px 0 22px;
+  color:var(--gold2);
+}
+
+.gold-divider::before,
+.gold-divider::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:linear-gradient(90deg,transparent,var(--gold2));
+  opacity:.72;
+}
+
+.gold-divider::after{
+  background:linear-gradient(90deg,var(--gold2),transparent);
+}
+
+.gold-divider span{
+  font-size:22px;
+  line-height:1;
+}
+
+.temple-symbol{
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+}
+
+.temple-symbol svg{
+  width:46px;
+  height:46px;
+  stroke:var(--gold2);
+  fill:none;
+  stroke-width:1.55;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  filter:drop-shadow(0 5px 12px rgba(214,162,74,.18));
+}
+
+.temple-symbol .temple-fill{
+  fill:rgba(214,162,74,.07);
+}
+
+.hero-subtitle{
+  max-width:620px;
+  color:rgba(255,255,255,.86);
+  line-height:1.72;
+  font-size:18px;
+  margin-bottom:30px;
+}
+
+.hero-features{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-top:28px;
+}
+
+.hero-feature{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:150px;
+  padding:13px 16px;
+  border-radius:999px;
+  border:1px solid rgba(214,162,74,.34);
+  background:rgba(3,12,22,.50);
+  backdrop-filter:blur(10px);
+  color:#fff;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+.hero-feature svg{
+  width:28px;
+  height:28px;
+  color:var(--gold2);
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.65;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  flex:0 0 auto;
+}
+
+/* ===== COMMON ===== */
+
+.section-shell{
+  margin-top:34px;
+  padding:34px;
+  border-radius:26px;
+  border:1px solid rgba(214,162,74,.28);
+  background:
+    radial-gradient(circle at top left,rgba(214,162,74,.07),transparent 36%),
+    linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));
+  box-shadow:0 26px 70px rgba(0,0,0,.34);
+}
+
+.section-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:22px;
+}
+
+.section-title{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:27px;
+  line-height:1;
+  color:white;
+  text-transform:uppercase;
+  font-weight:500;
+  position:relative;
+  padding-bottom:12px;
+}
+
+.section-title::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:62px;
+  height:2px;
+  background:var(--gold);
+}
+
+.view-all{
+  color:var(--gold2);
+  text-transform:uppercase;
+  font-weight:900;
+  letter-spacing:.08em;
+  font-size:12px;
+  white-space:nowrap;
+}
+
+/* ===== TOURS GRID ===== */
+
+.history-showcase{
+  position:relative;
+  z-index:3;
+  margin-top:-54px;
+}
+
+.history-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.tour-card{
+  display:block;
+  overflow:hidden;
+  border-radius:16px;
+  border:1px solid rgba(214,162,74,.34);
+  background:linear-gradient(180deg,#071827,#04101d);
+  box-shadow:0 18px 48px rgba(0,0,0,.30);
+  transition:.34s ease;
+  min-height:100%;
+}
+
+.tour-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(243,198,109,.80);
+  box-shadow:0 28px 70px rgba(0,0,0,.46);
+}
+
+.tour-image{
+  position:relative;
+  height:310px;
+  overflow:hidden;
+  background:#081625;
+}
+
+.tour-image img{
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:.55s ease;
+}
+
+.tour-card:hover .tour-image img{transform:scale(1.06)}
+
+.badge{
+  position:absolute;
+  top:14px;
+  left:14px;
+  padding:8px 13px;
+  border-radius:999px;
+  color:white;
+  background:linear-gradient(180deg,#f4c36c,#d69b31);
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+
+.tour-number{
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(243,198,109,.72);
+  background:rgba(5,11,20,.72);
+  color:var(--gold2);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:24px;
+  box-shadow:0 12px 30px rgba(0,0,0,.38);
+}
+
+.tour-body{padding:22px}
+
+.tour-body h3{
+  font-family:Georgia,"Times New Roman",serif;
+  color:white;
+  font-size:27px;
+  font-weight:500;
+  margin-bottom:10px;
+}
+
+.tour-price{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin:8px 0 16px;
+  color:var(--gold2);
+  flex-wrap:nowrap;
+}
+
+.tour-price small{
+  color:rgba(255,255,255,.72);
+  font-size:13px;
+  line-height:1;
+  margin:0;
+  white-space:nowrap;
+}
+
+.tour-price strong{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:36px;
+  line-height:1;
+  font-weight:700;
+  background:linear-gradient(180deg,#fff0b8 0%,#f3c66d 42%,#c98724 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:0 10px 24px rgba(0,0,0,.42);
+  white-space:nowrap;
+}
+
+.tour-price span{
+  color:rgba(255,255,255,.86);
+  font-size:13px;
+  line-height:1;
+  margin:0;
+  white-space:nowrap;
+}
+
+.tour-body p{
+  color:rgba(255,255,255,.82);
+  line-height:1.55;
+  font-size:13px;
+  margin-bottom:16px;
+  min-height:70px;
+}
+
+.tour-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:0 0 16px;
+}
+
+.tour-tag{
+  padding:8px 11px;
+  border-radius:999px;
+  border:1px solid rgba(214,162,74,.28);
+  color:var(--gold2);
+  background:rgba(255,255,255,.035);
+  font-size:11px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+
+.tour-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  border-top:1px solid rgba(214,162,74,.22);
+  padding-top:16px;
+}
+
+.meta{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  color:rgba(255,255,255,.80);
+  font-size:13px;
+}
+
+.meta span{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+.meta svg{
+  width:17px;
+  height:17px;
+  color:var(--gold2);
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.7;
+}
+
+.circle-arrow{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid var(--gold2);
+  display:grid;
+  place-items:center;
+  color:var(--gold2);
+  font-size:24px;
+  flex:0 0 auto;
+}
+
+/* ===== CTA ===== */
+
+.booking-cta{
+  width:min(100%,980px);
+  margin:28px auto 0;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:22px;
+  padding:16px 22px;
+  border-radius:16px;
+  border:1px solid rgba(214,162,74,.34);
+  background:
+    radial-gradient(circle at left,rgba(214,162,74,.12),transparent 34%),
+    linear-gradient(90deg,#071827,#04101d);
+  box-shadow:0 24px 60px rgba(0,0,0,.36);
+}
+
+.booking-left{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.whatsapp-icon{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  border:2px solid var(--gold2);
+  display:grid;
+  place-items:center;
+  color:var(--gold2);
+  font-size:25px;
+  flex:0 0 auto;
+}
+
+.booking-left h3{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:21px;
+  color:var(--gold2);
+  font-weight:500;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.booking-left p{
+  color:rgba(255,255,255,.82);
+  font-size:15px;
+}
+
+.gold-btn{
+  min-width:255px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:14px 24px;
+  border-radius:9px;
+  background:linear-gradient(180deg,#f5cc77,#d9a13a);
+  color:#061321;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  box-shadow:0 18px 44px rgba(214,162,74,.22);
+}
+
+/* ===== TRUST ===== */
+
+.trust-bar{
+  margin:28px 0 54px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid rgba(214,162,74,.30);
+  border-radius:16px;
+  background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));
+  overflow:hidden;
+}
+
+.trust-item{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:23px 26px;
+  border-right:1px solid rgba(214,162,74,.24);
+  color:white;
+  text-transform:uppercase;
+  font-size:13px;
+  line-height:1.35;
+  letter-spacing:.04em;
+}
+
+.trust-item:last-child{border-right:none}
+
+.trust-item svg{
+  width:30px;
+  height:30px;
+  color:var(--gold2);
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.6;
+  flex:0 0 auto;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:1060px){
+  .history-grid,
+  .trust-bar{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .booking-cta{grid-template-columns:1fr}
+  .gold-btn{width:100%}
+}
+
+@media(max-width:720px){
+  .history-page,
+  .history-hero-inner{padding:0 18px}
+
+  .history-hero{
+    min-height:auto;
+    padding-bottom:54px;
+  }
+
+  .breadcrumbs{margin-bottom:42px}
+
+  .history-hero h1{font-size:48px}
+
+  .hero-subtitle{font-size:16px}
+
+  .history-grid,
+  .trust-bar{grid-template-columns:1fr}
+
+  .section-shell{
+    padding:20px;
+    border-radius:22px;
+  }
+
+  .section-top{align-items:flex-start}
+
+  .tour-image{height:260px}
+
+  .booking-cta{padding:22px}
+
+  .booking-left{align-items:flex-start}
+
+  .whatsapp-icon{
+    width:58px;
+    height:58px;
+    font-size:28px;
+  }
+
+  .trust-item{
+    border-right:none;
+    border-bottom:1px solid rgba(214,162,74,.22);
+  }
+
+  .trust-item:last-child{border-bottom:none}
+}
+</style>
+</head>
+
+<body>
+
+<section class="history-hero">
+  <div class="history-hero-inner">
+    <div class="breadcrumbs">Home › Tours › <span>History & Culture</span></div>
+
+    <div class="eyebrow">Ancient Civilizations & Cultural Heritage</div>
+
+    <h1>4. History &<span>Culture</span></h1>
+
+    <div class="gold-divider" aria-hidden="true">
+      <span class="temple-symbol">
+        <svg viewBox="0 0 48 48">
+          <circle class="temple-fill" cx="24" cy="24" r="21"></circle>
+          <path d="M10 19h28"></path>
+          <path d="M13 19v16"></path>
+          <path d="M20 19v16"></path>
+          <path d="M28 19v16"></path>
+          <path d="M35 19v16"></path>
+          <path d="M9 35h30"></path>
+          <path d="M7 39h34"></path>
+          <path d="M24 9l14 7H10l14-7z"></path>
+        </svg>
+      </span>
+    </div>
+
+    <p class="hero-subtitle">
+      Explore ancient civilizations, legendary cities, UNESCO heritage sites and the rich cultural heritage of Türkiye.
+    </p>
+
+    <div class="hero-features">
+      <div class="hero-feature">
+        <svg viewBox="0 0 24 24"><path d="M4 17l4-8 4 5 3-4 5 7H4z"/><path d="M4 20h16"/></svg>
+        Ancient<br>Sites
+      </div>
+
+      <div class="hero-feature">
+        <svg viewBox="0 0 24 24"><path d="M4 17c3-3 5 3 8 0s5 3 8 0"/><path d="M4 12c3-3 5 3 8 0s5 3 8 0"/><path d="M7 7h10"/></svg>
+        Cultural<br>Routes
+      </div>
+
+      <div class="hero-feature">
+        <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 8c3-4 7-4 10 0"/><path d="M5 13c5-3 9-3 14 0"/></svg>
+        Historic<br>Cities
+      </div>
+
+      <div class="hero-feature">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>
+        For All<br>Ages
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="history-page">
+
+  <section class="history-showcase section-shell" style="margin-top:-54px;">
+    <div class="section-top">
+      <h2 class="section-title">Popular History Tours</h2>
+      <a class="view-all" href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20see%20History%20and%20Culture%20tours%20in%20Alanya." target="_blank">Book on WhatsApp →</a>
+    </div>
+
+    <div class="history-grid">
+
+      <a href="cappadocia.html" class="tour-card">
+        <div class="tour-image">
+          <img src="images/history-culture/cappadocia.png" alt="Cappadocia">
+          <span class="badge">Signature</span>
+          <span class="tour-number">1</span>
+        </div>
+        <div class="tour-body">
+          <h3>Cappadocia</h3>
+          <div class="tour-price"><small>From</small><strong>€100</strong><span>/ per person</span></div>
+          <p>Fairy chimneys, underground cities, panoramic valleys and one of Türkiye’s most iconic cultural landscapes.</p>
+          <div class="tour-tags"><span class="tour-tag">Cappadocia</span><span class="tour-tag">UNESCO</span><span class="tour-tag">2 Days</span></div>
+          <div class="tour-bottom"><div class="meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>2 Days</span><span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>Culture</span></div><div class="circle-arrow">→</div></div>
+        </div>
+      </a>
+
+      <a href="demre-myra-kekova.html" class="tour-card">
+        <div class="tour-image">
+          <img src="images/history-culture/demre-myra-kekova.png" alt="Demre Myra Kekova">
+          <span class="badge">Lycian</span>
+          <span class="tour-number">2</span>
+        </div>
+        <div class="tour-body">
+          <h3>Demre – Myra – Kekova</h3>
+          <div class="tour-price"><small>From</small><strong>€100</strong><span>/ per person</span></div>
+          <p>Church of St. Nicholas, ancient Myra, Lycian rock tombs and the sunken city of Kekova by boat.</p>
+          <div class="tour-tags"><span class="tour-tag">St. Nicholas</span><span class="tour-tag">Myra</span><span class="tour-tag">Kekova</span></div>
+          <div class="tour-bottom"><div class="meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Full Day</span><span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>History</span></div><div class="circle-arrow">→</div></div>
+        </div>
+      </a>
+
+      <a href="istanbul-tour.html" class="tour-card">
+        <div class="tour-image">
+          <img src="images/history-culture/istanbul-tour.png" alt="Istanbul Tour">
+          <span class="badge">Legendary</span>
+          <span class="tour-number">3</span>
+        </div>
+        <div class="tour-body">
+          <h3>Istanbul Tour</h3>
+          <div class="tour-price"><small>From</small><strong>€290</strong><span>/ per person</span></div>
+          <p>Legendary Istanbul with iconic mosques, old city atmosphere, Bosphorus views and rich cultural heritage.</p>
+          <div class="tour-tags"><span class="tour-tag">Istanbul</span><span class="tour-tag">Bosphorus</span><span class="tour-tag">Old City</span></div>
+          <div class="tour-bottom"><div class="meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Full Day</span><span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>City</span></div><div class="circle-arrow">→</div></div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+
+
+  <section class="section-shell">
+    <div class="section-top">
+      <h2 class="section-title">Ancient Cities</h2>
+      <a class="view-all" href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20see%20Ancient%20City%20tours%20in%20Alanya." target="_blank">Book on WhatsApp →</a>
+    </div>
+
+    <div class="history-grid">
+
+      <a href="syedra-ancient-city.html" class="tour-card">
+        <div class="tour-image"><img src="images/history-culture/syedra-ancient-city.png" alt="Syedra Ancient City"><span class="badge">Ancient City</span><span class="tour-number">4</span></div>
+        <div class="tour-body"><h3>Syedra Ancient City</h3><div class="tour-price"><small>From</small><strong>€45</strong><span>/ per person</span></div><p>Ancient ruins, mountain views and archaeological atmosphere near Alanya’s coastline.</p><div class="tour-tags"><span class="tour-tag">Syedra</span><span class="tour-tag">Ruins</span><span class="tour-tag">Archaeology</span></div><div class="tour-bottom"><div class="meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Half Day</span><span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>History</span></div><div class="circle-arrow">→</div></div></div>
+      </a>
+
+      <a href="anamur.html" class="tour-card">
+        <div class="tour-image"><img src="images/history-culture/anamur.png" alt="Anamur"><span class="badge">Castle</span><span class="tour-number">5</span></div>
+        <div class="tour-body"><h3>Anamur</h3><div class="tour-price"><small>From</small><strong>€75</strong><span>/ per person</span></div><p>Mamure Castle, Roman heritage, Mediterranean coastline and historical landmarks on a scenic route.</p><div class="tour-tags"><span class="tour-tag">Anamur</span><span class="tour-tag">Mamure Castle</span><span class="tour-tag">Coast</span></div><div class="tour-bottom"><div class="meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Full Day</span><span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>Culture</span></div><div class="circle-arrow">→</div></div></div>
+      </a>
+
+      <a href="aspendos.html" class="tour-card">
+        <div class="tour-image"><img src="images/history-culture/aspendos.png" alt="Aspendos Ancient City and Roman Theatre"><span class="badge">Roman Theatre</span><span class="tour-number">6</span></div>
+        <div class="tour-body"><h3>Aspendos Ancient City & Roman Theatre</h3><div class="tour-price"><small>From</small><strong>€65</strong><span>/ per person</span></div><p>One of the best preserved Roman theatres in Türkiye and a powerful ancient city experience.</p><div class="tour-tags"><span class="tour-tag">Aspendos</span><span class="tour-tag">Roman Theatre</span><span class="tour-tag">Ancient City</span></div><div class="tour-bottom"><div class="meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Full Day</span><span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>Ancient</span></div><div class="circle-arrow">→</div></div></div>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="section-shell">
+    <div class="section-top">
+      <h2 class="section-title">Historic Landmarks & Local Discovery</h2>
+      <a class="view-all" href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20see%20local%20history%20and%20culture%20tours%20in%20Alanya." target="_blank">Book on WhatsApp →</a>
+    </div>
+
+    <div class="history-grid">
+
+      <a href="alanya-city-tour.html" class="tour-card">
+        <div class="tour-image"><img src="images/history-culture/alanya-city-tour.png" alt="Alanya City Tour"><span class="badge">Local</span><span class="tour-number">7</span></div>
+        <div class="tour-body"><h3>Alanya City Tour</h3><div class="tour-price"><small>From</small><strong>€35</strong><span>/ per person</span></div><p>Alanya Castle, Red Tower, cable car, Cleopatra Beach and the city’s most recognizable landmarks.</p><div class="tour-tags"><span class="tour-tag">Alanya</span><span class="tour-tag">Castle</span><span class="tour-tag">Cable Car</span></div><div class="tour-bottom"><div class="meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Half Day</span><span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>City</span></div><div class="circle-arrow">→</div></div></div>
+      </a>
+
+      <a href="manavgat-aspendos-side.html" class="tour-card">
+        <div class="tour-image"><img src="images/history-culture/manavgat-side.png" alt="Manavgat MAS Side"><span class="badge">Regional</span><span class="tour-number">8</span></div>
+        <div class="tour-body"><h3>Manavgat – M.A.S. – Side</h3><div class="tour-price"><small>From</small><strong>€75</strong><span>/ per person</span></div><p>Waterfalls, Side ancient atmosphere, local culture and regional discovery in one route.</p><div class="tour-tags"><span class="tour-tag">Manavgat</span><span class="tour-tag">Side</span><span class="tour-tag">Waterfall</span></div><div class="tour-bottom"><div class="meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Full Day</span><span><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c.8-4.2 3-6 6-6s5.2 1.8 6 6"/></svg>Family</span></div><div class="circle-arrow">→</div></div></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="booking-cta">
+    <div class="booking-left">
+      <div class="whatsapp-icon">☏</div>
+      <div>
+        <h3>Discover History & Culture</h3>
+        <p>Book cultural, historical and ancient city tours via WhatsApp</p>
+      </div>
+    </div>
+
+    <a
+      class="gold-btn"
+      href="https://wa.me/905387045999?text=Hello!%20I%20want%20to%20book%20a%20History%20and%20Culture%20tour%20in%20Alanya."
+      target="_blank">
+      Book on WhatsApp →
+    </a>
+  </section>
+
+  <section class="trust-bar">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M4 17l4-8 4 5 3-4 5 7H4z"/></svg>
+      Ancient<br>Heritage
+    </div>
+
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M4 10h16"/></svg>
+      Flexible<br>Booking
+    </div>
+
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      Hotel Pickup<br>Available
+    </div>
+
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-5"/></svg>
+      Guided & Reliable<br>Programs
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
