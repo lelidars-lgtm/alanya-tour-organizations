@@ -1,0 +1,21 @@
+{
+  "index.html": {
+    "root_page_links": 51,
+    "copied_tour_links": 0,
+    "dynamic_loader": true,
+    "header": true,
+    "promo": true,
+    "promo_secondary": true,
+    "scale_100": true
+  },
+  "interactive-map.html": {
+    "root_page_links": 51,
+    "copied_tour_links": 0,
+    "dynamic_loader": true,
+    "header": true,
+    "promo": true,
+    "promo_secondary": true,
+    "scale_100": true
+  },
+  "contains_tour_html_copies": 0
+}
