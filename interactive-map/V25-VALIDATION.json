@@ -1,0 +1,15 @@
+{
+  "version": "V25",
+  "architecture": "single source: map fetches original root tour HTML pages",
+  "tour_count": 51,
+  "unique_page_links": 51,
+  "root_link_format": true,
+  "known_original_files_checked": 52,
+  "missing_against_uploaded_original_archive": [],
+  "footer_present_in": [
+    "index.html",
+    "interactive-map.html"
+  ],
+  "promo_text_preserved": "TRAVEL WITH LOVE. TRAVEL WITH US.",
+  "notes": "Original tour pages are not included or modified. Changing content inside an original root HTML page updates the map card after deployment and refresh."
+}
