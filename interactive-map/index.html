@@ -97,13 +97,12 @@ html, body.interactive-map-page {
 }
 body.interactive-map-page {
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  grid-template-rows: auto auto minmax(0, 1fr);
   overflow: hidden;
   background: #03111e;
 }
 body.interactive-map-page > .header,
-body.interactive-map-page > .promo-bar,
-body.interactive-map-page > .footer-strip {
+body.interactive-map-page > .promo-bar {
   position: relative;
   z-index: 50;
   flex-shrink: 0;
@@ -131,7 +130,7 @@ body.interactive-map-page .promo-bar {
 
 @media (max-width: 760px) {
   body.interactive-map-page {
-    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    grid-template-rows: auto auto minmax(0, 1fr);
   }
   body.interactive-map-page .app {
     height: auto !important;
@@ -178,8 +177,38 @@ body.interactive-map-page .app {
   }
 }
 </style>
+
+<style id="v18-premium-polish">
+body.interactive-map-page{grid-template-rows:auto auto minmax(0,1fr)!important}
+body.interactive-map-page .app{height:auto!important}
+body.interactive-map-page .sidebar{padding-bottom:28px}
+.sidebar-nearby{margin-top:18px;color:#9fb0bc;font-size:12px;line-height:1.45}
+.sidebar-nearby p{margin:0}
+.top-categories{border-color:rgba(215,168,62,.38);box-shadow:0 14px 42px rgba(0,0,0,.38),inset 0 0 0 1px rgba(255,233,167,.04)}
+.top-category-btn{font-size:14px;letter-spacing:.15px}
+.top-category-btn svg{stroke:url(#goldGradient)!important;color:#efc45c;filter:drop-shadow(0 0 4px rgba(232,184,68,.32))}
+.top-category-btn .cat-first{font-weight:900;letter-spacing:.35px;background:linear-gradient(100deg,#8e5b08 0%,#f8df8e 22%,#c88b1f 43%,#fff0b2 62%,#b3730d 80%,#f5d378 100%);background-size:230% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:goldShimmer 4.8s linear infinite}
+.top-category-btn .cat-rest{font-weight:650;color:#fff}
+.top-category-btn:hover{border-color:rgba(236,190,76,.35);transform:translateY(-1px)}
+.top-category-btn.active{background:linear-gradient(110deg,rgba(118,76,8,.82),rgba(45,31,7,.88));border-color:rgba(248,211,117,.72);box-shadow:0 0 18px rgba(210,155,37,.18),inset 0 0 0 1px rgba(255,244,191,.10)}
+.map-mode-switch{position:absolute;right:18px;top:82px;z-index:11;display:flex;padding:4px;border:1px solid rgba(215,168,62,.35);border-radius:10px;background:rgba(3,17,30,.90);backdrop-filter:blur(12px)}
+.map-mode-switch button{height:30px;padding:0 10px;border:0;border-radius:7px;background:transparent;color:#c9d4dc;font-size:10px;font-weight:800;letter-spacing:.7px;cursor:pointer}
+.map-mode-switch button.active{background:linear-gradient(100deg,#9b6815,#e2b84f);color:#06111b}
+.destination-label{font-family:Georgia,'Times New Roman',serif!important;color:#f7f3e8!important;font-weight:700!important;letter-spacing:1.25px!important;text-shadow:0 2px 5px #000,0 0 14px rgba(0,0,0,.92)!important}
+.destination-label.major{font-size:27px!important}.destination-label.medium{font-size:19px!important}.destination-label.minor{font-size:14px!important;color:#f1ca68!important}
+.maplibregl-ctrl-bottom-right{right:14px!important;bottom:14px!important}
+.maplibregl-ctrl-group{border:1px solid rgba(215,168,62,.42)!important;border-radius:10px!important;overflow:hidden!important;background:rgba(3,17,30,.92)!important;box-shadow:0 12px 30px rgba(0,0,0,.42)!important}
+.maplibregl-ctrl-group button{width:34px!important;height:34px!important;background-color:transparent!important}
+.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{filter:brightness(0) invert(1) drop-shadow(0 0 5px rgba(255,255,255,.9))!important;opacity:1!important}
+.maplibregl-ctrl-compass .maplibregl-ctrl-icon{filter:sepia(1) saturate(5) hue-rotate(350deg) brightness(1.25) drop-shadow(0 0 5px rgba(241,202,104,.55))!important}
+.maplibregl-ctrl-geolocate .maplibregl-ctrl-icon{filter:brightness(0) invert(1) drop-shadow(0 0 5px rgba(255,255,255,.8))!important}
+.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active .maplibregl-ctrl-icon{filter:sepia(1) saturate(5) hue-rotate(350deg) brightness(1.35) drop-shadow(0 0 7px rgba(241,202,104,.8))!important}
+.brand-slogan{display:none!important}
+@media(max-width:980px){.map-mode-switch{top:76px}.top-category-btn{font-size:12px}}
+@media(max-width:760px){.map-mode-switch{right:8px;top:72px}.map-mode-switch button{padding:0 7px;font-size:9px}.destination-label.major{font-size:19px!important}.destination-label.medium{font-size:15px!important}}
+</style>
 </head>
-<body class="interactive-map-page">
+<body class="interactive-map-page"><svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><linearGradient id="goldGradient" x1="0" x2="1"><stop offset="0" stop-color="#9b650b"/><stop offset=".28" stop-color="#f7d978"/><stop offset=".55" stop-color="#c98e22"/><stop offset=".78" stop-color="#fff0ac"/><stop offset="1" stop-color="#a86d0d"/></linearGradient></defs></svg>
 <header class="header">
 <div class="logo">
 <img alt="ALANYA TOUR ORGANIZATIONS" src="logo/logo.png"/>
@@ -298,22 +327,17 @@ body.interactive-map-page .app {
 <div class="filter-row"><span>Hotel Transfer</span><button id="hotelTransferFilter" aria-label="Hotel transfer filter" class="toggle"></button></div>
 <div class="filter-row"><span>Family Friendly</span><button id="familyFriendlyFilter" aria-label="Family friendly filter" class="toggle"></button></div>
 <div class="filter-row"><span>Private Tour</span><button id="privateTourFilter" aria-label="Private tour filter" class="toggle"></button></div>
-<button class="clear" id="clearFilters"><svg aria-hidden="true" height="17" viewbox="0 0 24 24" width="17"><path d="M4 4v6h6M20 20v-6h-6" fill="none" stroke="currentColor" stroke-width="1.8"></path><path d="M6.2 17.8A8 8 0 0 0 19 14M17.8 6.2A8 8 0 0 0 5 10" fill="none" stroke="currentColor" stroke-width="1.8"></path></svg>  CLEAR FILTERS</button><p class="shared-filter-note">This panel is reserved for the same multilingual filter used across the main website. One component, one logic, one saved state.</p>
+<button class="clear" id="clearFilters"><svg aria-hidden="true" height="17" viewbox="0 0 24 24" width="17"><path d="M4 4v6h6M20 20v-6h-6" fill="none" stroke="currentColor" stroke-width="1.8"></path><path d="M6.2 17.8A8 8 0 0 0 19 14M17.8 6.2A8 8 0 0 0 5 10" fill="none" stroke="currentColor" stroke-width="1.8"></path></svg>  CLEAR FILTERS</button><div class="sidebar-nearby" id="sidebarNearby"><div class="section-label">NEARBY EXPERIENCES</div><p>Use the location button on the map to show the closest tours.</p></div>
 </aside>
 <section aria-label="Interactive tour map" class="map-shell">
 <div class="map" id="map"></div><div class="map-tone"></div><div class="map-vignette"></div>
 <div aria-label="Experience categories" class="top-categories" id="topCategories"></div>
-<div class="status">HYBRID MAP · LIVE PLACES & ROUTES</div><div class="intro-badge" id="introBadge">OVERVIEW MODE · INTERACTIVE JOURNEY STARTS IN 5 SECONDS</div>
+<div class="map-mode-switch" aria-label="Map style"><button data-map-mode="hybrid" class="active">HYBRID</button><button data-map-mode="streets">STREETS</button><button data-map-mode="satellite">SATELLITE</button></div><div class="intro-badge" id="introBadge">OVERVIEW MODE · INTERACTIVE JOURNEY STARTS IN 5 SECONDS</div>
 <div class="geo-offer" id="geoOffer"><h3>Experiences near you</h3><p>Allow location access to see nearby excursions and estimated transfer time. Your location is used only in this browser.</p><div class="geo-actions"><button class="geo-yes" id="geoYes">SHOW NEARBY</button><button class="geo-no" id="geoNo">NOT NOW</button></div></div>
 <div class="nearby-panel" id="nearbyPanel"><button aria-label="Close" class="nearby-close" id="nearbyClose">×</button><div class="nearby-head"><h3>Nearby Experiences</h3><p id="nearbySummary">Finding the closest tours…</p><div class="radius-row" id="radiusRow"><button class="radius-btn" data-radius="10">10 km</button><button class="radius-btn active" data-radius="25">25 km</button><button class="radius-btn" data-radius="50">50 km</button><button class="radius-btn" data-radius="9999">All</button></div></div><div class="nearby-list" id="nearbyList"></div></div>
 <div class="mobile-categories" id="mobileCategories"></div>
 </section>
-</main><footer class="footer-strip">
-<p>
-    © 2026 ALANYA TOUR ORGANIZATIONS —
-    TRAVEL WITH LOVE. TRAVEL WITH US.
-  </p>
-</footer>
+</main>
 <script src="assets/js/shared-filters.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
 <script>
@@ -339,18 +363,21 @@ const tours = [{"id":"adrasan-suluada-porto-genovese","title":"Adrasan, Suluada 
 
 
 const destinationLabels = [
-  {name:'ALANYA',coords:[32.0000,36.5438],className:'major',minZoom:5.4,maxZoom:15},
-  {name:'ANTALYA',coords:[30.7133,36.8969],className:'major',minZoom:5.0,maxZoom:13},
-  {name:'ISTANBUL',coords:[28.9784,41.0082],className:'major',minZoom:4.4,maxZoom:13},
-  {name:'CAPPADOCIA',coords:[34.8454,38.6401],className:'major',minZoom:4.8,maxZoom:13},
-  {name:'PAMUKKALE',coords:[29.1208,37.9236],className:'major',minZoom:5.0,maxZoom:14},
-  {name:'SIDE',coords:[31.3874,36.7677],className:'medium',minZoom:7.0,maxZoom:16},
-  {name:'MANAVGAT',coords:[31.7246,36.7869],className:'medium',minZoom:7.0,maxZoom:16},
-  {name:'GAZİPAŞA',coords:[32.3014,36.2694],className:'medium',minZoom:7.0,maxZoom:16},
-  {name:'ANAMUR',coords:[32.8368,36.0751],className:'medium',minZoom:7.0,maxZoom:16},
-  {name:'ASPENDOS',coords:[31.1720,36.9389],className:'minor',minZoom:8.2,maxZoom:17},
+  {name:'TÜRKİYE',coords:[35.20,39.10],className:'major',minZoom:4.0,maxZoom:5.6},
+  {name:'ALANYA',coords:[32.0000,36.5333],className:'major',minZoom:7.0,maxZoom:14.5},
+  {name:'ANTALYA',coords:[30.7067,36.8864],className:'major',minZoom:6.0,maxZoom:13.5},
+  {name:'İSTANBUL',coords:[28.9784,41.0082],className:'major',minZoom:5.0,maxZoom:13.5},
+  {name:'CAPPADOCIA',coords:[34.8454,38.6401],className:'major',minZoom:5.6,maxZoom:13.5},
+  {name:'PAMUKKALE',coords:[29.1208,37.9236],className:'major',minZoom:6.0,maxZoom:14},
+  {name:'SIDE',coords:[31.3864,36.7643],className:'medium',minZoom:7.0,maxZoom:15},
+  {name:'MANAVGAT',coords:[31.7241,36.7869],className:'medium',minZoom:7.0,maxZoom:15},
+  {name:'BELEK',coords:[31.0556,36.8628],className:'medium',minZoom:7.5,maxZoom:15},
+  {name:'KEMER',coords:[30.5606,36.6020],className:'medium',minZoom:7.5,maxZoom:15},
+  {name:'GAZİPAŞA',coords:[32.3179,36.2694],className:'medium',minZoom:7.4,maxZoom:15},
+  {name:'ANAMUR',coords:[32.8368,36.0751],className:'medium',minZoom:7.0,maxZoom:15},
   {name:'DEMRE · MYRA · KEKOVA',coords:[29.9851,36.2589],className:'medium',minZoom:6.8,maxZoom:15},
   {name:'ADRASAN · SULUADA',coords:[30.4800,36.3000],className:'medium',minZoom:7.2,maxZoom:16},
+  {name:'ASPENDOS',coords:[31.1720,36.9389],className:'minor',minZoom:8.2,maxZoom:17},
   {name:'KÖPRÜLÜ CANYON',coords:[31.1809,37.1919],className:'minor',minZoom:7.8,maxZoom:17},
   {name:'SAPADERE CANYON',coords:[32.3136,36.5276],className:'minor',minZoom:9.0,maxZoom:18},
   {name:'SYEDRA',coords:[32.1517,36.4397],className:'minor',minZoom:9.0,maxZoom:18}
@@ -516,6 +543,9 @@ function startAutoTour(){if(autoTourStopped)return;clearTimeout(autoTourTimer);c
 function restartAutoForCategory(){autoTourIndex=0;clearTimeout(autoTourTimer);if(introStarted&&!autoTourStopped)autoTourTimer=setTimeout(startAutoTour,900);}
 function stopAutoTour(){if(autoTourStopped)return;autoTourStopped=true;clearTimeout(autoTourTimer);map.stop();document.getElementById('introBadge').classList.add('hidden');}
 
+const categoryLabelParts={
+  all:['ALL','EXPERIENCES'],sea:['SEA','EXPERIENCES'],extreme:['EXTREME','& ADVENTURE'],nature:['NATURE','& ADVENTURE'],history:['HISTORY','& CULTURE'],water:['WATER','SPORTS'],air:['AIR','EXPERIENCES'],family:['FAMILY','EXPERIENCES'],wellness:['WELLNESS','& RELAX'],vip:['VIP','SERVICES']
+};
 function splitCategoryLabel(label){
   const parts=label.trim().split(/\s+/);
   return {first:parts.shift()||'',rest:parts.join(' ')};
@@ -527,7 +557,8 @@ function renderCategories(){
   top.innerHTML='';
   categories.forEach(c=>{
     const activate=()=>{activeCategory=c.id;activeTourId=null;popup?.remove();window.AlanyaFilters?.set({category:c.id});renderCategories();refresh();fitVisible();restartAutoForCategory();};
-    const words=splitCategoryLabel(c.label);
+    const requested=categoryLabelParts[c.id];
+    const words=requested?{first:requested[0],rest:requested[1]}:splitCategoryLabel(c.label);
     const tb=document.createElement('button');
     tb.className='top-category-btn'+(c.id===activeCategory?' active':'');
     tb.innerHTML=`${svgIcons[c.icon]}<span><span class="cat-first">${words.first}</span>${words.rest?` <span class="cat-rest">${words.rest}</span>`:''}</span>`;
@@ -553,7 +584,25 @@ map.on('load',()=>{
   addRoutes();addMarkersAndLabels();addDestinationLabels();
   map.on('zoom',updateDestinationLabels);
   autoTourTimer=setTimeout(revealIntro,AUTO_TOUR_DELAY);
+  setTimeout(()=>setMapMode(localStorage.getItem('alanyaMapMode')||'hybrid'),50);
 });
+
+function setMapMode(mode){
+  const raster=map.getLayer('satellite-imagery');
+  if(raster){
+    map.setPaintProperty('satellite-imagery','raster-opacity',mode==='streets'?0:(mode==='satellite'?1:.88));
+  }
+  (map.getStyle().layers||[]).forEach(layer=>{
+    if(layer.id==='satellite-imagery')return;
+    if(layer.type==='symbol') map.setLayoutProperty(layer.id,'visibility',mode==='satellite'?'none':'visible');
+    if(layer.type==='line' && !layer.id.includes('-route')) map.setPaintProperty(layer.id,'line-opacity',mode==='satellite'?0:(mode==='hybrid'?.72:1));
+    if(layer.type==='fill' && !layer.id.includes('-route')) map.setPaintProperty(layer.id,'fill-opacity',mode==='satellite'?0:(mode==='hybrid'?.22:1));
+  });
+  document.querySelectorAll('[data-map-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mapMode===mode));
+  localStorage.setItem('alanyaMapMode',mode);
+}
+document.querySelectorAll('[data-map-mode]').forEach(btn=>btn.addEventListener('click',()=>setMapMode(btn.dataset.mapMode)));
+
 function setToggleState(id,on){document.getElementById(id)?.classList.toggle('on',Boolean(on));}
 function applySharedFilters(next){
   sharedFilterState=next||window.AlanyaFilters?.get?.()||sharedFilterState;

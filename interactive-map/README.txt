@@ -1,20 +1,26 @@
-V17 — REAL SHARED FILTER INTEGRATION
+V18 COMPLETE MAP — INSTALLATION
 
-This package uses the actual filter markup from the uploaded ato.zip main page.
+This package includes V16/V17 functionality plus the final visual map changes.
 
-FILES:
-1) interactive-map/index.html
-2) interactive-map/interactive-map.html
-3) interactive-map/assets/js/shared-filters.js
-4) site-root/index.html — main site page with the official sidebar filter connected
-5) site-root/assets/js/shared-filters.js
+COPY / REPLACE:
+1. interactive-map/index.html
+2. interactive-map/interactive-map.html
+3. interactive-map/assets/js/shared-filters.js
+4. site-root/index.html -> copy this file to the ROOT of the repository as index.html
+5. site-root/assets/js/shared-filters.js -> copy to ROOT assets/js/shared-filters.js
 
-INSTALLATION:
-- Replace the two HTML files inside /interactive-map/.
-- Add/replace /interactive-map/assets/js/shared-filters.js.
-- Compare and then replace the root site index.html with site-root/index.html.
-- Add /assets/js/shared-filters.js at the site root.
+DO NOT DELETE:
+interactive-map/assets/images, interactive-map/categories, interactive-map/tours, interactive-map/data, interactive-map/logo.
 
-Both pages use the same localStorage key: alanyaTourFilters. Search and selected filter tags persist during navigation between the site and map. Map-native controls (category, price, duration, transfer, family, private) are stored in the same object.
+INCLUDED:
+- official main-site filter synchronized with map through alanyaTourFilters
+- categories only on top; gold SVG icons; first semantic word metallic gold and remainder white
+- left panel contains title, explanation, search, price/duration/transfer/family/private filters, clear button, nearby hint
+- hover and one-click tour cards
+- major Turkish destinations around routes with zoom-dependent labels
+- hybrid/street/satellite modes
+- white zoom controls, gold compass, working geolocation control
+- duplicate map footer slogan removed; official promo line remains immediately below the company header
 
-Important: Couples and Friends are preserved in shared state, but the current tour data has no couples/friends metadata, so the map does not exclude tours by those two tags until that metadata is added.
+PUBLISH:
+Commit -> Push origin -> Pull Request map-test to main -> Merge -> wait for Vercel -> Ctrl+F5.
