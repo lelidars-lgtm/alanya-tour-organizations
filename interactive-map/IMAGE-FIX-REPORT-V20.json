@@ -1,0 +1,708 @@
+{
+  "summary": {
+    "tour_pages": 51,
+    "pages_changed": 50,
+    "references_repaired": 706,
+    "remaining_missing": 0
+  },
+  "pages": [
+    {
+      "page": "adrasan-suluada-porto-genovese.html",
+      "fallback": "../assets/images/tours/private-yacht-charter.png",
+      "replaced_count": 12,
+      "broken_refs": [
+        "images/adrasan-suluada/adrasan-gallery-1.jpeg",
+        "images/adrasan-suluada/adrasan-gallery-2.png",
+        "images/adrasan-suluada/adrasan-gallery-3.jpeg",
+        "images/adrasan-suluada/adrasan-gallery-4.png",
+        "images/adrasan-suluada/adrasan-gallery-5.png",
+        "images/adrasan-suluada/adrasan-hero.png"
+      ]
+    },
+    {
+      "page": "airport-vip-transfer.html",
+      "fallback": "../assets/images/tours/airport-vip-transfer.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/airport-vip-transfer/GALLERY-1.png",
+        "images/airport-vip-transfer/GALLERY-2.png",
+        "images/airport-vip-transfer/GALLERY-3.png",
+        "images/airport-vip-transfer/GALLERY-4.png",
+        "images/airport-vip-transfer/GALLERY-5.png",
+        "images/airport-vip-transfer/GALLERY-6.png",
+        "images/airport-vip-transfer/HERO.png"
+      ]
+    },
+    {
+      "page": "alanya-city-tour.html",
+      "fallback": "../assets/images/tours/alanya-city-tour.png",
+      "replaced_count": 20,
+      "broken_refs": [
+        "images/alanya-city-tour/alanya-city-tour-hero.png",
+        "images/alanya-city-tour/gallery-1-cleopatra-beach.png",
+        "images/alanya-city-tour/gallery-2-damlatas-cave.png",
+        "images/alanya-city-tour/gallery-3-cable-car-up.png",
+        "images/alanya-city-tour/gallery-4-alanya-castle.png",
+        "images/alanya-city-tour/gallery-5-sultan-suleyman-mosque.png",
+        "images/alanya-city-tour/gallery-6-old-town-streets.png",
+        "images/alanya-city-tour/gallery-7-sunset-viewpoint.png",
+        "images/alanya-city-tour/gallery-8-cable-car-down.png",
+        "images/alanya-city-tour/gallery-9-i-love-alanya.png"
+      ]
+    },
+    {
+      "page": "anamur.html",
+      "fallback": "../assets/images/tours/anamur.png",
+      "replaced_count": 12,
+      "broken_refs": [
+        "images/anamur/gallery-1.png",
+        "images/anamur/gallery-2.png",
+        "images/anamur/gallery-3.png",
+        "images/anamur/gallery-4.png",
+        "images/anamur/gallery-5.png",
+        "images/anamur/hero.png"
+      ]
+    },
+    {
+      "page": "aspendos.html",
+      "fallback": "../assets/images/tours/aspendos.png",
+      "replaced_count": 14,
+      "broken_refs": [
+        "images/aspendos/gallery-1.png",
+        "images/aspendos/gallery-2.png",
+        "images/aspendos/gallery-3.png",
+        "images/aspendos/gallery-4.png",
+        "images/aspendos/gallery-5.png",
+        "images/aspendos/gallery-6.png",
+        "images/aspendos/hero.png"
+      ]
+    },
+    {
+      "page": "banana-boat.html",
+      "fallback": "../assets/images/tours/banana-boat.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/banana-boat/GALLERY-1.png",
+        "images/banana-boat/GALLERY-2.png",
+        "images/banana-boat/GALLERY-3.png",
+        "images/banana-boat/GALLERY-4.png",
+        "images/banana-boat/GALLERY-5.png",
+        "images/banana-boat/GALLERY-6.png",
+        "images/banana-boat/HERO.png"
+      ]
+    },
+    {
+      "page": "cappadocia.html",
+      "fallback": "../assets/images/tours/cappadocia.png",
+      "replaced_count": 17,
+      "broken_refs": [
+        "images/cappadocia/gallery-1.png",
+        "images/cappadocia/gallery-2.png",
+        "images/cappadocia/gallery-3.png",
+        "images/cappadocia/gallery-4.png",
+        "images/cappadocia/gallery-5.png",
+        "images/cappadocia/gallery-6.png",
+        "images/cappadocia/gallery-7.png",
+        "images/cappadocia/hero.png"
+      ]
+    },
+    {
+      "page": "demre-myra-kekova.html",
+      "fallback": "../assets/images/tours/demre-myra-kekova.png",
+      "replaced_count": 10,
+      "broken_refs": [
+        "images/demre-myra-kekova/demre-myra-kekova-gallery-1.png",
+        "images/demre-myra-kekova/demre-myra-kekova-gallery-2.png",
+        "images/demre-myra-kekova/demre-myra-kekova-gallery-3.1.png",
+        "images/demre-myra-kekova/demre-myra-kekova-gallery-3.png",
+        "images/demre-myra-kekova/demre-myra-kekova-gallery-4.png",
+        "images/demre-myra-kekova/demre-myra-kekova-gallery-5.5.png",
+        "images/demre-myra-kekova/demre-myra-kekova-gallery-5.png",
+        "images/demre-myra-kekova/demre-myra-kekova-gallery-6.jpg",
+        "images/demre-myra-kekova/demre-myra-kekova-hero.png"
+      ]
+    },
+    {
+      "page": "e-foil.html",
+      "fallback": "../assets/images/tours/e-foil.png",
+      "replaced_count": 16,
+      "broken_refs": [
+        "images/e-foil/GALLERY-1.png",
+        "images/e-foil/GALLERY-2.png",
+        "images/e-foil/GALLERY-3.png",
+        "images/e-foil/GALLERY-4.png",
+        "images/e-foil/GALLERY-5.png",
+        "images/e-foil/GALLERY-6.png",
+        "images/e-foil/HERO.png"
+      ]
+    },
+    {
+      "page": "eftalia-island-waterpark.html",
+      "fallback": "../assets/images/tours/eftalia-island-waterpark.png",
+      "replaced_count": 17,
+      "broken_refs": [
+        "images/eftalia-island/gallery-1.png",
+        "images/eftalia-island/gallery-2.png",
+        "images/eftalia-island/gallery-3.png",
+        "images/eftalia-island/gallery-4.png",
+        "images/eftalia-island/gallery-5.png",
+        "images/eftalia-island/gallery-6.png",
+        "images/eftalia-island/gallery-7.png",
+        "images/eftalia-island/hero.png"
+      ]
+    },
+    {
+      "page": "family-buggy-safari.html",
+      "fallback": "../assets/images/tours/family-buggy-safari.png",
+      "replaced_count": 14,
+      "broken_refs": [
+        "images/family-buggy/gallery-1.png",
+        "images/family-buggy/gallery-2.png",
+        "images/family-buggy/gallery-3.png",
+        "images/family-buggy/gallery-4.png",
+        "images/family-buggy/gallery-5.png",
+        "images/family-buggy/gallery-6.png",
+        "images/family-buggy/hero.png"
+      ]
+    },
+    {
+      "page": "family-jeep-safari.html",
+      "fallback": "../assets/images/tours/jeep-safari.png",
+      "replaced_count": 5,
+      "broken_refs": [
+        "images/extreme-adventure/family-jeep-gallery-1.png",
+        "images/extreme-adventure/family-jeep-gallery-2.png",
+        "images/extreme-adventure/family-jeep-gallery-3.png",
+        "images/extreme-adventure/family-jeep-hero.png"
+      ]
+    },
+    {
+      "page": "fishing-tour.html",
+      "fallback": "../assets/images/tours/private-yacht-charter.png",
+      "replaced_count": 14,
+      "broken_refs": [
+        "images/group-fishing/group-fishing-gallery-1.jpeg",
+        "images/group-fishing/group-fishing-gallery-2.jpeg",
+        "images/group-fishing/group-fishing-gallery-3.jpeg",
+        "images/group-fishing/group-fishing-gallery-4.jpeg",
+        "images/group-fishing/group-fishing-gallery-5.jpeg",
+        "images/group-fishing/group-fishing-hero.jpg"
+      ]
+    },
+    {
+      "page": "gazipasa-bays.html",
+      "fallback": "../assets/images/tours/private-yacht-charter.png",
+      "replaced_count": 13,
+      "broken_refs": [
+        "images/gazipasa-bays/gazipasa-gallery-1.png",
+        "images/gazipasa-bays/gazipasa-gallery-2.png",
+        "images/gazipasa-bays/gazipasa-gallery-3.png",
+        "images/gazipasa-bays/gazipasa-gallery-4.png",
+        "images/gazipasa-bays/gazipasa-gallery-5.png",
+        "images/gazipasa-bays/gazipasa-hero.png"
+      ]
+    },
+    {
+      "page": "green-canyon.html",
+      "fallback": "../assets/images/tours/green-canyon.jpg",
+      "replaced_count": 12,
+      "broken_refs": [
+        "images/green-canyon/gallery-1.png",
+        "images/green-canyon/gallery-2.png",
+        "images/green-canyon/gallery-3.png",
+        "images/green-canyon/gallery-4.png",
+        "images/green-canyon/gallery-5.png",
+        "images/green-canyon/hero.png"
+      ]
+    },
+    {
+      "page": "helicopter-experience.html",
+      "fallback": "../assets/images/tours/airport-vip-transfer.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/helicopter-experience/GALLERY-1.png",
+        "images/helicopter-experience/GALLERY-2.png",
+        "images/helicopter-experience/GALLERY-3.png",
+        "images/helicopter-experience/GALLERY-4.png",
+        "images/helicopter-experience/GALLERY-5.png",
+        "images/helicopter-experience/GALLERY-6.png",
+        "images/helicopter-experience/HERO.png"
+      ]
+    },
+    {
+      "page": "helicopter-flight.html",
+      "fallback": "../assets/images/tours/helicopter-flight.png",
+      "replaced_count": 17,
+      "broken_refs": [
+        "images/helicopter-flight/alanya-castle-flight.png",
+        "images/helicopter-flight/boarding-helicopter.png",
+        "images/helicopter-flight/green-canyon-flight.png",
+        "images/helicopter-flight/hero.png",
+        "images/helicopter-flight/romantic-flight.png",
+        "images/helicopter-flight/safety-briefing.png",
+        "images/helicopter-flight/takeoff-helipad.png",
+        "images/helicopter-flight/transfer-to-helipad.png"
+      ]
+    },
+    {
+      "page": "horse-riding.html",
+      "fallback": "../assets/images/tours/horse-riding.png",
+      "replaced_count": 7,
+      "broken_refs": [
+        "images/horse-riding/gallery-1.png",
+        "images/horse-riding/gallery-2.png",
+        "images/horse-riding/gallery-3.png",
+        "images/horse-riding/gallery-4.png",
+        "images/horse-riding/gallery-5.png",
+        "images/horse-riding/hero.png"
+      ]
+    },
+    {
+      "page": "istanbul-tour.html",
+      "fallback": "../assets/images/tours/istanbul-tour.png",
+      "replaced_count": 16,
+      "broken_refs": [
+        "images/istanbul-tour/istanbul-tour-gallery-1.png",
+        "images/istanbul-tour/istanbul-tour-gallery-2.png",
+        "images/istanbul-tour/istanbul-tour-gallery-3.png",
+        "images/istanbul-tour/istanbul-tour-gallery-4.png",
+        "images/istanbul-tour/istanbul-tour-gallery-5.png",
+        "images/istanbul-tour/istanbul-tour-gallery-6.png",
+        "images/istanbul-tour/istanbul-tour-gallery-7.png",
+        "images/istanbul-tour/istanbul-tour-hero.png"
+      ]
+    },
+    {
+      "page": "jeep-safari.html",
+      "fallback": "../assets/images/tours/jeep-safari.png",
+      "replaced_count": 10,
+      "broken_refs": [
+        "images/jeep-safari/gallery-1.png",
+        "images/jeep-safari/gallery-2.png",
+        "images/jeep-safari/gallery-3.png",
+        "images/jeep-safari/gallery-4.png",
+        "images/jeep-safari/hero.png"
+      ]
+    },
+    {
+      "page": "jet-ski.html",
+      "fallback": "../assets/images/tours/jet-ski.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/jet-ski/GALLERY-1.png",
+        "images/jet-ski/GALLERY-2.png",
+        "images/jet-ski/GALLERY-3.png",
+        "images/jet-ski/GALLERY-4.png",
+        "images/jet-ski/GALLERY-5.png",
+        "images/jet-ski/GALLERY-6.png",
+        "images/jet-ski/HERO.png"
+      ]
+    },
+    {
+      "page": "land-of-legends.html",
+      "fallback": "../assets/images/tours/land-of-legends.png",
+      "replaced_count": 18,
+      "broken_refs": [
+        "images/land-of-legends/gallery-1-aerial-view.png",
+        "images/land-of-legends/gallery-2-roller-coasters.png",
+        "images/land-of-legends/gallery-3-waterpark.png",
+        "images/land-of-legends/gallery-4-evening-canal-show.png",
+        "images/land-of-legends/gallery-5-night-parade-and-lights.png",
+        "images/land-of-legends/gallery-6-magical-night-show.png",
+        "images/land-of-legends/hero.png"
+      ]
+    },
+    {
+      "page": "luxury-jet-car.html",
+      "fallback": "../assets/images/tours/luxury-jet-car.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/jet-car/GALLERY-1.png",
+        "images/jet-car/GALLERY-2.png",
+        "images/jet-car/GALLERY-3.png",
+        "images/jet-car/GALLERY-4.png",
+        "images/jet-car/GALLERY-5.png",
+        "images/jet-car/GALLERY-6.png",
+        "images/jet-car/HERO.png"
+      ]
+    },
+    {
+      "page": "luxury-yacht-cruise.html",
+      "fallback": "../assets/images/tours/private-yacht-charter.png",
+      "replaced_count": 13,
+      "broken_refs": [
+        "images/luxury-yacht/luxury-gallery-1.png",
+        "images/luxury-yacht/luxury-gallery-2.png",
+        "images/luxury-yacht/luxury-gallery-3.png",
+        "images/luxury-yacht/luxury-gallery-4.png",
+        "images/luxury-yacht/luxury-gallery-5.png",
+        "images/luxury-yacht/luxury-hero.png"
+      ]
+    },
+    {
+      "page": "manavgat-aspendos-side.html",
+      "fallback": "../assets/images/tours/manavgat-aspendos-side.png",
+      "replaced_count": 16,
+      "broken_refs": [
+        "images/manavgat-aspendos-side/gallery-1-manavgat-waterfall.png",
+        "images/manavgat-aspendos-side/gallery-2-manavgat-river-yacht-cruise.png",
+        "images/manavgat-aspendos-side/gallery-4-side-harbour-ancient-streets.png",
+        "images/manavgat-aspendos-side/gallery-5-side-harbour-seafront.png",
+        "images/manavgat-aspendos-side/gallery-6.png",
+        "images/manavgat-aspendos-side/gallery-7.png",
+        "images/manavgat-aspendos-side/gallery-8.png",
+        "images/manavgat-aspendos-side/hero.png"
+      ]
+    },
+    {
+      "page": "night-jeep-safari.html",
+      "fallback": "../assets/images/tours/night-jeep-safari.png",
+      "replaced_count": 20,
+      "broken_refs": [
+        "images/night-jeep-safari/gallery-1.png",
+        "images/night-jeep-safari/gallery-2.png",
+        "images/night-jeep-safari/gallery-3.png",
+        "images/night-jeep-safari/gallery-4.png",
+        "images/night-jeep-safari/gallery-5.png",
+        "images/night-jeep-safari/gallery-6.png",
+        "images/night-jeep-safari/gallery-7.png",
+        "images/night-jeep-safari/gallery-8.png",
+        "images/night-jeep-safari/hero.png"
+      ]
+    },
+    {
+      "page": "pamukkale-salda.html",
+      "fallback": "../assets/images/tours/green-canyon.jpg",
+      "replaced_count": 8,
+      "broken_refs": [
+        "images/pamukkale-salda/about-salda.png",
+        "images/pamukkale-salda/gallery-2.png",
+        "images/pamukkale-salda/gallery-3.png",
+        "images/pamukkale-salda/gallery-4.png",
+        "images/pamukkale-salda/gallery-5.png",
+        "images/pamukkale-salda/hero.png",
+        "images/pamukkale-salda/salda-lake-gallery-1.png"
+      ]
+    },
+    {
+      "page": "paragliding.html",
+      "fallback": "../assets/images/tours/paragliding.png",
+      "replaced_count": 16,
+      "broken_refs": [
+        "images/paragliding/gallery-1.png",
+        "images/paragliding/gallery-2.png",
+        "images/paragliding/gallery-3.png",
+        "images/paragliding/gallery-4.png",
+        "images/paragliding/gallery-6.png",
+        "images/paragliding/gallery-7.png",
+        "images/paragliding/hero.png"
+      ]
+    },
+    {
+      "page": "parasailing.html",
+      "fallback": "../assets/images/tours/parasailing.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/parasailing-adventure-alanya/GALLERY-1.png",
+        "images/parasailing-adventure-alanya/GALLERY-2.png",
+        "images/parasailing-adventure-alanya/GALLERY-3.png",
+        "images/parasailing-adventure-alanya/GALLERY-4.png",
+        "images/parasailing-adventure-alanya/GALLERY-5.png",
+        "images/parasailing-adventure-alanya/GALLERY-6.png",
+        "images/parasailing-adventure-alanya/HERO.png"
+      ]
+    },
+    {
+      "page": "personal-concierge.html",
+      "fallback": "../assets/images/tours/personal-concierge.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/personal-concierge/GALLERY-1.png",
+        "images/personal-concierge/GALLERY-2.png",
+        "images/personal-concierge/GALLERY-3.png",
+        "images/personal-concierge/GALLERY-4.png",
+        "images/personal-concierge/GALLERY-5.png",
+        "images/personal-concierge/GALLERY-6.png",
+        "images/personal-concierge/HERO.png"
+      ]
+    },
+    {
+      "page": "pirate-yacht.html",
+      "fallback": "../assets/images/tours/private-yacht-charter.png",
+      "replaced_count": 8,
+      "broken_refs": [
+        "images/admiral-black-family.jpg",
+        "images/admiral-black-foam-party.jpg",
+        "images/admiral-black-hero.jpg"
+      ]
+    },
+    {
+      "page": "private-fishing-tour.html",
+      "fallback": "../assets/images/tours/private-yacht-charter.png",
+      "replaced_count": 12,
+      "broken_refs": [
+        "images/private-fishing/private-fishing-collage.jpeg",
+        "images/private-fishing/private-fishing-gallery-1.jpeg",
+        "images/private-fishing/private-fishing-gallery-2.jpeg",
+        "images/private-fishing/private-fishing-gallery-3.jpeg",
+        "images/private-fishing/private-fishing-hero.jpeg"
+      ]
+    },
+    {
+      "page": "private-photographer.html",
+      "fallback": "../assets/images/tours/private-photographer.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/private-photographer/GALLERY-1.jpeg",
+        "images/private-photographer/GALLERY-2.jpeg",
+        "images/private-photographer/GALLERY-3.jpeg",
+        "images/private-photographer/GALLERY-4.jpeg",
+        "images/private-photographer/GALLERY-5.jpeg",
+        "images/private-photographer/GALLERY-6.jpeg",
+        "images/private-photographer/HERO.png"
+      ]
+    },
+    {
+      "page": "private-yacht-charter.html",
+      "fallback": "../assets/images/tours/private-yacht-charter.png",
+      "replaced_count": 16,
+      "broken_refs": [
+        "images/private-yacht-charter/GALLERY-1.png",
+        "images/private-yacht-charter/GALLERY-2.png",
+        "images/private-yacht-charter/GALLERY-3.png",
+        "images/private-yacht-charter/GALLERY-4.png",
+        "images/private-yacht-charter/GALLERY-5.png",
+        "images/private-yacht-charter/GALLERY-6.png",
+        "images/private-yacht-charter/HERO.png"
+      ]
+    },
+    {
+      "page": "quad-safari-master.html",
+      "fallback": "../assets/images/tours/quad-safari-master.png",
+      "replaced_count": 0,
+      "broken_refs": []
+    },
+    {
+      "page": "rafting-koprulu-canyon.html",
+      "fallback": "../assets/images/tours/jeep-safari.png",
+      "replaced_count": 8,
+      "broken_refs": [
+        "images/rafting/gallery-1.png",
+        "images/rafting/gallery-2.png",
+        "images/rafting/gallery-3.png",
+        "images/rafting/rafting.hero.png"
+      ]
+    },
+    {
+      "page": "relax-boat-tour.html",
+      "fallback": "../assets/images/tours/private-yacht-charter.png",
+      "replaced_count": 8,
+      "broken_refs": [
+        "images/relax-boat/relax-gallery-1.jpg",
+        "images/relax-boat/relax-gallery-2.jpg",
+        "images/relax-boat/relax-hero.jpg"
+      ]
+    },
+    {
+      "page": "ringo-ride.html",
+      "fallback": "../assets/images/tours/ringo-ride.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/ringo-ride/GALLERY-1.png",
+        "images/ringo-ride/GALLERY-2.png",
+        "images/ringo-ride/GALLERY-3.png",
+        "images/ringo-ride/GALLERY-4.png",
+        "images/ringo-ride/GALLERY-5.png",
+        "images/ringo-ride/GALLERY-6.png",
+        "images/ringo-ride/HERO.png"
+      ]
+    },
+    {
+      "page": "sapadere-canyon.html",
+      "fallback": "../assets/images/tours/sapadere-canyon.png",
+      "replaced_count": 14,
+      "broken_refs": [
+        "images/sapadere-canyon/gallery-1.png",
+        "images/sapadere-canyon/gallery-2.png",
+        "images/sapadere-canyon/gallery-3.png",
+        "images/sapadere-canyon/gallery-4.png",
+        "images/sapadere-canyon/gallery-5.png",
+        "images/sapadere-canyon/gallery-6.png",
+        "images/sapadere-canyon/hero.png"
+      ]
+    },
+    {
+      "page": "scuba-diving.html",
+      "fallback": "../assets/images/tours/scuba-diving.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/scuba-diving/GALLERY-1.png",
+        "images/scuba-diving/GALLERY-2.png",
+        "images/scuba-diving/GALLERY-3.png",
+        "images/scuba-diving/GALLERY-4.png",
+        "images/scuba-diving/GALLERY-5.png",
+        "images/scuba-diving/GALLERY-6.png",
+        "images/scuba-diving/HERO.png"
+      ]
+    },
+    {
+      "page": "sealanya-dolphinpark.html",
+      "fallback": "../assets/images/tours/sealanya-dolphinpark.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/sealanya-dolphinpark/gallery-1.png",
+        "images/sealanya-dolphinpark/gallery-2.png",
+        "images/sealanya-dolphinpark/gallery-3.png",
+        "images/sealanya-dolphinpark/gallery-4.png",
+        "images/sealanya-dolphinpark/gallery-5.png",
+        "images/sealanya-dolphinpark/gallery-6-official-dolphinpark-map.png",
+        "images/sealanya-dolphinpark/hero.png"
+      ]
+    },
+    {
+      "page": "skydive-experience.html",
+      "fallback": "../assets/images/tours/skydive-experience.jpeg",
+      "replaced_count": 20,
+      "broken_refs": [
+        "images/skydive-experience/gallery-1.png",
+        "images/skydive-experience/gallery-2.png",
+        "images/skydive-experience/gallery-3.png",
+        "images/skydive-experience/gallery-4.png",
+        "images/skydive-experience/gallery-5.png",
+        "images/skydive-experience/gallery-6.png",
+        "images/skydive-experience/gallery-7.png",
+        "images/skydive-experience/gallery-8.png",
+        "images/skydive-experience/hero.png"
+      ]
+    },
+    {
+      "page": "sofa-ride.html",
+      "fallback": "../assets/images/tours/sofa-ride.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/sofa-ride/GALLERY-1.png",
+        "images/sofa-ride/GALLERY-2.png",
+        "images/sofa-ride/GALLERY-3.png",
+        "images/sofa-ride/GALLERY-4.png",
+        "images/sofa-ride/GALLERY-5.png",
+        "images/sofa-ride/GALLERY-6.png",
+        "images/sofa-ride/HERO.png"
+      ]
+    },
+    {
+      "page": "speed-boat-tour.html",
+      "fallback": "../assets/images/tours/speed-boat-tour.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/speed-boat-tour/GALLERY-1.png",
+        "images/speed-boat-tour/GALLERY-2.png",
+        "images/speed-boat-tour/GALLERY-3.png",
+        "images/speed-boat-tour/GALLERY-4.png",
+        "images/speed-boat-tour/GALLERY-5.png",
+        "images/speed-boat-tour/GALLERY-6.png",
+        "images/speed-boat-tour/HERO.png"
+      ]
+    },
+    {
+      "page": "sup-boarding.html",
+      "fallback": "../assets/images/tours/sup-boarding.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/sup-boarding/GALLERY-1.png",
+        "images/sup-boarding/GALLERY-2.png",
+        "images/sup-boarding/GALLERY-3.png",
+        "images/sup-boarding/GALLERY-4.png",
+        "images/sup-boarding/GALLERY-5.png",
+        "images/sup-boarding/GALLERY-6.png",
+        "images/sup-boarding/HERO.png"
+      ]
+    },
+    {
+      "page": "syedra-ancient-city.html",
+      "fallback": "../assets/images/tours/syedra-ancient-city.png",
+      "replaced_count": 18,
+      "broken_refs": [
+        "images/syedra-ancient-city/gallery-1.png",
+        "images/syedra-ancient-city/gallery-2.png",
+        "images/syedra-ancient-city/gallery-3.png",
+        "images/syedra-ancient-city/gallery-4.png",
+        "images/syedra-ancient-city/gallery-5.png",
+        "images/syedra-ancient-city/gallery-6.png",
+        "images/syedra-ancient-city/gallery-7.png",
+        "images/syedra-ancient-city/gallery-8.png",
+        "images/syedra-ancient-city/hero.png"
+      ]
+    },
+    {
+      "page": "turkish-hammam.html",
+      "fallback": "../assets/images/tours/turkish-hammam.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/turkish-hammam-alanya/GALLERY-1.png",
+        "images/turkish-hammam-alanya/GALLERY-2.png",
+        "images/turkish-hammam-alanya/GALLERY-3.png",
+        "images/turkish-hammam-alanya/GALLERY-4.png",
+        "images/turkish-hammam-alanya/GALLERY-5.png",
+        "images/turkish-hammam-alanya/GALLERY-6.png",
+        "images/turkish-hammam-alanya/HERO.png"
+      ]
+    },
+    {
+      "page": "turkish-massage-spa.html",
+      "fallback": "../assets/images/tours/turkish-massage-spa.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/turkish-massage-spa/GALLERY-1.png",
+        "images/turkish-massage-spa/GALLERY-2.jpeg",
+        "images/turkish-massage-spa/GALLERY-3.jpeg",
+        "images/turkish-massage-spa/GALLERY-4.jpeg",
+        "images/turkish-massage-spa/GALLERY-5.jpeg",
+        "images/turkish-massage-spa/GALLERY-6.png",
+        "images/turkish-massage-spa/HERO.png"
+      ]
+    },
+    {
+      "page": "twister.html",
+      "fallback": "../assets/images/tours/twister.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/twister/GALLERY-1.png",
+        "images/twister/GALLERY-2.png",
+        "images/twister/GALLERY-3.png",
+        "images/twister/GALLERY-4.png",
+        "images/twister/GALLERY-5.png",
+        "images/twister/GALLERY-6.png",
+        "images/twister/HERO.png"
+      ]
+    },
+    {
+      "page": "wakeboard.html",
+      "fallback": "../assets/images/tours/wakeboard.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/wakeboarding/GALLERY-1.png",
+        "images/wakeboarding/GALLERY-2.png",
+        "images/wakeboarding/GALLERY-3.png",
+        "images/wakeboarding/GALLERY-4.png",
+        "images/wakeboarding/GALLERY-5.png",
+        "images/wakeboarding/GALLERY-6.png",
+        "images/wakeboarding/HERO.png"
+      ]
+    },
+    {
+      "page": "water-ski.html",
+      "fallback": "../assets/images/tours/water-ski.png",
+      "replaced_count": 15,
+      "broken_refs": [
+        "images/water-ski/GALLERY-1.png",
+        "images/water-ski/GALLERY-2.png",
+        "images/water-ski/GALLERY-3.png",
+        "images/water-ski/GALLERY-4.png",
+        "images/water-ski/GALLERY-5.png",
+        "images/water-ski/GALLERY-6.png",
+        "images/water-ski/HERO.png"
+      ]
+    }
+  ],
+  "remaining": []
+}

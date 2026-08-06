@@ -44,7 +44,7 @@
       padding:34px 0 76px;
       background:
         linear-gradient(90deg,rgba(5,11,20,.97) 0%,rgba(5,11,20,.84) 34%,rgba(5,11,20,.48) 62%,rgba(5,11,20,.16) 100%),
-        url("images/manavgat-aspendos-side/hero.png") center/cover no-repeat;
+        url("../assets/images/tours/manavgat-aspendos-side.png") center/cover no-repeat;
       border-bottom:1px solid rgba(214,162,74,.25);
       position:relative;
       overflow:hidden;
@@ -758,33 +758,33 @@
 <button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
 </button>
-<img alt="Manavgat Waterfall" id="gallery-current" onclick="openLightbox(this.src)" src="images/manavgat-aspendos-side/gallery-1-manavgat-waterfall.png"/>
+<img alt="Manavgat Waterfall" id="gallery-current" onclick="openLightbox(this.src)" src="../assets/images/tours/manavgat-aspendos-side.png"/>
 <button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg>
 </button>
 </div>
 <div aria-label="Gallery thumbnails" class="gallery-thumbs">
 <button class="gallery-thumb active" onclick="setGallery(0)" type="button">
-<img alt="Manavgat Waterfall" src="images/manavgat-aspendos-side/gallery-1-manavgat-waterfall.png"/>
+<img alt="Manavgat Waterfall" src="../assets/images/tours/manavgat-aspendos-side.png"/>
 </button>
 
 <button class="gallery-thumb" onclick="setGallery(1)" type="button">
-<img alt="Manavgat River yacht cruise" src="images/manavgat-aspendos-side/gallery-2-manavgat-river-yacht-cruise.png"/>
+<img alt="Manavgat River yacht cruise" src="../assets/images/tours/manavgat-aspendos-side.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(2)" type="button">
-<img alt="Ancient streets and harbour area in Side" src="images/manavgat-aspendos-side/gallery-4-side-harbour-ancient-streets.png"/>
+<img alt="Ancient streets and harbour area in Side" src="../assets/images/tours/manavgat-aspendos-side.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(3)" type="button">
-<img alt="Side harbour and Mediterranean seafront" src="images/manavgat-aspendos-side/gallery-5-side-harbour-seafront.png"/>
+<img alt="Side harbour and Mediterranean seafront" src="../assets/images/tours/manavgat-aspendos-side.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(4)" type="button">
-<img alt="Manavgat Aspendos Side gallery image 6" src="images/manavgat-aspendos-side/gallery-6.png"/>
+<img alt="Manavgat Aspendos Side gallery image 6" src="../assets/images/tours/manavgat-aspendos-side.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(5)" type="button">
-<img alt="Manavgat Aspendos Side gallery image 7" src="images/manavgat-aspendos-side/gallery-7.png"/>
+<img alt="Manavgat Aspendos Side gallery image 7" src="../assets/images/tours/manavgat-aspendos-side.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(6)" type="button">
-<img alt="Manavgat Aspendos Side gallery image 8" src="images/manavgat-aspendos-side/gallery-8.png"/>
+<img alt="Manavgat Aspendos Side gallery image 8" src="../assets/images/tours/manavgat-aspendos-side.png"/>
 </button>
 </div>
 </div>
@@ -868,13 +868,13 @@
 </div>
 <script>
 const galleryImages = [
-  {src:'images/manavgat-aspendos-side/gallery-1-manavgat-waterfall.png', alt:'Manavgat Waterfall'},
-  {src:'images/manavgat-aspendos-side/gallery-2-manavgat-river-yacht-cruise.png', alt:'Manavgat River yacht cruise'},
-  {src:'images/manavgat-aspendos-side/gallery-4-side-harbour-ancient-streets.png', alt:'Ancient streets and harbour area in Side'},
-  {src:'images/manavgat-aspendos-side/gallery-5-side-harbour-seafront.png', alt:'Side harbour and Mediterranean seafront'},
-  {src:'images/manavgat-aspendos-side/gallery-6.png', alt:'Manavgat Aspendos Side gallery image 6'},
-  {src:'images/manavgat-aspendos-side/gallery-7.png', alt:'Manavgat Aspendos Side gallery image 7'},
-  {src:'images/manavgat-aspendos-side/gallery-8.png', alt:'Manavgat Aspendos Side gallery image 8'}
+  {src:'../assets/images/tours/manavgat-aspendos-side.png', alt:'Manavgat Waterfall'},
+  {src:'../assets/images/tours/manavgat-aspendos-side.png', alt:'Manavgat River yacht cruise'},
+  {src:'../assets/images/tours/manavgat-aspendos-side.png', alt:'Ancient streets and harbour area in Side'},
+  {src:'../assets/images/tours/manavgat-aspendos-side.png', alt:'Side harbour and Mediterranean seafront'},
+  {src:'../assets/images/tours/manavgat-aspendos-side.png', alt:'Manavgat Aspendos Side gallery image 6'},
+  {src:'../assets/images/tours/manavgat-aspendos-side.png', alt:'Manavgat Aspendos Side gallery image 7'},
+  {src:'../assets/images/tours/manavgat-aspendos-side.png', alt:'Manavgat Aspendos Side gallery image 8'}
 ];
 
 let galleryIndex=0;
@@ -922,6 +922,23 @@ document.addEventListener('keydown',event=>{
   if(lightboxOpen && event.key==='ArrowLeft') changeGallery(-1);
   if(lightboxOpen && event.key==='ArrowRight') changeGallery(1);
 });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/manavgat-aspendos-side.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

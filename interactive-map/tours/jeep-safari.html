@@ -52,7 +52,7 @@
           rgba(5,11,20,.14) 46%,
           rgba(5,11,20,.04) 64%,
           rgba(5,11,20,0) 78%),
-        url("images/jeep-safari/hero.png") center/cover no-repeat;
+        url("../assets/images/tours/jeep-safari.png") center/cover no-repeat;
       border-bottom:1px solid rgba(214,162,74,.25);
       position:relative;
       overflow:hidden;
@@ -1104,14 +1104,14 @@ background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
     <div class="gallery-carousel">
       <div class="gallery-stage">
         <button class="gallery-arrow prev" type="button" aria-label="Previous photo" onclick="changeGallery(-1)"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
-        <img id="gallery-current" src="images/jeep-safari/gallery-1.png" alt="Jeep Safari" onclick="openLightbox(this.src)">
+        <img id="gallery-current" src="../assets/images/tours/jeep-safari.png" alt="Jeep Safari" onclick="openLightbox(this.src)">
         <button class="gallery-arrow next" type="button" aria-label="Next photo" onclick="changeGallery(1)"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
       <div class="gallery-thumbs" aria-label="Gallery thumbnails" style="grid-template-columns:repeat(4,1fr)">
-        <button class="gallery-thumb active" type="button" onclick="setGallery(0)"><img src="images/jeep-safari/gallery-1.png" alt="Jeep Safari"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(1)"><img src="images/jeep-safari/gallery-2.png" alt="Jeep Safari Waterfall"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(2)"><img src="images/jeep-safari/gallery-3.png" alt="Jeep Safari Mountains"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(3)"><img src="images/jeep-safari/gallery-4.png" alt="Jeep Safari Adventure"></button>
+        <button class="gallery-thumb active" type="button" onclick="setGallery(0)"><img src="../assets/images/tours/jeep-safari.png" alt="Jeep Safari"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(1)"><img src="../assets/images/tours/jeep-safari.png" alt="Jeep Safari Waterfall"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(2)"><img src="../assets/images/tours/jeep-safari.png" alt="Jeep Safari Mountains"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(3)"><img src="../assets/images/tours/jeep-safari.png" alt="Jeep Safari Adventure"></button>
       </div>
     </div>
   </section>
@@ -1151,16 +1151,33 @@ background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
 
 <script>
   const galleryImages = [
-    {src:'images/jeep-safari/gallery-1.png', alt:'Jeep Safari'},
-    {src:'images/jeep-safari/gallery-2.png', alt:'Jeep Safari Waterfall'},
-    {src:'images/jeep-safari/gallery-3.png', alt:'Jeep Safari Mountains'},
-    {src:'images/jeep-safari/gallery-4.png', alt:'Jeep Safari Adventure'}
+    {src:'../assets/images/tours/jeep-safari.png', alt:'Jeep Safari'},
+    {src:'../assets/images/tours/jeep-safari.png', alt:'Jeep Safari Waterfall'},
+    {src:'../assets/images/tours/jeep-safari.png', alt:'Jeep Safari Mountains'},
+    {src:'../assets/images/tours/jeep-safari.png', alt:'Jeep Safari Adventure'}
   ];
   let galleryIndex = 0;
   function setGallery(index){galleryIndex=(index+galleryImages.length)%galleryImages.length;const current=document.getElementById('gallery-current');current.src=galleryImages[galleryIndex].src;current.alt=galleryImages[galleryIndex].alt;document.querySelectorAll('.gallery-thumb').forEach((thumb,i)=>thumb.classList.toggle('active',i===galleryIndex));}
   function changeGallery(direction){setGallery(galleryIndex+direction);}
   function openLightbox(src){document.getElementById('lightbox-img').src=src;document.getElementById('lightbox').classList.add('active');}
   function closeLightbox(){document.getElementById('lightbox').classList.remove('active');}
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/jeep-safari.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

@@ -66,7 +66,7 @@
           rgba(5,11,20,.18) 35%,
           transparent 65%
         ),
-        url("images/anamur/hero.png") center/cover no-repeat;
+        url("../assets/images/tours/anamur.png") center/cover no-repeat;
       border-bottom:1px solid rgba(214,162,74,.25);
       position:relative;
       overflow:hidden;
@@ -899,26 +899,26 @@
 <button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
 </button>
-<img alt="Anamur Castle and Anemurium tour" id="gallery-current" onclick="openLightbox(this.src)" src="images/anamur/gallery-1.png"/>
+<img alt="Anamur Castle and Anemurium tour" id="gallery-current" onclick="openLightbox(this.src)" src="../assets/images/tours/anamur.png"/>
 <button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg>
 </button>
 </div>
 <div aria-label="Gallery thumbnails" class="gallery-thumbs">
 <button class="gallery-thumb active" onclick="setGallery(0)" type="button">
-<img alt="Anamur Castle by the Mediterranean Sea" src="images/anamur/gallery-1.png"/>
+<img alt="Anamur Castle by the Mediterranean Sea" src="../assets/images/tours/anamur.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(1)" type="button">
-<img alt="Banana plantations and nature of Anamur" src="images/anamur/gallery-2.png"/>
+<img alt="Banana plantations and nature of Anamur" src="../assets/images/tours/anamur.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(2)" type="button">
-<img alt="Dragon River and southern Turkey landscape" src="images/anamur/gallery-3.png"/>
+<img alt="Dragon River and southern Turkey landscape" src="../assets/images/tours/anamur.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(3)" type="button">
-<img alt="Scenic mountain serpentine road toward Anamur" src="images/anamur/gallery-4.png"/>
+<img alt="Scenic mountain serpentine road toward Anamur" src="../assets/images/tours/anamur.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(4)" type="button">
-<img alt="Ancient Anemurium ruins by the Mediterranean Sea" src="images/anamur/gallery-5.png"/>
+<img alt="Ancient Anemurium ruins by the Mediterranean Sea" src="../assets/images/tours/anamur.png"/>
 </button>
 </div>
 </div>
@@ -1000,11 +1000,11 @@
 </div>
 <script>
 const galleryImages = [
-  {src:'images/anamur/gallery-1.png', alt:'Mamure Castle by the Mediterranean Sea'},
-  {src:'images/anamur/gallery-2.png', alt:'Banana plantations in the Anamur region'},
-  {src:'images/anamur/gallery-3.png', alt:'Southern Türkiye coastal landscape near Anamur'},
-  {src:'images/anamur/gallery-4.png', alt:'Scenic mountain road toward Anamur'},
-  {src:'images/anamur/gallery-5.png', alt:'Anemurium Ancient City beside the Mediterranean'}
+  {src:'../assets/images/tours/anamur.png', alt:'Mamure Castle by the Mediterranean Sea'},
+  {src:'../assets/images/tours/anamur.png', alt:'Banana plantations in the Anamur region'},
+  {src:'../assets/images/tours/anamur.png', alt:'Southern Türkiye coastal landscape near Anamur'},
+  {src:'../assets/images/tours/anamur.png', alt:'Scenic mountain road toward Anamur'},
+  {src:'../assets/images/tours/anamur.png', alt:'Anemurium Ancient City beside the Mediterranean'}
 ];
 
 let galleryIndex=0;
@@ -1056,6 +1056,23 @@ document.addEventListener('keydown',event=>{
   if(lightboxOpen && event.key==='ArrowLeft') changeGallery(-1);
   if(lightboxOpen && event.key==='ArrowRight') changeGallery(1);
 });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/anamur.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

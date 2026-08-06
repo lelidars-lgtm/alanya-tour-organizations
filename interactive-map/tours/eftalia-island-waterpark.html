@@ -24,7 +24,7 @@ a{text-decoration:none;color:inherit}
   padding:34px 0 76px;
   background:
     linear-gradient(90deg,rgba(5,11,20,.97) 0%,rgba(5,11,20,.84) 34%,rgba(5,11,20,.48) 62%,rgba(5,11,20,.16) 100%),
-    url("images/eftalia-island/hero.png") center/cover no-repeat;
+    url("../assets/images/tours/eftalia-island-waterpark.png") center/cover no-repeat;
   border-bottom:1px solid rgba(214,162,74,.25);
   position:relative;
   overflow:hidden;
@@ -591,7 +591,7 @@ h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size
         <div class="highlight">Round-trip transfer and insurance included</div>
       </div>
       <div class="map-card">
-        <img src="images/eftalia-island/gallery-7.png"
+        <img src="../assets/images/tours/eftalia-island-waterpark.png"
              alt="Eftalia Island custom map"
              onclick="openLightbox(this.src)">
 
@@ -679,17 +679,17 @@ h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size
     <div class="gallery-carousel">
       <div class="gallery-stage">
         <button class="gallery-arrow prev" type="button" aria-label="Previous photo" onclick="changeGallery(-1)"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
-        <img id="gallery-current" src="images/eftalia-island/gallery-1.png" alt="Extreme water slides with people sliding" onclick="openLightbox(this.src)">
+        <img id="gallery-current" src="../assets/images/tours/eftalia-island-waterpark.png" alt="Extreme water slides with people sliding" onclick="openLightbox(this.src)">
         <button class="gallery-arrow next" type="button" aria-label="Next photo" onclick="changeGallery(1)"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
       <div class="gallery-thumbs">
-        <button class="gallery-thumb active" type="button" onclick="setGallery(0)"><img src="images/eftalia-island/gallery-1.png" alt="Extreme water slides"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(1)"><img src="images/eftalia-island/gallery-2.png" alt="Giant wave pool"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(2)"><img src="images/eftalia-island/gallery-3.png" alt="Children aqua playground"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(3)"><img src="images/eftalia-island/gallery-4.png" alt="Beach club area"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(4)"><img src="images/eftalia-island/gallery-5.png" alt="Buffet restaurant"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(5)"><img src="images/eftalia-island/gallery-6.png" alt="Eftalia Island Waterpark"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(6)"><img src="images/eftalia-island/gallery-7.png" alt="Eftalia Island custom map"></button>
+        <button class="gallery-thumb active" type="button" onclick="setGallery(0)"><img src="../assets/images/tours/eftalia-island-waterpark.png" alt="Extreme water slides"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(1)"><img src="../assets/images/tours/eftalia-island-waterpark.png" alt="Giant wave pool"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(2)"><img src="../assets/images/tours/eftalia-island-waterpark.png" alt="Children aqua playground"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(3)"><img src="../assets/images/tours/eftalia-island-waterpark.png" alt="Beach club area"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(4)"><img src="../assets/images/tours/eftalia-island-waterpark.png" alt="Buffet restaurant"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(5)"><img src="../assets/images/tours/eftalia-island-waterpark.png" alt="Eftalia Island Waterpark"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(6)"><img src="../assets/images/tours/eftalia-island-waterpark.png" alt="Eftalia Island custom map"></button>
       </div>
     </div>
   </section>
@@ -857,13 +857,13 @@ h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size
 
 <script>
 const galleryImages=[
-  {src:'images/eftalia-island/gallery-1.png',alt:'Extreme water slides with people sliding'},
-  {src:'images/eftalia-island/gallery-2.png',alt:'Giant wave pool with families'},
-  {src:'images/eftalia-island/gallery-3.png',alt:"Children's aqua playground and splash zone"},
-  {src:'images/eftalia-island/gallery-4.png',alt:'Beach club area with sunbeds and sea view'},
-  {src:'images/eftalia-island/gallery-5.png',alt:'Buffet restaurant and Ultra All Inclusive atmosphere'},
-  {src:'images/eftalia-island/gallery-6.png',alt:'Eftalia Island Waterpark'},
-  {src:'images/eftalia-island/gallery-7.png',alt:'Eftalia Island custom map'}
+  {src:'../assets/images/tours/eftalia-island-waterpark.png',alt:'Extreme water slides with people sliding'},
+  {src:'../assets/images/tours/eftalia-island-waterpark.png',alt:'Giant wave pool with families'},
+  {src:'../assets/images/tours/eftalia-island-waterpark.png',alt:"Children's aqua playground and splash zone"},
+  {src:'../assets/images/tours/eftalia-island-waterpark.png',alt:'Beach club area with sunbeds and sea view'},
+  {src:'../assets/images/tours/eftalia-island-waterpark.png',alt:'Buffet restaurant and Ultra All Inclusive atmosphere'},
+  {src:'../assets/images/tours/eftalia-island-waterpark.png',alt:'Eftalia Island Waterpark'},
+  {src:'../assets/images/tours/eftalia-island-waterpark.png',alt:'Eftalia Island custom map'}
 ];
 let galleryIndex=0;
 function setGallery(index){
@@ -885,6 +885,23 @@ document.querySelectorAll('.faq-question').forEach(button=>{
     item.classList.toggle('active');
   });
 });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/eftalia-island-waterpark.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

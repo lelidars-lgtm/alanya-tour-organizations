@@ -47,7 +47,7 @@
       padding:34px 0 76px;
       background:
         linear-gradient(90deg,rgba(5,11,20,.97) 0%,rgba(5,11,20,.84) 34%,rgba(5,11,20,.48) 62%,rgba(5,11,20,.16) 100%),
-        url("images/admiral-black-hero.jpg") center/cover no-repeat;
+        url("../assets/images/tours/private-yacht-charter.png") center/cover no-repeat;
       border-bottom:1px solid rgba(214,162,74,.25);
       position:relative;
       overflow:hidden;
@@ -1337,20 +1337,20 @@ background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
 <button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
 </button>
-<img alt="ADMIRAL BLACK yacht in Alanya" id="gallery-current" onclick="openLightbox(this.src)" src="images/admiral-black-hero.jpg"/>
+<img alt="ADMIRAL BLACK yacht in Alanya" id="gallery-current" onclick="openLightbox(this.src)" src="../assets/images/tours/private-yacht-charter.png"/>
 <button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg>
 </button>
 </div>
 <div aria-label="Gallery thumbnails" class="gallery-thumbs">
 <button class="gallery-thumb active" onclick="setGallery(0)" type="button">
-<img alt="ADMIRAL BLACK yacht at sunset" src="images/admiral-black-hero.jpg"/>
+<img alt="ADMIRAL BLACK yacht at sunset" src="../assets/images/tours/private-yacht-charter.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(1)" type="button">
-<img alt="Foam party on board" src="images/admiral-black-foam-party.jpg"/>
+<img alt="Foam party on board" src="../assets/images/tours/private-yacht-charter.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(2)" type="button">
-<img alt="ADMIRAL BLACK yacht in Alanya" src="images/admiral-black-family.jpg"/>
+<img alt="ADMIRAL BLACK yacht in Alanya" src="../assets/images/tours/private-yacht-charter.png"/>
 </button>
 </div>
 </div>
@@ -1439,9 +1439,9 @@ background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
 </div>
 <script>
   const galleryImages = [
-    {src:'images/admiral-black-hero.jpg', alt:'ADMIRAL BLACK yacht at sunset'},
-    {src:'images/admiral-black-foam-party.jpg', alt:'Foam party on board'},
-    {src:'images/admiral-black-family.jpg', alt:'ADMIRAL BLACK yacht in Alanya'}
+    {src:'../assets/images/tours/private-yacht-charter.png', alt:'ADMIRAL BLACK yacht at sunset'},
+    {src:'../assets/images/tours/private-yacht-charter.png', alt:'Foam party on board'},
+    {src:'../assets/images/tours/private-yacht-charter.png', alt:'ADMIRAL BLACK yacht in Alanya'}
   ];
 
   let galleryIndex = 0;
@@ -1488,6 +1488,23 @@ background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
       }
     });
   });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/private-yacht-charter.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

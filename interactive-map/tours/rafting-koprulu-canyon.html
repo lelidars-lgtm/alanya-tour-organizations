@@ -47,7 +47,7 @@
       padding:34px 0 76px;
       background:
         linear-gradient(90deg,rgba(5,11,20,.78) 0%,rgba(5,11,20,.56) 34%,rgba(5,11,20,.24) 62%,rgba(5,11,20,.04) 100%),
-        url("images/rafting/rafting.hero.png") center/cover no-repeat;
+        url("../assets/images/tours/jeep-safari.png") center/cover no-repeat;
       border-bottom:1px solid rgba(214,162,74,.25);
       position:relative;
       overflow:hidden;
@@ -1046,13 +1046,13 @@ background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
 <div class="gallery-carousel">
 <div class="gallery-stage">
 <button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button"><svg viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button>
-<img alt="Rafting in Köprülü Canyon" id="gallery-current" onclick="openLightbox(this.src)" src="images/rafting/gallery-1.png"/>
+<img alt="Rafting in Köprülü Canyon" id="gallery-current" onclick="openLightbox(this.src)" src="../assets/images/tours/jeep-safari.png"/>
 <button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button"><svg viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button>
 </div>
 <div aria-label="Gallery thumbnails" class="gallery-thumbs">
-<button class="gallery-thumb active" onclick="setGallery(0)" type="button"><img alt="Rafting in Köprülü Canyon" src="images/rafting/gallery-1.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(1)" type="button"><img alt="Rafting adventure on a mountain river" src="images/rafting/gallery-2.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(2)" type="button"><img alt="Rafting route and canyon scenery" src="images/rafting/gallery-3.png"/></button>
+<button class="gallery-thumb active" onclick="setGallery(0)" type="button"><img alt="Rafting in Köprülü Canyon" src="../assets/images/tours/jeep-safari.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(1)" type="button"><img alt="Rafting adventure on a mountain river" src="../assets/images/tours/jeep-safari.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(2)" type="button"><img alt="Rafting route and canyon scenery" src="../assets/images/tours/jeep-safari.png"/></button>
 </div></div>
 </section>
 <section aria-label="Essential tour information" class="info-cards-section">
@@ -1085,9 +1085,9 @@ background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
 </div>
 <script>
   const galleryImages = [
-    {src:'images/rafting/gallery-1.png', alt:'Rafting in Köprülü Canyon'},
-    {src:'images/rafting/gallery-2.png', alt:'Rafting adventure on a mountain river'},
-    {src:'images/rafting/gallery-3.png', alt:'Rafting route and canyon scenery'}
+    {src:'../assets/images/tours/jeep-safari.png', alt:'Rafting in Köprülü Canyon'},
+    {src:'../assets/images/tours/jeep-safari.png', alt:'Rafting adventure on a mountain river'},
+    {src:'../assets/images/tours/jeep-safari.png', alt:'Rafting route and canyon scenery'}
   ];
 
   let galleryIndex = 0;
@@ -1115,6 +1115,23 @@ background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02))}
   function closeLightbox(){
     document.getElementById('lightbox').classList.remove('active');
   }
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/jeep-safari.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

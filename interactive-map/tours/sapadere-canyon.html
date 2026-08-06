@@ -19,7 +19,7 @@ linear-gradient(
 rgba(3,10,18,.86),
 rgba(3,10,18,.15)
 ),
-url("images/sapadere-canyon/hero.png")
+url("../assets/images/tours/sapadere-canyon.png")
 center/cover no-repeat;position:relative;overflow:hidden}
 .hero::after{
 content:"";
@@ -448,13 +448,13 @@ h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size
 
 </div></section>
 
-<section class="section-card gallery-section"><h2>Photo Gallery</h2><div class="gallery-carousel"><div class="gallery-stage"><button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button><img alt="Sapadere Canyon wooden pathway" id="gallery-current" onclick="openLightbox(this.src,this.alt)" src="images/sapadere-canyon/gallery-1.png"/><button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button></div><div aria-label="Gallery thumbnails" class="gallery-thumbs" id="galleryThumbs">
-<button aria-label="Show Sapadere Canyon wooden pathway photo" class="gallery-thumb active" onclick="setGallery(0)" type="button"><img alt="Sapadere Canyon wooden pathway" src="images/sapadere-canyon/gallery-1.png"/></button>
-<button aria-label="Show Sapadere Canyon waterfall photo" class="gallery-thumb" onclick="setGallery(1)" type="button"><img alt="Sapadere Canyon waterfall" src="images/sapadere-canyon/gallery-2.png"/></button>
-<button aria-label="Show Sapadere Canyon mountain pools photo" class="gallery-thumb" onclick="setGallery(2)" type="button"><img alt="Sapadere Canyon mountain pools" src="images/sapadere-canyon/gallery-3.png"/></button>
-<button aria-label="Show Dwarf Cave photo" class="gallery-thumb" onclick="setGallery(3)" type="button"><img alt="Dwarf Cave near Sapadere" src="images/sapadere-canyon/gallery-4.png"/></button>
-<button aria-label="Show Sapadere village photo" class="gallery-thumb" onclick="setGallery(4)" type="button"><img alt="Traditional village near Sapadere Canyon" src="images/sapadere-canyon/gallery-5.png"/></button>
-<button aria-label="Show Sapadere Canyon nature photo" class="gallery-thumb" onclick="setGallery(5)" type="button"><img alt="Sapadere Canyon natural landscape" src="images/sapadere-canyon/gallery-6.png"/></button>
+<section class="section-card gallery-section"><h2>Photo Gallery</h2><div class="gallery-carousel"><div class="gallery-stage"><button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button><img alt="Sapadere Canyon wooden pathway" id="gallery-current" onclick="openLightbox(this.src,this.alt)" src="../assets/images/tours/sapadere-canyon.png"/><button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button></div><div aria-label="Gallery thumbnails" class="gallery-thumbs" id="galleryThumbs">
+<button aria-label="Show Sapadere Canyon wooden pathway photo" class="gallery-thumb active" onclick="setGallery(0)" type="button"><img alt="Sapadere Canyon wooden pathway" src="../assets/images/tours/sapadere-canyon.png"/></button>
+<button aria-label="Show Sapadere Canyon waterfall photo" class="gallery-thumb" onclick="setGallery(1)" type="button"><img alt="Sapadere Canyon waterfall" src="../assets/images/tours/sapadere-canyon.png"/></button>
+<button aria-label="Show Sapadere Canyon mountain pools photo" class="gallery-thumb" onclick="setGallery(2)" type="button"><img alt="Sapadere Canyon mountain pools" src="../assets/images/tours/sapadere-canyon.png"/></button>
+<button aria-label="Show Dwarf Cave photo" class="gallery-thumb" onclick="setGallery(3)" type="button"><img alt="Dwarf Cave near Sapadere" src="../assets/images/tours/sapadere-canyon.png"/></button>
+<button aria-label="Show Sapadere village photo" class="gallery-thumb" onclick="setGallery(4)" type="button"><img alt="Traditional village near Sapadere Canyon" src="../assets/images/tours/sapadere-canyon.png"/></button>
+<button aria-label="Show Sapadere Canyon nature photo" class="gallery-thumb" onclick="setGallery(5)" type="button"><img alt="Sapadere Canyon natural landscape" src="../assets/images/tours/sapadere-canyon.png"/></button>
 </div></div></section>
 
 <section aria-label="Essential tour information" class="info-cards-section">
@@ -478,12 +478,12 @@ h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size
 <div class="lightbox" id="lightbox" onclick="closeLightbox()"><span class="close" aria-label="Close">×</span><img alt="" id="lightbox-img" src="" onclick="event.stopPropagation()"/></div>
 <script>
 const galleryImages = [
-  {src:"images/sapadere-canyon/gallery-1.png",alt:"Sapadere Canyon wooden pathway"},
-  {src:"images/sapadere-canyon/gallery-2.png",alt:"Sapadere Canyon waterfall"},
-  {src:"images/sapadere-canyon/gallery-3.png",alt:"Sapadere Canyon mountain pools"},
-  {src:"images/sapadere-canyon/gallery-4.png",alt:"Dwarf Cave near Sapadere"},
-  {src:"images/sapadere-canyon/gallery-5.png",alt:"Traditional village near Sapadere Canyon"},
-  {src:"images/sapadere-canyon/gallery-6.png",alt:"Sapadere Canyon natural landscape"}
+  {src:"../assets/images/tours/sapadere-canyon.png",alt:"Sapadere Canyon wooden pathway"},
+  {src:"../assets/images/tours/sapadere-canyon.png",alt:"Sapadere Canyon waterfall"},
+  {src:"../assets/images/tours/sapadere-canyon.png",alt:"Sapadere Canyon mountain pools"},
+  {src:"../assets/images/tours/sapadere-canyon.png",alt:"Dwarf Cave near Sapadere"},
+  {src:"../assets/images/tours/sapadere-canyon.png",alt:"Traditional village near Sapadere Canyon"},
+  {src:"../assets/images/tours/sapadere-canyon.png",alt:"Sapadere Canyon natural landscape"}
 ];
 
 let galleryIndex=0;
@@ -526,6 +526,23 @@ document.addEventListener("keydown",function(e){
   if(e.key==="ArrowRight" && isOpen){changeGallery(1);openLightbox(galleryImages[galleryIndex].src,galleryImages[galleryIndex].alt);}
   if(e.key==="ArrowLeft" && isOpen){changeGallery(-1);openLightbox(galleryImages[galleryIndex].src,galleryImages[galleryIndex].alt);}
 });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/sapadere-canyon.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

@@ -66,7 +66,7 @@
           rgba(5,11,20,.18) 35%,
           transparent 65%
         ),
-        url("images/aspendos/hero.png") center/cover no-repeat;
+        url("../assets/images/tours/aspendos.png") center/cover no-repeat;
       border-bottom:1px solid rgba(214,162,74,.25);
       position:relative;
       overflow:hidden;
@@ -898,29 +898,29 @@
 <button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button">
 <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
 </button>
-<img alt="Aspendos Roman Theatre stage and facade" id="gallery-current" onclick="openLightbox(this.src)" src="images/aspendos/gallery-1.png"/>
+<img alt="Aspendos Roman Theatre stage and facade" id="gallery-current" onclick="openLightbox(this.src)" src="../assets/images/tours/aspendos.png"/>
 <button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button">
 <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg>
 </button>
 </div>
 <div aria-label="Gallery thumbnails" class="gallery-thumbs">
 <button class="gallery-thumb active" onclick="setGallery(0)" type="button">
-<img alt="Aspendos Roman Theatre stage and facade" src="images/aspendos/gallery-1.png"/>
+<img alt="Aspendos Roman Theatre stage and facade" src="../assets/images/tours/aspendos.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(1)" type="button">
-<img alt="Aspendos ancient ruins and Roman columns" src="images/aspendos/gallery-2.png"/>
+<img alt="Aspendos ancient ruins and Roman columns" src="../assets/images/tours/aspendos.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(2)" type="button">
-<img alt="Panoramic view of Aspendos Theatre" src="images/aspendos/gallery-3.png"/>
+<img alt="Panoramic view of Aspendos Theatre" src="../assets/images/tours/aspendos.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(3)" type="button">
-<img alt="Ancient Roman arches inside Aspendos Theatre" src="images/aspendos/gallery-4.png"/>
+<img alt="Ancient Roman arches inside Aspendos Theatre" src="../assets/images/tours/aspendos.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(4)" type="button">
-<img alt="Exterior view of Aspendos Roman Theatre" src="images/aspendos/gallery-5.png"/>
+<img alt="Exterior view of Aspendos Roman Theatre" src="../assets/images/tours/aspendos.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(5)" type="button">
-<img alt="Side harbour and ancient coastal ruins" src="images/aspendos/gallery-6.png"/>
+<img alt="Side harbour and ancient coastal ruins" src="../assets/images/tours/aspendos.png"/>
 </button>
 </div>
 </div>
@@ -1002,12 +1002,12 @@
 </div>
 <script>
 const galleryImages = [
-  {src:'images/aspendos/gallery-1.png', alt:'Aspendos Roman Theatre stage building and seating area'},
-  {src:'images/aspendos/gallery-2.png', alt:'Archaeological remains at Aspendos'},
-  {src:'images/aspendos/gallery-3.png', alt:'Panoramic view of Aspendos Roman Theatre'},
-  {src:'images/aspendos/gallery-4.png', alt:'Roman arches inside Aspendos Theatre'},
-  {src:'images/aspendos/gallery-5.png', alt:'Exterior of Aspendos Roman Theatre'},
-  {src:'images/aspendos/gallery-6.png', alt:'Side harbour and ancient coastal ruins'}
+  {src:'../assets/images/tours/aspendos.png', alt:'Aspendos Roman Theatre stage building and seating area'},
+  {src:'../assets/images/tours/aspendos.png', alt:'Archaeological remains at Aspendos'},
+  {src:'../assets/images/tours/aspendos.png', alt:'Panoramic view of Aspendos Roman Theatre'},
+  {src:'../assets/images/tours/aspendos.png', alt:'Roman arches inside Aspendos Theatre'},
+  {src:'../assets/images/tours/aspendos.png', alt:'Exterior of Aspendos Roman Theatre'},
+  {src:'../assets/images/tours/aspendos.png', alt:'Side harbour and ancient coastal ruins'}
 ];
 
 let galleryIndex = 0;
@@ -1061,6 +1061,23 @@ document.addEventListener('keydown', event => {
   if(lightboxOpen && event.key === 'ArrowLeft') changeGallery(-1);
   if(lightboxOpen && event.key === 'ArrowRight') changeGallery(1);
 });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/aspendos.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

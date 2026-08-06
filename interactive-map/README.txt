@@ -1,26 +1,18 @@
-V18 COMPLETE MAP — INSTALLATION
+TRAVEL IS LOVE — INTERACTIVE MAP V10
 
-This package includes V16/V17 functionality plus the final visual map changes.
+Open interactive-map.html with internet access.
+This preview includes:
+- original site header/footer and shared styles.css
+- 52 real tour-page links from ato.zip
+- real HERO images for 26 tours from the valid category archives
+- categories, filters, autotravel after 5 seconds, geolocation and nearby tours
 
-COPY / REPLACE:
-1. interactive-map/index.html
-2. interactive-map/interactive-map.html
-3. interactive-map/assets/js/shared-filters.js
-4. site-root/index.html -> copy this file to the ROOT of the repository as index.html
-5. site-root/assets/js/shared-filters.js -> copy to ROOT assets/js/shared-filters.js
+Important:
+The archive “4,5,6 КАТЕГОРИИ.zip” was incomplete/corrupted during upload,
+so images for categories 4–6 are not embedded yet. Their tour links still work.
+Re-upload that archive in smaller parts to complete those photographs.
 
-DO NOT DELETE:
-interactive-map/assets/images, interactive-map/categories, interactive-map/tours, interactive-map/data, interactive-map/logo.
+V11 update: Wellness & Relax location verified at Çıplaklı Mahallesi, 3002. Sokak, Mevlüt Çavuşoğlu Bulvarı No:4, coordinates 36.5593 N, 32.0125 E. Duplicate template entry removed.
 
-INCLUDED:
-- official main-site filter synchronized with map through alanyaTourFilters
-- categories only on top; gold SVG icons; first semantic word metallic gold and remainder white
-- left panel contains title, explanation, search, price/duration/transfer/family/private filters, clear button, nearby hint
-- hover and one-click tour cards
-- major Turkish destinations around routes with zoom-dependent labels
-- hybrid/street/satellite modes
-- white zoom controls, gold compass, working geolocation control
-- duplicate map footer slogan removed; official promo line remains immediately below the company header
 
-PUBLISH:
-Commit -> Push origin -> Pull Request map-test to main -> Merge -> wait for Vercel -> Ctrl+F5.
+V12: Added real HERO images for History & Culture, Family Experiences and Air Experiences. Added verified Wellness & Relax location at [32.0125, 36.5593].

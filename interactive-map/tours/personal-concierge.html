@@ -14,7 +14,7 @@ html{scroll-behavior:smooth}
 body{font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top,rgba(214,162,74,.06),transparent 26%),linear-gradient(180deg,#050b14,#07111f 48%,#050b14);color:var(--text);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 .page{width:min(1180px,calc(100% - 36px));margin:auto}
-.hero{min-height:760px;padding:34px 0 76px;background:linear-gradient(90deg,rgba(4,10,18,.78) 0%,rgba(4,10,18,.52) 34%,rgba(4,10,18,.22) 62%,rgba(4,10,18,.08) 100%),url("images/personal-concierge/HERO.png") center center/cover no-repeat;position:relative;overflow:hidden}
+.hero{min-height:760px;padding:34px 0 76px;background:linear-gradient(90deg,rgba(4,10,18,.78) 0%,rgba(4,10,18,.52) 34%,rgba(4,10,18,.22) 62%,rgba(4,10,18,.08) 100%),url("../assets/images/tours/personal-concierge.png") center center/cover no-repeat;position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:260px;background:linear-gradient(180deg,rgba(5,11,20,0) 0%,rgba(5,11,20,.55) 45%,#050b14 100%);pointer-events:none;z-index:1}
 .hero::before{content:"";position:absolute;left:50%;bottom:-54px;transform:translateX(-50%);width:72%;height:110px;background:radial-gradient(ellipse at center,rgba(243,198,109,.22) 0%,rgba(243,198,109,.08) 34%,rgba(243,198,109,0) 72%);pointer-events:none;z-index:2}
 .hero .page{position:relative;z-index:2}
@@ -349,7 +349,7 @@ h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size
 <div class="highlight">Vehicle class and capacity confirmed before booking.</div>
 </div>
 <div class="about-visual">
-<img alt="Private personal concierge chauffeur service" src="images/personal-concierge/GALLERY-1.png"/>
+<img alt="Private personal concierge chauffeur service" src="../assets/images/tours/personal-concierge.png"/>
 <div class="about-visual-caption">YOUR ROUTE. YOUR TIME.</div>
 </div>
 </div>
@@ -438,7 +438,7 @@ h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size
 <div class="master-note">Traffic, road closures, weather, driver working-time limits, parking restrictions and route changes may affect timing and availability.</div>
 </section>
 <section class="section-card"><div class="service-intro"><h2>Popular Personal Concierge Requests</h2><p>Every booking is private and fully customized. These are some of the most requested journeys and service combinations.</p></div><div class="popular-requests"><div class="request-item"><span aria-hidden="true" class="request-icon"><svg viewbox="0 0 24 24"><path d="M3 13h18"></path><path d="M7 9h10"></path><path d="M12 4v16"></path><path d="M5 18h14"></path></svg></span>Antalya Airport → shopping → hotel or villa</div><div class="request-item"><span aria-hidden="true" class="request-icon"><svg viewbox="0 0 24 24"><path d="M12 3v18"></path><path d="M3 12h18"></path></svg></span>Alanya → clinic appointment → return</div><div class="request-item"><span aria-hidden="true" class="request-icon"><svg viewbox="0 0 24 24"><path d="M4 18l5-5 4 4 7-8"></path><circle cx="7" cy="7" r="2"></circle><circle cx="19" cy="8" r="2"></circle></svg></span>Alanya → selected intercity destination</div><div class="request-item"><span aria-hidden="true" class="request-icon"><svg viewbox="0 0 24 24"><path d="M4 7h16v12H4z"></path><path d="M8 7V5h8v2"></path><path d="M4 11h16"></path></svg></span>Business meetings in Antalya or Alanya</div><div class="request-item"><span aria-hidden="true" class="request-icon"><svg viewbox="0 0 24 24"><path d="M6 3v8"></path><path d="M9 3v8"></path><path d="M6 7h3"></path><path d="M15 3v18"></path><path d="M18 3c0 4-3 6-3 6"></path></svg></span>Fine dining and evening chauffeur service</div><div class="request-item"><span aria-hidden="true" class="request-icon"><svg viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="10" r="2.3"></circle><path d="M3.5 20c.8-4 3-6 5.5-6s4.7 2 5.5 6"></path><path d="M13.5 20c.5-2.9 2-4.6 3.5-4.6 1.7 0 3 1.8 3.5 4.6"></path></svg></span>Family day trip with flexible stops</div><div class="request-item"><span aria-hidden="true" class="request-icon"><svg viewbox="0 0 24 24"><path d="M3 7h12v9H3z"></path><path d="M15 10h3l3 3v3h-6z"></path><circle cx="7" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg></span>Hotel or villa → airport transfer</div><div class="request-item"><span aria-hidden="true" class="request-icon"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M15 9l-2 4-4 2 2-4z"></path></svg></span>Personalized route around your schedule</div></div><div class="sales-note"><strong>One chauffeur. Unlimited possibilities.</strong><span>Tell us the route and service scope. We will confirm what can be arranged, the suitable vehicle, timing and final price.</span></div></section>
-<section class="section-card gallery-section"><h2>Photo Gallery</h2><div class="gallery-carousel"><div class="gallery-stage"><button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button"><svg viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button><img alt="Personal Concierge in Turkey" id="gallery-current" onclick="openLightbox(this.src)" src="images/personal-concierge/GALLERY-1.png"/><button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button"><svg viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button></div><div aria-label="Gallery thumbnails" class="gallery-thumbs" id="galleryThumbs"><button class="gallery-thumb active" onclick="setGallery(0)" type="button"><img alt="Personal Driver Service" src="images/personal-concierge/GALLERY-1.png"/></button><button class="gallery-thumb" onclick="setGallery(1)" type="button"><img alt="Long Distance VIP Trip" src="images/personal-concierge/GALLERY-2.png"/></button><button class="gallery-thumb" onclick="setGallery(2)" type="button"><img alt="Business Concierge with S-Class" src="images/personal-concierge/GALLERY-3.png"/></button><button class="gallery-thumb" onclick="setGallery(3)" type="button"><img alt="Family Private Driver" src="images/personal-concierge/GALLERY-4.png"/></button><button class="gallery-thumb" onclick="setGallery(4)" type="button"><img alt="Shopping and City Concierge" src="images/personal-concierge/GALLERY-5.png"/></button><button class="gallery-thumb" onclick="setGallery(5)" type="button"><img alt="Turkey Private Route" src="images/personal-concierge/GALLERY-6.png"/></button></div></div></section>
+<section class="section-card gallery-section"><h2>Photo Gallery</h2><div class="gallery-carousel"><div class="gallery-stage"><button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button"><svg viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button><img alt="Personal Concierge in Turkey" id="gallery-current" onclick="openLightbox(this.src)" src="../assets/images/tours/personal-concierge.png"/><button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button"><svg viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button></div><div aria-label="Gallery thumbnails" class="gallery-thumbs" id="galleryThumbs"><button class="gallery-thumb active" onclick="setGallery(0)" type="button"><img alt="Personal Driver Service" src="../assets/images/tours/personal-concierge.png"/></button><button class="gallery-thumb" onclick="setGallery(1)" type="button"><img alt="Long Distance VIP Trip" src="../assets/images/tours/personal-concierge.png"/></button><button class="gallery-thumb" onclick="setGallery(2)" type="button"><img alt="Business Concierge with S-Class" src="../assets/images/tours/personal-concierge.png"/></button><button class="gallery-thumb" onclick="setGallery(3)" type="button"><img alt="Family Private Driver" src="../assets/images/tours/personal-concierge.png"/></button><button class="gallery-thumb" onclick="setGallery(4)" type="button"><img alt="Shopping and City Concierge" src="../assets/images/tours/personal-concierge.png"/></button><button class="gallery-thumb" onclick="setGallery(5)" type="button"><img alt="Turkey Private Route" src="../assets/images/tours/personal-concierge.png"/></button></div></div></section>
 <section aria-label="Main personal concierge information" class="info-cards-section"><div class="premium-card"><div class="premium-icon"><svg viewbox="0 0 24 24"><circle cx="12" cy="13" r="8"></circle><path d="M12 13V8"></path><path d="M12 13l3 2"></path><path d="M9 2h6"></path><path d="M12 2v3"></path></svg></div><h3>Service Time</h3><div><div class="premium-line"><strong>Duration:</strong><span>hourly, daily or custom</span></div><div class="premium-line"><strong>Availability:</strong><span>by advance reservation</span></div><div class="premium-line"><strong>Route:</strong><span>any destination in Turkey</span></div></div><div class="card-decor"></div></div><div class="premium-card"><div class="premium-icon"><svg viewbox="0 0 24 24"><rect height="14" rx="2" width="10" x="7" y="6"></rect><path d="M9 6V4h6v2"></path><path d="M9 10h6"></path></svg></div><h3>Booking Details</h3><ul class="bring-list"><li>Travel date</li><li>Pickup address</li><li>Destination city or route</li><li>Number of passengers</li><li>Preferred vehicle type</li><li>Approximate waiting time</li><li>Special requests</li></ul><div class="card-decor"></div></div><div class="premium-card"><div class="premium-icon"><svg viewbox="0 0 24 24"><circle cx="9" cy="8" r="3"></circle><circle cx="17" cy="10" r="2.3"></circle><path d="M3.5 20c.8-4 3-6 5.5-6s4.7 2 5.5 6"></path><path d="M13.5 20c.5-2.9 2-4.6 3.5-4.6 1.7 0 3 1.8 3.5 4.6"></path></svg></div><h3>Important Information</h3>
 <div class="premium-line"><strong>Vehicle:</strong><span>class and capacity confirmed before booking</span></div>
 <div class="premium-line"><strong>Route changes:</strong><span>subject to feasibility and additional cost</span></div>
@@ -459,12 +459,12 @@ h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size
 <div class="lightbox" id="lightbox" onclick="closeLightbox()"><span class="close">×</span><img alt="" id="lightbox-img" src=""/></div>
 <script>
 const galleryImages=[
-{src:"images/personal-concierge/GALLERY-1.png",alt:"Personal Driver Service"},
-{src:"images/personal-concierge/GALLERY-2.png",alt:"Long Distance VIP Trip"},
-{src:"images/personal-concierge/GALLERY-3.png",alt:"Business Concierge with S-Class"},
-{src:"images/personal-concierge/GALLERY-4.png",alt:"Family Private Driver"},
-{src:"images/personal-concierge/GALLERY-5.png",alt:"Shopping and City Concierge"},
-{src:"images/personal-concierge/GALLERY-6.png",alt:"Turkey Private Route"}
+{src:"../assets/images/tours/personal-concierge.png",alt:"Personal Driver Service"},
+{src:"../assets/images/tours/personal-concierge.png",alt:"Long Distance VIP Trip"},
+{src:"../assets/images/tours/personal-concierge.png",alt:"Business Concierge with S-Class"},
+{src:"../assets/images/tours/personal-concierge.png",alt:"Family Private Driver"},
+{src:"../assets/images/tours/personal-concierge.png",alt:"Shopping and City Concierge"},
+{src:"../assets/images/tours/personal-concierge.png",alt:"Turkey Private Route"}
 ];
 
 let galleryIndex=0;
@@ -525,6 +525,23 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
   setGallery(0);
 });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/personal-concierge.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

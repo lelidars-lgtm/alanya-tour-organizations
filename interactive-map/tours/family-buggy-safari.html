@@ -55,7 +55,7 @@ rgba(4,10,18,.58) 34%,
 rgba(4,10,18,.24) 62%,
 rgba(4,10,18,.08) 100%
 ),
-url("images/family-buggy/hero.png")
+url("../assets/images/tours/family-buggy-safari.png")
 center/cover no-repeat;
 overflow:hidden;
 }
@@ -1435,16 +1435,16 @@ A carefully planned family route combining safety briefing, test driving, forest
 <div class="gallery-carousel">
 <div class="gallery-stage">
 <button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button>
-<img alt="Family Buggy Safari briefing" id="gallery-current" onclick="openLightbox(this.src,this.alt)" src="images/family-buggy/gallery-1.png"/>
+<img alt="Family Buggy Safari briefing" id="gallery-current" onclick="openLightbox(this.src,this.alt)" src="../assets/images/tours/family-buggy-safari.png"/>
 <button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button>
 </div>
 <div aria-label="Gallery thumbnails" class="gallery-thumbs">
-<button class="gallery-thumb active" onclick="setGallery(0)" type="button"><img alt="Family Buggy Safari briefing" src="images/family-buggy/gallery-1.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(1)" type="button"><img alt="Family Buggy Safari muddy route" src="images/family-buggy/gallery-2.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(2)" type="button"><img alt="Family Buggy Safari river stop" src="images/family-buggy/gallery-3.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(3)" type="button"><img alt="Family Buggy Safari river crossing" src="images/family-buggy/gallery-4.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(4)" type="button"><img alt="Family Buggy Safari collage" src="images/family-buggy/gallery-5.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(5)" type="button"><img alt="Family Buggy Safari mountain route" src="images/family-buggy/gallery-6.png"/></button>
+<button class="gallery-thumb active" onclick="setGallery(0)" type="button"><img alt="Family Buggy Safari briefing" src="../assets/images/tours/family-buggy-safari.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(1)" type="button"><img alt="Family Buggy Safari muddy route" src="../assets/images/tours/family-buggy-safari.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(2)" type="button"><img alt="Family Buggy Safari river stop" src="../assets/images/tours/family-buggy-safari.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(3)" type="button"><img alt="Family Buggy Safari river crossing" src="../assets/images/tours/family-buggy-safari.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(4)" type="button"><img alt="Family Buggy Safari collage" src="../assets/images/tours/family-buggy-safari.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(5)" type="button"><img alt="Family Buggy Safari mountain route" src="../assets/images/tours/family-buggy-safari.png"/></button>
 </div>
 </div>
 </section>
@@ -1642,12 +1642,12 @@ Chat on WhatsApp <svg aria-hidden="true" class="inline-icon" style="margin-left:
 </div>
 <script>
 const galleryImages = [
-  {src:"images/family-buggy/gallery-1.png",alt:"Family Buggy Safari briefing"},
-  {src:"images/family-buggy/gallery-2.png",alt:"Family Buggy Safari muddy route"},
-  {src:"images/family-buggy/gallery-3.png",alt:"Family Buggy Safari river stop"},
-  {src:"images/family-buggy/gallery-4.png",alt:"Family Buggy Safari river crossing"},
-  {src:"images/family-buggy/gallery-5.png",alt:"Family Buggy Safari collage"},
-  {src:"images/family-buggy/gallery-6.png",alt:"Family Buggy Safari mountain route"}
+  {src:"../assets/images/tours/family-buggy-safari.png",alt:"Family Buggy Safari briefing"},
+  {src:"../assets/images/tours/family-buggy-safari.png",alt:"Family Buggy Safari muddy route"},
+  {src:"../assets/images/tours/family-buggy-safari.png",alt:"Family Buggy Safari river stop"},
+  {src:"../assets/images/tours/family-buggy-safari.png",alt:"Family Buggy Safari river crossing"},
+  {src:"../assets/images/tours/family-buggy-safari.png",alt:"Family Buggy Safari collage"},
+  {src:"../assets/images/tours/family-buggy-safari.png",alt:"Family Buggy Safari mountain route"}
 ];
 let currentImage=0;
 function setGallery(index){
@@ -1668,6 +1668,23 @@ function nextImage(){setGallery(currentImage+1);openLightbox(galleryImages[curre
 function prevImage(){setGallery(currentImage-1);openLightbox(galleryImages[currentImage].src,galleryImages[currentImage].alt)}
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLightbox();if(e.key==="ArrowRight")nextImage();if(e.key==="ArrowLeft")prevImage()});
 document.getElementById("lightbox").addEventListener("click",e=>{if(e.target.id==="lightbox")closeLightbox()});
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/family-buggy-safari.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

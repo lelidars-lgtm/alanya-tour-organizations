@@ -47,7 +47,7 @@
       padding:34px 0 76px;
       background:
         linear-gradient(90deg,rgba(5,11,20,.97) 0%,rgba(5,11,20,.84) 34%,rgba(5,11,20,.48) 62%,rgba(5,11,20,.16) 100%),
-        url("images/cappadocia/hero.png") center/cover no-repeat;
+        url("../assets/images/tours/cappadocia.png") center/cover no-repeat;
       border-bottom:1px solid rgba(214,162,74,.25);
       position:relative;
       overflow:hidden;
@@ -993,7 +993,7 @@
       </div>
 
       <figure class="about-visual">
-        <img src="images/cappadocia/gallery-1.png" alt="Hot-air balloons above Cappadocia at sunrise">
+        <img src="../assets/images/tours/cappadocia.png" alt="Hot-air balloons above Cappadocia at sunrise">
         <figcaption class="about-visual-copy">
           <div class="about-visual-kicker">UNESCO Cultural Landscape</div>
           <div class="about-visual-title">Cappadocia</div>
@@ -1122,7 +1122,7 @@
           <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
 
-        <img id="gallery-current" src="images/cappadocia/gallery-1.png" alt="Hot Air Balloons" onclick="openLightbox(this.src)">
+        <img id="gallery-current" src="../assets/images/tours/cappadocia.png" alt="Hot Air Balloons" onclick="openLightbox(this.src)">
 
         <button class="gallery-arrow next" type="button" aria-label="Next photo" onclick="changeGallery(1)">
           <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
@@ -1130,25 +1130,25 @@
       </div>
       <div class="gallery-thumbs" aria-label="Gallery thumbnails">
         <button class="gallery-thumb active" type="button" onclick="setGallery(0)">
-          <img src="images/cappadocia/gallery-1.png" alt="Hot Air Balloons">
+          <img src="../assets/images/tours/cappadocia.png" alt="Hot Air Balloons">
         </button>
         <button class="gallery-thumb" type="button" onclick="setGallery(1)">
-          <img src="images/cappadocia/gallery-2.png" alt="Göreme Open Air Museum">
+          <img src="../assets/images/tours/cappadocia.png" alt="Göreme Open Air Museum">
         </button>
         <button class="gallery-thumb" type="button" onclick="setGallery(2)">
-          <img src="images/cappadocia/gallery-3.png" alt="Rock Churches and Frescoes">
+          <img src="../assets/images/tours/cappadocia.png" alt="Rock Churches and Frescoes">
         </button>
         <button class="gallery-thumb" type="button" onclick="setGallery(3)">
-          <img src="images/cappadocia/gallery-4.png" alt="Fairy Chimneys">
+          <img src="../assets/images/tours/cappadocia.png" alt="Fairy Chimneys">
         </button>
         <button class="gallery-thumb" type="button" onclick="setGallery(4)">
-          <img src="images/cappadocia/gallery-5.png" alt="Underground City">
+          <img src="../assets/images/tours/cappadocia.png" alt="Underground City">
         </button>
         <button class="gallery-thumb" type="button" onclick="setGallery(5)">
-          <img src="images/cappadocia/gallery-6.png" alt="Avanos Pottery and Onyx Factory">
+          <img src="../assets/images/tours/cappadocia.png" alt="Avanos Pottery and Onyx Factory">
         </button>
         <button class="gallery-thumb" type="button" onclick="setGallery(6)">
-          <img src="images/cappadocia/gallery-7.png" alt="Balloon Viewpoint">
+          <img src="../assets/images/tours/cappadocia.png" alt="Balloon Viewpoint">
         </button>
       </div>
     </div>
@@ -1259,13 +1259,13 @@
 
 <script>
   const galleryImages = [
-    {src:'images/cappadocia/gallery-1.png', alt:'Hot Air Balloons'},
-    {src:'images/cappadocia/gallery-2.png', alt:'Göreme Open Air Museum'},
-    {src:'images/cappadocia/gallery-3.png', alt:'Rock Churches & Frescoes'},
-    {src:'images/cappadocia/gallery-4.png', alt:'Fairy Chimneys'},
-    {src:'images/cappadocia/gallery-5.png', alt:'Underground City'},
-    {src:'images/cappadocia/gallery-6.png', alt:'Avanos Pottery & Onyx Factory'},
-    {src:'images/cappadocia/gallery-7.png', alt:'Optional Balloon Sunrise Viewpoint'}
+    {src:'../assets/images/tours/cappadocia.png', alt:'Hot Air Balloons'},
+    {src:'../assets/images/tours/cappadocia.png', alt:'Göreme Open Air Museum'},
+    {src:'../assets/images/tours/cappadocia.png', alt:'Rock Churches & Frescoes'},
+    {src:'../assets/images/tours/cappadocia.png', alt:'Fairy Chimneys'},
+    {src:'../assets/images/tours/cappadocia.png', alt:'Underground City'},
+    {src:'../assets/images/tours/cappadocia.png', alt:'Avanos Pottery & Onyx Factory'},
+    {src:'../assets/images/tours/cappadocia.png', alt:'Optional Balloon Sunrise Viewpoint'}
   ];
 
   let galleryIndex = 0;
@@ -1306,6 +1306,23 @@
   document.addEventListener('keydown', (event) => {
     if(event.key === 'Escape') closeLightbox();
   });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/cappadocia.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

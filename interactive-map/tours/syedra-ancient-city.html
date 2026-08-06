@@ -66,7 +66,7 @@
           rgba(5,11,20,.18) 35%,
           transparent 65%
         ),
-        url("images/syedra-ancient-city/hero.png") center/cover no-repeat;
+        url("../assets/images/tours/syedra-ancient-city.png") center/cover no-repeat;
       border-bottom:1px solid rgba(214,162,74,.25);
       position:relative;
       overflow:hidden;
@@ -921,35 +921,35 @@
 <button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
 </button>
-<img alt="Syedra Ancient City columns at sunset" id="gallery-current" onclick="openLightbox(this.src)" src="images/syedra-ancient-city/gallery-1.png"/>
+<img alt="Syedra Ancient City columns at sunset" id="gallery-current" onclick="openLightbox(this.src)" src="../assets/images/tours/syedra-ancient-city.png"/>
 <button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg>
 </button>
 </div>
 <div aria-label="Gallery thumbnails" class="gallery-thumbs">
 <button class="gallery-thumb active" onclick="setGallery(0)" type="button">
-<img alt="Syedra Ancient City photo 1" src="images/syedra-ancient-city/gallery-1.png"/>
+<img alt="Syedra Ancient City photo 1" src="../assets/images/tours/syedra-ancient-city.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(1)" type="button">
-<img alt="Syedra Ancient City photo 2" src="images/syedra-ancient-city/gallery-2.png"/>
+<img alt="Syedra Ancient City photo 2" src="../assets/images/tours/syedra-ancient-city.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(2)" type="button">
-<img alt="Syedra Ancient City photo 3" src="images/syedra-ancient-city/gallery-3.png"/>
+<img alt="Syedra Ancient City photo 3" src="../assets/images/tours/syedra-ancient-city.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(3)" type="button">
-<img alt="Syedra Ancient City photo 4" src="images/syedra-ancient-city/gallery-4.png"/>
+<img alt="Syedra Ancient City photo 4" src="../assets/images/tours/syedra-ancient-city.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(4)" type="button">
-<img alt="Syedra Ancient City photo 5" src="images/syedra-ancient-city/gallery-5.png"/>
+<img alt="Syedra Ancient City photo 5" src="../assets/images/tours/syedra-ancient-city.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(5)" type="button">
-<img alt="Syedra Ancient City photo 6" src="images/syedra-ancient-city/gallery-6.png"/>
+<img alt="Syedra Ancient City photo 6" src="../assets/images/tours/syedra-ancient-city.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(6)" type="button">
-<img alt="Syedra Ancient City photo 7" src="images/syedra-ancient-city/gallery-7.png"/>
+<img alt="Syedra Ancient City photo 7" src="../assets/images/tours/syedra-ancient-city.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(7)" type="button">
-<img alt="Syedra Ancient City photo 8" src="images/syedra-ancient-city/gallery-8.png"/>
+<img alt="Syedra Ancient City photo 8" src="../assets/images/tours/syedra-ancient-city.png"/>
 </button>
 </div>
 </div>
@@ -1033,14 +1033,14 @@
 </div>
 <script>
 const galleryImages = [
-  {src:'images/syedra-ancient-city/gallery-1.png', alt:'Syedra Ancient City columns at sunset'},
-  {src:'images/syedra-ancient-city/gallery-2.png', alt:'Panoramic Mediterranean coast from Syedra'},
-  {src:'images/syedra-ancient-city/gallery-3.png', alt:'Ancient colonnaded street in Syedra'},
-  {src:'images/syedra-ancient-city/gallery-4.png', alt:'Ancient mosaic close-up at Syedra'},
-  {src:'images/syedra-ancient-city/gallery-5.png', alt:'Visitors at a Syedra panoramic viewpoint'},
-  {src:'images/syedra-ancient-city/gallery-6.png', alt:'Tortoise among the ancient ruins of Syedra'},
-  {src:'images/syedra-ancient-city/gallery-7.png', alt:'Aerial view of Syedra Ancient City and the Mediterranean'},
-  {src:'images/syedra-ancient-city/gallery-8.png', alt:'Syedra ruins with Mediterranean coastal views'}
+  {src:'../assets/images/tours/syedra-ancient-city.png', alt:'Syedra Ancient City columns at sunset'},
+  {src:'../assets/images/tours/syedra-ancient-city.png', alt:'Panoramic Mediterranean coast from Syedra'},
+  {src:'../assets/images/tours/syedra-ancient-city.png', alt:'Ancient colonnaded street in Syedra'},
+  {src:'../assets/images/tours/syedra-ancient-city.png', alt:'Ancient mosaic close-up at Syedra'},
+  {src:'../assets/images/tours/syedra-ancient-city.png', alt:'Visitors at a Syedra panoramic viewpoint'},
+  {src:'../assets/images/tours/syedra-ancient-city.png', alt:'Tortoise among the ancient ruins of Syedra'},
+  {src:'../assets/images/tours/syedra-ancient-city.png', alt:'Aerial view of Syedra Ancient City and the Mediterranean'},
+  {src:'../assets/images/tours/syedra-ancient-city.png', alt:'Syedra ruins with Mediterranean coastal views'}
 ];
 
 let galleryIndex = 0;
@@ -1094,6 +1094,23 @@ document.addEventListener('keydown', event => {
   if(lightboxOpen && event.key === 'ArrowRight') changeGallery(1);
   if(lightboxOpen && event.key === 'ArrowLeft') changeGallery(-1);
 });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/syedra-ancient-city.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

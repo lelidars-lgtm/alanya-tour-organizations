@@ -50,7 +50,7 @@
           rgba(6,28,70,.12) 68%,
           rgba(6,28,70,0) 100%
         ),
-        url("images/paragliding/hero.png") center/cover no-repeat;
+        url("../assets/images/tours/paragliding.png") center/cover no-repeat;
       border-bottom:1px solid rgba(214,162,74,.25);
       position:relative;
       overflow:hidden;
@@ -796,7 +796,7 @@
           </div>
 
           <div class="about-mini-shot" onclick="openLightbox('images/paragliding/gallery-3.png')" aria-label="Open paragliding flight view photo">
-            <img src="images/paragliding/gallery-3.png" alt="Paragliding view above Cleopatra Beach">
+            <img src="../assets/images/tours/paragliding.png" alt="Paragliding view above Cleopatra Beach">
             <span class="about-mini-shot-label">Feel the Freedom</span>
           </div>
         </div>
@@ -815,7 +815,7 @@
       </div>
 
       <div class="about-visual" onclick="openLightbox('images/paragliding/gallery-4.png')" aria-label="Open paragliding photo">
-        <img src="images/paragliding/gallery-4.png" alt="Tandem paragliding selfie above Alanya">
+        <img src="../assets/images/tours/paragliding.png" alt="Tandem paragliding selfie above Alanya">
         <span class="about-visual-label">Your Emotions</span>
       </div>
     </div>
@@ -911,19 +911,19 @@
           <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
 
-        <img id="gallery-current" src="images/paragliding/gallery-1.png" alt="Paragliding in Alanya" onclick="openLightbox(this.src)">
+        <img id="gallery-current" src="../assets/images/tours/paragliding.png" alt="Paragliding in Alanya" onclick="openLightbox(this.src)">
 
         <button class="gallery-arrow next" type="button" aria-label="Next photo" onclick="changeGallery(1)">
           <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
         </button>
       </div>
       <div class="gallery-thumbs" aria-label="Gallery thumbnails">
-        <button class="gallery-thumb active" type="button" onclick="setGallery(0)"><img src="images/paragliding/gallery-1.png" alt="Paragliding mountain takeoff in Alanya"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(1)"><img src="images/paragliding/gallery-2.png" alt="Professional pilot preparing paragliding equipment"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(2)"><img src="images/paragliding/gallery-3.png" alt="Bird-eye view above Cleopatra Beach"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(3)"><img src="images/paragliding/gallery-4.png" alt="Tandem paragliding selfie above Alanya"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(4)"><img src="images/paragliding/gallery-6.png" alt="Emotional tandem paragliding flight above Alanya"></button>
-        <button class="gallery-thumb" type="button" onclick="setGallery(5)"><img src="images/paragliding/gallery-7.png" alt="Smooth landing on Cleopatra Beach"></button>
+        <button class="gallery-thumb active" type="button" onclick="setGallery(0)"><img src="../assets/images/tours/paragliding.png" alt="Paragliding mountain takeoff in Alanya"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(1)"><img src="../assets/images/tours/paragliding.png" alt="Professional pilot preparing paragliding equipment"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(2)"><img src="../assets/images/tours/paragliding.png" alt="Bird-eye view above Cleopatra Beach"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(3)"><img src="../assets/images/tours/paragliding.png" alt="Tandem paragliding selfie above Alanya"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(4)"><img src="../assets/images/tours/paragliding.png" alt="Emotional tandem paragliding flight above Alanya"></button>
+        <button class="gallery-thumb" type="button" onclick="setGallery(5)"><img src="../assets/images/tours/paragliding.png" alt="Smooth landing on Cleopatra Beach"></button>
       </div>
     </div>
   </section>
@@ -1077,12 +1077,12 @@
 
 <script>
   const galleryImages = [
-    {src:'images/paragliding/gallery-1.png', alt:'Paragliding mountain takeoff in Alanya'},
-    {src:'images/paragliding/gallery-2.png', alt:'Professional pilot preparing paragliding equipment'},
-    {src:'images/paragliding/gallery-3.png', alt:'Bird-eye view above Cleopatra Beach'},
-    {src:'images/paragliding/gallery-4.png', alt:'Tandem paragliding selfie above Alanya'},
-    {src:'images/paragliding/gallery-6.png', alt:'Emotional tandem paragliding flight above Alanya'},
-    {src:'images/paragliding/gallery-7.png', alt:'Smooth landing on Cleopatra Beach'}
+    {src:'../assets/images/tours/paragliding.png', alt:'Paragliding mountain takeoff in Alanya'},
+    {src:'../assets/images/tours/paragliding.png', alt:'Professional pilot preparing paragliding equipment'},
+    {src:'../assets/images/tours/paragliding.png', alt:'Bird-eye view above Cleopatra Beach'},
+    {src:'../assets/images/tours/paragliding.png', alt:'Tandem paragliding selfie above Alanya'},
+    {src:'../assets/images/tours/paragliding.png', alt:'Emotional tandem paragliding flight above Alanya'},
+    {src:'../assets/images/tours/paragliding.png', alt:'Smooth landing on Cleopatra Beach'}
   ];
 
   let galleryIndex = 0;
@@ -1113,6 +1113,23 @@
       button.closest('.faq-item').classList.toggle('active');
     });
   });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/paragliding.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

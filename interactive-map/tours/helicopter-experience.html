@@ -47,7 +47,7 @@
       padding:30px 0 24px;
       background:
         linear-gradient(90deg,rgba(5,11,20,.97) 0%,rgba(5,11,20,.83) 34%,rgba(5,11,20,.46) 62%,rgba(5,11,20,.14) 100%),
-        url("images/helicopter-experience/HERO.png") center 38%/cover no-repeat;
+        url("../assets/images/tours/airport-vip-transfer.png") center 38%/cover no-repeat;
       border-bottom:1px solid rgba(214,162,74,.25);
       position:relative;
       overflow:hidden;
@@ -1170,7 +1170,7 @@
 <div class="highlight">Final approval by the aviation operator and pilot.</div>
 </div>
 <div class="about-visual">
-<img alt="Private helicopter experience in Alanya" src="images/helicopter-experience/GALLERY-2.png"/>
+<img alt="Private helicopter experience in Alanya" src="../assets/images/tours/airport-vip-transfer.png"/>
 <div class="about-visual-caption">PRIVATE. EXCLUSIVE. UNFORGETTABLE.</div>
 </div>
 </div>
@@ -1255,29 +1255,29 @@
 <button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
 </button>
-<img alt="Private Helicopter Charter" id="gallery-current" onclick="openLightbox(this.src)" src="images/helicopter-experience/GALLERY-1.png"/>
+<img alt="Private Helicopter Charter" id="gallery-current" onclick="openLightbox(this.src)" src="../assets/images/tours/airport-vip-transfer.png"/>
 <button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg>
 </button>
 </div>
 <div aria-label="Gallery thumbnails" class="gallery-thumbs">
 <button class="gallery-thumb active" onclick="setGallery(0)" type="button">
-<img alt="Private Helicopter Charter" src="images/helicopter-experience/GALLERY-1.png"/>
+<img alt="Private Helicopter Charter" src="../assets/images/tours/airport-vip-transfer.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(1)" type="button">
-<img alt="Romantic Helicopter Experience" src="images/helicopter-experience/GALLERY-2.png"/>
+<img alt="Romantic Helicopter Experience" src="../assets/images/tours/airport-vip-transfer.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(2)" type="button">
-<img alt="Alanya Castle Helicopter Experience" src="images/helicopter-experience/GALLERY-3.png"/>
+<img alt="Alanya Castle Helicopter Experience" src="../assets/images/tours/airport-vip-transfer.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(3)" type="button">
-<img alt="Birthday Surprise Helicopter Experience" src="images/helicopter-experience/GALLERY-4.png"/>
+<img alt="Birthday Surprise Helicopter Experience" src="../assets/images/tours/airport-vip-transfer.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(4)" type="button">
-<img alt="Luxury Helicopter Cabin" src="images/helicopter-experience/GALLERY-5.png"/>
+<img alt="Luxury Helicopter Cabin" src="../assets/images/tours/airport-vip-transfer.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(5)" type="button">
-<img alt="Marriage Proposal Helicopter Experience" src="images/helicopter-experience/GALLERY-6.png"/>
+<img alt="Marriage Proposal Helicopter Experience" src="../assets/images/tours/airport-vip-transfer.png"/>
 </button>
 </div>
 </div>
@@ -1445,12 +1445,12 @@
 </div>
 <script>
   const galleryImages = [
-    {src:'images/helicopter-experience/GALLERY-1.png', alt:'Private Helicopter Charter'},
-    {src:'images/helicopter-experience/GALLERY-2.png', alt:'Romantic Helicopter Experience'},
-    {src:'images/helicopter-experience/GALLERY-3.png', alt:'Alanya Castle Helicopter Experience'},
-    {src:'images/helicopter-experience/GALLERY-4.png', alt:'Birthday Surprise Helicopter Experience'},
-    {src:'images/helicopter-experience/GALLERY-5.png', alt:'Luxury Helicopter Cabin'},
-    {src:'images/helicopter-experience/GALLERY-6.png', alt:'Marriage Proposal Helicopter Experience'}
+    {src:'../assets/images/tours/airport-vip-transfer.png', alt:'Private Helicopter Charter'},
+    {src:'../assets/images/tours/airport-vip-transfer.png', alt:'Romantic Helicopter Experience'},
+    {src:'../assets/images/tours/airport-vip-transfer.png', alt:'Alanya Castle Helicopter Experience'},
+    {src:'../assets/images/tours/airport-vip-transfer.png', alt:'Birthday Surprise Helicopter Experience'},
+    {src:'../assets/images/tours/airport-vip-transfer.png', alt:'Luxury Helicopter Cabin'},
+    {src:'../assets/images/tours/airport-vip-transfer.png', alt:'Marriage Proposal Helicopter Experience'}
   ];
 
   let galleryIndex = 0;
@@ -1522,6 +1522,23 @@
 
     setGallery(0);
   });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/airport-vip-transfer.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

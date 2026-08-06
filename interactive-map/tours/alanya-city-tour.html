@@ -68,7 +68,7 @@
           rgba(0,0,0,.02) 35%,
           rgba(5,11,20,.34) 100%
         ),
-        url("images/alanya-city-tour/alanya-city-tour-hero.png") center/cover no-repeat;
+        url("../assets/images/tours/alanya-city-tour.png") center/cover no-repeat;
       border-bottom:none;
       position:relative;
       overflow:hidden;
@@ -950,38 +950,38 @@
 <button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
 </button>
-<img alt="Cleopatra Beach in Alanya" id="gallery-current" onclick="openLightbox(this.src)" src="images/alanya-city-tour/gallery-1-cleopatra-beach.png"/>
+<img alt="Cleopatra Beach in Alanya" id="gallery-current" onclick="openLightbox(this.src)" src="../assets/images/tours/alanya-city-tour.png"/>
 <button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg>
 </button>
 </div>
 <div aria-label="Gallery thumbnails" class="gallery-thumbs">
 <button class="gallery-thumb active" onclick="setGallery(0)" type="button">
-<img alt="Cleopatra Beach" src="images/alanya-city-tour/gallery-1-cleopatra-beach.png"/>
+<img alt="Cleopatra Beach" src="../assets/images/tours/alanya-city-tour.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(1)" type="button">
-<img alt="Damlataş Cave" src="images/alanya-city-tour/gallery-2-damlatas-cave.png"/>
+<img alt="Damlataş Cave" src="../assets/images/tours/alanya-city-tour.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(2)" type="button">
-<img alt="Cable car ride up" src="images/alanya-city-tour/gallery-3-cable-car-up.png"/>
+<img alt="Cable car ride up" src="../assets/images/tours/alanya-city-tour.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(3)" type="button">
-<img alt="Alanya Castle" src="images/alanya-city-tour/gallery-4-alanya-castle.png"/>
+<img alt="Alanya Castle" src="../assets/images/tours/alanya-city-tour.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(4)" type="button">
-<img alt="Sultan Suleyman Mosque" src="images/alanya-city-tour/gallery-5-sultan-suleyman-mosque.png"/>
+<img alt="Sultan Suleyman Mosque" src="../assets/images/tours/alanya-city-tour.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(5)" type="button">
-<img alt="Old Town streets" src="images/alanya-city-tour/gallery-6-old-town-streets.png"/>
+<img alt="Old Town streets" src="../assets/images/tours/alanya-city-tour.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(6)" type="button">
-<img alt="Sunset viewpoint" src="images/alanya-city-tour/gallery-7-sunset-viewpoint.png"/>
+<img alt="Sunset viewpoint" src="../assets/images/tours/alanya-city-tour.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(7)" type="button">
-<img alt="Cable car ride down" src="images/alanya-city-tour/gallery-8-cable-car-down.png"/>
+<img alt="Cable car ride down" src="../assets/images/tours/alanya-city-tour.png"/>
 </button>
 <button class="gallery-thumb" onclick="setGallery(8)" type="button">
-<img alt="I LOVE ALANYA viewpoint" src="images/alanya-city-tour/gallery-9-i-love-alanya.png"/>
+<img alt="I LOVE ALANYA viewpoint" src="../assets/images/tours/alanya-city-tour.png"/>
 </button>
 </div>
 </div>
@@ -1067,15 +1067,15 @@
 </div>
 <script>
 const galleryImages = [
-  {src:'images/alanya-city-tour/gallery-1-cleopatra-beach.png', alt:'Cleopatra Beach in Alanya'},
-  {src:'images/alanya-city-tour/gallery-2-damlatas-cave.png', alt:'Damlataş Cave in Alanya'},
-  {src:'images/alanya-city-tour/gallery-3-cable-car-up.png', alt:'Alanya Cable Car above Cleopatra Beach'},
-  {src:'images/alanya-city-tour/gallery-4-alanya-castle.png', alt:'Alanya Castle district and fortress walls'},
-  {src:'images/alanya-city-tour/gallery-5-sultan-suleyman-mosque.png', alt:'Süleymaniye Mosque in the Alanya Castle district'},
-  {src:'images/alanya-city-tour/gallery-6-old-town-streets.png', alt:'Historic streets in the Alanya Castle district'},
-  {src:'images/alanya-city-tour/gallery-7-sunset-viewpoint.png', alt:'Sunset view over Alanya and the Mediterranean'},
-  {src:'images/alanya-city-tour/gallery-8-cable-car-down.png', alt:'Cable-car journey toward the Damlataş station'},
-  {src:'images/alanya-city-tour/gallery-9-i-love-alanya.png', alt:'Alanya panoramic terrace and I LOVE ALANYA viewpoint'}
+  {src:'../assets/images/tours/alanya-city-tour.png', alt:'Cleopatra Beach in Alanya'},
+  {src:'../assets/images/tours/alanya-city-tour.png', alt:'Damlataş Cave in Alanya'},
+  {src:'../assets/images/tours/alanya-city-tour.png', alt:'Alanya Cable Car above Cleopatra Beach'},
+  {src:'../assets/images/tours/alanya-city-tour.png', alt:'Alanya Castle district and fortress walls'},
+  {src:'../assets/images/tours/alanya-city-tour.png', alt:'Süleymaniye Mosque in the Alanya Castle district'},
+  {src:'../assets/images/tours/alanya-city-tour.png', alt:'Historic streets in the Alanya Castle district'},
+  {src:'../assets/images/tours/alanya-city-tour.png', alt:'Sunset view over Alanya and the Mediterranean'},
+  {src:'../assets/images/tours/alanya-city-tour.png', alt:'Cable-car journey toward the Damlataş station'},
+  {src:'../assets/images/tours/alanya-city-tour.png', alt:'Alanya panoramic terrace and I LOVE ALANYA viewpoint'}
 ];
 
 let galleryIndex=0;
@@ -1123,6 +1123,23 @@ document.addEventListener('keydown',event=>{
   if(lightboxOpen && event.key==='ArrowLeft') changeGallery(-1);
   if(lightboxOpen && event.key==='ArrowRight') changeGallery(1);
 });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/alanya-city-tour.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

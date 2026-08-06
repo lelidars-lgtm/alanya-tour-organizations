@@ -45,7 +45,7 @@
     .hero{
       min-height:680px;
       padding:34px 0 56px;
-      background-image:url("images/helicopter-flight/hero.png");
+      background-image:url("../assets/images/tours/helicopter-flight.png");
       background-size:cover;
       background-repeat:no-repeat;
       background-position:100% 38%;
@@ -872,7 +872,7 @@
       </div>
 </div>
 <div aria-label="Open emotional helicopter flight moment" class="about-feature-image" onclick="openLightbox('images/helicopter-flight/boarding-helicopter.png')" role="button" tabindex="0">
-<img alt="Couple inside a helicopter cabin watching the sunset over Alanya" src="images/helicopter-flight/boarding-helicopter.png"/>
+<img alt="Couple inside a helicopter cabin watching the sunset over Alanya" src="../assets/images/tours/helicopter-flight.png"/>
 <div class="about-feature-caption">
 <span>Emotion • Freedom • Private Experience</span>
 </div>
@@ -1115,19 +1115,19 @@
 <button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg>
 </button>
-<img alt="Helicopter safety briefing" id="gallery-current" onclick="openLightbox(this.src)" src="images/helicopter-flight/safety-briefing.png"/>
+<img alt="Helicopter safety briefing" id="gallery-current" onclick="openLightbox(this.src)" src="../assets/images/tours/helicopter-flight.png"/>
 <button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button">
 <svg viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg>
 </button>
 </div>
 <div aria-label="Gallery thumbnails" class="gallery-thumbs">
-<button class="gallery-thumb active" onclick="setGallery(0)" type="button"><img alt="Helicopter safety briefing" src="images/helicopter-flight/safety-briefing.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(1)" type="button"><img alt="Transfer to helipad" src="images/helicopter-flight/transfer-to-helipad.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(2)" type="button"><img alt="Helicopter cabin boarding" src="images/helicopter-flight/boarding-helicopter.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(3)" type="button"><img alt="Helicopter takeoff" src="images/helicopter-flight/takeoff-helipad.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(4)" type="button"><img alt="Alanya Castle helicopter flight" src="images/helicopter-flight/alanya-castle-flight.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(5)" type="button"><img alt="Romantic helicopter flight" src="images/helicopter-flight/romantic-flight.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(6)" type="button"><img alt="Green Canyon helicopter flight" src="images/helicopter-flight/green-canyon-flight.png"/></button>
+<button class="gallery-thumb active" onclick="setGallery(0)" type="button"><img alt="Helicopter safety briefing" src="../assets/images/tours/helicopter-flight.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(1)" type="button"><img alt="Transfer to helipad" src="../assets/images/tours/helicopter-flight.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(2)" type="button"><img alt="Helicopter cabin boarding" src="../assets/images/tours/helicopter-flight.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(3)" type="button"><img alt="Helicopter takeoff" src="../assets/images/tours/helicopter-flight.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(4)" type="button"><img alt="Alanya Castle helicopter flight" src="../assets/images/tours/helicopter-flight.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(5)" type="button"><img alt="Romantic helicopter flight" src="../assets/images/tours/helicopter-flight.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(6)" type="button"><img alt="Green Canyon helicopter flight" src="../assets/images/tours/helicopter-flight.png"/></button>
 </div>
 </div>
 </section>
@@ -1465,13 +1465,13 @@
 </div>
 <script>
   const galleryImages = [
-    {src:'images/helicopter-flight/safety-briefing.png', alt:'Helicopter safety briefing'},
-    {src:'images/helicopter-flight/transfer-to-helipad.png', alt:'Transfer to helipad'},
-    {src:'images/helicopter-flight/boarding-helicopter.png', alt:'Helicopter cabin boarding'},
-    {src:'images/helicopter-flight/takeoff-helipad.png', alt:'Helicopter takeoff'},
-    {src:'images/helicopter-flight/alanya-castle-flight.png', alt:'Alanya Castle helicopter flight'},
-    {src:'images/helicopter-flight/romantic-flight.png', alt:'Romantic helicopter flight'},
-    {src:'images/helicopter-flight/green-canyon-flight.png', alt:'Green Canyon helicopter flight'}
+    {src:'../assets/images/tours/helicopter-flight.png', alt:'Helicopter safety briefing'},
+    {src:'../assets/images/tours/helicopter-flight.png', alt:'Transfer to helipad'},
+    {src:'../assets/images/tours/helicopter-flight.png', alt:'Helicopter cabin boarding'},
+    {src:'../assets/images/tours/helicopter-flight.png', alt:'Helicopter takeoff'},
+    {src:'../assets/images/tours/helicopter-flight.png', alt:'Alanya Castle helicopter flight'},
+    {src:'../assets/images/tours/helicopter-flight.png', alt:'Romantic helicopter flight'},
+    {src:'../assets/images/tours/helicopter-flight.png', alt:'Green Canyon helicopter flight'}
   ];
 
   let galleryIndex = 0;
@@ -1527,6 +1527,23 @@
       if (event.key === 'Escape') closeLightbox();
     });
   });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/helicopter-flight.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>

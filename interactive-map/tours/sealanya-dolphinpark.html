@@ -25,7 +25,7 @@ a{text-decoration:none;color:inherit}
   padding:34px 0 76px;
   background:
     linear-gradient(90deg,rgba(5,11,20,.97) 0%,rgba(5,11,20,.84) 34%,rgba(5,11,20,.48) 62%,rgba(5,11,20,.16) 100%),
-    url("images/sealanya-dolphinpark/hero.png") center/cover no-repeat;
+    url("../assets/images/tours/sealanya-dolphinpark.png") center/cover no-repeat;
   border-bottom:1px solid rgba(214,162,74,.25);
   position:relative;
   overflow:hidden;
@@ -659,7 +659,7 @@ h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size
 <div class="highlight">Round-trip transfer and insurance included in our tour</div>
 </div>
 <div class="map-card">
-<img alt="Official Sealanya Dolphinpark map" onclick="openLightbox(this.src)" src="images/sealanya-dolphinpark/gallery-6-official-dolphinpark-map.png"/>
+<img alt="Official Sealanya Dolphinpark map" onclick="openLightbox(this.src)" src="../assets/images/tours/sealanya-dolphinpark.png"/>
 <div class="map-card-overlay">
 <h3>DOLPHINPARK MAP</h3>
 </div>
@@ -760,15 +760,15 @@ h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size
 <div class="gallery-carousel">
 <div class="gallery-stage">
 <button aria-label="Previous photo" class="gallery-arrow prev" onclick="changeGallery(-1)" type="button"><svg viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></button>
-<img alt="Dolphins performing synchronized jump" id="gallery-current" onclick="openLightbox(this.src)" src="images/sealanya-dolphinpark/gallery-1.png"/>
+<img alt="Dolphins performing synchronized jump" id="gallery-current" onclick="openLightbox(this.src)" src="../assets/images/tours/sealanya-dolphinpark.png"/>
 <button aria-label="Next photo" class="gallery-arrow next" onclick="changeGallery(1)" type="button"><svg viewbox="0 0 24 24"><path d="M9 6l6 6-6 6"></path></svg></button>
 </div>
 <div class="gallery-thumbs">
-<button class="gallery-thumb active" onclick="setGallery(0)" type="button"><img alt="Dolphins synchronized jump" src="images/sealanya-dolphinpark/gallery-1.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(1)" type="button"><img alt="Sea lion show" src="images/sealanya-dolphinpark/gallery-2.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(2)" type="button"><img alt="Dolphin and trainer interaction" src="images/sealanya-dolphinpark/gallery-3.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(3)" type="button"><img alt="Family watching dolphin show" src="images/sealanya-dolphinpark/gallery-4.png"/></button>
-<button class="gallery-thumb" onclick="setGallery(4)" type="button"><img alt="Close-up of dolphin smiling" src="images/sealanya-dolphinpark/gallery-5.png"/></button><button class="gallery-thumb" onclick="setGallery(5)" type="button"><img alt="Official Sealanya Dolphinpark map" src="images/sealanya-dolphinpark/gallery-6-official-dolphinpark-map.png"/></button>
+<button class="gallery-thumb active" onclick="setGallery(0)" type="button"><img alt="Dolphins synchronized jump" src="../assets/images/tours/sealanya-dolphinpark.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(1)" type="button"><img alt="Sea lion show" src="../assets/images/tours/sealanya-dolphinpark.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(2)" type="button"><img alt="Dolphin and trainer interaction" src="../assets/images/tours/sealanya-dolphinpark.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(3)" type="button"><img alt="Family watching dolphin show" src="../assets/images/tours/sealanya-dolphinpark.png"/></button>
+<button class="gallery-thumb" onclick="setGallery(4)" type="button"><img alt="Close-up of dolphin smiling" src="../assets/images/tours/sealanya-dolphinpark.png"/></button><button class="gallery-thumb" onclick="setGallery(5)" type="button"><img alt="Official Sealanya Dolphinpark map" src="../assets/images/tours/sealanya-dolphinpark.png"/></button>
 </div>
 </div>
 </section>
@@ -929,12 +929,12 @@ h2,h3{color:var(--gold2);text-transform:uppercase;letter-spacing:.13em;font-size
 <div class="lightbox" id="lightbox" onclick="closeLightbox()"><span class="close">×</span><img alt="" id="lightbox-img" src=""/></div>
 <script>
 const galleryImages=[
-  {src:'images/sealanya-dolphinpark/gallery-1.png',alt:'Dolphins performing synchronized jump'},
-  {src:'images/sealanya-dolphinpark/gallery-2.png',alt:'Sea lion show'},
-  {src:'images/sealanya-dolphinpark/gallery-3.png',alt:'Dolphin and trainer interaction'},
-  {src:'images/sealanya-dolphinpark/gallery-4.png',alt:'Family watching dolphin show'},
-  {src:'images/sealanya-dolphinpark/gallery-5.png',alt:'Close-up of dolphin smiling above water'},
-  {src:'images/sealanya-dolphinpark/gallery-6-official-dolphinpark-map.png',alt:'Official Sealanya Dolphinpark map'}
+  {src:'../assets/images/tours/sealanya-dolphinpark.png',alt:'Dolphins performing synchronized jump'},
+  {src:'../assets/images/tours/sealanya-dolphinpark.png',alt:'Sea lion show'},
+  {src:'../assets/images/tours/sealanya-dolphinpark.png',alt:'Dolphin and trainer interaction'},
+  {src:'../assets/images/tours/sealanya-dolphinpark.png',alt:'Family watching dolphin show'},
+  {src:'../assets/images/tours/sealanya-dolphinpark.png',alt:'Close-up of dolphin smiling above water'},
+  {src:'../assets/images/tours/sealanya-dolphinpark.png',alt:'Official Sealanya Dolphinpark map'}
 ];
 let galleryIndex=0;
 function setGallery(index){
@@ -965,6 +965,23 @@ document.querySelectorAll('.faq-question').forEach(button=>{
     }
   });
 });
+</script>
+
+<script id="ato-image-fallback-v20">
+(function(){
+  const fallback="../assets/images/tours/sealanya-dolphinpark.png";
+  function protect(img){
+    if(img.dataset.atoFallbackBound) return;
+    img.dataset.atoFallbackBound='1';
+    img.addEventListener('error',function(){
+      if(this.getAttribute('src')!==fallback) this.setAttribute('src',fallback);
+    });
+  }
+  document.querySelectorAll('img').forEach(protect);
+  new MutationObserver(m=>m.forEach(x=>x.addedNodes.forEach(n=>{
+    if(n.nodeType!==1)return; if(n.matches&&n.matches('img'))protect(n); if(n.querySelectorAll)n.querySelectorAll('img').forEach(protect);
+  }))).observe(document.documentElement,{childList:true,subtree:true});
+})();
 </script>
 </body>
 </html>
