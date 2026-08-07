@@ -1012,6 +1012,498 @@ body.interactive-map-page>.original-site-footer .footer-trust{
   .filter-row{min-height:39px!important}
   .filter-row>span{font-size:9.5px!important}
 }
+</style><style id="v41-custom-dropdowns">
+/* ===== V41 CUSTOM PREMIUM DROPDOWNS ===== */
+.native-select-hidden{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  overflow:hidden!important;
+  clip:rect(0 0 0 0)!important;
+  clip-path:inset(50%)!important;
+  white-space:nowrap!important;
+}
+.custom-select{
+  position:relative;
+  min-width:116px;
+  z-index:35;
+}
+.custom-select.open{z-index:300}
+.custom-select-trigger{
+  width:100%;
+  min-height:31px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:9px;
+  padding:6px 10px;
+  border:1px solid rgba(241,202,104,.34);
+  border-radius:9px;
+  background:linear-gradient(180deg,rgba(12,35,52,.98),rgba(5,23,37,.98));
+  color:#f4f6f7;
+  font:800 9.5px/1 Arial,Helvetica,sans-serif;
+  cursor:pointer;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
+  transition:border-color .16s ease,box-shadow .16s ease,background .16s ease;
+}
+.custom-select-trigger:hover,
+.custom-select.open .custom-select-trigger{
+  border-color:rgba(241,202,104,.78);
+  background:linear-gradient(180deg,rgba(16,44,63,.99),rgba(8,28,43,.99));
+  box-shadow:0 0 0 2px rgba(241,202,104,.06),0 6px 18px rgba(0,0,0,.22);
+}
+.custom-select-chevron{
+  width:7px;
+  height:7px;
+  flex:0 0 7px;
+  border-right:1.5px solid #f0c45b;
+  border-bottom:1.5px solid #f0c45b;
+  transform:rotate(45deg) translateY(-2px);
+  transition:transform .16s ease;
+}
+.custom-select.open .custom-select-chevron{
+  transform:rotate(225deg) translate(-1px,-1px);
+}
+.custom-select-menu{
+  position:absolute;
+  top:calc(100% + 5px);
+  right:0;
+  width:100%;
+  min-width:132px;
+  display:none;
+  padding:5px;
+  border:1px solid rgba(241,202,104,.36);
+  border-radius:10px;
+  background:linear-gradient(180deg,rgba(8,29,46,.995),rgba(3,18,31,.995));
+  box-shadow:0 14px 34px rgba(0,0,0,.48),0 0 0 1px rgba(255,255,255,.02);
+  backdrop-filter:blur(10px);
+}
+.custom-select.open .custom-select-menu{
+  display:grid;
+  gap:3px;
+}
+.custom-select-option{
+  width:100%;
+  min-height:31px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  padding:7px 9px;
+  border:0;
+  border-radius:7px;
+  background:transparent;
+  color:#cdd7de;
+  font:750 9px/1.2 Arial,Helvetica,sans-serif;
+  text-align:left;
+  cursor:pointer;
+  transition:background .14s ease,color .14s ease,transform .14s ease;
+}
+.custom-select-option:hover,
+.custom-select-option:focus{
+  outline:none;
+  background:rgba(213,164,47,.14);
+  color:#ffe49a;
+}
+.custom-select-option.active{
+  background:linear-gradient(100deg,#83550d,#c18a1f 62%,#e6bd4f);
+  color:#07111b;
+  font-weight:900;
+}
+@media(max-width:760px){
+  .custom-select{min-width:104px}
+  .custom-select-trigger{min-height:29px;font-size:9px;padding:5px 9px}
+  .custom-select-menu{min-width:120px}
+  .custom-select-option{min-height:29px;font-size:8.5px}
+}
+</style><style id="v42-hide-vercel-toolbar">
+/* ===== V42 HIDE VERCEL TOOLBAR / PREVIEW OVERLAY ===== */
+/* Preview-only nuisance elements must never cover the interactive map. */
+#vercel-toolbar,
+.vercel-toolbar,
+[data-vercel-toolbar],
+[data-testid*="vercel" i],
+[id*="vercel-toolbar" i],
+[class*="vercel-toolbar" i],
+iframe[src*="vercel.com/toolbar" i],
+iframe[src*="vercel.live" i],
+iframe[title*="Vercel" i],
+div[aria-label*="Vercel" i],
+button[aria-label*="Vercel" i],
+a[aria-label*="Vercel" i]{
+  display:none!important;
+  visibility:hidden!important;
+  opacity:0!important;
+  pointer-events:none!important;
+}
+
+/* Extra protection for small floating launchers injected into preview pages */
+body .vercel-toolbar-launcher,
+body [class*="vercel-launcher" i],
+body [id*="vercel-launcher" i],
+body [data-testid*="toolbar" i][data-testid*="vercel" i]{
+  display:none!important;
+  visibility:hidden!important;
+  opacity:0!important;
+  pointer-events:none!important;
+}
+</style><style id="v43-smart-filter-size">
+/* ===== V43 SMART FILTERS SIZE / READABILITY UPGRADE ===== */
+.smart-filters-title{
+  font-size:15px!important;
+  line-height:1.15!important;
+  letter-spacing:.75px!important;
+  margin-bottom:3px!important;
+}
+.smart-filter-subtitle{
+  margin:4px 0 17px!important;
+  font-size:11.5px!important;
+  line-height:1.4!important;
+  color:#9aabb7!important;
+}
+.smart-filter-section-title{
+  margin-bottom:10px!important;
+  font-size:10.5px!important;
+  line-height:1!important;
+  letter-spacing:1.15px!important;
+}
+.smart-refine-title{
+  margin-top:5px!important;
+  margin-bottom:8px!important;
+}
+.smart-filter-section{
+  margin-bottom:18px!important;
+}
+.smart-quick-chips{
+  gap:8px!important;
+}
+.smart-quick-chip{
+  min-height:34px!important;
+  padding:8px 12px!important;
+  font-size:9.5px!important;
+  letter-spacing:.55px!important;
+  border-radius:999px!important;
+}
+
+/* Main filter rows */
+.filter-row{
+  min-height:51px!important;
+  padding:10px 0!important;
+}
+.filter-row>span{
+  gap:8px!important;
+  font-size:12px!important;
+  line-height:1.25!important;
+}
+.filter-mini-icon{
+  width:21px!important;
+  height:21px!important;
+  flex-basis:21px!important;
+}
+.filter-mini-icon::after{
+  font-size:10px!important;
+}
+
+/* Custom premium dropdowns */
+.custom-select{
+  min-width:122px!important;
+}
+.custom-select-trigger{
+  min-height:38px!important;
+  padding:8px 12px!important;
+  font-size:11px!important;
+  border-radius:10px!important;
+}
+.custom-select-chevron{
+  width:8px!important;
+  height:8px!important;
+  flex-basis:8px!important;
+}
+.custom-select-menu{
+  min-width:140px!important;
+  padding:6px!important;
+}
+.custom-select-option{
+  min-height:37px!important;
+  padding:9px 11px!important;
+  font-size:10.5px!important;
+}
+
+/* Toggle switches: larger and easier to hit */
+.toggle{
+  width:46px!important;
+  height:25px!important;
+  min-width:46px!important;
+}
+.toggle::after{
+  width:19px!important;
+  height:19px!important;
+  top:2px!important;
+  left:3px!important;
+}
+.toggle.active::after{
+  transform:translateX(20px)!important;
+}
+
+/* Clear action */
+.smart-clear{
+  min-height:58px!important;
+  margin-top:12px!important;
+  padding:11px 14px!important;
+  border-radius:11px!important;
+}
+.clear-filter-main{
+  font-size:11.5px!important;
+  letter-spacing:.5px!important;
+}
+.clear-filter-sub{
+  margin-top:2px!important;
+  font-size:9px!important;
+}
+
+/* Give the whole filter area slightly more breathing room */
+.sidebar .filters,
+.sidebar .filter-panel{
+  padding-bottom:4px!important;
+}
+
+@media(max-width:760px){
+  .smart-filters-title{font-size:14px!important}
+  .smart-filter-subtitle{font-size:10.5px!important;margin-bottom:14px!important}
+  .smart-filter-section-title{font-size:10px!important}
+  .smart-quick-chip{
+    min-height:32px!important;
+    padding:7px 10px!important;
+    font-size:9px!important;
+  }
+  .filter-row{min-height:47px!important;padding:9px 0!important}
+  .filter-row>span{font-size:11px!important}
+  .custom-select{min-width:112px!important}
+  .custom-select-trigger{min-height:35px!important;font-size:10.5px!important}
+  .custom-select-option{min-height:34px!important;font-size:10px!important}
+  .smart-clear{min-height:54px!important}
+  .clear-filter-main{font-size:11px!important}
+  .clear-filter-sub{font-size:8.5px!important}
+}
+</style><style id="v44-footer-shimmer-compact">
+/* ===== V44 FOOTER SHIMMER + COMPACT SPACING ===== */
+@keyframes footerGoldShimmerV44{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+body.interactive-map-page>.original-site-footer{
+  min-height:70px!important;
+  padding:10px 16px 11px!important;
+}
+
+body.interactive-map-page>.original-site-footer .footer-trust{
+  margin:0 0 5px!important;
+  font-size:12px!important;
+  line-height:1.25!important;
+  font-weight:900!important;
+  letter-spacing:.45px!important;
+
+  color:transparent!important;
+  background:linear-gradient(
+    105deg,
+    #8f5f0d 0%,
+    #d6a52f 22%,
+    #fff0a0 42%,
+    #c68d1d 58%,
+    #f3cf62 78%,
+    #8f5f0d 100%
+  )!important;
+  background-size:220% 100%!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  animation:footerGoldShimmerV44 4.8s ease-in-out infinite!important;
+  text-shadow:0 0 12px rgba(224,175,53,.10)!important;
+}
+
+body.interactive-map-page>.original-site-footer .footer-copy{
+  margin:0!important;
+  font-size:10.5px!important;
+  line-height:1.25!important;
+  letter-spacing:.68px!important;
+  color:rgba(255,255,255,.88)!important;
+}
+
+@media(max-width:760px){
+  body.interactive-map-page>.original-site-footer{
+    min-height:62px!important;
+    padding:8px 10px 9px!important;
+  }
+  body.interactive-map-page>.original-site-footer .footer-trust{
+    margin-bottom:4px!important;
+    font-size:10px!important;
+    line-height:1.3!important;
+  }
+  body.interactive-map-page>.original-site-footer .footer-copy{
+    font-size:8.5px!important;
+    line-height:1.3!important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  body.interactive-map-page>.original-site-footer .footer-trust{
+    animation:none!important;
+    background-position:50% 50%!important;
+  }
+}
+</style><style id="v45-original-promo">
+/* ===== V45 ORIGINAL SITE PROMO BAR ===== */
+body.interactive-map-page>.promo-bar.original-promo-bar{
+  order:2!important;
+  position:relative!important;
+  top:auto!important;
+  left:auto!important;
+  right:auto!important;
+  transform:none!important;
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  flex:0 0 auto!important;
+  margin:0!important;
+  padding:9px 16px!important;
+  overflow:hidden!important;
+  background:linear-gradient(90deg,#c88b1b,#f3c66d,#c88b1b)!important;
+  color:#07111f!important;
+  text-align:center!important;
+  z-index:60!important;
+  box-shadow:none!important;
+  border:0!important;
+}
+body.interactive-map-page>.promo-bar.original-promo-bar .original-promo-track{
+  width:100%!important;
+  min-width:0!important;
+  height:auto!important;
+  min-height:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:0!important;
+  margin:0!important;
+  padding:0!important;
+  transform:none!important;
+  animation:none!important;
+  white-space:normal!important;
+}
+body.interactive-map-page>.promo-bar.original-promo-bar .promo-text{
+  display:block!important;
+  flex:none!important;
+  margin:0!important;
+  padding:0!important;
+  color:#07111f!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:12px!important;
+  line-height:1.35!important;
+  font-weight:900!important;
+  letter-spacing:.35px!important;
+  text-align:center!important;
+  text-shadow:none!important;
+  animation:none!important;
+  transform:none!important;
+}
+@media(max-width:720px){
+  body.interactive-map-page>.promo-bar.original-promo-bar{
+    padding:8px 10px!important;
+  }
+  body.interactive-map-page>.promo-bar.original-promo-bar .promo-text{
+    font-size:10px!important;
+    line-height:1.3!important;
+  }
+}
+</style><style id="v46-dropdown-cleanup">
+/* ===== V46 CUSTOM DROPDOWN CLEANUP ===== */
+/* Do not repeat the currently selected value inside the opened list. */
+.custom-select-menu .custom-select-option.active{
+  display:none!important;
+}
+
+/* Smaller, cleaner gold chevron. */
+.custom-select-chevron{
+  width:5px!important;
+  height:5px!important;
+  flex:0 0 5px!important;
+  border-right-width:1px!important;
+  border-bottom-width:1px!important;
+  transform:rotate(45deg) translateY(-1px)!important;
+}
+.custom-select.open .custom-select-chevron{
+  transform:rotate(225deg) translate(-1px,-1px)!important;
+}
+</style><style id="v47-experience-heading">
+/* ===== V47 EXPERIENCE TURKEY WHITE + GOLD OUTLINE ===== */
+@keyframes experienceTurkeyGlowV47{
+  0%{
+    text-shadow:
+      0 0 0 rgba(0,0,0,0),
+      0 0 4px rgba(214,165,47,.18),
+      0 0 10px rgba(214,165,47,.10);
+  }
+  50%{
+    text-shadow:
+      0 0 0 rgba(0,0,0,0),
+      0 0 7px rgba(241,202,104,.34),
+      0 0 16px rgba(214,165,47,.22);
+  }
+  100%{
+    text-shadow:
+      0 0 0 rgba(0,0,0,0),
+      0 0 4px rgba(214,165,47,.18),
+      0 0 10px rgba(214,165,47,.10);
+  }
+}
+
+body.interactive-map-page .sidebar h1{
+  color:#ffffff!important;
+  -webkit-text-fill-color:#ffffff!important;
+  -webkit-text-stroke:1px rgba(214,165,47,.92)!important;
+  text-shadow:
+    0 0 4px rgba(214,165,47,.18),
+    0 0 10px rgba(214,165,47,.10)!important;
+  animation:experienceTurkeyGlowV47 3.8s ease-in-out infinite!important;
+}
+
+@media(max-width:760px){
+  body.interactive-map-page .sidebar h1{
+    -webkit-text-stroke:.8px rgba(214,165,47,.92)!important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  body.interactive-map-page .sidebar h1{
+    animation:none!important;
+  }
+}
+</style><style id="v48-top-gold-line">
+/* ===== V48 TOP GOLD LINE ABOVE MAP ===== */
+body.interactive-map-page > main.app{
+  position:relative!important;
+  border-top:1px solid rgba(226,177,61,.62)!important;
+}
+
+body.interactive-map-page > main.app::before{
+  content:""!important;
+  position:absolute!important;
+  top:0!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  width:100%!important;
+  height:1px!important;
+  background:linear-gradient(
+    90deg,
+    rgba(140,95,20,.0) 0%,
+    rgba(226,177,61,.55) 10%,
+    rgba(243,198,109,.92) 50%,
+    rgba(226,177,61,.55) 90%,
+    rgba(140,95,20,.0) 100%
+  )!important;
+  pointer-events:none!important;
+  z-index:40!important;
+}
 </style></head>
 <body class="interactive-map-page"><svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><linearGradient id="goldGradient" x1="0" x2="1"><stop offset="0" stop-color="#9b650b"/><stop offset=".28" stop-color="#f7d978"/><stop offset=".55" stop-color="#c98e22"/><stop offset=".78" stop-color="#fff0ac"/><stop offset="1" stop-color="#a86d0d"/></linearGradient></defs></svg>
 <header class="header">
@@ -1106,14 +1598,15 @@ body.interactive-map-page>.original-site-footer .footer-trust{
 <a data-lang="pl" href="#">🇵🇱 Polish</a>
 </div>
 </div>
-</header><div class="promo-bar">
-<div class="promo-track">
-<span class="promo-text" data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN &amp; DIE 3. GRATIS" data-en="🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE" data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS" data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК" data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE">🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE</span>
-<span class="promo-secondary"><span class="promo-dot">◆</span> TRAVEL WITH LOVE. TRAVEL WITH US. <span class="promo-dot">◆</span> VIP YACHT TOURS • FAMILY SAFARI • PRIVATE TRANSFERS <span class="promo-dot">◆</span></span>
-<span class="promo-text" data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN &amp; DIE 3. GRATIS" data-en="🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE" data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS" data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК" data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE">
-      🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE
-    </span>
-</div>
+</header><div class="promo-bar original-promo-bar">
+  <div class="promo-track original-promo-track">
+    <span class="promo-text"
+      data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN &amp; DIE 3. GRATIS"
+      data-en="🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE"
+      data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS"
+      data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК"
+      data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE">🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE</span>
+  </div>
 </div>
 <main class="app">
 <aside class="sidebar">
@@ -1146,8 +1639,35 @@ body.interactive-map-page>.original-site-footer .footer-trust{
   </div>
 </div>
 <div class="smart-filter-section-title smart-refine-title">REFINE YOUR SEARCH</div>
-<div class="filter-row"><span>Price</span><select id="priceFilter"><option value="all">Any⌄</option><option value="50">Up to €50</option><option value="100">Up to €100</option></select></div>
-<div class="filter-row"><span>Duration</span><select id="durationFilter"><option value="all">Any⌄</option><option value="half-day">Half Day</option><option value="full-day">Full Day</option></select></div>
+<div class="filter-row"><span>Price</span>
+<div class="custom-select" data-native-select="priceFilter">
+  <button type="button" class="custom-select-trigger" id="priceCustomBtn" aria-haspopup="listbox" aria-expanded="false">
+    <span class="custom-select-value">Any</span>
+    <span class="custom-select-chevron" aria-hidden="true"></span>
+  </button>
+  <div class="custom-select-menu" id="priceCustomMenu" role="listbox">
+    <button type="button" class="custom-select-option" data-value="all">Any</button>
+<button type="button" class="custom-select-option" data-value="50">Up to €50</button>
+<button type="button" class="custom-select-option" data-value="100">Up to €100</button>
+<button type="button" class="custom-select-option" data-value="200">Up to €200</button>
+<button type="button" class="custom-select-option" data-value="500">Up to €500</button>
+  </div>
+  <div class="native-select-hidden"><select id="priceFilter"><option value="all">Any⌄</option><option value="50">Up to €50</option><option value="100">Up to €100</option></select></div>
+</div></div>
+<div class="filter-row"><span>Duration</span>
+<div class="custom-select" data-native-select="durationFilter">
+  <button type="button" class="custom-select-trigger" id="durationCustomBtn" aria-haspopup="listbox" aria-expanded="false">
+    <span class="custom-select-value">Any</span>
+    <span class="custom-select-chevron" aria-hidden="true"></span>
+  </button>
+  <div class="custom-select-menu" id="durationCustomMenu" role="listbox">
+    <button type="button" class="custom-select-option" data-value="all">Any</button>
+<button type="button" class="custom-select-option" data-value="half-day">Half Day</button>
+<button type="button" class="custom-select-option" data-value="full-day">Full Day</button>
+<button type="button" class="custom-select-option" data-value="multi-day">Multi Day</button>
+  </div>
+  <div class="native-select-hidden"><select id="durationFilter"><option value="all">Any⌄</option><option value="half-day">Half Day</option><option value="full-day">Full Day</option></select></div>
+</div></div>
 <div class="filter-row preference-row"><span><i class="filter-mini-icon transfer-icon"></i>Hotel Transfer Included</span><button id="hotelTransferFilter" aria-label="Hotel transfer filter" class="toggle"></button></div>
 <div class="filter-row preference-row"><span><i class="filter-mini-icon family-icon"></i>Family Friendly</span><button id="familyFriendlyFilter" aria-label="Family friendly filter" class="toggle"></button></div>
 <div class="filter-row preference-row"><span><i class="filter-mini-icon private-icon"></i>Private Experience</span><button id="privateTourFilter" aria-label="Private tour filter" class="toggle"></button></div>
@@ -1955,6 +2475,8 @@ FUNCTIONALITY
 - Extreme Ringo is intentionally excluded from the interactive map while its standalone website page remains untouched.
 - Footer trust line uses the same animated premium gold shimmer treatment as the top category gold typography.
 - V40 SMART FILTERS: Quick Filters for Best Price, Half Day, With Transfer, Family, Private and Popular; premium dropdown/toggle styling; lighter reset action.
+- V42 preview hygiene: hide/remove Vercel Toolbar overlays so no preview UI covers the interactive map.
+- V45 promo bar restored to original site design: centered single multilingual promotion on the original gold gradient; no ticker duplicate or secondary slogan inside the promo bar.
 STATUS
 This specification has been approved by the client and serves as the baseline
 for all future versions unless explicitly changed.
@@ -2026,6 +2548,131 @@ for all future versions unless explicitly changed.
       languageDropdown.classList.remove('open');
     });
   }
+
+/* ===== V41 CUSTOM DROPDOWN LOGIC ===== */
+function initCustomSelect(selectId){
+  const native=document.getElementById(selectId);
+  const wrap=document.querySelector(`.custom-select[data-native-select="${selectId}"]`);
+  if(!native||!wrap)return;
+
+  const trigger=wrap.querySelector('.custom-select-trigger');
+  const valueEl=wrap.querySelector('.custom-select-value');
+  const options=[...wrap.querySelectorAll('.custom-select-option')];
+
+  const sync=()=>{
+    const current=native.value;
+    const active=options.find(o=>o.dataset.value===current)||options[0];
+    if(active){
+      valueEl.textContent=active.textContent;
+      options.forEach(o=>{
+        const on=o===active;
+        o.classList.toggle('active',on);
+        o.setAttribute('aria-selected',on?'true':'false');
+      });
+    }
+  };
+
+  trigger.addEventListener('click',e=>{
+    e.stopPropagation();
+    document.querySelectorAll('.custom-select.open').forEach(x=>{if(x!==wrap)x.classList.remove('open')});
+    const isOpen=wrap.classList.toggle('open');
+    trigger.setAttribute('aria-expanded',isOpen?'true':'false');
+  });
+
+  options.forEach(option=>{
+    option.addEventListener('click',e=>{
+      e.stopPropagation();
+      native.value=option.dataset.value;
+      native.dispatchEvent(new Event('change',{bubbles:true}));
+      sync();
+      wrap.classList.remove('open');
+      trigger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  native.addEventListener('change',sync);
+  sync();
+}
+
+initCustomSelect('priceFilter');
+initCustomSelect('durationFilter');
+
+document.addEventListener('click',()=>{
+  document.querySelectorAll('.custom-select.open').forEach(w=>{
+    w.classList.remove('open');
+    w.querySelector('.custom-select-trigger')?.setAttribute('aria-expanded','false');
+  });
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.querySelectorAll('.custom-select.open').forEach(w=>{
+      w.classList.remove('open');
+      w.querySelector('.custom-select-trigger')?.setAttribute('aria-expanded','false');
+    });
+  }
+});
+
+
+/* ===== V42 REMOVE VERCEL PREVIEW TOOLBAR ===== */
+(function(){
+  const vercelHit=(node)=>{
+    try{
+      if(!node||node.nodeType!==1)return false;
+      const el=node;
+      const attrs=[
+        el.id||'',
+        el.className&&typeof el.className==='string'?el.className:'',
+        el.getAttribute?.('data-testid')||'',
+        el.getAttribute?.('aria-label')||'',
+        el.getAttribute?.('title')||'',
+        el.getAttribute?.('src')||'',
+        el.textContent?.slice?.(0,120)||''
+      ].join(' ').toLowerCase();
+      return attrs.includes('vercel toolbar')
+        || attrs.includes('vercel-toolbar')
+        || attrs.includes('vercel.live')
+        || attrs.includes('toolbar')
+           && (attrs.includes('vercel') || attrs.includes('preview'));
+    }catch(e){return false;}
+  };
+
+  const purge=(root=document)=>{
+    const nodes=root.querySelectorAll?.(
+      '#vercel-toolbar, .vercel-toolbar, [data-vercel-toolbar], [data-testid*="vercel" i], ' +
+      '[id*="vercel-toolbar" i], [class*="vercel-toolbar" i], iframe[src*="vercel.com/toolbar" i], ' +
+      'iframe[src*="vercel.live" i], iframe[title*="Vercel" i], [aria-label*="Vercel" i], [title*="Vercel Toolbar" i]'
+    ) || [];
+    nodes.forEach(el=>{ try{ el.remove(); }catch(e){} });
+    [...document.body.children].forEach(el=>{
+      if(vercelHit(el)){
+        try{ el.remove(); }catch(e){}
+      }
+    });
+  };
+
+  const run=()=>{ purge(document); setTimeout(purge, 250); setTimeout(purge, 1000); setTimeout(purge, 2500); };
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', run, {once:true});
+  }else{
+    run();
+  }
+
+  const observer=new MutationObserver(muts=>{
+    let found=false;
+    muts.forEach(m=>{
+      m.addedNodes && [...m.addedNodes].forEach(node=>{
+        if(vercelHit(node)){ try{ node.remove(); }catch(e){} found=true; }
+        else if(node.nodeType===1){
+          const nested=node.querySelectorAll?.('*')||[];
+          nested.forEach(el=>{ if(vercelHit(el)){ try{ el.remove(); }catch(e){} found=true; }});
+        }
+      });
+    });
+    if(found) purge(document);
+  });
+  observer.observe(document.documentElement,{childList:true,subtree:true});
+})();
+
 </script>
 <!-- V10: 52 tour pages linked from ato.zip; real hero images integrated where available. -->
 </body>
