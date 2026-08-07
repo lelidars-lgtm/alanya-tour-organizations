@@ -230,29 +230,6 @@
     "image": ""
   },
   {
-    "id": "ringo",
-    "title": "Extreme Ringo",
-    "categories": [
-      "water"
-    ],
-    "mode": "sea",
-    "coords": [
-      32.036199999999994,
-      36.520799999999994
-    ],
-    "locationPrecision": "sea-zone",
-    "address": "Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl",
-    "price": 25.0,
-    "duration": "See tour page",
-    "transfer": true,
-    "family": false,
-    "privateTour": false,
-    "page": "../ringo.html",
-    "desc": "Ringo Ride in Alanya. High-speed Ringo water sports activity for 2–4 guests. 10–12 minutes of speed, splashes and adrenaline on the Mediterranean Sea. Minimum 2 people from €140.",
-    "icon": "water",
-    "image": ""
-  },
-  {
     "id": "sup-boarding",
     "title": "Stand Up Paddleboarding",
     "categories": [
