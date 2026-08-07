@@ -1543,6 +1543,82 @@ body.interactive-map-page > .promo-bar{
   border-bottom:0!important;
   box-shadow:none!important;
 }
+</style><style id="v51-live-header-sync">
+/* ===== V51 LIVE MAIN-SITE HEADER SYNC + REAL MAP DIVIDER ===== */
+
+/* Real physical divider node: exactly one 1px gold line. */
+.map-start-divider{
+  order:3!important;
+  width:100%!important;
+  height:1px!important;
+  min-height:1px!important;
+  flex:0 0 1px!important;
+  margin:0!important;
+  padding:0!important;
+  background:#d6a24a!important;
+  opacity:.72!important;
+  border:0!important;
+  box-shadow:none!important;
+  position:relative!important;
+  z-index:79!important;
+}
+
+/* Prevent previous border/pseudo-element versions from doubling the line. */
+body.interactive-map-page > main.app{
+  order:4!important;
+  border-top:0!important;
+}
+body.interactive-map-page > main.app::before{
+  content:none!important;
+  display:none!important;
+}
+body.interactive-map-page > .original-site-footer{
+  order:5!important;
+}
+
+/* Synced site chrome should keep its original semantic place. */
+body.interactive-map-page > header{
+  order:1!important;
+  flex:0 0 auto!important;
+}
+body.interactive-map-page > .promo-bar,
+body.interactive-map-page > [data-synced-promo="true"]{
+  order:2!important;
+  flex:0 0 auto!important;
+  margin-bottom:0!important;
+}
+
+/* Edge guard: labels must not visually stick to the frame of the map. */
+.route-label.edge-hidden{
+  display:none!important;
+}
+</style><style id="v52-thin-premium-heading">
+/* ===== V52 EXPERIENCE TURKEY — THIN WHITE PREMIUM LETTERING ===== */
+body.interactive-map-page .sidebar h1{
+  color:#ffffff!important;
+  -webkit-text-fill-color:#ffffff!important;
+  font-weight:500!important;
+  letter-spacing:.15px!important;
+  line-height:1.02!important;
+
+  /* ultra-thin gold hairline around white letters */
+  -webkit-text-stroke:0.28px rgba(214,165,47,.92)!important;
+
+  /* no heavy glow — only a microscopic edge refinement */
+  text-shadow:
+    0 0 .35px rgba(214,165,47,.28)!important;
+
+  animation:none!important;
+  filter:none!important;
+}
+
+@media(max-width:760px){
+  body.interactive-map-page .sidebar h1{
+    font-weight:500!important;
+    -webkit-text-stroke:0.24px rgba(214,165,47,.90)!important;
+    text-shadow:0 0 .25px rgba(214,165,47,.22)!important;
+  }
+}
 </style></head>
 <body class="interactive-map-page"><svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><linearGradient id="goldGradient" x1="0" x2="1"><stop offset="0" stop-color="#9b650b"/><stop offset=".28" stop-color="#f7d978"/><stop offset=".55" stop-color="#c98e22"/><stop offset=".78" stop-color="#fff0ac"/><stop offset="1" stop-color="#a86d0d"/></linearGradient></defs></svg>
 <header class="header">
@@ -1647,6 +1723,7 @@ body.interactive-map-page > .promo-bar{
       data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE">🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE</span>
   </div>
 </div>
+<div class="map-start-divider" aria-hidden="true"></div>
 <main class="app">
 <aside class="sidebar">
 <h1>EXPERIENCE TURKEY</h1><p class="subtitle">Discover more. Feel more. Travel better.</p>
@@ -1729,6 +1806,126 @@ body.interactive-map-page > .promo-bar{
   <p class="footer-copy">© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.</p>
 </footer>
 
+<script id="v51-main-header-sync">
+/* ===== V51 LIVE HEADER/PROMO SYNC FROM MAIN ../index.html ===== */
+(function(){
+  function absolutizeTree(root, baseUrl){
+    if(!root)return;
+    root.querySelectorAll('[href]').forEach(el=>{
+      const v=el.getAttribute('href');
+      if(!v || v.startsWith('#') || /^(mailto:|tel:|javascript:)/i.test(v))return;
+      try{ el.setAttribute('href', new URL(v, baseUrl).href); }catch(e){}
+    });
+    root.querySelectorAll('[src]').forEach(el=>{
+      const v=el.getAttribute('src');
+      if(!v || /^(data:|blob:)/i.test(v))return;
+      try{ el.setAttribute('src', new URL(v, baseUrl).href); }catch(e){}
+    });
+    root.querySelectorAll('[srcset]').forEach(el=>{
+      const srcset=el.getAttribute('srcset');
+      if(!srcset)return;
+      try{
+        const converted=srcset.split(',').map(item=>{
+          const bits=item.trim().split(/\s+/);
+          bits[0]=new URL(bits[0], baseUrl).href;
+          return bits.join(' ');
+        }).join(', ');
+        el.setAttribute('srcset',converted);
+      }catch(e){}
+    });
+  }
+
+  function findMainHeader(doc){
+    return doc.querySelector(
+      'header.site-header, header.header, header#siteHeader, header[role="banner"]'
+    );
+  }
+
+  function findMainPromo(doc){
+    return doc.querySelector(
+      '.promo-bar, .promotion-bar, .promo-strip, .special-offer-bar, [data-promo-bar], [data-promotion-bar]'
+    );
+  }
+
+  function bindSyncedHeader(header){
+    if(!header)return;
+
+    const mobileBtn=header.querySelector('#mobileMenuBtn,.mobile-menu-btn,[data-mobile-menu]');
+    const nav=header.querySelector('.nav,.top-nav,nav');
+    const overlay=header.querySelector('#mobileOverlay,.mobile-overlay');
+    if(mobileBtn && nav){
+      mobileBtn.addEventListener('click',()=>{
+        nav.classList.toggle('active');
+        mobileBtn.classList.toggle('active');
+        overlay?.classList.toggle('active');
+      });
+      overlay?.addEventListener('click',()=>{
+        nav.classList.remove('active');
+        mobileBtn.classList.remove('active');
+        overlay.classList.remove('active');
+      });
+    }
+
+    // Mark MAP as current without altering the source header content.
+    header.querySelectorAll('a').forEach(a=>{
+      const txt=(a.textContent||'').trim().toUpperCase();
+      const href=(a.getAttribute('href')||'').toLowerCase();
+      if(txt==='MAP' || href.includes('interactive-map')){
+        a.classList.add('map-nav-active');
+        a.setAttribute('aria-current','page');
+      }
+    });
+  }
+
+  async function syncMainSiteChrome(){
+    const mainUrl=new URL('../index.html',window.location.href);
+    try{
+      const response=await fetch(mainUrl.href,{
+        cache:'no-store',
+        headers:{'X-Requested-With':'interactive-map-header-sync'}
+      });
+      if(!response.ok)throw new Error('Main index fetch failed: '+response.status);
+
+      const source=await response.text();
+      const doc=new DOMParser().parseFromString(source,'text/html');
+      const sourceHeader=findMainHeader(doc);
+      const sourcePromo=findMainPromo(doc);
+
+      const currentHeader=document.querySelector('body.interactive-map-page > header');
+      const currentPromo=document.querySelector(
+        'body.interactive-map-page > .promo-bar, body.interactive-map-page > [data-synced-promo="true"]'
+      );
+
+      if(sourceHeader && currentHeader){
+        const cloned=sourceHeader.cloneNode(true);
+        absolutizeTree(cloned,mainUrl.href);
+        cloned.setAttribute('data-synced-header','true');
+        currentHeader.replaceWith(cloned);
+        bindSyncedHeader(cloned);
+      }
+
+      if(sourcePromo && currentPromo){
+        const clonedPromo=sourcePromo.cloneNode(true);
+        absolutizeTree(clonedPromo,mainUrl.href);
+        clonedPromo.setAttribute('data-synced-promo','true');
+        currentPromo.replaceWith(clonedPromo);
+      }
+
+      document.documentElement.setAttribute('data-main-header-sync','ok');
+    }catch(err){
+      // Keep the local fallback so the map never loses navigation if root index is unavailable.
+      document.documentElement.setAttribute('data-main-header-sync','fallback');
+      console.warn('[Interactive Map] main header sync fallback:',err);
+    }
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',syncMainSiteChrome,{once:true});
+  }else{
+    syncMainSiteChrome();
+  }
+})();
+</script>
 <script src="assets/js/shared-filters.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
 <script>
@@ -2170,7 +2367,25 @@ function refresh(){
   labels.forEach(({t,el})=>{
     const local=t.coords&&Math.abs(t.coords[0]-32)<1.2&&Math.abs(t.coords[1]-36.55)<1.0;
     const threshold=labelZoomThreshold(t);
-    const show=visible(t)&&(activeTourId===t.id||z>=threshold||(!local&&z>=6.2));
+    let show=visible(t)&&(activeTourId===t.id||z>=threshold||(!local&&z>=6.2));
+
+    // HTML markers can otherwise appear glued to an edge when their geographic
+    // anchor is outside the visible viewport but their label offset reaches in.
+    if(show && activeTourId!==t.id && map && t.coords){
+      const p=map.project(t.coords);
+      const canvas=map.getCanvas();
+      const safeX=92;
+      const safeTop=70;
+      const safeBottom=54;
+      const inside=
+        p.x>=safeX &&
+        p.x<=canvas.clientWidth-safeX &&
+        p.y>=safeTop &&
+        p.y<=canvas.clientHeight-safeBottom;
+      if(!inside)show=false;
+    }
+
+    el.classList.toggle('edge-hidden',!show);
     el.style.display=show?'block':'none';
   });
   ['sea','local','land','air'].forEach(type=>{if(map.getLayer(type+'-route')){map.setPaintProperty(type+'-route','line-opacity',routeVisibleExpression());map.setPaintProperty(type+'-route-glow','line-opacity',['case',['in',['get','id'],['literal',tours.filter(visible).map(t=>t.id)]],.14,0]);}});
@@ -2516,6 +2731,9 @@ FUNCTIONALITY
 - V40 SMART FILTERS: Quick Filters for Best Price, Half Day, With Transfer, Family, Private and Popular; premium dropdown/toggle styling; lighter reset action.
 - V42 preview hygiene: hide/remove Vercel Toolbar overlays so no preview UI covers the interactive map.
 - V45 promo bar restored to original site design: centered single multilingual promotion on the original gold gradient; no ticker duplicate or secondary slogan inside the promo bar.
+- V51 architecture: header and promotion are loaded live from the main ../index.html at runtime, with local fallback only if the fetch fails.
+- V51 map start boundary uses one physical 1px gold divider DOM element between the synced promotion and map.
+- V51 label edge guard prevents displaced labels such as Parasailing from sticking to the map frame.
 STATUS
 This specification has been approved by the client and serves as the baseline
 for all future versions unless explicitly changed.
