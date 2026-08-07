@@ -353,6 +353,44 @@ body.interactive-map-page .original-site-footer .footer-copy{
   .office-actions .office-wa{grid-column:auto}
 }
 
+
+/* ===== V28 PERMANENT OFFICE LANDMARK ===== */
+.office-sun-marker{
+  width:54px!important;height:54px!important;border-radius:50%!important;
+  display:grid!important;place-items:center!important;padding:0!important;
+  border:2px solid #ffe49a!important;
+  background:radial-gradient(circle at 36% 30%,#fff8c8 0%,#f4c65e 32%,#d69420 68%,#754607 100%)!important;
+  color:#07111b!important;cursor:pointer!important;
+  box-shadow:0 0 0 5px rgba(243,198,109,.16),0 0 34px rgba(243,198,109,.62),0 10px 28px rgba(0,0,0,.55)!important;
+  z-index:999!important;opacity:1!important;visibility:visible!important;
+}
+.office-sun-marker svg{width:31px;height:31px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round}
+.office-permanent-label{
+  min-width:190px!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+  gap:3px!important;padding:9px 13px!important;border-radius:12px!important;
+  border:1px solid rgba(255,226,145,.92)!important;
+  background:linear-gradient(100deg,rgba(104,66,8,.96),rgba(53,33,5,.94))!important;
+  color:#fff!important;cursor:pointer!important;text-align:left!important;
+  box-shadow:0 12px 32px rgba(0,0,0,.52),0 0 18px rgba(243,198,109,.20)!important;
+  z-index:998!important;opacity:1!important;visibility:visible!important;
+}
+.office-permanent-label strong{
+  font:900 10px/1.05 Arial,Helvetica,sans-serif!important;
+  letter-spacing:.7px!important;color:#fff4c8!important;white-space:nowrap!important;
+}
+.office-permanent-label span{
+  font:950 13px/1 Arial,Helvetica,sans-serif!important;
+  letter-spacing:1.5px!important;color:#f6ca62!important;white-space:nowrap!important;
+}
+.office-permanent-label:hover,.office-sun-marker:hover{filter:brightness(1.12)}
+@media(max-width:760px){
+  .office-sun-marker{width:45px!important;height:45px!important}
+  .office-sun-marker svg{width:26px;height:26px}
+  .office-permanent-label{min-width:145px!important;padding:7px 9px!important}
+  .office-permanent-label strong{font-size:8px!important}
+  .office-permanent-label span{font-size:11px!important}
+}
+
 </style>
 </head>
 <body class="interactive-map-page"><svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><linearGradient id="goldGradient" x1="0" x2="1"><stop offset="0" stop-color="#9b650b"/><stop offset=".28" stop-color="#f7d978"/><stop offset=".55" stop-color="#c98e22"/><stop offset=".78" stop-color="#fff0ac"/><stop offset="1" stop-color="#a86d0d"/></linearGradient></defs></svg>
@@ -530,17 +568,32 @@ function openOfficeCard(anchorEl){
   tourHoverCard.querySelector('.tour-card-close')?.addEventListener('click',()=>closeTourCard(true));
 }
 function addOfficeMarker(){
-  const el=document.createElement('div');
-  el.className='office-marker';
-  el.setAttribute('role','button');
-  el.setAttribute('tabindex','0');
-  el.setAttribute('aria-label','ALANYA TOUR ORGANIZATIONS office — WE ARE HERE');
-  el.innerHTML=`<span class="office-sun" aria-hidden="true">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg>
-  </span><span class="office-marker-label">${OFFICE.label}</span>`;
-  officeMapMarker=new maplibregl.Marker({element:el,anchor:'left',offset:[8,0]}).setLngLat(OFFICE.coords).addTo(map);
-  el.addEventListener('click',e=>{e.stopPropagation();openOfficeCard(el)});
-  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openOfficeCard(el)}});
+  if(officeMapMarker)return;
+
+  const sun=document.createElement('button');
+  sun.type='button';
+  sun.className='office-sun-marker';
+  sun.setAttribute('aria-label','ALANYA TOUR ORGANIZATIONS — WE ARE HERE');
+  sun.innerHTML=`<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 1.5v3.2M12 19.3v3.2M1.5 12h3.2M19.3 12h3.2M4.55 4.55l2.3 2.3M17.15 17.15l2.3 2.3M19.45 4.55l-2.3 2.3M6.85 17.15l-2.3 2.3"/></svg>`;
+  sun.addEventListener('click',e=>{e.stopPropagation();openOfficeCard(sun)});
+
+  const label=document.createElement('button');
+  label.type='button';
+  label.className='office-permanent-label';
+  label.setAttribute('aria-label','ALANYA TOUR ORGANIZATIONS — WE ARE HERE');
+  label.innerHTML=`<strong>ALANYA TOUR ORGANIZATIONS</strong><span>WE ARE HERE</span>`;
+  label.addEventListener('click',e=>{e.stopPropagation();openOfficeCard(label)});
+
+  officeMapMarker=new maplibregl.Marker({element:sun,anchor:'center'}).setLngLat(OFFICE.coords).addTo(map);
+  new maplibregl.Marker({element:label,anchor:'left',offset:[34,0]}).setLngLat(OFFICE.coords).addTo(map);
+
+  // Explicit visibility guard: office is a permanent brand landmark, not a tour filter item.
+  sun.style.display='grid';
+  sun.style.opacity='1';
+  sun.style.visibility='visible';
+  label.style.display='flex';
+  label.style.opacity='1';
+  label.style.visibility='visible';
 }
 const compactTourLabels={
   'e-foil':'E-FOIL',
@@ -651,7 +704,7 @@ const routeData = {
     {type:'Feature',properties:{id:'demre'},geometry:{type:'LineString',coordinates:[ALANYA,[31.3,36.3],[30.6,36.15],[29.9851405,36.2588782]]}}
   ]},
   air:{type:'FeatureCollection',features:[
-    {type:'Feature',properties:{id:'paragliding'},geometry:{type:'LineString',coordinates:[[31.955,36.585],[31.972,36.58],[31.991,36.566],[31.976477,36.551041]]}},
+    {type:'Feature',properties:{id:'paragliding'},geometry:{type:'LineString',coordinates:[[31.970806,36.576364],[31.9712,36.5697],[31.9708,36.5625],[31.969956,36.555083]]}},
     {type:'Feature',properties:{id:'istanbul'},geometry:{type:'LineString',coordinates:[ALANYA,[31.45,38.2],[30.5,39.6],[28.9757051,41.0063286]]}}
   ]}
 };
@@ -1040,7 +1093,9 @@ FUNCTIONALITY
 
 - Geography audit V8: published coordinates were applied to named landmarks.
 - Provisional SPA marker was removed and will be restored only after the client supplies the real location.
-- Alanya paragliding take-off is represented in the approved Yassı Tepe zone, with Cleopatra Beach as the landing direction.
+- Alanya paragliding take-off uses the published Yassı Tepe/Alanya take-off coordinate, with Cleopatra Beach as the landing direction.
+- Helicopter Flight and Helicopter Experience use Dinek Mah., Emirgan Blv No:35.
+- Permanent office landmark shows ALANYA TOUR ORGANIZATIONS + WE ARE HERE with a gold sun and never follows tour filters.
 
 
 STATUS
