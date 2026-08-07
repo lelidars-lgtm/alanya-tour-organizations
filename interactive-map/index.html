@@ -391,6 +391,198 @@ body.interactive-map-page .original-site-footer .footer-copy{
   .office-permanent-label span{font-size:11px!important}
 }
 
+
+/* ===== V29 OFFICE LOGO + PREMIUM NEARBY CARDS + VISIBLE MAP END ===== */
+
+/* Brand office marker: real logo, permanent, independent of tour filters. */
+.office-logo-marker{
+  width:62px!important;
+  height:62px!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:5px!important;
+  border-radius:50%!important;
+  border:2px solid #f3cd6a!important;
+  background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.98),rgba(238,238,238,.94) 70%,rgba(208,164,58,.94) 100%)!important;
+  box-shadow:0 0 0 5px rgba(241,202,104,.15),0 0 32px rgba(241,202,104,.55),0 12px 28px rgba(0,0,0,.52)!important;
+  cursor:pointer!important;
+  z-index:999!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+.office-logo-marker img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  display:block!important;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.10));
+}
+.office-label-left{
+  min-width:225px!important;
+  align-items:flex-end!important;
+  text-align:right!important;
+}
+.office-label-left strong,
+.office-label-left span{width:100%;text-align:right!important}
+
+/* Nearby Experiences: small premium tour cards, not a technical text list. */
+.nearby-panel{
+  width:min(455px,calc(100% - 36px))!important;
+  max-height:68%!important;
+}
+.nearby-list{
+  display:grid!important;
+  gap:8px!important;
+  padding:10px!important;
+  overflow:auto!important;
+}
+.nearby-card{
+  width:100%!important;
+  min-height:92px!important;
+  display:grid!important;
+  grid-template-columns:104px minmax(0,1fr) 18px!important;
+  gap:11px!important;
+  align-items:center!important;
+  padding:8px!important;
+  border:1px solid rgba(241,202,104,.18)!important;
+  border-radius:11px!important;
+  background:linear-gradient(100deg,rgba(9,31,49,.96),rgba(4,20,34,.98))!important;
+  color:#fff!important;
+  text-align:left!important;
+  cursor:pointer!important;
+  box-shadow:0 8px 22px rgba(0,0,0,.18)!important;
+  transition:transform .18s ease,border-color .18s ease,background .18s ease!important;
+}
+.nearby-card:hover,
+.nearby-card:focus{
+  transform:translateY(-2px)!important;
+  border-color:rgba(241,202,104,.62)!important;
+  background:linear-gradient(100deg,rgba(15,45,66,.99),rgba(7,28,44,.99))!important;
+  outline:none!important;
+}
+.nearby-thumb{
+  width:104px!important;
+  height:76px!important;
+  overflow:hidden!important;
+  border-radius:8px!important;
+  background:#0b2234!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+}
+.nearby-thumb img{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  object-fit:cover!important;
+}
+.nearby-card-copy{
+  min-width:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:5px!important;
+}
+.nearby-card-title{
+  display:block!important;
+  color:#fff!important;
+  font:800 14px/1.18 Arial,Helvetica,sans-serif!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.nearby-card-meta{
+  display:block!important;
+  color:#aebbc5!important;
+  font-size:11px!important;
+  line-height:1.25!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.nearby-card-bottom{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:8px!important;
+  margin-top:2px!important;
+}
+.nearby-card-price{
+  color:#f1ca68!important;
+  font-size:15px!important;
+  font-weight:900!important;
+}
+.nearby-card-distance{
+  color:#dbe4eb!important;
+  font-size:11px!important;
+  padding:4px 7px!important;
+  border-radius:999px!important;
+  background:rgba(255,255,255,.07)!important;
+  white-space:nowrap!important;
+}
+.nearby-card-arrow{
+  color:#f1ca68!important;
+  font:300 27px/1 Arial,sans-serif!important;
+  opacity:.9!important;
+}
+
+/* Approved two-line ending: guaranteed normal-flow block immediately after map. */
+body.interactive-map-page>.app{
+  flex:0 0 auto!important;
+  height:auto!important;
+  min-height:calc(100vh - 138px)!important;
+}
+body.interactive-map-page>.original-site-footer{
+  position:relative!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:92px!important;
+  padding:20px 18px 18px!important;
+  margin:0!important;
+  background:linear-gradient(180deg,#061523 0%,#020711 100%)!important;
+  border-top:2px solid rgba(221,173,59,.68)!important;
+  box-shadow:0 -16px 36px rgba(0,0,0,.28)!important;
+  z-index:30!important;
+}
+body.interactive-map-page>.original-site-footer::before{
+  content:""!important;
+  position:absolute!important;
+  top:-2px!important;
+  left:50%!important;
+  width:min(520px,72%)!important;
+  height:2px!important;
+  transform:translateX(-50%)!important;
+  background:linear-gradient(90deg,transparent,#f0c45b,transparent)!important;
+}
+body.interactive-map-page>.original-site-footer .footer-trust{
+  margin:0 0 8px!important;
+  color:#f1ca68!important;
+  font-size:14px!important;
+  font-weight:900!important;
+  letter-spacing:.65px!important;
+  text-align:center!important;
+}
+body.interactive-map-page>.original-site-footer .footer-copy{
+  margin:0!important;
+  color:rgba(255,255,255,.94)!important;
+  font-size:12px!important;
+  letter-spacing:.9px!important;
+  text-align:center!important;
+}
+
+@media(max-width:760px){
+  .office-logo-marker{width:50px!important;height:50px!important}
+  .office-label-left{min-width:158px!important;padding:7px 9px!important}
+  .nearby-panel{right:8px!important;width:calc(100% - 16px)!important;max-height:72%!important}
+  .nearby-card{grid-template-columns:82px minmax(0,1fr) 14px!important;min-height:82px!important}
+  .nearby-thumb{width:82px!important;height:64px!important}
+  .nearby-card-title{font-size:12px!important}
+  .nearby-card-meta{font-size:10px!important}
+  .nearby-card-price{font-size:13px!important}
+  body.interactive-map-page>.original-site-footer{min-height:86px!important;padding:17px 11px!important}
+  body.interactive-map-page>.original-site-footer .footer-trust{font-size:11px!important;line-height:1.45!important}
+  body.interactive-map-page>.original-site-footer .footer-copy{font-size:9px!important;line-height:1.45!important}
+}
+
 </style>
 </head>
 <body class="interactive-map-page"><svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><linearGradient id="goldGradient" x1="0" x2="1"><stop offset="0" stop-color="#9b650b"/><stop offset=".28" stop-color="#f7d978"/><stop offset=".55" stop-color="#c98e22"/><stop offset=".78" stop-color="#fff0ac"/><stop offset="1" stop-color="#a86d0d"/></linearGradient></defs></svg>
@@ -570,27 +762,26 @@ function openOfficeCard(anchorEl){
 function addOfficeMarker(){
   if(officeMapMarker)return;
 
-  const sun=document.createElement('button');
-  sun.type='button';
-  sun.className='office-sun-marker';
-  sun.setAttribute('aria-label','ALANYA TOUR ORGANIZATIONS — WE ARE HERE');
-  sun.innerHTML=`<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 1.5v3.2M12 19.3v3.2M1.5 12h3.2M19.3 12h3.2M4.55 4.55l2.3 2.3M17.15 17.15l2.3 2.3M19.45 4.55l-2.3 2.3M6.85 17.15l-2.3 2.3"/></svg>`;
-  sun.addEventListener('click',e=>{e.stopPropagation();openOfficeCard(sun)});
+  const logo=document.createElement('button');
+  logo.type='button';
+  logo.className='office-logo-marker';
+  logo.setAttribute('aria-label','ALANYA TOUR ORGANIZATIONS — WE ARE HERE');
+  logo.innerHTML=`<img src="logo/logo.png" alt="" aria-hidden="true">`;
+  logo.addEventListener('click',e=>{e.stopPropagation();openOfficeCard(logo)});
 
   const label=document.createElement('button');
   label.type='button';
-  label.className='office-permanent-label';
+  label.className='office-permanent-label office-label-left';
   label.setAttribute('aria-label','ALANYA TOUR ORGANIZATIONS — WE ARE HERE');
   label.innerHTML=`<strong>ALANYA TOUR ORGANIZATIONS</strong><span>WE ARE HERE</span>`;
   label.addEventListener('click',e=>{e.stopPropagation();openOfficeCard(label)});
 
-  officeMapMarker=new maplibregl.Marker({element:sun,anchor:'center'}).setLngLat(OFFICE.coords).addTo(map);
-  new maplibregl.Marker({element:label,anchor:'left',offset:[34,0]}).setLngLat(OFFICE.coords).addTo(map);
+  officeMapMarker=new maplibregl.Marker({element:logo,anchor:'center'}).setLngLat(OFFICE.coords).addTo(map);
+  new maplibregl.Marker({element:label,anchor:'right',offset:[-38,0]}).setLngLat(OFFICE.coords).addTo(map);
 
-  // Explicit visibility guard: office is a permanent brand landmark, not a tour filter item.
-  sun.style.display='grid';
-  sun.style.opacity='1';
-  sun.style.visibility='visible';
+  logo.style.display='grid';
+  logo.style.opacity='1';
+  logo.style.visibility='visible';
   label.style.display='flex';
   label.style.opacity='1';
   label.style.visibility='visible';
@@ -985,7 +1176,72 @@ function estimatedMinutes(km){return Math.max(8,Math.round((km/45)*60+8));}
 function showGeoOffer(){if(userLocation||sessionStorage.getItem('geoDismissed'))return;document.getElementById('geoOffer').classList.add('visible');}
 function hideGeoOffer(){document.getElementById('geoOffer').classList.remove('visible');}
 function requestLocation(){hideGeoOffer();if(!navigator.geolocation){alert('Geolocation is not supported by this browser.');return;}navigator.geolocation.getCurrentPosition(pos=>{userLocation=[pos.coords.longitude,pos.coords.latitude];if(userMarker)userMarker.remove();const el=document.createElement('div');el.className='user-marker';userMarker=new maplibregl.Marker({element:el}).setLngLat(userLocation).addTo(map);document.getElementById('nearbyPanel').classList.add('visible');renderNearby();},err=>{document.getElementById('nearbySummary').textContent='Location access was not granted. The map still works normally.';document.getElementById('nearbyPanel').classList.add('visible');},{enableHighAccuracy:true,timeout:10000,maximumAge:300000});}
-function renderNearby(){if(!userLocation)return;const ranked=tours.filter(hasCoords).map(t=>({...t,distance:haversine(userLocation,t.coords)})).filter(t=>t.distance<=nearbyRadius).sort((a,b)=>a.distance-b.distance);const list=document.getElementById('nearbyList');list.innerHTML='';document.getElementById('nearbySummary').textContent=ranked.length?`${ranked.length} experiences found within ${nearbyRadius>=9999?'your reachable map area':nearbyRadius+' km'}.`:'No tours found in this radius. Choose a wider range.';ranked.slice(0,8).forEach(t=>{const btn=document.createElement('button');btn.className='nearby-item';btn.innerHTML=`<span><span class="nearby-name">${t.title}</span><span class="nearby-meta">About ${estimatedMinutes(t.distance)} min transfer · ${t.duration}</span></span><span class="nearby-distance">${t.distance.toFixed(1)} km</span>`;btn.onclick=()=>{setTourActive(t,{moveMap:true});};list.appendChild(btn);});if(ranked.length){const b=ranked.slice(0,5).reduce((bounds,t)=>bounds.extend(t.coords),new maplibregl.LngLatBounds(userLocation,userLocation));map.fitBounds(b,{padding:innerWidth<760?70:120,duration:1000,maxZoom:11});}}
+async function renderNearby(){
+  if(!userLocation)return;
+
+  const ranked=tours
+    .filter(hasCoords)
+    .map(t=>({...t,distance:haversine(userLocation,t.coords)}))
+    .filter(t=>t.distance<=nearbyRadius)
+    .sort((a,b)=>a.distance-b.distance);
+
+  const list=document.getElementById('nearbyList');
+  list.innerHTML='';
+  document.getElementById('nearbySummary').textContent=ranked.length
+    ? `${ranked.length} experiences found within ${nearbyRadius>=9999?'your reachable map area':nearbyRadius+' km'}.`
+    : 'No tours found in this radius. Choose a wider range.';
+
+  const featured=ranked.slice(0,8);
+  await Promise.allSettled(featured.map(t=>ensureTourData(t)));
+
+  featured.forEach(t=>{
+    const card=document.createElement('button');
+    card.type='button';
+    card.className='nearby-card';
+
+    const fallback='logo/logo.png';
+    const image=t.image||fallback;
+    const price=t.price==null?'ON REQUEST':`€${t.price}`;
+    const transfer=`~${estimatedMinutes(t.distance)} min`;
+
+    card.innerHTML=`
+      <span class="nearby-thumb">
+        <img src="${image}" alt="${t.title}" loading="lazy"
+             onerror="this.onerror=null;this.src='${fallback}'">
+      </span>
+      <span class="nearby-card-copy">
+        <span class="nearby-card-title">${t.title}</span>
+        <span class="nearby-card-meta">${transfer} transfer · ${t.duration}</span>
+        <span class="nearby-card-bottom">
+          <span class="nearby-card-price">${price}</span>
+          <span class="nearby-card-distance">${t.distance.toFixed(1)} km</span>
+        </span>
+      </span>
+      <span class="nearby-card-arrow" aria-hidden="true">›</span>`;
+
+    card.addEventListener('click',()=>{
+      const markerEntry=markers.find(({t:mt})=>mt.id===t.id);
+      document.getElementById('nearbyPanel').classList.remove('visible');
+      setTourActive(t,{moveMap:true});
+      const anchor=markerEntry?.el;
+      if(anchor){
+        setTimeout(()=>openTourCard(t,anchor,true),650);
+      }else{
+        window.location.href=t.page;
+      }
+    });
+
+    list.appendChild(card);
+  });
+
+  if(ranked.length){
+    const b=ranked.slice(0,5).reduce(
+      (bounds,t)=>bounds.extend(t.coords),
+      new maplibregl.LngLatBounds(userLocation,userLocation)
+    );
+    map.fitBounds(b,{padding:innerWidth<760?70:120,duration:1000,maxZoom:11});
+  }
+}
 
 map.on('load',async()=>{
   // Satellite imagery under the OpenFreeMap vector labels/roads/POIs.
@@ -1095,7 +1351,8 @@ FUNCTIONALITY
 - Provisional SPA marker was removed and will be restored only after the client supplies the real location.
 - Alanya paragliding take-off uses the published Yassı Tepe/Alanya take-off coordinate, with Cleopatra Beach as the landing direction.
 - Helicopter Flight and Helicopter Experience use Dinek Mah., Emirgan Blv No:35.
-- Permanent office landmark shows ALANYA TOUR ORGANIZATIONS + WE ARE HERE with a gold sun and never follows tour filters.
+- Permanent office landmark shows the real ALANYA TOUR ORGANIZATIONS logo + WE ARE HERE and never follows tour filters.
+- Nearby Experiences renders premium mini tour cards with real tour imagery; clicking a card opens the selected tour card on the map.
 
 
 STATUS
