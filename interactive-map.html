@@ -1434,50 +1434,6 @@ body.interactive-map-page>.promo-bar.original-promo-bar .promo-text{
 .custom-select.open .custom-select-chevron{
   transform:rotate(225deg) translate(-1px,-1px)!important;
 }
-</style><style id="v47-experience-heading">
-/* ===== V47 EXPERIENCE TURKEY WHITE + GOLD OUTLINE ===== */
-@keyframes experienceTurkeyGlowV47{
-  0%{
-    text-shadow:
-      0 0 0 rgba(0,0,0,0),
-      0 0 4px rgba(214,165,47,.18),
-      0 0 10px rgba(214,165,47,.10);
-  }
-  50%{
-    text-shadow:
-      0 0 0 rgba(0,0,0,0),
-      0 0 7px rgba(241,202,104,.34),
-      0 0 16px rgba(214,165,47,.22);
-  }
-  100%{
-    text-shadow:
-      0 0 0 rgba(0,0,0,0),
-      0 0 4px rgba(214,165,47,.18),
-      0 0 10px rgba(214,165,47,.10);
-  }
-}
-
-body.interactive-map-page .sidebar h1{
-  color:#ffffff!important;
-  -webkit-text-fill-color:#ffffff!important;
-  -webkit-text-stroke:1px rgba(214,165,47,.92)!important;
-  text-shadow:
-    0 0 4px rgba(214,165,47,.18),
-    0 0 10px rgba(214,165,47,.10)!important;
-  animation:experienceTurkeyGlowV47 3.8s ease-in-out infinite!important;
-}
-
-@media(max-width:760px){
-  body.interactive-map-page .sidebar h1{
-    -webkit-text-stroke:.8px rgba(214,165,47,.92)!important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  body.interactive-map-page .sidebar h1{
-    animation:none!important;
-  }
-}
 </style><style id="v48-top-gold-line">
 /* ===== V48 TOP GOLD LINE ABOVE MAP ===== */
 body.interactive-map-page > main.app{
@@ -1503,28 +1459,6 @@ body.interactive-map-page > main.app::before{
   )!important;
   pointer-events:none!important;
   z-index:40!important;
-}
-</style><style id="v49-thin-heading-outline">
-/* ===== V49 EXPERIENCE TURKEY THIN PREMIUM OUTLINE ===== */
-body.interactive-map-page .sidebar h1{
-  color:#ffffff!important;
-  -webkit-text-fill-color:#ffffff!important;
-  -webkit-text-stroke:0.45px rgba(214,165,47,.92)!important;
-  text-shadow:
-    0 0 1px rgba(214,165,47,.12),
-    0 0 3px rgba(214,165,47,.06)!important;
-  animation:none!important;
-  font-weight:700!important;
-  letter-spacing:.4px!important;
-}
-
-@media(max-width:760px){
-  body.interactive-map-page .sidebar h1{
-    -webkit-text-stroke:0.4px rgba(214,165,47,.9)!important;
-    text-shadow:
-      0 0 1px rgba(214,165,47,.10),
-      0 0 2px rgba(214,165,47,.05)!important;
-  }
 }
 </style><style id="v50-single-top-divider">
 /* ===== V50 SINGLE THIN GOLD DIVIDER BETWEEN PROMO AND MAP ===== */
@@ -1592,31 +1526,57 @@ body.interactive-map-page > [data-synced-promo="true"]{
 .route-label.edge-hidden{
   display:none!important;
 }
-</style><style id="v52-thin-premium-heading">
-/* ===== V52 EXPERIENCE TURKEY — THIN WHITE PREMIUM LETTERING ===== */
-body.interactive-map-page .sidebar h1{
-  color:#ffffff!important;
-  -webkit-text-fill-color:#ffffff!important;
-  font-weight:500!important;
+</style><style id="v53-true-thin-heading">
+/* ===== V53 EXPERIENCE TURKEY — TRUE THIN WHITE PREMIUM TITLE ===== */
+.experience-turkey-title{
+  margin:4px 0 10px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  gap:0!important;
+
+  font-family:"Bodoni MT","Times New Roman",Times,serif!important;
+  font-size:32px!important;
+  line-height:.98!important;
+  font-weight:400!important;
   letter-spacing:.15px!important;
-  line-height:1.02!important;
 
-  /* ultra-thin gold hairline around white letters */
-  -webkit-text-stroke:0.28px rgba(214,165,47,.92)!important;
+  color:#ffffff!important;
+  background:none!important;
+  -webkit-background-clip:border-box!important;
+  background-clip:border-box!important;
+  -webkit-text-fill-color:#ffffff!important;
 
-  /* no heavy glow — only a microscopic edge refinement */
+  /* hairline gold edge: white must visually dominate */
+  -webkit-text-stroke:.20px rgba(205,155,44,.92)!important;
+
   text-shadow:
-    0 0 .35px rgba(214,165,47,.28)!important;
+    .18px 0 rgba(205,155,44,.32),
+    -.18px 0 rgba(205,155,44,.32),
+    0 .18px rgba(205,155,44,.24),
+    0 -.18px rgba(205,155,44,.24)!important;
 
   animation:none!important;
   filter:none!important;
+  opacity:1!important;
+}
+.experience-turkey-title span{
+  display:block!important;
+  color:#ffffff!important;
+  background:none!important;
+  -webkit-text-fill-color:#ffffff!important;
+  -webkit-text-stroke:.20px rgba(205,155,44,.92)!important;
+  font:inherit!important;
+  letter-spacing:inherit!important;
 }
 
 @media(max-width:760px){
-  body.interactive-map-page .sidebar h1{
-    font-weight:500!important;
-    -webkit-text-stroke:0.24px rgba(214,165,47,.90)!important;
-    text-shadow:0 0 .25px rgba(214,165,47,.22)!important;
+  .experience-turkey-title{
+    font-size:29px!important;
+    -webkit-text-stroke:.18px rgba(205,155,44,.90)!important;
+  }
+  .experience-turkey-title span{
+    -webkit-text-stroke:.18px rgba(205,155,44,.90)!important;
   }
 }
 </style></head>
@@ -1726,7 +1686,7 @@ body.interactive-map-page .sidebar h1{
 <div class="map-start-divider" aria-hidden="true"></div>
 <main class="app">
 <aside class="sidebar">
-<h1>EXPERIENCE TURKEY</h1><p class="subtitle">Discover more. Feel more. Travel better.</p>
+<h1 class="experience-turkey-title"><span>EXPERIENCE</span><span>TURKEY</span></h1><p class="subtitle">Discover more. Feel more. Travel better.</p>
 <div class="map-search-wrap"><input id="mapTourSearch" class="map-tour-search" type="search" autocomplete="off" placeholder="Search tours or places…" aria-label="Search tours or places"></div>
 <div id="categoryList" hidden></div>
 <div class="best-for-you" id="bestForYou">
