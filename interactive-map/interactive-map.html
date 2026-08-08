@@ -1363,6 +1363,10 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 @media(prefers-reduced-motion:reduce){.map-footer-trust{animation:none;background-position:50% 50%}}
 @media(max-width:760px){#atoOriginalHeaderHost,#atoOriginalHeaderFrame{height:70px}#atoOriginalFooterHost{height:68px}.map-footer-trust{height:24px;min-height:24px;font-size:9px;letter-spacing:.75px}#atoOriginalFooterFrame{height:44px}}
 .mobile-filter-toggle,.mobile-filter-close{display:none}
+@media(min-width:901px) and (hover:hover){
+  .geo-offer,.nearby-panel{top:126px!important;bottom:auto!important}
+  .nearby-panel{max-height:calc(100% - 144px)!important}
+}
 @media(max-width:900px), (hover:none) and (pointer:coarse){
   html,body{height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;overflow:hidden!important}
   main.app{position:relative!important}
@@ -1395,10 +1399,7 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
   frame.src=source;
   frame.scrolling='no';
   frame.setAttribute('loading','eager');
-  const trust=document.createElement('div');
-  trust.className='map-footer-trust';
-  trust.textContent='TRUSTED SINCE 2010 · 35,000+ HAPPY GUESTS · GOOGLE VERIFIED 5★';
-  host.replaceChildren(trust,frame);
+  host.replaceChildren(frame);
 
   function fallbackHeight(){
     const h=window.matchMedia('(max-width:760px)').matches?70:86;
@@ -1522,7 +1523,10 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
   frame.src=new URL('/index.html?mapFooterFrame=1',location.origin).href;
   frame.scrolling='no';
   frame.setAttribute('loading','eager');
-  host.replaceChildren(frame);
+  const trust=document.createElement('div');
+  trust.className='map-footer-trust';
+  trust.textContent='TRUSTED SINCE 2010 · 35,000+ HAPPY GUESTS · GOOGLE VERIFIED 5★';
+  host.replaceChildren(trust,frame);
   frame.addEventListener('load',()=>{
     try{
       const doc=frame.contentDocument, win=frame.contentWindow;
@@ -1833,6 +1837,22 @@ function popupHTML(t){
 function belongs(t,cat){return cat==='all'||t.categories.includes(cat);}
 function hasCoords(t){return Array.isArray(t?.coords)&&t.coords.length===2&&Number.isFinite(t.coords[0])&&Number.isFinite(t.coords[1]);}
 function routeBounds(id){const coords=[];Object.values(routeData).forEach(fc=>fc.features.forEach(f=>{if(f.properties.id===id)coords.push(...f.geometry.coordinates);}));if(!coords.length){const t=tours.find(x=>x.id===id);return hasCoords(t)?new maplibregl.LngLatBounds(t.coords,t.coords):null;}return coords.reduce((b,c)=>b.extend(c),new maplibregl.LngLatBounds(coords[0],coords[0]));}
+/* Self-contained shared filter state. The map must keep working even when the
+   optional site-wide shared-filters.js file is absent or uploaded elsewhere. */
+if(!window.AlanyaFilters){
+  const FILTER_KEY='alanyaTourFilters';
+  const defaults={category:'all',maxPrice:'all',duration:'all',hotelTransfer:false,familyFriendly:false,privateTour:false,search:'',selectedTags:[]};
+  let state={...defaults};
+  try{state={...defaults,...JSON.parse(localStorage.getItem(FILTER_KEY)||'{}')}}catch(_){state={...defaults}}
+  const listeners=new Set();
+  const publish=()=>{try{localStorage.setItem(FILTER_KEY,JSON.stringify(state))}catch(_){} listeners.forEach(fn=>fn({...state}))};
+  window.AlanyaFilters={
+    get:()=>({...state}),
+    set:patch=>{state={...state,...patch};publish();return {...state}},
+    reset:()=>{state={...defaults};publish();return {...state}},
+    subscribe:fn=>{if(typeof fn==='function'){listeners.add(fn);fn({...state})}return()=>listeners.delete(fn)}
+  };
+}
 let sharedFilterState=window.AlanyaFilters?.get?.()||{category:'all',maxPrice:'all',duration:'all',hotelTransfer:false,familyFriendly:false,privateTour:false,search:'',selectedTags:[]};
 let activeBestMode=null;
 function tourMatchesBestMode(t,mode){
@@ -1871,6 +1891,7 @@ function durationMatches(t,value){
   const d=normalizedText(t.duration);
   if(value==='half-day')return /half|3 hour|4 hour|5 hour/.test(d);
   if(value==='full-day')return /full|8 hour|9 hour|10 hour|day/.test(d);
+  if(value==='multi-day')return /multi|2 day|3 day|4 day|overnight/.test(d);
   return true;
 }
 function visible(t){
@@ -2174,6 +2195,9 @@ function applySharedFilters(next){
   setToggleState('privateTourFilter',sharedFilterState.privateTour);
   renderCategories();
   if(map.loaded()){refresh();fitVisible();}
+  const count=tours.filter(t=>visible(t)&&hasCoords(t)).length;
+  const mobileButton=document.getElementById('mobileFilterToggle');
+  if(mobileButton)mobileButton.textContent=`⚙ FILTERS · ${count} FOUND`;
 }
 renderCategories();
 window.AlanyaFilters?.subscribe(applySharedFilters);
@@ -2193,6 +2217,9 @@ function applyBestMode(mode){
     btn.setAttribute('aria-pressed',btn.dataset.best===activeBestMode?'true':'false');
   });
 
+  // A discovery preset starts clean instead of intersecting with stale filters.
+  window.AlanyaFilters?.set({category:'all',maxPrice:'all',duration:'all',hotelTransfer:false,familyFriendly:false,privateTour:false,search:'',selectedTags:[]});
+
   // BEST FOR YOU is an alternative discovery mode, so it always starts from ALL.
   if(activeCategory!=='all'||sharedFilterState.category!=='all'){
     activeCategory='all';
@@ -2205,7 +2232,7 @@ function applyBestMode(mode){
 }
 document.querySelectorAll('.best-chip').forEach(btn=>{
   btn.setAttribute('aria-pressed','false');
-  btn.addEventListener('click',()=>applyBestMode(btn.dataset.best));
+  btn.addEventListener('click',()=>{applyBestMode(btn.dataset.best);closeMobileFiltersAfterChoice();});
 });
 
 
@@ -2230,26 +2257,28 @@ function applySmartQuick(type){
   document.body.classList.remove('tour-focus-mode');
   closeTourCard(true);
 
+  const clean={category:'all',maxPrice:'all',duration:'all',hotelTransfer:false,familyFriendly:false,privateTour:false,search:'',selectedTags:[]};
+
   if(type==='best-price'){
     clearSmartQuickVisuals(type);
-    window.AlanyaFilters?.set({maxPrice:'50'});
+    window.AlanyaFilters?.set({...clean,maxPrice:'50'});
   }else if(type==='half-day'){
     clearSmartQuickVisuals(type);
-    window.AlanyaFilters?.set({duration:'half-day'});
+    window.AlanyaFilters?.set({...clean,duration:'half-day'});
   }else if(type==='transfer'){
     clearSmartQuickVisuals(type);
-    window.AlanyaFilters?.set({hotelTransfer:true});
+    window.AlanyaFilters?.set({...clean,hotelTransfer:true});
   }else if(type==='family'){
     clearSmartQuickVisuals(type);
-    window.AlanyaFilters?.set({familyFriendly:true});
+    window.AlanyaFilters?.set({...clean,familyFriendly:true});
   }else if(type==='private'){
     clearSmartQuickVisuals(type);
-    window.AlanyaFilters?.set({privateTour:true});
+    window.AlanyaFilters?.set({...clean,privateTour:true});
   }else if(type==='popular'){
     clearSmartQuickVisuals(type);
     activeBestMode='popular';
     activeCategory='all';
-    window.AlanyaFilters?.set({category:'all'});
+    window.AlanyaFilters?.set(clean);
     renderCategories();
     refresh();
     fitVisible();
@@ -2257,16 +2286,21 @@ function applySmartQuick(type){
 }
 document.querySelectorAll('.smart-quick-chip').forEach(btn=>{
   btn.setAttribute('aria-pressed','false');
-  btn.addEventListener('click',()=>applySmartQuick(btn.dataset.quick));
+  btn.addEventListener('click',()=>{applySmartQuick(btn.dataset.quick);closeMobileFiltersAfterChoice();});
 });
 document.getElementById('clearFilters')?.addEventListener('click',()=>clearSmartQuickVisuals());
 
-document.getElementById('priceFilter').addEventListener('change',e=>window.AlanyaFilters?.set({maxPrice:e.target.value}));
-document.getElementById('durationFilter').addEventListener('change',e=>window.AlanyaFilters?.set({duration:e.target.value}));
+function closeMobileFiltersAfterChoice(){
+  if(window.matchMedia('(max-width:900px), (hover:none) and (pointer:coarse)').matches){
+    setTimeout(()=>document.body.classList.remove('mobile-filter-open'),120);
+  }
+}
+document.getElementById('priceFilter').addEventListener('change',e=>{window.AlanyaFilters?.set({maxPrice:e.target.value});closeMobileFiltersAfterChoice();});
+document.getElementById('durationFilter').addEventListener('change',e=>{window.AlanyaFilters?.set({duration:e.target.value});closeMobileFiltersAfterChoice();});
 let searchSyncTimer;
 document.getElementById('mapTourSearch').addEventListener('input',e=>{clearTimeout(searchSyncTimer);searchSyncTimer=setTimeout(()=>window.AlanyaFilters?.set({search:e.target.value}),120);});
 [['hotelTransferFilter','hotelTransfer'],['familyFriendlyFilter','familyFriendly'],['privateTourFilter','privateTour']].forEach(([id,key])=>{
-  document.getElementById(id).addEventListener('click',()=>window.AlanyaFilters?.set({[key]:!Boolean(sharedFilterState[key])}));
+  document.getElementById(id).addEventListener('click',()=>{window.AlanyaFilters?.set({[key]:!Boolean(sharedFilterState[key])});closeMobileFiltersAfterChoice();});
 });
 document.getElementById('clearFilters').addEventListener('click',()=>{
   activeCategory='all';activeTourId=null;activeBestMode=null;document.querySelectorAll('.best-chip').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});document.body.classList.remove('tour-focus-mode');closeTourCard(true);window.AlanyaFilters?.reset();
