@@ -1366,6 +1366,11 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 /* The JavaScript uses the `on` state; keep the knob and track in sync. */
 .toggle.on{background:linear-gradient(90deg,#c58a15,#f4c83f)!important;box-shadow:0 0 13px rgba(222,171,48,.25)!important}
 .toggle.on::after{left:3px!important;transform:translateX(20px)!important}
+.top-categories{padding-left:48px!important;padding-right:48px!important}
+.category-scroll-btn{position:absolute;z-index:16;top:41px;transform:translateY(-50%);width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(241,202,104,.75);border-radius:50%;background:rgba(3,17,30,.96);color:#f1ca68;font:900 28px/1 Georgia,serif;box-shadow:0 5px 18px rgba(0,0,0,.4);cursor:pointer;transition:opacity .18s,transform .18s}
+.category-scroll-btn:hover{transform:translateY(-50%) scale(1.06);background:#17283a}.category-scroll-btn:disabled{opacity:.32;cursor:default;transform:translateY(-50%)}
+.category-scroll-prev{left:24px}.category-scroll-next{right:24px}
+@media(max-width:760px){.top-categories{padding-left:43px!important;padding-right:43px!important}.category-scroll-btn{top:29px;width:30px;height:30px;font-size:24px}.category-scroll-prev{left:14px}.category-scroll-next{right:14px}}
 @media(min-width:901px) and (hover:hover){
   .geo-offer,.nearby-panel{top:126px!important;bottom:auto!important}
   .nearby-panel{max-height:calc(100% - 144px)!important}
@@ -1410,6 +1415,7 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
     host.style.overflow=headerExpanded?'visible':'hidden';
     frame.style.position=headerExpanded?'absolute':'relative';
     frame.style.left='0';frame.style.top='0';frame.style.zIndex='1000';
+    frame.style.background=headerExpanded?'transparent':'#fff';
     frame.style.height=headerExpanded?'100dvh':collapsedHeaderHeight+'px';
   }
 
@@ -1431,8 +1437,8 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
       const logo=header.querySelector('.logo img,.logo-img,.brand img,img[alt*="ALANYA TOUR" i]');
       if(logo){ logo.src=EMBEDDED_LOGO; logo.removeAttribute('srcset'); }
       [...doc.body.children].forEach(el=>{ if(el!==header) el.style.setProperty('display','none','important'); });
-      doc.documentElement.style.cssText+=';overflow:hidden!important;background:#fff!important';
-      doc.body.style.cssText+=';overflow:hidden!important;margin:0!important;padding:0!important;background:#fff!important';
+      doc.documentElement.style.cssText+=';overflow:hidden!important;background:transparent!important';
+      doc.body.style.cssText+=';overflow:hidden!important;margin:0!important;padding:0!important;background:transparent!important';
       header.style.setProperty('position','relative','important');
       header.style.setProperty('top','0','important');
       header.style.setProperty('margin','0','important');
@@ -1448,17 +1454,39 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
       const overlay=doc.getElementById('mobileOverlay');
       const language=doc.querySelector('.language-dropdown');
       const languageClose=doc.querySelector('.language-close');
+      const languageMenu=doc.querySelector('.language-menu');
+      const forceNav=on=>{
+        if(!nav)return;
+        if(on){
+          nav.style.setProperty('display','flex','important');nav.style.setProperty('position','fixed','important');
+          nav.style.setProperty('left','0','important');nav.style.setProperty('top',collapsedHeaderHeight+'px','important');
+          nav.style.setProperty('height',`calc(100dvh - ${collapsedHeaderHeight}px)`,'important');
+          nav.style.setProperty('visibility','visible','important');nav.style.setProperty('opacity','1','important');
+          nav.style.setProperty('z-index','2147483646','important');
+        }else ['display','position','left','top','height','visibility','opacity','z-index'].forEach(p=>nav.style.removeProperty(p));
+      };
+      const forceLanguage=on=>{
+        if(!languageMenu)return;
+        if(on){
+          languageMenu.style.setProperty('display','block','important');languageMenu.style.setProperty('position','fixed','important');
+          languageMenu.style.setProperty('top',collapsedHeaderHeight+'px','important');languageMenu.style.setProperty('right','16px','important');
+          languageMenu.style.setProperty('opacity','1','important');languageMenu.style.setProperty('visibility','visible','important');
+          languageMenu.style.setProperty('z-index','2147483646','important');
+        }else ['display','position','top','right','opacity','visibility','z-index'].forEach(p=>languageMenu.style.removeProperty(p));
+      };
       const closeHeaderMenus=()=>{
         nav?.classList.remove('active');
         mobileBtn?.classList.remove('active');
         overlay?.classList.remove('active');
         language?.classList.remove('open');
+        forceNav(false);forceLanguage(false);
         setHeaderExpanded(false);
       };
       mobileBtn?.addEventListener('click',e=>{
         e.preventDefault();e.stopImmediatePropagation();
         const opening=!nav?.classList.contains('active');
         language?.classList.remove('open');
+        forceLanguage(false);forceNav(opening);
         nav?.classList.toggle('active',opening);
         mobileBtn.classList.toggle('active',opening);
         overlay?.classList.toggle('active',opening);
@@ -1469,6 +1497,7 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
         e.preventDefault();e.stopImmediatePropagation();
         const opening=!language.classList.contains('open');
         nav?.classList.remove('active');mobileBtn?.classList.remove('active');overlay?.classList.remove('active');
+        forceNav(false);forceLanguage(opening);
         language.classList.toggle('open',opening);
         setHeaderExpanded(opening);
       },true);
@@ -1550,7 +1579,7 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 <button type="button" class="mobile-filter-toggle" id="mobileFilterToggle" aria-label="Open filters">⚙ FILTERS</button>
 <div class="map-discovery-hint"><b>TIP</b> Choose a category or zoom in to discover more</div>
 <div class="map" id="map"></div><div class="map-tone"></div><div class="map-vignette"></div>
-<div aria-label="Experience categories" class="top-categories" id="topCategories"></div>
+<button type="button" class="category-scroll-btn category-scroll-prev" id="categoryScrollPrev" aria-label="Previous categories">‹</button><div aria-label="Experience categories" class="top-categories" id="topCategories"></div><button type="button" class="category-scroll-btn category-scroll-next" id="categoryScrollNext" aria-label="Next categories">›</button>
 <div aria-label="Map style" class="map-mode-switch"><button class="active" data-map-mode="hybrid">HYBRID</button><button data-map-mode="streets">STREETS</button><button data-map-mode="satellite">SATELLITE</button></div><div class="intro-badge" id="introBadge">OVERVIEW MODE · INTERACTIVE JOURNEY STARTS IN 5 SECONDS</div>
 <div class="geo-offer" id="geoOffer"><h3>Experiences near you</h3><p>Allow location access to see nearby excursions and estimated transfer time. Your location is used only in this browser.</p><div class="geo-actions"><button class="geo-yes" id="geoYes">SHOW NEARBY</button><button class="geo-no" id="geoNo">NOT NOW</button></div></div>
 <div class="nearby-panel" id="nearbyPanel"><button aria-label="Close" class="nearby-close" id="nearbyClose">×</button><div class="nearby-head"><h3>Nearby Experiences</h3><p id="nearbySummary">Finding the closest tours…</p><div class="radius-row" id="radiusRow"><button class="radius-btn" data-radius="10">10 km</button><button class="radius-btn active" data-radius="25">25 km</button><button class="radius-btn" data-radius="50">50 km</button><button class="radius-btn" data-radius="9999">All</button></div></div><div class="nearby-list" id="nearbyList"></div></div>
@@ -2238,6 +2267,21 @@ function setMapMode(mode){
   localStorage.setItem('alanyaMapMode',mode);
 }
 document.querySelectorAll('[data-map-mode]').forEach(btn=>btn.addEventListener('click',()=>setMapMode(btn.dataset.mapMode)));
+
+const categoryScroller=document.getElementById('topCategories');
+const categoryPrev=document.getElementById('categoryScrollPrev');
+const categoryNext=document.getElementById('categoryScrollNext');
+function updateCategoryArrows(){
+  if(!categoryScroller)return;
+  const max=Math.max(0,categoryScroller.scrollWidth-categoryScroller.clientWidth);
+  categoryPrev.disabled=categoryScroller.scrollLeft<=2;
+  categoryNext.disabled=categoryScroller.scrollLeft>=max-2;
+}
+categoryPrev?.addEventListener('click',()=>categoryScroller.scrollBy({left:-Math.max(220,categoryScroller.clientWidth*.7),behavior:'smooth'}));
+categoryNext?.addEventListener('click',()=>categoryScroller.scrollBy({left:Math.max(220,categoryScroller.clientWidth*.7),behavior:'smooth'}));
+categoryScroller?.addEventListener('scroll',updateCategoryArrows,{passive:true});
+window.addEventListener('resize',updateCategoryArrows,{passive:true});
+setTimeout(updateCategoryArrows,100);
 
 function setToggleState(id,on){document.getElementById(id)?.classList.toggle('on',Boolean(on));}
 function applySharedFilters(next){
