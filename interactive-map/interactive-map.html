@@ -9,7 +9,7 @@
 <link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
 <link crossorigin="" href="https://tiles.openfreemap.org" rel="preconnect"/>
 <link href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet"/>
-<link href="styles.css" rel="stylesheet"/><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=OU7jhk_4_TaWL_bTG2spi-vCP2W1Iv7GSJps09iEP9-7nJL72Z8BAg3UIG6hOAJ3AxeP_2hCQkzFqZIHvoIixK4QWQAh6owxNqvcrvI2HXmQSu57Um8_TMndLF3g_za1rmiFlZLAOop_1qlSP_V2vlBQ_x03JNrzwl9fyGnkiaFtWyaJ9q8SiW3tdGqW5CAeqJ3FmsXxQ_x0it771gZY0HXVsh-qb4-ZKk6TwmrrefqAmLHtDi9kfcUgvfpd94jd9YwzmdY49cwTWL6rwPCxRv42ORtAvcAOjdcGapgKlXCjt_skYZW0Ds42PEqx-KKLGGpVzs7OiklFUhBOX6wKSGF-YeKLmguyCS5u2NIeWVQ" charset="UTF-8"></script><style>
+<link href="styles.css" rel="stylesheet"/><style>
     :root{
       --navy:#03111e;--navy2:#071c2e;--panel:rgba(3,17,30,.94);--panel2:rgba(7,28,46,.92);
       --gold:#d7a83e;--gold2:#f1ca68;--text:#f7f3e8;--muted:#a9b6c2;--line:rgba(214,168,62,.24);
@@ -1587,7 +1587,7 @@ body.interactive-map-page > [data-synced-promo="true"]{
 }
 </style>
 <style id="strict-five-fixes">
-/* STRICT: exactly one organization header; auction/promo bar removed; 2px map divider. */
+/* STRICT: exactly one organization header; auction/promo bar removed; 1px map divider. */
 body.interactive-map-page > header.header{display:flex!important;order:1!important;flex:0 0 auto!important;}
 body.interactive-map-page > .promo-bar,
 body.interactive-map-page > [data-synced-promo="true"]{display:none!important;}
@@ -1618,6 +1618,41 @@ body.interactive-map-page > main.app{flex:1 1 auto!important;min-height:0!import
 @media(max-width:760px){body.interactive-map-page > header.header{height:70px!important;min-height:70px!important;max-height:70px!important;flex-basis:70px!important;padding:0 12px!important}.header .logo{min-width:0!important;gap:8px!important}.header .logo>img{width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important}.header .logo-title{font-size:15px!important}.header .logo-subtitle{font-size:8px!important}.header .nav{display:none!important}.header .language{height:70px!important;margin-left:auto!important}}
 </style>
 
+
+<style id="desktop-map-divider-match-20260808">
+/* Desktop + mobile: the line before the map is exactly the same 1px gold line as after the map. */
+body.interactive-map-page > .map-start-divider{
+  display:block!important;
+  width:100%!important;
+  height:1px!important;
+  min-height:1px!important;
+  max-height:1px!important;
+  flex:0 0 1px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  background:rgba(226,177,61,.62)!important;
+  box-shadow:none!important;
+  outline:0!important;
+}
+body.interactive-map-page > main.app{
+  border-top:0!important;
+  box-shadow:none!important;
+}
+body.interactive-map-page > main.app::before{
+  content:none!important;
+  display:none!important;
+}
+body.interactive-map-page > .original-site-footer{
+  border-top:1px solid rgba(226,177,61,.62)!important;
+}
+@media (min-width:761px){
+  body.interactive-map-page > .map-start-divider{
+    height:1px!important;min-height:1px!important;max-height:1px!important;flex-basis:1px!important;
+    background:rgba(226,177,61,.62)!important;box-shadow:none!important;border:0!important;
+  }
+}
+</style>
 </head>
 <body class="interactive-map-page"><svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><linearGradient id="goldGradient" x1="0" x2="1"><stop offset="0" stop-color="#9b650b"/><stop offset=".28" stop-color="#f7d978"/><stop offset=".55" stop-color="#c98e22"/><stop offset=".78" stop-color="#fff0ac"/><stop offset="1" stop-color="#a86d0d"/></linearGradient></defs></svg>
 <header class="header">
