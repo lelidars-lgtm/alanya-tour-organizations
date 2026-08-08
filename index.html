@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -198,7 +198,12 @@
 </style>
 
 
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=sw0nWDZMgRFDVZjqbWPaGBxU3OaFO5Fex-aoyvIrD8OsENYY5Zit2igsoHN1kYY50sYEh2gf68ED6F6q_M-KQVwIf_sQyUXWpfPKk5qCCn1T6gU4qFen6uO1nNHyQQIX106GVbv97EyQSeOxMvZhTb_h36NvKwZ0WAR_IfyrH93QKwcUPzEC2cyTFuKWui2K7JEQqPu-bKITwOZnFY_AcYhAnbxxKkZLgjYMni1LYlW4q_0t67TSG3eVKCcOAKHYbMJpITj3n-ZtAehsxrqduRc8KBzO1EyhAz6IPiPlSr_CfYuzDhHIj40h5IuXKM34oJ8AsYR7qItoj76GQx9_XQ" charset="UTF-8"></script></head>
+<style>
+.filter-grid button{cursor:pointer;transition:.22s ease}
+.filter-grid button.is-active{border-color:#d7a83e!important;color:#f4d477!important;background:linear-gradient(135deg,rgba(215,168,62,.22),rgba(215,168,62,.08))!important;box-shadow:0 0 0 1px rgba(241,202,104,.22),0 8px 24px rgba(0,0,0,.18)}
+.category-card.is-filter-hidden{display:none!important}
+</style>
+</head>
 
 <body>
 
@@ -495,20 +500,20 @@
   <aside class="tour-sidebar">
     <h3>FIND YOUR PERFECT TOUR</h3>
 
-    <input type="text" placeholder="Search tours, activities...">
+    <input id="officialTourSearch" type="search" autocomplete="off" placeholder="Search tours, activities...">
 
     <h4>FILTERS</h4>
 
     <div class="filter-grid">
-      <button><span>◆</span> Family</button>
-      <button><span>♛</span> VIP</button>
-      <button><span>●</span> Private</button>
-      <button><span>✦</span> Kids</button>
-      <button><span>♥</span> Couples</button>
-      <button><span>◈</span> Friends</button>
-      <button><span>⚡</span> Extreme</button>
-      <button><span>✺</span> Relax</button>
-      <button><span>◆</span> Luxury</button>
+      <button type="button" data-filter-tag="family"><span>◆</span> Family</button>
+      <button type="button" data-filter-tag="vip"><span>♛</span> VIP</button>
+      <button type="button" data-filter-tag="private"><span>●</span> Private</button>
+      <button type="button" data-filter-tag="kids"><span>✦</span> Kids</button>
+      <button type="button" data-filter-tag="couples"><span>♥</span> Couples</button>
+      <button type="button" data-filter-tag="friends"><span>◈</span> Friends</button>
+      <button type="button" data-filter-tag="extreme"><span>⚡</span> Extreme</button>
+      <button type="button" data-filter-tag="relax"><span>✺</span> Relax</button>
+      <button type="button" data-filter-tag="luxury"><span>◆</span> Luxury</button>
     </div>
 
     <h4>🔥 ПОПУЛЯРНЫЕ ТУРЫ</h4>
@@ -750,10 +755,42 @@
   </a>
 </div>
 
+<script src="assets/js/shared-filters.js"></script>
 <script>
-  const userLang = (navigator.language || "en").slice(0, 2);
+(function(){
+  const search=document.getElementById('officialTourSearch');
+  const buttons=[...document.querySelectorAll('[data-filter-tag]')];
+  const cards=[...document.querySelectorAll('.category-card')];
+  const categoryHints={family:['family'],kids:['family'],extreme:['extreme'],relax:['wellness'],vip:['vip'],luxury:['vip'],private:['vip']};
+  function apply(state){
+    const tags=Array.isArray(state.selectedTags)?state.selectedTags:[];
+    if(search&&search.value!==String(state.search||''))search.value=state.search||'';
+    buttons.forEach(btn=>btn.classList.toggle('is-active',tags.includes(btn.dataset.filterTag)));
+    const query=String(state.search||'').toLocaleLowerCase('en').trim();
+    const categoryTags=tags.filter(tag=>categoryHints[tag]);
+    cards.forEach(card=>{
+      const text=card.textContent.toLocaleLowerCase('en');
+      const href=(card.getAttribute('href')||'').toLocaleLowerCase('en');
+      const matchesQuery=!query||text.includes(query)||href.includes(query);
+      const matchesTags=!categoryTags.length||categoryTags.some(tag=>categoryHints[tag].some(hint=>text.includes(hint)||href.includes(hint)));
+      card.classList.toggle('is-filter-hidden',!(matchesQuery&&matchesTags));
+    });
+  }
+  let timer;
+  search?.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(()=>window.AlanyaFilters.set({search:search.value}),120);});
+  buttons.forEach(btn=>btn.addEventListener('click',()=>{
+    const state=window.AlanyaFilters.get();
+    const tags=new Set(state.selectedTags||[]);
+    tags.has(btn.dataset.filterTag)?tags.delete(btn.dataset.filterTag):tags.add(btn.dataset.filterTag);
+    window.AlanyaFilters.set({selectedTags:[...tags]});
+  }));
+  window.AlanyaFilters.subscribe(apply);
+})();
+</script>
+<script>
   const allowedLangs = ["ru", "en", "tr", "de", "pl"];
-  const currentLang = allowedLangs.includes(userLang) ? userLang : "en";
+  const savedLang = localStorage.getItem("atoLanguage");
+  const currentLang = allowedLangs.includes(savedLang) ? savedLang : "en";
 
   function updateLang(lang) {
     document.querySelectorAll("[data-" + lang + "]").forEach(el => {
@@ -764,6 +801,8 @@
     if (langLabel) {
       langLabel.textContent = lang.toUpperCase();
     }
+    document.documentElement.lang = lang;
+    localStorage.setItem("atoLanguage", lang);
   }
 
   updateLang(currentLang);
