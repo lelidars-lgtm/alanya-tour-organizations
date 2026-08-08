@@ -1363,6 +1363,9 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 @media(prefers-reduced-motion:reduce){.map-footer-trust{animation:none;background-position:50% 50%}}
 @media(max-width:760px){#atoOriginalHeaderHost,#atoOriginalHeaderFrame{height:70px}#atoOriginalFooterHost{height:68px}.map-footer-trust{height:24px;min-height:24px;font-size:9px;letter-spacing:.75px}#atoOriginalFooterFrame{height:44px}}
 .mobile-filter-toggle,.mobile-filter-close{display:none}
+/* The JavaScript uses the `on` state; keep the knob and track in sync. */
+.toggle.on{background:linear-gradient(90deg,#c58a15,#f4c83f)!important;box-shadow:0 0 13px rgba(222,171,48,.25)!important}
+.toggle.on::after{left:3px!important;transform:translateX(20px)!important}
 @media(min-width:901px) and (hover:hover){
   .geo-offer,.nearby-panel{top:126px!important;bottom:auto!important}
   .nearby-panel{max-height:calc(100% - 144px)!important}
@@ -1401,9 +1404,19 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
   frame.setAttribute('loading','eager');
   host.replaceChildren(frame);
 
+  let headerExpanded=false, collapsedHeaderHeight=window.matchMedia('(max-width:760px)').matches?70:86;
+  function setHeaderExpanded(on){
+    headerExpanded=Boolean(on)&&window.matchMedia('(max-width:980px)').matches;
+    host.style.overflow=headerExpanded?'visible':'hidden';
+    frame.style.position=headerExpanded?'absolute':'relative';
+    frame.style.left='0';frame.style.top='0';frame.style.zIndex='1000';
+    frame.style.height=headerExpanded?'100dvh':collapsedHeaderHeight+'px';
+  }
+
   function fallbackHeight(){
     const h=window.matchMedia('(max-width:760px)').matches?70:86;
-    host.style.height=h+'px'; frame.style.height=h+'px';
+    collapsedHeaderHeight=h;
+    host.style.height=h+'px'; if(!headerExpanded)frame.style.height=h+'px';
   }
   fallbackHeight();
   window.addEventListener('resize',fallbackHeight,{passive:true});
@@ -1425,10 +1438,22 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
       header.style.setProperty('margin','0','important');
       const syncHeight=()=>{
         const h=Math.ceil(header.getBoundingClientRect().height)||86;
-        host.style.height=h+'px'; frame.style.height=h+'px';
+        collapsedHeaderHeight=h;
+        host.style.height=h+'px'; if(!headerExpanded)frame.style.height=h+'px';
       };
       syncHeight();
       if('ResizeObserver' in win) new win.ResizeObserver(syncHeight).observe(header);
+      const mobileBtn=doc.getElementById('mobileMenuBtn');
+      const nav=doc.querySelector('.nav');
+      const overlay=doc.getElementById('mobileOverlay');
+      const language=doc.querySelector('.language-dropdown');
+      const languageClose=doc.querySelector('.language-close');
+      const syncExpanded=()=>setTimeout(()=>setHeaderExpanded(Boolean(nav?.classList.contains('active')||language?.classList.contains('open'))),0);
+      mobileBtn?.addEventListener('click',syncExpanded);
+      language?.addEventListener('click',syncExpanded);
+      overlay?.addEventListener('click',syncExpanded);
+      languageClose?.addEventListener('click',syncExpanded);
+      doc.querySelectorAll('.language-menu a').forEach(link=>link.addEventListener('click',()=>setTimeout(()=>setHeaderExpanded(false),0)));
       frame.style.opacity='1';
     }catch(e){ frame.style.opacity='1'; }
   });
@@ -1538,6 +1563,14 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
       doc.body.style.cssText+=';overflow:hidden!important;margin:0!important;padding:0!important;background:#03111e!important';
       footer.style.setProperty('margin','0','important');
       footer.style.setProperty('position','relative','important');
+      footer.style.setProperty('padding',win.matchMedia('(max-width:760px)').matches?'7px 10px':'9px 12px','important');
+      footer.style.setProperty('min-height','0','important');
+      footer.style.setProperty('box-sizing','border-box','important');
+      const footerText=footer.querySelector('p');
+      if(footerText){
+        footerText.style.setProperty('margin','0','important');
+        footerText.style.setProperty('line-height','1.25','important');
+      }
       const sync=()=>{const h=Math.ceil(footer.getBoundingClientRect().height)||48;const trustH=Math.ceil(trust.getBoundingClientRect().height)||28;host.style.height=(h+trustH)+'px';frame.style.height=h+'px';};
       sync();
       if('ResizeObserver' in win)new win.ResizeObserver(sync).observe(footer);
@@ -1746,7 +1779,7 @@ map.addControl(new maplibregl.GeolocateControl({
 map.addControl(new maplibregl.AttributionControl({compact:true}),'bottom-left');
 
 let activeCategory='all', popup=null, activeTourId=null, autoTourStopped=false, introStarted=false, autoTourTimer=null, autoTourIndex=0;
-let userLocation=null, userMarker=null, nearbyRadius=25;
+let userLocation=null, userMarker=null, nearbyRadius=25, nearbyRenderVersion=0;
 const markers=[],labels=[];
 
 const svgIcons={
@@ -2065,7 +2098,7 @@ function renderCategories(){
       closeTourCard(true);
       markers.forEach(({el})=>el.classList.remove('active','dimmed'));
       labels.forEach(({el})=>el.classList.remove('active'));
-      window.AlanyaFilters?.set({category:c.id});
+      window.AlanyaFilters?.set({category:c.id,maxPrice:'all',duration:'all',hotelTransfer:false,familyFriendly:false,privateTour:false,search:'',selectedTags:[]});
       renderCategories();
       refresh();
       fitVisible();
@@ -2091,22 +2124,28 @@ function requestLocation(){hideGeoOffer();if(!navigator.geolocation){showLocatio
 async function renderNearby(){
   if(!userLocation)return;
 
+  const renderVersion=++nearbyRenderVersion;
+
   const ranked=tours
     .filter(hasCoords)
-    .map(t=>({...t,distance:haversine(userLocation,t.coords)}))
-    .filter(t=>t.distance<=nearbyRadius)
+    .map(t=>({tour:t,distance:haversine(userLocation,t.coords)}))
+    .filter(item=>item.distance<=nearbyRadius)
     .sort((a,b)=>a.distance-b.distance);
 
   const list=document.getElementById('nearbyList');
-  list.innerHTML='';
   document.getElementById('nearbySummary').textContent=ranked.length
     ? `${ranked.length} experiences found within ${nearbyRadius>=9999?'your reachable map area':nearbyRadius+' km'}.`
     : 'No tours found in this radius. Choose a wider range.';
 
-  const featured=ranked.slice(0,8);
-  await Promise.allSettled(featured.map(t=>ensureTourData(t)));
+  const featured=ranked.slice(0,50);
+  await Promise.allSettled(featured.map(item=>ensureTourData(item.tour)));
 
-  featured.forEach(t=>{
+  // Ignore an older asynchronous result when the user has already selected
+  // another radius.
+  if(renderVersion!==nearbyRenderVersion)return;
+  list.innerHTML='';
+
+  featured.forEach(({tour:t,distance})=>{
     const card=document.createElement('a');
     card.href=t.page;
     card.className='nearby-card';
@@ -2114,7 +2153,7 @@ async function renderNearby(){
     const fallback='logo/logo.png';
     const image=t.image||fallback;
     const price=t.price==null?'ON REQUEST':`€${t.price}`;
-    const transfer=`~${estimatedMinutes(t.distance)} min`;
+    const transfer=`~${estimatedMinutes(distance)} min`;
 
     card.innerHTML=`
       <span class="nearby-thumb">
@@ -2129,7 +2168,7 @@ async function renderNearby(){
             <span class="nearby-card-price">${price}</span>
             <span class="nearby-card-cta">VIEW TOUR</span>
           </span>
-          <span class="nearby-card-distance">${t.distance.toFixed(1)} km</span>
+          <span class="nearby-card-distance">${distance.toFixed(1)} km</span>
         </span>
       </span>
       <span class="nearby-card-arrow" aria-hidden="true">›</span>`;
@@ -2138,8 +2177,8 @@ async function renderNearby(){
   });
 
   if(ranked.length){
-    const b=ranked.slice(0,5).reduce(
-      (bounds,t)=>bounds.extend(t.coords),
+    const b=ranked.reduce(
+      (bounds,item)=>bounds.extend(item.tour.coords),
       new maplibregl.LngLatBounds(userLocation,userLocation)
     );
     map.fitBounds(b,{padding:innerWidth<760?70:120,duration:1000,maxZoom:11});
@@ -2154,6 +2193,9 @@ map.on('load',async()=>{
     map.addLayer({id:'satellite-imagery',type:'raster',source:'satellite-imagery',paint:{'raster-saturation':.08,'raster-contrast':.1,'raster-brightness-min':.06,'raster-brightness-max':.92,'raster-opacity':.88}},firstSymbol);
   }
   addRoutes();addMarkersAndLabels();addDestinationLabels();addOfficeMarker();
+  // Never let stale saved filters turn the ordinary map into an empty map.
+  // Geolocation is optional and must not control normal tour visibility.
+  if(!tours.some(t=>visible(t)&&hasCoords(t))){activeBestMode=null;activeCategory='all';window.AlanyaFilters?.reset();}
   map.on('zoom',()=>{updateDestinationLabels();refresh();});
   autoTourTimer=setTimeout(revealIntro,AUTO_TOUR_DELAY);
   setTimeout(()=>setMapMode(localStorage.getItem('alanyaMapMode')||'hybrid'),50);
