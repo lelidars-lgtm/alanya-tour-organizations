@@ -1434,50 +1434,6 @@ body.interactive-map-page>.promo-bar.original-promo-bar .promo-text{
 .custom-select.open .custom-select-chevron{
   transform:rotate(225deg) translate(-1px,-1px)!important;
 }
-</style><style id="v47-experience-heading">
-/* ===== V47 EXPERIENCE TURKEY WHITE + GOLD OUTLINE ===== */
-@keyframes experienceTurkeyGlowV47{
-  0%{
-    text-shadow:
-      0 0 0 rgba(0,0,0,0),
-      0 0 4px rgba(214,165,47,.18),
-      0 0 10px rgba(214,165,47,.10);
-  }
-  50%{
-    text-shadow:
-      0 0 0 rgba(0,0,0,0),
-      0 0 7px rgba(241,202,104,.34),
-      0 0 16px rgba(214,165,47,.22);
-  }
-  100%{
-    text-shadow:
-      0 0 0 rgba(0,0,0,0),
-      0 0 4px rgba(214,165,47,.18),
-      0 0 10px rgba(214,165,47,.10);
-  }
-}
-
-body.interactive-map-page .sidebar h1{
-  color:#ffffff!important;
-  -webkit-text-fill-color:#ffffff!important;
-  -webkit-text-stroke:1px rgba(214,165,47,.92)!important;
-  text-shadow:
-    0 0 4px rgba(214,165,47,.18),
-    0 0 10px rgba(214,165,47,.10)!important;
-  animation:experienceTurkeyGlowV47 3.8s ease-in-out infinite!important;
-}
-
-@media(max-width:760px){
-  body.interactive-map-page .sidebar h1{
-    -webkit-text-stroke:.8px rgba(214,165,47,.92)!important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  body.interactive-map-page .sidebar h1{
-    animation:none!important;
-  }
-}
 </style><style id="v48-top-gold-line">
 /* ===== V48 TOP GOLD LINE ABOVE MAP ===== */
 body.interactive-map-page > main.app{
@@ -1503,28 +1459,6 @@ body.interactive-map-page > main.app::before{
   )!important;
   pointer-events:none!important;
   z-index:40!important;
-}
-</style><style id="v49-thin-heading-outline">
-/* ===== V49 EXPERIENCE TURKEY THIN PREMIUM OUTLINE ===== */
-body.interactive-map-page .sidebar h1{
-  color:#ffffff!important;
-  -webkit-text-fill-color:#ffffff!important;
-  -webkit-text-stroke:0.45px rgba(214,165,47,.92)!important;
-  text-shadow:
-    0 0 1px rgba(214,165,47,.12),
-    0 0 3px rgba(214,165,47,.06)!important;
-  animation:none!important;
-  font-weight:700!important;
-  letter-spacing:.4px!important;
-}
-
-@media(max-width:760px){
-  body.interactive-map-page .sidebar h1{
-    -webkit-text-stroke:0.4px rgba(214,165,47,.9)!important;
-    text-shadow:
-      0 0 1px rgba(214,165,47,.10),
-      0 0 2px rgba(214,165,47,.05)!important;
-  }
 }
 </style><style id="v50-single-top-divider">
 /* ===== V50 SINGLE THIN GOLD DIVIDER BETWEEN PROMO AND MAP ===== */
@@ -1591,6 +1525,122 @@ body.interactive-map-page > [data-synced-promo="true"]{
 /* Edge guard: labels must not visually stick to the frame of the map. */
 .route-label.edge-hidden{
   display:none!important;
+}
+</style><style id="v56-exact-root-chrome">
+/* ===== V56 FINAL — EXACT ROOT INDEX HEADER/PROMO ===== */
+.main-site-chrome-host{
+  order:1!important;
+  display:block!important;
+  width:100%!important;
+  height:0;
+  min-height:0;
+  flex:0 0 auto!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  position:relative!important;
+  z-index:100!important;
+  background:#020b14!important;
+}
+
+/* Never show a locally duplicated header or promotion. */
+body.interactive-map-page > header,
+body.interactive-map-page > .promo-bar,
+body.interactive-map-page > [data-synced-promo="true"]{
+  display:none!important;
+}
+
+.main-site-chrome-frame{
+  display:block!important;
+  width:100%!important;
+  height:0;
+  border:0!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+  background:#020b14!important;
+}
+
+/* Exactly one physical gold separator before the map. */
+body.interactive-map-page > .map-start-divider{
+  order:2!important;
+  display:block!important;
+  width:100%!important;
+  height:1px!important;
+  min-height:1px!important;
+  flex:0 0 1px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  box-shadow:none!important;
+  background:#d6a24a!important;
+  opacity:.72!important;
+}
+body.interactive-map-page > main.app{
+  order:3!important;
+  border-top:0!important;
+}
+body.interactive-map-page > .original-site-footer{
+  order:4!important;
+}
+</style><style id="v57-ultra-thin-luxury-heading">
+/* ===== V57 — ULTRA-THIN LUXURY EXPERIENCE TURKEY ===== */
+.experience-turkey-title{
+  margin:4px 0 11px!important;
+  padding:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  gap:0!important;
+
+  font-family:"Bodoni 72 Smallcaps","Bodoni 72","Didot","Bodoni MT","Times New Roman",serif!important;
+  font-size:30px!important;
+  line-height:.96!important;
+  font-weight:300!important;
+  font-style:normal!important;
+  letter-spacing:1.25px!important;
+
+  color:#fff!important;
+  background:none!important;
+  -webkit-background-clip:border-box!important;
+  background-clip:border-box!important;
+  -webkit-text-fill-color:#fff!important;
+
+  /* Hairline gold edge only — no bold halo. */
+  -webkit-text-stroke:.12px rgba(211,164,55,.88)!important;
+  text-shadow:
+    .10px 0 rgba(211,164,55,.24),
+    -.10px 0 rgba(211,164,55,.24),
+    0 .10px rgba(211,164,55,.18),
+    0 -.10px rgba(211,164,55,.18)!important;
+
+  filter:none!important;
+  animation:none!important;
+  opacity:1!important;
+}
+
+.experience-turkey-title span{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  font:inherit!important;
+  font-weight:300!important;
+  letter-spacing:inherit!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  -webkit-text-stroke:.12px rgba(211,164,55,.88)!important;
+  text-shadow:inherit!important;
+}
+
+@media(max-width:760px){
+  .experience-turkey-title{
+    font-size:27px!important;
+    letter-spacing:1.05px!important;
+    -webkit-text-stroke:.10px rgba(211,164,55,.86)!important;
+  }
+  .experience-turkey-title span{
+    -webkit-text-stroke:.10px rgba(211,164,55,.86)!important;
+  }
 }
 </style></head>
 <body class="interactive-map-page"><svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><linearGradient id="goldGradient" x1="0" x2="1"><stop offset="0" stop-color="#9b650b"/><stop offset=".28" stop-color="#f7d978"/><stop offset=".55" stop-color="#c98e22"/><stop offset=".78" stop-color="#fff0ac"/><stop offset="1" stop-color="#a86d0d"/></linearGradient></defs></svg>
@@ -1696,10 +1746,12 @@ body.interactive-map-page > [data-synced-promo="true"]{
       data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE">🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE</span>
   </div>
 </div>
+
+<div id="mainSiteChromeHost" class="main-site-chrome-host" aria-label="Original main site header and promotion"></div>
 <div class="map-start-divider" aria-hidden="true"></div>
 <main class="app">
 <aside class="sidebar">
-<h1>EXPERIENCE TURKEY</h1><p class="subtitle">Discover more. Feel more. Travel better.</p>
+<h1 class="experience-turkey-title"><span>EXPERIENCE</span><span>TURKEY</span></h1><p class="subtitle">Discover more. Feel more. Travel better.</p>
 <div class="map-search-wrap"><input id="mapTourSearch" class="map-tour-search" type="search" autocomplete="off" placeholder="Search tours or places…" aria-label="Search tours or places"></div>
 <div id="categoryList" hidden></div>
 <div class="best-for-you" id="bestForYou">
@@ -1779,124 +1831,119 @@ body.interactive-map-page > [data-synced-promo="true"]{
   <p class="footer-copy">© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.</p>
 </footer>
 
-<script id="v51-main-header-sync">
-/* ===== V51 LIVE HEADER/PROMO SYNC FROM MAIN ../index.html ===== */
+<script id="v56-exact-root-chrome-script">
+/* ===== V56 FINAL — RENDER THE REAL ../index.html HEADER + PROMO ===== */
 (function(){
-  function absolutizeTree(root, baseUrl){
-    if(!root)return;
-    root.querySelectorAll('[href]').forEach(el=>{
-      const v=el.getAttribute('href');
-      if(!v || v.startsWith('#') || /^(mailto:|tel:|javascript:)/i.test(v))return;
-      try{ el.setAttribute('href', new URL(v, baseUrl).href); }catch(e){}
-    });
-    root.querySelectorAll('[src]').forEach(el=>{
-      const v=el.getAttribute('src');
-      if(!v || /^(data:|blob:)/i.test(v))return;
-      try{ el.setAttribute('src', new URL(v, baseUrl).href); }catch(e){}
-    });
-    root.querySelectorAll('[srcset]').forEach(el=>{
-      const srcset=el.getAttribute('srcset');
-      if(!srcset)return;
-      try{
-        const converted=srcset.split(',').map(item=>{
-          const bits=item.trim().split(/\s+/);
-          bits[0]=new URL(bits[0], baseUrl).href;
-          return bits.join(' ');
-        }).join(', ');
-        el.setAttribute('srcset',converted);
-      }catch(e){}
-    });
-  }
+  const host=document.getElementById('mainSiteChromeHost');
+  if(!host)return;
 
-  function findMainHeader(doc){
+  const frame=document.createElement('iframe');
+  frame.id='mainSiteChromeFrame';
+  frame.className='main-site-chrome-frame';
+  frame.title='ALANYA TOUR ORGANIZATIONS original site header and promotion';
+  frame.scrolling='no';
+  frame.src=new URL('../index.html?interactiveMapChrome=1',window.location.href).href;
+  host.replaceChildren(frame);
+
+  function findHeader(doc){
     return doc.querySelector(
-      'header.site-header, header.header, header#siteHeader, header[role="banner"]'
+      'header.site-header, header.header, header#siteHeader, header[role="banner"], body > header'
     );
   }
 
-  function findMainPromo(doc){
+  function findPromo(doc){
     return doc.querySelector(
       '.promo-bar, .promotion-bar, .promo-strip, .special-offer-bar, [data-promo-bar], [data-promotion-bar]'
-    );
+    ) || [...doc.querySelectorAll('body *')].find(el=>{
+      const txt=(el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase();
+      return txt.includes('ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ') ||
+             (txt.includes('BUY 2') && txt.includes('3RD FREE')) ||
+             (txt.includes('2 TOUREN') && txt.includes('3. GRATIS')) ||
+             (txt.includes('2 TUR') && txt.includes('HEDİYE'));
+    }) || null;
   }
 
-  function bindSyncedHeader(header){
-    if(!header)return;
-
-    const mobileBtn=header.querySelector('#mobileMenuBtn,.mobile-menu-btn,[data-mobile-menu]');
-    const nav=header.querySelector('.nav,.top-nav,nav');
-    const overlay=header.querySelector('#mobileOverlay,.mobile-overlay');
-    if(mobileBtn && nav){
-      mobileBtn.addEventListener('click',()=>{
-        nav.classList.toggle('active');
-        mobileBtn.classList.toggle('active');
-        overlay?.classList.toggle('active');
-      });
-      overlay?.addEventListener('click',()=>{
-        nav.classList.remove('active');
-        mobileBtn.classList.remove('active');
-        overlay.classList.remove('active');
-      });
-    }
-
-    // Mark MAP as current without altering the source header content.
-    header.querySelectorAll('a').forEach(a=>{
-      const txt=(a.textContent||'').trim().toUpperCase();
-      const href=(a.getAttribute('href')||'').toLowerCase();
-      if(txt==='MAP' || href.includes('interactive-map')){
-        a.classList.add('map-nav-active');
-        a.setAttribute('aria-current','page');
-      }
-    });
+  function topBodyChild(el,body){
+    if(!el)return null;
+    let n=el;
+    while(n.parentElement && n.parentElement!==body)n=n.parentElement;
+    return n.parentElement===body?n:null;
   }
 
-  async function syncMainSiteChrome(){
-    const mainUrl=new URL('../index.html',window.location.href);
+  function fitFrame(doc,headerRoot,promoRoot){
+    const hRect=headerRoot.getBoundingClientRect();
+    const pRect=promoRoot.getBoundingClientRect();
+    const top=Math.min(hRect.top,pRect.top);
+    const bottom=Math.max(hRect.bottom,pRect.bottom);
+    const height=Math.max(1,Math.ceil(bottom-top));
+    frame.style.height=height+'px';
+    host.style.height=height+'px';
+  }
+
+  frame.addEventListener('load',()=>{
     try{
-      const response=await fetch(mainUrl.href,{
-        cache:'no-store',
-        headers:{'X-Requested-With':'interactive-map-header-sync'}
+      const doc=frame.contentDocument;
+      const win=frame.contentWindow;
+      if(!doc||!win)throw new Error('Same-origin root document unavailable');
+
+      const header=findHeader(doc);
+      const promo=findPromo(doc);
+      if(!header)throw new Error('Original root header not found');
+      if(!promo)throw new Error('Original root promotion not found');
+
+      const body=doc.body;
+      const headerRoot=topBodyChild(header,body)||header;
+      const promoRoot=topBodyChild(promo,body)||promo;
+      const keep=new Set([headerRoot,promoRoot]);
+
+      // Hide all root-page content except its real header and real promotion.
+      [...body.children].forEach(child=>{
+        if(!keep.has(child))child.style.setProperty('display','none','important');
       });
-      if(!response.ok)throw new Error('Main index fetch failed: '+response.status);
 
-      const source=await response.text();
-      const doc=new DOMParser().parseFromString(source,'text/html');
-      const sourceHeader=findMainHeader(doc);
-      const sourcePromo=findMainPromo(doc);
+      // Only neutralize layout positioning required for cropping.
+      // Color, typography, background and all visual styling remain from the root site.
+      doc.documentElement.style.setProperty('height','auto','important');
+      doc.documentElement.style.setProperty('min-height','0','important');
+      doc.documentElement.style.setProperty('overflow','hidden','important');
+      body.style.setProperty('height','auto','important');
+      body.style.setProperty('min-height','0','important');
+      body.style.setProperty('margin','0','important');
+      body.style.setProperty('overflow','hidden','important');
 
-      const currentHeader=document.querySelector('body.interactive-map-page > header');
-      const currentPromo=document.querySelector(
-        'body.interactive-map-page > .promo-bar, body.interactive-map-page > [data-synced-promo="true"]'
-      );
+      [headerRoot,promoRoot].forEach(el=>{
+        el.style.setProperty('position','relative','important');
+        el.style.setProperty('inset','auto','important');
+        el.style.setProperty('top','auto','important');
+        el.style.setProperty('left','auto','important');
+        el.style.setProperty('right','auto','important');
+        el.style.setProperty('bottom','auto','important');
+        el.style.setProperty('transform','none','important');
+        el.style.setProperty('width','100%','important');
+      });
 
-      if(sourceHeader && currentHeader){
-        const cloned=sourceHeader.cloneNode(true);
-        absolutizeTree(cloned,mainUrl.href);
-        cloned.setAttribute('data-synced-header','true');
-        currentHeader.replaceWith(cloned);
-        bindSyncedHeader(cloned);
+      // Navigation must open in the actual page, not remain trapped in iframe.
+      doc.querySelectorAll('a[href]').forEach(a=>a.setAttribute('target','_top'));
+
+      const resize=()=>fitFrame(doc,headerRoot,promoRoot);
+      requestAnimationFrame(()=>requestAnimationFrame(resize));
+
+      if('ResizeObserver' in win){
+        const ro=new win.ResizeObserver(resize);
+        ro.observe(headerRoot);
+        ro.observe(promoRoot);
       }
+      win.addEventListener('resize',resize);
 
-      if(sourcePromo && currentPromo){
-        const clonedPromo=sourcePromo.cloneNode(true);
-        absolutizeTree(clonedPromo,mainUrl.href);
-        clonedPromo.setAttribute('data-synced-promo','true');
-        currentPromo.replaceWith(clonedPromo);
-      }
-
-      document.documentElement.setAttribute('data-main-header-sync','ok');
+      document.documentElement.setAttribute('data-main-site-chrome','exact-root-index');
     }catch(err){
-      // Keep the local fallback so the map never loses navigation if root index is unavailable.
-      document.documentElement.setAttribute('data-main-header-sync','fallback');
-      console.warn('[Interactive Map] main header sync fallback:',err);
+      // Strict rule: no invented fallback.
+      frame.remove();
+      host.style.height='0';
+      document.documentElement.setAttribute('data-main-site-chrome','failed-no-fake-fallback');
+      console.error('[Interactive Map] Could not load exact root header/promo:',err);
     }
-  }
-
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',syncMainSiteChrome,{once:true});
-  }else{
-    syncMainSiteChrome();
-  }
+  });
 })();
 </script>
 <script src="assets/js/shared-filters.js"></script>
@@ -2707,6 +2754,9 @@ FUNCTIONALITY
 - V51 architecture: header and promotion are loaded live from the main ../index.html at runtime, with local fallback only if the fetch fails.
 - V51 map start boundary uses one physical 1px gold divider DOM element between the synced promotion and map.
 - V51 label edge guard prevents displaced labels such as Parasailing from sticking to the map frame.
+- V54 site chrome source of truth: the map renders the actual ../index.html header and promotion inside a same-origin isolated iframe, therefore using the root page's own CSS/JS exactly. Changes to the main index/header/promo/CSS automatically appear on the map without duplicating styles.
+- V54 keeps one real 1px gold divider immediately below the original promotion and before the map.
+- V56 FINAL source-of-truth rule: the map displays the actual same-origin ../index.html inside a cropped iframe, keeping the root page's own HTML, CSS and JS for the header and promotion. No local fake header/promo fallback is allowed.
 STATUS
 This specification has been approved by the client and serves as the baseline
 for all future versions unless explicitly changed.

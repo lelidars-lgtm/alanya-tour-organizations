@@ -1,0 +1,1175 @@
+[
+  {
+    "id": "parasailing",
+    "title": "Parasailing Adventure",
+    "categories": [
+      "water"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.032999999999994,
+      36.5188
+    ],
+    "locationPrecision": "sea-zone",
+    "address": "Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl",
+    "price": 70.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../parasailing.html",
+    "desc": "Parasailing Adventure in Alanya. Fly above Cleopatra Beach, Alanya Castle, the Mediterranean Sea and Taurus Mountains. Daily departures from 09:00 to 19:00. From €70.",
+    "icon": "water",
+    "image": ""
+  },
+  {
+    "id": "jet-ski",
+    "title": "Jet Ski Safari",
+    "categories": [
+      "water"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.033699999999996,
+      36.517999999999994
+    ],
+    "locationPrecision": "sea-zone",
+    "address": "Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl",
+    "price": 60.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../jet-ski.html",
+    "desc": "Jet Ski Safari in Alanya. Ride across the Mediterranean Sea with 130 HP or 200 HP jet ski options. Daily reservations from 09:00 to 19:00. From €60.",
+    "icon": "water",
+    "image": ""
+  },
+  {
+    "id": "e-foil",
+    "title": "E-Foil Experience & Training",
+    "categories": [
+      "water"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.034499999999994,
+      36.5173
+    ],
+    "locationPrecision": "sea-zone",
+    "address": "Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl",
+    "price": 110.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../e-foil.html",
+    "desc": "E-Foil Experience and Training in Alanya. Fly above the Mediterranean Sea on an electric hydrofoil board. Rent 25 minutes or rent and course 40 minutes. Daily activity from €110.",
+    "icon": "water",
+    "image": ""
+  },
+  {
+    "id": "wakeboard",
+    "title": "Professional Wakeboarding",
+    "categories": [
+      "water"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.0355,
+      36.516799999999996
+    ],
+    "locationPrecision": "sea-zone",
+    "address": "Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl",
+    "price": 70.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../wakeboard.html",
+    "desc": "Professional Wakeboarding in Alanya. Ride behind a speedboat, learn with professional guidance and enjoy an exciting 20-minute wakeboard session. Daily activity from €70.",
+    "icon": "water",
+    "image": ""
+  },
+  {
+    "id": "water-ski",
+    "title": "Water Ski Experience",
+    "categories": [
+      "water"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.0365,
+      36.51669999999999
+    ],
+    "locationPrecision": "sea-zone",
+    "address": "Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl",
+    "price": 70.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../water-ski.html",
+    "desc": "Water Ski Experience in Alanya. Enjoy a 15-minute individual water ski activity with professional guidance, equipment, insurance and transfer near the activity location. From €70.",
+    "icon": "water",
+    "image": ""
+  },
+  {
+    "id": "luxury-jet-car",
+    "title": "Luxury Jet Car",
+    "categories": [
+      "water"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.0374,
+      36.5171
+    ],
+    "locationPrecision": "sea-zone",
+    "address": "Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl",
+    "price": 100.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../luxury-jet-car.html",
+    "desc": "Luxury Jet Car in Alanya. Drive a supercar-style Jet Car on the Mediterranean Sea for 20 minutes. Daily activity from €100 with guidance, insurance and transfer from selected areas.",
+    "icon": "water",
+    "image": ""
+  },
+  {
+    "id": "speed-boat-tour",
+    "title": "VIP Speed Boat Tour",
+    "categories": [
+      "water"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.038199999999996,
+      36.517799999999994
+    ],
+    "locationPrecision": "sea-zone",
+    "address": "Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl",
+    "price": 300.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": true,
+    "page": "../speed-boat-tour.html",
+    "desc": "VIP Speed Boat Tour in Alanya. Private luxury speed boat experience for up to 8 guests. 90 minutes on the Mediterranean Sea with guidance, insurance and transfer from selected areas. From €300.",
+    "icon": "water",
+    "image": ""
+  },
+  {
+    "id": "twister",
+    "title": "Twister Ride",
+    "categories": [
+      "water"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.0387,
+      36.5188
+    ],
+    "locationPrecision": "sea-zone",
+    "address": "Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl",
+    "price": 170.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../twister.html",
+    "desc": "Twister Ride in Alanya. Fast inflatable group water attraction for 4–8 guests. 10–12 minutes of speed, splashes and adrenaline on the Mediterranean Sea. From €170.",
+    "icon": "water",
+    "image": ""
+  },
+  {
+    "id": "banana-boat",
+    "title": "Banana Boat",
+    "categories": [
+      "water"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.038199999999996,
+      36.5198
+    ],
+    "locationPrecision": "sea-zone",
+    "address": "Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl",
+    "price": 120.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../banana-boat.html",
+    "desc": "Banana Boat in Alanya. Classic group water ride for 4–8 guests. 10–12 minutes of speed, splashes and summer fun on the Mediterranean Sea. Minimum 4 people from €120.",
+    "icon": "water",
+    "image": ""
+  },
+  {
+    "id": "sofa-ride",
+    "title": "Sofa Ride",
+    "categories": [
+      "water"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.037299999999995,
+      36.5205
+    ],
+    "locationPrecision": "sea-zone",
+    "address": "Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl",
+    "price": 25.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../sofa-ride.html",
+    "desc": "Sofa Ride in Alanya. Fast sofa-style inflatable water ride for 2–6 guests. 10–12 minutes of speed, splashes and adrenaline on the Mediterranean Sea. Minimum 2 people from €140.",
+    "icon": "water",
+    "image": ""
+  },
+  {
+    "id": "sup-boarding",
+    "title": "Stand Up Paddleboarding",
+    "categories": [
+      "water"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.0338,
+      36.519
+    ],
+    "locationPrecision": "sea-zone",
+    "address": "Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl",
+    "price": 35.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../sup-boarding.html",
+    "desc": "Stand Up Paddleboarding in Alanya. Premium sunrise SUP experience with Red Tower views, calm Mediterranean water, professional instruction and equipment. From €35 per person.",
+    "icon": "water",
+    "image": ""
+  },
+  {
+    "id": "scuba-diving",
+    "title": "Scuba Diving Experience",
+    "categories": [
+      "water"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.0085,
+      36.5325
+    ],
+    "locationPrecision": "start-zone",
+    "address": "Alanya Harbour entrance — sea departure zone",
+    "price": 35.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../scuba-diving.html",
+    "desc": "Scuba Diving in Alanya. Guided Mediterranean diving experience with a planned three-dive depth program, professional instruction, equipment and yacht program. Actual dive count, depth and route depend on instructor appro",
+    "icon": "water",
+    "image": ""
+  },
+  {
+    "id": "pirate-yacht",
+    "title": "Pirate Yacht Tour",
+    "categories": [
+      "sea"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.004,
+      36.535
+    ],
+    "locationPrecision": "start-zone",
+    "address": "Alanya Harbour departure zone",
+    "price": 25.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../pirate-yacht.html",
+    "desc": "Explore Pirate Yacht Tour in Alanya with Alanya Tour Organizations.",
+    "icon": "sea",
+    "image": ""
+  },
+  {
+    "id": "relax-boat-tour",
+    "title": "Relax Boat Tour",
+    "categories": [
+      "sea"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.0,
+      36.535
+    ],
+    "locationPrecision": "start-zone",
+    "address": "Alanya Harbour departure zone",
+    "price": 25.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../relax-boat-tour.html",
+    "desc": "Explore Relax Boat Tour in Alanya with Alanya Tour Organizations.",
+    "icon": "sea",
+    "image": ""
+  },
+  {
+    "id": "catamaran",
+    "title": "Catamaran Tour",
+    "categories": [
+      "sea"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.002,
+      36.5345
+    ],
+    "locationPrecision": "start-zone",
+    "address": "Alanya Harbour departure zone",
+    "price": 25.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../catamaran.html",
+    "desc": "Catamaran Tour — open the original tour page for current details.",
+    "icon": "sea",
+    "image": ""
+  },
+  {
+    "id": "private-fishing-tour",
+    "title": "Private Fishing Tour in Alanya",
+    "categories": [
+      "sea"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.008,
+      36.535
+    ],
+    "locationPrecision": "start-zone",
+    "address": "Alanya Harbour departure zone",
+    "price": 100.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": true,
+    "page": "../private-fishing-tour.html",
+    "desc": "Explore Private Fishing Tour in Alanya with Alanya Tour Organizations.",
+    "icon": "sea",
+    "image": ""
+  },
+  {
+    "id": "fishing-tour",
+    "title": "Group Fishing Tour",
+    "categories": [
+      "sea"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.006,
+      36.535
+    ],
+    "locationPrecision": "start-zone",
+    "address": "Alanya Harbour departure zone",
+    "price": 45.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../fishing-tour.html",
+    "desc": "Explore Group Fishing Tour in Alanya with Alanya Tour Organizations.",
+    "icon": "sea",
+    "image": ""
+  },
+  {
+    "id": "adrasan-suluada-porto-genovese",
+    "title": "Adrasan – Suluada – Porto Genovese Bay",
+    "categories": [
+      "sea"
+    ],
+    "mode": "sea",
+    "coords": [
+      30.479,
+      36.3
+    ],
+    "locationPrecision": "zone",
+    "address": "Adrasan / Suluada sea route zone",
+    "price": 40.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../adrasan-suluada-porto-genovese.html",
+    "desc": "Explore Adrasan, Suluada & Porto Genovese Bay Tour with Alanya Tour Organizations.",
+    "icon": "sea",
+    "image": ""
+  },
+  {
+    "id": "gazipasa-bays",
+    "title": "Gazipaşa Bays",
+    "categories": [
+      "sea"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.3775,
+      36.225
+    ],
+    "locationPrecision": "route-zone",
+    "address": "Gazipaşa coastal bays route",
+    "price": 65.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../gazipasa-bays.html",
+    "desc": "Explore Gazipasa Bays in Alanya with Alanya Tour Organizations.",
+    "icon": "sea",
+    "image": ""
+  },
+  {
+    "id": "luxury-yacht-cruise",
+    "title": "Luxury Yacht Cruise",
+    "categories": [
+      "sea"
+    ],
+    "mode": "sea",
+    "coords": [
+      32.005,
+      36.535
+    ],
+    "locationPrecision": "start-zone",
+    "address": "Alanya Harbour yacht departure zone",
+    "price": 250.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": true,
+    "page": "../luxury-yacht-cruise.html",
+    "desc": "Explore Luxury Yacht Cruise in Alanya with Alanya Tour Organizations.",
+    "icon": "sea",
+    "image": ""
+  },
+  {
+    "id": "paragliding",
+    "title": "Paragliding",
+    "categories": [
+      "air"
+    ],
+    "mode": "air",
+    "coords": [
+      31.970806,
+      36.576364
+    ],
+    "locationPrecision": "published-takeoff",
+    "address": "Yassı Tepe / Alanya published take-off zone; landing direction toward Cleopatra Beach",
+    "price": 75.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../paragliding.html",
+    "desc": "Tandem paragliding in Alanya above Cleopatra Beach, Alanya Castle, the Mediterranean Sea and Taurus Mountains. Daily flights every 2 hours from 10:00 to 17:00. Price €75. Transfer, professional pilot, equipment, briefing",
+    "icon": "air",
+    "image": ""
+  },
+  {
+    "id": "helicopter-flight",
+    "title": "Helicopter Flight",
+    "categories": [
+      "air"
+    ],
+    "mode": "air",
+    "coords": [
+      31.938977,
+      36.559274
+    ],
+    "locationPrecision": "address",
+    "address": "FlyMe Air — Dinek Mah., Emirgan Blv No:35, 07400 Alanya / Antalya",
+    "price": 250.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../helicopter-flight.html",
+    "desc": "Premium helicopter flight from the FlyMe Air heliport in Dinek, Alanya.",
+    "icon": "air",
+    "image": ""
+  },
+  {
+    "id": "skydive-experience",
+    "title": "Tandem Skydive",
+    "categories": [
+      "air"
+    ],
+    "mode": "air",
+    "coords": [
+      31.42822,
+      36.77657
+    ],
+    "locationPrecision": "zone",
+    "address": "Sorgun / Manavgat, Antalya — activity zone",
+    "price": 500.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../skydive-experience.html",
+    "desc": "Tandem skydive experience in the Sorgun / Manavgat area with hotel transfer, professional briefing, certified instructor, equipment and Mediterranean views.",
+    "icon": "air",
+    "image": ""
+  },
+  {
+    "id": "rafting-koprulu-canyon",
+    "title": "Rafting in Köprülü Canyon",
+    "categories": [
+      "extreme"
+    ],
+    "mode": "local",
+    "coords": [
+      31.1809,
+      37.1919
+    ],
+    "locationPrecision": "start-zone",
+    "address": "Köprülü Canyon / Köprüçay rafting-base zone, Karabük–Beşkonak",
+    "price": 25.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../rafting-koprulu-canyon.html",
+    "desc": "Explore Rafting in Köprülü Canyon with Alanya Tour Organizations.",
+    "icon": "extreme",
+    "image": ""
+  },
+  {
+    "id": "jeep-safari",
+    "title": "Jeep Safari",
+    "categories": [
+      "extreme"
+    ],
+    "mode": "local",
+    "coords": [
+      31.9956,
+      36.6399
+    ],
+    "locationPrecision": "zone",
+    "address": "Jeep Safari zone deeper in the Taurus foothills",
+    "price": 25.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../jeep-safari.html",
+    "desc": "Explore Jeep Safari in Taurus Mountains with Alanya Tour Organizations.",
+    "icon": "extreme",
+    "image": ""
+  },
+  {
+    "id": "quad-safari",
+    "title": "Quad Safari",
+    "categories": [
+      "extreme"
+    ],
+    "mode": "local",
+    "coords": [
+      32.055,
+      36.635
+    ],
+    "locationPrecision": "zone",
+    "address": "Separate rough-terrain Quad Safari zone in Alanya mountains",
+    "price": 30.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../quad-safari.html",
+    "desc": "Explore Quad Safari Master with Alanya Tour Organizations.",
+    "icon": "extreme",
+    "image": ""
+  },
+  {
+    "id": "family-jeep-safari",
+    "title": "Family Jeep Safari",
+    "categories": [
+      "extreme"
+    ],
+    "mode": "local",
+    "coords": [
+      32.015,
+      36.631
+    ],
+    "locationPrecision": "zone",
+    "address": "Family Jeep Safari zone in the Taurus foothills",
+    "price": 25.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": true,
+    "privateTour": false,
+    "page": "../family-jeep-safari.html",
+    "desc": "Explore Family Jeep Safari with Alanya Tour Organizations.",
+    "icon": "extreme",
+    "image": ""
+  },
+  {
+    "id": "family-buggy-safari",
+    "title": "Family Buggy Safari",
+    "categories": [
+      "extreme"
+    ],
+    "mode": "local",
+    "coords": [
+      32.082,
+      36.62
+    ],
+    "locationPrecision": "zone",
+    "address": "Separate mountain / forest buggy zone in Alanya",
+    "price": 35.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": true,
+    "privateTour": false,
+    "page": "../family-buggy-safari.html",
+    "desc": "Explore Family Buggy Safari with Alanya Tour Organizations.",
+    "icon": "extreme",
+    "image": ""
+  },
+  {
+    "id": "green-canyon",
+    "title": "Green Canyon",
+    "categories": [
+      "nature"
+    ],
+    "mode": "local",
+    "coords": [
+      31.5307,
+      36.9079
+    ],
+    "locationPrecision": "exact",
+    "address": "Green Canyon / Oymapınar, Manavgat — 36.9079, 31.5307",
+    "price": 35.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../green-canyon.html",
+    "desc": "Explore Green Canyon in Alanya with Alanya Tour Organizations.",
+    "icon": "nature",
+    "image": ""
+  },
+  {
+    "id": "sapadere-canyon",
+    "title": "Sapadere Canyon",
+    "categories": [
+      "nature"
+    ],
+    "mode": "local",
+    "coords": [
+      32.3136,
+      36.5276
+    ],
+    "locationPrecision": "destination",
+    "address": "Sapadere Canyon",
+    "price": 35.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../sapadere-canyon.html",
+    "desc": "Explore Sapadere Canyon in Alanya with Alanya Tour Organizations.",
+    "icon": "nature",
+    "image": ""
+  },
+  {
+    "id": "pamukkale-salda",
+    "title": "Pamukkale & Salda Lake",
+    "categories": [
+      "nature"
+    ],
+    "mode": "local",
+    "coords": [
+      29.1208,
+      37.9236
+    ],
+    "locationPrecision": "destination",
+    "address": "Pamukkale / Salda route destination",
+    "price": 90.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../pamukkale-salda.html",
+    "desc": "Pamukkale and Salda Lake full-day tour from Alanya with hotel transfer, guide, insurance, breakfast, lunch, dinner and entrance tickets to Pamukkale, Hierapolis and the Archaeology Museum included.",
+    "icon": "nature",
+    "image": ""
+  },
+  {
+    "id": "horse-riding",
+    "title": "Horse Riding / Horse Farm",
+    "categories": [
+      "nature"
+    ],
+    "mode": "local",
+    "coords": [
+      32.15595,
+      36.4411
+    ],
+    "locationPrecision": "zone",
+    "address": "Seki / Demirtaş mountain area, between Alanya and Gazipaşa",
+    "price": 50.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../horse-riding.html",
+    "desc": "Horse riding in the Seki / Demirtaş mountain area between Alanya and Gazipaşa, with forest and mountain trails.",
+    "icon": "nature",
+    "image": ""
+  },
+  {
+    "id": "land-of-legends",
+    "title": "The Land of Legends",
+    "categories": [
+      "family"
+    ],
+    "mode": "local",
+    "coords": [
+      31.1056,
+      36.8767
+    ],
+    "locationPrecision": "destination",
+    "address": "The Land of Legends, Belek",
+    "price": 95.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": true,
+    "privateTour": false,
+    "page": "../land-of-legends.html",
+    "desc": "Explore The Land of Legends with Alanya Tour Organizations.",
+    "icon": "family",
+    "image": ""
+  },
+  {
+    "id": "sealanya-dolphinpark",
+    "title": "Sealanya Dolphin Show",
+    "categories": [
+      "family"
+    ],
+    "mode": "local",
+    "coords": [
+      31.8711,
+      36.5897
+    ],
+    "locationPrecision": "destination",
+    "address": "Sealanya Dolphinpark",
+    "price": 35.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": true,
+    "privateTour": false,
+    "page": "../sealanya-dolphinpark.html",
+    "desc": "Explore Sealanya Dolphinpark with Alanya Tour Organizations.",
+    "icon": "family",
+    "image": ""
+  },
+  {
+    "id": "eftalia-island-waterpark",
+    "title": "Eftalia Island Waterpark",
+    "categories": [
+      "family"
+    ],
+    "mode": "local",
+    "coords": [
+      31.8595,
+      36.5945
+    ],
+    "locationPrecision": "destination",
+    "address": "Eftalia Island Waterpark area",
+    "price": 45.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": true,
+    "privateTour": false,
+    "page": "../eftalia-island-waterpark.html",
+    "desc": "Explore Eftalia Island Waterpark with Alanya Tour Organizations.",
+    "icon": "family",
+    "image": ""
+  },
+  {
+    "id": "night-jeep-safari",
+    "title": "Night Jeep Safari",
+    "categories": [
+      "family"
+    ],
+    "mode": "local",
+    "coords": [
+      32.02,
+      36.645
+    ],
+    "locationPrecision": "zone",
+    "address": "Night Jeep Safari mountain zone",
+    "price": 35.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": true,
+    "privateTour": false,
+    "page": "../night-jeep-safari.html",
+    "desc": "Alanya Night Jeep Safari with open-top jeeps, panoramic viewpoints, sunset boat cruise, foam party, evening entertainment, Dim River dinner, transfer and insurance. From €35 per adult.",
+    "icon": "family",
+    "image": ""
+  },
+  {
+    "id": "cappadocia",
+    "title": "Cappadocia",
+    "categories": [
+      "history"
+    ],
+    "mode": "land",
+    "coords": [
+      34.8454,
+      38.6401
+    ],
+    "locationPrecision": "destination",
+    "address": "Cappadocia region",
+    "price": 100.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../cappadocia.html",
+    "desc": "Discover Cappadocia from Alanya on a 2-day or seasonal 3-day tour with contracted cave-hotel accommodation, meals, drinks at the hotel, museum tickets and guided sightseeing.",
+    "icon": "history",
+    "image": ""
+  },
+  {
+    "id": "demre-myra-kekova",
+    "title": "Demre – Myra – Kekova",
+    "categories": [
+      "history"
+    ],
+    "mode": "land",
+    "coords": [
+      29.9851,
+      36.2589
+    ],
+    "locationPrecision": "route-zone",
+    "address": "Demre / Myra / Kekova route zone",
+    "price": 100.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../demre-myra-kekova.html",
+    "desc": "Demre, Myra and Kekova tour from Alanya with Myra Ancient City, St. Nicholas Museum, lunch, Kekova boat trip, swimming stop, guide, transfer and entrance tickets included.",
+    "icon": "history",
+    "image": ""
+  },
+  {
+    "id": "istanbul-tour",
+    "title": "Istanbul Tour",
+    "categories": [
+      "history"
+    ],
+    "mode": "land",
+    "coords": [
+      28.9784,
+      41.0082
+    ],
+    "locationPrecision": "destination",
+    "address": "Istanbul",
+    "price": 290.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../istanbul-tour.html",
+    "desc": "Discover Istanbul from Alanya by plane on a full-day tour with round-trip flights, hotel and airport transfers, guide service, entrance tickets, meals and a shared Bosphorus cruise.",
+    "icon": "history",
+    "image": ""
+  },
+  {
+    "id": "syedra-ancient-city",
+    "title": "Syedra Ancient City",
+    "categories": [
+      "history"
+    ],
+    "mode": "land",
+    "coords": [
+      32.1517,
+      36.4397
+    ],
+    "locationPrecision": "destination",
+    "address": "Syedra Ancient City",
+    "price": 45.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../syedra-ancient-city.html",
+    "desc": "Visit Syedra Ancient City from Alanya with hotel transfer, guide service, lunch, entrance ticket and panoramic Mediterranean views. Approximate 9-hour cultural tour.",
+    "icon": "history",
+    "image": ""
+  },
+  {
+    "id": "anamur",
+    "title": "Anamur",
+    "categories": [
+      "history"
+    ],
+    "mode": "land",
+    "coords": [
+      32.8368,
+      36.0803
+    ],
+    "locationPrecision": "destination",
+    "address": "Anamur / Mamure Castle destination area",
+    "price": 75.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../anamur.html",
+    "desc": "Discover Mamure Castle and Anemurium Ancient City from Alanya with hotel transfer, guide service, lunch, seasonal swimming and a stop in Anamur's banana-growing landscape.",
+    "icon": "history",
+    "image": ""
+  },
+  {
+    "id": "aspendos",
+    "title": "Aspendos Ancient City & Roman Theatre",
+    "categories": [
+      "history"
+    ],
+    "mode": "land",
+    "coords": [
+      31.172,
+      36.9389
+    ],
+    "locationPrecision": "destination",
+    "address": "Aspendos Roman Theatre",
+    "price": 65.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../aspendos.html",
+    "desc": "Full-day Aspendos, Side and Kurşunlu Waterfall tour from Alanya with hotel transfer, guide service, lunch, insurance and entrance tickets included.",
+    "icon": "history",
+    "image": ""
+  },
+  {
+    "id": "alanya-city-tour",
+    "title": "Alanya City Tour",
+    "categories": [
+      "history"
+    ],
+    "mode": "land",
+    "coords": [
+      31.999,
+      36.544
+    ],
+    "locationPrecision": "route-zone",
+    "address": "Alanya Castle / city tour zone",
+    "price": 35.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../alanya-city-tour.html",
+    "desc": "Explore Alanya Panorama, Alanya Castle, Cleopatra Beach and the Damlataş area on a sunset city tour with hotel transfer, guide service, insurance and round-trip cable-car ticket included.",
+    "icon": "history",
+    "image": ""
+  },
+  {
+    "id": "manavgat-aspendos-side",
+    "title": "Manavgat – M.A.S. – Side",
+    "categories": [
+      "history"
+    ],
+    "mode": "land",
+    "coords": [
+      31.3864,
+      36.7643
+    ],
+    "locationPrecision": "route-zone",
+    "address": "Side / Manavgat / Aspendos route zone",
+    "price": 75.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../manavgat-aspendos-side.html",
+    "desc": "Full-day Aspendos, Side and Manavgat Waterfall tour from Alanya with hotel transfer, guide service, lunch, insurance and entrance tickets included.",
+    "icon": "history",
+    "image": ""
+  },
+  {
+    "id": "airport-vip-transfer",
+    "title": "Airport VIP Transfer",
+    "categories": [
+      "vip"
+    ],
+    "mode": "local",
+    "coords": [
+      32.300598,
+      36.299217
+    ],
+    "locationPrecision": "exact",
+    "address": "Gazipaşa-Alanya Airport (GZP), Gazipaşa / Antalya",
+    "price": 80,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": true,
+    "page": "../airport-vip-transfer.html",
+    "desc": "Private VIP airport transfer to/from Gazipaşa-Alanya Airport (GZP).",
+    "icon": "vip",
+    "image": ""
+  },
+  {
+    "id": "private-yacht-charter",
+    "title": "Luxury Yacht",
+    "categories": [
+      "vip"
+    ],
+    "mode": "local",
+    "coords": [
+      32.002,
+      36.535
+    ],
+    "locationPrecision": "start-zone",
+    "address": "Alanya Harbour yacht departure zone",
+    "price": null,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": true,
+    "page": "../private-yacht-charter.html",
+    "desc": "Private yacht charter in Alanya for proposals, birthdays, family celebrations, sunset experiences and custom coastal routes, subject to yacht availability and sea conditions.",
+    "icon": "vip",
+    "image": ""
+  },
+  {
+    "id": "personal-concierge",
+    "title": "Personal Concierge",
+    "categories": [
+      "vip"
+    ],
+    "mode": "local",
+    "coords": [
+      32.0,
+      36.533
+    ],
+    "locationPrecision": "service-area",
+    "address": "Alanya service area — no single fixed point",
+    "price": null,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": true,
+    "page": "../personal-concierge.html",
+    "desc": "Private chauffeur and personal concierge service in Alanya for custom routes, business appointments, shopping, family journeys and selected intercity travel.",
+    "icon": "vip",
+    "image": ""
+  },
+  {
+    "id": "helicopter-experience",
+    "title": "Helicopter Experience",
+    "categories": [
+      "vip"
+    ],
+    "mode": "local",
+    "coords": [
+      31.938977,
+      36.559274
+    ],
+    "locationPrecision": "address",
+    "address": "FlyMe Air — Dinek Mah., Emirgan Blv No:35, 07400 Alanya / Antalya",
+    "price": null,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": true,
+    "page": "../helicopter-experience.html",
+    "desc": "Luxury private helicopter experiences from the FlyMe Air heliport in Dinek, Alanya. Price on request.",
+    "icon": "vip",
+    "image": ""
+  },
+  {
+    "id": "private-photographer",
+    "title": "Private Photographer",
+    "categories": [
+      "vip"
+    ],
+    "mode": "local",
+    "coords": [
+      32.0,
+      36.533
+    ],
+    "locationPrecision": "service-area",
+    "address": "Alanya photo-service area; location chosen per session",
+    "price": 100,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": true,
+    "page": "../private-photographer.html",
+    "desc": "Private Photographer in Alanya. Professional private photo session within Alanya for couples, families, weddings, maternity and lifestyle photography. 1 hour session, every day, from €100.",
+    "icon": "vip",
+    "image": ""
+  },
+  {
+    "id": "turkish-hammam",
+    "title": "Turkish Hammam",
+    "categories": [
+      "wellness"
+    ],
+    "mode": "local",
+    "coords": [
+      32.0125,
+      36.5593
+    ],
+    "locationPrecision": "exact",
+    "address": "Çıplaklı Mah., 3002. Sok., Mevlüt Çavuşoğlu Blv. No:4 — Another World Sitesi",
+    "price": 35.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../turkish-hammam.html",
+    "desc": "Traditional Turkish hammam and wellness program at the verified Çıplaklı location near Another World Sitesi.",
+    "icon": "wellness",
+    "image": ""
+  },
+  {
+    "id": "turkish-massage-spa",
+    "title": "Turkish Massage & Spa",
+    "categories": [
+      "wellness"
+    ],
+    "mode": "local",
+    "coords": [
+      32.0125,
+      36.5593
+    ],
+    "locationPrecision": "exact",
+    "address": "Çıplaklı Mah., 3002. Sok., Mevlüt Çavuşoğlu Blv. No:4 — Another World Sitesi",
+    "price": 45.0,
+    "duration": "See tour page",
+    "transfer": true,
+    "family": false,
+    "privateTour": false,
+    "page": "../turkish-massage-spa.html",
+    "desc": "Massage and spa wellness program at the verified Çıplaklı location near Another World Sitesi.",
+    "icon": "wellness",
+    "image": ""
+  }
+]
