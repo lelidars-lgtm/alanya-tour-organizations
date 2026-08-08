@@ -1,2790 +1,825 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Interactive travel map of tours and routes by ALANYA TOUR ORGANIZATIONS." name="description"/>
-<title>Interactive Map — ALANYA TOUR ORGANIZATIONS</title>
-<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
-<link crossorigin="" href="https://tiles.openfreemap.org" rel="preconnect"/>
-<link href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet"/>
-<link href="styles.css" rel="stylesheet"/><style>
-    :root{
-      --navy:#03111e;--navy2:#071c2e;--panel:rgba(3,17,30,.94);--panel2:rgba(7,28,46,.92);
-      --gold:#d7a83e;--gold2:#f1ca68;--text:#f7f3e8;--muted:#a9b6c2;--line:rgba(214,168,62,.24);
-      --sea:#2da9ef;--nature:#83b94b;--history:#c19a52;--water:#2ec4b6;--air:#74b9ff;--family:#ef982e;--wellness:#b68ad9;--vip:#e5bd55;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;min-height:100%;margin:0;background:var(--navy);color:var(--text);font-family:Inter,Arial,sans-serif;overflow:hidden}
-    body{min-height:100dvh}
-    button,a{font:inherit}
-    .site-header{height:86px;display:flex;align-items:center;gap:34px;padding:0 26px;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#020c16,#03111e);position:relative;z-index:30}
-    .brand{display:flex;align-items:center;min-width:315px;color:var(--text);text-decoration:none}
-    .logo-img{width:62px;height:62px;object-fit:contain;margin-right:13px}.compass{display:none}
-    .brand-main{font-family:Georgia,serif;font-size:34px;letter-spacing:1px;line-height:.9}.brand-sub{color:var(--gold2);font-size:12px;letter-spacing:2px;margin-top:8px}
-    .top-nav{display:flex;align-items:center;justify-content:center;gap:38px;flex:1}.top-nav a{color:#fff;text-decoration:none;font-size:13px;letter-spacing:.4px}.top-nav a.active{color:var(--gold2);border-bottom:2px solid var(--gold);padding:34px 0 20px}
-    .header-actions{display:flex;align-items:center;gap:14px}.lang,.wa{height:48px;border:1px solid rgba(214,168,62,.55);border-radius:10px;background:rgba(0,0,0,.18);color:#fff;padding:0 17px}.wa{display:flex;align-items:center;color:var(--gold2);text-decoration:none;font-weight:700;white-space:nowrap}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    .app{height:calc(100vh - 86px);display:grid;grid-template-columns:336px 1fr;position:relative}
-    .sidebar{background:linear-gradient(180deg,rgba(3,17,30,.99),rgba(2,13,23,.98));border-right:1px solid rgba(255,255,255,.08);padding:26px 22px 22px;overflow:auto;z-index:15}
-    .sidebar h1{font:32px/1 Georgia,serif;margin:4px 0 10px}.subtitle{margin:0 0 24px;color:#c3ccd4;font-size:15px}
-    .section-label{color:var(--gold2);font-size:13px;font-weight:800;letter-spacing:.6px;border-top:1px solid rgba(255,255,255,.08);padding-top:18px;margin:18px 0 12px}
-    .category-list{display:grid;gap:7px}.cat-btn{width:100%;display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:9px;border:0;border-radius:8px;padding:12px 13px;background:transparent;color:#fff;text-align:left;cursor:pointer}.cat-btn:hover{background:rgba(255,255,255,.05)}.cat-btn.active{background:linear-gradient(90deg,rgba(183,130,28,.88),rgba(121,84,18,.72));box-shadow:inset 0 0 0 1px rgba(243,202,104,.25)}
-    .cat-icon{display:grid;place-items:center}.cat-icon svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.count{font-size:12px;background:rgba(0,0,0,.22);border-radius:99px;padding:4px 8px;color:#dce3e8}
-    .filter-row{display:flex;justify-content:space-between;align-items:center;padding:11px 2px;border-bottom:1px solid rgba(255,255,255,.08);font-size:13px}.filter-row select{background:transparent;color:#fff;border:0;text-align:right}.filter-row option{color:#111}.toggle{width:40px;height:21px;border-radius:99px;border:0;background:#263949;position:relative;cursor:pointer}.toggle::after{content:"";position:absolute;width:15px;height:15px;border-radius:50%;background:#e8edf1;top:3px;left:4px;transition:.2s}.toggle.on{background:var(--gold)}.toggle.on::after{left:21px}
+  <title>ALANYA TOUR ORGANIZATIONS — Экскурсии в Алании</title>
 
-    .map-search-wrap{margin:15px 0 4px}.map-tour-search{width:100%;height:44px;border:1px solid rgba(241,202,104,.25);border-radius:10px;background:rgba(255,255,255,.045);color:#fff;padding:0 13px;outline:none}.map-tour-search::placeholder{color:#8fa0ad}.map-tour-search:focus{border-color:rgba(241,202,104,.75);box-shadow:0 0 0 3px rgba(215,168,62,.12)}
-    .clear{width:100%;margin-top:17px;height:47px;border:1px solid rgba(255,255,255,.15);border-radius:9px;background:transparent;color:#fff;cursor:pointer}
+  <meta 
+    name="description" 
+    content="Экскурсии в Алании: морские прогулки, сафари, каньоны, водные развлечения, полёты, хамам, VIP-сервис и индивидуальные туры. Бронирование через WhatsApp." 
+  />
 
-    .map-shell{position:relative;min-width:0;isolation:isolate;background:#071725}.map{position:absolute;inset:0;z-index:1}
-    .map-shell canvas{filter:saturate(1.14) contrast(1.02) brightness(.96) hue-rotate(-5deg)}
-    .map-tone{position:absolute;inset:0;z-index:2;pointer-events:none;background:
-      linear-gradient(180deg,rgba(4,17,34,.22) 0%,rgba(6,24,38,.10) 28%,rgba(5,21,35,.12) 58%,rgba(3,15,29,.24) 100%),
-      radial-gradient(circle at 82% 62%,rgba(18,92,138,.26) 0%,transparent 40%),
-      radial-gradient(circle at 18% 28%,rgba(26,89,62,.24) 0%,transparent 36%),
-      radial-gradient(circle at 46% 62%,rgba(44,104,68,.16) 0%,transparent 32%);
-      mix-blend-mode:soft-light;opacity:.95}
-    .map-vignette{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(180deg,rgba(4,12,24,.10),transparent 22%,transparent 72%,rgba(3,12,24,.18));box-shadow:inset 0 0 85px 10px rgba(2,11,22,.34)}
-    .top-categories{position:absolute;z-index:10;top:18px;left:18px;right:18px;display:flex;gap:7px;padding:7px;background:rgba(3,17,30,.88);border:1px solid rgba(255,255,255,.10);border-radius:13px;overflow-x:auto;backdrop-filter:blur(14px);scrollbar-width:none}.top-categories::-webkit-scrollbar{display:none}
-    .top-category-btn{height:46px;min-width:max-content;display:flex;align-items:center;gap:8px;padding:0 15px;border:1px solid transparent;border-radius:9px;background:transparent;color:#e8edf1;white-space:nowrap;cursor:pointer;transition:.25s}.top-category-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.top-category-btn:hover{background:rgba(255,255,255,.06)}.top-category-btn.active{background:linear-gradient(90deg,rgba(164,116,25,.72),rgba(83,58,12,.72));color:var(--gold2);border-color:rgba(242,201,103,.5);box-shadow:inset 0 0 0 1px rgba(242,201,103,.15)}
-    .status{position:absolute;right:18px;top:84px;z-index:10;padding:10px 14px;border-radius:9px;background:rgba(3,17,30,.88);border:1px solid rgba(255,255,255,.08);font-size:12px;color:#c9d4dd}
-    .geo-offer{position:absolute;z-index:12;right:18px;bottom:54px;width:min(360px,calc(100% - 36px));padding:16px;border:1px solid rgba(241,202,104,.35);border-radius:14px;background:rgba(3,17,30,.94);box-shadow:0 20px 55px rgba(0,0,0,.45);backdrop-filter:blur(14px);opacity:0;transform:translateY(12px);pointer-events:none;transition:.35s}.geo-offer.visible{opacity:1;transform:translateY(0);pointer-events:auto}.geo-offer h3{margin:0 0 7px;font:21px Georgia,serif;color:#fff}.geo-offer p{margin:0 0 13px;color:#b8c5cf;font-size:13px;line-height:1.45}.geo-actions{display:flex;gap:8px}.geo-actions button{flex:1;height:40px;border-radius:8px;cursor:pointer}.geo-yes{border:0;background:linear-gradient(90deg,#d39b28,#e8c45d);color:#06111b;font-weight:800}.geo-no{border:1px solid rgba(255,255,255,.16);background:transparent;color:#fff}
-    .nearby-panel{position:absolute;z-index:12;right:18px;bottom:54px;width:min(390px,calc(100% - 36px));max-height:56%;display:none;flex-direction:column;border:1px solid rgba(241,202,104,.35);border-radius:14px;background:rgba(3,17,30,.95);box-shadow:0 20px 55px rgba(0,0,0,.48);backdrop-filter:blur(14px);overflow:hidden}.nearby-panel.visible{display:flex}.nearby-head{padding:15px;border-bottom:1px solid rgba(255,255,255,.09)}.nearby-head h3{margin:0 0 4px;font:21px Georgia,serif}.nearby-head p{margin:0;color:#aebbc5;font-size:12px}.radius-row{display:flex;gap:6px;margin-top:11px;overflow-x:auto}.radius-btn{border:1px solid rgba(255,255,255,.14);border-radius:99px;background:#0b263b;color:#fff;padding:7px 10px;white-space:nowrap;cursor:pointer}.radius-btn.active{background:var(--gold);color:#07111b}.nearby-list{overflow:auto;padding:8px}.nearby-item{width:100%;display:grid;grid-template-columns:1fr auto;gap:10px;padding:11px;border:0;border-bottom:1px solid rgba(255,255,255,.08);background:transparent;color:#fff;text-align:left;cursor:pointer}.nearby-item:hover{background:rgba(255,255,255,.05)}.nearby-name{font-weight:800}.nearby-meta{margin-top:4px;color:#aebbc5;font-size:12px}.nearby-distance{color:var(--gold2);font-weight:800;white-space:nowrap}.nearby-close{position:absolute;right:10px;top:10px;width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.22);color:#fff;cursor:pointer}.user-marker{width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid #2da9ef;box-shadow:0 0 0 8px rgba(45,169,239,.2),0 0 22px rgba(45,169,239,.75)}
+  <link rel="stylesheet" href="styles.css" />
 
-    .tour-marker{width:42px;height:42px;border-radius:50% 50% 50% 10%;transform:rotate(-45deg);display:grid;place-items:center;border:2px solid rgba(255,255,255,.8);box-shadow:0 8px 22px rgba(0,0,0,.42);cursor:pointer}.tour-marker span{transform:rotate(45deg);display:grid;place-items:center}.tour-marker svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.tour-marker.sea{background:var(--sea)}.tour-marker.nature{background:var(--nature)}.tour-marker.history{background:var(--history)}.tour-marker.water{background:var(--water)}.tour-marker.air{background:var(--air)}.tour-marker.family{background:var(--family)}.tour-marker.wellness{background:var(--wellness)}.tour-marker.vip{background:var(--vip)}
-    .maplibregl-popup{max-width:320px!important}.maplibregl-popup-content{padding:0;background:#061727;color:#fff;border-radius:12px;overflow:hidden;border:1px solid rgba(214,168,62,.35);box-shadow:0 22px 60px rgba(0,0,0,.55)}.maplibregl-popup-close-button{color:#fff;background:rgba(0,0,0,.65);border-radius:50%;width:28px;height:28px;right:8px;top:8px;font-size:20px;z-index:2}.maplibregl-popup-tip{border-top-color:#061727!important}
-    .popup-cover{height:132px;background:linear-gradient(135deg,#184a63,#297d8d 45%,#8db76f);display:flex;align-items:flex-end;padding:14px;font-weight:800;letter-spacing:.5px}.popup-body{padding:16px}.popup-title{font:23px Georgia,serif;margin:0 0 7px}.popup-desc{color:#becad3;font-size:13px;line-height:1.55;margin:0 0 11px}.popup-meta{display:flex;gap:14px;color:#d8e0e6;font-size:12px;margin:8px 0}.popup-price{font-size:13px;color:#c8d0d6;margin:13px 0}.popup-price strong{font-size:28px;color:var(--gold2);display:block}.popup-actions{display:grid;gap:8px}.popup-actions a{text-align:center;text-decoration:none;border-radius:8px;padding:11px;font-weight:800;font-size:12px}.view{background:linear-gradient(90deg,#d39b28,#e8c45d);color:#07101b}.book{border:1px solid var(--gold);color:var(--gold2)}
-    .maplibregl-ctrl-group{background:#061727;border:1px solid rgba(255,255,255,.12)}.maplibregl-ctrl-group button+button{border-top-color:rgba(255,255,255,.12)}.maplibregl-ctrl button .maplibregl-ctrl-icon{filter:invert(1)}.maplibregl-ctrl-attrib{font-size:10px!important;background:rgba(255,255,255,.8)!important}
-
-
-    .route-label{position:relative;z-index:8;padding:7px 11px;border:1px solid rgba(241,202,104,.5);border-radius:999px;background:rgba(3,17,30,.82);color:#f6dc91;font:700 11px/1 Georgia,serif;letter-spacing:1.2px;white-space:nowrap;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.35);backdrop-filter:blur(8px);opacity:0;transform:translateY(8px);transition:opacity .7s ease,transform .7s ease,background .25s ease,border-color .25s ease}
-    .route-label.visible{opacity:1;transform:translateY(0)}
-    .route-label:hover,.route-label.active{background:rgba(120,84,18,.92);border-color:#f1ca68;color:#fff}
-    .tour-marker{opacity:0;transition:opacity .7s ease,filter .25s ease,transform .25s ease}.tour-marker.visible{opacity:1}.tour-marker.dimmed{filter:grayscale(.55) brightness(.55)}.tour-marker.active{filter:drop-shadow(0 0 12px rgba(241,202,104,.95))}
-    .intro-badge{position:absolute;left:50%;top:86px;transform:translateX(-50%);z-index:11;padding:9px 14px;border-radius:999px;background:rgba(3,17,30,.78);border:1px solid rgba(241,202,104,.3);color:#f1ca68;font-size:11px;letter-spacing:1px;backdrop-filter:blur(10px);opacity:1;transition:opacity .5s ease}.intro-badge.hidden{opacity:0;pointer-events:none}
-    .brand-slogan{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:9;color:#fff;font:700 12px/1.2 Georgia,serif;letter-spacing:2.4px;text-shadow:0 2px 12px rgba(0,0,0,.85);white-space:nowrap;pointer-events:none}.shared-filter-note{font-size:11px;line-height:1.5;color:#92a3b0;margin-top:10px}.mobile-categories{display:none}
-    @media(max-width:1100px){.top-nav{display:none}.brand{min-width:0;flex:1}.app{grid-template-columns:285px 1fr}.mode-btn{min-width:135px}.header-actions .lang{display:none}}
-    @media(max-width:760px){html,body{height:100%;min-height:100%;overflow:hidden}.site-header{height:70px;padding:0 13px}.logo-img{width:44px;height:44px}.brand-main{font-size:22px}.brand-sub{font-size:9px}.wa{height:42px;padding:0 11px;font-size:0}.wa::after{content:"WhatsApp";font-size:12px}.app{height:calc(100dvh - 70px);min-height:420px;display:block}.sidebar{display:none}.map-shell{height:100%;min-height:420px}.top-categories{top:8px;left:8px;right:8px;padding:5px}.top-category-btn{height:42px;padding:0 12px;font-size:11px}.status{display:none}.mobile-categories{display:none!important}.geo-offer,.nearby-panel{right:10px;bottom:48px;width:calc(100% - 20px);max-height:58%}.brand-slogan{bottom:14px;font-size:9px;letter-spacing:1.3px}.maplibregl-popup{max-width:min(280px,calc(100vw - 24px))!important}.maplibregl-popup-content{max-height:60dvh;overflow:auto}}
-  
-    /* === V16 premium category typography and compact controls === */
-    .top-category-btn{color:#fff;border-color:rgba(214,168,62,.08)}
-    .top-category-btn svg{stroke:url(#goldGradientFallback);stroke:#e8bd58;filter:drop-shadow(0 0 5px rgba(241,202,104,.28))}
-    .top-category-btn .cat-first{font-weight:900;background:linear-gradient(110deg,#8b5a0a 0%,#f7dc85 28%,#c98c20 52%,#fff0a9 72%,#9e680e 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:goldShimmer 5s linear infinite}
-    .top-category-btn .cat-rest{color:#fff;font-weight:650}
-    @keyframes goldShimmer{0%{background-position:0% 50%}100%{background-position:220% 50%}}
-    .top-category-btn.active .cat-rest{color:#fff}.top-category-btn.active svg{stroke:#fff1a8}
-    .sidebar{padding-top:22px}.sidebar .subtitle{margin-bottom:8px}
-    .maplibregl-ctrl-bottom-right{right:10px!important;bottom:10px!important}
-    .maplibregl-ctrl-group{border-radius:10px!important;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.42)!important;border:1px solid rgba(214,168,62,.42)!important}
-    .maplibregl-ctrl-group button{width:34px!important;height:34px!important;background:#061727!important}
-    .maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{filter:brightness(0) invert(1) drop-shadow(0 0 4px rgba(255,255,255,.7))!important;opacity:1!important}
-    .maplibregl-ctrl-compass .maplibregl-ctrl-icon{filter:sepia(1) saturate(5) hue-rotate(350deg) brightness(1.4) drop-shadow(0 0 4px rgba(241,202,104,.7))!important}
-    .maplibregl-ctrl-geolocate .maplibregl-ctrl-icon{filter:brightness(0) invert(1) drop-shadow(0 0 4px rgba(255,255,255,.75))!important}
-    .maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active .maplibregl-ctrl-icon{filter:sepia(1) saturate(5) hue-rotate(350deg) brightness(1.5) drop-shadow(0 0 6px rgba(241,202,104,.9))!important}
-    .destination-label{pointer-events:none;white-space:nowrap;color:#fff;font-family:Georgia,serif;font-weight:800;letter-spacing:1.6px;text-shadow:0 2px 5px #000,0 0 12px rgba(0,0,0,.95);opacity:.93}
-    .destination-label.major{font-size:25px}.destination-label.medium{font-size:18px}.destination-label.minor{font-size:14px;color:#f6dc91}
-    .maplibregl-popup{z-index:50;pointer-events:auto}.maplibregl-popup-content{min-width:310px}
-    @media(max-width:760px){.destination-label.major{font-size:18px}.destination-label.medium{font-size:14px}.destination-label.minor{font-size:12px}.maplibregl-ctrl-group button{width:32px!important;height:32px!important}}
-</style>
 <style>
-/* === INTERACTIVE MAP PAGE INTEGRATION ===
-   Header, promo bar and footer are copied from the approved site page.
-   Their primary design comes from the shared /styles.css file. */
-html, body.interactive-map-page {
-  width: 100%;
-  min-height: 100%;
-}
-body.interactive-map-page {
-  display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr);
-  overflow: hidden;
-  background: #03111e;
-}
-body.interactive-map-page > .header,
-body.interactive-map-page > .promo-bar {
-  position: relative;
-  z-index: 50;
-  flex-shrink: 0;
-}
-body.interactive-map-page .app {
-  height: auto !important;
-  min-height: 0;
-  overflow: hidden;
-}
-body.interactive-map-page .map-shell,
-body.interactive-map-page .sidebar {
-  min-height: 0;
-}
-body.interactive-map-page .footer-strip {
-  margin: 0;
+/* VIP SERVICE — Google AI style: gold + rainbow border running strictly around the perimeter */
+.vip-service-premium-link{
+  display:block;
+  color:inherit;
+  text-decoration:none;
 }
 
-/* Fallback dimensions; shared styles.css remains the source of truth. */
-body.interactive-map-page .header {
-  min-height: 76px;
-}
-body.interactive-map-page .promo-bar {
-  min-height: 34px;
-}
-
-@media (max-width: 760px) {
-  body.interactive-map-page {
-    grid-template-rows: auto auto minmax(0, 1fr);
-  }
-  body.interactive-map-page .app {
-    height: auto !important;
-    min-height: 0 !important;
-  }
-  body.interactive-map-page .map-shell {
-    height: 100% !important;
-    min-height: 0 !important;
-  }
-  body.interactive-map-page .footer-strip {
-    font-size: 10px;
-    line-height: 1.3;
-  }
-}
-</style><style>
-/* === FINAL MAP / SHARED SITE INTEGRATION === */
-body.interactive-map-page .map-nav-active {
-  color: #c99a3d;
-}
-body.interactive-map-page .header {
-  flex: 0 0 auto;
-}
-body.interactive-map-page .promo-bar {
-  flex: 0 0 auto;
-}
-body.interactive-map-page .footer-strip {
-  flex: 0 0 auto;
-  padding: 12px 20px;
-}
-body.interactive-map-page .footer-strip p {
-  font-size: 12px;
-}
-body.interactive-map-page .app {
-  width: 100%;
-  min-height: 0;
-}
-@media (max-width: 980px) {
-  body.interactive-map-page .footer-strip {
-    padding: 9px 12px;
-  }
-  body.interactive-map-page .footer-strip p {
-    font-size: 9px;
-    letter-spacing: .55px;
-  }
-}
-</style>
-
-<style id="v18-premium-polish">
-body.interactive-map-page{grid-template-rows:auto auto minmax(0,1fr)!important}
-body.interactive-map-page .app{height:auto!important}
-body.interactive-map-page .sidebar{padding-bottom:28px}
-.sidebar-nearby{margin-top:18px;color:#9fb0bc;font-size:12px;line-height:1.45}
-.sidebar-nearby p{margin:0}
-.top-categories{border-color:rgba(215,168,62,.38);box-shadow:0 14px 42px rgba(0,0,0,.38),inset 0 0 0 1px rgba(255,233,167,.04)}
-.top-category-btn{font-size:14px;letter-spacing:.15px}
-.top-category-btn svg{stroke:url(#goldGradient)!important;color:#efc45c;filter:drop-shadow(0 0 4px rgba(232,184,68,.32))}
-.top-category-btn .cat-first{font-weight:900;letter-spacing:.35px;background:linear-gradient(100deg,#8e5b08 0%,#f8df8e 22%,#c88b1f 43%,#fff0b2 62%,#b3730d 80%,#f5d378 100%);background-size:230% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:goldShimmer 4.8s linear infinite}
-.top-category-btn .cat-rest{font-weight:650;color:#fff}
-.top-category-btn:hover{border-color:rgba(236,190,76,.35);transform:translateY(-1px)}
-.top-category-btn.active{background:linear-gradient(110deg,rgba(118,76,8,.82),rgba(45,31,7,.88));border-color:rgba(248,211,117,.72);box-shadow:0 0 18px rgba(210,155,37,.18),inset 0 0 0 1px rgba(255,244,191,.10)}
-.map-mode-switch{position:absolute;right:18px;top:82px;z-index:11;display:flex;padding:4px;border:1px solid rgba(215,168,62,.35);border-radius:10px;background:rgba(3,17,30,.90);backdrop-filter:blur(12px)}
-.map-mode-switch button{height:30px;padding:0 10px;border:0;border-radius:7px;background:transparent;color:#c9d4dc;font-size:10px;font-weight:800;letter-spacing:.7px;cursor:pointer}
-.map-mode-switch button.active{background:linear-gradient(100deg,#9b6815,#e2b84f);color:#06111b}
-.destination-label{font-family:Georgia,'Times New Roman',serif!important;color:#f7f3e8!important;font-weight:700!important;letter-spacing:1.25px!important;text-shadow:0 2px 5px #000,0 0 14px rgba(0,0,0,.92)!important}
-.destination-label.major{font-size:27px!important}.destination-label.medium{font-size:19px!important}.destination-label.minor{font-size:14px!important;color:#f1ca68!important}
-.maplibregl-ctrl-bottom-right{right:14px!important;bottom:14px!important}
-.maplibregl-ctrl-group{border:1px solid rgba(215,168,62,.42)!important;border-radius:10px!important;overflow:hidden!important;background:rgba(3,17,30,.92)!important;box-shadow:0 12px 30px rgba(0,0,0,.42)!important}
-.maplibregl-ctrl-group button{width:34px!important;height:34px!important;background-color:transparent!important}
-.maplibregl-ctrl-zoom-in .maplibregl-ctrl-icon,.maplibregl-ctrl-zoom-out .maplibregl-ctrl-icon{filter:brightness(0) invert(1) drop-shadow(0 0 5px rgba(255,255,255,.9))!important;opacity:1!important}
-.maplibregl-ctrl-compass .maplibregl-ctrl-icon{filter:sepia(1) saturate(5) hue-rotate(350deg) brightness(1.25) drop-shadow(0 0 5px rgba(241,202,104,.55))!important}
-.maplibregl-ctrl-geolocate .maplibregl-ctrl-icon{filter:brightness(0) invert(1) drop-shadow(0 0 5px rgba(255,255,255,.8))!important}
-.maplibregl-ctrl-geolocate.maplibregl-ctrl-geolocate-active .maplibregl-ctrl-icon{filter:sepia(1) saturate(5) hue-rotate(350deg) brightness(1.35) drop-shadow(0 0 7px rgba(241,202,104,.8))!important}
-.brand-slogan{display:none!important}
-@media(max-width:980px){.map-mode-switch{top:76px}.top-category-btn{font-size:12px}}
-@media(max-width:760px){.map-mode-switch{right:8px;top:72px}.map-mode-switch button{padding:0 7px;font-size:9px}.destination-label.major{font-size:19px!important}.destination-label.medium{font-size:15px!important}}
-
-.popup-cover{position:relative;overflow:hidden;background:#123447}
-.popup-cover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.popup-cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,17,30,.05),rgba(3,17,30,.82))}
-.popup-cover-brand{position:absolute;left:16px;bottom:14px;z-index:2;color:#fff;font-weight:800;letter-spacing:.04em}
-
-/* V24 — direct source architecture: card image/title use the real tour page source. */
-.tour-source-link{color:inherit;text-decoration:none}
-a.popup-cover.tour-source-link{display:flex;cursor:pointer}
-.popup-title .tour-source-link:hover{color:var(--gold2)}
-.popup-cover.tour-source-link:hover .popup-cover-img{transform:scale(1.025)}
-
-</style>
-
-<style id="v21-final-spec">
-/* Final page structure: header, action line, map, original footer. */
-html,body{min-height:100%;height:auto!important}
-body.interactive-map-page{display:grid!important;grid-template-rows:auto auto minmax(680px,calc(100vh - 154px)) auto!important;overflow:auto!important}
-body.interactive-map-page .app{min-height:680px!important;height:auto!important}
-body.interactive-map-page .original-site-footer{padding:34px 20px!important;text-align:center;background:rgba(3,6,14,.98);color:#fff;border-top:1px solid rgba(215,168,62,.28)}
-body.interactive-map-page .original-site-footer p{margin:0;font-size:15px;letter-spacing:1px}
-/* Only the approved action message remains in the promo bar. */
-.promo-track .promo-secondary{display:none!important}
-/* Screen-positioned tour card: it opens beside the exact label/marker used. */
-.tour-hover-card{position:absolute;z-index:70;width:min(340px,calc(100% - 20px));max-height:min(620px,calc(100% - 20px));overflow:auto;border:1px solid rgba(241,202,104,.62);border-radius:15px;background:rgba(3,17,30,.98);box-shadow:0 22px 60px rgba(0,0,0,.62),0 0 0 1px rgba(255,240,170,.05) inset;backdrop-filter:blur(16px);opacity:0;visibility:hidden;transform:translateY(7px) scale(.985);transition:opacity .18s ease,transform .18s ease,visibility .18s;pointer-events:none}
-.tour-hover-card.visible{opacity:1;visibility:visible;transform:none;pointer-events:auto}
-.tour-hover-card .popup-cover{height:174px}
-.tour-hover-card .popup-body{padding:16px}
-.tour-hover-card .popup-title{margin:0 0 9px;font:700 23px/1.12 Georgia,serif;color:#fff}
-.tour-hover-card .popup-desc{margin:0 0 12px;color:#becbd5;font-size:13px;line-height:1.48}
-.tour-hover-card .popup-meta{display:flex;flex-wrap:wrap;gap:7px 12px;color:#e8edf2;font-size:12px}
-.tour-hover-card .popup-price{margin:13px 0;color:#d9e1e7}.tour-hover-card .popup-price strong{color:#f1ca68;font-size:25px}
-.tour-hover-card .popup-actions{display:grid;gap:8px}.tour-hover-card .popup-actions a{text-align:center;text-decoration:none;padding:11px 12px;border-radius:9px;font-size:12px;font-weight:900;letter-spacing:.45px}
-.tour-hover-card .popup-actions .view{background:linear-gradient(100deg,#9b6815,#edc75f);color:#06111b}.tour-hover-card .popup-actions .book{border:1px solid rgba(241,202,104,.52);color:#f1ca68;background:#061727}
-.tour-card-close{position:absolute;right:10px;top:10px;z-index:5;width:31px;height:31px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(3,17,30,.72);color:#fff;font-size:20px;line-height:1;cursor:pointer}
-.route-label{z-index:20}.route-label:hover,.route-label:focus{transform:translateY(-2px) scale(1.025);border-color:rgba(241,202,104,.72)!important}
-/* Standard MapLibre popups are not used for tour cards anymore. */
-.maplibregl-popup.tour-map-popup{display:none!important}
-@media(max-width:760px){body.interactive-map-page{grid-template-rows:auto auto minmax(620px,calc(100vh - 130px)) auto!important}.tour-hover-card{width:min(310px,calc(100% - 14px));max-height:72%;}.tour-hover-card .popup-cover{height:140px}.tour-hover-card .popup-title{font-size:19px}.original-site-footer{padding:22px 12px!important}.original-site-footer p{font-size:11px!important}}
-</style>
-
-
-<style id="v22-layout-fix">
-html,body{zoom:1!important;transform:none!important;width:100%!important}
-body.interactive-map-page{grid-template-rows:auto auto minmax(680px,calc(100vh - 120px)) auto!important}
-body.interactive-map-page>.header{position:relative!important;top:auto!important;display:flex!important;visibility:visible!important;opacity:1!important}
-body.interactive-map-page>.promo-bar{position:relative!important;top:auto!important;margin:0!important;display:block!important;z-index:49!important}
-body.interactive-map-page>.app{position:relative!important;margin:0!important;width:100%!important}
-.promo-bar .promo-track{min-width:100%;justify-content:space-around}
-@media(max-width:760px){body.interactive-map-page{grid-template-rows:auto auto minmax(620px,calc(100dvh - 104px)) auto!important}}
-</style>
-
-<style id="v25-structure-fix">
-body.interactive-map-page{display:flex!important;flex-direction:column!important;min-height:100vh!important;overflow-x:hidden!important;overflow-y:auto!important}
-body.interactive-map-page>.header{order:1!important;flex:0 0 auto!important}
-body.interactive-map-page>.promo-bar{order:2!important;position:relative!important;top:auto!important;left:auto!important;right:auto!important;transform:none!important;flex:0 0 34px!important;width:100%!important;margin:0!important;z-index:60!important}
-body.interactive-map-page>.app{order:3!important;flex:0 0 auto!important;min-height:680px!important;height:calc(100vh - 138px)!important}
-body.interactive-map-page>.original-site-footer{order:4!important;flex:0 0 auto!important}
-.promo-track{height:34px!important}
-@media(max-width:760px){body.interactive-map-page>.app{height:calc(100dvh - 118px)!important;min-height:620px!important}}
-
-/* ===== V27 OFFICE + MAP DECLUTTER + COMPACT TRUST FOOTER ===== */
-body.interactive-map-page .original-site-footer{
-  padding:18px 20px 16px!important;
-  background:linear-gradient(180deg,#06111f 0%,#020711 100%)!important;
-  border-top:1px solid rgba(215,168,62,.34)!important;
-  box-shadow:0 -12px 34px rgba(0,0,0,.20);
-}
-body.interactive-map-page .original-site-footer .footer-trust{
-  margin:0 0 7px!important;
-  color:#f1ca68!important;
-  font-size:13px!important;
-  font-weight:800!important;
-  letter-spacing:.55px!important;
-}
-body.interactive-map-page .original-site-footer .footer-copy{
-  margin:0!important;
-  color:rgba(255,255,255,.92)!important;
-  font-size:12px!important;
-  letter-spacing:.85px!important;
-}
-.office-marker{
+.vip-service-premium.vip-ai-border{
   position:relative;
-  z-index:35;
-  display:flex;
-  align-items:center;
-  gap:9px;
+  overflow:hidden;
+  isolation:isolate;
   cursor:pointer;
-  filter:drop-shadow(0 8px 20px rgba(0,0,0,.55));
+  border:1px solid rgba(214,162,74,.28);
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 18% 50%, rgba(243,198,109,.12), transparent 30%),
+    radial-gradient(circle at 86% 50%, rgba(60,170,255,.07), transparent 26%),
+    linear-gradient(90deg, rgba(18,22,28,.98), rgba(7,14,25,.98));
+  box-shadow:
+    0 0 0 1px rgba(214,162,74,.08),
+    0 24px 80px rgba(0,0,0,.42);
+  transform:translateY(26px) scale(.975);
+  opacity:0;
+  animation:vipCardReveal .95s cubic-bezier(.16,1,.3,1) .18s forwards;
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
-.office-sun{
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:radial-gradient(circle at 38% 32%,#fff0a8 0%,#f2c75f 24%,#d89b25 58%,#765014 100%);
-  border:2px solid #ffe28a;
-  box-shadow:0 0 0 4px rgba(241,202,104,.12),0 0 28px rgba(241,202,104,.42);
-  color:#07111b;
-  flex:0 0 auto;
+
+.vip-service-premium.vip-ai-border:hover{
+  transform:translateY(-5px) scale(1.01);
+  border-color:rgba(243,198,109,.55);
+  box-shadow:
+    0 0 0 1px rgba(243,198,109,.18),
+    0 0 44px rgba(243,198,109,.22),
+    0 0 70px rgba(90,120,255,.10),
+    0 30px 92px rgba(0,0,0,.52);
 }
-.office-sun svg{width:27px;height:27px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
-.office-marker-label{
-  padding:8px 12px 7px;
-  border:1px solid rgba(255,219,122,.78);
-  border-radius:999px;
-  background:rgba(88,57,9,.92);
-  color:#fff2bd;
-  font:900 12px/1 Arial,Helvetica,sans-serif;
-  letter-spacing:1.15px;
-  white-space:nowrap;
-  box-shadow:0 9px 26px rgba(0,0,0,.40);
+
+/* soft inner premium depth, not the moving line */
+.vip-service-premium.vip-ai-border::after{
+  content:"";
+  position:absolute;
+  inset:1px;
+  border-radius:29px;
+  pointer-events:none;
+  z-index:1;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.055), transparent 42%),
+    radial-gradient(circle at 12% 50%, rgba(243,198,109,.10), transparent 24%),
+    radial-gradient(circle at 76% 50%, rgba(126,92,255,.08), transparent 30%);
 }
-.office-marker:hover .office-marker-label,
-.office-marker:focus-within .office-marker-label{background:#9b6815;color:#fff}
-.office-card-badge{
+
+.vip-service-premium.vip-ai-border > *:not(.vip-ai-svg){
+  position:relative;
+  z-index:4;
+}
+
+.vip-ai-svg{
+  position:absolute;
+  inset:-1px;
+  width:calc(100% + 2px);
+  height:calc(100% + 2px);
+  z-index:3;
+  pointer-events:none;
+  overflow:visible;
+}
+
+.vip-ai-svg .vip-base-border{
+  fill:none;
+  stroke:url(#vipStaticGradient);
+  stroke-width:1.45;
+  opacity:.82;
+}
+
+.vip-ai-svg .vip-soft-border{
+  fill:none;
+  stroke:rgba(255,205,100,.22);
+  stroke-width:5;
+  opacity:.55;
+  filter:blur(6px);
+}
+
+.vip-ai-svg .vip-running-border{
+  fill:none;
+  stroke:url(#vipAiGradient);
+  stroke-width:3.4;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-dasharray:430 1510;
+  stroke-dashoffset:0;
+  filter:
+    drop-shadow(0 0 6px rgba(255,212,112,.95))
+    drop-shadow(0 0 16px rgba(126,92,255,.55))
+    drop-shadow(0 0 22px rgba(44,214,255,.30));
+  animation:vipBorderRun 4.6s linear infinite;
+}
+
+.vip-ai-svg .vip-spark-border{
+  fill:none;
+  stroke:#fff3be;
+  stroke-width:6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-dasharray:42 1898;
+  stroke-dashoffset:-70;
+  filter:
+    drop-shadow(0 0 7px rgba(255,255,255,1))
+    drop-shadow(0 0 18px rgba(255,190,60,1));
+  animation:vipBorderRun 4.6s linear infinite;
+}
+
+.vip-ai-svg .vip-spark-border.vip-spark-2{
+  stroke:#79eaff;
+  stroke-width:4.5;
+  stroke-dasharray:28 1912;
+  stroke-dashoffset:-620;
+  filter:
+    drop-shadow(0 0 8px rgba(121,234,255,.95))
+    drop-shadow(0 0 18px rgba(126,92,255,.80));
+}
+
+.vip-ai-svg .vip-spark-border.vip-spark-3{
+  stroke:#ffd15f;
+  stroke-width:5.2;
+  stroke-dasharray:34 1906;
+  stroke-dashoffset:-1180;
+  filter:
+    drop-shadow(0 0 8px rgba(255,209,95,.95))
+    drop-shadow(0 0 18px rgba(255,133,37,.75));
+}
+
+.vip-service-premium .vip-discover-btn{
   display:inline-flex;
   align-items:center;
-  gap:7px;
-  margin-bottom:8px;
-  color:#f1ca68;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:1.2px;
-}
-.office-address{color:#d4dde4;font-size:13px;line-height:1.55;margin:0 0 14px}
-.office-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.office-actions a{
-  display:flex;align-items:center;justify-content:center;text-align:center;
-  min-height:42px;padding:10px 11px;border-radius:9px;text-decoration:none;
-  font-size:11px;font-weight:900;letter-spacing:.35px
-}
-.office-actions .maps{background:linear-gradient(100deg,#9b6815,#edc75f);color:#06111b}
-.office-actions .reviews{border:1px solid rgba(241,202,104,.55);color:#f1ca68;background:#061727}
-.office-actions .office-wa{grid-column:1/-1;border:1px solid rgba(72,209,122,.55);color:#9be7b6;background:rgba(14,70,40,.22)}
-.route-label.compact-label{font-size:10px!important;letter-spacing:1px!important;padding:6px 9px!important}
-@media(max-width:760px){
-  body.interactive-map-page .original-site-footer{padding:15px 12px!important}
-  body.interactive-map-page .original-site-footer .footer-trust{font-size:10px!important;line-height:1.45}
-  body.interactive-map-page .original-site-footer .footer-copy{font-size:9px!important;line-height:1.45}
-  .office-sun{width:40px;height:40px}.office-sun svg{width:23px;height:23px}
-  .office-marker-label{font-size:10px;padding:7px 9px}
-  .office-actions{grid-template-columns:1fr}
-  .office-actions .office-wa{grid-column:auto}
+  justify-content:center;
+  gap:10px;
+  text-decoration:none;
+  color:#fff;
+  transition:color .28s ease, transform .28s ease, text-shadow .28s ease;
 }
 
-
-/* ===== V28 PERMANENT OFFICE LANDMARK ===== */
-.office-sun-marker{
-  width:54px!important;height:54px!important;border-radius:50%!important;
-  display:grid!important;place-items:center!important;padding:0!important;
-  border:2px solid #ffe49a!important;
-  background:radial-gradient(circle at 36% 30%,#fff8c8 0%,#f4c65e 32%,#d69420 68%,#754607 100%)!important;
-  color:#07111b!important;cursor:pointer!important;
-  box-shadow:0 0 0 5px rgba(243,198,109,.16),0 0 34px rgba(243,198,109,.62),0 10px 28px rgba(0,0,0,.55)!important;
-  z-index:999!important;opacity:1!important;visibility:visible!important;
-}
-.office-sun-marker svg{width:31px;height:31px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round}
-.office-permanent-label{
-  min-width:190px!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;
-  gap:3px!important;padding:9px 13px!important;border-radius:12px!important;
-  border:1px solid rgba(255,226,145,.92)!important;
-  background:linear-gradient(100deg,rgba(104,66,8,.96),rgba(53,33,5,.94))!important;
-  color:#fff!important;cursor:pointer!important;text-align:left!important;
-  box-shadow:0 12px 32px rgba(0,0,0,.52),0 0 18px rgba(243,198,109,.20)!important;
-  z-index:998!important;opacity:1!important;visibility:visible!important;
-}
-.office-permanent-label strong{
-  font:900 10px/1.05 Arial,Helvetica,sans-serif!important;
-  letter-spacing:.7px!important;color:#fff4c8!important;white-space:nowrap!important;
-}
-.office-permanent-label span{
-  font:950 13px/1 Arial,Helvetica,sans-serif!important;
-  letter-spacing:1.5px!important;color:#f6ca62!important;white-space:nowrap!important;
-}
-.office-permanent-label:hover,.office-sun-marker:hover{filter:brightness(1.12)}
-@media(max-width:760px){
-  .office-sun-marker{width:45px!important;height:45px!important}
-  .office-sun-marker svg{width:26px;height:26px}
-  .office-permanent-label{min-width:145px!important;padding:7px 9px!important}
-  .office-permanent-label strong{font-size:8px!important}
-  .office-permanent-label span{font-size:11px!important}
-}
-
-
-/* ===== V29 OFFICE LOGO + PREMIUM NEARBY CARDS + VISIBLE MAP END ===== */
-
-/* Brand office marker: real logo, permanent, independent of tour filters. */
-.office-logo-marker{
-  width:62px!important;
-  height:62px!important;
-  display:grid!important;
-  place-items:center!important;
-  padding:5px!important;
-  border-radius:50%!important;
-  border:2px solid #f3cd6a!important;
-  background:radial-gradient(circle at 50% 45%,rgba(255,255,255,.98),rgba(238,238,238,.94) 70%,rgba(208,164,58,.94) 100%)!important;
-  box-shadow:0 0 0 5px rgba(241,202,104,.15),0 0 32px rgba(241,202,104,.55),0 12px 28px rgba(0,0,0,.52)!important;
-  cursor:pointer!important;
-  z-index:999!important;
-  opacity:1!important;
-  visibility:visible!important;
-}
-.office-logo-marker img{
-  width:100%!important;
-  height:100%!important;
-  object-fit:contain!important;
-  display:block!important;
-  filter:drop-shadow(0 2px 3px rgba(0,0,0,.10));
-}
-.office-label-left{
-  min-width:225px!important;
-  align-items:flex-end!important;
-  text-align:right!important;
-}
-.office-label-left strong,
-.office-label-left span{width:100%;text-align:right!important}
-
-/* Nearby Experiences: small premium tour cards, not a technical text list. */
-.nearby-panel{
-  width:min(455px,calc(100% - 36px))!important;
-  max-height:68%!important;
-}
-.nearby-list{
-  display:grid!important;
-  gap:8px!important;
-  padding:10px!important;
-  overflow:auto!important;
-}
-.nearby-card{
-  width:100%!important;
-  min-height:92px!important;
-  display:grid!important;
-  grid-template-columns:104px minmax(0,1fr) 18px!important;
-  gap:11px!important;
-  align-items:center!important;
-  padding:8px!important;
-  border:1px solid rgba(241,202,104,.18)!important;
-  border-radius:11px!important;
-  background:linear-gradient(100deg,rgba(9,31,49,.96),rgba(4,20,34,.98))!important;
-  color:#fff!important;
-  text-align:left!important;
-  cursor:pointer!important;
-  box-shadow:0 8px 22px rgba(0,0,0,.18)!important;
-  transition:transform .18s ease,border-color .18s ease,background .18s ease!important;
-}
-.nearby-card:hover,
-.nearby-card:focus{
-  transform:translateY(-2px)!important;
-  border-color:rgba(241,202,104,.62)!important;
-  background:linear-gradient(100deg,rgba(15,45,66,.99),rgba(7,28,44,.99))!important;
-  outline:none!important;
-}
-.nearby-thumb{
-  width:104px!important;
-  height:76px!important;
-  overflow:hidden!important;
-  border-radius:8px!important;
-  background:#0b2234!important;
-  border:1px solid rgba(255,255,255,.08)!important;
-}
-.nearby-thumb img{
-  width:100%!important;
-  height:100%!important;
-  display:block!important;
-  object-fit:cover!important;
-}
-.nearby-card-copy{
-  min-width:0!important;
-  display:flex!important;
-  flex-direction:column!important;
-  gap:5px!important;
-}
-.nearby-card-title{
-  display:block!important;
-  color:#fff!important;
-  font:800 14px/1.18 Arial,Helvetica,sans-serif!important;
-  white-space:nowrap!important;
-  overflow:hidden!important;
-  text-overflow:ellipsis!important;
-}
-.nearby-card-meta{
-  display:block!important;
-  color:#aebbc5!important;
-  font-size:11px!important;
-  line-height:1.25!important;
-  white-space:nowrap!important;
-  overflow:hidden!important;
-  text-overflow:ellipsis!important;
-}
-.nearby-card-bottom{
-  display:flex!important;
-  align-items:center!important;
-  justify-content:space-between!important;
-  gap:8px!important;
-  margin-top:2px!important;
-}
-.nearby-card-price{
-  color:#f1ca68!important;
-  font-size:15px!important;
-  font-weight:900!important;
-}
-.nearby-card-distance{
-  color:#dbe4eb!important;
-  font-size:11px!important;
-  padding:4px 7px!important;
-  border-radius:999px!important;
-  background:rgba(255,255,255,.07)!important;
-  white-space:nowrap!important;
-}
-.nearby-card-arrow{
-  color:#f1ca68!important;
-  font:300 27px/1 Arial,sans-serif!important;
-  opacity:.9!important;
-}
-
-/* Approved two-line ending: guaranteed normal-flow block immediately after map. */
-body.interactive-map-page>.app{
-  flex:0 0 auto!important;
-  height:auto!important;
-  min-height:calc(100vh - 138px)!important;
-}
-body.interactive-map-page>.original-site-footer{
-  position:relative!important;
-  display:flex!important;
-  flex-direction:column!important;
-  align-items:center!important;
-  justify-content:center!important;
-  min-height:92px!important;
-  padding:20px 18px 18px!important;
-  margin:0!important;
-  background:linear-gradient(180deg,#061523 0%,#020711 100%)!important;
-  border-top:2px solid rgba(221,173,59,.68)!important;
-  box-shadow:0 -16px 36px rgba(0,0,0,.28)!important;
-  z-index:30!important;
-}
-body.interactive-map-page>.original-site-footer::before{
-  content:""!important;
-  position:absolute!important;
-  top:-2px!important;
-  left:50%!important;
-  width:min(520px,72%)!important;
-  height:1px!important;
-  transform:translateX(-50%)!important;
-  background:linear-gradient(90deg,transparent,#f0c45b,transparent)!important;
-}
-body.interactive-map-page>.original-site-footer .footer-trust{
-  margin:0 0 8px!important;
-  color:#f1ca68!important;
-  font-size:14px!important;
-  font-weight:900!important;
-  letter-spacing:.65px!important;
-  text-align:center!important;
-}
-body.interactive-map-page>.original-site-footer .footer-copy{
-  margin:0!important;
-  color:rgba(255,255,255,.94)!important;
-  font-size:12px!important;
-  letter-spacing:.9px!important;
-  text-align:center!important;
-}
-
-@media(max-width:760px){
-  .office-logo-marker{width:50px!important;height:50px!important}
-  .office-label-left{min-width:158px!important;padding:7px 9px!important}
-  .nearby-panel{right:8px!important;width:calc(100% - 16px)!important;max-height:72%!important}
-  .nearby-card{grid-template-columns:82px minmax(0,1fr) 14px!important;min-height:82px!important}
-  .nearby-thumb{width:82px!important;height:64px!important}
-  .nearby-card-title{font-size:12px!important}
-  .nearby-card-meta{font-size:10px!important}
-  .nearby-card-price{font-size:13px!important}
-  body.interactive-map-page>.original-site-footer{min-height:86px!important;padding:17px 11px!important}
-  body.interactive-map-page>.original-site-footer .footer-trust{font-size:11px!important;line-height:1.45!important}
-  body.interactive-map-page>.original-site-footer .footer-copy{font-size:9px!important;line-height:1.45!important}
-}
-
-
-/* ===== V30 OFFICE REFINEMENT ===== */
-.office-popup-body-compact{
-  padding-top:20px!important;
-}
-.office-popup-body-compact .office-card-badge{
-  margin:0 0 11px!important;
-}
-.office-popup-body-compact .office-address{
-  margin:0 0 13px!important;
-}
-.office-popup-body-compact + *{margin-top:0!important}
-
-/* Compact office card itself */
-.tour-hover-card:has(.office-popup-body-compact){
-  width:min(390px,calc(100vw - 26px))!important;
-  min-height:0!important;
-}
-.tour-hover-card:has(.office-popup-body-compact) .tour-card-close{
-  top:9px!important;
-  right:9px!important;
-  width:34px!important;
-  height:34px!important;
-}
-.tour-hover-card:has(.office-popup-body-compact) .office-actions a{
-  min-height:40px!important;
-  padding:8px 10px!important;
-  font-size:10px!important;
-}
-
-/* Office map landmark — logo LEFT, label RIGHT, equal height, smaller overall */
-.office-logo-marker{
-  width:46px!important;
-  height:46px!important;
-  padding:4px!important;
-  border-width:1.5px!important;
-  box-shadow:0 0 0 3px rgba(241,202,104,.13),0 0 20px rgba(241,202,104,.42),0 7px 18px rgba(0,0,0,.42)!important;
-}
-.office-label-right{
-  width:176px!important;
-  min-width:176px!important;
-  height:46px!important;
-  min-height:46px!important;
-  padding:5px 10px!important;
-  justify-content:center!important;
-  align-items:flex-start!important;
-  gap:2px!important;
-  text-align:left!important;
-  border-radius:10px!important;
-}
-.office-label-right strong{
-  width:100%!important;
-  text-align:left!important;
-  font-size:8px!important;
-  line-height:1.05!important;
-  letter-spacing:.48px!important;
-}
-.office-label-right span{
-  width:100%!important;
-  text-align:left!important;
-  font-size:11px!important;
-  line-height:1!important;
-  letter-spacing:1.15px!important;
-}
-@media(max-width:760px){
-  .office-logo-marker{width:40px!important;height:40px!important}
-  .office-label-right{
-    width:145px!important;
-    min-width:145px!important;
-    height:40px!important;
-    min-height:40px!important;
-    padding:5px 8px!important;
-  }
-  .office-label-right strong{font-size:7px!important}
-  .office-label-right span{font-size:9.5px!important}
-}
-
-</style>
-
-<style id="v31-definitive-footer-fix">
-
-/* ===== V31 DEFINITIVE PAGE-END / FOOTER FIX =====
-   Old base CSS locked html/body with overflow:hidden.
-   These final overrides restore a real document flow:
-   HEADER -> PROMO -> MAP -> APPROVED TWO-LINE FOOTER.
-*/
-html{
-  height:auto!important;
-  min-height:100%!important;
-  overflow-x:hidden!important;
-  overflow-y:auto!important;
-  scroll-behavior:smooth;
-}
-body.interactive-map-page{
-  height:auto!important;
-  min-height:100vh!important;
-  overflow-x:hidden!important;
-  overflow-y:visible!important;
-  display:flex!important;
-  flex-direction:column!important;
-}
-
-/* The map is a finite page section, not a full-document viewport lock. */
-body.interactive-map-page>.app{
-  order:3!important;
-  flex:none!important;
-  width:100%!important;
-  height:calc(100vh - 138px)!important;
-  min-height:680px!important;
-  max-height:none!important;
-  overflow:visible!important;
-  position:relative!important;
-}
-body.interactive-map-page>.app>.sidebar,
-body.interactive-map-page>.app>.map-shell{
-  min-height:100%!important;
-}
-body.interactive-map-page>.app>.map-shell{
-  height:100%!important;
-}
-
-/* Footer is an ordinary visible block immediately after the map. */
-body.interactive-map-page>.original-site-footer{
-  order:4!important;
-  flex:none!important;
-  position:relative!important;
-  inset:auto!important;
-  width:100%!important;
-  min-height:96px!important;
-  height:auto!important;
-  display:flex!important;
-  flex-direction:column!important;
-  align-items:center!important;
-  justify-content:center!important;
-  visibility:visible!important;
-  opacity:1!important;
-  overflow:visible!important;
-  padding:21px 18px 19px!important;
-  margin:0!important;
-  background:#030b15!important;
-  border-top:1px solid rgba(226,177,61,.62)!important;
-  box-shadow:0 -14px 34px rgba(0,0,0,.30)!important;
-  z-index:80!important;
-}
-body.interactive-map-page>.original-site-footer .footer-trust,
-body.interactive-map-page>.original-site-footer .footer-copy{
-  display:block!important;
-  visibility:visible!important;
-  opacity:1!important;
-  text-align:center!important;
-}
-body.interactive-map-page>.original-site-footer .footer-trust{
-  margin:0 0 9px!important;
-  color:#f1ca68!important;
-  font-size:14px!important;
-  line-height:1.35!important;
-  font-weight:900!important;
-  letter-spacing:.6px!important;
-}
-body.interactive-map-page>.original-site-footer .footer-copy{
-  margin:0!important;
-  color:#fff!important;
-  font-size:12px!important;
-  line-height:1.4!important;
-  letter-spacing:.85px!important;
-}
-
-@media(max-width:760px){
-  html{overflow-y:auto!important}
-  body.interactive-map-page{
-    overflow-y:visible!important;
-  }
-  body.interactive-map-page>.app{
-    height:calc(100dvh - 118px)!important;
-    min-height:620px!important;
-  }
-  body.interactive-map-page>.original-site-footer{
-    min-height:88px!important;
-    padding:17px 12px 16px!important;
-  }
-  body.interactive-map-page>.original-site-footer .footer-trust{
-    font-size:11px!important;
-    line-height:1.45!important;
-  }
-  body.interactive-map-page>.original-site-footer .footer-copy{
-    font-size:9px!important;
-    line-height:1.45!important;
-  }
-}
-
-</style>
-<style id="v32-premium-ux">
-/* ===== V32 PREMIUM UX POLISH ===== */
-.best-for-you{
-  margin:15px 0 17px;
-  padding:13px 0 14px;
-  border-top:1px solid rgba(255,255,255,.075);
-  border-bottom:1px solid rgba(255,255,255,.075);
-}
-.best-for-you-head{
-  margin-bottom:9px;
-  color:#f1ca68;
-  font-size:10px;
-  font-weight:950;
-  letter-spacing:1.15px;
-}
-.best-for-you-chips{display:flex;flex-wrap:wrap;gap:6px}
-.best-chip{
-  min-height:29px;padding:7px 9px;border:1px solid rgba(241,202,104,.22);border-radius:999px;
-  background:rgba(8,29,47,.82);color:#dce4ea;font:850 8.5px/1 Arial,Helvetica,sans-serif;
-  letter-spacing:.65px;cursor:pointer;transition:.18s ease;
-}
-.best-chip:hover,.best-chip.active{
-  border-color:#f1ca68;background:linear-gradient(100deg,#986613,#e2b23a);color:#06111b;
-  box-shadow:0 5px 15px rgba(215,168,62,.22);
-}
-.map-discovery-hint{
-  position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:22;
-  display:flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid rgba(241,202,104,.22);
-  border-radius:999px;background:rgba(3,17,29,.78);color:#d5dfe6;font-size:9px;font-weight:700;
-  letter-spacing:.3px;pointer-events:none;backdrop-filter:blur(8px);opacity:.86;
-}
-.map-discovery-hint b{color:#f1ca68;font-weight:950}
-
-.nearby-card-price-wrap{display:flex!important;align-items:center!important;gap:7px!important;min-width:0!important}
-.nearby-card-cta{
-  display:inline-flex!important;align-items:center!important;justify-content:center!important;
-  min-width:68px!important;padding:5px 7px!important;border-radius:7px!important;
-  background:linear-gradient(100deg,#9c6814,#edc75f)!important;color:#06111b!important;
-  font-size:8.5px!important;font-weight:950!important;letter-spacing:.45px!important;white-space:nowrap!important;
-}
-
-/* selected tour becomes the visual hero */
-.tour-marker.active{
-  transform:scale(1.18)!important;
-  filter:drop-shadow(0 0 11px rgba(241,202,104,.82))!important;
-  z-index:75!important;
-}
-.route-label.active{
-  transform:scale(1.05)!important;
-  border-color:#ffe18c!important;
-  background:linear-gradient(100deg,#9a6712,#e2b23b)!important;
-  color:#06111b!important;
-  box-shadow:0 0 0 2px rgba(241,202,104,.14),0 8px 22px rgba(0,0,0,.42)!important;
-  z-index:74!important;
-}
-body.tour-focus-mode .tour-marker.dimmed{opacity:.26!important;filter:saturate(.62)!important}
-body.tour-focus-mode .route-label:not(.active){opacity:.30!important}
-.route-label{transition:opacity .18s ease,transform .18s ease,background .18s ease!important}
-
-@media(max-width:760px){
-  .best-for-you{margin:11px 0 13px;padding:10px 0 11px}
-  .best-chip{font-size:8px;padding:6px 8px;min-height:27px}
-  .map-discovery-hint{display:none}
-  .nearby-card-cta{min-width:58px!important;font-size:7.5px!important;padding:4px 6px!important}
-}
-</style><style id="v33-footer-gold-shimmer">
-/* ===== V33 GOLD TRUST SHIMMER ===== */
-body.interactive-map-page>.original-site-footer .footer-trust{
-  display:inline-block!important;
-  width:auto!important;
-  background:linear-gradient(100deg,#8e5b08 0%,#f8df8e 22%,#c88b1f 43%,#fff0b2 62%,#b3730d 80%,#f5d378 100%)!important;
-  background-size:230% 100%!important;
-  -webkit-background-clip:text!important;
-  background-clip:text!important;
-  -webkit-text-fill-color:transparent!important;
-  color:transparent!important;
-  animation:goldShimmer 4.8s linear infinite!important;
-  text-shadow:0 0 14px rgba(232,184,68,.12)!important;
-}
-@media (prefers-reduced-motion:reduce){
-  body.interactive-map-page>.original-site-footer .footer-trust{animation:none!important;background-position:50% 50%!important}
-}
-</style><style id="v37-category-fix">
-/* ===== V37 CATEGORY NAVIGATION FIX ===== */
-.top-category-btn.active{
-  box-shadow:0 0 0 1px rgba(244,202,91,.34),0 7px 20px rgba(0,0,0,.26)!important;
-}
-</style><style id="v39-select-arrow-fix">
-/* ===== V39 FILTER SELECT ARROW FIX ===== */
-.filter-row select,
-.filters select,
-.sidebar select{
-  -webkit-appearance:none!important;
-  -moz-appearance:none!important;
-  appearance:none!important;
-  background-image:none!important;
-}
-.filter-row select::-ms-expand,
-.filters select::-ms-expand,
-.sidebar select::-ms-expand{
-  display:none!important;
-}
-</style><style id="v40-smart-filters">
-/* ===== V40 SMART FILTERS ===== */
-.smart-filters-title{margin-bottom:0!important}
-.smart-filter-subtitle{
-  margin:4px 0 14px;
-  color:#8597a5;
-  font-size:9.5px;
-  line-height:1.35;
-  letter-spacing:.12px;
-}
-.smart-filter-section{margin:0 0 14px}
-.smart-filter-section-title{
-  margin:0 0 8px;
-  color:#cdaa50;
-  font-size:8.5px;
-  font-weight:900;
-  letter-spacing:1.05px;
-}
-.smart-refine-title{margin:2px 0 5px}
-.smart-quick-chips{display:flex;flex-wrap:wrap;gap:6px}
-.smart-quick-chip{
-  min-height:27px;
-  padding:6px 9px;
-  border:1px solid rgba(241,202,104,.17);
-  border-radius:999px;
-  background:linear-gradient(180deg,rgba(14,39,58,.92),rgba(6,23,38,.95));
-  color:#d7e0e6;
-  font:850 7.8px/1 Arial,Helvetica,sans-serif;
-  letter-spacing:.55px;
-  cursor:pointer;
-  transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease,background .16s ease,color .16s ease;
-}
-.smart-quick-chip:hover{
+.vip-service-premium .vip-discover-btn::after{
+  content:"→";
+  color:#f3c66d;
+  font-size:24px;
+  line-height:1;
   transform:translateY(-1px);
-  border-color:rgba(241,202,104,.52);
-  color:#fff0b8;
-}
-.smart-quick-chip.active{
-  border-color:#f0ca64;
-  background:linear-gradient(105deg,#7f5009 0%,#c58e20 48%,#e6bd4f 100%);
-  color:#07111b;
-  box-shadow:0 5px 14px rgba(204,154,42,.18);
 }
 
-/* Rows feel like preferences rather than a settings table */
-.filter-row{
-  min-height:42px!important;
-  padding:7px 0!important;
-  border-bottom:1px solid rgba(255,255,255,.045)!important;
-}
-.filter-row>span{
-  display:flex!important;
-  align-items:center!important;
-  gap:7px!important;
-  color:#e7edf1!important;
-  font-size:10.5px!important;
-}
-.filter-mini-icon{
-  width:17px;height:17px;display:inline-grid;place-items:center;flex:0 0 17px;
-  border:1px solid rgba(231,184,70,.22);
-  border-radius:50%;
-  background:rgba(205,158,47,.06);
-  position:relative;
-}
-.filter-mini-icon::after{
-  color:#d7aa3b;font-size:9px;font-style:normal;font-weight:900;line-height:1;
-}
-.transfer-icon::after{content:"↔"}
-.family-icon::after{content:"◇"}
-.private-icon::after{content:"✦"}
-
-/* Dropdowns */
-.filter-row select{
-  min-width:100px!important;
-  min-height:30px!important;
-  padding:5px 23px 5px 9px!important;
-  border:1px solid rgba(241,202,104,.15)!important;
-  border-radius:8px!important;
-  background-color:rgba(8,29,46,.88)!important;
-  color:#f1f4f6!important;
-  font-size:9.5px!important;
-  font-weight:750!important;
-  cursor:pointer!important;
-  transition:.16s ease!important;
-}
-.filter-row select:hover,.filter-row select:focus{
-  outline:none!important;
-  border-color:rgba(241,202,104,.62)!important;
-  background-color:rgba(12,38,57,.98)!important;
-  box-shadow:0 0 0 2px rgba(241,202,104,.06)!important;
+.vip-service-premium.vip-ai-border:hover .vip-discover-btn{
+  color:#f3c66d;
+  transform:translateX(3px);
+  text-shadow:0 0 18px rgba(243,198,109,.48);
 }
 
-/* Toggles: stronger premium state */
-.toggle{
-  transition:background .18s ease,box-shadow .18s ease,border-color .18s ease!important;
-}
-.toggle.active{
-  background:linear-gradient(90deg,#8e5b0b,#d8a42f)!important;
-  box-shadow:0 0 13px rgba(222,171,48,.22)!important;
+@keyframes vipBorderRun{
+  to{stroke-dashoffset:-1940;}
 }
 
-/* Clear filter becomes secondary action */
-.smart-clear{
-  min-height:47px!important;
-  display:flex!important;
-  flex-direction:column!important;
-  align-items:center!important;
-  justify-content:center!important;
-  gap:2px!important;
-  padding:8px 12px!important;
-  border-color:rgba(241,202,104,.13)!important;
-  background:linear-gradient(180deg,rgba(5,23,37,.56),rgba(3,16,27,.72))!important;
-  box-shadow:none!important;
-}
-.smart-clear:hover{
-  border-color:rgba(241,202,104,.38)!important;
-  background:linear-gradient(180deg,rgba(9,31,48,.82),rgba(5,21,35,.88))!important;
-}
-.clear-filter-main{
-  color:#e9eef1;
-  font-size:9.5px;
-  font-weight:850;
-  letter-spacing:.45px;
-}
-.clear-filter-sub{
-  color:#718491;
-  font-size:7.8px;
-  font-weight:600;
-  letter-spacing:.15px;
-}
-@media(max-width:760px){
-  .smart-filter-subtitle{font-size:9px}
-  .smart-quick-chip{font-size:7.2px;min-height:25px;padding:5px 8px}
-  .filter-row{min-height:39px!important}
-  .filter-row>span{font-size:9.5px!important}
-}
-</style><style id="v41-custom-dropdowns">
-/* ===== V41 CUSTOM PREMIUM DROPDOWNS ===== */
-.native-select-hidden{
-  position:absolute!important;
-  width:1px!important;
-  height:1px!important;
-  overflow:hidden!important;
-  clip:rect(0 0 0 0)!important;
-  clip-path:inset(50%)!important;
-  white-space:nowrap!important;
-}
-.custom-select{
-  position:relative;
-  min-width:116px;
-  z-index:35;
-}
-.custom-select.open{z-index:300}
-.custom-select-trigger{
-  width:100%;
-  min-height:31px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:9px;
-  padding:6px 10px;
-  border:1px solid rgba(241,202,104,.34);
-  border-radius:9px;
-  background:linear-gradient(180deg,rgba(12,35,52,.98),rgba(5,23,37,.98));
-  color:#f4f6f7;
-  font:800 9.5px/1 Arial,Helvetica,sans-serif;
-  cursor:pointer;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
-  transition:border-color .16s ease,box-shadow .16s ease,background .16s ease;
-}
-.custom-select-trigger:hover,
-.custom-select.open .custom-select-trigger{
-  border-color:rgba(241,202,104,.78);
-  background:linear-gradient(180deg,rgba(16,44,63,.99),rgba(8,28,43,.99));
-  box-shadow:0 0 0 2px rgba(241,202,104,.06),0 6px 18px rgba(0,0,0,.22);
-}
-.custom-select-chevron{
-  width:7px;
-  height:7px;
-  flex:0 0 7px;
-  border-right:1.5px solid #f0c45b;
-  border-bottom:1.5px solid #f0c45b;
-  transform:rotate(45deg) translateY(-2px);
-  transition:transform .16s ease;
-}
-.custom-select.open .custom-select-chevron{
-  transform:rotate(225deg) translate(-1px,-1px);
-}
-.custom-select-menu{
-  position:absolute;
-  top:calc(100% + 5px);
-  right:0;
-  width:100%;
-  min-width:132px;
-  display:none;
-  padding:5px;
-  border:1px solid rgba(241,202,104,.36);
-  border-radius:10px;
-  background:linear-gradient(180deg,rgba(8,29,46,.995),rgba(3,18,31,.995));
-  box-shadow:0 14px 34px rgba(0,0,0,.48),0 0 0 1px rgba(255,255,255,.02);
-  backdrop-filter:blur(10px);
-}
-.custom-select.open .custom-select-menu{
-  display:grid;
-  gap:3px;
-}
-.custom-select-option{
-  width:100%;
-  min-height:31px;
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  padding:7px 9px;
-  border:0;
-  border-radius:7px;
-  background:transparent;
-  color:#cdd7de;
-  font:750 9px/1.2 Arial,Helvetica,sans-serif;
-  text-align:left;
-  cursor:pointer;
-  transition:background .14s ease,color .14s ease,transform .14s ease;
-}
-.custom-select-option:hover,
-.custom-select-option:focus{
-  outline:none;
-  background:rgba(213,164,47,.14);
-  color:#ffe49a;
-}
-.custom-select-option.active{
-  background:linear-gradient(100deg,#83550d,#c18a1f 62%,#e6bd4f);
-  color:#07111b;
-  font-weight:900;
-}
-@media(max-width:760px){
-  .custom-select{min-width:104px}
-  .custom-select-trigger{min-height:29px;font-size:9px;padding:5px 9px}
-  .custom-select-menu{min-width:120px}
-  .custom-select-option{min-height:29px;font-size:8.5px}
-}
-</style><style id="v42-hide-vercel-toolbar">
-/* ===== V42 HIDE VERCEL TOOLBAR / PREVIEW OVERLAY ===== */
-/* Preview-only nuisance elements must never cover the interactive map. */
-#vercel-toolbar,
-.vercel-toolbar,
-[data-vercel-toolbar],
-[data-testid*="vercel" i],
-[id*="vercel-toolbar" i],
-[class*="vercel-toolbar" i],
-iframe[src*="vercel.com/toolbar" i],
-iframe[src*="vercel.live" i],
-iframe[title*="Vercel" i],
-div[aria-label*="Vercel" i],
-button[aria-label*="Vercel" i],
-a[aria-label*="Vercel" i]{
-  display:none!important;
-  visibility:hidden!important;
-  opacity:0!important;
-  pointer-events:none!important;
-}
-
-/* Extra protection for small floating launchers injected into preview pages */
-body .vercel-toolbar-launcher,
-body [class*="vercel-launcher" i],
-body [id*="vercel-launcher" i],
-body [data-testid*="toolbar" i][data-testid*="vercel" i]{
-  display:none!important;
-  visibility:hidden!important;
-  opacity:0!important;
-  pointer-events:none!important;
-}
-</style><style id="v43-smart-filter-size">
-/* ===== V43 SMART FILTERS SIZE / READABILITY UPGRADE ===== */
-.smart-filters-title{
-  font-size:15px!important;
-  line-height:1.15!important;
-  letter-spacing:.75px!important;
-  margin-bottom:3px!important;
-}
-.smart-filter-subtitle{
-  margin:4px 0 17px!important;
-  font-size:11.5px!important;
-  line-height:1.4!important;
-  color:#9aabb7!important;
-}
-.smart-filter-section-title{
-  margin-bottom:10px!important;
-  font-size:10.5px!important;
-  line-height:1!important;
-  letter-spacing:1.15px!important;
-}
-.smart-refine-title{
-  margin-top:5px!important;
-  margin-bottom:8px!important;
-}
-.smart-filter-section{
-  margin-bottom:18px!important;
-}
-.smart-quick-chips{
-  gap:8px!important;
-}
-.smart-quick-chip{
-  min-height:34px!important;
-  padding:8px 12px!important;
-  font-size:9.5px!important;
-  letter-spacing:.55px!important;
-  border-radius:999px!important;
-}
-
-/* Main filter rows */
-.filter-row{
-  min-height:51px!important;
-  padding:10px 0!important;
-}
-.filter-row>span{
-  gap:8px!important;
-  font-size:12px!important;
-  line-height:1.25!important;
-}
-.filter-mini-icon{
-  width:21px!important;
-  height:21px!important;
-  flex-basis:21px!important;
-}
-.filter-mini-icon::after{
-  font-size:10px!important;
-}
-
-/* Custom premium dropdowns */
-.custom-select{
-  min-width:122px!important;
-}
-.custom-select-trigger{
-  min-height:38px!important;
-  padding:8px 12px!important;
-  font-size:11px!important;
-  border-radius:10px!important;
-}
-.custom-select-chevron{
-  width:8px!important;
-  height:8px!important;
-  flex-basis:8px!important;
-}
-.custom-select-menu{
-  min-width:140px!important;
-  padding:6px!important;
-}
-.custom-select-option{
-  min-height:37px!important;
-  padding:9px 11px!important;
-  font-size:10.5px!important;
-}
-
-/* Toggle switches: larger and easier to hit */
-.toggle{
-  width:46px!important;
-  height:25px!important;
-  min-width:46px!important;
-}
-.toggle::after{
-  width:19px!important;
-  height:19px!important;
-  top:2px!important;
-  left:3px!important;
-}
-.toggle.active::after{
-  transform:translateX(20px)!important;
-}
-
-/* Clear action */
-.smart-clear{
-  min-height:58px!important;
-  margin-top:12px!important;
-  padding:11px 14px!important;
-  border-radius:11px!important;
-}
-.clear-filter-main{
-  font-size:11.5px!important;
-  letter-spacing:.5px!important;
-}
-.clear-filter-sub{
-  margin-top:2px!important;
-  font-size:9px!important;
-}
-
-/* Give the whole filter area slightly more breathing room */
-.sidebar .filters,
-.sidebar .filter-panel{
-  padding-bottom:4px!important;
-}
-
-@media(max-width:760px){
-  .smart-filters-title{font-size:14px!important}
-  .smart-filter-subtitle{font-size:10.5px!important;margin-bottom:14px!important}
-  .smart-filter-section-title{font-size:10px!important}
-  .smart-quick-chip{
-    min-height:32px!important;
-    padding:7px 10px!important;
-    font-size:9px!important;
-  }
-  .filter-row{min-height:47px!important;padding:9px 0!important}
-  .filter-row>span{font-size:11px!important}
-  .custom-select{min-width:112px!important}
-  .custom-select-trigger{min-height:35px!important;font-size:10.5px!important}
-  .custom-select-option{min-height:34px!important;font-size:10px!important}
-  .smart-clear{min-height:54px!important}
-  .clear-filter-main{font-size:11px!important}
-  .clear-filter-sub{font-size:8.5px!important}
-}
-</style><style id="v44-footer-shimmer-compact">
-/* ===== V44 FOOTER SHIMMER + COMPACT SPACING ===== */
-@keyframes footerGoldShimmerV44{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-body.interactive-map-page>.original-site-footer{
-  min-height:70px!important;
-  padding:10px 16px 11px!important;
-}
-
-body.interactive-map-page>.original-site-footer .footer-trust{
-  margin:0 0 5px!important;
-  font-size:12px!important;
-  line-height:1.25!important;
-  font-weight:900!important;
-  letter-spacing:.45px!important;
-
-  color:transparent!important;
-  background:linear-gradient(
-    105deg,
-    #8f5f0d 0%,
-    #d6a52f 22%,
-    #fff0a0 42%,
-    #c68d1d 58%,
-    #f3cf62 78%,
-    #8f5f0d 100%
-  )!important;
-  background-size:220% 100%!important;
-  -webkit-background-clip:text!important;
-  background-clip:text!important;
-  -webkit-text-fill-color:transparent!important;
-  animation:footerGoldShimmerV44 4.8s ease-in-out infinite!important;
-  text-shadow:0 0 12px rgba(224,175,53,.10)!important;
-}
-
-body.interactive-map-page>.original-site-footer .footer-copy{
-  margin:0!important;
-  font-size:10.5px!important;
-  line-height:1.25!important;
-  letter-spacing:.68px!important;
-  color:rgba(255,255,255,.88)!important;
-}
-
-@media(max-width:760px){
-  body.interactive-map-page>.original-site-footer{
-    min-height:62px!important;
-    padding:8px 10px 9px!important;
-  }
-  body.interactive-map-page>.original-site-footer .footer-trust{
-    margin-bottom:4px!important;
-    font-size:10px!important;
-    line-height:1.3!important;
-  }
-  body.interactive-map-page>.original-site-footer .footer-copy{
-    font-size:8.5px!important;
-    line-height:1.3!important;
-  }
+@keyframes vipCardReveal{
+  0%{opacity:0; transform:translateY(26px) scale(.975); filter:blur(8px);}
+  70%{opacity:1; transform:translateY(-3px) scale(1.006); filter:blur(0);}
+  100%{opacity:1; transform:translateY(0) scale(1); filter:blur(0);}
 }
 
 @media (prefers-reduced-motion: reduce){
-  body.interactive-map-page>.original-site-footer .footer-trust{
-    animation:none!important;
-    background-position:50% 50%!important;
+  .vip-service-premium.vip-ai-border,
+  .vip-ai-svg .vip-running-border,
+  .vip-ai-svg .vip-spark-border{
+    animation:none;
+    opacity:1;
+    transform:none;
+    filter:none;
   }
 }
-</style><style id="v45-original-promo">
-/* ===== V45 ORIGINAL SITE PROMO BAR ===== */
-body.interactive-map-page>.promo-bar.original-promo-bar{
-  order:2!important;
-  position:relative!important;
-  top:auto!important;
-  left:auto!important;
-  right:auto!important;
-  transform:none!important;
-  width:100%!important;
-  height:auto!important;
-  min-height:0!important;
-  flex:0 0 auto!important;
-  margin:0!important;
-  padding:9px 16px!important;
-  overflow:hidden!important;
-  background:linear-gradient(90deg,#c88b1b,#f3c66d,#c88b1b)!important;
-  color:#07111f!important;
-  text-align:center!important;
-  z-index:60!important;
-  box-shadow:none!important;
-  border:0!important;
-}
-body.interactive-map-page>.promo-bar.original-promo-bar .original-promo-track{
-  width:100%!important;
-  min-width:0!important;
-  height:auto!important;
-  min-height:0!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  gap:0!important;
-  margin:0!important;
-  padding:0!important;
-  transform:none!important;
-  animation:none!important;
-  white-space:normal!important;
-}
-body.interactive-map-page>.promo-bar.original-promo-bar .promo-text{
-  display:block!important;
-  flex:none!important;
-  margin:0!important;
-  padding:0!important;
-  color:#07111f!important;
-  font-family:Arial,Helvetica,sans-serif!important;
-  font-size:12px!important;
-  line-height:1.35!important;
-  font-weight:900!important;
-  letter-spacing:.35px!important;
-  text-align:center!important;
-  text-shadow:none!important;
-  animation:none!important;
-  transform:none!important;
-}
+
 @media(max-width:720px){
-  body.interactive-map-page>.promo-bar.original-promo-bar{
-    padding:8px 10px!important;
-  }
-  body.interactive-map-page>.promo-bar.original-promo-bar .promo-text{
-    font-size:10px!important;
-    line-height:1.3!important;
-  }
+  .vip-service-premium.vip-ai-border{border-radius:24px;}
+  .vip-service-premium.vip-ai-border::after{border-radius:23px;}
+  .vip-ai-svg .vip-running-border{stroke-width:3; stroke-dasharray:330 1610;}
+  .vip-ai-svg .vip-spark-border{stroke-width:5;}
 }
-</style><style id="v46-dropdown-cleanup">
-/* ===== V46 CUSTOM DROPDOWN CLEANUP ===== */
-/* Do not repeat the currently selected value inside the opened list. */
-.custom-select-menu .custom-select-option.active{
-  display:none!important;
-}
+</style>
 
-/* Smaller, cleaner gold chevron. */
-.custom-select-chevron{
-  width:5px!important;
-  height:5px!important;
-  flex:0 0 5px!important;
-  border-right-width:1px!important;
-  border-bottom-width:1px!important;
-  transform:rotate(45deg) translateY(-1px)!important;
-}
-.custom-select.open .custom-select-chevron{
-  transform:rotate(225deg) translate(-1px,-1px)!important;
-}
-</style><style id="v48-top-gold-line">
-/* ===== V48 TOP GOLD LINE ABOVE MAP ===== */
-body.interactive-map-page > main.app{
-  position:relative!important;
-  border-top:1px solid rgba(226,177,61,.62)!important;
-}
 
-body.interactive-map-page > main.app::before{
-  content:""!important;
-  position:absolute!important;
-  top:0!important;
-  left:50%!important;
-  transform:translateX(-50%)!important;
-  width:100%!important;
-  height:1px!important;
-  background:linear-gradient(
-    90deg,
-    rgba(140,95,20,.0) 0%,
-    rgba(226,177,61,.55) 10%,
-    rgba(243,198,109,.92) 50%,
-    rgba(226,177,61,.55) 90%,
-    rgba(140,95,20,.0) 100%
-  )!important;
-  pointer-events:none!important;
-  z-index:40!important;
-}
-</style><style id="v50-single-top-divider">
-/* ===== V50 SINGLE THIN GOLD DIVIDER BETWEEN PROMO AND MAP ===== */
-/* Remove the earlier double/glow treatment and keep one precise 1px line. */
-body.interactive-map-page > main.app{
-  border-top:1px solid rgba(226,177,61,.62)!important;
-}
+<style>
+.filter-grid button{cursor:pointer;transition:.22s ease}
+.filter-grid button.is-active{border-color:#d7a83e!important;color:#f4d477!important;background:linear-gradient(135deg,rgba(215,168,62,.22),rgba(215,168,62,.08))!important;box-shadow:0 0 0 1px rgba(241,202,104,.22),0 8px 24px rgba(0,0,0,.18)}
+.category-card.is-filter-hidden{display:none!important}
+</style>
+</head>
 
-body.interactive-map-page > main.app::before{
-  content:none!important;
-  display:none!important;
-}
+<body>
 
-body.interactive-map-page > .promo-bar{
-  margin-bottom:0!important;
-  border-bottom:0!important;
-  box-shadow:none!important;
-}
-</style><style id="v51-live-header-sync">
-/* ===== V51 LIVE MAIN-SITE HEADER SYNC + REAL MAP DIVIDER ===== */
-
-/* Real physical divider node: exactly one 1px gold line. */
-.map-start-divider{
-  order:3!important;
-  width:100%!important;
-  height:1px!important;
-  min-height:1px!important;
-  flex:0 0 1px!important;
-  margin:0!important;
-  padding:0!important;
-  background:#d6a24a!important;
-  opacity:.72!important;
-  border:0!important;
-  box-shadow:none!important;
-  position:relative!important;
-  z-index:79!important;
-}
-
-/* Prevent previous border/pseudo-element versions from doubling the line. */
-body.interactive-map-page > main.app{
-  order:4!important;
-  border-top:0!important;
-}
-body.interactive-map-page > main.app::before{
-  content:none!important;
-  display:none!important;
-}
-body.interactive-map-page > .original-site-footer{
-  order:5!important;
-}
-
-/* Synced site chrome should keep its original semantic place. */
-body.interactive-map-page > header{
-  order:1!important;
-  flex:0 0 auto!important;
-}
-body.interactive-map-page > .promo-bar,
-body.interactive-map-page > [data-synced-promo="true"]{
-  order:2!important;
-  flex:0 0 auto!important;
-  margin-bottom:0!important;
-}
-
-/* Edge guard: labels must not visually stick to the frame of the map. */
-.route-label.edge-hidden{
-  display:none!important;
-}
-</style><style id="v56-exact-root-chrome">
-/* ===== V56 FINAL — EXACT ROOT INDEX HEADER/PROMO ===== */
-.main-site-chrome-host{
-  order:1!important;
-  display:block!important;
-  width:100%!important;
-  height:0;
-  min-height:0;
-  flex:0 0 auto!important;
-  margin:0!important;
-  padding:0!important;
-  overflow:hidden!important;
-  position:relative!important;
-  z-index:100!important;
-  background:#020b14!important;
-}
-
-/* Never show a locally duplicated header or promotion. */
-body.interactive-map-page > header,
-body.interactive-map-page > .promo-bar,
-body.interactive-map-page > [data-synced-promo="true"]{
-  display:none!important;
-}
-
-.main-site-chrome-frame{
-  display:block!important;
-  width:100%!important;
-  height:0;
-  border:0!important;
-  margin:0!important;
-  padding:0!important;
-  overflow:hidden!important;
-  background:#020b14!important;
-}
-
-/* Exactly one physical gold separator before the map. */
-body.interactive-map-page > .map-start-divider{
-  order:2!important;
-  display:block!important;
-  width:100%!important;
-  height:1px!important;
-  min-height:1px!important;
-  flex:0 0 1px!important;
-  margin:0!important;
-  padding:0!important;
-  border:0!important;
-  box-shadow:none!important;
-  background:#d6a24a!important;
-  opacity:.72!important;
-}
-body.interactive-map-page > main.app{
-  order:3!important;
-  border-top:0!important;
-}
-body.interactive-map-page > .original-site-footer{
-  order:4!important;
-}
-</style><style id="v57-ultra-thin-luxury-heading">
-/* ===== V57 — ULTRA-THIN LUXURY EXPERIENCE TURKEY ===== */
-.experience-turkey-title{
-  margin:4px 0 11px!important;
-  padding:0!important;
-  display:flex!important;
-  flex-direction:column!important;
-  align-items:flex-start!important;
-  gap:0!important;
-
-  font-family:"Bodoni 72 Smallcaps","Bodoni 72","Didot","Bodoni MT","Times New Roman",serif!important;
-  font-size:30px!important;
-  line-height:.96!important;
-  font-weight:300!important;
-  font-style:normal!important;
-  letter-spacing:1.25px!important;
-
-  color:#fff!important;
-  background:none!important;
-  -webkit-background-clip:border-box!important;
-  background-clip:border-box!important;
-  -webkit-text-fill-color:#fff!important;
-
-  /* Hairline gold edge only — no bold halo. */
-  -webkit-text-stroke:.12px rgba(211,164,55,.88)!important;
-  text-shadow:
-    .10px 0 rgba(211,164,55,.24),
-    -.10px 0 rgba(211,164,55,.24),
-    0 .10px rgba(211,164,55,.18),
-    0 -.10px rgba(211,164,55,.18)!important;
-
-  filter:none!important;
-  animation:none!important;
-  opacity:1!important;
-}
-
-.experience-turkey-title span{
-  display:block!important;
-  margin:0!important;
-  padding:0!important;
-  font:inherit!important;
-  font-weight:300!important;
-  letter-spacing:inherit!important;
-  color:#fff!important;
-  -webkit-text-fill-color:#fff!important;
-  -webkit-text-stroke:.12px rgba(211,164,55,.88)!important;
-  text-shadow:inherit!important;
-}
-
-@media(max-width:760px){
-  .experience-turkey-title{
-    font-size:27px!important;
-    letter-spacing:1.05px!important;
-    -webkit-text-stroke:.10px rgba(211,164,55,.86)!important;
-  }
-  .experience-turkey-title span{
-    -webkit-text-stroke:.10px rgba(211,164,55,.86)!important;
-  }
-}
-</style></head>
-<body class="interactive-map-page"><svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><linearGradient id="goldGradient" x1="0" x2="1"><stop offset="0" stop-color="#9b650b"/><stop offset=".28" stop-color="#f7d978"/><stop offset=".55" stop-color="#c98e22"/><stop offset=".78" stop-color="#fff0ac"/><stop offset="1" stop-color="#a86d0d"/></linearGradient></defs></svg>
 <header class="header">
-<div class="logo">
-<img alt="ALANYA TOUR ORGANIZATIONS" src="logo/logo.png"/>
-<div class="logo-text">
-<div class="logo-title">ALANYA TOUR</div>
-<div class="logo-subtitle">ORGANIZATIONS</div>
-</div>
-</div>
-<div class="mobile-menu-btn" id="mobileMenuBtn">
-<span></span>
-<span></span>
-<span></span>
-</div>
-<div class="mobile-overlay" id="mobileOverlay"></div>
-<nav class="nav">
-<a class="nav-item" href="../index.html#main-categories">
-<span>TOURS</span>
-</a>
-<div class="nav-item">
-<span>COMBO DEALS</span>
-<svg class="arrow-icon" viewbox="0 0 24 24">
-<path d="M7 10L12 15L17 10"></path>
-</svg>
-</div>
-<div class="nav-item">
-<span>WATER SPORTS</span>
-<svg class="arrow-icon" viewbox="0 0 24 24">
-<path d="M7 10L12 15L17 10"></path>
-</svg>
-</div>
-<div class="nav-item">
-<span>AIR EXPERIENCES</span>
-<svg class="arrow-icon" viewbox="0 0 24 24">
-<path d="M7 10L12 15L17 10"></path>
-</svg>
-</div>
-<a class="nav-item" href="../vip-service.html">
-<span>VIP SERVICES</span>
-<svg class="arrow-icon" viewbox="0 0 24 24">
-<path d="M7 10L12 15L17 10"></path>
-</svg>
-</a>
-<div class="nav-item special">
-<span class="fire">🔥</span>
-<span>SPECIAL OFFERS</span>
-<svg class="arrow-icon" viewbox="0 0 24 24">
-<path d="M7 10L12 15L17 10"></path>
-</svg>
-</div>
-<div class="nav-item nav-dropdown">
-<span>ABOUT US</span>
-<svg class="arrow-icon" viewbox="0 0 24 24">
-<path d="M7 10L12 15L17 10"></path>
-</svg>
-<div class="dropdown-menu">
-<a href="../index.html#about">
-<span class="dropdown-icon">◆</span>
+  <div class="logo">
+    <img src="logo.png" alt="ALANYA TOUR ORGANIZATIONS">
+
+    <div class="logo-text">
+      <div class="logo-title">ALANYA TOUR</div>
+      <div class="logo-subtitle">ORGANIZATIONS</div>
+    </div>
+  </div>
+
+  <div class="mobile-menu-btn" id="mobileMenuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <nav class="nav">
+    <a href="#main-categories" class="nav-item">
+      <span>TOURS</span>
+    </a>
+
+    <div class="nav-item">
+      <span>COMBO DEALS</span>
+      <svg class="arrow-icon" viewBox="0 0 24 24">
+        <path d="M7 10L12 15L17 10" />
+      </svg>
+    </div>
+
+    <div class="nav-item">
+      <span>WATER SPORTS</span>
+      <svg class="arrow-icon" viewBox="0 0 24 24">
+        <path d="M7 10L12 15L17 10" />
+      </svg>
+    </div>
+
+    <div class="nav-item">
+      <span>AIR EXPERIENCES</span>
+      <svg class="arrow-icon" viewBox="0 0 24 24">
+        <path d="M7 10L12 15L17 10" />
+      </svg>
+    </div>
+
+    <a href="vip-service.html" class="nav-item">
+      <span>VIP SERVICES</span>
+      <svg class="arrow-icon" viewBox="0 0 24 24">
+        <path d="M7 10L12 15L17 10" />
+      </svg>
+    </a>
+
+    <div class="nav-item special">
+      <span class="fire">🔥</span>
+      <span>SPECIAL OFFERS</span>
+      <svg class="arrow-icon" viewBox="0 0 24 24">
+        <path d="M7 10L12 15L17 10" />
+      </svg>
+    </div>
+
+    <div class="nav-item nav-dropdown">
+      <span>ABOUT US</span>
+
+      <svg class="arrow-icon" viewBox="0 0 24 24">
+        <path d="M7 10L12 15L17 10"/>
+      </svg>
+
+      <div class="dropdown-menu">
+        <a href="#about">
+          <span class="dropdown-icon">◆</span>
           OUR COMPANY
         </a>
-<a href="../index.html#licenses">
-<span class="dropdown-icon">◇</span>
-          LICENSES &amp; CERTIFICATIONS
+
+        <a href="#licenses">
+          <span class="dropdown-icon">◇</span>
+          LICENSES & CERTIFICATIONS
         </a>
-<a href="../index.html#insurance">
-<span class="dropdown-icon">✓</span>
-          SAFETY &amp; INSURANCE
+
+        <a href="#insurance">
+          <span class="dropdown-icon">✓</span>
+          SAFETY & INSURANCE
         </a>
-</div>
-</div>
-<a class="nav-item map-nav-active" href="index.html"><span>MAP</span></a>
-<a class="contact-link" href="../index.html#contacts">CONTACT</a>
-</nav>
-<div class="language language-dropdown">
-<svg class="globe-icon" viewbox="0 0 24 24">
-<circle cx="12" cy="12" r="9"></circle>
-<path d="M3 12H21"></path>
-<path d="M12 3C15 6 16.5 9 16.5 12C16.5 15 15 18 12 21"></path>
-<path d="M12 3C9 6 7.5 9 7.5 12C7.5 15 9 18 12 21"></path>
-</svg>
-<span>RU</span>
-<svg class="arrow-icon" viewbox="0 0 24 24">
-<path d="M7 10L12 15L17 10"></path>
-</svg>
-<div class="language-menu">
-<button class="language-close">×</button>
-<a data-lang="ru" href="#">🇷🇺 Russian</a>
-<a data-lang="en" href="#">🇬🇧 English</a>
-<a data-lang="tr" href="#">🇹🇷 Turkish</a>
-<a data-lang="de" href="#">🇩🇪 German</a>
-<a data-lang="pl" href="#">🇵🇱 Polish</a>
-</div>
-</div>
-</header><div class="promo-bar original-promo-bar">
-  <div class="promo-track original-promo-track">
-    <span class="promo-text"
-      data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN &amp; DIE 3. GRATIS"
-      data-en="🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE"
-      data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS"
+      </div>
+    </div>
+
+    <a href="#contacts" class="contact-link">CONTACT</a>
+  </nav>
+
+  <div class="language language-dropdown">
+    <svg class="globe-icon" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12H21" />
+      <path d="M12 3C15 6 16.5 9 16.5 12C16.5 15 15 18 12 21" />
+      <path d="M12 3C9 6 7.5 9 7.5 12C7.5 15 9 18 12 21" />
+    </svg>
+
+    <span>RU</span>
+
+    <svg class="arrow-icon" viewBox="0 0 24 24">
+      <path d="M7 10L12 15L17 10" />
+    </svg>
+
+    <div class="language-menu">
+      <button class="language-close">×</button>
+
+      <a href="#" data-lang="ru">🇷🇺 Russian</a>
+      <a href="#" data-lang="en">🇬🇧 English</a>
+      <a href="#" data-lang="tr">🇹🇷 Turkish</a>
+      <a href="#" data-lang="de">🇩🇪 German</a>
+      <a href="#" data-lang="pl">🇵🇱 Polish</a>
+    </div>
+  </div>
+</header>
+
+<div class="promo-bar">
+  <div class="promo-track">
+    <span 
+      class="promo-text"
       data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК"
-      data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE">🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE</span>
+      data-en="🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE"
+      data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE"
+      data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN & DIE 3. GRATIS"
+      data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS">
+      🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE
+    </span>
+
+    <span class="promo-dot">◆</span>
+    <span>TRAVEL WITH LOVE. TRAVEL WITH US.</span>
+    <span class="promo-dot">◆</span>
+    <span>VIP YACHT TOURS • FAMILY SAFARI • PRIVATE TRANSFERS</span>
+    <span class="promo-dot">◆</span>
+
+    <span 
+      class="promo-text"
+      data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК"
+      data-en="🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE"
+      data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE"
+      data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN & DIE 3. GRATIS"
+      data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS">
+      🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE
+    </span>
   </div>
 </div>
 
-<div id="mainSiteChromeHost" class="main-site-chrome-host" aria-label="Original main site header and promotion"></div>
-<div class="map-start-divider" aria-hidden="true"></div>
-<main class="app">
-<aside class="sidebar">
-<h1 class="experience-turkey-title"><span>EXPERIENCE</span><span>TURKEY</span></h1><p class="subtitle">Discover more. Feel more. Travel better.</p>
-<div class="map-search-wrap"><input id="mapTourSearch" class="map-tour-search" type="search" autocomplete="off" placeholder="Search tours or places…" aria-label="Search tours or places"></div>
-<div id="categoryList" hidden></div>
-<div class="best-for-you" id="bestForYou">
-  <div class="best-for-you-head">BEST FOR YOU</div>
-  <div class="best-for-you-chips" role="group" aria-label="Quick experience filters">
-    <button type="button" class="best-chip" data-best="family">FAMILY</button>
-    <button type="button" class="best-chip" data-best="couples">COUPLES</button>
-    <button type="button" class="best-chip" data-best="friends">FRIENDS</button>
-    <button type="button" class="best-chip" data-best="adventure">ADVENTURE</button>
-    <button type="button" class="best-chip" data-best="luxury">LUXURY</button>
-    <button type="button" class="best-chip" data-best="today">TODAY</button>
-  </div>
-</div>
+<section class="hero">
+  <div class="hero-content">
+    <p class="badge">Alanya • Antalya • Türkiye</p>
 
-<div class="section-label smart-filters-title">SMART FILTERS</div><div class="smart-filter-subtitle">Find the right experience faster</div>
+    <h1 
+      data-ru="Лучшие экскурсии в Алании"
+      data-en="Best tours in Alanya"
+      data-tr="Alanya'nın en iyi turları"
+      data-de="Die besten Ausflüge in Alanya"
+      data-pl="Najlepsze wycieczki w Alanyi">
+      Лучшие экскурсии в Алании
+    </h1>
 
-<div class="smart-filter-section smart-filter-quick">
-  <div class="smart-filter-section-title">QUICK FILTERS</div>
-  <div class="smart-quick-chips" role="group" aria-label="Quick tour filters">
-    <button type="button" class="smart-quick-chip" data-quick="best-price">BEST PRICE</button>
-    <button type="button" class="smart-quick-chip" data-quick="half-day">HALF DAY</button>
-    <button type="button" class="smart-quick-chip" data-quick="transfer">WITH TRANSFER</button>
-    <button type="button" class="smart-quick-chip" data-quick="family">FAMILY</button>
-    <button type="button" class="smart-quick-chip" data-quick="private">PRIVATE</button>
-    <button type="button" class="smart-quick-chip" data-quick="popular">POPULAR</button>
+    <p 
+      class="hero-text"
+      data-ru="Морские прогулки, каньоны, сафари, водные развлечения, полёты, хамам, VIP-сервис и семейные туры с быстрым бронированием через WhatsApp."
+      data-en="Boat trips, canyons, safaris, water sports, flights, hammam, VIP services and family tours with fast WhatsApp booking."
+      data-tr="Tekne turları, kanyonlar, safari, su sporları, uçuşlar, hamam, VIP hizmetler ve aile turları için hızlı WhatsApp rezervasyonu."
+      data-de="Bootstouren, Canyons, Safaris, Wassersport, Flüge, Hamam, VIP-Service und Familientouren mit schneller WhatsApp-Buchung."
+      data-pl="Rejsy, kaniony, safari, sporty wodne, loty, hamam, usługi VIP i rodzinne wycieczki z szybką rezerwacją przez WhatsApp.">
+      Морские прогулки, каньоны, сафари, водные развлечения, полёты, хамам, VIP-сервис и семейные туры с быстрым бронированием через WhatsApp.
+    </p>
+
+    <a class="main-btn" href="https://wa.me/905387045999?text=Здравствуйте!%20Хочу%20забронировать%20экскурсию%20в%20Алании." target="_blank">
+      Забронировать в WhatsApp
+    </a>
   </div>
-</div>
-<div class="smart-filter-section-title smart-refine-title">REFINE YOUR SEARCH</div>
-<div class="filter-row"><span>Price</span>
-<div class="custom-select" data-native-select="priceFilter">
-  <button type="button" class="custom-select-trigger" id="priceCustomBtn" aria-haspopup="listbox" aria-expanded="false">
-    <span class="custom-select-value">Any</span>
-    <span class="custom-select-chevron" aria-hidden="true"></span>
-  </button>
-  <div class="custom-select-menu" id="priceCustomMenu" role="listbox">
-    <button type="button" class="custom-select-option" data-value="all">Any</button>
-<button type="button" class="custom-select-option" data-value="50">Up to €50</button>
-<button type="button" class="custom-select-option" data-value="100">Up to €100</button>
-<button type="button" class="custom-select-option" data-value="200">Up to €200</button>
-<button type="button" class="custom-select-option" data-value="500">Up to €500</button>
-  </div>
-  <div class="native-select-hidden"><select id="priceFilter"><option value="all">Any⌄</option><option value="50">Up to €50</option><option value="100">Up to €100</option></select></div>
-</div></div>
-<div class="filter-row"><span>Duration</span>
-<div class="custom-select" data-native-select="durationFilter">
-  <button type="button" class="custom-select-trigger" id="durationCustomBtn" aria-haspopup="listbox" aria-expanded="false">
-    <span class="custom-select-value">Any</span>
-    <span class="custom-select-chevron" aria-hidden="true"></span>
-  </button>
-  <div class="custom-select-menu" id="durationCustomMenu" role="listbox">
-    <button type="button" class="custom-select-option" data-value="all">Any</button>
-<button type="button" class="custom-select-option" data-value="half-day">Half Day</button>
-<button type="button" class="custom-select-option" data-value="full-day">Full Day</button>
-<button type="button" class="custom-select-option" data-value="multi-day">Multi Day</button>
-  </div>
-  <div class="native-select-hidden"><select id="durationFilter"><option value="all">Any⌄</option><option value="half-day">Half Day</option><option value="full-day">Full Day</option></select></div>
-</div></div>
-<div class="filter-row preference-row"><span><i class="filter-mini-icon transfer-icon"></i>Hotel Transfer Included</span><button id="hotelTransferFilter" aria-label="Hotel transfer filter" class="toggle"></button></div>
-<div class="filter-row preference-row"><span><i class="filter-mini-icon family-icon"></i>Family Friendly</span><button id="familyFriendlyFilter" aria-label="Family friendly filter" class="toggle"></button></div>
-<div class="filter-row preference-row"><span><i class="filter-mini-icon private-icon"></i>Private Experience</span><button id="privateTourFilter" aria-label="Private tour filter" class="toggle"></button></div>
-<button class="clear smart-clear" id="clearFilters"><span class="clear-filter-main">↻ &nbsp; CLEAR FILTERS</span><span class="clear-filter-sub">Reset all selections</span></button><div class="sidebar-nearby" id="sidebarNearby"><div class="section-label">NEARBY EXPERIENCES</div><p>Use the location button on the map to show the closest tours.</p></div>
-</aside>
-<section aria-label="Interactive tour map" class="map-shell">
-<div class="map-discovery-hint"><b>TIP</b> Choose a category or zoom in to discover more</div>
-<div class="map" id="map"></div><div class="map-tone"></div><div class="map-vignette"></div>
-<div aria-label="Experience categories" class="top-categories" id="topCategories"></div>
-<div class="map-mode-switch" aria-label="Map style"><button data-map-mode="hybrid" class="active">HYBRID</button><button data-map-mode="streets">STREETS</button><button data-map-mode="satellite">SATELLITE</button></div><div class="intro-badge" id="introBadge">OVERVIEW MODE · INTERACTIVE JOURNEY STARTS IN 5 SECONDS</div>
-<div class="geo-offer" id="geoOffer"><h3>Experiences near you</h3><p>Allow location access to see nearby excursions and estimated transfer time. Your location is used only in this browser.</p><div class="geo-actions"><button class="geo-yes" id="geoYes">SHOW NEARBY</button><button class="geo-no" id="geoNo">NOT NOW</button></div></div>
-<div class="nearby-panel" id="nearbyPanel"><button aria-label="Close" class="nearby-close" id="nearbyClose">×</button><div class="nearby-head"><h3>Nearby Experiences</h3><p id="nearbySummary">Finding the closest tours…</p><div class="radius-row" id="radiusRow"><button class="radius-btn" data-radius="10">10 km</button><button class="radius-btn active" data-radius="25">25 km</button><button class="radius-btn" data-radius="50">50 km</button><button class="radius-btn" data-radius="9999">All</button></div></div><div class="nearby-list" id="nearbyList"></div></div>
-<div class="mobile-categories" id="mobileCategories"></div>
-<div class="tour-hover-card" id="tourHoverCard" aria-hidden="true"></div>
 </section>
-</main>
-<div id="mapEnd" aria-hidden="true" style="height:0;flex:none"></div>
-<footer class="footer-strip original-site-footer" aria-label="Trust and copyright">
-  <p class="footer-trust">Trusted since 2010 · 35,000+ Happy Guests · Google Verified 5★</p>
-  <p class="footer-copy">© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.</p>
+
+<section id="main-categories" class="main-categories-section">
+  <div class="main-categories-head">
+    <span>MAIN CATEGORIES</span>
+    <h2>Discover Your Perfect Experience</h2>
+    <p>Explore the best tours in Alanya and across Türkiye</p>
+  </div>
+
+  <div class="categories-layout">
+
+  <div class="main-categories-grid">
+
+    <a href="sea-experiences.html" class="category-card">
+      <div class="category-img">
+        <img src="sea.jpg" alt="Sea Experiences">
+        <div class="category-icon">⚓</div>
+      </div>
+      <div class="category-body">
+        <h3>1. SEA EXPERIENCES</h3>
+        <p>Pirate Yacht, Relax Boat Tour, Catamaran, Luxury Yacht Cruise and hidden bays.</p>
+        <div class="category-arrow">→</div>
+      </div>
+ </a>
+
+    <a href="extreme-adventure.html" class="category-card">
+
+  <div class="category-img">
+    <img src="extreme.jpg" alt="Extreme Adventure">
+    <div class="category-icon">⚡</div>
+  </div>
+
+  <div class="category-body">
+    <h3>2. EXTREME & ADVENTURE</h3>
+
+    <p>
+      Rafting in Köprülü Canyon, Quad Safari,
+      Family Jeep Safari, Family Buggy Safari
+      and Jeep Safari.
+    </p>
+
+    <div class="category-arrow">→</div>
+  </div>
+
+</a>
+
+    <a href="nature-adventures.html" class="category-card">
+      <div class="category-img">
+        <img src="nature.jpg" alt="Nature Adventure">
+        <div class="category-icon">🌿</div>
+      </div>
+      <div class="category-body">
+        <h3>3. NATURE & ADVENTURE</h3>
+        <p>Green Canyon, Sapadere Canyon, Pamukkale, Salda Lake and nature routes.</p>
+        <div class="category-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="history-culture.html" class="category-card">
+      <div class="category-img">
+        <img src="history.jpg" alt="History Culture">
+        <div class="category-icon">🏛️</div>
+      </div>
+      <div class="category-body">
+        <h3>4. HISTORY & CULTURE</h3>
+        <p>Cappadocia, Pamukkale, Demre Myra Kekova, Side, Aspendos and Istanbul.</p>
+        <div class="category-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="family-experiences.html" class="category-card">
+      <div class="category-img">
+        <img src="family.jpg" alt="Family Experiences">
+        <div class="category-icon">👨‍👩‍👧</div>
+      </div>
+      <div class="category-body">
+        <h3>5. FAMILY EXPERIENCES</h3>
+        <p>The Land of Legends, dolphin show, waterparks and family entertainment.</p>
+        <div class="category-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="air-experiences.html" class="category-card">
+      <div class="category-img">
+        <img src="air.jpg" alt="Air Experiences">
+        <div class="category-icon">🪂</div>
+      </div>
+      <div class="category-body">
+        <h3>6. AIR EXPERIENCES</h3>
+        <p>Paragliding, helicopter flight, skydive and unforgettable aerial emotions.</p>
+        <div class="category-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="water-sports.html" class="category-card">
+      <div class="category-img">
+        <img src="watersports.jpg" alt="Water Sports">
+        <div class="category-icon">🌊</div>
+      </div>
+      <div class="category-body">
+        <h3>7. WATER SPORTS</h3>
+        <p>Parasailing, Jet Ski, Banana, Phantom, Big Mable, Wakeboard and Diving.</p>
+        <div class="category-arrow">→</div>
+      </div>
+    </a>
+
+    <a href="wellness-relax.html" class="category-card">
+      <div class="category-img">
+        <img src="wellness.jpg" alt="Wellness Relax">
+        <div class="category-icon">🪷</div>
+      </div>
+      <div class="category-body">
+        <h3>8. WELLNESS & RELAX</h3>
+        <p>Hamam, Turkish massage, spa programs and premium relaxation experiences.</p>
+        <div class="category-arrow">→</div>
+      </div>
+    </a>
+
+  </div>
+
+  <aside class="tour-sidebar">
+    <h3>FIND YOUR PERFECT TOUR</h3>
+
+    <input id="officialTourSearch" type="search" autocomplete="off" placeholder="Search tours, activities...">
+
+    <h4>FILTERS</h4>
+
+    <div class="filter-grid">
+      <button type="button" data-filter-tag="family"><span>◆</span> Family</button>
+      <button type="button" data-filter-tag="vip"><span>♛</span> VIP</button>
+      <button type="button" data-filter-tag="private"><span>●</span> Private</button>
+      <button type="button" data-filter-tag="kids"><span>✦</span> Kids</button>
+      <button type="button" data-filter-tag="couples"><span>♥</span> Couples</button>
+      <button type="button" data-filter-tag="friends"><span>◈</span> Friends</button>
+      <button type="button" data-filter-tag="extreme"><span>⚡</span> Extreme</button>
+      <button type="button" data-filter-tag="relax"><span>✺</span> Relax</button>
+      <button type="button" data-filter-tag="luxury"><span>◆</span> Luxury</button>
+    </div>
+
+    <h4>🔥 ПОПУЛЯРНЫЕ ТУРЫ</h4>
+
+    <p class="sidebar-sale">
+      ОТДЫХАЙТЕ ПРЯМО СЕЙЧАС! ВЫГОДНЫЕ ЦЕНЫ • ТОП ЭМОЦИИ
+    </p>
+
+    <div class="popular-tour">
+      <img src="sea.jpg" alt="Pirate Yacht">
+      <div>
+        <b>PIRATE YACHT</b>
+        <span>от €20</span>
+      </div>
+    </div>
+
+    <div class="popular-tour">
+      <img src="extreme.jpg" alt="Jeep Safari">
+      <div>
+        <b>JEEP SAFARI</b>
+        <span>от €25</span>
+      </div>
+    </div>
+
+    <div class="popular-tour">
+      <img src="nature.jpg" alt="Green Canyon">
+      <div>
+        <b>GREEN CANYON</b>
+        <span>от €30</span>
+      </div>
+    </div>
+
+    <div class="popular-tour">
+      <img src="air.jpg" alt="Paragliding">
+      <div>
+        <b>PARAGLIDING</b>
+        <span>от €45</span>
+      </div>
+    </div>
+
+<a
+  class="view-all"
+  href="https://wa.me/905387045999?text=Здравствуйте!%20Хочу%20посмотреть%20популярные%20туры%20в%20Алании."
+  target="_blank">
+  VIEW ALL TOURS →
+</a>
+
+<div class="premium-stats vertical-stats">
+
+  <div class="stat-item">
+    <strong>15+</strong>
+    <span>Years Experience</span>
+  </div>
+
+  <div class="stat-item">
+    <strong>60+</strong>
+    <span>Destinations</span>
+  </div>
+
+  <div class="stat-item">
+    <strong>35000+</strong>
+    <span>Happy Guests</span>
+  </div>
+
+  <div class="stat-item">
+    <strong>24/7</strong>
+    <span>Premium Support</span>
+  </div>
+
+</div>
+
+</aside>
+
+</div>
+
+  <a href="vip-service.html" class="vip-service-premium-link" aria-label="Open VIP Service category">
+    <div class="vip-service-premium vip-ai-border">
+
+      <svg class="vip-ai-svg" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="vipStaticGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#d6a24a"/>
+            <stop offset="16%" stop-color="#fff1b8"/>
+            <stop offset="34%" stop-color="#65f2c8"/>
+            <stop offset="50%" stop-color="#3db8ff"/>
+            <stop offset="66%" stop-color="#8a63ff"/>
+            <stop offset="82%" stop-color="#ff62b8"/>
+            <stop offset="100%" stop-color="#f3c66d"/>
+          </linearGradient>
+
+          <linearGradient id="vipAiGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#f3c66d"/>
+            <stop offset="14%" stop-color="#fff4c2"/>
+            <stop offset="28%" stop-color="#61ffcf"/>
+            <stop offset="44%" stop-color="#35d0ff"/>
+            <stop offset="60%" stop-color="#7c5cff"/>
+            <stop offset="76%" stop-color="#ff5ac8"/>
+            <stop offset="90%" stop-color="#f3c66d"/>
+            <stop offset="100%" stop-color="#fff1b8"/>
+          </linearGradient>
+        </defs>
+
+        <rect class="vip-soft-border" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
+        <rect class="vip-base-border" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
+        <rect class="vip-running-border" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
+        <rect class="vip-spark-border" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
+        <rect class="vip-spark-border vip-spark-2" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
+        <rect class="vip-spark-border vip-spark-3" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
+      </svg>
+
+      <div class="vip-icon">👑</div>
+
+      <div class="vip-service-text">
+        <h3>VIP SERVICE</h3>
+        <p>
+          Helicopter Charter, Luxury Airport Transfer, Private Yacht Charter,
+          Private Driver, Private Photographer and premium private experiences.
+        </p>
+      </div>
+
+      <span class="vip-discover-btn">
+        DISCOVER VIP
+      </span>
+
+    </div>
+  </a>
+</section>
+
+<section id="about" class="about about-premium">
+  <div class="about-container">
+
+    <div class="about-text">
+      <h2>О компании</h2>
+
+      <p>
+        <b>ALANYA TOUR ORGANIZATIONS</b> — туристическая компания в Алании,
+        создающая не просто экскурсии, а впечатления,
+        которые остаются с вами надолго после путешествия.
+      </p>
+
+      <p>
+        С 2010 года мы организуем морские путешествия,
+        сафари, каньоны, исторические маршруты,
+        премиальные яхты, индивидуальные туры,
+        трансферы и авторские программы
+        по Алании, Анталии и всей Турции.
+      </p>
+
+      <p>
+        Мы не продаём случайные экскурсии.
+        Мы подбираем путешествие под ваш стиль отдыха,
+        отель, состав семьи, настроение
+        и уровень комфорта.
+      </p>
+
+      <p>
+        Для одних это закат на яхте у крепости Алании.
+        Для других — полёт над побережьем,
+        древняя Каппадокия,
+        белоснежные террасы Памуккале
+        или скрытые бухты Средиземного моря.
+      </p>
+
+      <p>
+        За более чем 16 лет работы наши гости
+        открыли вместе с нами свыше 60 направлений
+        Турецкой Республики — от роскошных курортов
+        и приватных пляжей до древних городов,
+        природных каньонов и морских маршрутов.
+      </p>
+
+      <p>
+        Мы создаём отдых без хаоса, стресса
+        и неопределённости. Каждая программа
+        продумывается заранее — от трансфера
+        и маршрута до атмосферы самого дня.
+      </p>
+
+      <p>
+        <b>
+          Ваш отдых — это не случайность.
+          Это время, которое должно быть красивым,
+          комфортным и по-настоящему запоминающимся.
+        </b>
+      </p>
+    </div>
+
+    <div class="about-image-wrapper">
+      <img src="map-turkey.jpg" alt="Turkey map by ALANYA TOUR ORGANIZATIONS">
+    </div>
+
+  </div>
+</section>
+
+<section id="contacts" class="contacts">
+  <h2>Связаться с нами</h2>
+
+  <div class="contact-grid">
+    <div>
+      <b>WhatsApp / телефон</b><br>
+      <a href="https://wa.me/905387045999" target="_blank">
+        +90 538 704 59 99
+      </a>
+    </div>
+
+    <div>
+      <b>Офис в Алании</b><br>
+      Sarıtaş Hotel Yanı, Tosmur, Ahmet Tokuş Blv. No:13,<br>
+      07400 Alanya / Antalya
+    </div>
+
+    <div>
+      <b>Работаем каждый день</b><br>
+      Офис: 08:00–01:00<br>
+      Онлайн-бронирование: 24/7
+    </div>
+  </div>
+
+  <div class="map-wrapper">
+    <iframe
+      title="Alanya Tour Organizations location"
+      src="https://maps.google.com/maps?q=Sarıtaş%20Hotel%20Yanı%2C%20Tosmur%2C%20Ahmet%20Tokuş%20Blv.%20No%3A13%2C%2007400%20Alanya%2FAntalya&t=&z=16&ie=UTF8&iwloc=&output=embed"
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+<footer class="footer-strip">
+  <p>
+    © 2026 ALANYA TOUR ORGANIZATIONS —
+    TRAVEL WITH LOVE. TRAVEL WITH US.
+  </p>
 </footer>
 
-<script id="v56-exact-root-chrome-script">
-/* ===== V56 FINAL — RENDER THE REAL ../index.html HEADER + PROMO ===== */
+<div class="whatsapp-popup">
+  <p>Подобрать экскурсию в Алании?</p>
+  <a href="https://wa.me/905387045999?text=Здравствуйте!%20Хочу%20подобрать%20экскурсию%20в%20Алании." target="_blank">
+    Написать в WhatsApp
+  </a>
+</div>
+
+<script src="assets/js/shared-filters.js"></script>
+<script>
 (function(){
-  const host=document.getElementById('mainSiteChromeHost');
-  if(!host)return;
-
-  const frame=document.createElement('iframe');
-  frame.id='mainSiteChromeFrame';
-  frame.className='main-site-chrome-frame';
-  frame.title='ALANYA TOUR ORGANIZATIONS original site header and promotion';
-  frame.scrolling='no';
-  frame.src=new URL('../index.html?interactiveMapChrome=1',window.location.href).href;
-  host.replaceChildren(frame);
-
-  function findHeader(doc){
-    return doc.querySelector(
-      'header.site-header, header.header, header#siteHeader, header[role="banner"], body > header'
-    );
+  const search=document.getElementById('officialTourSearch');
+  const buttons=[...document.querySelectorAll('[data-filter-tag]')];
+  const cards=[...document.querySelectorAll('.category-card')];
+  const categoryHints={family:['family'],kids:['family'],extreme:['extreme'],relax:['wellness'],vip:['vip'],luxury:['vip'],private:['vip']};
+  function apply(state){
+    const tags=Array.isArray(state.selectedTags)?state.selectedTags:[];
+    if(search&&search.value!==String(state.search||''))search.value=state.search||'';
+    buttons.forEach(btn=>btn.classList.toggle('is-active',tags.includes(btn.dataset.filterTag)));
+    const query=String(state.search||'').toLocaleLowerCase('en').trim();
+    const categoryTags=tags.filter(tag=>categoryHints[tag]);
+    cards.forEach(card=>{
+      const text=card.textContent.toLocaleLowerCase('en');
+      const href=(card.getAttribute('href')||'').toLocaleLowerCase('en');
+      const matchesQuery=!query||text.includes(query)||href.includes(query);
+      const matchesTags=!categoryTags.length||categoryTags.some(tag=>categoryHints[tag].some(hint=>text.includes(hint)||href.includes(hint)));
+      card.classList.toggle('is-filter-hidden',!(matchesQuery&&matchesTags));
+    });
   }
-
-  function findPromo(doc){
-    return doc.querySelector(
-      '.promo-bar, .promotion-bar, .promo-strip, .special-offer-bar, [data-promo-bar], [data-promotion-bar]'
-    ) || [...doc.querySelectorAll('body *')].find(el=>{
-      const txt=(el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase();
-      return txt.includes('ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ') ||
-             (txt.includes('BUY 2') && txt.includes('3RD FREE')) ||
-             (txt.includes('2 TOUREN') && txt.includes('3. GRATIS')) ||
-             (txt.includes('2 TUR') && txt.includes('HEDİYE'));
-    }) || null;
-  }
-
-  function topBodyChild(el,body){
-    if(!el)return null;
-    let n=el;
-    while(n.parentElement && n.parentElement!==body)n=n.parentElement;
-    return n.parentElement===body?n:null;
-  }
-
-  function fitFrame(doc,headerRoot,promoRoot){
-    const hRect=headerRoot.getBoundingClientRect();
-    const pRect=promoRoot.getBoundingClientRect();
-    const top=Math.min(hRect.top,pRect.top);
-    const bottom=Math.max(hRect.bottom,pRect.bottom);
-    const height=Math.max(1,Math.ceil(bottom-top));
-    frame.style.height=height+'px';
-    host.style.height=height+'px';
-  }
-
-  frame.addEventListener('load',()=>{
-    try{
-      const doc=frame.contentDocument;
-      const win=frame.contentWindow;
-      if(!doc||!win)throw new Error('Same-origin root document unavailable');
-
-      const header=findHeader(doc);
-      const promo=findPromo(doc);
-      if(!header)throw new Error('Original root header not found');
-      if(!promo)throw new Error('Original root promotion not found');
-
-      const body=doc.body;
-      const headerRoot=topBodyChild(header,body)||header;
-      const promoRoot=topBodyChild(promo,body)||promo;
-      const keep=new Set([headerRoot,promoRoot]);
-
-      // Hide all root-page content except its real header and real promotion.
-      [...body.children].forEach(child=>{
-        if(!keep.has(child))child.style.setProperty('display','none','important');
-      });
-
-      // Only neutralize layout positioning required for cropping.
-      // Color, typography, background and all visual styling remain from the root site.
-      doc.documentElement.style.setProperty('height','auto','important');
-      doc.documentElement.style.setProperty('min-height','0','important');
-      doc.documentElement.style.setProperty('overflow','hidden','important');
-      body.style.setProperty('height','auto','important');
-      body.style.setProperty('min-height','0','important');
-      body.style.setProperty('margin','0','important');
-      body.style.setProperty('overflow','hidden','important');
-
-      [headerRoot,promoRoot].forEach(el=>{
-        el.style.setProperty('position','relative','important');
-        el.style.setProperty('inset','auto','important');
-        el.style.setProperty('top','auto','important');
-        el.style.setProperty('left','auto','important');
-        el.style.setProperty('right','auto','important');
-        el.style.setProperty('bottom','auto','important');
-        el.style.setProperty('transform','none','important');
-        el.style.setProperty('width','100%','important');
-      });
-
-      // Navigation must open in the actual page, not remain trapped in iframe.
-      doc.querySelectorAll('a[href]').forEach(a=>a.setAttribute('target','_top'));
-
-      const resize=()=>fitFrame(doc,headerRoot,promoRoot);
-      requestAnimationFrame(()=>requestAnimationFrame(resize));
-
-      if('ResizeObserver' in win){
-        const ro=new win.ResizeObserver(resize);
-        ro.observe(headerRoot);
-        ro.observe(promoRoot);
-      }
-      win.addEventListener('resize',resize);
-
-      document.documentElement.setAttribute('data-main-site-chrome','exact-root-index');
-    }catch(err){
-      // Strict rule: no invented fallback.
-      frame.remove();
-      host.style.height='0';
-      document.documentElement.setAttribute('data-main-site-chrome','failed-no-fake-fallback');
-      console.error('[Interactive Map] Could not load exact root header/promo:',err);
-    }
-  });
+  let timer;
+  search?.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(()=>window.AlanyaFilters.set({search:search.value}),120);});
+  buttons.forEach(btn=>btn.addEventListener('click',()=>{
+    const state=window.AlanyaFilters.get();
+    const tags=new Set(state.selectedTags||[]);
+    tags.has(btn.dataset.filterTag)?tags.delete(btn.dataset.filterTag):tags.add(btn.dataset.filterTag);
+    window.AlanyaFilters.set({selectedTags:[...tags]});
+  }));
+  window.AlanyaFilters.subscribe(apply);
 })();
 </script>
-<script src="assets/js/shared-filters.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
 <script>
-const WHATSAPP = '905387045999';
-const AUTO_TOUR_DELAY = 5000;
-const GEO_OFFER_DELAY = 9000;
-const ALANYA = [32.0000,36.5333];
-
-const OFFICE = {
-  coords:[32.038899,36.532392],
-  title:'ALANYA TOUR ORGANIZATIONS',
-  label:'WE ARE HERE',
-  address:'Sarıtaş Hotel Yanı, Tosmur, Ahmet Tokuş Blv. No:13, 07400 Alanya / Antalya',
-  maps:'https://www.google.com/maps/search/?api=1&query=ALANYA%20TOUR%20ORGANIZATIOS%20ALBERT&query_place_id=ChIJTdMU9fOZ3BQRS49fARIyk6Q'
-};
-let officeMapMarker=null;
-function officeCardHTML(){
-  const wa=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Hello! I would like to visit the ALANYA TOUR ORGANIZATIONS office.')}`;
-  return `<button type="button" class="tour-card-close" aria-label="Close">×</button>
-    <div class="popup-body office-popup-body-compact">
-      <div class="office-card-badge">✦ OFFICE · TOSMUR</div>
-      <p class="office-address">${OFFICE.address}</p>
-      <div class="office-actions">
-        <a class="maps" href="${OFFICE.maps}" target="_blank" rel="noopener">OPEN IN GOOGLE MAPS</a>
-        <a class="reviews" href="${OFFICE.maps}" target="_blank" rel="noopener">READ REVIEWS ★</a>
-        <a class="office-wa" href="${wa}" target="_blank" rel="noopener">WHATSAPP</a>
-      </div>
-    </div>`;
-}
-function openOfficeCard(anchorEl){
-  stopAutoTour();
-  clearTimeout(hoverPopupTimer);
-  popupPinned=true;
-  cardAnchorElement=anchorEl;
-  tourHoverCard.innerHTML=officeCardHTML();
-  tourHoverCard.classList.add('visible');
-  tourHoverCard.setAttribute('aria-hidden','false');
-  requestAnimationFrame(()=>positionTourCard(anchorEl));
-  tourHoverCard.querySelector('.tour-card-close')?.addEventListener('click',()=>closeTourCard(true));
-}
-function addOfficeMarker(){
-  if(officeMapMarker)return;
-
-  const logo=document.createElement('button');
-  logo.type='button';
-  logo.className='office-logo-marker';
-  logo.setAttribute('aria-label','ALANYA TOUR ORGANIZATIONS — WE ARE HERE');
-  logo.innerHTML=`<img src="logo/logo.png" alt="" aria-hidden="true">`;
-  logo.addEventListener('click',e=>{e.stopPropagation();openOfficeCard(logo)});
-
-  const label=document.createElement('button');
-  label.type='button';
-  label.className='office-permanent-label office-label-right';
-  label.setAttribute('aria-label','ALANYA TOUR ORGANIZATIONS — WE ARE HERE');
-  label.innerHTML=`<strong>ALANYA TOUR ORGANIZATIONS</strong><span>WE ARE HERE</span>`;
-  label.addEventListener('click',e=>{e.stopPropagation();openOfficeCard(label)});
-
-  officeMapMarker=new maplibregl.Marker({element:logo,anchor:'center'}).setLngLat(OFFICE.coords).addTo(map);
-  new maplibregl.Marker({element:label,anchor:'left',offset:[28,0]}).setLngLat(OFFICE.coords).addTo(map);
-
-  logo.style.display='grid';
-  logo.style.opacity='1';
-  logo.style.visibility='visible';
-  label.style.display='flex';
-  label.style.opacity='1';
-  label.style.visibility='visible';
-}
-const compactTourLabels={
-  'e-foil':'E-FOIL',
-  'wakeboard':'WAKEBOARDING',
-  'water-ski':'WATER SKI',
-  'speed-boat-tour':'VIP SPEED BOAT',
-  'luxury-jet-car':'JET CAR',
-  'private-yacht':'PRIVATE YACHT',
-  'private-yacht-charter':'LUXURY YACHT',
-  'sup-boarding':'SUP',
-  'parasailing':'PARASAILING',
-  'skydive-experience':'SKYDIVE · MANAVGAT'
-};
-const waterLabelOffsets={
-  'parasailing':[18,-82],'jet-ski':[132,-64],'e-foil':[18,-46],'wakeboard':[138,-28],
-  'water-ski':[18,-10],'luxury-jet-car':[132,8],'speed-boat-tour':[18,28],
-  'twister':[132,46],'banana-boat':[18,64],'sofa-ride':[132,82],
-  'sup-boarding':[132,118]
-};
-function displayTourLabel(t){return compactTourLabels[t.id]||t.title.toUpperCase()}
-function labelOffsetForTour(t,duplicateIndex=0){
-  if(t.categories?.includes('water')&&waterLabelOffsets[t.id])return waterLabelOffsets[t.id];
-  return [14,-14-(duplicateIndex*28)];
-}
-function labelZoomThreshold(t){
-  if(activeTourId===t.id)return 0;
-  if(activeCategory!=='all'){
-    if(t.categories?.includes('water'))return 8.7;
-    return 8.9;
-  }
-  if(t.categories?.includes('water'))return 12.6;
-  if(t.categories?.includes('sea'))return 12.1;
-  if(t.categories?.includes('vip'))return 11.5;
-  if((t.title||'').length>24)return 12.2;
-  return 10.3;
-}
-
-
-const categories = [
-  {id:'all',label:'All Experiences',icon:'all'},
-  {id:'sea',label:'Sea Experiences',icon:'sea'},
-  {id:'extreme',label:'Extreme & Adventure',icon:'extreme'},
-  {id:'nature',label:'Nature & Adventure',icon:'nature'},
-  {id:'history',label:'History & Culture',icon:'history'},
-  {id:'water',label:'Water Sports',icon:'water'},
-  {id:'air',label:'Air Experiences',icon:'air'},
-  {id:'family',label:'Family Experiences',icon:'family'},
-  {id:'wellness',label:'Wellness & Relax',icon:'wellness'},
-  {id:'vip',label:'VIP Services',icon:'vip'}
-];
-
-const tours = [{"id":"parasailing","title":"Parasailing Adventure","categories":["water"],"mode":"sea","coords":[32.032999999999994,36.5188],"locationPrecision":"sea-zone","address":"Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl","price":70.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../parasailing.html","desc":"Parasailing Adventure in Alanya. Fly above Cleopatra Beach, Alanya Castle, the Mediterranean Sea and Taurus Mountains. Daily departures from 09:00 to 19:00. From €70.","icon":"water","image":""},{"id":"jet-ski","title":"Jet Ski Safari","categories":["water"],"mode":"sea","coords":[32.033699999999996,36.517999999999994],"locationPrecision":"sea-zone","address":"Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl","price":60.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../jet-ski.html","desc":"Jet Ski Safari in Alanya. Ride across the Mediterranean Sea with 130 HP or 200 HP jet ski options. Daily reservations from 09:00 to 19:00. From €60.","icon":"water","image":""},{"id":"e-foil","title":"E-Foil Experience & Training","categories":["water"],"mode":"sea","coords":[32.034499999999994,36.5173],"locationPrecision":"sea-zone","address":"Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl","price":110.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../e-foil.html","desc":"E-Foil Experience and Training in Alanya. Fly above the Mediterranean Sea on an electric hydrofoil board. Rent 25 minutes or rent and course 40 minutes. Daily activity from €110.","icon":"water","image":""},{"id":"wakeboard","title":"Professional Wakeboarding","categories":["water"],"mode":"sea","coords":[32.0355,36.516799999999996],"locationPrecision":"sea-zone","address":"Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl","price":70.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../wakeboard.html","desc":"Professional Wakeboarding in Alanya. Ride behind a speedboat, learn with professional guidance and enjoy an exciting 20-minute wakeboard session. Daily activity from €70.","icon":"water","image":""},{"id":"water-ski","title":"Water Ski Experience","categories":["water"],"mode":"sea","coords":[32.0365,36.51669999999999],"locationPrecision":"sea-zone","address":"Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl","price":70.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../water-ski.html","desc":"Water Ski Experience in Alanya. Enjoy a 15-minute individual water ski activity with professional guidance, equipment, insurance and transfer near the activity location. From €70.","icon":"water","image":""},{"id":"luxury-jet-car","title":"Luxury Jet Car","categories":["water"],"mode":"sea","coords":[32.0374,36.5171],"locationPrecision":"sea-zone","address":"Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl","price":100.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../luxury-jet-car.html","desc":"Luxury Jet Car in Alanya. Drive a supercar-style Jet Car on the Mediterranean Sea for 20 minutes. Daily activity from €100 with guidance, insurance and transfer from selected areas.","icon":"water","image":""},{"id":"speed-boat-tour","title":"VIP Speed Boat Tour","categories":["water"],"mode":"sea","coords":[32.038199999999996,36.517799999999994],"locationPrecision":"sea-zone","address":"Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl","price":300.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":true,"page":"../speed-boat-tour.html","desc":"VIP Speed Boat Tour in Alanya. Private luxury speed boat experience for up to 8 guests. 90 minutes on the Mediterranean Sea with guidance, insurance and transfer from selected areas. From €300.","icon":"water","image":""},{"id":"twister","title":"Twister Ride","categories":["water"],"mode":"sea","coords":[32.0387,36.5188],"locationPrecision":"sea-zone","address":"Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl","price":170.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../twister.html","desc":"Twister Ride in Alanya. Fast inflatable group water attraction for 4–8 guests. 10–12 minutes of speed, splashes and adrenaline on the Mediterranean Sea. From €170.","icon":"water","image":""},{"id":"banana-boat","title":"Banana Boat","categories":["water"],"mode":"sea","coords":[32.038199999999996,36.5198],"locationPrecision":"sea-zone","address":"Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl","price":120.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../banana-boat.html","desc":"Banana Boat in Alanya. Classic group water ride for 4–8 guests. 10–12 minutes of speed, splashes and summer fun on the Mediterranean Sea. Minimum 4 people from €120.","icon":"water","image":""},{"id":"sofa-ride","title":"Sofa Ride","categories":["water"],"mode":"sea","coords":[32.037299999999995,36.5205],"locationPrecision":"sea-zone","address":"Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl","price":25.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../sofa-ride.html","desc":"Sofa Ride in Alanya. Fast sofa-style inflatable water ride for 2–6 guests. 10–12 minutes of speed, splashes and adrenaline on the Mediterranean Sea. Minimum 2 people from €140.","icon":"water","image":""},{"id":"sup-boarding","title":"Stand Up Paddleboarding","categories":["water"],"mode":"sea","coords":[32.0338,36.519],"locationPrecision":"sea-zone","address":"Sea zone off Victory Water Sports, Beach No. 36, Oba / Obagöl","price":35.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../sup-boarding.html","desc":"Stand Up Paddleboarding in Alanya. Premium sunrise SUP experience with Red Tower views, calm Mediterranean water, professional instruction and equipment. From €35 per person.","icon":"water","image":""},{"id":"scuba-diving","title":"Scuba Diving Experience","categories":["water"],"mode":"sea","coords":[32.0085,36.5325],"locationPrecision":"start-zone","address":"Alanya Harbour entrance — sea departure zone","price":35.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../scuba-diving.html","desc":"Scuba Diving in Alanya. Guided Mediterranean diving experience with a planned three-dive depth program, professional instruction, equipment and yacht program. Actual dive count, depth and route depend on instructor appro","icon":"water","image":""},{"id":"pirate-yacht","title":"Pirate Yacht Tour","categories":["sea"],"mode":"sea","coords":[32.004,36.535],"locationPrecision":"start-zone","address":"Alanya Harbour departure zone","price":25.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../pirate-yacht.html","desc":"Explore Pirate Yacht Tour in Alanya with Alanya Tour Organizations.","icon":"sea","image":""},{"id":"relax-boat-tour","title":"Relax Boat Tour","categories":["sea"],"mode":"sea","coords":[32.0,36.535],"locationPrecision":"start-zone","address":"Alanya Harbour departure zone","price":25.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../relax-boat-tour.html","desc":"Explore Relax Boat Tour in Alanya with Alanya Tour Organizations.","icon":"sea","image":""},{"id":"catamaran","title":"Catamaran Tour","categories":["sea"],"mode":"sea","coords":[32.002,36.5345],"locationPrecision":"start-zone","address":"Alanya Harbour departure zone","price":25.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../catamaran.html","desc":"Catamaran Tour — open the original tour page for current details.","icon":"sea","image":""},{"id":"private-fishing-tour","title":"Private Fishing Tour in Alanya","categories":["sea"],"mode":"sea","coords":[32.008,36.535],"locationPrecision":"start-zone","address":"Alanya Harbour departure zone","price":100.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":true,"page":"../private-fishing-tour.html","desc":"Explore Private Fishing Tour in Alanya with Alanya Tour Organizations.","icon":"sea","image":""},{"id":"fishing-tour","title":"Group Fishing Tour","categories":["sea"],"mode":"sea","coords":[32.006,36.535],"locationPrecision":"start-zone","address":"Alanya Harbour departure zone","price":45.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../fishing-tour.html","desc":"Explore Group Fishing Tour in Alanya with Alanya Tour Organizations.","icon":"sea","image":""},{"id":"adrasan-suluada-porto-genovese","title":"Adrasan – Suluada – Porto Genovese Bay","categories":["sea"],"mode":"sea","coords":[30.479,36.3],"locationPrecision":"zone","address":"Adrasan / Suluada sea route zone","price":40.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../adrasan-suluada-porto-genovese.html","desc":"Explore Adrasan, Suluada & Porto Genovese Bay Tour with Alanya Tour Organizations.","icon":"sea","image":""},{"id":"gazipasa-bays","title":"Gazipaşa Bays","categories":["sea"],"mode":"sea","coords":[32.3775,36.225],"locationPrecision":"route-zone","address":"Gazipaşa coastal bays route","price":65.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../gazipasa-bays.html","desc":"Explore Gazipasa Bays in Alanya with Alanya Tour Organizations.","icon":"sea","image":""},{"id":"luxury-yacht-cruise","title":"Luxury Yacht Cruise","categories":["sea"],"mode":"sea","coords":[32.005,36.535],"locationPrecision":"start-zone","address":"Alanya Harbour yacht departure zone","price":250.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":true,"page":"../luxury-yacht-cruise.html","desc":"Explore Luxury Yacht Cruise in Alanya with Alanya Tour Organizations.","icon":"sea","image":""},{"id":"paragliding","title":"Paragliding","categories":["air"],"mode":"air","coords":[31.970806,36.576364],"locationPrecision":"published-takeoff","address":"Yassı Tepe / Alanya published take-off zone; landing direction toward Cleopatra Beach","price":75.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../paragliding.html","desc":"Tandem paragliding in Alanya above Cleopatra Beach, Alanya Castle, the Mediterranean Sea and Taurus Mountains. Daily flights every 2 hours from 10:00 to 17:00. Price €75. Transfer, professional pilot, equipment, briefing","icon":"air","image":""},{"id":"helicopter-flight","title":"Helicopter Flight","categories":["air"],"mode":"air","coords":[31.938977,36.559274],"locationPrecision":"address","address":"FlyMe Air — Dinek Mah., Emirgan Blv No:35, 07400 Alanya / Antalya","price":250.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../helicopter-flight.html","desc":"Premium helicopter flight from the FlyMe Air heliport in Dinek, Alanya.","icon":"air","image":""},{"id":"skydive-experience","title":"Tandem Skydive","categories":["air"],"mode":"air","coords":[31.42822,36.77657],"locationPrecision":"zone","address":"Sorgun / Manavgat, Antalya — activity zone","price":500.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../skydive-experience.html","desc":"Tandem skydive experience in the Sorgun / Manavgat area with hotel transfer, professional briefing, certified instructor, equipment and Mediterranean views.","icon":"air","image":""},{"id":"rafting-koprulu-canyon","title":"Rafting in Köprülü Canyon","categories":["extreme"],"mode":"local","coords":[31.1809,37.1919],"locationPrecision":"start-zone","address":"Köprülü Canyon / Köprüçay rafting-base zone, Karabük–Beşkonak","price":25.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../rafting-koprulu-canyon.html","desc":"Explore Rafting in Köprülü Canyon with Alanya Tour Organizations.","icon":"extreme","image":""},{"id":"jeep-safari","title":"Jeep Safari","categories":["extreme"],"mode":"local","coords":[31.9956,36.6399],"locationPrecision":"zone","address":"Jeep Safari zone deeper in the Taurus foothills","price":25.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../jeep-safari.html","desc":"Explore Jeep Safari in Taurus Mountains with Alanya Tour Organizations.","icon":"extreme","image":""},{"id":"quad-safari","title":"Quad Safari","categories":["extreme"],"mode":"local","coords":[32.055,36.635],"locationPrecision":"zone","address":"Separate rough-terrain Quad Safari zone in Alanya mountains","price":30.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../quad-safari.html","desc":"Explore Quad Safari Master with Alanya Tour Organizations.","icon":"extreme","image":""},{"id":"family-jeep-safari","title":"Family Jeep Safari","categories":["extreme"],"mode":"local","coords":[32.015,36.631],"locationPrecision":"zone","address":"Family Jeep Safari zone in the Taurus foothills","price":25.0,"duration":"See tour page","transfer":true,"family":true,"privateTour":false,"page":"../family-jeep-safari.html","desc":"Explore Family Jeep Safari with Alanya Tour Organizations.","icon":"extreme","image":""},{"id":"family-buggy-safari","title":"Family Buggy Safari","categories":["extreme"],"mode":"local","coords":[32.082,36.62],"locationPrecision":"zone","address":"Separate mountain / forest buggy zone in Alanya","price":35.0,"duration":"See tour page","transfer":true,"family":true,"privateTour":false,"page":"../family-buggy-safari.html","desc":"Explore Family Buggy Safari with Alanya Tour Organizations.","icon":"extreme","image":""},{"id":"green-canyon","title":"Green Canyon","categories":["nature"],"mode":"local","coords":[31.5307,36.9079],"locationPrecision":"exact","address":"Green Canyon / Oymapınar, Manavgat — 36.9079, 31.5307","price":35.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../green-canyon.html","desc":"Explore Green Canyon in Alanya with Alanya Tour Organizations.","icon":"nature","image":""},{"id":"sapadere-canyon","title":"Sapadere Canyon","categories":["nature"],"mode":"local","coords":[32.3136,36.5276],"locationPrecision":"destination","address":"Sapadere Canyon","price":35.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../sapadere-canyon.html","desc":"Explore Sapadere Canyon in Alanya with Alanya Tour Organizations.","icon":"nature","image":""},{"id":"pamukkale-salda","title":"Pamukkale & Salda Lake","categories":["nature"],"mode":"local","coords":[29.1208,37.9236],"locationPrecision":"destination","address":"Pamukkale / Salda route destination","price":90.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../pamukkale-salda.html","desc":"Pamukkale and Salda Lake full-day tour from Alanya with hotel transfer, guide, insurance, breakfast, lunch, dinner and entrance tickets to Pamukkale, Hierapolis and the Archaeology Museum included.","icon":"nature","image":""},{"id":"horse-riding","title":"Horse Riding / Horse Farm","categories":["nature"],"mode":"local","coords":[32.15595,36.4411],"locationPrecision":"zone","address":"Seki / Demirtaş mountain area, between Alanya and Gazipaşa","price":50.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../horse-riding.html","desc":"Horse riding in the Seki / Demirtaş mountain area between Alanya and Gazipaşa, with forest and mountain trails.","icon":"nature","image":""},{"id":"land-of-legends","title":"The Land of Legends","categories":["family"],"mode":"local","coords":[31.1056,36.8767],"locationPrecision":"destination","address":"The Land of Legends, Belek","price":95.0,"duration":"See tour page","transfer":true,"family":true,"privateTour":false,"page":"../land-of-legends.html","desc":"Explore The Land of Legends with Alanya Tour Organizations.","icon":"family","image":""},{"id":"sealanya-dolphinpark","title":"Sealanya Dolphin Show","categories":["family"],"mode":"local","coords":[31.8711,36.5897],"locationPrecision":"destination","address":"Sealanya Dolphinpark","price":35.0,"duration":"See tour page","transfer":true,"family":true,"privateTour":false,"page":"../sealanya-dolphinpark.html","desc":"Explore Sealanya Dolphinpark with Alanya Tour Organizations.","icon":"family","image":""},{"id":"eftalia-island-waterpark","title":"Eftalia Island Waterpark","categories":["family"],"mode":"local","coords":[31.8595,36.5945],"locationPrecision":"destination","address":"Eftalia Island Waterpark area","price":45.0,"duration":"See tour page","transfer":true,"family":true,"privateTour":false,"page":"../eftalia-island-waterpark.html","desc":"Explore Eftalia Island Waterpark with Alanya Tour Organizations.","icon":"family","image":""},{"id":"night-jeep-safari","title":"Night Jeep Safari","categories":["family"],"mode":"local","coords":[32.02,36.645],"locationPrecision":"zone","address":"Night Jeep Safari mountain zone","price":35.0,"duration":"See tour page","transfer":true,"family":true,"privateTour":false,"page":"../night-jeep-safari.html","desc":"Alanya Night Jeep Safari with open-top jeeps, panoramic viewpoints, sunset boat cruise, foam party, evening entertainment, Dim River dinner, transfer and insurance. From €35 per adult.","icon":"family","image":""},{"id":"cappadocia","title":"Cappadocia","categories":["history"],"mode":"land","coords":[34.8454,38.6401],"locationPrecision":"destination","address":"Cappadocia region","price":100.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../cappadocia.html","desc":"Discover Cappadocia from Alanya on a 2-day or seasonal 3-day tour with contracted cave-hotel accommodation, meals, drinks at the hotel, museum tickets and guided sightseeing.","icon":"history","image":""},{"id":"demre-myra-kekova","title":"Demre – Myra – Kekova","categories":["history"],"mode":"land","coords":[29.9851,36.2589],"locationPrecision":"route-zone","address":"Demre / Myra / Kekova route zone","price":100.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../demre-myra-kekova.html","desc":"Demre, Myra and Kekova tour from Alanya with Myra Ancient City, St. Nicholas Museum, lunch, Kekova boat trip, swimming stop, guide, transfer and entrance tickets included.","icon":"history","image":""},{"id":"istanbul-tour","title":"Istanbul Tour","categories":["history"],"mode":"land","coords":[28.9784,41.0082],"locationPrecision":"destination","address":"Istanbul","price":290.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../istanbul-tour.html","desc":"Discover Istanbul from Alanya by plane on a full-day tour with round-trip flights, hotel and airport transfers, guide service, entrance tickets, meals and a shared Bosphorus cruise.","icon":"history","image":""},{"id":"syedra-ancient-city","title":"Syedra Ancient City","categories":["history"],"mode":"land","coords":[32.1517,36.4397],"locationPrecision":"destination","address":"Syedra Ancient City","price":45.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../syedra-ancient-city.html","desc":"Visit Syedra Ancient City from Alanya with hotel transfer, guide service, lunch, entrance ticket and panoramic Mediterranean views. Approximate 9-hour cultural tour.","icon":"history","image":""},{"id":"anamur","title":"Anamur","categories":["history"],"mode":"land","coords":[32.8368,36.0803],"locationPrecision":"destination","address":"Anamur / Mamure Castle destination area","price":75.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../anamur.html","desc":"Discover Mamure Castle and Anemurium Ancient City from Alanya with hotel transfer, guide service, lunch, seasonal swimming and a stop in Anamur's banana-growing landscape.","icon":"history","image":""},{"id":"aspendos","title":"Aspendos Ancient City & Roman Theatre","categories":["history"],"mode":"land","coords":[31.172,36.9389],"locationPrecision":"destination","address":"Aspendos Roman Theatre","price":65.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../aspendos.html","desc":"Full-day Aspendos, Side and Kurşunlu Waterfall tour from Alanya with hotel transfer, guide service, lunch, insurance and entrance tickets included.","icon":"history","image":""},{"id":"alanya-city-tour","title":"Alanya City Tour","categories":["history"],"mode":"land","coords":[31.999,36.544],"locationPrecision":"route-zone","address":"Alanya Castle / city tour zone","price":35.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../alanya-city-tour.html","desc":"Explore Alanya Panorama, Alanya Castle, Cleopatra Beach and the Damlataş area on a sunset city tour with hotel transfer, guide service, insurance and round-trip cable-car ticket included.","icon":"history","image":""},{"id":"manavgat-aspendos-side","title":"Manavgat – M.A.S. – Side","categories":["history"],"mode":"land","coords":[31.3864,36.7643],"locationPrecision":"route-zone","address":"Side / Manavgat / Aspendos route zone","price":75.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../manavgat-aspendos-side.html","desc":"Full-day Aspendos, Side and Manavgat Waterfall tour from Alanya with hotel transfer, guide service, lunch, insurance and entrance tickets included.","icon":"history","image":""},{"id":"airport-vip-transfer","title":"Airport VIP Transfer","categories":["vip"],"mode":"local","coords":[32.300598,36.299217],"locationPrecision":"exact","address":"Gazipaşa-Alanya Airport (GZP), Gazipaşa / Antalya","price":80,"duration":"See tour page","transfer":true,"family":false,"privateTour":true,"page":"../airport-vip-transfer.html","desc":"Private VIP airport transfer to/from Gazipaşa-Alanya Airport (GZP).","icon":"vip","image":""},{"id":"private-yacht-charter","title":"Luxury Yacht","categories":["vip"],"mode":"local","coords":[32.002,36.535],"locationPrecision":"start-zone","address":"Alanya Harbour yacht departure zone","price":null,"duration":"See tour page","transfer":true,"family":false,"privateTour":true,"page":"../private-yacht-charter.html","desc":"Private yacht charter in Alanya for proposals, birthdays, family celebrations, sunset experiences and custom coastal routes, subject to yacht availability and sea conditions.","icon":"vip","image":""},{"id":"personal-concierge","title":"Personal Concierge","categories":["vip"],"mode":"local","coords":[32.0,36.533],"locationPrecision":"service-area","address":"Alanya service area — no single fixed point","price":null,"duration":"See tour page","transfer":true,"family":false,"privateTour":true,"page":"../personal-concierge.html","desc":"Private chauffeur and personal concierge service in Alanya for custom routes, business appointments, shopping, family journeys and selected intercity travel.","icon":"vip","image":""},{"id":"helicopter-experience","title":"Helicopter Experience","categories":["vip"],"mode":"local","coords":[31.938977,36.559274],"locationPrecision":"address","address":"FlyMe Air — Dinek Mah., Emirgan Blv No:35, 07400 Alanya / Antalya","price":null,"duration":"See tour page","transfer":true,"family":false,"privateTour":true,"page":"../helicopter-experience.html","desc":"Luxury private helicopter experiences from the FlyMe Air heliport in Dinek, Alanya. Price on request.","icon":"vip","image":""},{"id":"private-photographer","title":"Private Photographer","categories":["vip"],"mode":"local","coords":[32.0,36.533],"locationPrecision":"service-area","address":"Alanya photo-service area; location chosen per session","price":100,"duration":"See tour page","transfer":true,"family":false,"privateTour":true,"page":"../private-photographer.html","desc":"Private Photographer in Alanya. Professional private photo session within Alanya for couples, families, weddings, maternity and lifestyle photography. 1 hour session, every day, from €100.","icon":"vip","image":""},{"id":"turkish-hammam","title":"Turkish Hammam","categories":["wellness"],"mode":"local","coords":[32.0125,36.5593],"locationPrecision":"exact","address":"Çıplaklı Mah., 3002. Sok., Mevlüt Çavuşoğlu Blv. No:4 — Another World Sitesi","price":35.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../turkish-hammam.html","desc":"Traditional Turkish hammam and wellness program at the verified Çıplaklı location near Another World Sitesi.","icon":"wellness","image":""},{"id":"turkish-massage-spa","title":"Turkish Massage & Spa","categories":["wellness"],"mode":"local","coords":[32.0125,36.5593],"locationPrecision":"exact","address":"Çıplaklı Mah., 3002. Sok., Mevlüt Çavuşoğlu Blv. No:4 — Another World Sitesi","price":45.0,"duration":"See tour page","transfer":true,"family":false,"privateTour":false,"page":"../turkish-massage-spa.html","desc":"Massage and spa wellness program at the verified Çıplaklı location near Another World Sitesi.","icon":"wellness","image":""}];
-
-
-const destinationLabels = [
-  {name:'TÜRKİYE',coords:[35.20,39.10],className:'major',minZoom:4.0,maxZoom:5.6},
-  {name:'ALANYA',coords:[32.0000,36.5333],className:'major',minZoom:7.0,maxZoom:14.5},
-  {name:'ANTALYA',coords:[30.7067,36.8864],className:'major',minZoom:6.0,maxZoom:13.5},
-  {name:'İSTANBUL',coords:[28.9784,41.0082],className:'major',minZoom:5.0,maxZoom:13.5},
-  {name:'CAPPADOCIA',coords:[34.8454,38.6401],className:'major',minZoom:5.6,maxZoom:13.5},
-  {name:'PAMUKKALE',coords:[29.1208,37.9236],className:'major',minZoom:6.0,maxZoom:14},
-  {name:'SIDE',coords:[31.3864,36.7643],className:'medium',minZoom:7.0,maxZoom:15},
-  {name:'MANAVGAT',coords:[31.7241,36.7869],className:'medium',minZoom:7.0,maxZoom:15},
-  {name:'BELEK',coords:[31.0556,36.8628],className:'medium',minZoom:7.5,maxZoom:15},
-  {name:'KEMER',coords:[30.5606,36.6020],className:'medium',minZoom:7.5,maxZoom:15},
-  {name:'GAZİPAŞA',coords:[32.3179,36.2694],className:'medium',minZoom:7.4,maxZoom:15},
-  {name:'ANAMUR',coords:[32.8368,36.0751],className:'medium',minZoom:7.0,maxZoom:15},
-  {name:'DEMRE · MYRA · KEKOVA',coords:[29.9851,36.2589],className:'medium',minZoom:6.8,maxZoom:15},
-  {name:'ADRASAN · SULUADA',coords:[30.4800,36.3000],className:'medium',minZoom:7.2,maxZoom:16},
-  {name:'ASPENDOS',coords:[31.1720,36.9389],className:'minor',minZoom:8.2,maxZoom:17},
-  {name:'KÖPRÜLÜ CANYON',coords:[31.1809,37.1919],className:'minor',minZoom:7.8,maxZoom:17},
-  {name:'SAPADERE CANYON',coords:[32.3136,36.5276],className:'minor',minZoom:9.0,maxZoom:18},
-  {name:'SYEDRA',coords:[32.1517,36.4397],className:'minor',minZoom:9.0,maxZoom:18}
-];
-const destinationMarkers=[];
-function addDestinationLabels(){
-  destinationLabels.forEach(d=>{
-    const el=document.createElement('div');
-    el.className=`destination-label ${d.className}`;
-    el.textContent=d.name;
-    const marker=new maplibregl.Marker({element:el,anchor:'center'}).setLngLat(d.coords).addTo(map);
-    destinationMarkers.push({d,marker,el});
-  });
-  updateDestinationLabels();
-}
-function updateDestinationLabels(){
-  const z=map.getZoom();
-  destinationMarkers.forEach(({d,el})=>{el.style.display=(z>=d.minZoom&&z<=d.maxZoom)?'block':'none';});
-}
-
-const routeData = {
-  sea:{type:'FeatureCollection',features:[
-    {type:'Feature',properties:{id:'pirate-yacht'},geometry:{type:'LineString',coordinates:[[32.0000,36.5333],[31.981,36.535],[31.965,36.548],[31.983,36.559],[32.028,36.541],[32.0000,36.5333]]}},
-    {type:'Feature',properties:{id:'private-yacht'},geometry:{type:'LineString',coordinates:[[32.0000,36.5333],[31.978,36.532],[31.944,36.54],[31.925,36.56]]}},
-    {type:'Feature',properties:{id:'water-sports'},geometry:{type:'LineString',coordinates:[[31.976477,36.551041],[31.985,36.538],[31.993,36.532]]}}
-  ]},
-  local:{type:'FeatureCollection',features:[
-    {type:'Feature',properties:{id:'gazipasa'},geometry:{type:'LineString',coordinates:[ALANYA,[32.12,36.43],[32.23,36.34],[32.3775,36.2250]]}},
-    {type:'Feature',properties:{id:'green-canyon'},geometry:{type:'LineString',coordinates:[ALANYA,[31.86,36.66],[31.68,36.82],[31.5307,36.9079]]}},
-    {type:'Feature',properties:{id:'sapadere-canyon'},geometry:{type:'LineString',coordinates:[ALANYA,[32.13,36.55],[32.24,36.54],[32.3136,36.5276]]}}
-  ]},
-  land:{type:'FeatureCollection',features:[
-    {type:'Feature',properties:{id:'side'},geometry:{type:'LineString',coordinates:[ALANYA,[31.72,36.66],[31.3864,36.7643]]}},
-    {type:'Feature',properties:{id:'manavgat'},geometry:{type:'LineString',coordinates:[ALANYA,[31.82,36.65],[31.4544433,36.8135428]]}},
-    {type:'Feature',properties:{id:'koprulu-canyon'},geometry:{type:'LineString',coordinates:[ALANYA,[31.72,36.75],[31.45,36.95],[31.1809,37.1919]]}},
-    {type:'Feature',properties:{id:'antalya'},geometry:{type:'LineString',coordinates:[ALANYA,[31.55,36.66],[31.05,36.82],[30.706706,36.88635]]}},
-    {type:'Feature',properties:{id:'pamukkale'},geometry:{type:'LineString',coordinates:[ALANYA,[31.1,36.95],[30.4,37.45],[29.120833,37.923611]]}},
-    {type:'Feature',properties:{id:'cappadocia'},geometry:{type:'LineString',coordinates:[ALANYA,[32.0,37.2],[32.8,37.85],[33.8,38.25],[34.845378,38.640139]]}},
-    {type:'Feature',properties:{id:'demre'},geometry:{type:'LineString',coordinates:[ALANYA,[31.3,36.3],[30.6,36.15],[29.9851405,36.2588782]]}}
-  ]},
-  air:{type:'FeatureCollection',features:[
-    {type:'Feature',properties:{id:'paragliding'},geometry:{type:'LineString',coordinates:[[31.970806,36.576364],[31.9712,36.5697],[31.9708,36.5625],[31.969956,36.555083]]}},
-    {type:'Feature',properties:{id:'istanbul'},geometry:{type:'LineString',coordinates:[ALANYA,[31.45,38.2],[30.5,39.6],[28.9757051,41.0063286]]}}
-  ]}
-};
-
-const map = new maplibregl.Map({
-  container:'map',
-  style:'https://tiles.openfreemap.org/styles/liberty',
-  center:[31.65,38.4],zoom:5.25,pitch:16,bearing:-4,attributionControl:false,
-  maxZoom:19
-});
-map.addControl(new maplibregl.NavigationControl({showCompass:false,showZoom:true}),'bottom-right');
-map.addControl(new maplibregl.GeolocateControl({
-  positionOptions:{enableHighAccuracy:true},
-  trackUserLocation:true,
-  showUserHeading:true,
-  showAccuracyCircle:true,
-  fitBoundsOptions:{maxZoom:16}
-}),'bottom-right');
-map.addControl(new maplibregl.AttributionControl({compact:true}),'bottom-left');
-
-let activeCategory='all', popup=null, activeTourId=null, autoTourStopped=false, introStarted=false, autoTourTimer=null, autoTourIndex=0;
-let userLocation=null, userMarker=null, nearbyRadius=25;
-const markers=[],labels=[];
-
-const svgIcons={
-  all:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16M6.3 6.3l11.4 11.4M17.7 6.3 6.3 17.7"/></svg>',
-  sea:'<svg viewBox="0 0 24 24"><path d="M4 15h16l-3 4H7l-3-4Zm8-11v11m0-9 5 6h-5m0-6-4 6h4"/></svg>',
-  extreme:'<svg viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7l0-7Z"/></svg>',
- nature:'<svg viewBox="0 0 24 24"><path d="M19 4C11 4 6 8 6 14c0 3 2 5 5 5 6 0 9-7 8-15Z"/><path d="M5 20c3-5 7-8 12-11"/></svg>',
-  history:'<svg viewBox="0 0 24 24"><path d="M4 9h16M6 9v9m4-9v9m4-9v9m4-9v9M3 20h18M5 6l7-3 7 3"/></svg>',
-  water:'<svg viewBox="0 0 24 24"><path d="M4 15c2-2 4 2 6 0s4 2 6 0 4 2 4 2M6 10c2-2 4 2 6 0s4 2 6 0"/><path d="M12 3v4"/></svg>',
-  air:'<svg viewBox="0 0 24 24"><path d="M4 13 21 4l-7 17-2-7-8-1Z"/><path d="m12 14 9-10"/></svg>',
-  family:'<svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3 20c0-4 2-7 5-7s5 3 5 7M13 20c0-3 1.5-5.5 4-5.5S21 17 21 20"/></svg>',
-  wellness:'<svg viewBox="0 0 24 24"><path d="M12 21c-5-3-8-6-8-10 0-3 2-5 5-5 1.5 0 2.5.8 3 1.7C12.5 6.8 13.5 6 15 6c3 0 5 2 5 5 0 4-3 7-8 10Z"/><path d="M9 12c1.5 1 4.5 1 6 0"/></svg>',
-  vip:'<svg viewBox="0 0 24 24"><path d="M4 8 7 18h10l3-10-5 4-3-6-3 6-5-4Z"/><path d="M7 21h10"/></svg>'
-};
-
-
-/* V22 SINGLE SOURCE OF TRUTH
-   Map coordinates/categories stay here. All customer-facing tour data is read
-   from the original root tour HTML page on the same website. */
-const tourPageCache=new Map();
-function absoluteFromPage(value,pageUrl){
-  if(!value)return '';
-  try{return new URL(value,pageUrl).href}catch(_){return value}
-}
-function textOf(node){return (node?.textContent||'').replace(/\s+/g,' ').trim()}
-function findHeroImage(doc,html,pageUrl){
-  const abs=v=>{try{return v?new URL(v,pageUrl).href:''}catch{return ''}};
-  const og=doc.querySelector('meta[property="og:image"],meta[name="twitter:image"]')?.getAttribute('content');
-  if(og)return abs(og);
-  const directSelectors=['.hero img','.tour-hero img','.hero-image img','.gallery-stage img','main img'];
-  for(const sel of directSelectors){const img=doc.querySelector(sel);const src=img?.getAttribute('src')||img?.getAttribute('data-src');if(src)return abs(src)}
-  const styleNodes=[...doc.querySelectorAll('style')].map(x=>x.textContent||'').join('\n');
-  const heroBlocks=[...styleNodes.matchAll(/([^{}]*(?:hero|banner)[^{}]*)\{([^{}]*url\([^)]*\)[^{}]*)\}/ig)];
-  for(const b of heroBlocks){const u=b[2].match(/url\(\s*["']?([^"')]+)["']?\s*\)/i);if(u?.[1])return abs(u[1])}
-  const anyHero=styleNodes.match(/url\(\s*["']?([^"')]*(?:hero|gallery|tour)[^"')]*)["']?\s*\)/i);
-  if(anyHero?.[1])return abs(anyHero[1]);
-  for(const el of doc.querySelectorAll('[style*="background"],[style*="url("]')){const u=(el.getAttribute('style')||'').match(/url\(\s*["']?([^"')]+)["']?\s*\)/i);if(u?.[1])return abs(u[1])}
-  const img=doc.querySelector('img[src],img[data-src]');
-  return abs(img?.getAttribute('src')||img?.getAttribute('data-src')||'');
-}
-function parseDuration(doc){
-  const candidates=[...doc.querySelectorAll('.hero-icon,.details-col,.info-card,.tour-tag')].map(textOf);
-  return candidates.find(x=>/(hour|minute|day|дн|час)/i.test(x))||'See tour page';
-}
-function parsePrice(doc){
-  const raw=textOf(doc.querySelector('.price'))||textOf([...doc.querySelectorAll('.hero-icon')].find(x=>/[€$£]/.test(textOf(x))));
-  const m=raw.match(/(?:€|EUR\s*)\s*(\d+(?:[.,]\d+)?)/i)||raw.match(/(\d+(?:[.,]\d+)?)\s*(?:€|EUR)/i);
-  return m?Number(m[1].replace(',','.')):null;
-}
-async function ensureTourData(t){
-  if(tourPageCache.has(t.id))return tourPageCache.get(t.id);
-  const task=(async()=>{
-    const pageUrl=new URL(t.page,location.href).href;
-    try{
-      const res=await fetch(pageUrl,{cache:'no-store',credentials:'same-origin'});
-      if(!res.ok)throw new Error(`HTTP ${res.status}`);
-      const html=await res.text();
-      const doc=new DOMParser().parseFromString(html,'text/html');
-      const title=textOf(doc.querySelector('h1'))||textOf(doc.querySelector('title')).split('|')[0].trim()||t.title;
-      const desc=textOf(doc.querySelector('.hero-text'))||doc.querySelector('meta[name="description"]')?.content||t.desc;
-      const image=findHeroImage(doc,html,pageUrl)||t.image||'logo/logo.png';
-      const price=parsePrice(doc);
-      const duration=parseDuration(doc);
-      const pageText=textOf(doc.body);
-      Object.assign(t,{title,desc,image,duration,price:t.price??price,transfer:/hotel transfer|transfer included/i.test(pageText)||t.transfer,sourceLoaded:true});
-    }catch(err){
-      console.warn(`Tour source unavailable: ${t.page}`,err);
-      t.sourceLoaded=false;
-    }
-    return t;
-  })();
-  tourPageCache.set(t.id,task);
-  return task;
-}
-async function hydrateAllTours(){
-  const queue=[...tours];
-  const workers=Array.from({length:8},async()=>{while(queue.length)await ensureTourData(queue.shift())});
-  await Promise.allSettled(workers);
-}
-
-function popupHTML(t){
-  const msg=encodeURIComponent(`Hello! I want to book ${t.title}.`);
-  const fallback='logo/logo.png';
-  const image=t.image||fallback;
-  const cover=`<a class="popup-cover tour-source-link" href="${t.page}" aria-label="Open ${t.title}"><img class="popup-cover-img" src="${image}" alt="${t.title}" onerror="this.onerror=null;this.src='${fallback}'" loading="eager"><span class="popup-cover-brand">ALANYA TOUR ORGANIZATIONS</span></a>`;
-  return `${cover}<div class="popup-body"><h3 class="popup-title"><a class="tour-source-link" href="${t.page}">${t.title}</a></h3><p class="popup-desc">${t.desc}</p><div class="popup-meta"><span>◷ ${t.duration}</span><span>${t.transfer?'Hotel Transfer':'Meeting Point'}</span></div><div class="popup-price">${t.price==null?'Price <strong>on request</strong>':`From <strong>€${t.price}</strong>`}</div><div class="popup-actions"><a class="view" href="${t.page}">VIEW TOUR →</a><a class="book" target="_blank" rel="noopener" href="https://wa.me/${WHATSAPP}?text=${msg}">BOOK VIA WHATSAPP</a></div></div>`;
-}
-function belongs(t,cat){return cat==='all'||t.categories.includes(cat);}
-function hasCoords(t){return Array.isArray(t?.coords)&&t.coords.length===2&&Number.isFinite(t.coords[0])&&Number.isFinite(t.coords[1]);}
-function routeBounds(id){const coords=[];Object.values(routeData).forEach(fc=>fc.features.forEach(f=>{if(f.properties.id===id)coords.push(...f.geometry.coordinates);}));if(!coords.length){const t=tours.find(x=>x.id===id);return hasCoords(t)?new maplibregl.LngLatBounds(t.coords,t.coords):null;}return coords.reduce((b,c)=>b.extend(c),new maplibregl.LngLatBounds(coords[0],coords[0]));}
-let sharedFilterState=window.AlanyaFilters?.get?.()||{category:'all',maxPrice:'all',duration:'all',hotelTransfer:false,familyFriendly:false,privateTour:false,search:'',selectedTags:[]};
-let activeBestMode=null;
-function tourMatchesBestMode(t,mode){
-  if(!mode)return true;
-  const title=(t.title||'').toLowerCase();
-  const cats=t.categories||[];
-  const family=cats.includes('family')||/family|dolphin|waterpark|aquapark|land of legends/.test(title);
-  const adventure=cats.includes('extreme')||cats.includes('air')||/rafting|buggy|quad|jeep|paragliding|skydive|horse|diving|canyon/.test(title);
-  const luxury=cats.includes('vip')||/private|luxury|vip|helicopter|yacht|concierge|photographer/.test(title);
-  const couples=cats.includes('wellness')||/sunset|yacht|spa|massage|hammam|paragliding|helicopter|photographer|cappadocia/.test(title);
-  const friends=cats.includes('water')||cats.includes('sea')||cats.includes('extreme')||cats.includes('air')
-    ||/yacht|boat|catamaran|rafting|buggy|quad|jeep|paragliding|skydive|diving|jet ski|parasailing|wakeboard|banana|twister|sofa|sup|speed boat|fishing/.test(title);
-  const today=!/cappadocia|istanbul|pamukkale|demre|myra|kekova|anamur/.test(title);
-  const popular=/land of legends|paragliding|pirate|rafting|jeep safari|green canyon|cappadocia|dolphin|spa|hammam|yacht|jet ski|diving/.test(title);
-  return mode==='family'?family:
-         mode==='couples'?couples:
-         mode==='friends'?friends:
-         mode==='adventure'?adventure:
-         mode==='luxury'?luxury:
-         mode==='today'?today:
-         mode==='popular'?popular:true;
-}
-
-function normalizedText(value){return String(value||'').toLocaleLowerCase('en').trim();}
-function tagMatches(t,tag){
-  if(tag==='family'||tag==='kids')return t.family===true||t.categories.includes('family');
-  if(tag==='vip'||tag==='luxury')return t.categories.includes('vip');
-  if(tag==='private')return t.privateTour===true;
-  if(tag==='extreme')return t.categories.includes('extreme');
-  if(tag==='relax')return t.categories.includes('wellness');
-  // Couples and Friends are retained in the shared state until tour metadata supports them.
-  return true;
-}
-function durationMatches(t,value){
-  if(value==='all')return true;
-  const d=normalizedText(t.duration);
-  if(value==='half-day')return /half|3 hour|4 hour|5 hour/.test(d);
-  if(value==='full-day')return /full|8 hour|9 hour|10 hour|day/.test(d);
-  return true;
-}
-function visible(t){
-  const f=sharedFilterState||{};
-  const category=f.category||activeCategory||'all';
-  const price=f.maxPrice||'all';
-  const query=normalizedText(f.search);
-  const tags=Array.isArray(f.selectedTags)?f.selectedTags:[];
-  return tourMatchesBestMode(t,activeBestMode)
-    &&belongs(t,category)
-    &&(price==='all'||(t.price!=null&&t.price<=Number(price)))
-    &&durationMatches(t,f.duration||'all')
-    &&(!f.hotelTransfer||t.transfer===true)
-    &&(!f.familyFriendly||t.family===true||t.categories.includes('family'))
-    &&(!f.privateTour||t.privateTour===true)
-    &&(!query||normalizedText(`${t.title} ${t.desc} ${t.address||''}`).includes(query))
-    &&tags.every(tag=>tagMatches(t,tag));
-}
-function currentSequence(){return tours.filter(t=>visible(t)&&hasCoords(t)).map(t=>t.id);}
-
-
-let hoverPopupTimer=null;
-let popupPinned=false;
-let cardAnchorElement=null;
-const tourHoverCard=document.getElementById('tourHoverCard');
-function closeTourCard(force=false){
-  clearTimeout(hoverPopupTimer);
-  if(popupPinned&&!force)return;
-  if(force)document.body.classList.remove('tour-focus-mode');
-  tourHoverCard.classList.remove('visible');
-  tourHoverCard.setAttribute('aria-hidden','true');
-  cardAnchorElement=null;
-  if(force)popupPinned=false;
-}
-function positionTourCard(anchorEl){
-  if(!anchorEl||!tourHoverCard)return;
-  const shell=document.querySelector('.map-shell');
-  const sr=shell.getBoundingClientRect();
-  const ar=anchorEl.getBoundingClientRect();
-  const gap=12;
-  const cw=Math.min(340,sr.width-20);
-  const ch=Math.min(tourHoverCard.scrollHeight||420,sr.height-20);
-  let left=ar.right-sr.left+gap;
-  let top=ar.top-sr.top+(ar.height/2)-(ch/2);
-  if(left+cw>sr.width-10) left=ar.left-sr.left-cw-gap;
-  if(left<10){left=Math.max(10,Math.min(sr.width-cw-10,ar.left-sr.left+(ar.width/2)-(cw/2)));top=ar.bottom-sr.top+gap;}
-  if(top+ch>sr.height-10) top=sr.height-ch-10;
-  if(top<10) top=10;
-  tourHoverCard.style.left=`${Math.round(left)}px`;
-  tourHoverCard.style.top=`${Math.round(top)}px`;
-}
-async function openTourCard(t,anchorEl,pinned=false){
-  clearTimeout(hoverPopupTimer);
-  popupPinned=pinned;
-  cardAnchorElement=anchorEl;
-  tourHoverCard.innerHTML='<div class="popup-body"><p class="popup-desc">Loading current tour information…</p></div>';
-  await ensureTourData(t);
-  if(cardAnchorElement!==anchorEl)return;
-  tourHoverCard.innerHTML=`<button type="button" class="tour-card-close" aria-label="Close">×</button>${popupHTML(t)}`;
-  tourHoverCard.classList.add('visible');
-  tourHoverCard.setAttribute('aria-hidden','false');
-  requestAnimationFrame(()=>positionTourCard(anchorEl));
-  tourHoverCard.querySelector('.tour-card-close')?.addEventListener('click',()=>closeTourCard(true));
-  tourHoverCard.addEventListener('mouseenter',()=>clearTimeout(hoverPopupTimer),{once:true});
-}
-function scheduleCardClose(){
-  clearTimeout(hoverPopupTimer);
-  if(!popupPinned)hoverPopupTimer=setTimeout(()=>closeTourCard(false),550);
-}
-tourHoverCard.addEventListener('mouseenter',()=>clearTimeout(hoverPopupTimer));
-tourHoverCard.addEventListener('mouseleave',scheduleCardClose);
-window.addEventListener('resize',()=>{if(cardAnchorElement&&tourHoverCard.classList.contains('visible'))positionTourCard(cardAnchorElement)});
-function setTourActive(t,{moveMap=false}={}){
-  stopAutoTour();activeTourId=t.id;document.body.classList.add('tour-focus-mode');
-  markers.forEach(({t:mt,el})=>{el.classList.toggle('active',mt.id===t.id);el.classList.toggle('dimmed',mt.id!==t.id)});
-  labels.forEach(({t:lt,el})=>el.classList.toggle('active',lt.id===t.id));
-  ['sea','local','land','air'].forEach(type=>{if(map.getLayer(type+'-route')){map.setPaintProperty(type+'-route','line-opacity',['case',['==',['get','id'],t.id],1,.16]);map.setPaintProperty(type+'-route','line-width',['case',['==',['get','id'],t.id],6,2.1]);map.setPaintProperty(type+'-route-glow','line-opacity',['case',['==',['get','id'],t.id],.36,.04]);}});
-  if(moveMap){const b=routeBounds(t.id);if(b)map.fitBounds(b,{padding:innerWidth<760?65:120,duration:1000,maxZoom:t.mode==='local'||t.mode==='sea'?11.8:7.5,pitch:t.mode==='air'?36:22});}
-}
-function selectTour(t,{openCard=true,stopAuto=true,anchorEl=null,moveMap=true}={}){
-  if(stopAuto)stopAutoTour();
-  setTourActive(t,{moveMap});
-  if(openCard&&anchorEl)openTourCard(t,anchorEl,true);
-}
-function addMarkersAndLabels(){
-  tours.forEach((t,index)=>{
-    if(!hasCoords(t))return;
-    const el=document.createElement('div');el.className=`tour-marker ${t.icon}`;el.innerHTML=`<span>${svgIcons[t.icon]||svgIcons.all}</span>`;
-    const marker=new maplibregl.Marker({element:el,anchor:'bottom'}).setLngLat(t.coords).addTo(map);
-    el.addEventListener('mouseenter',()=>openTourCard(t,el,false));
-    el.addEventListener('mouseleave',scheduleCardClose);
-    el.addEventListener('click',e=>{e.stopPropagation();setTourActive(t,{moveMap:false});openTourCard(t,el,true);});
-    markers.push({t,marker,el});
-    const label=document.createElement('button');label.className='route-label';label.type='button';label.textContent=displayTourLabel(t);if(displayTourLabel(t)!==t.title.toUpperCase())label.classList.add('compact-label');
-    label.addEventListener('mouseenter',()=>openTourCard(t,label,false));
-    label.addEventListener('mouseleave',scheduleCardClose);
-    label.addEventListener('focus',()=>openTourCard(t,label,false));
-    label.addEventListener('blur',scheduleCardClose);
-    label.addEventListener('click',e=>{e.stopPropagation();setTourActive(t,{moveMap:false});openTourCard(t,label,true);});
-    const duplicateIndex=tours.slice(0,index).filter(x=>hasCoords(x)&&Math.abs(x.coords[0]-t.coords[0])<.0008&&Math.abs(x.coords[1]-t.coords[1])<.0008).length;
-    const lm=new maplibregl.Marker({element:label,anchor:'left',offset:labelOffsetForTour(t,duplicateIndex)}).setLngLat(t.coords).addTo(map);
-    labels.push({t,marker:lm,el:label});
-  });
-}
-
-function addRoutes(){const styles={sea:{color:'#259fd8',dash:[2,2]},local:{color:'#8db765',dash:[1.5,1.5]},land:{color:'#d7a83e',dash:[2,1.5]},air:{color:'#d9edff',dash:[1,2]}};Object.entries(routeData).forEach(([type,data])=>{map.addSource(type+'-route',{type:'geojson',data});map.addLayer({id:type+'-route-glow',type:'line',source:type+'-route',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':styles[type].color,'line-width':9,'line-opacity':0,'line-blur':7}});map.addLayer({id:type+'-route',type:'line',source:type+'-route',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':styles[type].color,'line-width':3,'line-dasharray':styles[type].dash,'line-opacity':0}});map.on('click',type+'-route',e=>{const t=tours.find(x=>x.id===e.features?.[0]?.properties?.id);if(t)setTourActive(t,{moveMap:true});});map.on('mouseenter',type+'-route',()=>map.getCanvas().style.cursor='pointer');map.on('mouseleave',type+'-route',()=>map.getCanvas().style.cursor='');});}
-function routeVisibleExpression(){const ids=tours.filter(visible).map(t=>t.id);return ['case',['in',['get','id'],['literal',ids]],.72,.06];}
-function refresh(){
-  const z=map?.getZoom?.()??8;
-  markers.forEach(({t,el})=>el.style.display=visible(t)?'grid':'none');
-  labels.forEach(({t,el})=>{
-    const local=t.coords&&Math.abs(t.coords[0]-32)<1.2&&Math.abs(t.coords[1]-36.55)<1.0;
-    const threshold=labelZoomThreshold(t);
-    let show=visible(t)&&(activeTourId===t.id||z>=threshold||(!local&&z>=6.2));
-
-    // HTML markers can otherwise appear glued to an edge when their geographic
-    // anchor is outside the visible viewport but their label offset reaches in.
-    if(show && activeTourId!==t.id && map && t.coords){
-      const p=map.project(t.coords);
-      const canvas=map.getCanvas();
-      const safeX=92;
-      const safeTop=70;
-      const safeBottom=54;
-      const inside=
-        p.x>=safeX &&
-        p.x<=canvas.clientWidth-safeX &&
-        p.y>=safeTop &&
-        p.y<=canvas.clientHeight-safeBottom;
-      if(!inside)show=false;
-    }
-
-    el.classList.toggle('edge-hidden',!show);
-    el.style.display=show?'block':'none';
-  });
-  ['sea','local','land','air'].forEach(type=>{if(map.getLayer(type+'-route')){map.setPaintProperty(type+'-route','line-opacity',routeVisibleExpression());map.setPaintProperty(type+'-route-glow','line-opacity',['case',['in',['get','id'],['literal',tours.filter(visible).map(t=>t.id)]],.14,0]);}});
-}
-function fitVisible(){const list=tours.filter(t=>visible(t)&&hasCoords(t));if(!list.length)return;const b=list.reduce((bounds,t)=>bounds.extend(t.coords),new maplibregl.LngLatBounds(list[0].coords,list[0].coords));map.fitBounds(b,{padding:innerWidth<760?70:115,duration:900,maxZoom:9});}
-
-function revealIntro(){introStarted=true;document.getElementById('introBadge').classList.add('hidden');['sea','local','land','air'].forEach((type,i)=>setTimeout(()=>{map.setPaintProperty(type+'-route','line-opacity',routeVisibleExpression());map.setPaintProperty(type+'-route-glow','line-opacity',.14);},i*220));setTimeout(()=>labels.forEach((x,i)=>setTimeout(()=>x.el.classList.add('visible'),i*55)),650);setTimeout(()=>markers.forEach((x,i)=>setTimeout(()=>x.el.classList.add('visible'),i*55)),1250);setTimeout(startAutoTour,2300);setTimeout(showGeoOffer,GEO_OFFER_DELAY-AUTO_TOUR_DELAY);}
-function startAutoTour(){if(autoTourStopped)return;clearTimeout(autoTourTimer);const step=()=>{if(autoTourStopped)return;const seq=currentSequence();if(!seq.length)return;const t=tours.find(x=>x.id===seq[autoTourIndex%seq.length]);setTourActive(t,{moveMap:true});autoTourIndex++;autoTourTimer=setTimeout(step,5200);};step();}
-function restartAutoForCategory(){autoTourIndex=0;clearTimeout(autoTourTimer);if(introStarted&&!autoTourStopped)autoTourTimer=setTimeout(startAutoTour,900);}
-function stopAutoTour(){if(autoTourStopped)return;autoTourStopped=true;clearTimeout(autoTourTimer);map.stop();document.getElementById('introBadge').classList.add('hidden');}
-
-const categoryLabelParts={
-  all:['ALL','EXPERIENCES'],sea:['SEA','EXPERIENCES'],extreme:['EXTREME','& ADVENTURE'],nature:['NATURE','& ADVENTURE'],history:['HISTORY','& CULTURE'],water:['WATER','SPORTS'],air:['AIR','EXPERIENCES'],family:['FAMILY','EXPERIENCES'],wellness:['WELLNESS','& RELAX'],vip:['VIP','SERVICES']
-};
-function splitCategoryLabel(label){
-  const parts=label.trim().split(/\s+/);
-  return {first:parts.shift()||'',rest:parts.join(' ')};
-}
-function renderCategories(){
-  const top=document.getElementById('topCategories');
-  const desktop=document.getElementById('categoryList');
-  if(desktop)desktop.innerHTML='';
-  top.innerHTML='';
-  categories.forEach(c=>{
-    const activate=()=>{
-      // Top category tabs are a primary navigation mode.
-      // They must never be silently intersected with BEST FOR YOU.
-      activeBestMode=null;
-      clearSmartQuickVisuals();
-      document.querySelectorAll('.best-chip').forEach(b=>{
-        b.classList.remove('active');
-        b.setAttribute('aria-pressed','false');
-      });
-      activeCategory=c.id;
-      activeTourId=null;
-      document.body.classList.remove('tour-focus-mode');
-      closeTourCard(true);
-      markers.forEach(({el})=>el.classList.remove('active','dimmed'));
-      labels.forEach(({el})=>el.classList.remove('active'));
-      window.AlanyaFilters?.set({category:c.id});
-      renderCategories();
-      refresh();
-      fitVisible();
-      restartAutoForCategory();
-    };
-    const requested=categoryLabelParts[c.id];
-    const words=requested?{first:requested[0],rest:requested[1]}:splitCategoryLabel(c.label);
-    const tb=document.createElement('button');
-    tb.className='top-category-btn'+(c.id===activeCategory?' active':'');
-    tb.setAttribute('aria-pressed',c.id===activeCategory?'true':'false');
-    tb.innerHTML=`${svgIcons[c.icon]}<span><span class="cat-first">${words.first}</span>${words.rest?` <span class="cat-rest">${words.rest}</span>`:''}</span>`;
-    tb.onclick=activate;
-    top.appendChild(tb);
-  });
-}
-
-function haversine(a,b){const R=6371,toRad=x=>x*Math.PI/180;const dLat=toRad(b[1]-a[1]),dLon=toRad(b[0]-a[0]);const q=Math.sin(dLat/2)**2+Math.cos(toRad(a[1]))*Math.cos(toRad(b[1]))*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(q));}
-function estimatedMinutes(km){return Math.max(8,Math.round((km/45)*60+8));}
-function showGeoOffer(){if(userLocation||sessionStorage.getItem('geoDismissed'))return;document.getElementById('geoOffer').classList.add('visible');}
-function hideGeoOffer(){document.getElementById('geoOffer').classList.remove('visible');}
-function requestLocation(){hideGeoOffer();if(!navigator.geolocation){alert('Geolocation is not supported by this browser.');return;}navigator.geolocation.getCurrentPosition(pos=>{userLocation=[pos.coords.longitude,pos.coords.latitude];if(userMarker)userMarker.remove();const el=document.createElement('div');el.className='user-marker';userMarker=new maplibregl.Marker({element:el}).setLngLat(userLocation).addTo(map);document.getElementById('nearbyPanel').classList.add('visible');renderNearby();},err=>{document.getElementById('nearbySummary').textContent='Location access was not granted. The map still works normally.';document.getElementById('nearbyPanel').classList.add('visible');},{enableHighAccuracy:true,timeout:10000,maximumAge:300000});}
-async function renderNearby(){
-  if(!userLocation)return;
-
-  const ranked=tours
-    .filter(hasCoords)
-    .map(t=>({...t,distance:haversine(userLocation,t.coords)}))
-    .filter(t=>t.distance<=nearbyRadius)
-    .sort((a,b)=>a.distance-b.distance);
-
-  const list=document.getElementById('nearbyList');
-  list.innerHTML='';
-  document.getElementById('nearbySummary').textContent=ranked.length
-    ? `${ranked.length} experiences found within ${nearbyRadius>=9999?'your reachable map area':nearbyRadius+' km'}.`
-    : 'No tours found in this radius. Choose a wider range.';
-
-  const featured=ranked.slice(0,8);
-  await Promise.allSettled(featured.map(t=>ensureTourData(t)));
-
-  featured.forEach(t=>{
-    const card=document.createElement('button');
-    card.type='button';
-    card.className='nearby-card';
-
-    const fallback='logo/logo.png';
-    const image=t.image||fallback;
-    const price=t.price==null?'ON REQUEST':`€${t.price}`;
-    const transfer=`~${estimatedMinutes(t.distance)} min`;
-
-    card.innerHTML=`
-      <span class="nearby-thumb">
-        <img src="${image}" alt="${t.title}" loading="lazy"
-             onerror="this.onerror=null;this.src='${fallback}'">
-      </span>
-      <span class="nearby-card-copy">
-        <span class="nearby-card-title">${t.title}</span>
-        <span class="nearby-card-meta">${transfer} transfer · ${t.duration}</span>
-        <span class="nearby-card-bottom">
-          <span class="nearby-card-price-wrap">
-            <span class="nearby-card-price">${price}</span>
-            <span class="nearby-card-cta">VIEW TOUR</span>
-          </span>
-          <span class="nearby-card-distance">${t.distance.toFixed(1)} km</span>
-        </span>
-      </span>
-      <span class="nearby-card-arrow" aria-hidden="true">›</span>`;
-
-    card.addEventListener('click',()=>{
-      const markerEntry=markers.find(({t:mt})=>mt.id===t.id);
-      document.getElementById('nearbyPanel').classList.remove('visible');
-      setTourActive(t,{moveMap:true});
-      const anchor=markerEntry?.el;
-      if(anchor){
-        setTimeout(()=>openTourCard(t,anchor,true),650);
-      }else{
-        window.location.href=t.page;
-      }
-    });
-
-    list.appendChild(card);
-  });
-
-  if(ranked.length){
-    const b=ranked.slice(0,5).reduce(
-      (bounds,t)=>bounds.extend(t.coords),
-      new maplibregl.LngLatBounds(userLocation,userLocation)
-    );
-    map.fitBounds(b,{padding:innerWidth<760?70:120,duration:1000,maxZoom:11});
-  }
-}
-
-map.on('load',async()=>{
-  // Satellite imagery under the OpenFreeMap vector labels/roads/POIs.
-  if(!map.getSource('satellite-imagery')){
-    map.addSource('satellite-imagery',{type:'raster',tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],tileSize:256,attribution:'Imagery © Esri'});
-    const firstSymbol=(map.getStyle().layers||[]).find(l=>l.type==='symbol')?.id;
-    map.addLayer({id:'satellite-imagery',type:'raster',source:'satellite-imagery',paint:{'raster-saturation':.08,'raster-contrast':.1,'raster-brightness-min':.06,'raster-brightness-max':.92,'raster-opacity':.88}},firstSymbol);
-  }
-  addRoutes();addMarkersAndLabels();addDestinationLabels();addOfficeMarker();
-  map.on('zoom',()=>{updateDestinationLabels();refresh();});
-  autoTourTimer=setTimeout(revealIntro,AUTO_TOUR_DELAY);
-  setTimeout(()=>setMapMode(localStorage.getItem('alanyaMapMode')||'hybrid'),50);
-});
-
-function setMapMode(mode){
-  const raster=map.getLayer('satellite-imagery');
-  if(raster){
-    map.setPaintProperty('satellite-imagery','raster-opacity',mode==='streets'?0:(mode==='satellite'?1:.88));
-  }
-  (map.getStyle().layers||[]).forEach(layer=>{
-    if(layer.id==='satellite-imagery')return;
-    if(layer.type==='symbol') map.setLayoutProperty(layer.id,'visibility',mode==='satellite'?'none':'visible');
-    if(layer.type==='line' && !layer.id.includes('-route')) map.setPaintProperty(layer.id,'line-opacity',mode==='satellite'?0:(mode==='hybrid'?.72:1));
-    if(layer.type==='fill' && !layer.id.includes('-route')) map.setPaintProperty(layer.id,'fill-opacity',mode==='satellite'?0:(mode==='hybrid'?.22:1));
-  });
-  document.querySelectorAll('[data-map-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mapMode===mode));
-  localStorage.setItem('alanyaMapMode',mode);
-}
-document.querySelectorAll('[data-map-mode]').forEach(btn=>btn.addEventListener('click',()=>setMapMode(btn.dataset.mapMode)));
-
-function setToggleState(id,on){document.getElementById(id)?.classList.toggle('on',Boolean(on));}
-function applySharedFilters(next){
-  const previousCategory=activeCategory;
-  sharedFilterState=next||window.AlanyaFilters?.get?.()||sharedFilterState;
-  activeCategory=sharedFilterState.category||'all';
-  if(activeCategory!=='all' && activeCategory!==previousCategory){
-    activeBestMode=null;
-    document.querySelectorAll('.best-chip').forEach(b=>{
-      b.classList.remove('active');
-      b.setAttribute('aria-pressed','false');
-    });
-  }
-  const price=document.getElementById('priceFilter');if(price)price.value=String(sharedFilterState.maxPrice||'all');
-  const duration=document.getElementById('durationFilter');if(duration)duration.value=sharedFilterState.duration||'all';
-  const search=document.getElementById('mapTourSearch');if(search&&search.value!==String(sharedFilterState.search||''))search.value=sharedFilterState.search||'';
-  setToggleState('hotelTransferFilter',sharedFilterState.hotelTransfer);
-  setToggleState('familyFriendlyFilter',sharedFilterState.familyFriendly);
-  setToggleState('privateTourFilter',sharedFilterState.privateTour);
-  renderCategories();
-  if(map.loaded()){refresh();fitVisible();}
-}
-renderCategories();
-window.AlanyaFilters?.subscribe(applySharedFilters);
-
-function applyBestMode(mode){
-  clearSmartQuickVisuals();
-  const nextMode=activeBestMode===mode?null:mode;
-  activeBestMode=nextMode;
-  activeTourId=null;
-  document.body.classList.remove('tour-focus-mode');
-  closeTourCard(true);
-  markers.forEach(({el})=>el.classList.remove('active','dimmed'));
-  labels.forEach(({el})=>el.classList.remove('active'));
-
-  document.querySelectorAll('.best-chip').forEach(btn=>{
-    btn.classList.toggle('active',btn.dataset.best===activeBestMode);
-    btn.setAttribute('aria-pressed',btn.dataset.best===activeBestMode?'true':'false');
-  });
-
-  // BEST FOR YOU is an alternative discovery mode, so it always starts from ALL.
-  if(activeCategory!=='all'||sharedFilterState.category!=='all'){
-    activeCategory='all';
-    window.AlanyaFilters?.set({category:'all'});
-  }else{
-    renderCategories();
-    refresh();
-    fitVisible();
-  }
-}
-document.querySelectorAll('.best-chip').forEach(btn=>{
-  btn.setAttribute('aria-pressed','false');
-  btn.addEventListener('click',()=>applyBestMode(btn.dataset.best));
-});
-
-
-/* ===== V40 SMART QUICK FILTERS ===== */
-function clearSmartQuickVisuals(except=null){
-  document.querySelectorAll('.smart-quick-chip').forEach(btn=>{
-    const active=except && btn.dataset.quick===except;
-    btn.classList.toggle('active',Boolean(active));
-    btn.setAttribute('aria-pressed',active?'true':'false');
-  });
-}
-function resetBestForSmartFilter(){
-  activeBestMode=null;
-  document.querySelectorAll('.best-chip').forEach(b=>{
-    b.classList.remove('active');
-    b.setAttribute('aria-pressed','false');
-  });
-}
-function applySmartQuick(type){
-  resetBestForSmartFilter();
-  activeTourId=null;
-  document.body.classList.remove('tour-focus-mode');
-  closeTourCard(true);
-
-  if(type==='best-price'){
-    clearSmartQuickVisuals(type);
-    window.AlanyaFilters?.set({maxPrice:'50'});
-  }else if(type==='half-day'){
-    clearSmartQuickVisuals(type);
-    window.AlanyaFilters?.set({duration:'half-day'});
-  }else if(type==='transfer'){
-    clearSmartQuickVisuals(type);
-    window.AlanyaFilters?.set({hotelTransfer:true});
-  }else if(type==='family'){
-    clearSmartQuickVisuals(type);
-    window.AlanyaFilters?.set({familyFriendly:true});
-  }else if(type==='private'){
-    clearSmartQuickVisuals(type);
-    window.AlanyaFilters?.set({privateTour:true});
-  }else if(type==='popular'){
-    clearSmartQuickVisuals(type);
-    activeBestMode='popular';
-    activeCategory='all';
-    window.AlanyaFilters?.set({category:'all'});
-    renderCategories();
-    refresh();
-    fitVisible();
-  }
-}
-document.querySelectorAll('.smart-quick-chip').forEach(btn=>{
-  btn.setAttribute('aria-pressed','false');
-  btn.addEventListener('click',()=>applySmartQuick(btn.dataset.quick));
-});
-document.getElementById('clearFilters')?.addEventListener('click',()=>clearSmartQuickVisuals());
-
-document.getElementById('priceFilter').addEventListener('change',e=>window.AlanyaFilters?.set({maxPrice:e.target.value}));
-document.getElementById('durationFilter').addEventListener('change',e=>window.AlanyaFilters?.set({duration:e.target.value}));
-let searchSyncTimer;
-document.getElementById('mapTourSearch').addEventListener('input',e=>{clearTimeout(searchSyncTimer);searchSyncTimer=setTimeout(()=>window.AlanyaFilters?.set({search:e.target.value}),120);});
-[['hotelTransferFilter','hotelTransfer'],['familyFriendlyFilter','familyFriendly'],['privateTourFilter','privateTour']].forEach(([id,key])=>{
-  document.getElementById(id).addEventListener('click',()=>window.AlanyaFilters?.set({[key]:!Boolean(sharedFilterState[key])}));
-});
-document.getElementById('clearFilters').addEventListener('click',()=>{
-  activeCategory='all';activeTourId=null;activeBestMode=null;document.querySelectorAll('.best-chip').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});document.body.classList.remove('tour-focus-mode');closeTourCard(true);window.AlanyaFilters?.reset();
-  markers.forEach(({el})=>el.classList.remove('active','dimmed'));labels.forEach(({el})=>el.classList.remove('active'));
-});
-document.getElementById('geoYes').addEventListener('click',requestLocation);
-document.getElementById('geoNo').addEventListener('click',()=>{hideGeoOffer();sessionStorage.setItem('geoDismissed','1');});
-document.getElementById('nearbyClose').addEventListener('click',()=>document.getElementById('nearbyPanel').classList.remove('visible'));
-document.getElementById('radiusRow').addEventListener('click',e=>{const b=e.target.closest('.radius-btn');if(!b)return;document.querySelectorAll('.radius-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');nearbyRadius=Number(b.dataset.radius);renderNearby();});
-['mousedown','touchstart','wheel','dragstart','zoomstart','rotatestart','pitchstart'].forEach(event=>map.on(event,stopAutoTour));
-window.addEventListener('resize',()=>map.resize());window.addEventListener('orientationchange',()=>setTimeout(()=>map.resize(),250));setTimeout(()=>map.resize(),350);
-</script>
-<!--
-APPROVED PROJECT SPECIFICATION (LOCKED)
-
-DESIGN
-- Satellite map as the visual foundation.
-- Natural color grading.
-- Dark azure Mediterranean Sea.
-- Deep natural green vegetation.
-- Soft darkening instead of black overlay.
-- Dark navy and gold brand palette.
-- Glassmorphism interface.
-
-LAYOUT
-- Use the original website header.
-- Use a compact two-line trust footer after the map: Trusted since 2010 · 35,000+ Happy Guests · Google Verified 5★, then the copyright/slogan line.
-- SVG icons only.
-- Fully responsive for mobile.
-
-ARCHITECTURE
-- One shared filter module for the website catalog and the map.
-- Shared multilingual filter logic.
-- Markers, routes, and tour cards use the same data source.
-
-FUNCTIONALITY
-- Tour markers.
-- Animated routes for multi-stop tours.
-- Tour information cards.
-- Tour page button.
-- WhatsApp booking button.
-- Smooth camera fly animations.
-- Animated route drawing.
-- Active route glow.
-- Wide Turkey overview with all principal routes visible.
-- Clickable destination labels.
-- Permanent branded office marker in Tosmur: gold sun symbol + WE ARE HERE; opens Google Maps, reviews and WhatsApp.
-- Five-second delayed intro and automatic journey.
-- Automatic journey stops on first user interaction.
-- Top navigation uses the same website categories as the catalog.
-- Category selection keeps the automatic journey inside the selected category until the user interacts with the map.
-- Gazipaşa and all approved principal destinations are included.
-- Optional geolocation shows nearby experiences, approximate distance and transfer time; browser permission is requested only after explicit consent.
-
-- Geography audit V8: published coordinates were applied to named landmarks.
-- Provisional SPA marker was removed and will be restored only after the client supplies the real location.
-- Alanya paragliding take-off uses the published Yassı Tepe/Alanya take-off coordinate, with Cleopatra Beach as the landing direction.
-- Helicopter Flight and Helicopter Experience use Dinek Mah., Emirgan Blv No:35.
-- Permanent office landmark shows compact real ALANYA TOUR ORGANIZATIONS logo on the left + equal-height WE ARE HERE label on the right; it never follows tour filters.
-- Nearby Experiences renders premium mini tour cards with real tour imagery; clicking a card opens the selected tour card on the map.
-
-
-- V37 premium UX: BEST FOR YOU quick filters for Family, Couples, Friends, Adventure, Luxury and Today.
-- Top category tabs and BEST FOR YOU are mutually exclusive discovery modes: choosing a category clears BEST FOR YOU; choosing BEST FOR YOU returns the category navigation to ALL.
-- Default ALL view uses stricter label thresholds; category views reveal more detail.
-- Selected tour is visually dominant while non-selected nearby markers/labels are softened.
-- Nearby Experiences cards include a clear VIEW TOUR micro-CTA and full-card click behavior.
-- Extreme Ringo is intentionally excluded from the interactive map while its standalone website page remains untouched.
-- Footer trust line uses the same animated premium gold shimmer treatment as the top category gold typography.
-- V40 SMART FILTERS: Quick Filters for Best Price, Half Day, With Transfer, Family, Private and Popular; premium dropdown/toggle styling; lighter reset action.
-- V42 preview hygiene: hide/remove Vercel Toolbar overlays so no preview UI covers the interactive map.
-- V45 promo bar restored to original site design: centered single multilingual promotion on the original gold gradient; no ticker duplicate or secondary slogan inside the promo bar.
-- V51 architecture: header and promotion are loaded live from the main ../index.html at runtime, with local fallback only if the fetch fails.
-- V51 map start boundary uses one physical 1px gold divider DOM element between the synced promotion and map.
-- V51 label edge guard prevents displaced labels such as Parasailing from sticking to the map frame.
-- V54 site chrome source of truth: the map renders the actual ../index.html header and promotion inside a same-origin isolated iframe, therefore using the root page's own CSS/JS exactly. Changes to the main index/header/promo/CSS automatically appear on the map without duplicating styles.
-- V54 keeps one real 1px gold divider immediately below the original promotion and before the map.
-- V56 FINAL source-of-truth rule: the map displays the actual same-origin ../index.html inside a cropped iframe, keeping the root page's own HTML, CSS and JS for the header and promotion. No local fake header/promo fallback is allowed.
-STATUS
-This specification has been approved by the client and serves as the baseline
-for all future versions unless explicitly changed.
--->
-
-<script>
-  const userLang = (navigator.language || "en").slice(0, 2);
   const allowedLangs = ["ru", "en", "tr", "de", "pl"];
-  const currentLang = allowedLangs.includes(userLang) ? userLang : "en";
+  const savedLang = localStorage.getItem("atoLanguage");
+  const currentLang = allowedLangs.includes(savedLang) ? savedLang : "en";
 
   function updateLang(lang) {
     document.querySelectorAll("[data-" + lang + "]").forEach(el => {
       el.textContent = el.getAttribute("data-" + lang);
     });
+
     const langLabel = document.querySelector(".language-dropdown > span");
-    if (langLabel) langLabel.textContent = lang.toUpperCase();
+    if (langLabel) {
+      langLabel.textContent = lang.toUpperCase();
+    }
     document.documentElement.lang = lang;
+    localStorage.setItem("atoLanguage", lang);
   }
 
   updateLang(currentLang);
+
   document.querySelectorAll(".language-menu a").forEach(link => {
     link.addEventListener("click", function(e) {
       e.preventDefault();
+
       const lang = this.getAttribute("data-lang");
-      if (allowedLangs.includes(lang)) updateLang(lang);
+
+      if (allowedLangs.includes(lang)) {
+        updateLang(lang);
+      }
     });
   });
 </script>
+
 <script>
   const mobileBtn = document.getElementById('mobileMenuBtn');
   const nav = document.querySelector('.nav');
@@ -2794,9 +829,9 @@ for all future versions unless explicitly changed.
   const languageClose = document.querySelector('.language-close');
 
   function toggleMenu() {
-    nav?.classList.toggle('active');
-    mobileBtn?.classList.toggle('active');
-    overlay?.classList.toggle('active');
+    nav.classList.toggle('active');
+    mobileBtn.classList.toggle('active');
+    overlay.classList.toggle('active');
   }
 
   if (mobileBtn && nav && overlay) {
@@ -2828,132 +863,7 @@ for all future versions unless explicitly changed.
       languageDropdown.classList.remove('open');
     });
   }
-
-/* ===== V41 CUSTOM DROPDOWN LOGIC ===== */
-function initCustomSelect(selectId){
-  const native=document.getElementById(selectId);
-  const wrap=document.querySelector(`.custom-select[data-native-select="${selectId}"]`);
-  if(!native||!wrap)return;
-
-  const trigger=wrap.querySelector('.custom-select-trigger');
-  const valueEl=wrap.querySelector('.custom-select-value');
-  const options=[...wrap.querySelectorAll('.custom-select-option')];
-
-  const sync=()=>{
-    const current=native.value;
-    const active=options.find(o=>o.dataset.value===current)||options[0];
-    if(active){
-      valueEl.textContent=active.textContent;
-      options.forEach(o=>{
-        const on=o===active;
-        o.classList.toggle('active',on);
-        o.setAttribute('aria-selected',on?'true':'false');
-      });
-    }
-  };
-
-  trigger.addEventListener('click',e=>{
-    e.stopPropagation();
-    document.querySelectorAll('.custom-select.open').forEach(x=>{if(x!==wrap)x.classList.remove('open')});
-    const isOpen=wrap.classList.toggle('open');
-    trigger.setAttribute('aria-expanded',isOpen?'true':'false');
-  });
-
-  options.forEach(option=>{
-    option.addEventListener('click',e=>{
-      e.stopPropagation();
-      native.value=option.dataset.value;
-      native.dispatchEvent(new Event('change',{bubbles:true}));
-      sync();
-      wrap.classList.remove('open');
-      trigger.setAttribute('aria-expanded','false');
-    });
-  });
-
-  native.addEventListener('change',sync);
-  sync();
-}
-
-initCustomSelect('priceFilter');
-initCustomSelect('durationFilter');
-
-document.addEventListener('click',()=>{
-  document.querySelectorAll('.custom-select.open').forEach(w=>{
-    w.classList.remove('open');
-    w.querySelector('.custom-select-trigger')?.setAttribute('aria-expanded','false');
-  });
-});
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){
-    document.querySelectorAll('.custom-select.open').forEach(w=>{
-      w.classList.remove('open');
-      w.querySelector('.custom-select-trigger')?.setAttribute('aria-expanded','false');
-    });
-  }
-});
-
-
-/* ===== V42 REMOVE VERCEL PREVIEW TOOLBAR ===== */
-(function(){
-  const vercelHit=(node)=>{
-    try{
-      if(!node||node.nodeType!==1)return false;
-      const el=node;
-      const attrs=[
-        el.id||'',
-        el.className&&typeof el.className==='string'?el.className:'',
-        el.getAttribute?.('data-testid')||'',
-        el.getAttribute?.('aria-label')||'',
-        el.getAttribute?.('title')||'',
-        el.getAttribute?.('src')||'',
-        el.textContent?.slice?.(0,120)||''
-      ].join(' ').toLowerCase();
-      return attrs.includes('vercel toolbar')
-        || attrs.includes('vercel-toolbar')
-        || attrs.includes('vercel.live')
-        || attrs.includes('toolbar')
-           && (attrs.includes('vercel') || attrs.includes('preview'));
-    }catch(e){return false;}
-  };
-
-  const purge=(root=document)=>{
-    const nodes=root.querySelectorAll?.(
-      '#vercel-toolbar, .vercel-toolbar, [data-vercel-toolbar], [data-testid*="vercel" i], ' +
-      '[id*="vercel-toolbar" i], [class*="vercel-toolbar" i], iframe[src*="vercel.com/toolbar" i], ' +
-      'iframe[src*="vercel.live" i], iframe[title*="Vercel" i], [aria-label*="Vercel" i], [title*="Vercel Toolbar" i]'
-    ) || [];
-    nodes.forEach(el=>{ try{ el.remove(); }catch(e){} });
-    [...document.body.children].forEach(el=>{
-      if(vercelHit(el)){
-        try{ el.remove(); }catch(e){}
-      }
-    });
-  };
-
-  const run=()=>{ purge(document); setTimeout(purge, 250); setTimeout(purge, 1000); setTimeout(purge, 2500); };
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded', run, {once:true});
-  }else{
-    run();
-  }
-
-  const observer=new MutationObserver(muts=>{
-    let found=false;
-    muts.forEach(m=>{
-      m.addedNodes && [...m.addedNodes].forEach(node=>{
-        if(vercelHit(node)){ try{ node.remove(); }catch(e){} found=true; }
-        else if(node.nodeType===1){
-          const nested=node.querySelectorAll?.('*')||[];
-          nested.forEach(el=>{ if(vercelHit(el)){ try{ el.remove(); }catch(e){} found=true; }});
-        }
-      });
-    });
-    if(found) purge(document);
-  });
-  observer.observe(document.documentElement,{childList:true,subtree:true});
-})();
-
 </script>
-<!-- V10: 52 tour pages linked from ato.zip; real hero images integrated where available. -->
+
 </body>
 </html>

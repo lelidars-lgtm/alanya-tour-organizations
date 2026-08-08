@@ -2268,9 +2268,9 @@ window.addEventListener('resize',()=>map.resize());window.addEventListener('orie
 </script>
 <script>
 
-  const userLang = (navigator.language || "en").slice(0, 2);
   const allowedLangs = ["ru", "en", "tr", "de", "pl"];
-  const currentLang = allowedLangs.includes(userLang) ? userLang : "en";
+  const savedLang = localStorage.getItem("atoLanguage");
+  const currentLang = allowedLangs.includes(savedLang) ? savedLang : "en";
 
   function updateLang(lang) {
     document.querySelectorAll("[data-" + lang + "]").forEach(el => {
@@ -2279,6 +2279,7 @@ window.addEventListener('resize',()=>map.resize());window.addEventListener('orie
     const langLabel = document.querySelector(".language-dropdown > span");
     if (langLabel) langLabel.textContent = lang.toUpperCase();
     document.documentElement.lang = lang;
+    localStorage.setItem("atoLanguage", lang);
   }
 
   updateLang(currentLang);
