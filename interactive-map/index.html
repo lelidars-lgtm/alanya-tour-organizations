@@ -1371,6 +1371,15 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 .category-scroll-btn:hover{transform:translateY(-50%) scale(1.06);background:#17283a}.category-scroll-btn:disabled{opacity:.32;cursor:default;transform:translateY(-50%)}
 .category-scroll-prev{left:24px}.category-scroll-next{right:24px}
 @media(max-width:760px){.top-categories{padding-left:43px!important;padding-right:43px!important}.category-scroll-btn{top:29px;width:30px;height:30px;font-size:24px}.category-scroll-prev{left:14px}.category-scroll-next{right:14px}}
+.map-native-mobile-menu,.map-native-language-panel{display:none;position:fixed;z-index:2147483646;background:rgba(6,17,31,.985);color:#fff;border:1px solid rgba(215,168,62,.35);box-shadow:0 24px 70px rgba(0,0,0,.72);backdrop-filter:blur(18px)}
+.map-native-mobile-menu.open,.map-native-language-panel.open{display:flex}
+.map-native-mobile-menu{left:0;width:min(82vw,360px);padding:28px 24px;flex-direction:column;align-items:flex-start;gap:22px;overflow-y:auto}
+.map-native-mobile-menu>.nav-item,.map-native-mobile-menu>.contact-link{display:flex;align-items:center;gap:7px;width:100%;color:#fff;text-decoration:none;font-size:15px;font-weight:800;letter-spacing:.4px}
+.map-native-mobile-menu .arrow-icon{width:16px;height:16px;stroke:#d7a83e;fill:none}.map-native-mobile-menu .dropdown-menu{display:flex!important;position:static!important;opacity:1!important;visibility:visible!important;transform:none!important;width:100%!important;margin-top:10px!important;flex-direction:column;background:rgba(255,255,255,.035)!important}
+.map-native-mobile-menu .dropdown-menu a{padding:10px 12px;color:#dce5ec;text-decoration:none;font-size:12px}
+.map-native-language-panel{right:12px;width:min(310px,calc(100vw - 24px));padding:12px;flex-direction:column;border-radius:14px}
+.map-native-language-panel a{display:flex;padding:14px 16px;border-radius:10px;color:#fff;text-decoration:none;font-size:14px;font-weight:800}.map-native-language-panel a:active{background:rgba(215,168,62,.2)}
+.map-native-panel-close{align-self:flex-end;width:36px;height:36px;margin:0 0 8px;border:1px solid rgba(215,168,62,.6);border-radius:50%;background:#0a1d2e;color:#fff;font-size:23px}
 @media(min-width:901px) and (hover:hover){
   .geo-offer,.nearby-panel{top:126px!important;bottom:auto!important}
   .nearby-panel{max-height:calc(100% - 144px)!important}
@@ -1455,6 +1464,26 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
       const language=doc.querySelector('.language-dropdown');
       const languageClose=doc.querySelector('.language-close');
       const languageMenu=doc.querySelector('.language-menu');
+      const nativeMenu=document.createElement('div');
+      nativeMenu.className='map-native-mobile-menu';
+      nativeMenu.setAttribute('aria-hidden','true');
+      nativeMenu.innerHTML=`<button type="button" class="map-native-panel-close" aria-label="Close menu">×</button>${nav?.innerHTML||''}`;
+      const nativeLanguage=document.createElement('div');
+      nativeLanguage.className='map-native-language-panel';
+      nativeLanguage.setAttribute('aria-hidden','true');
+      nativeLanguage.innerHTML=`<button type="button" class="map-native-panel-close" aria-label="Close languages">×</button>${languageMenu?.innerHTML||''}`;
+      nativeLanguage.querySelector('.language-close')?.remove();
+      document.body.append(nativeMenu,nativeLanguage);
+      const positionNativePanels=()=>{
+        const top=Math.ceil(host.getBoundingClientRect().bottom);
+        nativeMenu.style.top=top+'px';nativeMenu.style.height=`calc(100dvh - ${top}px)`;
+        nativeLanguage.style.top=top+'px';
+      };
+      const closeNativePanels=()=>{
+        nativeMenu.classList.remove('open');nativeLanguage.classList.remove('open');
+        nativeMenu.setAttribute('aria-hidden','true');nativeLanguage.setAttribute('aria-hidden','true');
+      };
+      positionNativePanels();window.addEventListener('resize',positionNativePanels,{passive:true});
       const forceNav=on=>{
         if(!nav)return;
         if(on){
@@ -1484,23 +1513,27 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
       };
       mobileBtn?.addEventListener('click',e=>{
         e.preventDefault();e.stopImmediatePropagation();
-        const opening=!nav?.classList.contains('active');
-        language?.classList.remove('open');
-        forceLanguage(false);forceNav(opening);
-        nav?.classList.toggle('active',opening);
-        mobileBtn.classList.toggle('active',opening);
-        overlay?.classList.toggle('active',opening);
-        setHeaderExpanded(opening);
+        const opening=!nativeMenu.classList.contains('open');
+        closeNativePanels();positionNativePanels();nativeMenu.classList.toggle('open',opening);
+        nativeMenu.setAttribute('aria-hidden',opening?'false':'true');
+        setHeaderExpanded(false);
       },true);
       language?.addEventListener('click',e=>{
         if(e.target.closest('.language-menu'))return;
         e.preventDefault();e.stopImmediatePropagation();
-        const opening=!language.classList.contains('open');
-        nav?.classList.remove('active');mobileBtn?.classList.remove('active');overlay?.classList.remove('active');
-        forceNav(false);forceLanguage(opening);
-        language.classList.toggle('open',opening);
-        setHeaderExpanded(opening);
+        const opening=!nativeLanguage.classList.contains('open');
+        closeNativePanels();positionNativePanels();nativeLanguage.classList.toggle('open',opening);
+        nativeLanguage.setAttribute('aria-hidden',opening?'false':'true');
+        setHeaderExpanded(false);
       },true);
+      nativeMenu.querySelector('.map-native-panel-close')?.addEventListener('click',closeNativePanels);
+      nativeLanguage.querySelector('.map-native-panel-close')?.addEventListener('click',closeNativePanels);
+      nativeMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeNativePanels));
+      nativeLanguage.querySelectorAll('a[data-lang]').forEach(link=>link.addEventListener('click',e=>{
+        e.preventDefault();
+        const original=languageMenu?.querySelector(`a[data-lang="${link.dataset.lang}"]`);
+        original?.click();closeNativePanels();
+      }));
       overlay?.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();closeHeaderMenus();},true);
       languageClose?.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();closeHeaderMenus();},true);
       doc.querySelectorAll('.language-menu a').forEach(link=>link.addEventListener('click',()=>setTimeout(closeHeaderMenus,0)));
