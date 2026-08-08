@@ -371,6 +371,7 @@ html,body{zoom:1!important;transform:none!important;width:100%!important}
   border-radius:11px!important;
   background:linear-gradient(100deg,rgba(9,31,49,.96),rgba(4,20,34,.98))!important;
   color:#fff!important;
+  text-decoration:none!important;
   text-align:left!important;
   cursor:pointer!important;
   box-shadow:0 8px 22px rgba(0,0,0,.18)!important;
@@ -1355,9 +1356,29 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 
 #atoOriginalHeaderHost{position:relative;z-index:100;width:100%;height:86px;overflow:hidden;background:#fff}
 #atoOriginalHeaderFrame{display:block;width:100%;height:86px;border:0;margin:0;padding:0;background:#fff;opacity:0;transition:opacity .12s ease}
-#atoOriginalFooterHost{position:relative;z-index:100;width:100%;height:48px;overflow:hidden;background:#03111e}
+#atoOriginalFooterHost{position:relative;z-index:100;width:100%;height:76px;overflow:hidden;background:#03111e;display:flex;flex-direction:column;align-items:stretch}
 #atoOriginalFooterFrame{display:block;width:100%;height:48px;border:0;margin:0;padding:0;background:#03111e;opacity:0;transition:opacity .12s ease}
-@media(max-width:760px){#atoOriginalHeaderHost,#atoOriginalHeaderFrame{height:70px}#atoOriginalFooterHost,#atoOriginalFooterFrame{height:44px}}
+.map-footer-trust{height:28px;min-height:28px;display:flex;align-items:center;justify-content:center;padding:0 12px;background:#03111e;font:700 11px/1.2 Georgia,serif;letter-spacing:1.35px;text-align:center;color:#d7a83e;background-image:linear-gradient(90deg,#9b650b 0%,#f7d978 23%,#c98e22 48%,#fff0ac 70%,#a86d0d 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:mapFooterGoldShimmer 4.8s ease-in-out infinite}
+@keyframes mapFooterGoldShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@media(prefers-reduced-motion:reduce){.map-footer-trust{animation:none;background-position:50% 50%}}
+@media(max-width:760px){#atoOriginalHeaderHost,#atoOriginalHeaderFrame{height:70px}#atoOriginalFooterHost{height:68px}.map-footer-trust{height:24px;min-height:24px;font-size:9px;letter-spacing:.75px}#atoOriginalFooterFrame{height:44px}}
+.mobile-filter-toggle,.mobile-filter-close{display:none}
+@media(max-width:900px), (hover:none) and (pointer:coarse){
+  html,body{height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;overflow:hidden!important}
+  main.app{position:relative!important}
+  .sidebar{display:none!important}
+  .mobile-filter-toggle{display:flex;position:absolute;z-index:82;left:max(10px,env(safe-area-inset-left));top:clamp(60px,9dvh,78px);height:clamp(38px,6dvh,44px);align-items:center;gap:7px;padding:0 13px;border:1px solid rgba(241,202,104,.7);border-radius:9px;background:rgba(3,17,30,.94);color:#f1ca68;font-weight:900;letter-spacing:.6px;box-shadow:0 8px 24px rgba(0,0,0,.38)}
+  .mobile-filter-close{display:flex;position:sticky;top:0;z-index:3;margin:0 0 12px auto;width:38px;height:38px;align-items:center;justify-content:center;border:1px solid rgba(241,202,104,.55);border-radius:50%;background:#071827;color:#fff;font-size:24px}
+  body.mobile-filter-open .sidebar{display:block!important;position:absolute!important;z-index:100!important;left:max(8px,env(safe-area-inset-left))!important;right:max(8px,env(safe-area-inset-right))!important;top:8px!important;bottom:max(8px,env(safe-area-inset-bottom))!important;width:auto!important;max-height:none!important;padding:14px 18px calc(24px + env(safe-area-inset-bottom))!important;border:1px solid rgba(241,202,104,.65)!important;border-radius:16px!important;box-shadow:0 24px 70px rgba(0,0,0,.75)!important}
+  body.mobile-filter-open .mobile-filter-toggle{display:none!important}
+  .tour-hover-card{position:absolute!important;left:max(8px,env(safe-area-inset-left))!important;right:max(8px,env(safe-area-inset-right))!important;top:clamp(54px,8dvh,82px)!important;bottom:max(10px,env(safe-area-inset-bottom))!important;width:auto!important;max-height:none!important;overflow:hidden!important;display:flex!important;flex-direction:column!important}
+  .tour-hover-card .popup-cover{height:clamp(96px,18dvh,148px)!important;min-height:clamp(96px,18dvh,148px)!important}
+  .tour-hover-card .popup-body{min-height:0!important;overflow-y:auto!important;display:flex!important;flex-direction:column!important;padding:14px!important}
+  .tour-hover-card .popup-title{order:1}.tour-hover-card .popup-actions{order:2;margin:0 0 12px}.tour-hover-card .popup-desc{order:3;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.tour-hover-card .popup-meta{order:4}.tour-hover-card .popup-price{order:5}
+  .tour-hover-card .popup-actions .view{font-size:14px!important;padding:13px!important}.tour-hover-card .popup-actions .book{display:none!important}
+  .location-help{padding:16px;color:#d8e2e9;font-size:13px;line-height:1.5}.location-help button{width:100%;margin-top:12px;padding:12px;border:0;border-radius:9px;background:linear-gradient(90deg,#d39b28,#e8c45d);color:#07101b;font-weight:900}
+}
+@media(max-height:600px) and (orientation:landscape){.tour-hover-card{top:8px!important}.tour-hover-card .popup-cover{height:84px!important;min-height:84px!important}.tour-hover-card .popup-desc,.tour-hover-card .popup-meta,.tour-hover-card .popup-price{display:none!important}.mobile-filter-toggle{top:54px}}
 </style>
 </head>
 <body>
@@ -1374,7 +1395,10 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
   frame.src=source;
   frame.scrolling='no';
   frame.setAttribute('loading','eager');
-  host.replaceChildren(frame);
+  const trust=document.createElement('div');
+  trust.className='map-footer-trust';
+  trust.textContent='TRUSTED SINCE 2010 · 35,000+ HAPPY GUESTS · GOOGLE VERIFIED 5★';
+  host.replaceChildren(trust,frame);
 
   function fallbackHeight(){
     const h=window.matchMedia('(max-width:760px)').matches?70:86;
@@ -1412,7 +1436,7 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 
 <div class="map-edge-line" aria-hidden="true"></div>
 <main class="app">
-<aside class="sidebar">
+<aside class="sidebar"><button type="button" class="mobile-filter-close" id="mobileFilterClose" aria-label="Close filters">×</button>
 <h1 class="experience-turkey-title"><span>EXPERIENCE</span><span>TURKEY</span></h1><p class="subtitle">Discover more. Feel more. Travel better.</p>
 <div class="map-search-wrap"><input aria-label="Search tours or places" autocomplete="off" class="map-tour-search" id="mapTourSearch" placeholder="Search tours or places…" type="search"/></div>
 <div hidden="" id="categoryList"></div>
@@ -1475,6 +1499,7 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 <button class="clear smart-clear" id="clearFilters"><span class="clear-filter-main">↻   CLEAR FILTERS</span><span class="clear-filter-sub">Reset all selections</span></button><div class="sidebar-nearby" id="sidebarNearby"><div class="section-label">NEARBY EXPERIENCES</div><p>Use the location button on the map to show the closest tours.</p></div>
 </aside>
 <section aria-label="Interactive tour map" class="map-shell">
+<button type="button" class="mobile-filter-toggle" id="mobileFilterToggle" aria-label="Open filters">⚙ FILTERS</button>
 <div class="map-discovery-hint"><b>TIP</b> Choose a category or zoom in to discover more</div>
 <div class="map" id="map"></div><div class="map-tone"></div><div class="map-vignette"></div>
 <div aria-label="Experience categories" class="top-categories" id="topCategories"></div>
@@ -1509,7 +1534,7 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
       doc.body.style.cssText+=';overflow:hidden!important;margin:0!important;padding:0!important;background:#03111e!important';
       footer.style.setProperty('margin','0','important');
       footer.style.setProperty('position','relative','important');
-      const sync=()=>{const h=Math.ceil(footer.getBoundingClientRect().height)||48;host.style.height=h+'px';frame.style.height=h+'px';};
+      const sync=()=>{const h=Math.ceil(footer.getBoundingClientRect().height)||48;const trustH=Math.ceil(trust.getBoundingClientRect().height)||28;host.style.height=(h+trustH)+'px';frame.style.height=h+'px';};
       sync();
       if('ResizeObserver' in win)new win.ResizeObserver(sync).observe(footer);
       frame.style.opacity='1';
@@ -2040,7 +2065,8 @@ function haversine(a,b){const R=6371,toRad=x=>x*Math.PI/180;const dLat=toRad(b[1
 function estimatedMinutes(km){return Math.max(8,Math.round((km/45)*60+8));}
 function showGeoOffer(){if(userLocation||sessionStorage.getItem('geoDismissed'))return;document.getElementById('geoOffer').classList.add('visible');}
 function hideGeoOffer(){document.getElementById('geoOffer').classList.remove('visible');}
-function requestLocation(){hideGeoOffer();if(!navigator.geolocation){alert('Geolocation is not supported by this browser.');return;}navigator.geolocation.getCurrentPosition(pos=>{userLocation=[pos.coords.longitude,pos.coords.latitude];if(userMarker)userMarker.remove();const el=document.createElement('div');el.className='user-marker';userMarker=new maplibregl.Marker({element:el}).setLngLat(userLocation).addTo(map);document.getElementById('nearbyPanel').classList.add('visible');renderNearby();},err=>{document.getElementById('nearbySummary').textContent='Location access was not granted. The map still works normally.';document.getElementById('nearbyPanel').classList.add('visible');},{enableHighAccuracy:true,timeout:10000,maximumAge:300000});}
+function showLocationError(err){const panel=document.getElementById('nearbyPanel'),list=document.getElementById('nearbyList'),radius=document.getElementById('radiusRow');document.getElementById('nearbySummary').textContent=err?.code===1?'Location permission is blocked.':'Your location could not be determined.';radius.style.display='none';list.innerHTML='<div class="location-help">Open this Preview in Safari, allow Location for the website, then try again.<button type="button" id="retryLocation">TRY LOCATION AGAIN</button></div>';panel.classList.add('visible');document.getElementById('retryLocation')?.addEventListener('click',requestLocation);}
+function requestLocation(){hideGeoOffer();if(!navigator.geolocation){showLocationError({code:0});return;}document.getElementById('radiusRow').style.display='flex';navigator.geolocation.getCurrentPosition(pos=>{userLocation=[pos.coords.longitude,pos.coords.latitude];if(userMarker)userMarker.remove();const el=document.createElement('div');el.className='user-marker';userMarker=new maplibregl.Marker({element:el}).setLngLat(userLocation).addTo(map);document.getElementById('nearbyPanel').classList.add('visible');renderNearby();},showLocationError,{enableHighAccuracy:true,timeout:15000,maximumAge:60000});}
 async function renderNearby(){
   if(!userLocation)return;
 
@@ -2060,8 +2086,8 @@ async function renderNearby(){
   await Promise.allSettled(featured.map(t=>ensureTourData(t)));
 
   featured.forEach(t=>{
-    const card=document.createElement('button');
-    card.type='button';
+    const card=document.createElement('a');
+    card.href=t.page;
     card.className='nearby-card';
 
     const fallback='logo/logo.png';
@@ -2086,18 +2112,6 @@ async function renderNearby(){
         </span>
       </span>
       <span class="nearby-card-arrow" aria-hidden="true">›</span>`;
-
-    card.addEventListener('click',()=>{
-      const markerEntry=markers.find(({t:mt})=>mt.id===t.id);
-      document.getElementById('nearbyPanel').classList.remove('visible');
-      setTourActive(t,{moveMap:true});
-      const anchor=markerEntry?.el;
-      if(anchor){
-        setTimeout(()=>openTourCard(t,anchor,true),650);
-      }else{
-        window.location.href=t.page;
-      }
-    });
 
     list.appendChild(card);
   });
@@ -2262,6 +2276,8 @@ document.getElementById('geoYes').addEventListener('click',requestLocation);
 document.getElementById('geoNo').addEventListener('click',()=>{hideGeoOffer();sessionStorage.setItem('geoDismissed','1');});
 document.getElementById('nearbyClose').addEventListener('click',()=>document.getElementById('nearbyPanel').classList.remove('visible'));
 document.getElementById('radiusRow').addEventListener('click',e=>{const b=e.target.closest('.radius-btn');if(!b)return;document.querySelectorAll('.radius-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');nearbyRadius=Number(b.dataset.radius);renderNearby();});
+document.getElementById('mobileFilterToggle')?.addEventListener('click',()=>document.body.classList.add('mobile-filter-open'));
+document.getElementById('mobileFilterClose')?.addEventListener('click',()=>document.body.classList.remove('mobile-filter-open'));
 ['mousedown','touchstart','wheel','dragstart','zoomstart','rotatestart','pitchstart'].forEach(event=>map.on(event,stopAutoTour));
 window.addEventListener('resize',()=>map.resize());window.addEventListener('orientationchange',()=>setTimeout(()=>map.resize(),250));setTimeout(()=>map.resize(),350);
 
