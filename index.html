@@ -230,41 +230,26 @@
       <span>TOURS</span>
     </a>
 
-    <div class="nav-item">
-      <span>COMBO DEALS</span>
-      <svg class="arrow-icon" viewBox="0 0 24 24">
-        <path d="M7 10L12 15L17 10" />
-      </svg>
-    </div>
-
-    <div class="nav-item">
-      <span>WATER SPORTS</span>
-      <svg class="arrow-icon" viewBox="0 0 24 24">
-        <path d="M7 10L12 15L17 10" />
-      </svg>
-    </div>
-
-    <div class="nav-item">
-      <span>AIR EXPERIENCES</span>
-      <svg class="arrow-icon" viewBox="0 0 24 24">
-        <path d="M7 10L12 15L17 10" />
-      </svg>
-    </div>
-
-    <a href="vip-service.html" class="nav-item">
-      <span>VIP SERVICES</span>
-      <svg class="arrow-icon" viewBox="0 0 24 24">
-        <path d="M7 10L12 15L17 10" />
-      </svg>
+    <a href="/interactive-map/" class="nav-item">
+      <span>EXPLORE MAP</span>
     </a>
+
+    <div class="nav-item" title="Plan excursions by your holiday dates">
+      <span>PLAN MY TRIP</span>
+    </div>
+
+    <div class="nav-item" title="Ready-made tour combinations">
+      <span>COMBO DEALS</span>
+    </div>
 
     <div class="nav-item special">
       <span class="fire">🔥</span>
       <span>SPECIAL OFFERS</span>
-      <svg class="arrow-icon" viewBox="0 0 24 24">
-        <path d="M7 10L12 15L17 10" />
-      </svg>
     </div>
+
+    <a href="vip-service.html" class="nav-item">
+      <span>VIP SERVICE</span>
+    </a>
 
     <div class="nav-item nav-dropdown">
       <span>ABOUT US</span>
@@ -291,7 +276,9 @@
       </div>
     </div>
 
-    <a href="#contacts" class="contact-link">CONTACT</a>
+    <a href="#officialTourSearch" class="nav-item header-tour-search" id="headerTourSearch">
+      <span>🔍 SEARCH TOURS…&nbsp;&nbsp;⚙</span>
+    </a>
   </nav>
 
   <div class="language language-dropdown">
@@ -827,6 +814,8 @@
   const aboutDropdown = document.querySelector('.nav-dropdown');
   const languageDropdown = document.querySelector('.language-dropdown');
   const languageClose = document.querySelector('.language-close');
+  const headerTourSearch = document.getElementById('headerTourSearch');
+  const officialTourSearch = document.getElementById('officialTourSearch');
 
   function toggleMenu() {
     nav.classList.toggle('active');
@@ -861,6 +850,15 @@
     languageClose.addEventListener('click', function(e) {
       e.stopPropagation();
       languageDropdown.classList.remove('open');
+    });
+  }
+
+  if (headerTourSearch && officialTourSearch) {
+    headerTourSearch.addEventListener('click', function(e) {
+      e.preventDefault();
+      officialTourSearch.scrollIntoView({behavior:'smooth', block:'center'});
+      window.setTimeout(() => officialTourSearch.focus({preventScroll:true}), 450);
+      if (window.innerWidth <= 980 && nav.classList.contains('active')) toggleMenu();
     });
   }
 </script>
