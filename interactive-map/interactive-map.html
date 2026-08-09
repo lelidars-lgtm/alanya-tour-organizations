@@ -2323,27 +2323,39 @@ function refresh(){
   updateCategoryWeb();
 }
 let fitVisibleTimer=null;
+let fitVisibleRequest=0;
 function fitVisible(){
+  const request=++fitVisibleRequest;
   clearTimeout(fitVisibleTimer);
-  fitVisibleTimer=setTimeout(()=>{
-    if(!map||!map.loaded())return;
+  const run=()=>{
+    if(request!==fitVisibleRequest||!map)return;
+    // map.loaded() becomes false again while tiles are loading. Camera methods
+    // are already available once the style is ready, so never lose a category
+    // journey merely because a tile is still arriving.
+    if(!map.isStyleLoaded()){
+      fitVisibleTimer=setTimeout(run,120);
+      return;
+    }
     const list=tours.filter(t=>visible(t)&&hasCoords(t));
     if(!list.length)return;
     closeTourCard(true);
     map.stop();
+    map.resize();
+    updateCategoryWeb();
     const mobile=window.matchMedia('(max-width:900px), (hover:none) and (pointer:coarse)').matches;
     const bounds=new maplibregl.LngLatBounds();
     list.forEach(t=>bounds.extend(t.coords));
     const sw=bounds.getSouthWest(),ne=bounds.getNorthEast();
     if(Math.abs(sw.lng-ne.lng)<.0001&&Math.abs(sw.lat-ne.lat)<.0001){
-      map.easeTo({center:list[0].coords,zoom:mobile?9.4:10.4,pitch:18,bearing:0,duration:1250,essential:true});
+      map.easeTo({center:list[0].coords,zoom:mobile?9.4:10.4,pitch:18,bearing:0,duration:1450,essential:true,easing:t=>1-Math.pow(1-t,3)});
       return;
     }
     const padding=mobile
       ?{top:138,right:46,bottom:92,left:46}
       :{top:112,right:92,bottom:82,left:92};
-    map.fitBounds(bounds,{padding,duration:1450,maxZoom:mobile?9.5:10.2,pitch:14,bearing:0,essential:true});
-  },160);
+    map.fitBounds(bounds,{padding,duration:1750,maxZoom:mobile?9.5:10.2,pitch:14,bearing:0,essential:true,easing:t=>1-Math.pow(1-t,3)});
+  };
+  fitVisibleTimer=setTimeout(run,100);
 }
 
 function revealIntro(){introStarted=true;document.getElementById('introBadge').classList.add('hidden');['sea','local','land','air'].forEach((type,i)=>setTimeout(()=>{map.setPaintProperty(type+'-route','line-opacity',routeVisibleExpression());map.setPaintProperty(type+'-route-glow','line-opacity',.14);},i*220));setTimeout(()=>labels.forEach((x,i)=>setTimeout(()=>x.el.classList.add('visible'),i*55)),650);setTimeout(()=>markers.forEach((x,i)=>setTimeout(()=>x.el.classList.add('visible'),i*55)),1250);setTimeout(startAutoTour,2300);setTimeout(showGeoOffer,GEO_OFFER_DELAY-AUTO_TOUR_DELAY);}
@@ -2367,6 +2379,7 @@ function renderCategories(){
     const activate=()=>{
       // Top category tabs are a primary navigation mode.
       // They must never be silently intersected with BEST FOR YOU.
+      restartAutoForCategory();
       activeBestMode=null;
       clearSmartQuickVisuals();
       document.querySelectorAll('.best-chip').forEach(b=>{
@@ -2383,7 +2396,6 @@ function renderCategories(){
       renderCategories();
       refresh();
       fitVisible();
-      restartAutoForCategory();
     };
     const requested=categoryLabelParts[c.id];
     const words=requested?{first:requested[0],rest:requested[1]}:splitCategoryLabel(c.label);
@@ -2543,6 +2555,7 @@ function applySharedFilters(next){
   const previousCategory=activeCategory;
   sharedFilterState=next||window.AlanyaFilters?.get?.()||sharedFilterState;
   activeCategory=sharedFilterState.category||'all';
+  if(activeCategory!==previousCategory)restartAutoForCategory();
   if(activeCategory!=='all' && activeCategory!==previousCategory){
     activeBestMode=null;
     document.querySelectorAll('.best-chip').forEach(b=>{
@@ -2557,7 +2570,8 @@ function applySharedFilters(next){
   setToggleState('familyFriendlyFilter',sharedFilterState.familyFriendly);
   setToggleState('privateTourFilter',sharedFilterState.privateTour);
   renderCategories();
-  if(map.loaded()){refresh();fitVisible();}
+  if(map.isStyleLoaded()){refresh();}
+  fitVisible();
   const count=tours.filter(t=>visible(t)&&hasCoords(t)).length;
   const mobileButton=document.getElementById('mobileFilterToggle');
   if(mobileButton)mobileButton.textContent=`⚙ FILTERS · ${count} FOUND`;
