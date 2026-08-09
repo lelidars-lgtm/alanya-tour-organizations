@@ -285,8 +285,28 @@ html,body{zoom:1!important;transform:none!important;width:100%!important}
 .popup-actions .compare-card{position:relative;width:100%;min-height:39px;padding:10px 12px;border:1px solid rgba(241,202,104,.72);border-radius:9px;background:linear-gradient(135deg,#073f39,#0a5b4e);color:#fff;font:900 11px/1 Arial,sans-serif;letter-spacing:.55px;cursor:pointer;overflow:hidden;box-shadow:0 7px 20px rgba(0,0,0,.24)}.popup-actions .compare-card.is-added{background:linear-gradient(135deg,#086c59,#0b8b70)}.popup-actions .compare-card::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;border-radius:50%;background:rgba(255,241,178,.9);opacity:0;transform:translate(-50%,-50%) scale(0)}.popup-actions .compare-card.flash::after{animation:compareFlash .42s ease-out}
 .compare-share-panel{margin-top:16px;padding:15px;border:1px solid rgba(241,202,104,.22);border-radius:13px;background:rgba(7,30,43,.82)}.compare-share-title{margin-bottom:9px;color:#f5d477;font-size:11px;font-weight:900;letter-spacing:.7px}.compare-share-actions{display:flex;flex-wrap:wrap;gap:7px}.compare-share{min-height:36px;padding:8px 11px;border:1px solid rgba(241,202,104,.38);border-radius:9px;background:#082437;color:#fff;font-size:10px;font-weight:800;cursor:pointer}.compare-share-primary{background:linear-gradient(135deg,#086c59,#0b8b70);border-color:#d7b654}.compare-share-status{min-height:15px;margin-top:8px;color:#aebbc5;font-size:10px}
 .compare-share-icon{width:42px;min-width:42px;height:42px;padding:0!important;border-radius:50%!important;display:grid!important;place-items:center!important}.compare-share-icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}@media(max-width:760px){.compare-share-actions .compare-share:not(.compare-share-icon):not([data-share-compare="copy"]){display:none}.compare-share-panel{display:flex;align-items:center;gap:10px}.compare-share-title{flex:1;margin:0}.compare-share-status{display:none}}
+.compare-manager-action{position:sticky;z-index:3;bottom:0;margin-top:10px;padding:10px;background:linear-gradient(180deg,rgba(4,21,34,.2),#041522 32%)}.compare-manager-button{position:relative;width:100%;min-height:52px;border:1px solid #f5d477;border-radius:12px;background:linear-gradient(100deg,#b77713,#f0ce68);color:#06111b;font:900 13px/1.15 Arial,sans-serif;letter-spacing:.65px;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.36);overflow:hidden}.compare-manager-button small{display:block;margin-top:4px;font-size:9px;letter-spacing:.2px}.compare-dialog.compare-capture .compare-manager-action{display:none!important}
+.request-modal{position:fixed;z-index:100100;inset:0;display:none;place-items:center;padding:14px;background:rgba(0,8,17,.88);backdrop-filter:blur(12px)}.request-modal.visible{display:grid}.request-dialog{width:min(720px,100%);max-height:94dvh;overflow:auto;border:1px solid rgba(241,202,104,.68);border-radius:18px;background:#041522;color:#fff;box-shadow:0 30px 90px rgba(0,0,0,.72)}.request-head{position:sticky;z-index:2;top:0;display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.09);background:rgba(4,21,34,.98)}.request-head h2{margin:0;color:#f5d477;font:700 22px Georgia,serif}.request-close{width:36px;height:36px;border:1px solid rgba(255,255,255,.22);border-radius:50%;background:#071d2e;color:#fff;font-size:22px;cursor:pointer}.request-form{padding:16px}.request-section-title{margin:4px 0 10px;color:#f5d477;font-size:11px;font-weight:900;letter-spacing:.75px}.request-tour-list{display:grid;gap:8px;margin-bottom:18px}.request-tour-row{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(140px,190px);align-items:center;gap:9px;padding:10px;border:1px solid rgba(241,202,104,.22);border-radius:10px;background:#071d2e}.request-tour-row strong{font-size:12px;line-height:1.3}.request-tour-row input[type="checkbox"]{width:18px;height:18px;accent-color:#d8a52e}.request-tour-date{height:38px;min-width:0;padding:0 8px;border:1px solid rgba(241,202,104,.38);border-radius:8px;background:#041522;color:#fff;color-scheme:dark}.request-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.request-field{display:grid;gap:5px}.request-field.full{grid-column:1/-1}.request-field label,.request-special-label{color:#aebbc5;font-size:10px;font-weight:800;letter-spacing:.35px}.request-field input,.request-field select,.request-field textarea{width:100%;box-sizing:border-box;border:1px solid rgba(255,255,255,.14);border-radius:9px;background:#071d2e;color:#fff;padding:10px;font:12px Arial,sans-serif;outline:none}.request-field input,.request-field select{height:42px}.request-field textarea{min-height:70px;resize:vertical}.request-field input:focus,.request-field select:focus,.request-field textarea:focus{border-color:#f1ca68;box-shadow:0 0 0 2px rgba(241,202,104,.12)}.request-specials{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:7px}.request-special{display:flex;align-items:center;gap:6px;padding:8px 9px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:#071d2e;color:#d8e2e9;font-size:10px}.request-special input{accent-color:#d8a52e}.request-submit{grid-column:1/-1;min-height:50px;border:1px solid #f5d477;border-radius:11px;background:linear-gradient(100deg,#0a6a58,#0b8c70);color:#fff;font:900 12px Arial,sans-serif;letter-spacing:.55px;cursor:pointer}.request-note{grid-column:1/-1;margin:0;color:#8fa2b0;font-size:9px;line-height:1.4;text-align:center}
+@media(max-width:760px){.compare-manager-action{padding:7px 3px}.compare-manager-button{min-height:46px;font-size:10px}.request-modal{padding:5px}.request-dialog{max-height:calc(100dvh - 10px);border-radius:14px}.request-head{padding:12px 14px}.request-head h2{font-size:18px}.request-form{padding:12px}.request-grid{grid-template-columns:1fr}.request-field.full,.request-specials,.request-submit,.request-note{grid-column:1}.request-tour-row{grid-template-columns:auto minmax(0,1fr);padding:9px}.request-tour-date{grid-column:2;width:100%}}
+.compare-share:disabled{opacity:.45!important;cursor:wait!important}
 .compare-dialog.compare-capture{width:1180px!important;max-height:none!important;overflow:visible!important;border-radius:18px!important}.compare-dialog.compare-capture .compare-dialog-head{position:relative!important}.compare-dialog.compare-capture .compare-table-wrap{overflow:visible!important}.compare-dialog.compare-capture .compare-remove,.compare-dialog.compare-capture .compare-modal-close{display:none!important}
+@media(max-width:760px){
+  .compare-modal{padding:5px!important}
+  .compare-dialog{width:calc(100vw - 10px)!important;max-height:calc(100dvh - 12px)!important;border-radius:14px!important}
+  .compare-dialog-head{padding:12px 14px!important}.compare-dialog-head h2{font-size:18px!important}
+  .compare-table-wrap{padding:5px!important;overflow-x:hidden!important}
+  .compare-table{width:100%!important;min-width:0!important;table-layout:fixed!important}
+  .compare-table th,.compare-table td{padding:6px 3px!important;font-size:8.5px!important;line-height:1.18!important;overflow-wrap:anywhere!important;word-break:normal!important}
+  .compare-table th:first-child,.compare-table td:first-child{position:static!important;width:70px!important;padding-left:6px!important;font-size:8px!important}
+  .compare-table img{width:min(62px,100%)!important;height:40px!important;border-radius:6px!important}
+  .compare-view{padding:6px 5px!important;font-size:7px!important}.compare-remove{font-size:7px!important}
+  .compare-share-panel{margin-top:8px!important;padding:10px!important;flex-wrap:wrap!important}
+  .compare-share-status{display:block!important;flex-basis:100%;margin-top:2px!important;font-size:8px!important}
+}
 .route-label.compact-label{font-size:10px!important;letter-spacing:1px!important;padding:6px 9px!important}
+.category-list-toggle{position:absolute;z-index:13;right:18px;top:126px;min-height:40px;padding:9px 14px;border:1px solid rgba(241,202,104,.78);border-radius:10px;background:linear-gradient(135deg,#073f39,#0a5b4e);color:#f5d477;font:900 10px/1.15 Arial,sans-serif;letter-spacing:.55px;box-shadow:0 8px 24px rgba(0,0,0,.38);cursor:pointer;display:none}.category-list-toggle.visible{display:block}.category-list-toggle.open{background:linear-gradient(100deg,#b77c18,#edc75f);color:#07111b}
+.category-tour-panel{position:absolute;z-index:70;right:18px;top:176px;bottom:54px;width:min(430px,calc(100% - 36px));display:none;flex-direction:column;border:1px solid rgba(241,202,104,.5);border-radius:14px;background:rgba(3,17,30,.97);box-shadow:0 20px 55px rgba(0,0,0,.55);backdrop-filter:blur(14px);overflow:hidden}.category-tour-panel.visible{display:flex}.category-tour-panel .nearby-head{padding-right:50px}.category-tour-panel .nearby-list{flex:1;min-height:0}.category-tour-panel .nearby-card{cursor:default}.category-tour-panel .category-point{border:0;background:transparent;color:#f1ca68;font:900 28px/1 Arial,sans-serif;cursor:pointer;padding:0 4px}.category-tour-panel .category-point:hover{color:#fff0ad;transform:translateX(2px)}
+@media(max-width:760px){.category-list-toggle{left:10px;right:auto;top:clamp(108px,16dvh,132px);max-width:calc(100% - 20px);font-size:9px}.category-tour-panel{left:10px;right:10px;top:auto;bottom:48px;width:auto;max-height:62%;border-radius:16px}.category-tour-panel .nearby-head{padding:13px 48px 11px 14px}.category-tour-panel .nearby-head h3{font-size:20px}}
 @media(max-width:760px){
   
   
@@ -679,7 +699,8 @@ body.tour-focus-mode .route-label:not(.active){opacity:.30!important}
   .best-chip{font-size:8px;padding:6px 8px;min-height:27px}
   .map-discovery-hint{display:none}
   .nearby-card-cta{min-width:58px!important;font-size:7.5px!important;padding:4px 6px!important}
-  .nearby-card .nearby-compare{width:27px!important;min-width:27px!important;padding:4px!important;font-size:0!important}
+  .nearby-card .nearby-compare{width:auto!important;min-width:62px!important;padding:5px 6px!important;font-size:7px!important;letter-spacing:.2px!important}
+  .nearby-card .nearby-compare::before{content:none!important}
 }
 
 
@@ -1647,6 +1668,8 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 <div class="map" id="map"></div><div class="map-tone"></div><div class="map-vignette"></div>
 <button type="button" class="category-scroll-btn category-scroll-prev" id="categoryScrollPrev" aria-label="Previous categories">‹</button><div aria-label="Experience categories" class="top-categories" id="topCategories"></div><button type="button" class="category-scroll-btn category-scroll-next" id="categoryScrollNext" aria-label="Next categories">›</button>
 <div aria-label="Map style" class="map-mode-switch"><button class="active" data-map-mode="hybrid">HYBRID</button><button data-map-mode="streets">STREETS</button><button data-map-mode="satellite">SATELLITE</button></div><div class="intro-badge" id="introBadge">OVERVIEW MODE · INTERACTIVE JOURNEY STARTS IN 5 SECONDS</div>
+<button type="button" class="category-list-toggle" id="categoryListToggle" aria-expanded="false">VIEW TOURS AS LIST →</button>
+<div class="category-tour-panel" id="categoryTourPanel"><button aria-label="Close" class="nearby-close" id="categoryTourClose">×</button><div class="nearby-head"><h3 id="categoryTourTitle">Category Experiences</h3><p id="categoryTourSummary"></p></div><div class="nearby-list" id="categoryTourList"></div></div>
 <div class="geo-offer" id="geoOffer"><h3>Experiences near you</h3><p>Allow location access to see nearby excursions and estimated transfer time. Your location is used only in this browser.</p><div class="geo-actions"><button class="geo-yes" id="geoYes">SHOW NEARBY</button><button class="geo-no" id="geoNo">NOT NOW</button></div></div>
 <div class="nearby-panel" id="nearbyPanel"><button aria-label="Close" class="nearby-close" id="nearbyClose">×</button><div class="nearby-head"><h3>Nearby Experiences</h3><p id="nearbySummary">Finding the closest tours…</p><div class="radius-row" id="radiusRow"><button class="radius-btn" data-radius="10">10 km</button><button class="radius-btn active" data-radius="25">25 km</button><button class="radius-btn" data-radius="50">50 km</button><button class="radius-btn" data-radius="9999">All</button></div></div><div class="nearby-list" id="nearbyList"></div></div>
 <div class="mobile-categories" id="mobileCategories"></div>
@@ -1655,6 +1678,7 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 </section>
 </main>
 <div class="compare-modal" id="compareModal" aria-hidden="true"><div class="compare-dialog" role="dialog" aria-modal="true" aria-labelledby="compareModalTitle"><div class="compare-dialog-head"><h2 id="compareModalTitle">COMPARE TOURS</h2><button type="button" class="compare-modal-close" id="compareModalClose" aria-label="Close">×</button></div><div class="compare-table-wrap" id="compareTableWrap"></div></div></div>
+<div class="request-modal" id="managerRequestModal" aria-hidden="true"><div class="request-dialog" role="dialog" aria-modal="true" aria-labelledby="managerRequestTitle"><div class="request-head"><h2 id="managerRequestTitle">COMPLETE YOUR REQUEST</h2><button type="button" class="request-close" id="managerRequestClose" aria-label="Close">×</button></div><form class="request-form" id="managerRequestForm"><div class="request-section-title">SELECTED TOURS & PREFERRED DATES</div><div class="request-tour-list" id="managerRequestTours"></div><div class="request-section-title">YOUR DETAILS</div><div class="request-grid"><div class="request-field"><label for="requestName">NAME *</label><input id="requestName" name="name" required autocomplete="name"></div><div class="request-field"><label for="requestHotel">HOTEL OR ACCOMMODATION *</label><input id="requestHotel" name="hotel" required autocomplete="street-address"></div><div class="request-field"><label for="requestArrival">ARRIVAL DATE</label><input type="date" id="requestArrival" name="arrival"></div><div class="request-field"><label for="requestDeparture">DEPARTURE DATE</label><input type="date" id="requestDeparture" name="departure"></div><div class="request-field"><label for="requestAdults">ADULTS *</label><input type="number" min="1" max="50" value="2" id="requestAdults" name="adults" required inputmode="numeric"></div><div class="request-field"><label for="requestChildren">CHILDREN</label><input type="number" min="0" max="30" value="0" id="requestChildren" name="children" inputmode="numeric"></div><div class="request-field full"><label for="requestChildAges">CHILDREN'S AGES</label><input id="requestChildAges" name="childAges" placeholder="Example: 3, 7"></div><div class="request-field"><label for="requestPickup">HOTEL PICKUP</label><select id="requestPickup" name="pickup"><option value="Required">Required</option><option value="Not required">Not required</option><option value="Please advise">Please advise</option></select></div><div class="request-field"><label for="requestLanguage">PREFERRED LANGUAGE</label><select id="requestLanguage" name="language"><option>English</option><option>Russian</option><option>Turkish</option><option>German</option><option>Polish</option></select></div><div class="request-specials"><label class="request-special"><input type="checkbox" name="special" value="Pregnancy"> Pregnancy</label><label class="request-special"><input type="checkbox" name="special" value="Baby stroller"> Baby stroller</label><label class="request-special"><input type="checkbox" name="special" value="Wheelchair"> Wheelchair</label><label class="request-special"><input type="checkbox" name="special" value="Reduced mobility"> Reduced mobility</label><label class="request-special"><input type="checkbox" name="special" value="Elderly guest"> Elderly guest</label></div><div class="request-field full"><label for="requestNotes">ADDITIONAL NOTES</label><textarea id="requestNotes" name="notes" placeholder="Anything the manager should know"></textarea></div><button class="request-submit" type="submit">SEND COMPLETE REQUEST VIA WHATSAPP</button><p class="request-note">Availability, dates and final price are confirmed by the manager.</p></div></form></div></div>
 <div class="map-edge-line" aria-hidden="true"></div>
 <div id="atoOriginalFooterHost" aria-label="ALANYA TOUR ORGANIZATIONS original site footer"></div>
 <script id="ato-original-footer-loader">
@@ -2077,8 +2101,13 @@ function findHeroImage(doc,html,pageUrl){
   return abs(img?.getAttribute('src')||img?.getAttribute('data-src')||'');
 }
 function parseDuration(doc){
-  const candidates=[...doc.querySelectorAll('.hero-icon,.details-col,.info-card,.tour-tag')].map(textOf);
-  return candidates.find(x=>/(hour|minute|day|дн|час)/i.test(x))||'See tour page';
+  const detailNodes=[...doc.querySelectorAll('#detailsList > *,.details-col .small-list > *,.tour-details > *')];
+  for(const node of detailNodes){
+    const value=textOf(node),match=value.match(/^duration\s*:\s*(.+)$/i);
+    if(match&&match[1].length<=55)return match[1].trim();
+  }
+  const compact=[...doc.querySelectorAll('.hero-icon,.tour-tag,.info-card')].map(textOf).filter(value=>value.length<=55);
+  return compact.find(value=>/(\d+\s*(?:hour|minute)|full[ -]?day|half[ -]?day)/i.test(value))||'Check availability';
 }
 function parsePrice(doc){
   const raw=textOf(doc.querySelector('.price'))||textOf([...doc.querySelectorAll('.hero-icon')].find(x=>/[€$£]/.test(textOf(x))));
@@ -2160,7 +2189,8 @@ try{
 }catch(_){comparedTourIds=[]}
 function saveComparedTours(){try{localStorage.setItem(COMPARE_KEY,JSON.stringify(comparedTourIds))}catch(_){} updateCompareUI()}
 function updateCompareUI(){
-  document.querySelectorAll('[data-compare-id]').forEach(button=>{const added=comparedTourIds.includes(button.dataset.compareId);button.classList.toggle('is-added',added);button.textContent=added?'✓ ADDED':'＋ COMPARE';button.setAttribute('aria-pressed',added?'true':'false');button.setAttribute('aria-label',added?'Remove from comparison':'Add to comparison')});
+  const mobile=window.matchMedia('(max-width:760px)').matches;
+  document.querySelectorAll('[data-compare-id]').forEach(button=>{const added=comparedTourIds.includes(button.dataset.compareId),nearby=button.classList.contains('nearby-compare');button.classList.toggle('is-added',added);button.textContent=nearby&&mobile?(added?'✓ ADDED':'COMPARE'):(added?'✓ ADDED':'＋ COMPARE');button.setAttribute('aria-pressed',added?'true':'false');button.setAttribute('aria-label',added?'Remove from comparison':'Add to comparison')});
   const dock=document.getElementById('compareDock'),count=comparedTourIds.length;dock?.classList.toggle('visible',count>0);if(dock)document.getElementById('compareDockTitle').textContent=`COMPARE ${count} ${count===1?'TOUR':'TOURS'}`;
 }
 function toggleComparedTour(id,button){
@@ -2189,13 +2219,23 @@ async function buildComparisonImage(){
   }finally{dialog.classList.remove('compare-capture')}
 }
 function downloadComparisonImage(file){const a=document.createElement('a');a.href=URL.createObjectURL(file);a.download=file.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),3000)}
+let preparedComparisonFile=null,preparedComparisonKey='';
+function comparisonSelectionKey(){return comparedTourIds.join(',')}
+function prepareComparisonImage(){
+  const key=comparisonSelectionKey(),button=document.querySelector('[data-share-compare="native"]'),status=document.getElementById('compareShareStatus');
+  preparedComparisonFile=null;preparedComparisonKey='';if(button)button.disabled=true;if(status)status.textContent='Preparing comparison image…';
+  setTimeout(async()=>{
+    try{const file=await buildComparisonImage();if(key!==comparisonSelectionKey())return;preparedComparisonFile=file;preparedComparisonKey=key;if(button)button.disabled=false;if(status)status.textContent='Image ready. Tap the share symbol.';}
+    catch(e){if(button)button.disabled=false;if(status)status.textContent='Image preparation failed. You can still copy the comparison link.';}
+  },80);
+}
 async function shareComparison(channel){
   const data=comparisonShareData(),message=`${data.text}\n${data.url}`,status=document.getElementById('compareShareStatus');
   if(channel==='native'||channel==='whatsapp'){
-    if(status)status.textContent='Preparing comparison image…';
+    const file=preparedComparisonKey===comparisonSelectionKey()?preparedComparisonFile:null;
+    if(!file){if(status)status.textContent='The image is still being prepared. Tap Share again in a moment.';prepareComparisonImage();return}
     try{
-      const file=await buildComparisonImage();
-      if(navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]}))){await navigator.share({title:data.title,text:message,files:[file]});if(status)status.textContent='Comparison image ready to share.';return}
+      if(navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]}))){await navigator.share({title:data.title,text:message,files:[file]});if(status)status.textContent='Comparison image shared.';return}
       downloadComparisonImage(file);
       if(status)status.textContent='Image downloaded. Attach it to your message.';
       if(channel==='whatsapp')window.open(`https://wa.me/?text=${encodeURIComponent(message)}`,'_blank','noopener');
@@ -2214,14 +2254,35 @@ async function openCompareModal(){
   const selected=comparedTourIds.map(id=>tours.find(t=>t.id===id)).filter(Boolean);if(!selected.length)return;
   await Promise.allSettled(selected.map(ensureTourData));
   const rows=[['Adult price','price'],['Child price & ages','childPrice'],['Duration','duration'],['Hotel transfer','transfer'],['Meals','meals'],['Suitable for','suitable'],['Restrictions','restrictions'],['Distance from you','distance']];
-  document.getElementById('compareTableWrap').innerHTML=`<table class="compare-table"><thead><tr><th>TOUR</th>${selected.map(t=>`<th><img src="${t.image||'logo/logo.png'}" alt="${t.title}" onerror="this.src='logo/logo.png'"><div>${t.title}</div></th>`).join('')}</tr></thead><tbody>${rows.map(([label,key])=>`<tr><td>${label}</td>${selected.map(t=>`<td class="${key==='price'?'compare-price':''}">${compareValue(t,key)}</td>`).join('')}</tr>`).join('')}<tr><td>ACTIONS</td>${selected.map(t=>`<td><a class="compare-view" href="${t.page}">VIEW TOUR</a><br><button type="button" class="compare-remove" data-compare-remove="${t.id}">Remove</button></td>`).join('')}</tr></tbody></table><div class="compare-share-panel"><div class="compare-share-title">SHARE THIS COMPARISON AS AN IMAGE</div><div class="compare-share-actions"><button type="button" class="compare-share compare-share-primary compare-share-icon" data-share-compare="native" aria-label="Share comparison image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m0 0L8 7m4-4 4 4"/><path d="M7 10H5.5A2.5 2.5 0 0 0 3 12.5v6A2.5 2.5 0 0 0 5.5 21h13a2.5 2.5 0 0 0 2.5-2.5v-6a2.5 2.5 0 0 0-2.5-2.5H17"/></svg></button><button type="button" class="compare-share" data-share-compare="whatsapp">WHATSAPP IMAGE</button><button type="button" class="compare-share" data-share-compare="telegram">TELEGRAM</button><button type="button" class="compare-share" data-share-compare="viber">VIBER</button><button type="button" class="compare-share" data-share-compare="copy">COPY LINK</button></div><div class="compare-share-status" id="compareShareStatus">Share the image and interactive comparison link with any app.</div></div>`;
+  document.getElementById('compareTableWrap').innerHTML=`<table class="compare-table"><thead><tr><th>TOUR</th>${selected.map(t=>`<th><img src="${t.image||'logo/logo.png'}" alt="${t.title}" onerror="this.src='logo/logo.png'"><div>${t.title}</div></th>`).join('')}</tr></thead><tbody>${rows.map(([label,key])=>`<tr><td>${label}</td>${selected.map(t=>`<td class="${key==='price'?'compare-price':''}">${compareValue(t,key)}</td>`).join('')}</tr>`).join('')}<tr><td>ACTIONS</td>${selected.map(t=>`<td><a class="compare-view" href="${t.page}">VIEW TOUR</a><br><button type="button" class="compare-remove" data-compare-remove="${t.id}">Remove</button></td>`).join('')}</tr></tbody></table><div class="compare-share-panel"><div class="compare-share-title">SHARE THIS COMPARISON AS AN IMAGE</div><div class="compare-share-actions"><button type="button" class="compare-share compare-share-primary compare-share-icon" data-share-compare="native" aria-label="Share comparison image" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m0 0L8 7m4-4 4 4"/><path d="M7 10H5.5A2.5 2.5 0 0 0 3 12.5v6A2.5 2.5 0 0 0 5.5 21h13a2.5 2.5 0 0 0 2.5-2.5v-6a2.5 2.5 0 0 0-2.5-2.5H17"/></svg></button><button type="button" class="compare-share" data-share-compare="whatsapp">WHATSAPP IMAGE</button><button type="button" class="compare-share" data-share-compare="telegram">TELEGRAM</button><button type="button" class="compare-share" data-share-compare="viber">VIBER</button><button type="button" class="compare-share" data-share-compare="copy">COPY LINK</button></div><div class="compare-share-status" id="compareShareStatus">Preparing comparison image…</div></div><div class="compare-manager-action" data-html2canvas-ignore="true"><button type="button" class="compare-manager-button" id="openManagerRequest">I’VE MADE MY CHOICE — CONTACT MANAGER<small>Complete your request and send it via WhatsApp</small></button></div>`;
   const modal=document.getElementById('compareModal');modal.classList.add('visible');modal.setAttribute('aria-hidden','false');
+  prepareComparisonImage();
 }
 document.addEventListener('click',e=>{const button=e.target.closest('[data-compare-id]');if(!button)return;e.preventDefault();e.stopPropagation();toggleComparedTour(button.dataset.compareId,button)});
 document.getElementById('compareDock')?.addEventListener('click',openCompareModal);
 document.getElementById('compareDockClear')?.addEventListener('click',e=>{e.stopPropagation();comparedTourIds=[];saveComparedTours()});
 document.getElementById('compareModalClose')?.addEventListener('click',()=>{const modal=document.getElementById('compareModal');modal.classList.remove('visible');modal.setAttribute('aria-hidden','true')});
 document.getElementById('compareModal')?.addEventListener('click',e=>{if(e.target.id==='compareModal'){e.currentTarget.classList.remove('visible');e.currentTarget.setAttribute('aria-hidden','true')}const remove=e.target.closest('[data-compare-remove]');if(remove){toggleComparedTour(remove.dataset.compareRemove);openCompareModal()}const share=e.target.closest('[data-share-compare]');if(share)shareComparison(share.dataset.shareCompare)});
+function requestEscape(value){return String(value??'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));}
+function openManagerRequest(){
+  const selected=comparedTourIds.map(id=>tours.find(t=>t.id===id)).filter(Boolean);if(!selected.length)return;
+  document.getElementById('managerRequestTours').innerHTML=selected.map(t=>`<label class="request-tour-row"><input type="checkbox" name="requestTour" value="${requestEscape(t.id)}" checked><strong>${requestEscape(t.title)}</strong><input type="date" class="request-tour-date" data-tour-date="${requestEscape(t.id)}" aria-label="Preferred date for ${requestEscape(t.title)}"></label>`).join('');
+  const modal=document.getElementById('managerRequestModal');modal.classList.add('visible');modal.setAttribute('aria-hidden','false');
+}
+function closeManagerRequest(){const modal=document.getElementById('managerRequestModal');modal.classList.remove('visible');modal.setAttribute('aria-hidden','true');}
+document.getElementById('compareModal')?.addEventListener('click',e=>{if(e.target.closest('#openManagerRequest'))openManagerRequest();});
+document.getElementById('managerRequestClose')?.addEventListener('click',closeManagerRequest);
+document.getElementById('managerRequestModal')?.addEventListener('click',e=>{if(e.target.id==='managerRequestModal')closeManagerRequest();});
+document.getElementById('managerRequestForm')?.addEventListener('submit',e=>{
+  e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;
+  const data=new FormData(form),ids=data.getAll('requestTour').map(String);if(!ids.length){alert('Please select at least one tour.');return;}
+  if(Number(data.get('children')||0)>0&&!String(data.get('childAges')||'').trim()){const field=document.getElementById('requestChildAges');field.setCustomValidity("Please enter the children's ages.");field.reportValidity();field.focus();return;}else document.getElementById('requestChildAges').setCustomValidity('');
+  const selected=ids.map(id=>tours.find(t=>t.id===id)).filter(Boolean);
+  const tourLines=selected.map((t,index)=>{const date=form.querySelector(`[data-tour-date="${CSS.escape(t.id)}"]`)?.value||'Flexible';const price=t.price==null?'Price on request':`€${t.price}`;const link=new URL(t.page,location.href).href;return `${index+1}. ${t.title} — ${price}\nPreferred date: ${date}\n${link}`;});
+  const specials=data.getAll('special').map(String);const comparison=comparisonShareData().url;
+  const message=`NEW TOUR REQUEST — ALANYA TOUR ORGANIZATIONS\n\nCLIENT\nName: ${data.get('name')}\nHotel: ${data.get('hotel')}\nStay dates: ${data.get('arrival')||'Not specified'} — ${data.get('departure')||'Not specified'}\nGuests: ${data.get('adults')} adult(s), ${data.get('children')||0} child(ren)${data.get('childAges')?` — ages ${data.get('childAges')}`:''}\nLanguage: ${data.get('language')}\nHotel pickup: ${data.get('pickup')}\n\nSELECTED TOURS\n${tourLines.join('\n\n')}\n\nSPECIAL INFORMATION\n${specials.length?specials.join(', '):'None specified'}\n\nADDITIONAL NOTES\n${data.get('notes')||'None'}\n\nPlease confirm availability, dates, final price, child price and pickup details.\n\nCOMPARISON\n${comparison}`;
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`,'_blank','noopener');
+});
 updateCompareUI();
 if((new URL(location.href)).searchParams.has('compare')&&comparedTourIds.length)setTimeout(openCompareModal,900);
 function belongs(t,cat){return cat==='all'||t.categories.includes(cat);}
@@ -2522,6 +2583,7 @@ function renderCategories(){
       activeTourId=null;
       document.body.classList.remove('tour-focus-mode');
       closeTourCard(true);
+      closeCategoryTourList();
       markers.forEach(({el})=>el.classList.remove('active','dimmed'));
       labels.forEach(({el})=>el.classList.remove('active'));
       window.AlanyaFilters?.set({category:c.id,maxPrice:'all',duration:'all',hotelTransfer:false,familyFriendly:false,privateTour:false,search:'',selectedTags:[]});
@@ -2538,7 +2600,60 @@ function renderCategories(){
     tb.onclick=activate;
     top.appendChild(tb);
   });
+  updateCategoryListToggle();
 }
+
+let categoryTourRenderVersion=0;
+function selectedCategoryName(){
+  const c=categories.find(item=>item.id===activeCategory);
+  return c?.label||'Category Experiences';
+}
+function updateCategoryListToggle(){
+  const button=document.getElementById('categoryListToggle');if(!button)return;
+  const count=tours.filter(t=>visible(t)&&hasCoords(t)).length;
+  const enabled=activeCategory!=='all'&&count>0;
+  button.classList.toggle('visible',enabled);
+  if(!enabled){closeCategoryTourList();return;}
+  if(!button.classList.contains('open'))button.textContent=`VIEW ${count} TOURS AS LIST →`;
+}
+function closeCategoryTourList(){
+  const panel=document.getElementById('categoryTourPanel'),button=document.getElementById('categoryListToggle');
+  panel?.classList.remove('visible');button?.classList.remove('open');button?.setAttribute('aria-expanded','false');
+  if(button&&activeCategory!=='all'){const count=tours.filter(t=>visible(t)&&hasCoords(t)).length;button.textContent=`VIEW ${count} TOURS AS LIST →`;}
+}
+function focusCategoryTour(t){
+  setTourActive(t,{moveMap:true});
+  if(window.matchMedia('(max-width:760px)').matches)closeCategoryTourList();
+}
+async function renderCategoryTourList(){
+  if(activeCategory==='all')return;
+  const version=++categoryTourRenderVersion;
+  const selected=tours.filter(t=>visible(t)&&hasCoords(t));
+  const list=document.getElementById('categoryTourList');
+  document.getElementById('categoryTourTitle').textContent=selectedCategoryName();
+  document.getElementById('categoryTourSummary').textContent=`${selected.length} ${selected.length===1?'experience':'experiences'} in this category`;
+  list.innerHTML='<div class="location-help">Loading current tour information…</div>';
+  await Promise.allSettled(selected.map(ensureTourData));if(version!==categoryTourRenderVersion)return;
+  list.innerHTML='';
+  selected.forEach(t=>{
+    const card=document.createElement('div');card.className='nearby-card';
+    const fallback='logo/logo.png',image=t.image||fallback,price=t.price==null?'ON REQUEST':`€${t.price}`;
+    const distance=userLocation?`${haversine(userLocation,t.coords).toFixed(1)} km`:'';
+    card.innerHTML=`<span class="nearby-thumb"><img src="${image}" alt="${t.title}" loading="lazy" onerror="this.onerror=null;this.src='${fallback}'"></span><span class="nearby-card-copy"><span class="nearby-card-title">${t.title}</span><span class="nearby-card-meta">${t.duration||'Check availability'} · ${t.transfer?'Hotel transfer included':'See tour page'}</span><span class="nearby-card-bottom"><span class="nearby-card-price-wrap"><span class="nearby-card-price">${price}</span><a class="nearby-card-cta" href="${t.page}">VIEW TOUR</a><button type="button" class="compare-mini nearby-compare" data-compare-id="${t.id}" aria-label="Add ${t.title} to comparison">COMPARE</button></span>${distance?`<span class="nearby-card-distance">${distance}</span>`:''}</span></span><button type="button" class="category-point" aria-label="Show ${t.title} on map">›</button>`;
+    card.querySelector('.category-point')?.addEventListener('click',()=>focusCategoryTour(t));
+    list.appendChild(card);
+  });
+  updateCompareUI();
+}
+async function openCategoryTourList(){
+  if(activeCategory==='all')return;
+  document.getElementById('nearbyPanel')?.classList.remove('visible');
+  const panel=document.getElementById('categoryTourPanel'),button=document.getElementById('categoryListToggle');
+  panel.classList.add('visible');button.classList.add('open');button.textContent='HIDE LIST';button.setAttribute('aria-expanded','true');
+  await renderCategoryTourList();
+}
+document.getElementById('categoryListToggle')?.addEventListener('click',()=>document.getElementById('categoryTourPanel')?.classList.contains('visible')?closeCategoryTourList():openCategoryTourList());
+document.getElementById('categoryTourClose')?.addEventListener('click',closeCategoryTourList);
 
 function haversine(a,b){const R=6371,toRad=x=>x*Math.PI/180;const dLat=toRad(b[1]-a[1]),dLon=toRad(b[0]-a[0]);const q=Math.sin(dLat/2)**2+Math.cos(toRad(a[1]))*Math.cos(toRad(b[1]))*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(q));}
 function estimatedMinutes(km){return Math.max(8,Math.round((km/45)*60+8));}
@@ -2658,7 +2773,7 @@ async function renderNearby(){
           <span class="nearby-card-price-wrap">
             <span class="nearby-card-price">${price}</span>
             <span class="nearby-card-cta">VIEW TOUR</span>
-            <button type="button" class="compare-mini nearby-compare" data-compare-id="${t.id}" aria-label="Add ${t.title} to comparison">＋ COMPARE</button>
+            <button type="button" class="compare-mini nearby-compare" data-compare-id="${t.id}" aria-label="Add ${t.title} to comparison">COMPARE</button>
           </span>
           <span class="nearby-card-distance">${distance.toFixed(1)} km</span>
         </span>
