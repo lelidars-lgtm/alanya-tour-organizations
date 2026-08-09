@@ -285,6 +285,7 @@ html,body{zoom:1!important;transform:none!important;width:100%!important}
 .popup-actions .compare-card{position:relative;width:100%;min-height:39px;padding:10px 12px;border:1px solid rgba(241,202,104,.72);border-radius:9px;background:linear-gradient(135deg,#073f39,#0a5b4e);color:#fff;font:900 11px/1 Arial,sans-serif;letter-spacing:.55px;cursor:pointer;overflow:hidden;box-shadow:0 7px 20px rgba(0,0,0,.24)}.popup-actions .compare-card.is-added{background:linear-gradient(135deg,#086c59,#0b8b70)}.popup-actions .compare-card::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;border-radius:50%;background:rgba(255,241,178,.9);opacity:0;transform:translate(-50%,-50%) scale(0)}.popup-actions .compare-card.flash::after{animation:compareFlash .42s ease-out}
 .compare-share-panel{margin-top:16px;padding:15px;border:1px solid rgba(241,202,104,.22);border-radius:13px;background:rgba(7,30,43,.82)}.compare-share-title{margin-bottom:9px;color:#f5d477;font-size:11px;font-weight:900;letter-spacing:.7px}.compare-share-actions{display:flex;flex-wrap:wrap;gap:7px}.compare-share{min-height:36px;padding:8px 11px;border:1px solid rgba(241,202,104,.38);border-radius:9px;background:#082437;color:#fff;font-size:10px;font-weight:800;cursor:pointer}.compare-share-primary{background:linear-gradient(135deg,#086c59,#0b8b70);border-color:#d7b654}.compare-share-status{min-height:15px;margin-top:8px;color:#aebbc5;font-size:10px}
 .compare-share-icon{width:42px;min-width:42px;height:42px;padding:0!important;border-radius:50%!important;display:grid!important;place-items:center!important}.compare-share-icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}@media(max-width:760px){.compare-share-actions .compare-share:not(.compare-share-icon):not([data-share-compare="copy"]){display:none}.compare-share-panel{display:flex;align-items:center;gap:10px}.compare-share-title{flex:1;margin:0}.compare-share-status{display:none}}
+.compare-dialog.compare-capture{width:1180px!important;max-height:none!important;overflow:visible!important;border-radius:18px!important}.compare-dialog.compare-capture .compare-dialog-head{position:relative!important}.compare-dialog.compare-capture .compare-table-wrap{overflow:visible!important}.compare-dialog.compare-capture .compare-remove,.compare-dialog.compare-capture .compare-modal-close{display:none!important}
 .route-label.compact-label{font-size:10px!important;letter-spacing:1px!important;padding:6px 9px!important}
 @media(max-width:760px){
   
@@ -1697,6 +1698,7 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
   });
 })();
 </script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
 <script>
 
@@ -2093,27 +2095,21 @@ function comparisonDetails(doc,t){
   const mealParts=[];
   [['Breakfast',/\bbreakfast\b/i],['Lunch',/\blunch\b/i],['Dinner',/\bdinner\b/i],['Soft drinks',/\bsoft drinks?\b/i],['Meal included',/\bmeal(?:s)? included\b/i]].forEach(([label,re])=>{if(re.test(includedText)&&!mealParts.includes(label))mealParts.push(label)});
   const meals=mealParts.length?mealParts.join(' · '):'Check availability';
-  const suitableMatch=bodyText.match(/(?:ideal|suitable|recommended) for\s+([^.!?]{3,120})/i);
-  let suitable=suitableMatch?.[1]?.trim()||'';
-  if(!suitable){
-    const cats=t.categories||[];
-    if(cats.includes('family'))suitable='Families with children';
-    else if(cats.includes('wellness'))suitable='Relaxation and wellness';
-    else if(cats.includes('extreme')||cats.includes('air'))suitable='Adventure seekers';
-    else if(cats.includes('history'))suitable='Culture and history lovers';
-    else if(cats.includes('nature'))suitable='Families and nature lovers';
-    else if(cats.includes('vip'))suitable='Couples, families and private groups';
-    else if(cats.includes('sea'))suitable='Sea and boat-trip lovers';
-    else if(cats.includes('water'))suitable='Active guests';
-  }
-  const restrictionPatterns=[
-    /not suitable for\s+[^.!?]{3,120}/i,
-    /minimum age(?: is|:)?\s*[^.!?]{1,80}/i,
-    /children under\s+[^.!?]{1,100}/i,
-    /pregnan(?:t|cy)[^.!?]{0,100}/i,
-    /wheelchair[^.!?]{0,100}/i
-  ];
-  const restrictions=restrictionPatterns.map(re=>bodyText.match(re)?.[0]?.trim()).find(Boolean)||'Check availability';
+  const cats=t.categories||[];
+  let suitable='Check availability';
+  if(cats.includes('family'))suitable='Families with children';
+  else if(cats.includes('wellness'))suitable='Relaxation and wellness';
+  else if(cats.includes('extreme')||cats.includes('air'))suitable='Adventure seekers';
+  else if(cats.includes('history'))suitable='Culture and history lovers';
+  else if(cats.includes('nature'))suitable='Families and nature lovers';
+  else if(cats.includes('vip'))suitable='Couples, families and private groups';
+  else if(cats.includes('sea'))suitable='Sea and boat-trip lovers';
+  else if(cats.includes('water'))suitable='Active guests';
+  const restrictions=[];
+  const age=bodyText.match(/minimum age(?: is|:)?\s*(\d{1,2})/i)?.[1];
+  if(age)restrictions.push(`Minimum age: ${age}`);
+  if(/not suitable for (?:pregnant|pregnancy)|not recommended (?:for|during) pregnancy/i.test(bodyText))restrictions.push('Not suitable during pregnancy');
+  if(/not wheelchair accessible|wheelchair access is not available/i.test(bodyText))restrictions.push('Not wheelchair accessible');
   return {childPrice,meals,suitable:suitable||'Check availability',restrictions};
 }
 async function ensureTourData(t){
@@ -2169,19 +2165,43 @@ function updateCompareUI(){
 }
 function toggleComparedTour(id,button){
   const index=comparedTourIds.indexOf(id);
+  const adding=index<0;
   if(index>=0)comparedTourIds.splice(index,1);else if(comparedTourIds.length<4)comparedTourIds.push(id);else{openCompareModal();return;}
   button?.classList.remove('flash');void button?.offsetWidth;button?.classList.add('flash');saveComparedTours();
+  if(adding&&comparedTourIds.length===4)setTimeout(openCompareModal,460);
 }
-function compareValue(t,key){if(key==='price')return t.price==null?'On request':`€${t.price}`;if(key==='childPrice')return t.childPrice||'Check availability';if(key==='duration')return t.duration||'Check availability';if(key==='transfer')return t.transfer?'Included':'Check availability';if(key==='meals')return t.meals||'Check availability';if(key==='suitable')return t.suitable||'Check availability';if(key==='restrictions')return t.restrictions||'Check availability';if(key==='distance')return userLocation&&hasCoords(t)?`${haversine(userLocation,t.coords).toFixed(1)} km`:'Set your location';return 'Check availability'}
+function compareValue(t,key){if(key==='price')return t.price==null?'On request':`€${t.price}`;if(key==='childPrice')return t.childPrice||'Check availability';if(key==='duration')return t.duration||'Check availability';if(key==='transfer')return t.transfer?'Included':'Check availability';if(key==='meals')return t.meals||'Check availability';if(key==='suitable')return t.suitable||'Check availability';if(key==='restrictions')return Array.isArray(t.restrictions)?(t.restrictions.join(' · ')||'Check availability'):(t.restrictions||'Check availability');if(key==='distance')return userLocation&&hasCoords(t)?`${haversine(userLocation,t.coords).toFixed(1)} km`:'Set your location';return 'Check availability'}
 function comparisonShareData(){
   const selected=comparedTourIds.map(id=>tours.find(t=>t.id===id)).filter(Boolean);
   const url=new URL(location.href);url.hash='';url.searchParams.delete('fresh');url.searchParams.set('compare',comparedTourIds.join(','));
   const lines=selected.map((t,i)=>`${i+1}. ${t.title} — ${t.price==null?'price on request':'€'+t.price} · ${t.duration||'see tour page'}`);
   return {title:'ALANYA TOUR ORGANIZATIONS — Tour comparison',text:`Compare these tours:\n${lines.join('\n')}\n`,url:url.href};
 }
+async function buildComparisonImage(){
+  const dialog=document.querySelector('.compare-dialog');
+  if(!dialog||typeof html2canvas!=='function')throw new Error('image');
+  dialog.classList.add('compare-capture');
+  try{
+    await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+    const canvas=await html2canvas(dialog,{backgroundColor:'#041522',scale:1.35,useCORS:true,logging:false,scrollX:0,scrollY:0,width:dialog.scrollWidth,height:dialog.scrollHeight,windowWidth:1240});
+    const blob=await new Promise((resolve,reject)=>canvas.toBlob(value=>value?resolve(value):reject(new Error('image')),'image/png',.95));
+    return new File([blob],`alanya-tour-comparison-${Date.now()}.png`,{type:'image/png'});
+  }finally{dialog.classList.remove('compare-capture')}
+}
+function downloadComparisonImage(file){const a=document.createElement('a');a.href=URL.createObjectURL(file);a.download=file.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),3000)}
 async function shareComparison(channel){
   const data=comparisonShareData(),message=`${data.text}\n${data.url}`,status=document.getElementById('compareShareStatus');
-  if(channel==='native'&&navigator.share){try{await navigator.share(data);if(status)status.textContent='Sharing options opened.';return}catch(e){if(e?.name==='AbortError')return}}
+  if(channel==='native'||channel==='whatsapp'){
+    if(status)status.textContent='Preparing comparison image…';
+    try{
+      const file=await buildComparisonImage();
+      if(navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]}))){await navigator.share({title:data.title,text:message,files:[file]});if(status)status.textContent='Comparison image ready to share.';return}
+      downloadComparisonImage(file);
+      if(status)status.textContent='Image downloaded. Attach it to your message.';
+      if(channel==='whatsapp')window.open(`https://wa.me/?text=${encodeURIComponent(message)}`,'_blank','noopener');
+      return;
+    }catch(e){if(e?.name==='AbortError')return;if(status)status.textContent='Image could not be created. Sharing the comparison link instead.';if(channel==='native'&&navigator.share){try{await navigator.share(data);return}catch(_){}}}
+  }
   if(channel==='whatsapp')window.open(`https://wa.me/?text=${encodeURIComponent(message)}`,'_blank','noopener');
   else if(channel==='telegram')window.open(`https://t.me/share/url?url=${encodeURIComponent(data.url)}&text=${encodeURIComponent(data.text)}`,'_blank','noopener');
   else if(channel==='viber')location.href=`viber://forward?text=${encodeURIComponent(message)}`;
@@ -2194,7 +2214,7 @@ async function openCompareModal(){
   const selected=comparedTourIds.map(id=>tours.find(t=>t.id===id)).filter(Boolean);if(!selected.length)return;
   await Promise.allSettled(selected.map(ensureTourData));
   const rows=[['Adult price','price'],['Child price & ages','childPrice'],['Duration','duration'],['Hotel transfer','transfer'],['Meals','meals'],['Suitable for','suitable'],['Restrictions','restrictions'],['Distance from you','distance']];
-  document.getElementById('compareTableWrap').innerHTML=`<table class="compare-table"><thead><tr><th>TOUR</th>${selected.map(t=>`<th><img src="${t.image||'logo/logo.png'}" alt="${t.title}" onerror="this.src='logo/logo.png'"><div>${t.title}</div></th>`).join('')}</tr></thead><tbody>${rows.map(([label,key])=>`<tr><td>${label}</td>${selected.map(t=>`<td class="${key==='price'?'compare-price':''}">${compareValue(t,key)}</td>`).join('')}</tr>`).join('')}<tr><td>ACTIONS</td>${selected.map(t=>`<td><a class="compare-view" href="${t.page}">VIEW TOUR</a><br><button type="button" class="compare-remove" data-compare-remove="${t.id}">Remove</button></td>`).join('')}</tr></tbody></table><div class="compare-share-panel"><div class="compare-share-title">SEND OR SAVE THIS COMPARISON</div><div class="compare-share-actions"><button type="button" class="compare-share compare-share-primary compare-share-icon" data-share-compare="native" aria-label="Share comparison"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m0 0L8 7m4-4 4 4"/><path d="M7 10H5.5A2.5 2.5 0 0 0 3 12.5v6A2.5 2.5 0 0 0 5.5 21h13a2.5 2.5 0 0 0 2.5-2.5v-6a2.5 2.5 0 0 0-2.5-2.5H17"/></svg></button><button type="button" class="compare-share" data-share-compare="whatsapp">WHATSAPP</button><button type="button" class="compare-share" data-share-compare="telegram">TELEGRAM</button><button type="button" class="compare-share" data-share-compare="viber">VIBER</button><button type="button" class="compare-share" data-share-compare="copy">COPY LINK</button></div><div class="compare-share-status" id="compareShareStatus">Tap the share symbol to open the apps available on this device.</div></div>`;
+  document.getElementById('compareTableWrap').innerHTML=`<table class="compare-table"><thead><tr><th>TOUR</th>${selected.map(t=>`<th><img src="${t.image||'logo/logo.png'}" alt="${t.title}" onerror="this.src='logo/logo.png'"><div>${t.title}</div></th>`).join('')}</tr></thead><tbody>${rows.map(([label,key])=>`<tr><td>${label}</td>${selected.map(t=>`<td class="${key==='price'?'compare-price':''}">${compareValue(t,key)}</td>`).join('')}</tr>`).join('')}<tr><td>ACTIONS</td>${selected.map(t=>`<td><a class="compare-view" href="${t.page}">VIEW TOUR</a><br><button type="button" class="compare-remove" data-compare-remove="${t.id}">Remove</button></td>`).join('')}</tr></tbody></table><div class="compare-share-panel"><div class="compare-share-title">SHARE THIS COMPARISON AS AN IMAGE</div><div class="compare-share-actions"><button type="button" class="compare-share compare-share-primary compare-share-icon" data-share-compare="native" aria-label="Share comparison image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m0 0L8 7m4-4 4 4"/><path d="M7 10H5.5A2.5 2.5 0 0 0 3 12.5v6A2.5 2.5 0 0 0 5.5 21h13a2.5 2.5 0 0 0 2.5-2.5v-6a2.5 2.5 0 0 0-2.5-2.5H17"/></svg></button><button type="button" class="compare-share" data-share-compare="whatsapp">WHATSAPP IMAGE</button><button type="button" class="compare-share" data-share-compare="telegram">TELEGRAM</button><button type="button" class="compare-share" data-share-compare="viber">VIBER</button><button type="button" class="compare-share" data-share-compare="copy">COPY LINK</button></div><div class="compare-share-status" id="compareShareStatus">Share the image and interactive comparison link with any app.</div></div>`;
   const modal=document.getElementById('compareModal');modal.classList.add('visible');modal.setAttribute('aria-hidden','false');
 }
 document.addEventListener('click',e=>{const button=e.target.closest('[data-compare-id]');if(!button)return;e.preventDefault();e.stopPropagation();toggleComparedTour(button.dataset.compareId,button)});
