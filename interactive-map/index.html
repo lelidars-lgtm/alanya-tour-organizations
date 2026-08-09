@@ -2259,7 +2259,38 @@ function addMarkersAndLabels(){
   });
 }
 
-function addRoutes(){const styles={sea:{color:'#259fd8',dash:[2,2]},local:{color:'#8db765',dash:[1.5,1.5]},land:{color:'#d7a83e',dash:[2,1.5]},air:{color:'#d9edff',dash:[1,2]}};Object.entries(routeData).forEach(([type,data])=>{map.addSource(type+'-route',{type:'geojson',data});map.addLayer({id:type+'-route-glow',type:'line',source:type+'-route',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':styles[type].color,'line-width':9,'line-opacity':0,'line-blur':7}});map.addLayer({id:type+'-route',type:'line',source:type+'-route',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':styles[type].color,'line-width':3,'line-dasharray':styles[type].dash,'line-opacity':0}});map.on('click',type+'-route',e=>{const t=tours.find(x=>x.id===e.features?.[0]?.properties?.id);if(t)setTourActive(t,{moveMap:true});});map.on('mouseenter',type+'-route',()=>map.getCanvas().style.cursor='pointer');map.on('mouseleave',type+'-route',()=>map.getCanvas().style.cursor='');});}
+const CATEGORY_WEB_SOURCE='category-route-web';
+const CATEGORY_WEB_GLOW='category-route-web-glow';
+const CATEGORY_WEB_LINE='category-route-web-line';
+function categoryWebData(){
+  const points=[];
+  tours.filter(t=>visible(t)&&hasCoords(t)).forEach(t=>{
+    if(!points.some(p=>Math.abs(p[0]-t.coords[0])<.00015&&Math.abs(p[1]-t.coords[1])<.00015))points.push(t.coords);
+  });
+  if(points.length<2)return {type:'FeatureCollection',features:[]};
+  const distance=(a,b)=>{const x=(a[0]-b[0])*Math.cos((a[1]+b[1])*.5*Math.PI/180),y=a[1]-b[1];return x*x+y*y;};
+  const edges=new Set(),add=(a,b)=>edges.add(a<b?`${a}:${b}`:`${b}:${a}`);
+  const connected=new Set([0]);
+  while(connected.size<points.length){
+    let bestA=-1,bestB=-1,best=Infinity;
+    connected.forEach(a=>points.forEach((_,b)=>{if(!connected.has(b)){const d=distance(points[a],points[b]);if(d<best){best=d;bestA=a;bestB=b;}}}));
+    if(bestB<0)break;add(bestA,bestB);connected.add(bestB);
+  }
+  points.forEach((point,i)=>points.map((other,j)=>({j,d:i===j?Infinity:distance(point,other)})).sort((a,b)=>a.d-b.d).slice(0,2).forEach(x=>add(i,x.j)));
+  return {type:'FeatureCollection',features:[...edges].map(key=>{const [a,b]=key.split(':').map(Number);return {type:'Feature',properties:{},geometry:{type:'LineString',coordinates:[points[a],points[b]]}};})};
+}
+function addCategoryWeb(){
+  map.addSource(CATEGORY_WEB_SOURCE,{type:'geojson',data:{type:'FeatureCollection',features:[]}});
+  map.addLayer({id:CATEGORY_WEB_GLOW,type:'line',source:CATEGORY_WEB_SOURCE,layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#e1a72e','line-width':9,'line-opacity':.24,'line-blur':7}});
+  map.addLayer({id:CATEGORY_WEB_LINE,type:'line',source:CATEGORY_WEB_SOURCE,layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':'#f2c65f','line-width':2.4,'line-dasharray':[1.4,1.15],'line-opacity':.82}});
+}
+function updateCategoryWeb(){
+  const source=map?.getSource?.(CATEGORY_WEB_SOURCE);if(!source)return;
+  source.setData(categoryWebData());
+  if(map.getLayer(CATEGORY_WEB_LINE))map.setPaintProperty(CATEGORY_WEB_LINE,'line-opacity',activeCategory==='all'?.58:.88);
+  if(map.getLayer(CATEGORY_WEB_GLOW))map.setPaintProperty(CATEGORY_WEB_GLOW,'line-opacity',activeCategory==='all'?.16:.3);
+}
+function addRoutes(){const styles={sea:{color:'#259fd8',dash:[2,2]},local:{color:'#8db765',dash:[1.5,1.5]},land:{color:'#d7a83e',dash:[2,1.5]},air:{color:'#d9edff',dash:[1,2]}};Object.entries(routeData).forEach(([type,data])=>{map.addSource(type+'-route',{type:'geojson',data});map.addLayer({id:type+'-route-glow',type:'line',source:type+'-route',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':styles[type].color,'line-width':9,'line-opacity':0,'line-blur':7}});map.addLayer({id:type+'-route',type:'line',source:type+'-route',layout:{'line-cap':'round','line-join':'round'},paint:{'line-color':styles[type].color,'line-width':3,'line-dasharray':styles[type].dash,'line-opacity':0}});map.on('click',type+'-route',e=>{const t=tours.find(x=>x.id===e.features?.[0]?.properties?.id);if(t)setTourActive(t,{moveMap:true});});map.on('mouseenter',type+'-route',()=>map.getCanvas().style.cursor='pointer');map.on('mouseleave',type+'-route',()=>map.getCanvas().style.cursor='');});addCategoryWeb();}
 function routeVisibleExpression(){const ids=tours.filter(visible).map(t=>t.id);return ['case',['in',['get','id'],['literal',ids]],.72,.06];}
 function refresh(){
   const z=map?.getZoom?.()??8;
@@ -2289,6 +2320,7 @@ function refresh(){
     el.style.display=show?'block':'none';
   });
   ['sea','local','land','air'].forEach(type=>{if(map.getLayer(type+'-route')){map.setPaintProperty(type+'-route','line-opacity',routeVisibleExpression());map.setPaintProperty(type+'-route-glow','line-opacity',['case',['in',['get','id'],['literal',tours.filter(visible).map(t=>t.id)]],.14,0]);}});
+  updateCategoryWeb();
 }
 let fitVisibleTimer=null;
 function fitVisible(){
@@ -2301,11 +2333,7 @@ function fitVisible(){
     map.stop();
     const mobile=window.matchMedia('(max-width:900px), (hover:none) and (pointer:coarse)').matches;
     const bounds=new maplibregl.LngLatBounds();
-    list.forEach(t=>{
-      const route=routeBounds(t.id);
-      if(route){bounds.extend(route.getSouthWest());bounds.extend(route.getNorthEast());}
-      else bounds.extend(t.coords);
-    });
+    list.forEach(t=>bounds.extend(t.coords));
     const sw=bounds.getSouthWest(),ne=bounds.getNorthEast();
     if(Math.abs(sw.lng-ne.lng)<.0001&&Math.abs(sw.lat-ne.lat)<.0001){
       map.easeTo({center:list[0].coords,zoom:mobile?9.4:10.4,pitch:18,bearing:0,duration:1250,essential:true});
@@ -2320,7 +2348,7 @@ function fitVisible(){
 
 function revealIntro(){introStarted=true;document.getElementById('introBadge').classList.add('hidden');['sea','local','land','air'].forEach((type,i)=>setTimeout(()=>{map.setPaintProperty(type+'-route','line-opacity',routeVisibleExpression());map.setPaintProperty(type+'-route-glow','line-opacity',.14);},i*220));setTimeout(()=>labels.forEach((x,i)=>setTimeout(()=>x.el.classList.add('visible'),i*55)),650);setTimeout(()=>markers.forEach((x,i)=>setTimeout(()=>x.el.classList.add('visible'),i*55)),1250);setTimeout(startAutoTour,2300);setTimeout(showGeoOffer,GEO_OFFER_DELAY-AUTO_TOUR_DELAY);}
 function startAutoTour(){if(autoTourStopped)return;clearTimeout(autoTourTimer);const step=()=>{if(autoTourStopped)return;const seq=currentSequence();if(!seq.length)return;const t=tours.find(x=>x.id===seq[autoTourIndex%seq.length]);setTourActive(t,{moveMap:true});autoTourIndex++;autoTourTimer=setTimeout(step,5200);};step();}
-function restartAutoForCategory(){autoTourIndex=0;clearTimeout(autoTourTimer);if(introStarted&&!autoTourStopped)autoTourTimer=setTimeout(startAutoTour,900);}
+function restartAutoForCategory(){autoTourIndex=0;clearTimeout(autoTourTimer);autoTourStopped=true;}
 function stopAutoTour(){if(autoTourStopped)return;autoTourStopped=true;clearTimeout(autoTourTimer);map.stop();document.getElementById('introBadge').classList.add('hidden');}
 
 const categoryLabelParts={
