@@ -1391,6 +1391,13 @@ html{margin:0!important;min-height:100%!important;overflow-x:hidden!important;ov
   
 }
 
+/* Keep completed and browser-autofilled request fields in the shared dark theme. */
+.request-field input:-webkit-autofill,.request-field input:-webkit-autofill:hover,.request-field input:-webkit-autofill:focus,.request-field textarea:-webkit-autofill,.request-field textarea:-webkit-autofill:hover,.request-field textarea:-webkit-autofill:focus,.request-field select:-webkit-autofill,.request-field select:-webkit-autofill:hover,.request-field select:-webkit-autofill:focus{-webkit-text-fill-color:#fff!important;caret-color:#fff!important;-webkit-box-shadow:0 0 0 1000px #071d2e inset!important;box-shadow:0 0 0 1000px #071d2e inset!important;border-color:rgba(241,202,104,.38)!important;transition:background-color 99999s ease-out 0s}.request-field input:not(:placeholder-shown),.request-field textarea:not(:placeholder-shown){background:#071d2e!important;color:#fff!important}
+/* Final cross-browser form colour guard: filled, selected and date fields never turn white. */
+.request-form input,.request-form select,.request-form textarea,.request-form input:valid,.request-form input:user-valid,.request-form select:valid,.request-form textarea:valid{background-color:#071d2e!important;background-image:none!important;color:#fff!important;-webkit-text-fill-color:#fff!important;caret-color:#fff!important}
+.request-form input[type="date"]{color-scheme:dark;cursor:pointer}
+.request-form input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(1) sepia(.25) saturate(2);opacity:1;cursor:pointer}
+.request-form input:-moz-autofill,.request-form textarea:-moz-autofill,.request-form select:-moz-autofill{box-shadow:0 0 0 1000px #071d2e inset!important;color:#fff!important}
 </style>
 <style id="clean-index-styles">
 /* ===== CLEAN INDEX REBUILD — 2026-08-08 ===== */
@@ -2275,6 +2282,22 @@ function closeManagerRequest(){const modal=document.getElementById('managerReque
 document.getElementById('compareModal')?.addEventListener('click',e=>{if(e.target.closest('#openManagerRequest'))openManagerRequest();});
 document.getElementById('managerRequestClose')?.addEventListener('click',closeManagerRequest);
 document.getElementById('managerRequestModal')?.addEventListener('click',e=>{if(e.target.id==='managerRequestModal')closeManagerRequest();});
+const requestArrival=document.getElementById('requestArrival');
+const requestDeparture=document.getElementById('requestDeparture');
+const requestToday=new Date();
+requestToday.setMinutes(requestToday.getMinutes()-requestToday.getTimezoneOffset());
+const requestTodayISO=requestToday.toISOString().slice(0,10);
+[requestArrival,requestDeparture].forEach(field=>{
+  if(!field)return;
+  field.required=true;
+  field.min=requestTodayISO;
+  field.addEventListener('click',()=>{try{field.showPicker?.();}catch(_){}});
+  field.addEventListener('focus',()=>{try{field.showPicker?.();}catch(_){}});
+});
+requestArrival?.addEventListener('change',()=>{
+  requestDeparture.min=requestArrival.value||requestTodayISO;
+  if(requestDeparture.value&&requestDeparture.value<requestDeparture.min)requestDeparture.value='';
+});
 document.getElementById('managerRequestForm')?.addEventListener('submit',async e=>{
   e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;
   const data=new FormData(form),ids=data.getAll('requestTour').map(String);if(!ids.length){alert('Please select at least one tour.');return;}
