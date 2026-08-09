@@ -1722,6 +1722,8 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
   });
 })();
 </script>
+<script src="booking-config.js"></script>
+<script src="booking-client.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
 <script>
@@ -2273,7 +2275,7 @@ function closeManagerRequest(){const modal=document.getElementById('managerReque
 document.getElementById('compareModal')?.addEventListener('click',e=>{if(e.target.closest('#openManagerRequest'))openManagerRequest();});
 document.getElementById('managerRequestClose')?.addEventListener('click',closeManagerRequest);
 document.getElementById('managerRequestModal')?.addEventListener('click',e=>{if(e.target.id==='managerRequestModal')closeManagerRequest();});
-document.getElementById('managerRequestForm')?.addEventListener('submit',e=>{
+document.getElementById('managerRequestForm')?.addEventListener('submit',async e=>{
   e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;
   const data=new FormData(form),ids=data.getAll('requestTour').map(String);if(!ids.length){alert('Please select at least one tour.');return;}
   if(Number(data.get('children')||0)>0&&!String(data.get('childAges')||'').trim()){const field=document.getElementById('requestChildAges');field.setCustomValidity("Please enter the children's ages.");field.reportValidity();field.focus();return;}else document.getElementById('requestChildAges').setCustomValidity('');
@@ -2281,7 +2283,13 @@ document.getElementById('managerRequestForm')?.addEventListener('submit',e=>{
   const tourLines=selected.map((t,index)=>{const date=form.querySelector(`[data-tour-date="${CSS.escape(t.id)}"]`)?.value||'Flexible';const price=t.price==null?'Price on request':`€${t.price}`;const link=new URL(t.page,location.href).href;return `${index+1}. ${t.title} — ${price}\nPreferred date: ${date}\n${link}`;});
   const specials=data.getAll('special').map(String);const comparison=comparisonShareData().url;
   const message=`NEW TOUR REQUEST — ALANYA TOUR ORGANIZATIONS\n\nCLIENT\nName: ${data.get('name')}\nHotel: ${data.get('hotel')}\nStay dates: ${data.get('arrival')||'Not specified'} — ${data.get('departure')||'Not specified'}\nGuests: ${data.get('adults')} adult(s), ${data.get('children')||0} child(ren)${data.get('childAges')?` — ages ${data.get('childAges')}`:''}\nLanguage: ${data.get('language')}\nHotel pickup: ${data.get('pickup')}\n\nSELECTED TOURS\n${tourLines.join('\n\n')}\n\nSPECIAL INFORMATION\n${specials.length?specials.join(', '):'None specified'}\n\nADDITIONAL NOTES\n${data.get('notes')||'None'}\n\nPlease confirm availability, dates, final price, child price and pickup details.\n\nCOMPARISON\n${comparison}`;
-  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`,'_blank','noopener');
+  const submit=form.querySelector('.request-submit');const originalLabel=submit.textContent;submit.disabled=true;submit.textContent='SAVING REQUEST…';
+  try{
+    const booking=await window.ATOBooking.createPending({client_name:String(data.get('name')),client_whatsapp:String(data.get('phone')),hotel:String(data.get('hotel')),arrival_date:data.get('arrival')||null,departure_date:data.get('departure')||null,adults:Number(data.get('adults')||1),children:Number(data.get('children')||0),child_ages:String(data.get('childAges')||''),language:String(data.get('language')||''),pickup:String(data.get('pickup')||''),special_information:specials,notes:String(data.get('notes')||''),selected_tours:selected.map(t=>({id:t.id,title:t.title,price:t.price,page:new URL(t.page,location.href).href,preferred_date:form.querySelector(`[data-tour-date="${CSS.escape(t.id)}"]`)?.value||null})),comparison_url:comparison,whatsapp_message:message});
+    const finalMessage=`${message}\n\nREQUEST NUMBER\n${booking.request_number}`;
+    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(finalMessage)}`,'_blank','noopener');closeManagerRequest();form.reset();
+  }catch(error){alert(error.message||'The request could not be saved. Please try again.');}
+  finally{submit.disabled=false;submit.textContent=originalLabel;}
 });
 updateCompareUI();
 if((new URL(location.href)).searchParams.has('compare')&&comparedTourIds.length)setTimeout(openCompareModal,900);
