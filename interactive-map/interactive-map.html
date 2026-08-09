@@ -2001,13 +2001,24 @@ const map = new maplibregl.Map({
   maxZoom:19
 });
 map.addControl(new maplibregl.NavigationControl({showCompass:false,showZoom:true}),'bottom-right');
-map.addControl(new maplibregl.GeolocateControl({
-  positionOptions:{enableHighAccuracy:true},
-  trackUserLocation:true,
-  showUserHeading:true,
-  showAccuracyCircle:true,
-  fitBoundsOptions:{maxZoom:16}
-}),'bottom-right');
+class NearbyLocationControl{
+  onAdd(){
+    const box=document.createElement('div');
+    box.className='maplibregl-ctrl maplibregl-ctrl-group';
+    const button=document.createElement('button');
+    button.type='button';
+    button.className='ato-location-control';
+    button.title='Show nearby experiences';
+    button.setAttribute('aria-label','Show nearby experiences');
+    button.innerHTML='<span aria-hidden="true">◎</span>';
+    button.addEventListener('click',()=>requestLocation());
+    box.appendChild(button);
+    this.container=box;
+    return box;
+  }
+  onRemove(){this.container?.remove();}
+}
+map.addControl(new NearbyLocationControl(),'bottom-right');
 map.addControl(new maplibregl.AttributionControl({compact:true}),'bottom-left');
 
 let activeCategory='all', popup=null, activeTourId=null, autoTourStopped=false, introStarted=false, autoTourTimer=null, autoTourIndex=0;
@@ -2061,6 +2072,39 @@ function parsePrice(doc){
   const m=raw.match(/(?:€|EUR\s*)\s*(\d+(?:[.,]\d+)?)/i)||raw.match(/(\d+(?:[.,]\d+)?)\s*(?:€|EUR)/i);
   return m?Number(m[1].replace(',','.')):null;
 }
+function comparisonDetails(doc,t){
+  const bodyText=textOf(doc.body);
+  const childNode=doc.querySelector('#childrenPrice')||[...doc.querySelectorAll('.details-col p,.price-card p,.tour-price p')].find(node=>/children?|child\s*price|years?\s*old/i.test(textOf(node)));
+  const childPrice=textOf(childNode)||'Check availability';
+  const includedHeading=[...doc.querySelectorAll('h2,h3,h4')].find(node=>/^included$/i.test(textOf(node)));
+  const includedBox=doc.querySelector('#includedList')||includedHeading?.parentElement;
+  const includedText=textOf(includedBox)||bodyText;
+  const mealParts=[];
+  [['Breakfast',/\bbreakfast\b/i],['Lunch',/\blunch\b/i],['Dinner',/\bdinner\b/i],['Soft drinks',/\bsoft drinks?\b/i],['Meal included',/\bmeal(?:s)? included\b/i]].forEach(([label,re])=>{if(re.test(includedText)&&!mealParts.includes(label))mealParts.push(label)});
+  const meals=mealParts.length?mealParts.join(' · '):'Check availability';
+  const suitableMatch=bodyText.match(/(?:ideal|suitable|recommended) for\s+([^.!?]{3,120})/i);
+  let suitable=suitableMatch?.[1]?.trim()||'';
+  if(!suitable){
+    const cats=t.categories||[];
+    if(cats.includes('family'))suitable='Families with children';
+    else if(cats.includes('wellness'))suitable='Relaxation and wellness';
+    else if(cats.includes('extreme')||cats.includes('air'))suitable='Adventure seekers';
+    else if(cats.includes('history'))suitable='Culture and history lovers';
+    else if(cats.includes('nature'))suitable='Families and nature lovers';
+    else if(cats.includes('vip'))suitable='Couples, families and private groups';
+    else if(cats.includes('sea'))suitable='Sea and boat-trip lovers';
+    else if(cats.includes('water'))suitable='Active guests';
+  }
+  const restrictionPatterns=[
+    /not suitable for\s+[^.!?]{3,120}/i,
+    /minimum age(?: is|:)?\s*[^.!?]{1,80}/i,
+    /children under\s+[^.!?]{1,100}/i,
+    /pregnan(?:t|cy)[^.!?]{0,100}/i,
+    /wheelchair[^.!?]{0,100}/i
+  ];
+  const restrictions=restrictionPatterns.map(re=>bodyText.match(re)?.[0]?.trim()).find(Boolean)||'Check availability';
+  return {childPrice,meals,suitable:suitable||'Check availability',restrictions};
+}
 async function ensureTourData(t){
   if(tourPageCache.has(t.id))return tourPageCache.get(t.id);
   const task=(async()=>{
@@ -2076,7 +2120,8 @@ async function ensureTourData(t){
       const price=parsePrice(doc);
       const duration=parseDuration(doc);
       const pageText=textOf(doc.body);
-      Object.assign(t,{title,desc,image,duration,price:t.price??price,transfer:/hotel transfer|transfer included/i.test(pageText)||t.transfer,sourceLoaded:true});
+      const compare=comparisonDetails(doc,t);
+      Object.assign(t,{title,desc,image,duration,price:t.price??price,transfer:/hotel transfer|transfer included/i.test(pageText)||t.transfer,...compare,sourceLoaded:true});
     }catch(err){
       console.warn(`Tour source unavailable: ${t.page}`,err);
       t.sourceLoaded=false;
@@ -2116,7 +2161,7 @@ function toggleComparedTour(id,button){
   if(index>=0)comparedTourIds.splice(index,1);else if(comparedTourIds.length<4)comparedTourIds.push(id);else{openCompareModal();return;}
   button?.classList.remove('flash');void button?.offsetWidth;button?.classList.add('flash');saveComparedTours();
 }
-function compareValue(t,key){if(key==='price')return t.price==null?'On request':`€${t.price}`;if(key==='duration')return t.duration||'See tour page';if(key==='transfer')return t.transfer?'Included':'Check tour';if(key==='distance')return userLocation&&hasCoords(t)?`${haversine(userLocation,t.coords).toFixed(1)} km`:'Set your location';return '—'}
+function compareValue(t,key){if(key==='price')return t.price==null?'On request':`€${t.price}`;if(key==='childPrice')return t.childPrice||'Check availability';if(key==='duration')return t.duration||'Check availability';if(key==='transfer')return t.transfer?'Included':'Check availability';if(key==='meals')return t.meals||'Check availability';if(key==='suitable')return t.suitable||'Check availability';if(key==='restrictions')return t.restrictions||'Check availability';if(key==='distance')return userLocation&&hasCoords(t)?`${haversine(userLocation,t.coords).toFixed(1)} km`:'Set your location';return 'Check availability'}
 function comparisonShareData(){
   const selected=comparedTourIds.map(id=>tours.find(t=>t.id===id)).filter(Boolean);
   const url=new URL(location.href);url.hash='';url.searchParams.delete('fresh');url.searchParams.set('compare',comparedTourIds.join(','));
@@ -2134,9 +2179,10 @@ async function shareComparison(channel){
     catch(e){const ta=document.createElement('textarea');ta.value=message;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();if(status)status.textContent='Comparison link copied.';}
   }
 }
-function openCompareModal(){
+async function openCompareModal(){
   const selected=comparedTourIds.map(id=>tours.find(t=>t.id===id)).filter(Boolean);if(!selected.length)return;
-  const rows=[['Price','price'],['Duration','duration'],['Hotel transfer','transfer'],['Distance from you','distance']];
+  await Promise.allSettled(selected.map(ensureTourData));
+  const rows=[['Adult price','price'],['Child price & ages','childPrice'],['Duration','duration'],['Hotel transfer','transfer'],['Meals','meals'],['Suitable for','suitable'],['Restrictions','restrictions'],['Distance from you','distance']];
   document.getElementById('compareTableWrap').innerHTML=`<table class="compare-table"><thead><tr><th>TOUR</th>${selected.map(t=>`<th><img src="${t.image||'logo/logo.png'}" alt="${t.title}" onerror="this.src='logo/logo.png'"><div>${t.title}</div></th>`).join('')}</tr></thead><tbody>${rows.map(([label,key])=>`<tr><td>${label}</td>${selected.map(t=>`<td class="${key==='price'?'compare-price':''}">${compareValue(t,key)}</td>`).join('')}</tr>`).join('')}<tr><td>ACTIONS</td>${selected.map(t=>`<td><a class="compare-view" href="${t.page}">VIEW TOUR</a><br><button type="button" class="compare-remove" data-compare-remove="${t.id}">Remove</button></td>`).join('')}</tr></tbody></table><div class="compare-share-panel"><div class="compare-share-title">SEND OR SAVE THIS COMPARISON</div><div class="compare-share-actions"><button type="button" class="compare-share compare-share-primary compare-share-icon" data-share-compare="native" aria-label="Share comparison"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m0 0L8 7m4-4 4 4"/><path d="M7 10H5.5A2.5 2.5 0 0 0 3 12.5v6A2.5 2.5 0 0 0 5.5 21h13a2.5 2.5 0 0 0 2.5-2.5v-6a2.5 2.5 0 0 0-2.5-2.5H17"/></svg></button><button type="button" class="compare-share" data-share-compare="whatsapp">WHATSAPP</button><button type="button" class="compare-share" data-share-compare="telegram">TELEGRAM</button><button type="button" class="compare-share" data-share-compare="viber">VIBER</button><button type="button" class="compare-share" data-share-compare="copy">COPY LINK</button></div><div class="compare-share-status" id="compareShareStatus">Tap the share symbol to open the apps available on this device.</div></div>`;
   const modal=document.getElementById('compareModal');modal.classList.add('visible');modal.setAttribute('aria-hidden','false');
 }
