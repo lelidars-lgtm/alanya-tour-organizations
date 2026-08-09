@@ -10,13 +10,19 @@
       method: 'POST',
       headers: {
         apikey: cfg.supabaseAnonKey,
-        Authorization: `Bearer ${cfg.supabaseAnonKey}`,
         'Content-Type': 'application/json',
         Prefer: 'return=representation'
       },
       body: JSON.stringify({ ...payload, request_number: requestNumber, status: 'PENDING' })
     });
-    if (!response.ok) throw new Error(`Booking save failed (${response.status}).`);
+    if (!response.ok) {
+      let detail = '';
+      try {
+        const problem = await response.json();
+        detail = problem.message || problem.error_description || problem.error || '';
+      } catch (_) {}
+      throw new Error(`Booking save failed (${response.status})${detail ? `: ${detail}` : '.'}`);
+    }
     const rows = await response.json();
     return rows[0] || { request_number: requestNumber };
   }
