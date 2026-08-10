@@ -1,7 +1,7 @@
 (() => {
 'use strict';
-const POOL_KEY='atoTripPlannerPool', DETAIL_KEY='atoTripPlannerDetail', PREF_KEY='atoTripPlannerPrefs', SCHEDULE_KEY='atoTripPlannerSchedule';
-const MAX_POOL=8, MAX_DETAIL=4, MIN_DETAIL=2;
+const POOL_KEY='atoTripPlannerPool', DETAIL_KEY='atoTripPlannerDetail', PREF_KEY='atoTripPlannerPrefs', SCHEDULE_KEY='atoTripPlannerSchedule', GUIDE_KEY='atoTripPlannerGuideStep';
+const MAX_POOL=4, MAX_DETAIL=4, MIN_DETAIL=2;
 const WHATSAPP='905387045999';
 const CATEGORY_SOURCES=[
   ['sea-experiences.html','Sea'],['extreme-adventure.html','Extreme & Adventure'],['nature-adventures.html','Nature & Adventure'],['history-culture.html','History & Culture'],['water-sports.html','Water Sports'],['air-experiences.html','Air Experiences'],['family-experiences.html','Family Experiences'],['wellness-relax.html','Wellness & Relax'],['vip-service.html','VIP Services']
@@ -12,8 +12,80 @@ const normalizeHref=href=>{try{return new URL(href,location.href).pathname.split
 const readJSON=(key,def)=>{try{const x=JSON.parse(localStorage.getItem(key)||'null');return x??def}catch(_){return def}};
 const writeJSON=(key,val)=>{try{localStorage.setItem(key,JSON.stringify(val))}catch(_){}};
 let pool=[...new Set(readJSON(POOL_KEY,[]).map(normalizeHref).filter(Boolean))].slice(0,MAX_POOL);
-let detail=[...new Set(readJSON(DETAIL_KEY,[]).map(normalizeHref).filter(h=>pool.includes(h)))].slice(0,MAX_DETAIL);
+let detail=[...pool];
 let registry=new Map(), detailsCache=new Map(), recommendations=[];
+const GUIDE_STEPS={
+  1:{target:'#exploreCategories',eyebrow:'STEP 1 OF 7',title:'Choose the tours that interest you',text:'Open the categories and add the excursions that caught your eye. Choose up to 4 tours to compare. When you select the fourth tour, Trip Planner will automatically take you to the next step.'},
+  2:{target:'#tripPreferences',eyebrow:'STEP 2 OF 7',title:'Tell us about your holiday',text:'Add your travel dates and guest details, then choose your pace, road tolerance, preferred start time and interests. Mark pregnancy, elderly guests, stroller or reduced mobility if any of these apply. This makes the recommendations personal to your trip.'},
+  3:{target:'#plannerRecommendations',eyebrow:'STEP 3 OF 7',title:'Your personal recommendations are ready',text:'We ranked your selected tours using the information you entered and the rules published on each tour page. Review the best matches, warnings and restrictions before continuing.'},
+  4:{target:'#detailedComparison',eyebrow:'STEP 4 OF 7',title:'Compare your tours side by side',text:'Now review the analytical table: price, duration, transfer, meals, child policy, intensity, pregnancy or health notes and what to bring. Your selected tours are compared automatically.'},
+  5:{target:'#planDates',eyebrow:'STEP 5 OF 7',title:'Build your holiday by dates',text:'We have prepared a suggested schedule for your selected tours. Review the proposed dates and change any of them if you wish. Weather guidance is added only when reliable live data is available.'},
+  6:{target:'#bringChecklist',eyebrow:'STEP 6 OF 7',title:'Prepare for every excursion',text:'Check the What to Bring list for each tour separately. We keep the original tour requirements separate and will add date-specific weather guidance closer to the excursion.'},
+  7:{target:'#finalPlan',eyebrow:'STEP 7 OF 7',title:'Your personal travel plan is ready',text:'Review your plan and send the request to our travel manager. The manager confirms availability, pickup time and final price. After confirmation, your electronic ticket and current pre-tour guidance become part of the same journey.'}
+};
+function guideRead(){try{return Number(localStorage.getItem(GUIDE_KEY)||1)||1}catch(_){return 1}}
+function guideWrite(step){try{localStorage.setItem(GUIDE_KEY,String(step))}catch(_){} }
+function ensureGuide(){
+  let overlay=$('#tpGuideOverlay');
+  if(overlay)return overlay;
+  overlay=document.createElement('div');overlay.className='tp-guide-overlay';overlay.id='tpGuideOverlay';overlay.setAttribute('aria-hidden','true');
+  overlay.innerHTML=`<div class="tp-guide-card" role="dialog" aria-modal="true" aria-labelledby="tpGuideTitle"><button class="tp-guide-close" type="button" aria-label="Close">×</button><div class="tp-guide-orbit"><span></span></div><div class="tp-guide-eyebrow"></div><h2 id="tpGuideTitle"></h2><p class="tp-guide-text"></p><button class="tp-guide-ok" type="button">GOT IT</button></div>`;
+  document.body.appendChild(overlay);
+  const close=()=>{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true')};
+  overlay.querySelector('.tp-guide-close').addEventListener('click',close);
+  overlay.querySelector('.tp-guide-ok').addEventListener('click',close);
+  overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))close()});
+  return overlay;
+}
+function showGuide(step,{delay=0,scroll=true,force=false}={}){
+  const data=GUIDE_STEPS[step];if(!data)return;
+  if(!force&&guideRead()>step)return;
+  window.setTimeout(()=>{
+    const target=$(data.target);
+    if(scroll&&target)target.scrollIntoView({behavior:'smooth',block:'start'});
+    window.setTimeout(()=>{
+      const overlay=ensureGuide();
+      overlay.querySelector('.tp-guide-eyebrow').textContent=data.eyebrow;
+      overlay.querySelector('#tpGuideTitle').textContent=data.title;
+      overlay.querySelector('.tp-guide-text').textContent=data.text;
+      overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');
+      guideWrite(Math.max(guideRead(),step));
+    },scroll?620:0);
+  },delay);
+}
+function guideAdvance(step){guideWrite(step);showGuide(step,{force:true,scroll:true})}
+function ensureGuideNextButtons(){
+  const defs=[
+    ['#plannerRecommendations','CONTINUE TO COMPARISON',4],
+    ['#detailedComparison','CONTINUE TO DATES',5],
+    ['#planDates','CONTINUE TO WHAT TO BRING',6],
+    ['#bringChecklist','CONTINUE TO FINAL STEP',7]
+  ];
+  defs.forEach(([sectionSel,label,step])=>{
+    const section=$(sectionSel);if(!section||section.querySelector('.tp-guide-next'))return;
+    const body=section.querySelector('.tp-section-body');if(!body)return;
+    const wrap=document.createElement('div');wrap.className='tp-guide-next-wrap';
+    const btn=document.createElement('button');btn.type='button';btn.className='tp-guide-next';btn.textContent=label;
+    btn.addEventListener('click',()=>guideAdvance(step));
+    wrap.appendChild(btn);body.appendChild(wrap);
+  });
+}
+function updateGuideNextButtons(){
+  const rec=$('#plannerRecommendations .tp-guide-next');if(rec)rec.disabled=!recommendations.length;
+  const comp=$('#detailedComparison .tp-guide-next');if(comp)comp.disabled=detail.length<2;
+  const dates=$('#planDates .tp-guide-next');if(dates){const p=readPrefs();dates.disabled=!(p.travelStart&&p.travelEnd&&detail.length)}
+  const bring=$('#bringChecklist .tp-guide-next');if(bring)bring.disabled=!detail.length;
+}
+function startGuidedJourney(){
+  let introShown=false;try{introShown=sessionStorage.getItem('atoTPGuideIntroShown')==='1'}catch(_){}
+  if(pool.length===MAX_POOL){window.setTimeout(()=>showGuide(2,{force:true,scroll:true}),700);return}
+  if(!introShown&&pool.length<MAX_POOL){
+    try{sessionStorage.setItem('atoTPGuideIntroShown','1')}catch(_){}
+    window.setTimeout(()=>showGuide(1,{force:true,scroll:true}),5000);
+  }
+}
+
 function escapeHTML(v){return String(v??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function absoluteAsset(src,sourcePage){if(!src)return 'logo.png';try{return new URL(src,new URL(sourcePage,location.href)).href}catch(_){return src}}
 function parseCard(card,category,sourcePage){
@@ -84,9 +156,8 @@ async function loadDetails(href){
 function renderPool(){
   const host=$('#poolGrid'),count=$('#poolCount');count.textContent=`${pool.length}/${MAX_POOL}`;
   if(!pool.length){host.innerHTML=`<div class="tp-empty" style="grid-column:1/-1"><strong>Start building your journey</strong>Choose experiences from the premium category cards above, then press <b>＋ Compare</b> on the tours you love. <a href="#exploreCategories">Explore categories →</a></div>`;renderCategoryCounts();return}
-  host.innerHTML=pool.map(h=>{const t=registry.get(h)||{href:h,title:h.replace('.html','').replace(/-/g,' '),image:'logo.png',price:'Loading…',desc:'',category:'Tour'};const selected=detail.includes(h);return `<article class="tp-card" data-href="${escapeHTML(h)}"><div class="tp-card-img"><img src="${escapeHTML(t.image)}" alt="${escapeHTML(t.title)}" onerror="this.src='logo.png'"><span class="tp-cat">${escapeHTML(t.category)}</span><button type="button" class="tp-detail-pick ${selected?'selected':''}" data-detail="${escapeHTML(h)}">${selected?'✓ Compare':'＋ Detailed compare'}</button></div><div class="tp-card-body"><h3>${escapeHTML(t.title)}</h3><div class="tp-price">${escapeHTML(t.price)}</div><div class="tp-desc">${escapeHTML(t.desc)}</div><div class="tp-card-actions"><a href="${escapeHTML(h)}">View tour →</a><span class="spacer"></span><button class="tp-remove" type="button" data-remove="${escapeHTML(h)}">Remove</button></div></div></article>`}).join('');
+  host.innerHTML=pool.map(h=>{const t=registry.get(h)||{href:h,title:h.replace('.html','').replace(/-/g,' '),image:'logo.png',price:'Loading…',desc:'',category:'Tour'};return `<article class="tp-card" data-href="${escapeHTML(h)}"><div class="tp-card-img"><img src="${escapeHTML(t.image)}" alt="${escapeHTML(t.title)}" onerror="this.src='logo.png'"><span class="tp-cat">${escapeHTML(t.category)}</span><span class="tp-auto-compare">✓ IN COMPARISON</span></div><div class="tp-card-body"><h3>${escapeHTML(t.title)}</h3><div class="tp-price">${escapeHTML(t.price)}</div><div class="tp-desc">${escapeHTML(t.desc)}</div><div class="tp-card-actions"><a href="${escapeHTML(h)}">View tour →</a><span class="spacer"></span><button class="tp-remove" type="button" data-remove="${escapeHTML(h)}">Remove</button></div></div></article>`}).join('');
   $$('#poolGrid [data-remove]').forEach(b=>b.onclick=()=>removeFromPool(b.dataset.remove));
-  $$('#poolGrid [data-detail]').forEach(b=>b.onclick=()=>toggleDetail(b.dataset.detail));
   renderCategoryCounts();
 }
 function renderCategoryCounts(){
@@ -115,11 +186,8 @@ function applyQuickStart(mode){
   showStatus('Travel style added. You can change every preference below.');
   $('#tripPreferences')?.scrollIntoView({behavior:'smooth',block:'start'});
 }
-function removeFromPool(h){pool=pool.filter(x=>x!==h);detail=detail.filter(x=>x!==h);writeJSON(POOL_KEY,pool);writeJSON(DETAIL_KEY,detail);renderAll()}
-function toggleDetail(h){
-  if(detail.includes(h))detail=detail.filter(x=>x!==h);else if(detail.length<MAX_DETAIL)detail.push(h);else return showStatus('Choose no more than 4 tours for detailed comparison.');
-  writeJSON(DETAIL_KEY,detail);renderPool();renderComparison();renderSchedule();renderWhatToBring();updateFinal();
-}
+function syncComparison(){detail=[...pool].slice(0,MAX_DETAIL);writeJSON(DETAIL_KEY,detail)}
+function removeFromPool(h){pool=pool.filter(x=>x!==h);writeJSON(POOL_KEY,pool);syncComparison();renderAll()}
 function readPrefs(){
   const form=$('#prefsForm');if(!form)return{};const fd=new FormData(form);return {travelStart:fd.get('travelStart')||'',travelEnd:fd.get('travelEnd')||'',adults:Number(fd.get('adults')||2),children:fd.get('children')||'',pregnant:fd.get('pregnant')==='yes',elderly:fd.get('elderly')==='yes',mobility:fd.get('mobility')==='yes',stroller:fd.get('stroller')==='yes',pace:fd.get('pace')||'balanced',road:fd.get('road')||'medium',startPref:fd.get('startPref')||'any',restDays:fd.get('restDays')==='yes',interests:fd.getAll('interests')};
 }
@@ -143,17 +211,28 @@ function recommendTour(t,p){
   if(blocked.length)score=0;score=Math.max(0,Math.min(100,score));return {score,reasons,warnings,blocked};
 }
 async function analyze(){
-  if(!pool.length)return showStatus('Select tours first.');const p=savePrefs();showStatus('Reading the current tour pages…');
-  const data=await Promise.all(pool.map(loadDetails));recommendations=data.map(t=>({...t,recommend:recommendTour(t,p)})).sort((a,b)=>b.recommend.score-a.recommend.score);renderRecommendations();renderComparison();renderSchedule();showStatus('Recommendations updated from the current tour files.');
+  if(!pool.length)return showStatus('Select tours first.');
+  const p=savePrefs();
+  if(!p.travelStart||!p.travelEnd){
+    showStatus('Add your holiday start and end dates first.');
+    showGuide(2,{force:true,scroll:true});
+    return;
+  }
+  showStatus('Reading the current tour pages…');
+  const data=await Promise.all(pool.map(loadDetails));
+  recommendations=data.map(t=>({...t,recommend:recommendTour(t,p)})).sort((a,b)=>b.recommend.score-a.recommend.score);
+  renderRecommendations();renderComparison();renderSchedule();updateGuideNextButtons();
+  showStatus('Recommendations updated from the current tour files.');
+  guideWrite(3);showGuide(3,{force:true,scroll:true,delay:300});
 }
 function renderRecommendations(){
-  const host=$('#recommendations');if(!recommendations.length){host.innerHTML='<div class="tp-empty"><strong>Ready for analysis</strong>Fill in your travel details and press “Get recommendations”. Planner recommends; you decide which 2–4 tours to compare.</div>';return}
+  const host=$('#recommendations');if(!recommendations.length){host.innerHTML='<div class="tp-empty"><strong>Ready for analysis</strong>Choose up to 4 tours you like most, add your travel details and press “Get recommendations”. We will rank the tours you selected.</div>';return}
   host.innerHTML=recommendations.map((t,i)=>`<article class="tp-rec"><img class="tp-rec-image" src="${escapeHTML(t.image)}" alt="${escapeHTML(t.title)}" onerror="this.src='logo.png'"><div class="tp-rank">${i+1}</div><div class="tp-rec-copy">${i===0&&!t.recommend.blocked.length?'<span class="tp-best-match">BEST MATCH</span>':''}<h3>${escapeHTML(t.title)}</h3><p>${escapeHTML(t.recommend.reasons.join(' · '))}</p><div class="tp-badges">${t.recommend.blocked.map(x=>`<span class="tp-badge stop">${escapeHTML(x)}</span>`).join('')}${t.recommend.warnings.map(x=>`<span class="tp-badge warn">${escapeHTML(x)}</span>`).join('')}${!t.recommend.blocked.length&&!t.recommend.warnings.length?'<span class="tp-badge">No conflict found in parsed rules</span>':''}</div></div><div class="tp-score">${t.recommend.blocked.length?'CHECK RULES':t.recommend.score+'/100'}</div></article>`).join('');
 }
 function short(v,n=150){v=clean(v);return v.length>n?v.slice(0,n-1)+'…':v||'See tour page'}
 async function renderComparison(){
   const count=$('#detailCount');count.textContent=`${detail.length}/${MAX_DETAIL}`;const host=$('#comparisonHost');
-  if(detail.length<MIN_DETAIL){host.innerHTML=`<div class="tp-empty"><strong>Select 2–4 tours yourself</strong>Use the “Detailed compare” control on the selected tour cards. Recommendations do not choose the comparison set for you.</div>`;return}
+  if(detail.length<MIN_DETAIL){host.innerHTML=`<div class="tp-empty"><strong>Add at least 2 tours to compare</strong>Your category selections automatically appear here. Choose up to 4 favorites and we will build one analytical comparison table.</div>`;return}
   host.innerHTML='<div class="tp-loading">Loading current tour details…</div>';
   const data=await Promise.all(detail.map(loadDetails));
   const rows=[['Price',t=>t.price],['Duration',t=>t.duration],['Transfer',t=>t.transfer],['Meals',t=>t.meals],['Child / age policy',t=>short(t.child,180)],['Intensity',t=>t.intensity],['Pregnancy / health notes',t=>short([...t.pregnancy,...t.restrictions].join(' · '),210)],['What to bring',t=>short(t.bring.join(' · '),230)]];
@@ -162,7 +241,7 @@ async function renderComparison(){
 function dateRange(start,end){if(!start||!end)return[];let a=new Date(start+'T12:00:00'),b=new Date(end+'T12:00:00');if(isNaN(a)||isNaN(b)||b<a)return[];const arr=[];for(let d=new Date(a);d<=b&&arr.length<45;d.setDate(d.getDate()+1))arr.push(new Date(d));return arr}
 function fmtDate(d){return d.toISOString().slice(0,10)}function niceDate(s){if(!s)return'';try{return new Intl.DateTimeFormat('en',{weekday:'short',day:'numeric',month:'short'}).format(new Date(s+'T12:00:00'))}catch(_){return s}}
 async function renderSchedule(){
-  const host=$('#scheduleHost');if(!detail.length){host.innerHTML='<div class="tp-empty"><strong>No final shortlist yet</strong>Select tours for detailed comparison first.</div>';return}
+  const host=$('#scheduleHost');if(!detail.length){host.innerHTML='<div class="tp-empty"><strong>No tours selected yet</strong>Choose up to 4 favorites from the categories above.</div>';return}
   const p=readPrefs(),days=dateRange(p.travelStart,p.travelEnd);if(!days.length){host.innerHTML='<div class="tp-empty"><strong>Add your travel dates</strong>The planner will distribute your chosen tours across your holiday dates.</div>';return}
   const saved=readJSON(SCHEDULE_KEY,{}),step=p.restDays?2:1;let idx=0;
   const data=await Promise.all(detail.map(loadDetails));
@@ -173,7 +252,7 @@ async function renderSchedule(){
 }
 async function renderWhatToBring(){
   const host=$('#bringHost');if(!host)return;
-  if(!detail.length){host.innerHTML='<div class="tp-empty" style="grid-column:1/-1"><strong>Your packing guide will appear here</strong>Select your final 2–4 tour shortlist first. Each tour keeps its own original requirements.</div>';return}
+  if(!detail.length){host.innerHTML='<div class="tp-empty" style="grid-column:1/-1"><strong>Your packing guide will appear here</strong>Choose your tours first. Each selected tour keeps its own original requirements.</div>';return}
   host.innerHTML='<div class="tp-loading" style="grid-column:1/-1">Preparing tour-specific checklists…</div>';
   const data=await Promise.all(detail.map(loadDetails));
   host.innerHTML=data.map(t=>{const items=t.bring?.length?t.bring:['See the original tour page for the confirmed packing list.'];return `<article class="tp-bring-card"><div class="tp-bring-image"><img src="${escapeHTML(t.image)}" alt="${escapeHTML(t.title)}" onerror="this.src='logo.png'"></div><div class="tp-bring-copy"><span>${escapeHTML(t.category)}</span><h3>${escapeHTML(t.title)}</h3><ul>${items.slice(0,7).map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul><a href="${escapeHTML(t.href)}">Open original tour rules →</a></div></article>`}).join('');
@@ -189,14 +268,36 @@ async function sendRequest(e){
   const msg=[`ALANYA TOUR ORGANIZATIONS — TRIP PLANNER REQUEST`,``,`Selected tours:`,...lines,``,`Guest: ${fd.get('name')||'-'}`,`WhatsApp: ${fd.get('phone')||'-'}`,`Hotel: ${fd.get('hotel')||'-'}`,`Room: ${fd.get('room')||'-'}`,`Adults: ${fd.get('adults')||p.adults||'-'}`,`Children / ages: ${fd.get('children')||p.children||'No'}`,`Pregnancy: ${fd.get('pregnant')|| (p.pregnant?'Yes':'No')}`,`Elderly guests: ${fd.get('elderly')|| (p.elderly?'Yes':'No')}`,`Stroller / mobility: ${fd.get('mobility')||'-'}`,`Language: ${fd.get('language')||'English'}`,`Notes: ${fd.get('notes')||'-'}`,``,`Please confirm availability, pickup time and final price.`].join('\n');
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,'_blank','noopener');
 }
-function renderAll(){renderPool();renderRecommendations();renderComparison();renderSchedule();renderWhatToBring();updateFinal()}
+
+function initProgressNav(){
+  const nav=$('.tp-progress');if(!nav)return;
+  const links=$$('a[href^="#"]',nav);
+  const items=links.map(a=>({a,id:a.getAttribute('href').slice(1),el:document.getElementById(a.getAttribute('href').slice(1))})).filter(x=>x.el);
+  links.forEach(a=>a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1),el=document.getElementById(id);
+    if(!el)return;
+    e.preventDefault();
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+    history.replaceState(null,'','#'+id);
+  }));
+  const setActive=()=>{
+    const y=window.scrollY+210;let current=items[0];
+    items.forEach(item=>{if(item.el.offsetTop<=y)current=item});
+    items.forEach(item=>item.a.classList.toggle('is-active',item===current));
+  };
+  window.addEventListener('scroll',setActive,{passive:true});
+  setActive();
+}
+
+function renderAll(){renderPool();renderRecommendations();renderComparison();renderSchedule();renderWhatToBring();updateFinal();ensureGuideNextButtons();updateGuideNextButtons()}
 async function init(){
-  hydratePrefs();$('#poolGrid').innerHTML='<div class="tp-loading" style="grid-column:1/-1">Reading current tour cards…</div>';
-  await loadRegistry();pool=pool.filter(h=>registry.has(h)||h.endsWith('.html'));writeJSON(POOL_KEY,pool);detail=detail.filter(h=>pool.includes(h)).slice(0,MAX_DETAIL);writeJSON(DETAIL_KEY,detail);renderAll();renderCategoryCounts();
+  initProgressNav();hydratePrefs();$('#poolGrid').innerHTML='<div class="tp-loading" style="grid-column:1/-1">Reading current tour cards…</div>';
+  await loadRegistry();pool=pool.filter(h=>registry.has(h)||h.endsWith('.html')).slice(0,MAX_POOL);writeJSON(POOL_KEY,pool);syncComparison();renderAll();renderCategoryCounts();
   $$('.tp-quick-card').forEach(btn=>btn.addEventListener('click',()=>applyQuickStart(btn.dataset.quick)));
-  $('#prefsForm').addEventListener('change',()=>{savePrefs();renderSchedule()});$('#analyzeBtn').onclick=analyze;$('#choiceBtn').onclick=openRequest;$('#closeRequest').onclick=closeRequest;$('#requestModal').onclick=e=>{if(e.target.id==='requestModal')closeRequest()};$('#requestForm').onsubmit=sendRequest;
+  $('#prefsForm').addEventListener('change',()=>{savePrefs();renderSchedule();updateGuideNextButtons()});
+  $('#analyzeBtn').onclick=analyze;$('#choiceBtn').onclick=openRequest;$('#closeRequest').onclick=closeRequest;$('#requestModal').onclick=e=>{if(e.target.id==='requestModal')closeRequest()};$('#requestForm').onsubmit=sendRequest;
   $('#shareBtn').onclick=async()=>{const data=await Promise.all((detail.length?detail:pool).map(loadDetails));const text=`ALANYA TOUR ORGANIZATIONS — Trip Planner\n${data.map((t,i)=>`${i+1}. ${t.title} — ${t.price}`).join('\n')}`;if(navigator.share){try{await navigator.share({title:'ALANYA TOUR ORGANIZATIONS — Trip Planner',text,url:location.href});return}catch(_){}}window.open(`https://wa.me/?text=${encodeURIComponent(text+'\n'+location.href)}`,'_blank','noopener')};
-  if(pool.length)analyze();
+  startGuidedJourney();
 }
 document.addEventListener('DOMContentLoaded',init);
 })();

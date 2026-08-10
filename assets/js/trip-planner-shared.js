@@ -1,7 +1,8 @@
 (() => {
   'use strict';
   const KEY='atoTripPlannerPool';
-  const MAX=8;
+  const GUIDE_KEY='atoTripPlannerGuideStep';
+  const MAX=4;
   const normalizeHref=(href)=>{
     if(!href) return '';
     try{
@@ -27,7 +28,7 @@
   function ensureDock(){
     let dock=document.querySelector('.ato-planner-dock');
     if(dock)return dock;
-    dock=document.createElement('div');dock.className='ato-planner-dock';dock.innerHTML=`<div class="ato-planner-dock-copy"><strong></strong><small>Choose up to 8 tours · compare 2–4 in the planner</small></div><button class="ato-planner-open" type="button">COMPARE & PLAN</button><button class="ato-planner-clear" type="button" aria-label="Clear selected tours">×</button>`;
+    dock=document.createElement('div');dock.className='ato-planner-dock';dock.innerHTML=`<div class="ato-planner-dock-icon">✦</div><div class="ato-planner-dock-copy"><strong>CHOOSE YOUR FAVORITES</strong><small>Select up to 4 tours you like most. We’ll compare them in one analytical table.</small></div><div class="ato-planner-count">0/4</div><button class="ato-planner-open" type="button">VIEW SELECTION</button><button class="ato-planner-clear" type="button" aria-label="Clear selected tours">×</button>`;
     dock.querySelector('.ato-planner-dock-copy').addEventListener('click',()=>location.href=plannerHref());
     dock.querySelector('.ato-planner-open').addEventListener('click',()=>location.href=plannerHref());
     dock.querySelector('.ato-planner-clear').addEventListener('click',(e)=>{e.stopPropagation();pool=[];write(pool);update()});
@@ -41,15 +42,25 @@
     });
     const dock=ensureDock();const count=pool.length;
     dock.classList.toggle('visible',count>0);
-    dock.querySelector('strong').textContent=`TRIP PLANNER · ${count}/${MAX} TOURS`;
+    dock.querySelector('.ato-planner-count').textContent=`${count}/${MAX}`;
+    const small=dock.querySelector('small');
+    const open=dock.querySelector('.ato-planner-open');
+    if(count===MAX){small.textContent='Perfect — 4 tours selected. Your analytical comparison is ready.';open.textContent='COMPARE 4 TOURS';dock.classList.add('is-complete')}
+    else{small.textContent=`Select ${MAX-count} more or open your selection now. Maximum ${MAX} tours.`;open.textContent=count>=2?'COMPARE & PLAN':'VIEW SELECTION';dock.classList.remove('is-complete')}
   }
   function toggle(href){
     href=normalizeHref(href);if(!href)return;
     const i=pool.indexOf(href);
+    let added=false;
     if(i>=0){pool.splice(i,1)}
-    else if(pool.length<MAX){pool.push(href)}
-    else{toast('You can select up to 8 tours. Open Trip Planner to review your list.');return}
+    else if(pool.length<MAX){pool.push(href);added=true}
+    else{toast('Maximum 4 tours for comparison. Remove one to add another.');return}
     write(pool);update();
+    if(added&&pool.length===MAX){
+      try{localStorage.setItem(GUIDE_KEY,'2')}catch(_){}
+      toast('Perfect — 4 tours selected. Next: tell us about your holiday.');
+      window.setTimeout(()=>{location.href=plannerHref()+'#tripPreferences'},1100);
+    }
   }
   function enhanceCategoryCards(){
     document.querySelectorAll('a.tour-card[href]').forEach(card=>{
