@@ -1,33 +1,20 @@
-ALANYA TOUR ORGANIZATIONS — FREE WEATHER / MET NORWAY
+ALANYA TOUR ORGANIZATIONS — TRIP PLANNER + BOOKING MANAGER + E-TICKET + WEATHER
 
-Что делает пакет:
-- подключает бесплатный MET Norway Locationforecast 2.0;
-- не требует регистрации, API key или платного тарифа;
-- показывает реальную погоду по выбранной дате прямо в Plan Your Dates;
-- учитывает направление тура: Alanya, Belek, Köprülü Canyon, Cappadocia, Pamukkale, Demre/Kekova, Istanbul и др.;
-- показывает температуру, дождь, ветер и доступные порывы;
-- дает отдельную рекомендацию для air / sea / outdoor / family туров;
-- если дата дальше окна прогноза, пишет что live weather появится ближе к дате;
-- добавляет тот же live weather + What to Bring в подтвержденный e-ticket;
-- сохраняет текущую Supabase-конфигурацию;
-- сохраняет последние исправления Planner: календарь, Quick Start, original footer, YOUR intro.
+Что подключено:
+1. TRIP PLANNER сохраняет заявку в Supabase перед открытием WhatsApp.
+2. После отправки/открытия WhatsApp заявка уже доступна менеджеру в /booking-manager/.
+3. Менеджер входит по email/password Supabase Auth, открывает заявку, проверяет/исправляет дату, pickup, время и цену.
+4. Кнопка CONFIRM BOOKING & CREATE TICKETS переводит заявку в confirmed и создаёт ссылки на e-ticket.
+5. E-ticket берёт данные из той же заявки по public_token и показывает What to Bring + live weather guidance.
+6. Погода — бесплатный MET Norway через /api/weather.
 
-Файлы для копирования в корень существующего репозитория alanya-tour-organizations:
-trip-planner.html
-assets/css/trip-planner.css
-assets/js/trip-planner.js
-assets/js/ato-config.js
-assets/js/booking-system.js
-assets/js/weather-service.js
-e-ticket.html
-api/weather.js
+Публичный Planner:
+https://alanya-tour-organizations.vercel.app/trip-planner.html
+
+Личный кабинет менеджера:
+https://alanya-tour-organizations.vercel.app/booking-manager/
 
 ВАЖНО:
-- папку api нужно скопировать целиком в корень репозитория;
-- новый SQL запускать НЕ нужно;
-- новый weather API key НЕ нужен;
-- после копирования: Commit to main -> Push origin;
-- Vercel автоматически создаст /api/weather как serverless function.
-
-Рекомендуемый commit:
-Add free MET Norway weather guidance
+- В Supabase Auth должен существовать пользователь-менеджер с email/password.
+- Не добавляйте secret/service_role key в браузерные файлы.
+- Для работы manager panel должны быть уже установлены таблица/RLS из booking-schema.sql, который запускался ранее.
