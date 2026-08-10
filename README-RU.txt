@@ -1,20 +1,28 @@
-ALANYA TOUR ORGANIZATIONS — TRIP PLANNER + BOOKING MANAGER + E-TICKET + WEATHER
+ATO BOOKING MANAGER — MAGIC LINK + TRIP PLANNER
 
-Что подключено:
-1. TRIP PLANNER сохраняет заявку в Supabase перед открытием WhatsApp.
-2. После отправки/открытия WhatsApp заявка уже доступна менеджеру в /booking-manager/.
-3. Менеджер входит по email/password Supabase Auth, открывает заявку, проверяет/исправляет дату, pickup, время и цену.
-4. Кнопка CONFIRM BOOKING & CREATE TICKETS переводит заявку в confirmed и создаёт ссылки на e-ticket.
-5. E-ticket берёт данные из той же заявки по public_token и показывает What to Bring + live weather guidance.
-6. Погода — бесплатный MET Norway через /api/weather.
+Что исправлено:
+1. Существующий личный кабинет остаётся по адресу:
+   /interactive-map/booking-manager/
+2. Пароль НЕ добавляется.
+   Вход остаётся как раньше: кнопка «ПОЛУЧИТЬ ССЫЛКУ ДЛЯ ВХОДА» отправляет новую одноразовую ссылку на email владельца.
+3. Кабинет показывает:
+   - новые заявки из TRIP PLANNER (trip_bookings),
+   - старые заявки из прежней таблицы bookings, если они есть.
+4. Новую заявку можно открыть, исправить дату / pickup / время / цену по каждой экскурсии.
+5. «ПОДТВЕРДИТЬ И СОЗДАТЬ БИЛЕТ» подтверждает заявку и сразу показывает в кабинете настоящий e-ticket из /e-ticket.html.
+6. Для каждого тура — отдельный e-ticket. Есть кнопка отправки ссылок клиенту в WhatsApp.
+7. Старый ошибочный адрес /booking-manager/ автоматически перенаправляет в правильный кабинет.
 
-Публичный Planner:
-https://alanya-tour-organizations.vercel.app/trip-planner.html
+УСТАНОВКА
+A. Скопировать содержимое ZIP в корень alanya-tour-organizations с заменой.
+B. В Supabase → SQL Editor открыть файл:
+   supabase/manager-magic-link-access.sql
+   и выполнить один раз.
+C. Commit → Push origin.
+D. Открыть:
+   https://alanya-tour-organizations.vercel.app/interactive-map/booking-manager/
 
-Личный кабинет менеджера:
-https://alanya-tour-organizations.vercel.app/booking-manager/
-
-ВАЖНО:
-- В Supabase Auth должен существовать пользователь-менеджер с email/password.
-- Не добавляйте secret/service_role key в браузерные файлы.
-- Для работы manager panel должны быть уже установлены таблица/RLS из booking-schema.sql, который запускался ранее.
+ВАЖНО
+- booking-config.js не заменяется этим пакетом: ваш существующий вход не ломаем.
+- e-ticket.html и новый Trip Planner должны быть уже установлены из последнего пакета интеграции.
+- пароль нигде не нужен и не создаётся.
