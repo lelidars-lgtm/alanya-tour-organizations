@@ -55,7 +55,7 @@ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const cleanPhone=v=>String(v||'').replace(/\D/g,'');
 const niceDate=v=>{if(!v)return '—';try{return new Date(v).toLocaleString('ru-RU')}catch(_){return v}};
 const db=(cfg.supabaseUrl&&cfg.supabaseKey&&window.supabase?.createClient)?supabase.createClient(cfg.supabaseUrl,cfg.supabaseKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}}):null;
-let rows=[],current=null,loadWarnings=[];
+let rows=[],current=null,loadWarnings=[],detailDirty=false;
 $('email').value=cfg.ownerEmail;
 
 function normalizeStatus(r){const s=String(r.status||'').toLowerCase();if(s==='new'||s==='pending')return 'NEW';if(s==='reviewing')return 'NEW';if(s==='confirmed')return 'CONFIRMED';if(s==='cancelled')return 'CANCELLED';return s.toUpperCase()||'NEW'}
@@ -103,15 +103,22 @@ async function fetchLegacyBookings(){
 async function load(){
   $('syncState').innerHTML='<span class="loading-dot"></span>Загружаю заявки…';
   loadWarnings=[];
+  const activeId=current?.id||null,activeKind=current?.__kind||null;
   const [tripResult,legacyResult]=await Promise.allSettled([fetchTripBookings(),fetchLegacyBookings()]);
   const all=[];
   if(tripResult.status==='fulfilled')all.push(...tripResult.value);else loadWarnings.push('Новые заявки TRIP PLANNER: '+(tripResult.reason?.message||tripResult.reason));
   if(legacyResult.status==='fulfilled')all.push(...legacyResult.value);else loadWarnings.push('Старые заявки: '+(legacyResult.reason?.message||legacyResult.reason));
   rows=all.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
-  if(current){current=rows.find(x=>x.__kind===current.__kind&&x.id===current.id)||null}
-  renderList();renderDetail();
+  const refreshed=activeId?rows.find(x=>x.__kind===activeKind&&x.id===activeId)||null:null;
+  // ВАЖНО ДЛЯ ТЕЛЕФОНА: автообновление не имеет права перерисовать форму,
+  // пока менеджер вводит даты/время/цену. Иначе мобильный date picker теряет уже введённые значения.
+  if(!detailDirty)current=refreshed;
+  renderList();
+  if(!detailDirty)renderDetail();
   $('syncState').className='sync'+(loadWarnings.length?' warn':'');
-  $('syncState').textContent=loadWarnings.length?loadWarnings.join(' · '):`Загружено заявок: ${rows.length}`;
+  if(loadWarnings.length)$('syncState').textContent=loadWarnings.join(' · ');
+  else if(detailDirty)$('syncState').textContent=`Загружено заявок: ${rows.length} · Есть несохранённые изменения — автообновление формы приостановлено`;
+  else $('syncState').textContent=`Загружено заявок: ${rows.length}`;
 }
 function visible(){
   const q=$('search').value.trim().toLowerCase(),f=$('filter').value;
@@ -168,15 +175,27 @@ async function saveTrip(confirmBooking){
   else if(String(current.status).toLowerCase()==='new')patch.status='reviewing';
   const {data,error}=await db.from('trip_bookings').update(patch).eq('id',current.id).select().single();
   if(error){alert(error.message);return}
-  current={...data,__kind:'trip'};await load();
+  current={...data,__kind:'trip'};detailDirty=false;await load();
 }
-async function cancelTrip(){if(!confirm('Отменить заявку?'))return;const {error}=await db.from('trip_bookings').update({status:'cancelled',updated_at:new Date().toISOString()}).eq('id',current.id);if(error)return alert(error.message);await load()}
+async function cancelTrip(){if(!confirm('Отменить заявку?'))return;const {error}=await db.from('trip_bookings').update({status:'cancelled',updated_at:new Date().toISOString()}).eq('id',current.id);if(error)return alert(error.message);detailDirty=false;await load()}
 async function confirmLegacy(){const number=current.ticket_number||newTicketNo(),price=$('finalPrice')?.value||null,notes=$('managerNotes')?.value||'';const {error}=await db.from('bookings').update({status:'CONFIRMED',final_price:price,manager_notes:notes,confirmed_at:new Date().toISOString(),ticket_number:number,ticket_payload:{issued_at:new Date().toISOString()}}).eq('id',current.id);if(error)return alert(error.message);await load()}
 async function cancelLegacy(){if(!confirm('Отменить заявку?'))return;const {error}=await db.from('bookings').update({status:'CANCELLED'}).eq('id',current.id);if(error)return alert(error.message);await load()}
 function sendTripTickets(){const p=cleanPhone(current.phone);if(!p)return alert('В заявке нет номера WhatsApp клиента.');const links=toursOf(current).map((t,i)=>`${i+1}. ${t.title}\n${ticketUrl(current,i)}`);const msg=[`ALANYA TOUR ORGANIZATIONS — BOOKING CONFIRMED`,`Booking: ${current.request_no}`,`Ticket: ${current.ticket_no||''}`,``,...links,``,`Open each e-ticket to see confirmed pickup details, Weather & What to Bring.`].join('\n');window.open(`https://wa.me/${p}?text=${encodeURIComponent(msg)}`,'_blank','noopener')}
 function sendLegacy(){const tours=toursOf(current).map((t,i)=>`${i+1}. ${t.title} — ${t.preferred_date||'Flexible date'}`).join('\n');const msg=`ELECTRONIC TICKET — ALANYA TOUR ORGANIZATIONS\nTicket: ${current.ticket_number}\nClient: ${current.client_name}\nHotel: ${current.hotel}\nGuests: ${current.adults} adult(s), ${current.children} child(ren)\n\nTOURS\n${tours}\n\nTotal: ${current.final_price==null?'Confirmed by manager':'€'+current.final_price}\n${current.manager_notes||''}`;window.open(`https://wa.me/${cleanPhone(current.client_whatsapp)}?text=${encodeURIComponent(msg)}`,'_blank','noopener')}
 function bindDetail(){
   if(current?.__kind==='trip'){
+    // Любое изменение в форме блокирует её перерисовку автообновлением до SAVE/CONFIRM.
+    $('detail').querySelectorAll('.manager-only input,.manager-only textarea').forEach(el=>{
+      const markDirty=()=>{
+        if(!detailDirty){
+          detailDirty=true;
+          $('syncState').className='sync warn';
+          $('syncState').textContent='Есть несохранённые изменения — они не будут сброшены автообновлением';
+        }
+      };
+      el.addEventListener('input',markDirty);
+      el.addEventListener('change',markDirty);
+    });
     $('saveBtn')?.addEventListener('click',()=>saveTrip(false));
     $('confirmBtn')?.addEventListener('click',()=>saveTrip(true));
     $('cancelBtn')?.addEventListener('click',cancelTrip);
@@ -198,11 +217,25 @@ $('loginBtn').onclick=async()=>{
   const {error}=await db.auth.signInWithOtp({email,options:{emailRedirectTo:redirect,shouldCreateUser:false}});
   $('loginStatus').textContent=error?error.message:'Новая ссылка для входа отправлена на почту. Откройте её — пароль не нужен.';
 };
-$('logoutBtn').onclick=async()=>{await db?.auth.signOut();current=null;showLogin('Вы вышли из личного кабинета.')};
+$('logoutBtn').onclick=async()=>{await db?.auth.signOut();current=null;detailDirty=false;showLogin('Вы вышли из личного кабинета.')};
 $('refreshBtn').onclick=load;
 $('search').oninput=renderList;
 $('filter').onchange=renderList;
-$('bookingList').onclick=e=>{const el=e.target.closest('[data-id]');if(!el)return;current=rows.find(x=>x.id===el.dataset.id&&x.__kind===el.dataset.kind)||null;renderList();renderDetail()};
+$('bookingList').onclick=e=>{
+  const el=e.target.closest('[data-id]');if(!el)return;
+  const next=rows.find(x=>x.id===el.dataset.id&&x.__kind===el.dataset.kind)||null;
+  const switching=next&&(next.id!==current?.id||next.__kind!==current?.__kind);
+  if(detailDirty&&switching&&!confirm('Есть несохранённые изменения в текущей заявке. Перейти к другой заявке и отменить эти изменения?'))return;
+  if(switching)detailDirty=false;
+  current=next;renderList();renderDetail();
+};
+
+window.addEventListener('beforeunload',e=>{
+  if(!detailDirty)return;
+  e.preventDefault();
+  e.returnValue='';
+});
+
 let autoRefreshTimer=null;
 function startAutoRefresh(){
   if(autoRefreshTimer)clearInterval(autoRefreshTimer);
