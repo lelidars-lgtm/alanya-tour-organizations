@@ -3,8 +3,8 @@
    Weather stays disabled until a commercial weather API subscription is connected.
 */
 window.ATO_CONFIG = Object.assign({
-  supabaseUrl: '',
-  supabasePublishableKey: '',
+  supabaseUrl: 'https://gryphkbcdibribzccn.supabase.co',
+  supabasePublishableKey: 'sb_publishable_pzMSu9hTzwyZgRKMhPyj2w_aAcApP3P',
   siteBaseUrl: 'https://alanya-tour-organizations.vercel.app',
   managerWhatsApp: '905387045999',
   weather: {
