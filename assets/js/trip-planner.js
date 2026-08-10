@@ -55,6 +55,33 @@ function showGuide(step,{delay=0,scroll=true,force=false}={}){
   },delay);
 }
 function guideAdvance(step){guideWrite(step);showGuide(step,{force:true,scroll:true})}
+function ensureResetDialog(){
+  let overlay=$('#tpResetOverlay');
+  if(overlay)return overlay;
+  overlay=document.createElement('div');
+  overlay.className='tp-reset-overlay';overlay.id='tpResetOverlay';overlay.setAttribute('aria-hidden','true');
+  overlay.innerHTML=`<div class="tp-reset-card" role="dialog" aria-modal="true" aria-labelledby="tpResetTitle"><button class="tp-reset-x" type="button" aria-label="Close">×</button><div class="tp-reset-icon">↻</div><div class="tp-guide-eyebrow">START A NEW PLAN</div><h2 id="tpResetTitle">Build your trip again?</h2><p>This will clear selected tours, preferences, recommendations and planned dates. Your language setting will stay unchanged.</p><div class="tp-reset-actions"><button class="tp-reset-cancel" type="button">KEEP MY PLAN</button><button class="tp-reset-confirm" type="button">YES, START OVER</button></div></div>`;
+  document.body.appendChild(overlay);
+  const close=()=>{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true')};
+  overlay.querySelector('.tp-reset-x').addEventListener('click',close);
+  overlay.querySelector('.tp-reset-cancel').addEventListener('click',close);
+  overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
+  overlay.querySelector('.tp-reset-confirm').addEventListener('click',()=>{close();resetPlannerState()});
+  return overlay;
+}
+function openResetDialog(){const overlay=ensureResetDialog();overlay.classList.add('open');overlay.setAttribute('aria-hidden','false')}
+function resetPlannerState(){
+  [POOL_KEY,DETAIL_KEY,PREF_KEY,SCHEDULE_KEY,GUIDE_KEY].forEach(key=>{try{localStorage.removeItem(key)}catch(_){}});
+  try{sessionStorage.removeItem('atoTPGuideIntroShown')}catch(_){}
+  pool=[];detail=[];recommendations=[];detailsCache=new Map();
+  const form=$('#prefsForm');if(form)form.reset();
+  const requestTours=$('#requestTours');if(requestTours)requestTours.innerHTML='';
+  const requestModal=$('#requestModal');if(requestModal){requestModal.classList.remove('open');requestModal.setAttribute('aria-hidden','true')}
+  const guide=$('#tpGuideOverlay');if(guide){guide.classList.remove('open');guide.setAttribute('aria-hidden','true')}
+  renderAll();renderCategoryCounts();
+  history.replaceState(null,'',location.pathname+location.search+'#exploreCategories');
+  window.setTimeout(()=>showGuide(1,{force:true,scroll:true}),250);
+}
 function ensureGuideNextButtons(){
   const defs=[
     ['#plannerRecommendations','CONTINUE TO COMPARISON',4],
@@ -294,6 +321,7 @@ async function init(){
   initProgressNav();hydratePrefs();$('#poolGrid').innerHTML='<div class="tp-loading" style="grid-column:1/-1">Reading current tour cards…</div>';
   await loadRegistry();pool=pool.filter(h=>registry.has(h)||h.endsWith('.html')).slice(0,MAX_POOL);writeJSON(POOL_KEY,pool);syncComparison();renderAll();renderCategoryCounts();
   $$('.tp-quick-card').forEach(btn=>btn.addEventListener('click',()=>applyQuickStart(btn.dataset.quick)));
+  $$('[data-reset-planner]').forEach(btn=>btn.addEventListener('click',openResetDialog));
   $('#prefsForm').addEventListener('change',()=>{savePrefs();renderSchedule();updateGuideNextButtons()});
   $('#analyzeBtn').onclick=analyze;$('#choiceBtn').onclick=openRequest;$('#closeRequest').onclick=closeRequest;$('#requestModal').onclick=e=>{if(e.target.id==='requestModal')closeRequest()};$('#requestForm').onsubmit=sendRequest;
   $('#shareBtn').onclick=async()=>{const data=await Promise.all((detail.length?detail:pool).map(loadDetails));const text=`ALANYA TOUR ORGANIZATIONS — Trip Planner\n${data.map((t,i)=>`${i+1}. ${t.title} — ${t.price}`).join('\n')}`;if(navigator.share){try{await navigator.share({title:'ALANYA TOUR ORGANIZATIONS — Trip Planner',text,url:location.href});return}catch(_){}}window.open(`https://wa.me/?text=${encodeURIComponent(text+'\n'+location.href)}`,'_blank','noopener')};

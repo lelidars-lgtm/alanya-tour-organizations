@@ -225,3 +225,21 @@ body::after{
 .tp-guide-next:disabled{opacity:.34;cursor:not-allowed}
 #exploreCategories,#tripPreferences,#plannerRecommendations,#detailedComparison,#planDates,#bringChecklist,#finalPlan{scroll-margin-top:170px}
 @media(max-width:760px){.tp-guide-overlay{padding:10px}.tp-guide-card{padding:25px 20px 21px;border-radius:20px}.tp-guide-card h2{font-size:25px}.tp-guide-text{font-size:12px}.tp-guide-next-wrap{justify-content:stretch}.tp-guide-next{width:100%}}
+
+
+/* ===== START OVER / RESET PLAN ===== */
+.tp-reset-plan{flex:0 0 auto;margin-left:auto;min-height:31px;padding:6px 12px;border:1px solid rgba(243,198,109,.34);border-radius:999px;background:rgba(243,198,109,.055);color:#f3c66d;font-size:8px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:.2s ease}
+.tp-reset-plan:hover{border-color:#f3c66d;background:rgba(243,198,109,.11);transform:translateY(-1px)}
+.tp-selected-tools{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+.tp-clear-plan{min-height:32px;padding:7px 11px;border:1px solid rgba(243,198,109,.28);border-radius:999px;background:transparent;color:#b8c8d2;font-size:8px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:.2s ease}
+.tp-clear-plan:hover{color:#f3c66d;border-color:rgba(243,198,109,.7);background:rgba(243,198,109,.055)}
+.tp-reset-overlay{position:fixed;inset:0;z-index:100700;display:grid;place-items:center;padding:18px;background:rgba(1,8,15,.68);backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px);opacity:0;visibility:hidden;transition:.25s ease}
+.tp-reset-overlay.open{opacity:1;visibility:visible}
+.tp-reset-card{position:relative;width:min(520px,calc(100vw - 28px));padding:30px;border:1px solid rgba(243,198,109,.48);border-radius:23px;background:radial-gradient(circle at 90% 0,rgba(27,128,144,.15),transparent 34%),linear-gradient(180deg,rgba(8,31,47,.99),rgba(3,17,29,.995));box-shadow:0 34px 110px rgba(0,0,0,.72)}
+.tp-reset-card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,#d9a13a,#fff0b8,#d9a13a,transparent)}
+.tp-reset-x{position:absolute;right:14px;top:14px;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.035);color:#dce8ee;font-size:20px;cursor:pointer}
+.tp-reset-icon{width:50px;height:50px;margin-bottom:15px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(243,198,109,.45);color:#f3c66d;font-size:22px;box-shadow:0 0 28px rgba(243,198,109,.08)}
+.tp-reset-card h2{margin:0;color:#fff;font:500 29px/1.08 Georgia,"Times New Roman",serif}.tp-reset-card p{margin:13px 0 22px;color:#b7c8d3;font-size:12px;line-height:1.65}
+.tp-reset-actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap}.tp-reset-actions button{min-height:43px;padding:10px 16px;border-radius:10px;font-size:9px;font-weight:950;letter-spacing:.07em;text-transform:uppercase;cursor:pointer}.tp-reset-cancel{border:1px solid rgba(255,255,255,.17);background:rgba(255,255,255,.035);color:#d7e2e8}.tp-reset-confirm{border:1px solid #f3c66d;background:linear-gradient(180deg,#f6d27f,#dca23c);color:#061321}
+@media(max-width:1050px){.tp-reset-plan{margin-left:2px}}
+@media(max-width:760px){.tp-reset-plan{padding:5px 8px;font-size:7px}.tp-selected-tools{gap:6px}.tp-clear-plan{padding:6px 8px;font-size:7px}.tp-reset-card{padding:25px 20px 21px}.tp-reset-card h2{font-size:25px}.tp-reset-actions{display:grid;grid-template-columns:1fr 1fr}.tp-reset-actions button{width:100%;padding:9px 8px}}
