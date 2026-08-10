@@ -27,7 +27,7 @@
   function ensureDock(){
     let dock=document.querySelector('.ato-planner-dock');
     if(dock)return dock;
-    dock=document.createElement('div');dock.className='ato-planner-dock';dock.innerHTML=`<div class="ato-planner-dock-copy"><strong></strong><small>Choose up to 8 tours from any category</small></div><button class="ato-planner-open" type="button">OPEN PLANNER</button><button class="ato-planner-clear" type="button" aria-label="Clear selected tours">×</button>`;
+    dock=document.createElement('div');dock.className='ato-planner-dock';dock.innerHTML=`<div class="ato-planner-dock-copy"><strong></strong><small>Choose up to 8 tours · compare 2–4 in the planner</small></div><button class="ato-planner-open" type="button">COMPARE & PLAN</button><button class="ato-planner-clear" type="button" aria-label="Clear selected tours">×</button>`;
     dock.querySelector('.ato-planner-dock-copy').addEventListener('click',()=>location.href=plannerHref());
     dock.querySelector('.ato-planner-open').addEventListener('click',()=>location.href=plannerHref());
     dock.querySelector('.ato-planner-clear').addEventListener('click',(e)=>{e.stopPropagation();pool=[];write(pool);update()});
@@ -55,14 +55,15 @@
     document.querySelectorAll('a.tour-card[href]').forEach(card=>{
       if(card.dataset.atoPlannerReady)return;card.dataset.atoPlannerReady='1';
       const href=normalizeHref(card.getAttribute('href')); if(!href)return;
-      const host=card.querySelector('.tour-image')||card;
-      if(getComputedStyle(host).position==='static')host.style.position='relative';
+      const body=card.querySelector('.tour-body')||card;
+      const bottom=body.querySelector('.tour-bottom');
       const control=document.createElement('span');
       control.className='ato-compare-control';control.tabIndex=0;control.setAttribute('role','button');control.dataset.tourHref=href;
       const act=(e)=>{e.preventDefault();e.stopPropagation();toggle(href)};
       control.addEventListener('click',act);
       control.addEventListener('keydown',(e)=>{if(e.key==='Enter'||e.key===' '){act(e)}});
-      host.appendChild(control);
+      if(bottom) body.insertBefore(control,bottom);
+      else body.appendChild(control);
     });
     update();
   }
