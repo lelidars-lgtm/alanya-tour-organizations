@@ -529,26 +529,20 @@
     </article>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/ato-config.js"></script>
+  <script src="assets/js/booking-system.js"></script>
+  <script src="assets/js/weather-service.js"></script>
   <script>
-    /*
-      Dynamic ticket renderer.
-      The brand header above is not touched by this code.
-
-      Supported URL params:
-      ticketNo, name, hotel, room, guests, tour, date, pickup, time, total, verifyUrl
-
-      Example:
-      e-ticket.html?ticketNo=TKT-123&name=Elena&hotel=Saritas&room=304&tour=Rafting&date=18%20August%202026&time=09:30&total=%E2%82%AC25
-    */
+    /* Dynamic ticket renderer + confirmed booking + free MET Norway weather. */
     (function () {
       const allowed = [
         "ticketNo","name","hotel","room","guests",
         "tour","date","pickup","time","total","verifyUrl"
       ];
 
-      function safeText(value) {
-        return String(value ?? "").trim();
-      }
+      function safeText(value) { return String(value ?? "").trim(); }
+      function esc(value){return safeText(value).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));}
 
       function render(data) {
         allowed.forEach(key => {
@@ -560,14 +554,91 @@
         });
       }
 
+      function niceDate(value){
+        if(!value)return '—';
+        if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return value;
+        try{return new Intl.DateTimeFormat(navigator.language||'en',{day:'numeric',month:'long',year:'numeric'}).format(new Date(value+'T12:00:00+03:00'))}catch(_){return value}
+      }
+
+      function guestsText(b){
+        const bits=[`${Number(b.adults||1)} Adult${Number(b.adults||1)===1?'':'s'}`];
+        if(safeText(b.children))bits.push(safeText(b.children));
+        return bits.join(' / ');
+      }
+
+      function addLiveStyles(){
+        if(document.getElementById('atoTicketLiveStyles'))return;
+        const st=document.createElement('style');st.id='atoTicketLiveStyles';st.textContent=`
+          .ticket-live{padding:22px 26px;background:linear-gradient(180deg,#f7f2e7,#fffdf8);border-top:1px solid rgba(200,155,66,.5);border-bottom:1px solid rgba(200,155,66,.45)}
+          .ticket-live-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-end;margin-bottom:14px}.ticket-live-head small{display:block;color:#c89b42;font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.ticket-live-head h2{margin:4px 0 0;color:#071a2c;font:700 24px/1.05 Georgia,serif}.ticket-live-updated{font-size:9px;color:#6d7780;text-align:right}
+          .ticket-live-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:12px}.ticket-live-card{border:1px solid rgba(20,55,78,.14);border-radius:14px;padding:14px;background:#fff}.ticket-live-card h3{margin:0 0 9px;color:#071a2c;font-size:12px;letter-spacing:.06em;text-transform:uppercase}.ticket-weather-main{display:grid;grid-template-columns:38px 1fr;gap:10px;align-items:start}.ticket-weather-icon{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#071a2c;color:#e3c36f;font-size:19px}.ticket-weather-copy strong{display:block;color:#071a2c;font-size:14px}.ticket-weather-copy span{display:block;color:#566775;font-size:11px;margin-top:3px}.ticket-weather-copy p{margin:8px 0 0;color:#435462;font-size:10.5px;line-height:1.5}.ticket-bring-list{margin:0;padding:0 0 0 18px;color:#324653;font-size:10.5px;line-height:1.55}.ticket-live-source{margin-top:10px;color:#75838d;font-size:8.5px;line-height:1.4}.ticket-live-source a{color:#7f672b}.ticket-live-error{color:#a8524b;font-size:11px;line-height:1.45}
+          @media(max-width:700px){.ticket-live{padding:16px 14px}.ticket-live-head{align-items:flex-start}.ticket-live-head h2{font-size:20px}.ticket-live-grid{grid-template-columns:1fr}.ticket-live-updated{font-size:8px}.ticket-live-card{padding:12px}.ticket-weather-copy strong{font-size:12px}}
+        `;document.head.appendChild(st);
+      }
+
+      function ensureLivePanel(){
+        addLiveStyles();
+        let section=document.getElementById('ticketLiveGuidance');if(section)return section;
+        section=document.createElement('section');section.id='ticketLiveGuidance';section.className='ticket-live';
+        section.innerHTML=`<div class="ticket-live-head"><div><small>BEFORE YOUR TOUR</small><h2>Weather & What to Bring</h2></div><div class="ticket-live-updated" id="ticketWeatherUpdated">Waiting for confirmed booking…</div></div><div class="ticket-live-grid"><div class="ticket-live-card"><h3>LIVE WEATHER GUIDANCE</h3><div id="ticketWeatherBody">Loading…</div></div><div class="ticket-live-card"><h3>WHAT TO BRING</h3><div id="ticketBringBody">Loading…</div></div></div><div class="ticket-live-source">Weather data: MET Norway, Locationforecast 2.0 (CC BY 4.0). Forecast values are processed into daily guidance by ALANYA TOUR ORGANIZATIONS. Final operational confirmation always comes from the manager/operator.</div>`;
+        const bottom=document.querySelector('.ticket-bottom');
+        bottom?.parentNode?.insertBefore(section,bottom);
+        return section;
+      }
+
+      function weatherHTML(f){
+        if(!f||f.state!=='live')return `<div class="ticket-live-error">${esc(f?.message||'Live weather will appear closer to the tour date.')}</div>`;
+        const d=f.day||{},icon=window.ATOWeather?.conditionIcon?.(d.symbol)||'◌';
+        const temp=(d.temperatureMinC!=null&&d.temperatureMaxC!=null)?`${Math.round(d.temperatureMinC)}–${Math.round(d.temperatureMaxC)}°C`:'—';
+        const rain=d.precipitationMm!=null?`${Number(d.precipitationMm).toFixed(d.precipitationMm<1?1:0)} mm`:'—';
+        const wind=d.windKmh!=null?`${Math.round(d.windKmh)} km/h${d.gustKmh!=null?` · gusts ${Math.round(d.gustKmh)} km/h`:''}`:'—';
+        const guide=(f.guidance||[]).filter(x=>!/^(Air:|Rain:|Wind:)/.test(x)).slice(0,2).join(' ');
+        return `<div class="ticket-weather-main"><span class="ticket-weather-icon">${icon}</span><div class="ticket-weather-copy"><strong>${esc(f.location?.name||'Alanya')} · ${esc(d.condition||'Forecast')} · ${esc(temp)}</strong><span>Rain ${esc(rain)} · Wind ${esc(wind)}</span><p>${esc(guide)}</p></div></div>`;
+      }
+
+      async function loadConfirmedBooking(params){
+        const token=params.get('token');if(!token)return;
+        const panel=ensureLivePanel();
+        try{
+          if(!window.ATOBooking?.configured?.())throw new Error('Booking connection is not configured.');
+          const result=await window.ATOBooking.getPublicBooking(token),b=result?.data;
+          if(!b)throw new Error('Confirmed booking was not found.');
+          const tours=Array.isArray(b.tours)?b.tours:[];
+          const index=Math.max(0,Math.min(tours.length-1,Number(params.get('tour')||0)||0));
+          const t=tours[index];if(!t)throw new Error('Tour was not found in this booking.');
+
+          render({
+            ticketNo:b.ticket_no||b.request_no||'—',
+            name:b.guest_name||'—',
+            hotel:b.hotel||'—',
+            room:b.room||'—',
+            guests:guestsText(b),
+            tour:t.title||'—',
+            date:niceDate(t.confirmed_date||t.requested_date||''),
+            pickup:t.pickup||b.hotel||'Hotel lobby',
+            time:t.time||'—',
+            total:t.confirmed_price||t.price_display||'—'
+          });
+
+          const bring=Array.isArray(t.what_to_bring)&&t.what_to_bring.length?t.what_to_bring:['See the original tour page for the confirmed packing list.'];
+          document.getElementById('ticketBringBody').innerHTML=`<ul class="ticket-bring-list">${bring.slice(0,12).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+
+          const date=t.confirmed_date||t.requested_date||'';
+          const f=window.ATOWeather?await window.ATOWeather.getForecast(t,date):{state:'error',message:'Weather service is loading.'};
+          document.getElementById('ticketWeatherBody').innerHTML=weatherHTML(f);
+          document.getElementById('ticketWeatherUpdated').textContent=f?.updatedAt?`Weather updated: ${new Intl.DateTimeFormat(navigator.language||'en',{dateStyle:'medium',timeStyle:'short'}).format(new Date(f.updatedAt))}`:'Live guidance for confirmed date';
+        }catch(err){
+          panel.querySelector('#ticketWeatherBody').innerHTML=`<div class="ticket-live-error">${esc(err?.message||err)}</div>`;
+          panel.querySelector('#ticketBringBody').innerHTML='<div class="ticket-live-error">Confirmed booking data is unavailable.</div>';
+        }
+      }
+
       const params = new URLSearchParams(location.search);
       const fromUrl = {};
-      allowed.forEach(key => {
-        if (params.has(key)) fromUrl[key] = params.get(key);
-      });
+      allowed.forEach(key => { if (params.has(key)) fromUrl[key] = params.get(key); });
       render(fromUrl);
+      loadConfirmedBooking(params);
 
-      /* Public API for the booking/manager flow */
       window.ATOETicket = {
         render,
         getData() {

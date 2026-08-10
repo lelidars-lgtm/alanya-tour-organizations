@@ -270,15 +270,47 @@ async function renderComparison(){
 }
 function dateRange(start,end){if(!start||!end)return[];let a=new Date(start+'T12:00:00'),b=new Date(end+'T12:00:00');if(isNaN(a)||isNaN(b)||b<a)return[];const arr=[];for(let d=new Date(a);d<=b&&arr.length<45;d.setDate(d.getDate()+1))arr.push(new Date(d));return arr}
 function fmtDate(d){return d.toISOString().slice(0,10)}function niceDate(s){if(!s)return'';try{return new Intl.DateTimeFormat('en',{weekday:'short',day:'numeric',month:'short'}).format(new Date(s+'T12:00:00'))}catch(_){return s}}
+function weatherScheduleHTML(f){
+  if(!f)return '<span class="tp-weather-muted">Weather guidance unavailable.</span>';
+  if(f.state!=='live'){
+    const cls=f.state==='error'?'tp-weather-error':'tp-weather-muted';
+    return `<span class="${cls}">${escapeHTML(f.message||'Live weather will appear closer to the tour date.')}</span>`;
+  }
+  const d=f.day||{},icon=window.ATOWeather?.conditionIcon?.(d.symbol)||'◌';
+  const temp=(d.temperatureMinC!=null&&d.temperatureMaxC!=null)?`${Math.round(d.temperatureMinC)}–${Math.round(d.temperatureMaxC)}°C`:'—';
+  const rain=d.precipitationMm!=null?`${Number(d.precipitationMm).toFixed(d.precipitationMm<1?1:0)} mm`:'—';
+  const wind=d.windKmh!=null?`${Math.round(d.windKmh)} km/h${d.gustKmh!=null?` · gusts ${Math.round(d.gustKmh)} km/h`:''}`:'—';
+  const specific=(f.guidance||[]).find(x=>/^(Air activity|Sea activity|Outdoor activity|Family day|Hot weather|Rain may|No major)/i.test(x))||'';
+  return `<div class="tp-weather-line"><span class="tp-weather-icon">${icon}</span><div class="tp-weather-copy"><strong>${escapeHTML(f.location?.name||'Alanya')} · ${escapeHTML(d.condition||'Forecast')} · ${escapeHTML(temp)}</strong><span>Rain ${escapeHTML(rain)} · Wind ${escapeHTML(wind)}</span>${specific?`<em>${escapeHTML(specific)}</em>`:''}</div></div>`;
+}
+
 async function renderSchedule(){
   const host=$('#scheduleHost');if(!detail.length){host.innerHTML='<div class="tp-empty"><strong>No tours selected yet</strong>Choose up to 4 favorites from the categories above.</div>';return}
   const p=readPrefs(),days=dateRange(p.travelStart,p.travelEnd);if(!days.length){host.innerHTML='<div class="tp-empty"><strong>Add your travel dates</strong>The planner will distribute your chosen tours across your holiday dates.</div>';return}
   const saved=readJSON(SCHEDULE_KEY,{}),step=p.restDays?2:1;let idx=0;
   const data=await Promise.all(detail.map(loadDetails));
-  host.innerHTML='<div class="tp-schedule">'+data.map((t,i)=>{let date=saved[t.href]||fmtDate(days[Math.min(idx,days.length-1)]);idx+=step;return `<div class="tp-schedule-row"><div class="tp-schedule-day">${escapeHTML(niceDate(date))}</div><div><div class="tp-schedule-title">${escapeHTML(t.title)}</div><div style="color:#9eb0bd;font-size:10px;margin-top:4px">${escapeHTML(t.duration)} · ${escapeHTML(t.intensity)}</div></div><input class="tp-input" type="date" min="${escapeHTML(p.travelStart)}" max="${escapeHTML(p.travelEnd)}" value="${escapeHTML(date)}" data-schedule="${escapeHTML(t.href)}"></div>`}).join('')+'</div>';
+  const planned=[];
+  host.innerHTML='<div class="tp-schedule">'+data.map((t,i)=>{
+    let date=saved[t.href]||fmtDate(days[Math.min(idx,days.length-1)]);idx+=step;planned[i]=date;
+    return `<div class="tp-schedule-row"><div class="tp-schedule-day">${escapeHTML(niceDate(date))}</div><div><div class="tp-schedule-title">${escapeHTML(t.title)}</div><div style="color:#9eb0bd;font-size:10px;margin-top:4px">${escapeHTML(t.duration)} · ${escapeHTML(t.intensity)}</div><div class="tp-schedule-weather is-loading" data-schedule-weather="${i}">Checking live weather for ${escapeHTML(date)}…</div></div><input class="tp-input" type="date" min="${escapeHTML(p.travelStart)}" max="${escapeHTML(p.travelEnd)}" value="${escapeHTML(date)}" data-schedule="${escapeHTML(t.href)}"></div>`
+  }).join('')+'</div>';
   $$('[data-schedule]',host).forEach(inp=>inp.onchange=()=>{const s=readJSON(SCHEDULE_KEY,{});s[inp.dataset.schedule]=inp.value;writeJSON(SCHEDULE_KEY,s);renderSchedule();updateRequestTours()});
-  const today=new Date();today.setHours(0,0,0,0);const start=new Date(p.travelStart+'T00:00:00');const diff=Math.round((start-today)/86400000);
-  $('#weatherNote').innerHTML=diff>14?'<strong>Weather layer:</strong> Live weather recommendations will become available closer to your travel dates.':'<strong>Weather layer:</strong> The itinerary is ready for live weather checks. A commercial weather provider has not been connected yet, so no forecast values are invented.';
+
+  const note=$('#weatherNote');
+  if(!window.ATOWeather){
+    if(note)note.innerHTML='<strong>Weather layer:</strong> Live weather service is loading. Refresh the page if it does not appear.';
+    return;
+  }
+  if(note)note.innerHTML='<strong>Live weather:</strong> MET Norway forecast is checked automatically for each selected tour and date. Forecast coverage is up to 9 days; later dates activate as they get closer. <span class="tp-weather-credit">Weather data: MET Norway (CC BY 4.0) · processed by ATO Planner.</span>';
+
+  await Promise.all(data.map(async(t,i)=>{
+    const box=host.querySelector(`[data-schedule-weather="${i}"]`);if(!box)return;
+    const forecast=await window.ATOWeather.getForecast(t,planned[i]);
+    box.classList.remove('is-loading');
+    if(forecast.state==='error')box.classList.add('has-error');
+    else if(forecast.state==='live')box.classList.add('is-live');
+    box.innerHTML=weatherScheduleHTML(forecast);
+  }));
 }
 async function renderWhatToBring(){
   const host=$('#bringHost');if(!host)return;

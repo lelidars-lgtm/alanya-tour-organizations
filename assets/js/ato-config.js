@@ -1,6 +1,6 @@
 /* ALANYA TOUR ORGANIZATIONS — runtime configuration
    Fill the Supabase values after running supabase/booking-schema.sql.
-   Weather stays disabled until a commercial weather API subscription is connected.
+   Weather uses the free MET Norway Locationforecast service through /api/weather.
 */
 window.ATO_CONFIG = Object.assign({
   supabaseUrl: 'https://gryphkbcdibribzccn.supabase.co',
@@ -8,14 +8,12 @@ window.ATO_CONFIG = Object.assign({
   siteBaseUrl: 'https://alanya-tour-organizations.vercel.app',
   managerWhatsApp: '905387045999',
   weather: {
-    enabled: false,
-    provider: 'open-meteo-commercial',
-    apiBase: '',
-    marineApiBase: '',
-    apiKey: '',
+    enabled: true,
+    provider: 'met-norway',
+    apiBase: '/api/weather',
     latitude: 36.5438,
     longitude: 31.9998,
     timezone: 'Europe/Istanbul',
-    forecastWindowDays: 15
+    forecastWindowDays: 9
   }
 }, window.ATO_CONFIG || {});

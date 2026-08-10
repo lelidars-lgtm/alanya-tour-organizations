@@ -332,3 +332,54 @@ body::after{
 /* Booking → ticket → weather integration */
 .tp-request-success{margin-top:14px;padding:14px 16px;border:1px solid rgba(214,162,74,.42);border-radius:14px;background:rgba(214,162,74,.08);color:#dce8ef;font-size:11px;line-height:1.55}
 .tp-request-success strong{color:var(--gold2);letter-spacing:.04em}
+
+/* ===== QUICK START — centered copy, fixed corner numbering ===== */
+.tp-quick-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:26px 22px 22px;
+}
+.tp-quick-card span{
+  position:absolute;
+  top:18px;
+  left:18px;
+  margin:0;
+  text-align:left;
+}
+.tp-quick-card strong{
+  width:100%;
+  margin:0 0 8px;
+  text-align:center;
+  text-transform:uppercase;
+  letter-spacing:.045em;
+  line-height:1.18;
+}
+.tp-quick-card small{
+  width:100%;
+  margin:0;
+  text-align:center;
+  line-height:1.5;
+}
+@media(max-width:760px){
+  .tp-quick-card{padding:26px 16px 20px}
+  .tp-quick-card span{top:14px;left:14px}
+}
+
+/* ===== LIVE WEATHER — MET NORWAY ===== */
+.tp-schedule-weather{margin-top:10px;min-height:48px;padding:10px 12px;border:1px solid rgba(214,162,74,.18);border-radius:12px;background:rgba(2,18,29,.48);color:#b7c8d2;font-size:10px;line-height:1.45}
+.tp-schedule-weather.is-loading{opacity:.72}
+.tp-schedule-weather.is-live{border-color:rgba(214,162,74,.34);background:linear-gradient(135deg,rgba(7,37,52,.78),rgba(9,28,42,.62))}
+.tp-schedule-weather.has-error{border-color:rgba(224,123,116,.32)}
+.tp-weather-line{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start}
+.tp-weather-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(214,162,74,.09);border:1px solid rgba(214,162,74,.22);font-size:18px}
+.tp-weather-copy strong{display:block;color:#f3d078;font-size:11px;line-height:1.3;margin-bottom:3px}
+.tp-weather-copy span{display:block;color:#d2dde3;font-size:10px}
+.tp-weather-copy em{display:block;margin-top:5px;color:#9fb3bf;font-style:normal;font-size:9.5px;line-height:1.45}
+.tp-weather-muted{color:#9eb0bd}
+.tp-weather-error{color:#efaaa5}
+.tp-weather-credit{display:block;margin-top:4px;color:#8ea3ae;font-size:9px}
+.tp-weather{line-height:1.5}
+@media(max-width:760px){.tp-schedule-weather{padding:9px 10px}.tp-weather-line{grid-template-columns:30px 1fr;gap:8px}.tp-weather-icon{width:28px;height:28px;font-size:16px}.tp-weather-copy strong{font-size:10.5px}.tp-weather-copy span,.tp-weather-copy em{font-size:9px}}
