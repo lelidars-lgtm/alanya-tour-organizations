@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ATO Booking Manager</title>
+<style>
+:root{--bg:#061724;--panel:#0a2233;--panel2:#0d2c41;--gold:#d6a24a;--gold2:#f2cf77;--text:#edf4f7;--muted:#93a8b4;--line:rgba(214,162,74,.24);--danger:#e07b74}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -10%,#123b53 0,#071b2a 38%,#04121d 100%);color:var(--text);font-family:Arial,sans-serif;min-height:100vh}.shell{width:min(1220px,calc(100% - 28px));margin:0 auto;padding:24px 0 60px}.top{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:20px}.brand{font-family:Georgia,serif;font-size:26px}.brand span{color:var(--gold2)}.status{font-size:11px;color:var(--muted)}.grid{display:grid;grid-template-columns:360px 1fr;gap:16px}.card{background:linear-gradient(160deg,rgba(11,38,55,.96),rgba(5,23,35,.96));border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 44px rgba(0,0,0,.22);overflow:hidden}.pad{padding:18px}.login{max-width:440px;margin:12vh auto 0}.login h1{font:500 36px Georgia,serif;margin:0 0 8px}.label{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);font-weight:800;margin:14px 0 6px}.input,.select,.textarea{width:100%;border:1px solid rgba(214,162,74,.28);background:#061a29;color:#fff;border-radius:11px;padding:12px 13px;outline:none}.textarea{min-height:80px;resize:vertical}.btn{border:1px solid rgba(214,162,74,.5);background:transparent;color:var(--gold2);border-radius:12px;padding:11px 14px;font-weight:900;letter-spacing:.06em;cursor:pointer}.btn.gold{background:linear-gradient(135deg,#f1c45d,#d79e36);color:#071724}.btn.danger{color:#f4b1ad;border-color:rgba(224,123,116,.45)}.btn:disabled{opacity:.45;cursor:not-allowed}.list{max-height:76vh;overflow:auto}.row{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07);cursor:pointer}.row:hover,.row.active{background:rgba(214,162,74,.08)}.row strong{display:block;color:#fff}.row small{display:block;color:var(--muted);margin-top:5px}.badge{display:inline-flex;margin-top:7px;border:1px solid var(--line);border-radius:999px;padding:4px 8px;color:var(--gold2);font-size:9px;font-weight:900;text-transform:uppercase}.empty{padding:30px;color:var(--muted);text-align:center}.head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:18px;border-bottom:1px solid var(--line)}.head h2{font:500 30px Georgia,serif;margin:0}.meta{color:var(--muted);font-size:11px;line-height:1.7}.guest{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:18px;border-bottom:1px solid var(--line)}.guest div{background:rgba(255,255,255,.025);padding:10px;border-radius:10px}.guest b{display:block;color:var(--gold2);font-size:9px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}.tour{margin:18px;border:1px solid var(--line);border-radius:16px;overflow:hidden}.tour-title{padding:12px 14px;background:rgba(214,162,74,.07);font-weight:900}.tour-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:14px}.actions{display:flex;flex-wrap:wrap;gap:10px;padding:0 18px 18px}.links{padding:18px;border-top:1px solid var(--line)}.ticket-link{display:block;padding:10px 12px;margin:8px 0;border:1px solid rgba(214,162,74,.22);border-radius:10px;color:#f2cf77;text-decoration:none;overflow-wrap:anywhere}.error{color:#ffaaa4;font-size:11px;margin-top:10px}.ok{color:#b9e7cb;font-size:11px;margin-top:10px}@media(max-width:880px){.grid{grid-template-columns:1fr}.list{max-height:300px}.guest,.tour-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <section id="loginView" class="card login pad">
+    <div class="brand">ALANYA TOUR <span>ORGANIZATIONS</span></div>
+    <h1>Booking Manager</h1>
+    <p class="status">Manager confirmation turns the request into the source for the e-ticket, live weather and What to Bring.</p>
+    <form id="loginForm">
+      <label class="label">Email</label><input class="input" type="email" name="email" required autocomplete="username">
+      <label class="label">Password</label><input class="input" type="password" name="password" required autocomplete="current-password">
+      <button class="btn gold" type="submit" style="margin-top:16px">SIGN IN</button><div id="loginMsg" class="error"></div>
+    </form>
+  </section>
+
+  <section id="appView" hidden>
+    <div class="top"><div><div class="brand">ATO <span>Booking Manager</span></div><div id="syncStatus" class="status">Loading requests…</div></div><div><button class="btn" id="refreshBtn">REFRESH</button> <button class="btn danger" id="logoutBtn">SIGN OUT</button></div></div>
+    <div class="grid">
+      <aside class="card"><div class="pad" style="border-bottom:1px solid var(--line)"><strong>Requests</strong></div><div id="bookingList" class="list"></div></aside>
+      <main class="card" id="detailView"><div class="empty">Choose a request from the left.</div></main>
+    </div>
+  </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/ato-config.js"></script>
+<script src="../assets/js/booking-system.js"></script>
+<script>
+(() => {
+'use strict';
+const $=s=>document.querySelector(s);let bookings=[],current=null;
+const esc=v=>String(v??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
+const fmt=d=>{try{return new Intl.DateTimeFormat('en',{dateStyle:'medium',timeStyle:'short'}).format(new Date(d))}catch(_){return d||''}};
+function showLogin(msg=''){ $('#loginView').hidden=false;$('#appView').hidden=true;$('#loginMsg').textContent=msg; }
+function showApp(){ $('#loginView').hidden=true;$('#appView').hidden=false; }
+async function load(){
+  $('#syncStatus').textContent='Loading requests…';
+  try{bookings=await ATOBooking.listBookings();renderList();$('#syncStatus').textContent=`${bookings.length} request${bookings.length===1?'':'s'} loaded`;if(current){current=bookings.find(x=>x.id===current.id)||null;if(current)renderDetail(current)}}catch(e){$('#syncStatus').textContent=e.message||'Could not load requests';}
+}
+function renderList(){const h=$('#bookingList');if(!bookings.length){h.innerHTML='<div class="empty">No requests yet.</div>';return}h.innerHTML=bookings.map(b=>`<div class="row ${current?.id===b.id?'active':''}" data-id="${esc(b.id)}"><strong>${esc(b.request_no||'Request')}</strong><small>${esc(b.guest_name||'—')} · ${esc(b.hotel||'No hotel')}</small><small>${fmt(b.created_at)}</small><span class="badge">${esc(b.status||'new')}</span></div>`).join('');h.querySelectorAll('[data-id]').forEach(r=>r.onclick=()=>{current=bookings.find(b=>b.id===r.dataset.id);renderList();renderDetail(current)})}
+function renderDetail(b){
+  const tours=Array.isArray(b.tours)?b.tours:[];
+  const guest=[['Name',b.guest_name],['WhatsApp',b.phone],['Hotel',b.hotel],['Room',b.room],['Adults',b.adults],['Children / ages',b.children||'No'],['Pregnancy',b.pregnancy?'Yes':'No'],['Elderly',b.elderly?'Yes':'No'],['Mobility / stroller',b.mobility||'No'],['Language',b.language||'English']];
+  $('#detailView').innerHTML=`<div class="head"><div><h2>${esc(b.request_no)}</h2><div class="meta">Created ${fmt(b.created_at)}<br>Status: ${esc(b.status)}</div></div><div class="badge">${esc(b.status)}</div></div><div class="guest">${guest.map(([k,v])=>`<div><b>${esc(k)}</b>${esc(v??'—')}</div>`).join('')}</div><form id="confirmForm">${tours.map((t,i)=>`<section class="tour" data-tour="${i}"><div class="tour-title">${i+1}. ${esc(t.title)}</div><div class="tour-grid"><label><span class="label">Confirmed date</span><input class="input" type="date" name="date_${i}" value="${esc(t.confirmed_date||t.requested_date||'')}"></label><label><span class="label">Pickup point</span><input class="input" name="pickup_${i}" value="${esc(t.pickup||b.hotel||'Hotel lobby')}"></label><label><span class="label">Pickup time</span><input class="input" type="time" name="time_${i}" value="${esc(t.time||'')}"></label><label><span class="label">Confirmed price</span><input class="input" name="price_${i}" value="${esc(t.confirmed_price||t.price_display||'')}"></label></div></section>`).join('')}<div class="pad"><label class="label">Manager notes</label><textarea class="textarea" name="manager_notes">${esc(b.manager_notes||'')}</textarea></div><div class="actions"><button class="btn gold" type="submit">CONFIRM BOOKING & CREATE TICKETS</button><button class="btn" type="button" id="saveBtn">SAVE CHANGES</button></div><div class="links" id="ticketLinks"></div></form>`;
+  $('#confirmForm').onsubmit=e=>saveBooking(e,true);$('#saveBtn').onclick=()=>saveBooking(null,false);renderTicketLinks(b);
+}
+function formTours(){const fd=new FormData($('#confirmForm'));return (current.tours||[]).map((t,i)=>({...t,confirmed_date:fd.get(`date_${i}`)||'',pickup:String(fd.get(`pickup_${i}`)||'').trim(),time:String(fd.get(`time_${i}`)||'').trim(),confirmed_price:String(fd.get(`price_${i}`)||'').trim()}))}
+function makeTicketNo(){return 'TKT-'+String(Date.now()).slice(-8)}
+async function saveBooking(e,confirm){if(e)e.preventDefault();const fd=new FormData($('#confirmForm')),tours=formTours();if(confirm&&tours.some(t=>!t.confirmed_date||!t.time||!t.pickup)){alert('Fill confirmed date, pickup point and time for every tour.');return}const patch={tours,manager_notes:String(fd.get('manager_notes')||'').trim(),status:confirm?'confirmed':current.status,updated_at:new Date().toISOString()};if(confirm){patch.confirmed_at=new Date().toISOString();patch.ticket_no=current.ticket_no||makeTicketNo()}try{current=await ATOBooking.updateBooking(current.id,patch);await load();renderDetail(current)}catch(err){alert(err.message||'Could not save booking')}}
+function renderTicketLinks(b){const host=$('#ticketLinks');if(!host)return;if(b.status!=='confirmed'){host.innerHTML='<div class="status">Tickets appear here after confirmation.</div>';return}const tours=b.tours||[];host.innerHTML=`<strong>CLIENT E-TICKETS</strong>${tours.map((t,i)=>`<a class="ticket-link" target="_blank" href="${esc(ATOBooking.ticketUrl(b.public_token,i))}">${i+1}. ${esc(t.title)} → e-ticket</a>`).join('')}<button class="btn gold" type="button" id="sendClientBtn">OPEN WHATSAPP TO CLIENT</button>`;$('#sendClientBtn').onclick=()=>sendClient(b)}
+function sendClient(b){const phone=ATOBooking.cleanPhone(b.phone);if(!phone){alert('Client phone is missing.');return}const tours=b.tours||[],links=tours.map((t,i)=>`${i+1}. ${t.title}\n${ATOBooking.ticketUrl(b.public_token,i)}`);const msg=[`ALANYA TOUR ORGANIZATIONS — BOOKING CONFIRMED`,`Booking: ${b.request_no}`,`Ticket: ${b.ticket_no}`,``,...links,``,`Open each ticket to see confirmed pickup details, What to Bring and current weather guidance.`].join('\n');window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`,'_blank','noopener')}
+$('#loginForm').onsubmit=async e=>{e.preventDefault();const fd=new FormData(e.currentTarget);$('#loginMsg').textContent='Signing in…';try{await ATOBooking.signIn(fd.get('email'),fd.get('password'));showApp();await load()}catch(err){showLogin(err.message||'Sign in failed')}};
+$('#refreshBtn').onclick=load;$('#logoutBtn').onclick=async()=>{await ATOBooking.signOut();current=null;showLogin()};
+(async()=>{if(!ATOBooking.configured()){showLogin('Open assets/js/ato-config.js and add your Supabase URL + publishable key first.');return}const s=await ATOBooking.session();if(s){showApp();load()}else showLogin()})();
+})();
+</script>
+</body></html>

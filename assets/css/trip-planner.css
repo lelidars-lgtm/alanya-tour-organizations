@@ -306,3 +306,29 @@ body::after{
   .tp-personal-title{opacity:1;transform:none}
   .tp-personal-title .tp-your-inline{animation:none}
 }
+
+
+/* ===== DATE PICKER RELIABILITY FIX ===== */
+.tp-input[type="date"]{
+  position:relative;
+  z-index:2;
+  cursor:pointer;
+  pointer-events:auto;
+  color-scheme:dark;
+}
+.tp-input[type="date"]::-webkit-calendar-picker-indicator{
+  width:20px;
+  height:20px;
+  cursor:pointer;
+  opacity:.95;
+  filter:invert(82%) sepia(36%) saturate(910%) hue-rotate(350deg) brightness(101%) contrast(94%);
+}
+.tp-input[type="date"]:focus{
+  position:relative;
+  z-index:4;
+}
+
+
+/* Booking → ticket → weather integration */
+.tp-request-success{margin-top:14px;padding:14px 16px;border:1px solid rgba(214,162,74,.42);border-radius:14px;background:rgba(214,162,74,.08);color:#dce8ef;font-size:11px;line-height:1.55}
+.tp-request-success strong{color:var(--gold2);letter-spacing:.04em}

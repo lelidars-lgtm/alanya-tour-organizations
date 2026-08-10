@@ -289,14 +289,54 @@ async function renderWhatToBring(){
 }
 function showStatus(msg){const el=$('#plannerStatus');el.textContent=msg;el.style.opacity='1';clearTimeout(showStatus.t);showStatus.t=setTimeout(()=>el.style.opacity='.55',3500)}
 function updateFinal(){const b=$('#choiceBtn');b.disabled=detail.length<1;b.querySelector('small').textContent=detail.length?`${detail.length} selected tour${detail.length===1?'':'s'} · open request form`:'Choose your tours first'}
-function openRequest(){if(!detail.length)return;updateRequestTours();$('#requestModal').classList.add('open');$('#requestModal').setAttribute('aria-hidden','false')}
+function openRequest(){
+  if(!detail.length)return;
+  const p=readPrefs(),form=$('#requestForm');
+  if(form){
+    if(form.elements.adults&&!form.elements.adults.value)form.elements.adults.value=p.adults||2;
+    if(form.elements.children&&!form.elements.children.value)form.elements.children.value=p.children||'';
+    if(form.elements.pregnant)form.elements.pregnant.value=p.pregnant?'Yes':'No';
+    if(form.elements.elderly)form.elements.elderly.value=p.elderly?'Yes':'No';
+    if(form.elements.mobility&&p.mobility)form.elements.mobility.value='Wheelchair / reduced mobility';
+    else if(form.elements.mobility&&p.stroller)form.elements.mobility.value='Child stroller';
+  }
+  updateRequestTours();$('#requestModal').classList.add('open');$('#requestModal').setAttribute('aria-hidden','false')
+}
 function closeRequest(){$('#requestModal').classList.remove('open');$('#requestModal').setAttribute('aria-hidden','true')}
 async function updateRequestTours(){const host=$('#requestTours');if(!host)return;const p=readPrefs(),schedule=readJSON(SCHEDULE_KEY,{});const data=await Promise.all(detail.map(loadDetails));host.innerHTML=data.map(t=>`<div class="tp-request-tour"><strong>${escapeHTML(t.title)}</strong><input class="tp-input" type="date" name="tourDate__${escapeHTML(t.href)}" min="${escapeHTML(p.travelStart||'')}" max="${escapeHTML(p.travelEnd||'')}" value="${escapeHTML(schedule[t.href]||'')}"></div>`).join('')}
 async function sendRequest(e){
-  e.preventDefault();const fd=new FormData(e.currentTarget),p=readPrefs(),data=await Promise.all(detail.map(loadDetails));
-  const lines=data.map((t,i)=>`${i+1}. ${t.title} — ${fd.get('tourDate__'+t.href)||'date to confirm'}`);
-  const msg=[`ALANYA TOUR ORGANIZATIONS — TRIP PLANNER REQUEST`,``,`Selected tours:`,...lines,``,`Guest: ${fd.get('name')||'-'}`,`WhatsApp: ${fd.get('phone')||'-'}`,`Hotel: ${fd.get('hotel')||'-'}`,`Room: ${fd.get('room')||'-'}`,`Adults: ${fd.get('adults')||p.adults||'-'}`,`Children / ages: ${fd.get('children')||p.children||'No'}`,`Pregnancy: ${fd.get('pregnant')|| (p.pregnant?'Yes':'No')}`,`Elderly guests: ${fd.get('elderly')|| (p.elderly?'Yes':'No')}`,`Stroller / mobility: ${fd.get('mobility')||'-'}`,`Language: ${fd.get('language')||'English'}`,`Notes: ${fd.get('notes')||'-'}`,``,`Please confirm availability, pickup time and final price.`].join('\n');
-  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,'_blank','noopener');
+  e.preventDefault();
+  const form=e.currentTarget,submit=form.querySelector('button[type="submit"]');
+  if(submit){submit.disabled=true;submit.dataset.oldText=submit.textContent;submit.textContent='PREPARING REQUEST…'}
+  try{
+    const fd=new FormData(form),p=readPrefs(),data=await Promise.all(detail.map(loadDetails));
+    const tours=data.map(t=>({
+      href:t.href,title:t.title,category:t.category||'Tour',image:t.image||'',
+      requested_date:fd.get('tourDate__'+t.href)||'',confirmed_date:'',pickup:'',time:'',confirmed_price:'',
+      price_display:t.price||'See tour page',duration:t.duration||'See tour page',
+      what_to_bring:(t.bring||[]).slice(0,12),weather_profile:window.ATOWeather?.profile?.(t)||'general'
+    }));
+    const payload={
+      source:'trip-planner',travel_start:p.travelStart||'',travel_end:p.travelEnd||'',
+      guest_name:String(fd.get('name')||'').trim(),phone:String(fd.get('phone')||'').trim(),hotel:String(fd.get('hotel')||'').trim(),room:String(fd.get('room')||'').trim(),
+      adults:Number(fd.get('adults')||p.adults||1),children:String(fd.get('children')||p.children||'').trim(),
+      pregnancy:String(fd.get('pregnant')||'No')==='Yes',elderly:String(fd.get('elderly')||'No')==='Yes',mobility:String(fd.get('mobility')||'No'),
+      language:String(fd.get('language')||'English'),notes:String(fd.get('notes')||'').trim(),prefs:p,tours
+    };
+    let saved=null;
+    if(window.ATOBooking){
+      try{const result=await window.ATOBooking.createTripRequest(payload);saved=result?.data||null}catch(err){console.warn('Booking database unavailable',err)}
+    }
+    const requestNo=saved?.request_no||saved?.requestNo||'';
+    try{localStorage.setItem('atoLastTripRequest',JSON.stringify({payload,saved,createdAt:new Date().toISOString()}))}catch(_){}
+    const lines=tours.map((t,i)=>`${i+1}. ${t.title} — ${t.requested_date||'date to confirm'}`);
+    const msg=[`ALANYA TOUR ORGANIZATIONS — TRIP PLANNER REQUEST`,requestNo?`Request No: ${requestNo}`:'',``,`Selected tours:`,...lines,``,`Guest: ${payload.guest_name||'-'}`,`WhatsApp: ${payload.phone||'-'}`,`Hotel: ${payload.hotel||'-'}`,`Room: ${payload.room||'-'}`,`Adults: ${payload.adults||'-'}`,`Children / ages: ${payload.children||'No'}`,`Pregnancy: ${payload.pregnancy?'Yes':'No'}`,`Elderly guests: ${payload.elderly?'Yes':'No'}`,`Stroller / mobility: ${payload.mobility||'No'}`,`Language: ${payload.language}`,`Notes: ${payload.notes||'-'}`,``,`Please confirm availability, pickup time and final price.`].filter(Boolean).join('\n');
+    let notice=form.querySelector('.tp-request-success');
+    if(!notice){notice=document.createElement('div');notice.className='tp-request-success';form.appendChild(notice)}
+    notice.innerHTML=requestNo?`<strong>Request ${escapeHTML(requestNo)} saved.</strong><br>The same request will become the source for manager confirmation, e-ticket, weather and What to Bring.`:`<strong>Request prepared.</strong><br>WhatsApp will open now. Connect Supabase to save it automatically for the manager.`;
+    const wa=window.ATO_CONFIG?.managerWhatsApp||WHATSAPP;
+    window.open(`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`,'_blank','noopener');
+  }finally{if(submit){submit.disabled=false;submit.textContent=submit.dataset.oldText||'Send request to manager via WhatsApp'}}
 }
 
 function initProgressNav(){
@@ -319,9 +359,39 @@ function initProgressNav(){
   setActive();
 }
 
+function initDatePickers(){
+  // Make the complete date field open the browser calendar, not only the tiny icon.
+  const openNativePicker=input=>{
+    if(!input||input.disabled||input.readOnly)return;
+    try{
+      if(typeof input.showPicker==='function')input.showPicker();
+      else input.focus();
+    }catch(_){input.focus()}
+  };
+
+  document.addEventListener('click',e=>{
+    const input=e.target&&e.target.closest?e.target.closest('input[type="date"]'):null;
+    if(input)openNativePicker(input);
+  });
+
+  const start=document.querySelector('#prefsForm [name="travelStart"]');
+  const end=document.querySelector('#prefsForm [name="travelEnd"]');
+  if(start&&end){
+    const syncEndDate=()=>{
+      end.min=start.value||'';
+      if(start.value&&end.value&&end.value<start.value){
+        end.value='';
+        end.dispatchEvent(new Event('change',{bubbles:true}));
+      }
+    };
+    start.addEventListener('change',syncEndDate);
+    syncEndDate();
+  }
+}
+
 function renderAll(){renderPool();renderRecommendations();renderComparison();renderSchedule();renderWhatToBring();updateFinal();ensureGuideNextButtons();updateGuideNextButtons()}
 async function init(){
-  initProgressNav();hydratePrefs();$('#poolGrid').innerHTML='<div class="tp-loading" style="grid-column:1/-1">Reading current tour cards…</div>';
+  initProgressNav();initDatePickers();hydratePrefs();$('#poolGrid').innerHTML='<div class="tp-loading" style="grid-column:1/-1">Reading current tour cards…</div>';
   await loadRegistry();pool=pool.filter(h=>registry.has(h)||h.endsWith('.html')).slice(0,MAX_POOL);writeJSON(POOL_KEY,pool);syncComparison();renderAll();renderCategoryCounts();
   $$('.tp-quick-card').forEach(btn=>btn.addEventListener('click',()=>applyQuickStart(btn.dataset.quick)));
   $$('[data-reset-planner]').forEach(btn=>btn.addEventListener('click',openResetDialog));
