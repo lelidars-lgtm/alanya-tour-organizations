@@ -45,8 +45,8 @@
 const legacyCfg=window.ATO_BOOKING_CONFIG||{};
 const rootCfg=window.ATO_CONFIG||{};
 const cfg={
-  supabaseUrl: rootCfg.supabaseUrl || legacyCfg.supabaseUrl || '',
-  supabaseKey: rootCfg.supabasePublishableKey || legacyCfg.supabaseAnonKey || '',
+  supabaseUrl: legacyCfg.supabaseUrl || rootCfg.supabaseUrl || '',
+  supabaseKey: legacyCfg.supabaseAnonKey || rootCfg.supabasePublishableKey || '',
   ownerEmail: String(legacyCfg.ownerEmail || 'leli_dars@mail.ru').trim().toLowerCase(),
   siteBaseUrl: String(rootCfg.siteBaseUrl || location.origin).replace(/\/$/,'')
 };

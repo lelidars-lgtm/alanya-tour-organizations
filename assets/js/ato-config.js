@@ -3,7 +3,7 @@
    Weather uses the free MET Norway Locationforecast service through /api/weather.
 */
 window.ATO_CONFIG = Object.assign({
-  supabaseUrl: 'https://gryphkbcdibribzccn.supabase.co',
+  supabaseUrl: 'https://gryyphkbcdibrribzccn.supabase.co',
   supabasePublishableKey: 'sb_publishable_pzMSu9hTzwyZgRKMhPyj2w_aAcApP3P',
   siteBaseUrl: 'https://alanya-tour-organizations.vercel.app',
   managerWhatsApp: '905387045999',
