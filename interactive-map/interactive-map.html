@@ -1391,13 +1391,6 @@ html{margin:0!important;min-height:100%!important;overflow-x:hidden!important;ov
   
 }
 
-/* Keep completed and browser-autofilled request fields in the shared dark theme. */
-.request-field input:-webkit-autofill,.request-field input:-webkit-autofill:hover,.request-field input:-webkit-autofill:focus,.request-field textarea:-webkit-autofill,.request-field textarea:-webkit-autofill:hover,.request-field textarea:-webkit-autofill:focus,.request-field select:-webkit-autofill,.request-field select:-webkit-autofill:hover,.request-field select:-webkit-autofill:focus{-webkit-text-fill-color:#fff!important;caret-color:#fff!important;-webkit-box-shadow:0 0 0 1000px #071d2e inset!important;box-shadow:0 0 0 1000px #071d2e inset!important;border-color:rgba(241,202,104,.38)!important;transition:background-color 99999s ease-out 0s}.request-field input:not(:placeholder-shown),.request-field textarea:not(:placeholder-shown){background:#071d2e!important;color:#fff!important}
-/* Final cross-browser form colour guard: filled, selected and date fields never turn white. */
-.request-form input,.request-form select,.request-form textarea,.request-form input:valid,.request-form input:user-valid,.request-form select:valid,.request-form textarea:valid{background-color:#071d2e!important;background-image:none!important;color:#fff!important;-webkit-text-fill-color:#fff!important;caret-color:#fff!important}
-.request-form input[type="date"]{color-scheme:dark;cursor:pointer}
-.request-form input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(1) sepia(.25) saturate(2);opacity:1;cursor:pointer}
-.request-form input:-moz-autofill,.request-form textarea:-moz-autofill,.request-form select:-moz-autofill{box-shadow:0 0 0 1000px #071d2e inset!important;color:#fff!important}
 </style>
 <style id="clean-index-styles">
 /* ===== CLEAN INDEX REBUILD — 2026-08-08 ===== */
@@ -1681,7 +1674,7 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 <div class="nearby-panel" id="nearbyPanel"><button aria-label="Close" class="nearby-close" id="nearbyClose">×</button><div class="nearby-head"><h3>Nearby Experiences</h3><p id="nearbySummary">Finding the closest tours…</p><div class="radius-row" id="radiusRow"><button class="radius-btn" data-radius="10">10 km</button><button class="radius-btn active" data-radius="25">25 km</button><button class="radius-btn" data-radius="50">50 km</button><button class="radius-btn" data-radius="9999">All</button></div></div><div class="nearby-list" id="nearbyList"></div></div>
 <div class="mobile-categories" id="mobileCategories"></div>
 <div aria-hidden="true" class="tour-hover-card" id="tourHoverCard"></div>
-<button type="button" class="compare-dock" id="compareDock" aria-label="Open tour comparison"><span class="compare-dock-copy"><strong id="compareDockTitle">COMPARE 1 TOUR</strong><small>Select up to 4 tours</small></span><span class="compare-dock-clear" id="compareDockClear" aria-label="Clear comparison">×</span></button>
+<button type="button" class="compare-dock" id="compareDock" aria-label="Open tour comparison"><span class="compare-dock-copy"><strong id="compareDockTitle">TRIP PLANNER · 1/8 TOUR</strong><small>Select up to 8 tours · Open planner</small></span><span class="compare-dock-clear" id="compareDockClear" aria-label="Clear comparison">×</span></button>
 </section>
 </main>
 <div class="compare-modal" id="compareModal" aria-hidden="true"><div class="compare-dialog" role="dialog" aria-modal="true" aria-labelledby="compareModalTitle"><div class="compare-dialog-head"><h2 id="compareModalTitle">COMPARE TOURS</h2><button type="button" class="compare-modal-close" id="compareModalClose" aria-label="Close">×</button></div><div class="compare-table-wrap" id="compareTableWrap"></div></div></div>
@@ -1729,8 +1722,6 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
   });
 })();
 </script>
-<script src="booking-config.js"></script>
-<script src="booking-client.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
 <script>
@@ -2189,25 +2180,24 @@ function popupHTML(t){
   const cover=`<div class="popup-cover-wrap"><a class="popup-cover tour-source-link" href="${t.page}" aria-label="Open ${t.title}"><img class="popup-cover-img" src="${image}" alt="${t.title}" onerror="this.onerror=null;this.src='${fallback}'" loading="eager"><span class="popup-cover-brand">ALANYA TOUR ORGANIZATIONS</span></a></div>`;
   return `${cover}<div class="popup-body"><h3 class="popup-title"><a class="tour-source-link" href="${t.page}">${t.title}</a></h3><p class="popup-desc">${t.desc}</p><div class="popup-meta"><span>◷ ${t.duration}</span><span>${t.transfer?'Hotel Transfer':'Meeting Point'}</span></div><div class="popup-price">${t.price==null?'Price <strong>on request</strong>':`From <strong>€${t.price}</strong>`}</div><div class="popup-actions"><a class="view" href="${t.page}">VIEW TOUR →</a><button type="button" class="compare-card" data-compare-id="${t.id}">＋ COMPARE</button><a class="book" target="_blank" rel="noopener" href="https://wa.me/${WHATSAPP}?text=${msg}">BOOK VIA WHATSAPP</a></div></div>`;
 }
-const COMPARE_KEY='alanyaTourCompare';
+const COMPARE_KEY='atoTripPlannerPool';
+const COMPARE_MAX=8;
+const plannerTourHref=t=>{try{return new URL(t.page,location.href).pathname.split('/').filter(Boolean).pop()||''}catch(_){return (t.page||'').split('/').pop()||''}};
 let comparedTourIds=[];
 try{
-  const sharedIds=(new URL(location.href)).searchParams.get('compare')?.split(',').filter(Boolean)||[];
-  const storedIds=JSON.parse(localStorage.getItem(COMPARE_KEY)||'[]');
-  comparedTourIds=(sharedIds.length?sharedIds:storedIds).filter(id=>tours.some(t=>t.id===id)).slice(0,4);
+  const storedHrefs=JSON.parse(localStorage.getItem(COMPARE_KEY)||'[]');
+  comparedTourIds=(Array.isArray(storedHrefs)?storedHrefs:[]).map(href=>tours.find(t=>plannerTourHref(t)===String(href).split('/').pop())?.id).filter(Boolean).slice(0,COMPARE_MAX);
 }catch(_){comparedTourIds=[]}
-function saveComparedTours(){try{localStorage.setItem(COMPARE_KEY,JSON.stringify(comparedTourIds))}catch(_){} updateCompareUI()}
+function saveComparedTours(){try{localStorage.setItem(COMPARE_KEY,JSON.stringify(comparedTourIds.map(id=>plannerTourHref(tours.find(t=>t.id===id))).filter(Boolean)))}catch(_){} updateCompareUI()}
 function updateCompareUI(){
   const mobile=window.matchMedia('(max-width:760px)').matches;
   document.querySelectorAll('[data-compare-id]').forEach(button=>{const added=comparedTourIds.includes(button.dataset.compareId),nearby=button.classList.contains('nearby-compare');button.classList.toggle('is-added',added);button.textContent=nearby&&mobile?(added?'✓ ADDED':'COMPARE'):(added?'✓ ADDED':'＋ COMPARE');button.setAttribute('aria-pressed',added?'true':'false');button.setAttribute('aria-label',added?'Remove from comparison':'Add to comparison')});
-  const dock=document.getElementById('compareDock'),count=comparedTourIds.length;dock?.classList.toggle('visible',count>0);if(dock)document.getElementById('compareDockTitle').textContent=`COMPARE ${count} ${count===1?'TOUR':'TOURS'}`;
+  const dock=document.getElementById('compareDock'),count=comparedTourIds.length;dock?.classList.toggle('visible',count>0);if(dock)document.getElementById('compareDockTitle').textContent=`TRIP PLANNER · ${count}/${COMPARE_MAX} ${count===1?'TOUR':'TOURS'}`;
 }
 function toggleComparedTour(id,button){
   const index=comparedTourIds.indexOf(id);
-  const adding=index<0;
-  if(index>=0)comparedTourIds.splice(index,1);else if(comparedTourIds.length<4)comparedTourIds.push(id);else{openCompareModal();return;}
+  if(index>=0)comparedTourIds.splice(index,1);else if(comparedTourIds.length<COMPARE_MAX)comparedTourIds.push(id);else{alert('You can select up to 8 tours. Open Trip Planner to review your list.');return;}
   button?.classList.remove('flash');void button?.offsetWidth;button?.classList.add('flash');saveComparedTours();
-  if(adding&&comparedTourIds.length===4)setTimeout(openCompareModal,460);
 }
 function compareValue(t,key){if(key==='price')return t.price==null?'On request':`€${t.price}`;if(key==='childPrice')return t.childPrice||'Check availability';if(key==='duration')return t.duration||'Check availability';if(key==='transfer')return t.transfer?'Included':'Check availability';if(key==='meals')return t.meals||'Check availability';if(key==='suitable')return t.suitable||'Check availability';if(key==='restrictions')return Array.isArray(t.restrictions)?(t.restrictions.join(' · ')||'Check availability'):(t.restrictions||'Check availability');if(key==='distance')return userLocation&&hasCoords(t)?`${haversine(userLocation,t.coords).toFixed(1)} km`:'Set your location';return 'Check availability'}
 function comparisonShareData(){
@@ -2268,7 +2258,7 @@ async function openCompareModal(){
   prepareComparisonImage();
 }
 document.addEventListener('click',e=>{const button=e.target.closest('[data-compare-id]');if(!button)return;e.preventDefault();e.stopPropagation();toggleComparedTour(button.dataset.compareId,button)});
-document.getElementById('compareDock')?.addEventListener('click',openCompareModal);
+document.getElementById('compareDock')?.addEventListener('click',()=>{location.href=new URL('../trip-planner.html',location.href).href});
 document.getElementById('compareDockClear')?.addEventListener('click',e=>{e.stopPropagation();comparedTourIds=[];saveComparedTours()});
 document.getElementById('compareModalClose')?.addEventListener('click',()=>{const modal=document.getElementById('compareModal');modal.classList.remove('visible');modal.setAttribute('aria-hidden','true')});
 document.getElementById('compareModal')?.addEventListener('click',e=>{if(e.target.id==='compareModal'){e.currentTarget.classList.remove('visible');e.currentTarget.setAttribute('aria-hidden','true')}const remove=e.target.closest('[data-compare-remove]');if(remove){toggleComparedTour(remove.dataset.compareRemove);openCompareModal()}const share=e.target.closest('[data-share-compare]');if(share)shareComparison(share.dataset.shareCompare)});
@@ -2282,23 +2272,7 @@ function closeManagerRequest(){const modal=document.getElementById('managerReque
 document.getElementById('compareModal')?.addEventListener('click',e=>{if(e.target.closest('#openManagerRequest'))openManagerRequest();});
 document.getElementById('managerRequestClose')?.addEventListener('click',closeManagerRequest);
 document.getElementById('managerRequestModal')?.addEventListener('click',e=>{if(e.target.id==='managerRequestModal')closeManagerRequest();});
-const requestArrival=document.getElementById('requestArrival');
-const requestDeparture=document.getElementById('requestDeparture');
-const requestToday=new Date();
-requestToday.setMinutes(requestToday.getMinutes()-requestToday.getTimezoneOffset());
-const requestTodayISO=requestToday.toISOString().slice(0,10);
-[requestArrival,requestDeparture].forEach(field=>{
-  if(!field)return;
-  field.required=true;
-  field.min=requestTodayISO;
-  field.addEventListener('click',()=>{try{field.showPicker?.();}catch(_){}});
-  field.addEventListener('focus',()=>{try{field.showPicker?.();}catch(_){}});
-});
-requestArrival?.addEventListener('change',()=>{
-  requestDeparture.min=requestArrival.value||requestTodayISO;
-  if(requestDeparture.value&&requestDeparture.value<requestDeparture.min)requestDeparture.value='';
-});
-document.getElementById('managerRequestForm')?.addEventListener('submit',async e=>{
+document.getElementById('managerRequestForm')?.addEventListener('submit',e=>{
   e.preventDefault();const form=e.currentTarget;if(!form.reportValidity())return;
   const data=new FormData(form),ids=data.getAll('requestTour').map(String);if(!ids.length){alert('Please select at least one tour.');return;}
   if(Number(data.get('children')||0)>0&&!String(data.get('childAges')||'').trim()){const field=document.getElementById('requestChildAges');field.setCustomValidity("Please enter the children's ages.");field.reportValidity();field.focus();return;}else document.getElementById('requestChildAges').setCustomValidity('');
@@ -2306,16 +2280,10 @@ document.getElementById('managerRequestForm')?.addEventListener('submit',async e
   const tourLines=selected.map((t,index)=>{const date=form.querySelector(`[data-tour-date="${CSS.escape(t.id)}"]`)?.value||'Flexible';const price=t.price==null?'Price on request':`€${t.price}`;const link=new URL(t.page,location.href).href;return `${index+1}. ${t.title} — ${price}\nPreferred date: ${date}\n${link}`;});
   const specials=data.getAll('special').map(String);const comparison=comparisonShareData().url;
   const message=`NEW TOUR REQUEST — ALANYA TOUR ORGANIZATIONS\n\nCLIENT\nName: ${data.get('name')}\nHotel: ${data.get('hotel')}\nStay dates: ${data.get('arrival')||'Not specified'} — ${data.get('departure')||'Not specified'}\nGuests: ${data.get('adults')} adult(s), ${data.get('children')||0} child(ren)${data.get('childAges')?` — ages ${data.get('childAges')}`:''}\nLanguage: ${data.get('language')}\nHotel pickup: ${data.get('pickup')}\n\nSELECTED TOURS\n${tourLines.join('\n\n')}\n\nSPECIAL INFORMATION\n${specials.length?specials.join(', '):'None specified'}\n\nADDITIONAL NOTES\n${data.get('notes')||'None'}\n\nPlease confirm availability, dates, final price, child price and pickup details.\n\nCOMPARISON\n${comparison}`;
-  const submit=form.querySelector('.request-submit');const originalLabel=submit.textContent;submit.disabled=true;submit.textContent='SAVING REQUEST…';
-  try{
-    const booking=await window.ATOBooking.createPending({client_name:String(data.get('name')),client_whatsapp:String(data.get('phone')),hotel:String(data.get('hotel')),arrival_date:data.get('arrival')||null,departure_date:data.get('departure')||null,adults:Number(data.get('adults')||1),children:Number(data.get('children')||0),child_ages:String(data.get('childAges')||''),language:String(data.get('language')||''),pickup:String(data.get('pickup')||''),special_information:specials,notes:String(data.get('notes')||''),selected_tours:selected.map(t=>({id:t.id,title:t.title,price:t.price,page:new URL(t.page,location.href).href,preferred_date:form.querySelector(`[data-tour-date="${CSS.escape(t.id)}"]`)?.value||null})),comparison_url:comparison,whatsapp_message:message});
-    const finalMessage=`${message}\n\nREQUEST NUMBER\n${booking.request_number}`;
-    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(finalMessage)}`,'_blank','noopener');closeManagerRequest();form.reset();
-  }catch(error){alert(error.message||'The request could not be saved. Please try again.');}
-  finally{submit.disabled=false;submit.textContent=originalLabel;}
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`,'_blank','noopener');
 });
 updateCompareUI();
-if((new URL(location.href)).searchParams.has('compare')&&comparedTourIds.length)setTimeout(openCompareModal,900);
+/* Trip Planner pool opens on trip-planner.html; legacy compare auto-open disabled. */
 function belongs(t,cat){return cat==='all'||t.categories.includes(cat);}
 function hasCoords(t){return Array.isArray(t?.coords)&&t.coords.length===2&&Number.isFinite(t.coords[0])&&Number.isFinite(t.coords[1]);}
 function routeBounds(id){const coords=[];Object.values(routeData).forEach(fc=>fc.features.forEach(f=>{if(f.properties.id===id)coords.push(...f.geometry.coordinates);}));if(!coords.length){const t=tours.find(x=>x.id===id);return hasCoords(t)?new maplibregl.LngLatBounds(t.coords,t.coords):null;}return coords.reduce((b,c)=>b.extend(c),new maplibregl.LngLatBounds(coords[0],coords[0]));}
