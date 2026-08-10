@@ -83,15 +83,42 @@ async function loadDetails(href){
 }
 function renderPool(){
   const host=$('#poolGrid'),count=$('#poolCount');count.textContent=`${pool.length}/${MAX_POOL}`;
-  if(!pool.length){host.innerHTML=`<div class="tp-empty" style="grid-column:1/-1"><strong>No tours selected yet</strong>Open any category and press <b>＋ Compare</b> on the tour cards. <a href="index.html#main-categories">Browse tours →</a></div>`;return}
+  if(!pool.length){host.innerHTML=`<div class="tp-empty" style="grid-column:1/-1"><strong>Start building your journey</strong>Choose experiences from the premium category cards above, then press <b>＋ Compare</b> on the tours you love. <a href="#exploreCategories">Explore categories →</a></div>`;renderCategoryCounts();return}
   host.innerHTML=pool.map(h=>{const t=registry.get(h)||{href:h,title:h.replace('.html','').replace(/-/g,' '),image:'logo.png',price:'Loading…',desc:'',category:'Tour'};const selected=detail.includes(h);return `<article class="tp-card" data-href="${escapeHTML(h)}"><div class="tp-card-img"><img src="${escapeHTML(t.image)}" alt="${escapeHTML(t.title)}" onerror="this.src='logo.png'"><span class="tp-cat">${escapeHTML(t.category)}</span><button type="button" class="tp-detail-pick ${selected?'selected':''}" data-detail="${escapeHTML(h)}">${selected?'✓ Compare':'＋ Detailed compare'}</button></div><div class="tp-card-body"><h3>${escapeHTML(t.title)}</h3><div class="tp-price">${escapeHTML(t.price)}</div><div class="tp-desc">${escapeHTML(t.desc)}</div><div class="tp-card-actions"><a href="${escapeHTML(h)}">View tour →</a><span class="spacer"></span><button class="tp-remove" type="button" data-remove="${escapeHTML(h)}">Remove</button></div></div></article>`}).join('');
   $$('#poolGrid [data-remove]').forEach(b=>b.onclick=()=>removeFromPool(b.dataset.remove));
   $$('#poolGrid [data-detail]').forEach(b=>b.onclick=()=>toggleDetail(b.dataset.detail));
+  renderCategoryCounts();
+}
+function renderCategoryCounts(){
+  const counts=new Map();
+  pool.forEach(h=>{const t=registry.get(h);if(t?.category)counts.set(t.category,(counts.get(t.category)||0)+1)});
+  $$('.tp-category-card[data-category-name]').forEach(card=>{
+    const count=counts.get(card.dataset.categoryName)||0;const badge=card.querySelector('.tp-category-selected');if(!badge)return;
+    badge.textContent=count?`${count} tour${count===1?'':'s'} selected`:'0 selected';badge.classList.toggle('has-selected',count>0);
+  });
+}
+function applyQuickStart(mode){
+  const form=$('#prefsForm');if(!form)return;
+  const presets={
+    family:{pace:'balanced',road:'low',startPref:'any',restDays:'yes',interests:['family']},
+    sea:{pace:'balanced',road:'medium',startPref:'any',restDays:'no',interests:['sea','water']},
+    active:{pace:'active',road:'high',startPref:'early',restDays:'no',interests:['extreme','nature','water','air']},
+    relaxed:{pace:'relaxed',road:'low',startPref:'late',restDays:'yes',interests:['sea','wellness']},
+    firsttime:{pace:'balanced',road:'medium',startPref:'any',restDays:'yes',interests:['sea','history','family','nature']},
+    vip:{pace:'relaxed',road:'medium',startPref:'any',restDays:'yes',interests:['vip','sea','wellness','air']}
+  };
+  const p=presets[mode];if(!p)return;
+  ['pace','road','startPref','restDays'].forEach(k=>{const el=form.querySelector(`[name="${k}"]`);if(el)el.value=p[k]});
+  $$('[name="interests"]',form).forEach(el=>el.checked=p.interests.includes(el.value));
+  savePrefs();
+  $$('.tp-quick-card').forEach(b=>b.classList.toggle('is-active',b.dataset.quick===mode));
+  showStatus('Travel style added. You can change every preference below.');
+  $('#tripPreferences')?.scrollIntoView({behavior:'smooth',block:'start'});
 }
 function removeFromPool(h){pool=pool.filter(x=>x!==h);detail=detail.filter(x=>x!==h);writeJSON(POOL_KEY,pool);writeJSON(DETAIL_KEY,detail);renderAll()}
 function toggleDetail(h){
   if(detail.includes(h))detail=detail.filter(x=>x!==h);else if(detail.length<MAX_DETAIL)detail.push(h);else return showStatus('Choose no more than 4 tours for detailed comparison.');
-  writeJSON(DETAIL_KEY,detail);renderPool();renderComparison();renderSchedule();updateFinal();
+  writeJSON(DETAIL_KEY,detail);renderPool();renderComparison();renderSchedule();renderWhatToBring();updateFinal();
 }
 function readPrefs(){
   const form=$('#prefsForm');if(!form)return{};const fd=new FormData(form);return {travelStart:fd.get('travelStart')||'',travelEnd:fd.get('travelEnd')||'',adults:Number(fd.get('adults')||2),children:fd.get('children')||'',pregnant:fd.get('pregnant')==='yes',elderly:fd.get('elderly')==='yes',mobility:fd.get('mobility')==='yes',stroller:fd.get('stroller')==='yes',pace:fd.get('pace')||'balanced',road:fd.get('road')||'medium',startPref:fd.get('startPref')||'any',restDays:fd.get('restDays')==='yes',interests:fd.getAll('interests')};
@@ -121,7 +148,7 @@ async function analyze(){
 }
 function renderRecommendations(){
   const host=$('#recommendations');if(!recommendations.length){host.innerHTML='<div class="tp-empty"><strong>Ready for analysis</strong>Fill in your travel details and press “Get recommendations”. Planner recommends; you decide which 2–4 tours to compare.</div>';return}
-  host.innerHTML=recommendations.map((t,i)=>`<article class="tp-rec"><div class="tp-rank">${i+1}</div><div><h3>${escapeHTML(t.title)}</h3><p>${escapeHTML(t.recommend.reasons.join(' · '))}</p><div class="tp-badges">${t.recommend.blocked.map(x=>`<span class="tp-badge stop">${escapeHTML(x)}</span>`).join('')}${t.recommend.warnings.map(x=>`<span class="tp-badge warn">${escapeHTML(x)}</span>`).join('')}${!t.recommend.blocked.length&&!t.recommend.warnings.length?'<span class="tp-badge">No conflict found in parsed rules</span>':''}</div></div><div class="tp-score">${t.recommend.blocked.length?'CHECK RULES':t.recommend.score+'/100'}</div></article>`).join('');
+  host.innerHTML=recommendations.map((t,i)=>`<article class="tp-rec"><img class="tp-rec-image" src="${escapeHTML(t.image)}" alt="${escapeHTML(t.title)}" onerror="this.src='logo.png'"><div class="tp-rank">${i+1}</div><div class="tp-rec-copy">${i===0&&!t.recommend.blocked.length?'<span class="tp-best-match">BEST MATCH</span>':''}<h3>${escapeHTML(t.title)}</h3><p>${escapeHTML(t.recommend.reasons.join(' · '))}</p><div class="tp-badges">${t.recommend.blocked.map(x=>`<span class="tp-badge stop">${escapeHTML(x)}</span>`).join('')}${t.recommend.warnings.map(x=>`<span class="tp-badge warn">${escapeHTML(x)}</span>`).join('')}${!t.recommend.blocked.length&&!t.recommend.warnings.length?'<span class="tp-badge">No conflict found in parsed rules</span>':''}</div></div><div class="tp-score">${t.recommend.blocked.length?'CHECK RULES':t.recommend.score+'/100'}</div></article>`).join('');
 }
 function short(v,n=150){v=clean(v);return v.length>n?v.slice(0,n-1)+'…':v||'See tour page'}
 async function renderComparison(){
@@ -144,6 +171,13 @@ async function renderSchedule(){
   const today=new Date();today.setHours(0,0,0,0);const start=new Date(p.travelStart+'T00:00:00');const diff=Math.round((start-today)/86400000);
   $('#weatherNote').innerHTML=diff>14?'<strong>Weather layer:</strong> Live weather recommendations will become available closer to your travel dates.':'<strong>Weather layer:</strong> The itinerary is ready for live weather checks. A commercial weather provider has not been connected yet, so no forecast values are invented.';
 }
+async function renderWhatToBring(){
+  const host=$('#bringHost');if(!host)return;
+  if(!detail.length){host.innerHTML='<div class="tp-empty" style="grid-column:1/-1"><strong>Your packing guide will appear here</strong>Select your final 2–4 tour shortlist first. Each tour keeps its own original requirements.</div>';return}
+  host.innerHTML='<div class="tp-loading" style="grid-column:1/-1">Preparing tour-specific checklists…</div>';
+  const data=await Promise.all(detail.map(loadDetails));
+  host.innerHTML=data.map(t=>{const items=t.bring?.length?t.bring:['See the original tour page for the confirmed packing list.'];return `<article class="tp-bring-card"><div class="tp-bring-image"><img src="${escapeHTML(t.image)}" alt="${escapeHTML(t.title)}" onerror="this.src='logo.png'"></div><div class="tp-bring-copy"><span>${escapeHTML(t.category)}</span><h3>${escapeHTML(t.title)}</h3><ul>${items.slice(0,7).map(x=>`<li>${escapeHTML(x)}</li>`).join('')}</ul><a href="${escapeHTML(t.href)}">Open original tour rules →</a></div></article>`}).join('');
+}
 function showStatus(msg){const el=$('#plannerStatus');el.textContent=msg;el.style.opacity='1';clearTimeout(showStatus.t);showStatus.t=setTimeout(()=>el.style.opacity='.55',3500)}
 function updateFinal(){const b=$('#choiceBtn');b.disabled=detail.length<1;b.querySelector('small').textContent=detail.length?`${detail.length} selected tour${detail.length===1?'':'s'} · open request form`:'Choose your tours first'}
 function openRequest(){if(!detail.length)return;updateRequestTours();$('#requestModal').classList.add('open');$('#requestModal').setAttribute('aria-hidden','false')}
@@ -155,10 +189,11 @@ async function sendRequest(e){
   const msg=[`ALANYA TOUR ORGANIZATIONS — TRIP PLANNER REQUEST`,``,`Selected tours:`,...lines,``,`Guest: ${fd.get('name')||'-'}`,`WhatsApp: ${fd.get('phone')||'-'}`,`Hotel: ${fd.get('hotel')||'-'}`,`Room: ${fd.get('room')||'-'}`,`Adults: ${fd.get('adults')||p.adults||'-'}`,`Children / ages: ${fd.get('children')||p.children||'No'}`,`Pregnancy: ${fd.get('pregnant')|| (p.pregnant?'Yes':'No')}`,`Elderly guests: ${fd.get('elderly')|| (p.elderly?'Yes':'No')}`,`Stroller / mobility: ${fd.get('mobility')||'-'}`,`Language: ${fd.get('language')||'English'}`,`Notes: ${fd.get('notes')||'-'}`,``,`Please confirm availability, pickup time and final price.`].join('\n');
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,'_blank','noopener');
 }
-function renderAll(){renderPool();renderRecommendations();renderComparison();renderSchedule();updateFinal()}
+function renderAll(){renderPool();renderRecommendations();renderComparison();renderSchedule();renderWhatToBring();updateFinal()}
 async function init(){
   hydratePrefs();$('#poolGrid').innerHTML='<div class="tp-loading" style="grid-column:1/-1">Reading current tour cards…</div>';
-  await loadRegistry();pool=pool.filter(h=>registry.has(h)||h.endsWith('.html'));writeJSON(POOL_KEY,pool);detail=detail.filter(h=>pool.includes(h)).slice(0,MAX_DETAIL);writeJSON(DETAIL_KEY,detail);renderAll();
+  await loadRegistry();pool=pool.filter(h=>registry.has(h)||h.endsWith('.html'));writeJSON(POOL_KEY,pool);detail=detail.filter(h=>pool.includes(h)).slice(0,MAX_DETAIL);writeJSON(DETAIL_KEY,detail);renderAll();renderCategoryCounts();
+  $$('.tp-quick-card').forEach(btn=>btn.addEventListener('click',()=>applyQuickStart(btn.dataset.quick)));
   $('#prefsForm').addEventListener('change',()=>{savePrefs();renderSchedule()});$('#analyzeBtn').onclick=analyze;$('#choiceBtn').onclick=openRequest;$('#closeRequest').onclick=closeRequest;$('#requestModal').onclick=e=>{if(e.target.id==='requestModal')closeRequest()};$('#requestForm').onsubmit=sendRequest;
   $('#shareBtn').onclick=async()=>{const data=await Promise.all((detail.length?detail:pool).map(loadDetails));const text=`ALANYA TOUR ORGANIZATIONS — Trip Planner\n${data.map((t,i)=>`${i+1}. ${t.title} — ${t.price}`).join('\n')}`;if(navigator.share){try{await navigator.share({title:'ALANYA TOUR ORGANIZATIONS — Trip Planner',text,url:location.href});return}catch(_){}}window.open(`https://wa.me/?text=${encodeURIComponent(text+'\n'+location.href)}`,'_blank','noopener')};
   if(pool.length)analyze();

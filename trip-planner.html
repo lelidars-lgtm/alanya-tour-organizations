@@ -1,13 +1,211 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRIP PLANNER | ALANYA TOUR ORGANIZATIONS</title><meta name="description" content="Compare tours and build your perfect Alanya itinerary."><link rel="stylesheet" href="assets/css/trip-planner.css"></head><body>
-<header class="tp-header"><div class="tp-shell tp-header-inner"><a class="tp-logo" href="index.html"><img src="logo.png" alt="ALANYA TOUR ORGANIZATIONS"><span class="tp-wordmark"><strong>ALANYA TOUR ORGANIZATIONS</strong><span>TRAVEL IS LOVE</span></span></a><nav class="tp-nav"><a href="index.html#main-categories">Tours</a><a href="interactive-map/">Explore Map</a><a class="active" href="trip-planner.html">Plan My Trip</a></nav></div></header>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRIP PLANNER | ALANYA TOUR ORGANIZATIONS</title><meta name="description" content="Compare tours and build your perfect Alanya itinerary."><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="assets/css/trip-planner.css"></head><body>
+<header class="header">
+  <div class="logo">
+    <img src="logo.png" alt="ALANYA TOUR ORGANIZATIONS">
+    <div class="logo-text">
+      <div class="logo-title">ALANYA TOUR</div>
+      <div class="logo-subtitle">ORGANIZATIONS</div>
+    </div>
+  </div>
+
+  <div class="mobile-menu-btn" id="mobileMenuBtn">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <nav class="nav">
+    <a href="index.html#main-categories" class="nav-item"><span>TOURS</span></a>
+    <a href="interactive-map/" class="nav-item"><span>EXPLORE MAP</span></a>
+    <a href="trip-planner.html" class="nav-item"><span>TRIP PLANNER</span></a>
+    <div class="nav-item" title="Ready-made tour combinations"><span>COMBO DEALS</span></div>
+    <div class="nav-item special"><span class="fire">🔥</span><span>SPECIAL OFFERS</span></div>
+    <a href="vip-service.html" class="nav-item"><span>VIP SERVICE</span></a>
+    <div class="nav-item nav-dropdown">
+      <span>ABOUT US</span>
+      <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M7 10L12 15L17 10"/></svg>
+      <div class="dropdown-menu">
+        <a href="index.html#about"><span class="dropdown-icon">◆</span>OUR COMPANY</a>
+        <a href="index.html#licenses"><span class="dropdown-icon">◇</span>LICENSES & CERTIFICATIONS</a>
+        <a href="index.html#insurance"><span class="dropdown-icon">✓</span>SAFETY & INSURANCE</a>
+      </div>
+    </div>
+    <a href="index.html#officialTourSearch" class="nav-item header-tour-search" id="headerTourSearch"><span>🔍 SEARCH TOURS…&nbsp;&nbsp;⚙</span></a>
+  </nav>
+
+  <div class="language language-dropdown">
+    <svg class="globe-icon" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12H21" />
+      <path d="M12 3C15 6 16.5 9 16.5 12C16.5 15 15 18 12 21" />
+      <path d="M12 3C9 6 7.5 9 7.5 12C7.5 15 9 18 12 21" />
+    </svg>
+    <span>EN</span>
+    <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M7 10L12 15L17 10" /></svg>
+    <div class="language-menu">
+      <button class="language-close">×</button>
+      <a href="#" data-lang="ru">🇷🇺 Russian</a>
+      <a href="#" data-lang="en">🇬🇧 English</a>
+      <a href="#" data-lang="tr">🇹🇷 Turkish</a>
+      <a href="#" data-lang="de">🇩🇪 German</a>
+      <a href="#" data-lang="pl">🇵🇱 Polish</a>
+    </div>
+  </div>
+</header>
+<div class="promo-bar">
+  <div class="promo-track">
+    <span class="promo-text" data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК" data-en="🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE" data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE" data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN & DIE 3. GRATIS" data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS">🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE</span>
+    <span class="promo-dot">◆</span>
+    <span>TRAVEL WITH LOVE. TRAVEL WITH US.</span>
+    <span class="promo-dot">◆</span>
+    <span>VIP YACHT TOURS • FAMILY SAFARI • PRIVATE TRANSFERS</span>
+    <span class="promo-dot">◆</span>
+    <span class="promo-text" data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК" data-en="🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE" data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE" data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN & DIE 3. GRATIS" data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS">🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE</span>
+  </div>
+</div>
 <main class="tp-shell">
-<section class="tp-hero"><span class="tp-kicker">Smart itinerary builder</span><h1>TRIP <span>PLANNER</span></h1><p>Compare tours. Build your perfect itinerary.</p><div class="tp-steps"><div class="tp-step"><small>STEP 01</small><strong>Compare Tours</strong></div><div class="tp-step"><small>STEP 02</small><strong>Plan Your Dates</strong></div><div class="tp-step"><small>STEP 03</small><strong>Share or Confirm</strong></div></div></section>
-<section class="tp-section"><div class="tp-section-head"><div><h2>Your selected tours</h2><p>Collect up to 8 tours from any category. Images, price and card information are read from the current original tour cards.</p></div><div class="tp-count" id="poolCount">0/8</div></div><div class="tp-section-body"><div class="tp-pool" id="poolGrid"></div></div></section>
-<section class="tp-section"><div class="tp-section-head"><div><h2>Your trip & preferences</h2><p>Safety and factual restrictions are checked before preferences.</p></div></div><div class="tp-section-body"><form id="prefsForm"><div class="tp-form-grid"><div class="tp-field"><label>Holiday start</label><input class="tp-input" type="date" name="travelStart"></div><div class="tp-field"><label>Holiday end</label><input class="tp-input" type="date" name="travelEnd"></div><div class="tp-field"><label>Adults</label><input class="tp-input" type="number" min="1" max="20" name="adults" value="2"></div><div class="tp-field"><label>Children & ages</label><input class="tp-input" name="children" placeholder="e.g. 2 children: 4, 9"></div><div class="tp-field"><label>Pace</label><select class="tp-select" name="pace"><option value="balanced">Balanced</option><option value="relaxed">Relaxed</option><option value="active">Active</option></select></div><div class="tp-field"><label>Road tolerance</label><select class="tp-select" name="road"><option value="medium">Medium</option><option value="low">Prefer short road time</option><option value="high">Long trips are fine</option></select></div><div class="tp-field"><label>Start time preference</label><select class="tp-select" name="startPref"><option value="any">Any</option><option value="late">Avoid early starts</option><option value="early">Early starts are fine</option></select></div><div class="tp-field"><label>Free days between tours</label><select class="tp-select" name="restDays"><option value="no">Not necessary</option><option value="yes">Prefer a free day</option></select></div><div class="tp-field wide"><span class="tp-group-label">Important for planning</span><div class="tp-checks"><label class="tp-chip"><input type="checkbox" name="pregnant" value="yes"> Pregnancy</label><label class="tp-chip"><input type="checkbox" name="elderly" value="yes"> Elderly guest</label><label class="tp-chip"><input type="checkbox" name="mobility" value="yes"> Reduced mobility</label><label class="tp-chip"><input type="checkbox" name="stroller" value="yes"> Stroller</label></div></div><div class="tp-field wide"><span class="tp-group-label">Interests</span><div class="tp-checks"><label class="tp-chip"><input type="checkbox" name="interests" value="sea"> Sea</label><label class="tp-chip"><input type="checkbox" name="interests" value="nature"> Nature</label><label class="tp-chip"><input type="checkbox" name="interests" value="history"> History</label><label class="tp-chip"><input type="checkbox" name="interests" value="extreme"> Extreme</label><label class="tp-chip"><input type="checkbox" name="interests" value="family"> Family</label><label class="tp-chip"><input type="checkbox" name="interests" value="wellness"> Wellness</label></div></div></div><div class="tp-actions"><button type="button" class="tp-btn gold" id="analyzeBtn">Get recommendations</button><span id="plannerStatus" style="align-self:center;color:#91a5b2;font-size:10px">Get a suggested schedule based on your selected tours and travel dates.</span></div></form></div></section>
-<section class="tp-section"><div class="tp-section-head"><div><h2>Planner recommendations</h2><p>Planner recommends. You decide. A recommendation never automatically selects your 2–4 comparison tours.</p></div></div><div class="tp-section-body"><div class="tp-recommendations" id="recommendations"></div></div></section>
-<section class="tp-section"><div class="tp-section-head"><div><h2>Detailed comparison</h2><p>Personally select any 2–4 tours from your pool for detailed comparative analysis.</p></div><div class="tp-count" id="detailCount">0/4</div></div><div class="tp-section-body" id="comparisonHost"></div></section>
-<section class="tp-section"><div class="tp-section-head"><div><h2>Plan Your Dates</h2><p>Get a suggested schedule based on your selected tours and travel dates.</p></div></div><div class="tp-section-body"><div id="scheduleHost"></div><div class="tp-weather" id="weatherNote"><strong>Weather layer:</strong> add your travel dates to prepare date-specific guidance.</div><div class="tp-source-note">Suggested itinerary — dates and availability require confirmation.</div></div></section>
-<section class="tp-section"><div class="tp-section-body"><div class="tp-final"><div><h3>Ready to continue?</h3><p>Your original selected pool stays saved while you browse the site. Final availability, pickup time and price are confirmed by the travel manager.</p><div class="tp-actions"><button type="button" class="tp-btn" id="shareBtn">Share via WhatsApp</button></div></div><button class="tp-choice" id="choiceBtn" type="button" disabled>I’VE MADE MY CHOICE<small>Choose your tours first</small></button></div></div></section>
+<section class="tp-hero" id="plannerTop">
+  <div class="tp-sea-orbit tp-sea-orbit-one"></div>
+  <div class="tp-sea-orbit tp-sea-orbit-two"></div>
+  <div class="tp-moon-path"></div>
+  <div class="tp-gold-wave tp-gold-wave-one"></div>
+  <div class="tp-gold-wave tp-gold-wave-two"></div>
+  <span class="tp-kicker">Signature travel planning experience</span>
+  <h1>TRIP <span>PLANNER</span></h1>
+  <p>Compare tours. Build your perfect itinerary.</p>
+  <div class="tp-hero-promise">Choose your experiences, tell us how you travel, and turn your holiday into a personal itinerary.</div>
+  <div class="tp-steps">
+    <div class="tp-step"><small>STEP 01</small><strong>Choose Experiences</strong></div>
+    <div class="tp-step"><small>STEP 02</small><strong>Tell Us About Your Trip</strong></div>
+    <div class="tp-step"><small>STEP 03</small><strong>Compare & Plan</strong></div>
+    <div class="tp-step"><small>STEP 04</small><strong>Confirm With Manager</strong></div>
+  </div>
+  <a class="tp-start" href="#exploreCategories">START PLANNING <span>↓</span></a>
+</section>
+
+<nav class="tp-progress" aria-label="Trip Planner progress">
+  <a href="#exploreCategories"><span>01</span> Choose</a>
+  <a href="#selectedTours"><span>02</span> Selected</a>
+  <a href="#tripPreferences"><span>03</span> Preferences</a>
+  <a href="#plannerRecommendations"><span>04</span> Recommendations</a>
+  <a href="#planDates"><span>05</span> Dates</a>
+</nav>
+
+<section class="tp-section tp-category-section" id="exploreCategories">
+  <div class="tp-section-head tp-category-head">
+    <div><span class="tp-eyebrow">BEGIN YOUR JOURNEY</span><h2>Explore by category</h2><p>Open any original category, choose the tours you love and return here — your selections stay saved.</p></div>
+    <div class="tp-category-total"><strong>9</strong><span>experiences<br>collections</span></div>
+  </div>
+  <div class="tp-section-body">
+    <div class="tp-category-grid" id="categoryGrid">
+      <a class="tp-category-card tp-category-wide" href="sea-experiences.html" data-category-source="sea-experiences.html" data-category-name="Sea">
+        <img src="images/sea-experiences/sea-category-hero.jpg" alt="Sea Experiences"><span class="tp-category-shade"></span><span class="tp-category-number">01</span><span class="tp-category-content"><small>Yachts • Fishing • Hidden bays</small><strong>SEA EXPERIENCES</strong><em>EXPLORE →</em><b class="tp-category-selected">0 selected</b></span>
+      </a>
+      <a class="tp-category-card" href="nature-adventures.html" data-category-source="nature-adventures.html" data-category-name="Nature & Adventure">
+        <img src="images/nature-adventure/canyon-adventures.png" alt="Nature and Adventure"><span class="tp-category-shade"></span><span class="tp-category-number">02</span><span class="tp-category-content"><small>Canyons • Lakes • Mountains</small><strong>NATURE & ADVENTURE</strong><em>EXPLORE →</em><b class="tp-category-selected">0 selected</b></span>
+      </a>
+      <a class="tp-category-card" href="extreme-adventure.html" data-category-source="extreme-adventure.html" data-category-name="Extreme & Adventure">
+        <img src="images/extreme-adventure/extreme-hero.png" alt="Extreme and Adventure"><span class="tp-category-shade"></span><span class="tp-category-number">03</span><span class="tp-category-content"><small>Rafting • Safari • Adrenaline</small><strong>EXTREME & ADVENTURE</strong><em>EXPLORE →</em><b class="tp-category-selected">0 selected</b></span>
+      </a>
+      <a class="tp-category-card tp-category-wide" href="family-experiences.html" data-category-source="family-experiences.html" data-category-name="Family Experiences">
+        <img src="images/family-experiences/hero.png" alt="Family Experiences"><span class="tp-category-shade"></span><span class="tp-category-number">04</span><span class="tp-category-content"><small>Theme parks • Shows • Family days</small><strong>FAMILY EXPERIENCES</strong><em>EXPLORE →</em><b class="tp-category-selected">0 selected</b></span>
+      </a>
+      <a class="tp-category-card" href="history-culture.html" data-category-source="history-culture.html" data-category-name="History & Culture">
+        <img src="images/history-culture/history-culture-hero.png" alt="History and Culture"><span class="tp-category-shade"></span><span class="tp-category-number">05</span><span class="tp-category-content"><small>Ancient cities • Cappadocia • Istanbul</small><strong>HISTORY & CULTURE</strong><em>EXPLORE →</em><b class="tp-category-selected">0 selected</b></span>
+      </a>
+      <a class="tp-category-card" href="water-sports.html" data-category-source="water-sports.html" data-category-name="Water Sports">
+        <img src="images/water-sports/water-sports-hero.png" alt="Water Sports"><span class="tp-category-shade"></span><span class="tp-category-number">06</span><span class="tp-category-content"><small>Jetski • Parasailing • Diving</small><strong>WATER SPORTS</strong><em>EXPLORE →</em><b class="tp-category-selected">0 selected</b></span>
+      </a>
+      <a class="tp-category-card" href="air-experiences.html" data-category-source="air-experiences.html" data-category-name="Air Experiences">
+        <img src="images/air-experiences/air-category-hero.png" alt="Air Experiences"><span class="tp-category-shade"></span><span class="tp-category-number">07</span><span class="tp-category-content"><small>Paragliding • Helicopter • Skydive</small><strong>AIR EXPERIENCES</strong><em>EXPLORE →</em><b class="tp-category-selected">0 selected</b></span>
+      </a>
+      <a class="tp-category-card" href="wellness-relax.html" data-category-source="wellness-relax.html" data-category-name="Wellness & Relax">
+        <img src="images/wellness-relax/hero.jpeg" alt="Wellness and Relax"><span class="tp-category-shade"></span><span class="tp-category-number">08</span><span class="tp-category-content"><small>Hammam • Spa • Massage</small><strong>WELLNESS & RELAX</strong><em>EXPLORE →</em><b class="tp-category-selected">0 selected</b></span>
+      </a>
+      <a class="tp-category-card tp-category-wide" href="vip-service.html" data-category-source="vip-service.html" data-category-name="VIP Services">
+        <img src="images/vip-services/HERO.png" alt="VIP Services"><span class="tp-category-shade"></span><span class="tp-category-number">09</span><span class="tp-category-content"><small>Private yachts • Transfers • Concierge</small><strong>VIP SERVICES</strong><em>EXPLORE →</em><b class="tp-category-selected">0 selected</b></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="tp-section tp-quick-section" id="quickStart">
+  <div class="tp-section-head"><div><span class="tp-eyebrow">PERSONAL CONCIERGE SHORTCUTS</span><h2>Quick start</h2><p>Not sure where to begin? Choose the holiday style closest to you. We will pre-fill the planner preferences — you still make every final choice.</p></div></div>
+  <div class="tp-section-body"><div class="tp-quick-grid">
+    <button type="button" class="tp-quick-card" data-quick="family"><span>01</span><strong>Family First</strong><small>Children, comfort and balanced days</small></button>
+    <button type="button" class="tp-quick-card" data-quick="sea"><span>02</span><strong>Sea Lover</strong><small>Yachts, bays and water experiences</small></button>
+    <button type="button" class="tp-quick-card" data-quick="active"><span>03</span><strong>Adventure Mode</strong><small>Active pace and adrenaline</small></button>
+    <button type="button" class="tp-quick-card" data-quick="relaxed"><span>04</span><strong>Slow Luxury</strong><small>Relaxed pace, spa and easy days</small></button>
+    <button type="button" class="tp-quick-card" data-quick="firsttime"><span>05</span><strong>First Time in Alanya</strong><small>A balanced introduction to the region</small></button>
+    <button type="button" class="tp-quick-card" data-quick="vip"><span>06</span><strong>Private & VIP</strong><small>Premium services and private experiences</small></button>
+  </div></div>
+</section>
+
+<section class="tp-section" id="selectedTours"><div class="tp-section-head"><div><span class="tp-eyebrow">YOUR COLLECTION</span><h2>Your selected tours</h2><p>Collect up to 8 tours from any category. Images, price and card information are read from the current original tour cards.</p></div><div class="tp-count" id="poolCount">0/8</div></div><div class="tp-section-body"><div class="tp-pool" id="poolGrid"></div></div></section>
+<section class="tp-section" id="tripPreferences"><div class="tp-section-head"><div><span class="tp-eyebrow">TELL US HOW YOU TRAVEL</span><h2>Your trip & preferences</h2><p>Safety and factual restrictions are checked before preferences.</p></div></div><div class="tp-section-body"><form id="prefsForm"><div class="tp-form-grid"><div class="tp-field"><label>Holiday start</label><input class="tp-input" type="date" name="travelStart"></div><div class="tp-field"><label>Holiday end</label><input class="tp-input" type="date" name="travelEnd"></div><div class="tp-field"><label>Adults</label><input class="tp-input" type="number" min="1" max="20" name="adults" value="2"></div><div class="tp-field"><label>Children & ages</label><input class="tp-input" name="children" placeholder="e.g. 2 children: 4, 9"></div><div class="tp-field"><label>Pace</label><select class="tp-select" name="pace"><option value="balanced">Balanced</option><option value="relaxed">Relaxed</option><option value="active">Active</option></select></div><div class="tp-field"><label>Road tolerance</label><select class="tp-select" name="road"><option value="medium">Medium</option><option value="low">Prefer short road time</option><option value="high">Long trips are fine</option></select></div><div class="tp-field"><label>Start time preference</label><select class="tp-select" name="startPref"><option value="any">Any</option><option value="late">Avoid early starts</option><option value="early">Early starts are fine</option></select></div><div class="tp-field"><label>Free days between tours</label><select class="tp-select" name="restDays"><option value="no">Not necessary</option><option value="yes">Prefer a free day</option></select></div><div class="tp-field wide"><span class="tp-group-label">Important for planning</span><div class="tp-checks"><label class="tp-chip"><input type="checkbox" name="pregnant" value="yes"> Pregnancy</label><label class="tp-chip"><input type="checkbox" name="elderly" value="yes"> Elderly guest</label><label class="tp-chip"><input type="checkbox" name="mobility" value="yes"> Reduced mobility</label><label class="tp-chip"><input type="checkbox" name="stroller" value="yes"> Stroller</label></div></div><div class="tp-field wide"><span class="tp-group-label">Interests</span><div class="tp-checks"><label class="tp-chip"><input type="checkbox" name="interests" value="sea"> Sea</label><label class="tp-chip"><input type="checkbox" name="interests" value="nature"> Nature</label><label class="tp-chip"><input type="checkbox" name="interests" value="history"> History</label><label class="tp-chip"><input type="checkbox" name="interests" value="extreme"> Extreme</label><label class="tp-chip"><input type="checkbox" name="interests" value="family"> Family</label><label class="tp-chip"><input type="checkbox" name="interests" value="wellness"> Wellness</label><label class="tp-chip"><input type="checkbox" name="interests" value="water"> Water Sports</label><label class="tp-chip"><input type="checkbox" name="interests" value="air"> Air</label><label class="tp-chip"><input type="checkbox" name="interests" value="vip"> VIP</label></div></div></div><div class="tp-actions"><button type="button" class="tp-btn gold" id="analyzeBtn">Get recommendations</button><span id="plannerStatus" style="align-self:center;color:#91a5b2;font-size:10px">Get a suggested schedule based on your selected tours and travel dates.</span></div></form></div></section>
+<section class="tp-section" id="plannerRecommendations"><div class="tp-section-head"><div><span class="tp-eyebrow">YOUR PERSONAL MATCHES</span><h2>Planner recommendations</h2><p>Planner recommends. You decide. A recommendation never automatically selects your 2–4 comparison tours.</p></div></div><div class="tp-section-body"><div class="tp-recommendations" id="recommendations"></div></div></section>
+<section class="tp-section" id="detailedComparison"><div class="tp-section-head"><div><span class="tp-eyebrow">COMPARE BEFORE YOU DECIDE</span><h2>Detailed comparison</h2><p>Personally select any 2–4 tours from your pool for detailed comparative analysis.</p></div><div class="tp-count" id="detailCount">0/4</div></div><div class="tp-section-body" id="comparisonHost"></div></section>
+<section class="tp-section" id="planDates"><div class="tp-section-head"><div><span class="tp-eyebrow">TURN CHOICES INTO A JOURNEY</span><h2>Plan Your Dates</h2><p>Get a suggested schedule based on your selected tours and travel dates.</p></div></div><div class="tp-section-body"><div id="scheduleHost"></div><div class="tp-weather" id="weatherNote"><strong>Weather layer:</strong> add your travel dates to prepare date-specific guidance.</div><div class="tp-source-note">Suggested itinerary — dates and availability require confirmation.</div></div></section>
+<section class="tp-section" id="bringChecklist"><div class="tp-section-head"><div><span class="tp-eyebrow">PREPARE WITH CONFIDENCE</span><h2>What to Bring</h2><p>Each shortlisted tour keeps its own requirements. The planner never merges tour-specific rules into a generic list.</p></div></div><div class="tp-section-body"><div class="tp-bring-grid" id="bringHost"></div></div></section>
+<section class="tp-section tp-final-section"><div class="tp-section-body"><div class="tp-final"><div><span class="tp-eyebrow">YOUR PERSONAL TRAVEL PLAN</span><h3>Ready to turn your plan into a real holiday?</h3><p>Your selected pool, comparison and suggested dates stay saved while you browse. Final availability, pickup time and price are confirmed by our travel manager.</p><div class="tp-actions"><button type="button" class="tp-btn" id="shareBtn">Share My Itinerary</button></div></div><button class="tp-choice" id="choiceBtn" type="button" disabled>I’VE MADE MY CHOICE<small>Choose your tours first</small></button></div></div></section>
 </main><footer class="tp-footer"><div class="tp-shell">© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.</div></footer>
 <div class="tp-modal" id="requestModal" aria-hidden="true"><div class="tp-dialog"><div class="tp-dialog-head"><h2>Contact our travel manager</h2><button class="tp-close" type="button" id="closeRequest">×</button></div><form class="tp-request" id="requestForm"><div class="tp-request-tours" id="requestTours"></div><div class="tp-form-grid"><div class="tp-field wide"><label>Name</label><input class="tp-input" name="name" required></div><div class="tp-field wide"><label>WhatsApp / phone</label><input class="tp-input" name="phone" required></div><div class="tp-field wide"><label>Hotel</label><input class="tp-input" name="hotel"></div><div class="tp-field"><label>Room number</label><input class="tp-input" name="room"></div><div class="tp-field"><label>Adults</label><input class="tp-input" type="number" min="1" name="adults"></div><div class="tp-field wide"><label>Children / ages</label><input class="tp-input" name="children" placeholder="e.g. 4, 9"></div><div class="tp-field"><label>Pregnancy</label><select class="tp-select" name="pregnant"><option>No</option><option>Yes</option></select></div><div class="tp-field"><label>Elderly guests</label><select class="tp-select" name="elderly"><option>No</option><option>Yes</option></select></div><div class="tp-field"><label>Stroller / mobility</label><select class="tp-select" name="mobility"><option>No</option><option>Child stroller</option><option>Wheelchair / reduced mobility</option><option>Both</option></select></div><div class="tp-field"><label>Language</label><select class="tp-select" name="language"><option>English</option><option>Russian</option><option>Turkish</option><option>German</option><option>Polish</option></select></div><div class="tp-field wide" style="grid-column:1/-1"><label>Notes</label><textarea class="tp-textarea" name="notes"></textarea></div></div><div class="tp-actions"><button class="tp-btn gold" type="submit">Send request to manager via WhatsApp</button></div><div class="tp-request-note">Sending the request does not confirm availability. The manager reviews the dates, pickup, final price and any safety restrictions before confirmation.</div></form></div></div>
-<script src="assets/js/trip-planner.js"></script></body></html>
+<script>
+  const allowedLangs = ["ru", "en", "tr", "de", "pl"];
+  const savedLang = localStorage.getItem("atoLanguage");
+  const currentLang = allowedLangs.includes(savedLang) ? savedLang : "en";
+  function updateLang(lang) {
+    document.querySelectorAll("[data-" + lang + "]").forEach(el => {
+      el.textContent = el.getAttribute("data-" + lang);
+    });
+    const langLabel = document.querySelector(".language-dropdown > span");
+    if (langLabel) langLabel.textContent = lang.toUpperCase();
+    document.documentElement.lang = lang;
+    localStorage.setItem("atoLanguage", lang);
+  }
+  updateLang(currentLang);
+  document.querySelectorAll(".language-menu a").forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      const lang = this.getAttribute("data-lang");
+      if (allowedLangs.includes(lang)) updateLang(lang);
+    });
+  });
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const nav = document.querySelector('.nav');
+  const overlay = document.getElementById('mobileOverlay');
+  const aboutDropdown = document.querySelector('.nav-dropdown');
+  const languageDropdown = document.querySelector('.language-dropdown');
+  const languageClose = document.querySelector('.language-close');
+  function toggleMenu() {
+    nav.classList.toggle('active');
+    mobileBtn.classList.toggle('active');
+    overlay.classList.toggle('active');
+  }
+  if (mobileBtn && nav && overlay) {
+    mobileBtn.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+  }
+  if (aboutDropdown) {
+    aboutDropdown.addEventListener('click', function(e) {
+      if (window.innerWidth <= 980) {
+        e.stopPropagation();
+        this.classList.toggle('open');
+      }
+    });
+  }
+  if (languageDropdown) {
+    languageDropdown.addEventListener('click', function(e) {
+      if (window.innerWidth <= 980) {
+        e.stopPropagation();
+        this.classList.toggle('open');
+      }
+    });
+  }
+  if (languageClose && languageDropdown) {
+    languageClose.addEventListener('click', function(e) {
+      e.stopPropagation();
+      languageDropdown.classList.remove('open');
+    });
+  }
+</script><script src="assets/js/trip-planner.js"></script></body></html>
