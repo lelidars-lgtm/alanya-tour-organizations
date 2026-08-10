@@ -1,4 +1,82 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRIP PLANNER | ALANYA TOUR ORGANIZATIONS</title><meta name="description" content="Compare tours and build your perfect Alanya itinerary."><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="assets/css/trip-planner.css"></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRIP PLANNER | ALANYA TOUR ORGANIZATIONS</title><meta name="description" content="Compare tours and build your perfect Alanya itinerary."><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="assets/css/trip-planner.css"><style id="tp-final-visual-tweaks">
+/* ===== FINAL APPROVED VISUAL TWEAKS ===== */
+/* Step titles: keep STEP numbers gold, make the main line white + CAPS. */
+.tp-steps .tp-step strong{
+  color:#fff!important;
+  text-transform:uppercase!important;
+  font-weight:900!important;
+  letter-spacing:.035em!important;
+}
+
+/* Slightly tighten the beginning of the Planner without changing its composition. */
+.tp-hero{
+  margin-top:22px!important;
+  min-height:580px!important;
+}
+
+/* Match the approved original/map footer: gold trust line + compact white copyright line. */
+.original-site-footer{
+  min-height:76px!important;
+  padding:0!important;
+  margin:0!important;
+  overflow:hidden!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  justify-content:flex-start!important;
+  background:#03111e!important;
+  color:#fff!important;
+  text-align:center!important;
+  border-top:1px solid rgba(226,177,61,.62)!important;
+}
+.original-site-footer .footer-trust{
+  min-height:28px!important;
+  height:28px!important;
+  margin:0!important;
+  padding:0 12px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background-color:#03111e!important;
+  background-image:linear-gradient(90deg,#9b650b 0%,#f7d978 23%,#c98e22 48%,#fff0ac 70%,#a86d0d 100%)!important;
+  background-size:220% 100%!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  color:transparent!important;
+  font:700 11px/1.2 Georgia,"Times New Roman",serif!important;
+  letter-spacing:1.35px!important;
+  text-transform:uppercase!important;
+  animation:tpFooterGoldShimmer 4.8s ease-in-out infinite!important;
+}
+.original-site-footer .footer-copy{
+  min-height:48px!important;
+  margin:0!important;
+  padding:9px 12px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  box-sizing:border-box!important;
+  background:#020914!important;
+  border-top:1px solid rgba(255,255,255,.035)!important;
+  color:rgba(255,255,255,.92)!important;
+  font:400 10.5px/1.25 Arial,Helvetica,sans-serif!important;
+  letter-spacing:.68px!important;
+}
+@keyframes tpFooterGoldShimmer{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+@media(prefers-reduced-motion:reduce){
+  .original-site-footer .footer-trust{animation:none!important;background-position:50% 50%!important}
+}
+@media(max-width:760px){
+  .tp-hero{margin-top:12px!important;min-height:540px!important}
+  .original-site-footer{min-height:68px!important}
+  .original-site-footer .footer-trust{height:24px!important;min-height:24px!important;font-size:9px!important;letter-spacing:.75px!important}
+  .original-site-footer .footer-copy{min-height:44px!important;padding:7px 10px!important;font-size:9px!important;letter-spacing:.5px!important}
+}
+</style></head><body>
 <div class="tp-your-intro" id="tpYourIntro" aria-hidden="true">
   <div class="tp-your-intro-sea"></div>
   <div class="tp-your-intro-moon"></div>
