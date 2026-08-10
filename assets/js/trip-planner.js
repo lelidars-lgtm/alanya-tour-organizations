@@ -356,10 +356,28 @@ async function sendRequest(e){
       language:String(fd.get('language')||'English'),notes:String(fd.get('notes')||'').trim(),prefs:p,tours
     };
     let saved=null;
+    let saveError=null;
     if(window.ATOBooking){
-      try{const result=await window.ATOBooking.createTripRequest(payload);saved=result?.data||null}catch(err){console.warn('Booking database unavailable',err)}
+      try{
+        const result=await window.ATOBooking.createTripRequest(payload);
+        saved=result?.data||null;
+        if(result?.configured && !saved)saveError=new Error('The booking database did not return a saved request.');
+      }catch(err){
+        saveError=err instanceof Error?err:new Error(String(err||'Booking database unavailable'));
+        console.error('Trip Planner booking save failed',err);
+      }
+    }else{
+      saveError=new Error('Booking connection is not loaded.');
     }
     const requestNo=saved?.request_no||saved?.requestNo||'';
+    if(!requestNo){
+      let notice=form.querySelector('.tp-request-success');
+      if(!notice){notice=document.createElement('div');notice.className='tp-request-success';form.appendChild(notice)}
+      notice.innerHTML=`<strong>REQUEST NOT SAVED.</strong><br>${escapeHTML(saveError?.message||'Could not save the request to Booking Manager.')}<br><small>WhatsApp was not opened because the request must first appear in the ATO Booking Manager.</small>`;
+      notice.style.borderColor='rgba(255,110,110,.45)';
+      notice.style.color='#ffd3d3';
+      return;
+    }
     try{localStorage.setItem('atoLastTripRequest',JSON.stringify({payload,saved,createdAt:new Date().toISOString()}))}catch(_){}
     const lines=tours.map((t,i)=>`${i+1}. ${t.title} — ${t.requested_date||'date to confirm'}`);
     const msg=[`ALANYA TOUR ORGANIZATIONS — TRIP PLANNER REQUEST`,requestNo?`Request No: ${requestNo}`:'',``,`Selected tours:`,...lines,``,`Guest: ${payload.guest_name||'-'}`,`WhatsApp: ${payload.phone||'-'}`,`Hotel: ${payload.hotel||'-'}`,`Room: ${payload.room||'-'}`,`Adults: ${payload.adults||'-'}`,`Children / ages: ${payload.children||'No'}`,`Pregnancy: ${payload.pregnancy?'Yes':'No'}`,`Elderly guests: ${payload.elderly?'Yes':'No'}`,`Stroller / mobility: ${payload.mobility||'No'}`,`Language: ${payload.language}`,`Notes: ${payload.notes||'-'}`,``,`Please confirm availability, pickup time and final price.`].filter(Boolean).join('\n');

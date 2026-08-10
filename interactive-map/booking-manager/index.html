@@ -84,6 +84,13 @@ async function sessionView(){
 }
 
 async function fetchTripBookings(){
+  // Prefer the owner-only RPC. It avoids RLS mismatches between the old magic-link
+  // Booking Manager and the new Trip Planner table. Fall back to direct SELECT
+  // so the page remains compatible before the SQL patch is installed.
+  const rpc=await db.rpc('ato_manager_list_trip_bookings');
+  if(!rpc.error)return (rpc.data||[]).map(x=>({...x,__kind:'trip'}));
+  const msg=String(rpc.error?.message||'');
+  if(!/function .*ato_manager_list_trip_bookings.* does not exist|Could not find the function|PGRST202/i.test(msg))throw rpc.error;
   const {data,error}=await db.from('trip_bookings').select('*').order('created_at',{ascending:false}).limit(150);
   if(error)throw error;
   return (data||[]).map(x=>({...x,__kind:'trip'}));
@@ -196,8 +203,18 @@ $('refreshBtn').onclick=load;
 $('search').oninput=renderList;
 $('filter').onchange=renderList;
 $('bookingList').onclick=e=>{const el=e.target.closest('[data-id]');if(!el)return;current=rows.find(x=>x.id===el.dataset.id&&x.__kind===el.dataset.kind)||null;renderList();renderDetail()};
-if(db){db.auth.onAuthStateChange((_event,session)=>{if(session?.user?.email?.toLowerCase()===cfg.ownerEmail){showManager(session.user.email);load()}})}
+let autoRefreshTimer=null;
+function startAutoRefresh(){
+  if(autoRefreshTimer)clearInterval(autoRefreshTimer);
+  autoRefreshTimer=setInterval(async()=>{
+    const {data}=await db?.auth.getSession()||{data:{}};
+    const email=data?.session?.user?.email?.toLowerCase()||'';
+    if(email===cfg.ownerEmail)load();
+  },8000);
+}
+if(db){db.auth.onAuthStateChange((_event,session)=>{if(session?.user?.email?.toLowerCase()===cfg.ownerEmail){showManager(session.user.email);load();startAutoRefresh()}})}
 await sessionView();
+if(!$('managerView').classList.contains('hidden'))startAutoRefresh();
 })();
 </script>
 </body>

@@ -1,28 +1,21 @@
-ATO BOOKING MANAGER — MAGIC LINK + TRIP PLANNER
+ATO — FIX: заявка из TRIP PLANNER не появляется в личном кабинете
 
 Что исправлено:
-1. Существующий личный кабинет остаётся по адресу:
-   /interactive-map/booking-manager/
-2. Пароль НЕ добавляется.
-   Вход остаётся как раньше: кнопка «ПОЛУЧИТЬ ССЫЛКУ ДЛЯ ВХОДА» отправляет новую одноразовую ссылку на email владельца.
-3. Кабинет показывает:
-   - новые заявки из TRIP PLANNER (trip_bookings),
-   - старые заявки из прежней таблицы bookings, если они есть.
-4. Новую заявку можно открыть, исправить дату / pickup / время / цену по каждой экскурсии.
-5. «ПОДТВЕРДИТЬ И СОЗДАТЬ БИЛЕТ» подтверждает заявку и сразу показывает в кабинете настоящий e-ticket из /e-ticket.html.
-6. Для каждого тура — отдельный e-ticket. Есть кнопка отправки ссылок клиенту в WhatsApp.
-7. Старый ошибочный адрес /booking-manager/ автоматически перенаправляет в правильный кабинет.
+1. Booking Manager читает новые заявки через отдельный owner-only RPC и больше не зависит от несовпадения старых/новых RLS-политик.
+2. Booking Manager автоматически обновляет список каждые 8 секунд.
+3. TRIP PLANNER больше НЕ открывает WhatsApp, если заявка реально не сохранилась в Supabase.
+   Вместо ложного успеха он показывает точную ошибку на экране.
+4. WhatsApp открывается только после получения Request No от Supabase.
 
-УСТАНОВКА
-A. Скопировать содержимое ZIP в корень alanya-tour-organizations с заменой.
-B. В Supabase → SQL Editor открыть файл:
-   supabase/manager-magic-link-access.sql
-   и выполнить один раз.
-C. Commit → Push origin.
-D. Открыть:
-   https://alanya-tour-organizations.vercel.app/interactive-map/booking-manager/
+Установка:
+A. Скопировать с заменой:
+   interactive-map/booking-manager/index.html
+   assets/js/trip-planner.js
+B. Supabase → SQL Editor → открыть supabase/manager-trip-bookings-rpc.sql → Run один раз.
+C. Commit to main → Push origin.
 
-ВАЖНО
-- booking-config.js не заменяется этим пакетом: ваш существующий вход не ломаем.
-- e-ticket.html и новый Trip Planner должны быть уже установлены из последнего пакета интеграции.
-- пароль нигде не нужен и не создаётся.
+Проверка:
+- отправить тестовую заявку из TRIP PLANNER;
+- на экране должен появиться Request No;
+- в WhatsApp тоже будет строка Request No;
+- кабинет обновится автоматически максимум примерно через 8 секунд.
