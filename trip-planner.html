@@ -1,5 +1,81 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRIP PLANNER | ALANYA TOUR ORGANIZATIONS</title><meta name="description" content="Compare tours and build your perfect Alanya itinerary."><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="assets/css/trip-planner.css"><style id="tp-final-visual-tweaks">
 /* ===== FINAL APPROVED VISUAL TWEAKS ===== */
+/* ===== YOUR → TRIP → PLANNER SEQUENTIAL HERO REVEAL ===== */
+/* During the opening signature animation, only YOUR is allowed to settle first. */
+.tp-hero.tp-title-sequence-active .tp-trip-word,
+.tp-hero.tp-title-sequence-active .tp-planner-word{
+  display:inline-block;
+  opacity:0;
+  transform:translateY(10px) scale(.94);
+  filter:blur(8px) brightness(.75);
+  will-change:opacity,transform,filter,text-shadow;
+}
+.tp-personal-title .tp-trip-word{
+  color:#fff!important;
+  background:none!important;
+  -webkit-text-fill-color:#fff!important;
+}
+.tp-personal-title .tp-planner-word{
+  color:#f2cf77!important;
+  background:none!important;
+  -webkit-text-fill-color:#f2cf77!important;
+}
+.tp-hero.tp-title-sequence-active .tp-trip-word.tp-word-lit{
+  animation:tpTripIgnite .54s cubic-bezier(.18,.82,.22,1) forwards;
+}
+.tp-hero.tp-title-sequence-active .tp-planner-word.tp-word-lit{
+  animation:tpPlannerIgnite .58s cubic-bezier(.18,.82,.22,1) forwards;
+}
+
+/* Everything except the main title waits until YOUR, TRIP and PLANNER are complete. */
+.tp-hero.tp-title-sequence-active .tp-kicker,
+.tp-hero.tp-title-sequence-active > p,
+.tp-hero.tp-title-sequence-active .tp-hero-promise,
+.tp-hero.tp-title-sequence-active .tp-steps,
+.tp-hero.tp-title-sequence-active .tp-start{
+  opacity:0!important;
+  transform:translateY(12px);
+  pointer-events:none;
+}
+.tp-hero.tp-title-sequence-active.tp-reveal-rest .tp-kicker,
+.tp-hero.tp-title-sequence-active.tp-reveal-rest > p,
+.tp-hero.tp-title-sequence-active.tp-reveal-rest .tp-hero-promise,
+.tp-hero.tp-title-sequence-active.tp-reveal-rest .tp-steps,
+.tp-hero.tp-title-sequence-active.tp-reveal-rest .tp-start{
+  animation:tpHeroRestIn .62s cubic-bezier(.2,.78,.18,1) forwards;
+  pointer-events:auto;
+}
+.tp-hero.tp-title-sequence-active.tp-reveal-rest > p{animation-delay:.08s}
+.tp-hero.tp-title-sequence-active.tp-reveal-rest .tp-hero-promise{animation-delay:.16s}
+.tp-hero.tp-title-sequence-active.tp-reveal-rest .tp-steps{animation-delay:.24s}
+.tp-hero.tp-title-sequence-active.tp-reveal-rest .tp-start{animation-delay:.34s}
+
+@keyframes tpTripIgnite{
+  0%{opacity:0;transform:translateY(10px) scale(.94);filter:blur(8px) brightness(.7);text-shadow:0 0 0 rgba(255,255,255,0)}
+  52%{opacity:1;transform:translateY(-1px) scale(1.025);filter:blur(0) brightness(1.35);text-shadow:0 0 24px rgba(235,248,255,.62),0 0 50px rgba(137,213,255,.22)}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0) brightness(1);text-shadow:0 10px 30px rgba(0,0,0,.34)}
+}
+@keyframes tpPlannerIgnite{
+  0%{opacity:0;transform:translateY(10px) scale(.94);filter:blur(8px) brightness(.72);text-shadow:0 0 0 rgba(242,207,119,0)}
+  52%{opacity:1;transform:translateY(-1px) scale(1.025);filter:blur(0) brightness(1.3);text-shadow:0 0 26px rgba(255,221,132,.60),0 0 54px rgba(214,162,74,.24)}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0) brightness(1);text-shadow:0 10px 30px rgba(0,0,0,.34)}
+}
+@keyframes tpHeroRestIn{
+  from{opacity:0;transform:translateY(12px);filter:blur(3px)}
+  to{opacity:1;transform:translateY(0);filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .tp-hero.tp-title-sequence-active .tp-trip-word,
+  .tp-hero.tp-title-sequence-active .tp-planner-word,
+  .tp-hero.tp-title-sequence-active .tp-kicker,
+  .tp-hero.tp-title-sequence-active > p,
+  .tp-hero.tp-title-sequence-active .tp-hero-promise,
+  .tp-hero.tp-title-sequence-active .tp-steps,
+  .tp-hero.tp-title-sequence-active .tp-start{
+    opacity:1!important;transform:none!important;filter:none!important;animation:none!important;pointer-events:auto!important;
+  }
+}
+
 /* Step titles: keep STEP numbers gold, make the main line white + CAPS. */
 .tp-steps .tp-step strong{
   color:#fff!important;
@@ -154,7 +230,7 @@
   <div class="tp-gold-wave tp-gold-wave-one"></div>
   <div class="tp-gold-wave tp-gold-wave-two"></div>
   <span class="tp-kicker">Signature travel planning experience</span>
-  <h1 class="tp-personal-title"><span class="tp-your-inline">YOUR</span> TRIP <span>PLANNER</span></h1>
+  <h1 class="tp-personal-title"><span class="tp-your-inline">YOUR</span> <span class="tp-trip-word">TRIP</span> <span class="tp-planner-word">PLANNER</span></h1>
   <p>Compare tours. Build your perfect itinerary.</p>
   <div class="tp-hero-promise">Choose your experiences, tell us how you travel, and turn your holiday into a personal itinerary.</div>
   <div class="tp-steps">
@@ -304,12 +380,14 @@
   const target=hero?.querySelector('.tp-your-inline');
   if(!intro||!hero||!word||!target)return;
 
+  const tripWord=hero.querySelector('.tp-trip-word');
+  const plannerWord=hero.querySelector('.tp-planner-word');
+
   const finish=()=>{
-    hero.classList.add('tp-your-arrived');
     document.body.classList.remove('tp-your-intro-lock');
-    intro.classList.add('leave');
+    hero.classList.remove('tp-title-sequence-active');
+    hero.classList.remove('tp-reveal-rest');
     window.dispatchEvent(new CustomEvent('ato:your-intro-complete'));
-    window.setTimeout(()=>intro.remove(),620);
   };
 
   let seen=false;
@@ -323,6 +401,7 @@
   }
 
   try{sessionStorage.setItem('atoTPYourIntroSeen','1')}catch(_){ }
+  hero.classList.add('tp-title-sequence-active');
   document.body.classList.add('tp-your-intro-lock');
   intro.classList.add('play');
 
@@ -348,8 +427,18 @@
       fill:'forwards'
     });
 
-    window.setTimeout(()=>hero.classList.add('tp-your-arrived'),2660);
-    window.setTimeout(finish,3070);
+    /* YOUR reaches its exact left-side title position first. */
+    window.setTimeout(()=>hero.classList.add('tp-your-arrived'),2990);
+    window.setTimeout(()=>intro.classList.add('leave'),3050);
+    window.setTimeout(()=>intro.remove(),3650);
+
+    /* Then illuminate TRIP, then PLANNER, each already in its final position. */
+    window.setTimeout(()=>tripWord?.classList.add('tp-word-lit'),3180);
+    window.setTimeout(()=>plannerWord?.classList.add('tp-word-lit'),3620);
+
+    /* Only after the full title is assembled, reveal the rest of the Hero. */
+    window.setTimeout(()=>hero.classList.add('tp-reveal-rest'),4140);
+    window.setTimeout(finish,5350);
   }));
 })();
 </script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="assets/js/ato-config.js"></script><script src="assets/js/booking-system.js"></script><script src="assets/js/weather-service.js"></script><script src="assets/js/trip-planner.js"></script></body></html>
