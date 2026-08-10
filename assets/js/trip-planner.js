@@ -109,7 +109,10 @@ function startGuidedJourney(){
   if(pool.length===MAX_POOL){window.setTimeout(()=>showGuide(2,{force:true,scroll:true}),700);return}
   if(!introShown&&pool.length<MAX_POOL){
     try{sessionStorage.setItem('atoTPGuideIntroShown','1')}catch(_){}
-    window.setTimeout(()=>showGuide(1,{force:true,scroll:true}),5000);
+    const launch=()=>window.setTimeout(()=>showGuide(1,{force:true,scroll:true}),10000);
+    const intro=document.getElementById('tpYourIntro');
+    if(intro){window.addEventListener('ato:your-intro-complete',launch,{once:true})}
+    else{launch()}
   }
 }
 

@@ -218,23 +218,56 @@
 (function(){
   const intro=document.getElementById('tpYourIntro');
   const hero=document.getElementById('plannerTop');
-  if(!intro||!hero)return;
+  const word=intro?.querySelector('.tp-your-intro-word');
+  const target=hero?.querySelector('.tp-your-inline');
+  if(!intro||!hero||!word||!target)return;
+
+  const finish=()=>{
+    hero.classList.add('tp-your-arrived');
+    document.body.classList.remove('tp-your-intro-lock');
+    intro.classList.add('leave');
+    window.dispatchEvent(new CustomEvent('ato:your-intro-complete'));
+    window.setTimeout(()=>intro.remove(),620);
+  };
+
   let seen=false;
-  try{seen=sessionStorage.getItem('atoTPYourIntroSeen')==='1'}catch(_){}
+  try{seen=sessionStorage.getItem('atoTPYourIntroSeen')==='1'}catch(_){ }
   const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(seen||reduce){
     intro.remove();
     hero.classList.add('tp-your-arrived');
+    window.setTimeout(()=>window.dispatchEvent(new CustomEvent('ato:your-intro-complete')),0);
     return;
   }
-  try{sessionStorage.setItem('atoTPYourIntroSeen','1')}catch(_){}
+
+  try{sessionStorage.setItem('atoTPYourIntroSeen','1')}catch(_){ }
   document.body.classList.add('tp-your-intro-lock');
-  requestAnimationFrame(()=>intro.classList.add('play'));
-  window.setTimeout(()=>hero.classList.add('tp-your-arrived'),2100);
-  window.setTimeout(()=>{
-    intro.classList.add('leave');
-    document.body.classList.remove('tp-your-intro-lock');
-  },2450);
-  window.setTimeout(()=>intro.remove(),3150);
+  intro.classList.add('play');
+
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    const targetRect=target.getBoundingClientRect();
+    const targetX=targetRect.left + targetRect.width/2;
+    const targetY=targetRect.top + targetRect.height/2;
+    const dx=targetX - window.innerWidth/2;
+    const dy=targetY - window.innerHeight/2;
+    const naturalWidth=Math.max(word.offsetWidth,1);
+    const targetScale=Math.max(.035,Math.min(.28,targetRect.width/naturalWidth));
+
+    word.animate([
+      {offset:0,transform:'translate(-50%,-50%) scale(.10)',opacity:0,filter:'blur(12px) drop-shadow(0 0 18px rgba(115,222,255,.18))'},
+      {offset:.16,transform:'translate(-50%,-50%) scale(.30)',opacity:1,filter:'blur(0) drop-shadow(0 0 30px rgba(115,222,255,.28)) drop-shadow(0 0 60px rgba(201,126,255,.16))'},
+      {offset:.48,transform:'translate(-50%,-50%) scale(1.08)',opacity:1},
+      {offset:.67,transform:'translate(-50%,-50%) scale(1)',opacity:1},
+      {offset:.76,transform:'translate(-50%,-50%) scale(1)',opacity:1},
+      {offset:1,transform:`translate(-50%,-50%) translate(${dx}px,${dy}px) scale(${targetScale})`,opacity:1}
+    ],{
+      duration:3050,
+      easing:'cubic-bezier(.20,.78,.18,1)',
+      fill:'forwards'
+    });
+
+    window.setTimeout(()=>hero.classList.add('tp-your-arrived'),2660);
+    window.setTimeout(finish,3070);
+  }));
 })();
 </script><script src="assets/js/trip-planner.js"></script></body></html>
