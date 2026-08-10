@@ -242,4 +242,74 @@ body::after{
 .tp-reset-card h2{margin:0;color:#fff;font:500 29px/1.08 Georgia,"Times New Roman",serif}.tp-reset-card p{margin:13px 0 22px;color:#b7c8d3;font-size:12px;line-height:1.65}
 .tp-reset-actions{display:flex;justify-content:flex-end;gap:9px;flex-wrap:wrap}.tp-reset-actions button{min-height:43px;padding:10px 16px;border-radius:10px;font-size:9px;font-weight:950;letter-spacing:.07em;text-transform:uppercase;cursor:pointer}.tp-reset-cancel{border:1px solid rgba(255,255,255,.17);background:rgba(255,255,255,.035);color:#d7e2e8}.tp-reset-confirm{border:1px solid #f3c66d;background:linear-gradient(180deg,#f6d27f,#dca23c);color:#061321}
 @media(max-width:1050px){.tp-reset-plan{margin-left:2px}}
-@media(max-width:760px){.tp-reset-plan{padding:5px 8px;font-size:7px}.tp-selected-tools{gap:6px}.tp-clear-plan{padding:6px 8px;font-size:7px}.tp-reset-card{padding:25px 20px 21px}.tp-reset-card h2{font-size:25px}.tp-reset-actions{display:grid;grid-template-columns:1fr 1fr}.tp-reset-actions button{width:100%;padding:9px 8px}}
+@media(max-width:760px){.tp-reset-plan{padding:5px 8px;font-size:6.5px}.tp-selected-tools{gap:7px}.tp-clear-plan{min-height:38px;padding:8px 12px;font-size:8px}.tp-reset-card{padding:25px 20px 21px}.tp-reset-card h2{font-size:25px}.tp-reset-actions{display:grid;grid-template-columns:1fr 1fr}.tp-reset-actions button{width:100%;padding:9px 8px}}
+
+@media (prefers-reduced-motion: reduce){.tp-reset-plan,.tp-reset-plan::after{animation:none}}
+
+
+/* ===== YOUR → YOUR TRIP PLANNER SIGNATURE INTRO ===== */
+.tp-your-intro{
+  position:fixed;inset:0;z-index:200000;display:grid;place-items:center;overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 12%,rgba(230,237,255,.18),transparent 17%),
+    radial-gradient(circle at 50% 68%,rgba(9,105,128,.22),transparent 34%),
+    linear-gradient(180deg,#010710 0%,#02111f 45%,#020b14 100%);
+  opacity:0;visibility:hidden;transition:opacity .55s ease,visibility .55s ease;
+}
+.tp-your-intro.play{opacity:1;visibility:visible}
+.tp-your-intro.leave{opacity:0;visibility:hidden;pointer-events:none}
+.tp-your-intro-sea{position:absolute;left:-12%;right:-12%;bottom:-18%;height:66%;opacity:.82;filter:blur(.2px);background:
+  radial-gradient(ellipse at 50% 24%,rgba(233,242,255,.17) 0%,rgba(233,242,255,.045) 26%,transparent 58%),
+  repeating-radial-gradient(ellipse at 50% 120%,rgba(224,176,70,.16) 0 1px,transparent 2px 13px),
+  linear-gradient(180deg,rgba(5,54,72,.20),rgba(2,14,25,.92));
+  transform:perspective(700px) rotateX(61deg) scale(1.36);transform-origin:center bottom;
+  animation:tpYourSeaShimmer 4.2s ease-in-out infinite alternate;
+}
+.tp-your-intro-moon{position:absolute;left:50%;top:6%;width:min(42vw,520px);height:72%;transform:translateX(-50%);opacity:.45;filter:blur(15px);background:linear-gradient(180deg,rgba(235,240,255,.18),rgba(232,190,92,.09) 42%,transparent 82%);clip-path:polygon(44% 0,58% 0,72% 100%,30% 100%)}
+.tp-your-intro-word{
+  position:relative;z-index:2;font-family:Georgia,"Times New Roman",serif;font-weight:500;line-height:.82;
+  font-size:clamp(92px,25vw,390px);letter-spacing:-.055em;text-indent:-.055em;
+  color:transparent;background:linear-gradient(105deg,#bff8ff 0%,#7ae6ff 13%,#b69cff 28%,#ff8fd8 43%,#ffe39a 59%,#77f0d5 75%,#bff8ff 100%);
+  background-size:320% 100%;-webkit-background-clip:text;background-clip:text;
+  filter:drop-shadow(0 0 18px rgba(115,222,255,.22)) drop-shadow(0 0 42px rgba(201,126,255,.17));
+  transform:scale(.58);opacity:0;
+  animation:none;
+}
+.tp-your-intro.play .tp-your-intro-word{animation:tpYourReveal 2.75s cubic-bezier(.2,.78,.18,1) forwards,tpYourAurora 2.4s linear infinite,tpYourPulse 1.15s ease-in-out infinite alternate}
+.tp-your-intro-lock{overflow:hidden!important}
+@keyframes tpYourReveal{
+  0%{transform:scale(.58);opacity:0;filter:blur(12px) drop-shadow(0 0 18px rgba(115,222,255,.22))}
+  20%{opacity:1;filter:blur(0) drop-shadow(0 0 28px rgba(115,222,255,.28)) drop-shadow(0 0 60px rgba(201,126,255,.16))}
+  48%{transform:scale(1.08);opacity:1}
+  70%{transform:scale(1);opacity:1}
+  100%{transform:scale(.16) translateY(-168vh);opacity:0}
+}
+@keyframes tpYourAurora{0%{background-position:0% 50%}100%{background-position:320% 50%}}
+@keyframes tpYourPulse{0%{text-shadow:0 0 8px rgba(126,226,255,.08)}100%{text-shadow:0 0 28px rgba(246,181,255,.20)}}
+@keyframes tpYourSeaShimmer{0%{transform:perspective(700px) rotateX(61deg) scale(1.36) translateX(-1.2%);opacity:.70}100%{transform:perspective(700px) rotateX(61deg) scale(1.40) translateX(1.2%);opacity:.92}}
+
+.tp-personal-title .tp-your-inline{
+  display:inline-block;color:transparent;
+  background:linear-gradient(105deg,#aeefff,#a893ff,#ff9bcf,#f3c66d,#78e7cf,#aeefff);
+  background-size:280% 100%;-webkit-background-clip:text;background-clip:text;
+  filter:drop-shadow(0 0 13px rgba(111,213,255,.13));
+  animation:tpYourAurora 8s linear infinite;
+}
+.tp-personal-title{opacity:.32;transform:translateY(8px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.78,.18,1)}
+.tp-your-arrived .tp-personal-title{opacity:1;transform:translateY(0)}
+
+@media(max-width:760px){
+  .tp-your-intro-word{font-size:clamp(84px,30vw,230px)}
+  @keyframes tpYourReveal{
+    0%{transform:scale(.58);opacity:0;filter:blur(10px)}
+    20%{opacity:1;filter:blur(0)}
+    50%{transform:scale(1.08);opacity:1}
+    72%{transform:scale(1);opacity:1}
+    100%{transform:scale(.18) translateY(-190vh);opacity:0}
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .tp-your-intro{display:none!important}
+  .tp-personal-title{opacity:1;transform:none}
+  .tp-personal-title .tp-your-inline{animation:none}
+}

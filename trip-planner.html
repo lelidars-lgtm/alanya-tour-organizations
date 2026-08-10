@@ -1,4 +1,9 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRIP PLANNER | ALANYA TOUR ORGANIZATIONS</title><meta name="description" content="Compare tours and build your perfect Alanya itinerary."><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="assets/css/trip-planner.css"></head><body>
+<div class="tp-your-intro" id="tpYourIntro" aria-hidden="true">
+  <div class="tp-your-intro-sea"></div>
+  <div class="tp-your-intro-moon"></div>
+  <div class="tp-your-intro-word">YOUR</div>
+</div>
 <header class="header">
   <div class="logo">
     <img src="logo.png" alt="ALANYA TOUR ORGANIZATIONS">
@@ -71,7 +76,7 @@
   <div class="tp-gold-wave tp-gold-wave-one"></div>
   <div class="tp-gold-wave tp-gold-wave-two"></div>
   <span class="tp-kicker">Signature travel planning experience</span>
-  <h1>TRIP <span>PLANNER</span></h1>
+  <h1 class="tp-personal-title"><span class="tp-your-inline">YOUR</span> TRIP <span>PLANNER</span></h1>
   <p>Compare tours. Build your perfect itinerary.</p>
   <div class="tp-hero-promise">Choose your experiences, tell us how you travel, and turn your holiday into a personal itinerary.</div>
   <div class="tp-steps">
@@ -209,4 +214,27 @@
       languageDropdown.classList.remove('open');
     });
   }
+</script><script>
+(function(){
+  const intro=document.getElementById('tpYourIntro');
+  const hero=document.getElementById('plannerTop');
+  if(!intro||!hero)return;
+  let seen=false;
+  try{seen=sessionStorage.getItem('atoTPYourIntroSeen')==='1'}catch(_){}
+  const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(seen||reduce){
+    intro.remove();
+    hero.classList.add('tp-your-arrived');
+    return;
+  }
+  try{sessionStorage.setItem('atoTPYourIntroSeen','1')}catch(_){}
+  document.body.classList.add('tp-your-intro-lock');
+  requestAnimationFrame(()=>intro.classList.add('play'));
+  window.setTimeout(()=>hero.classList.add('tp-your-arrived'),2100);
+  window.setTimeout(()=>{
+    intro.classList.add('leave');
+    document.body.classList.remove('tp-your-intro-lock');
+  },2450);
+  window.setTimeout(()=>intro.remove(),3150);
+})();
 </script><script src="assets/js/trip-planner.js"></script></body></html>
