@@ -203,6 +203,10 @@ function buildJourneyCard(){
   const title=activeRandomTour.title;
   const text='A tour chosen by the journey — discover where the heart takes you.';
   dockCardTitle.textContent=title; dockCardText.textContent=text;
+  if(dockCard){
+    dockCard.setAttribute('href',activeRandomTour.url||'#');
+    dockCard.setAttribute('aria-label',`Open ${title}`);
+  }
   if(dockCard) dockCard.setAttribute('href',activeRandomTour.url||'#');
   flyCardTitle.textContent=title; flyCardText.textContent=text;
   const bg=`url("${activeRandomTour.image}")`;
@@ -1087,5 +1091,37 @@ document.addEventListener('DOMContentLoaded',()=>{
       card.addEventListener('click',open);
       card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
     }
+  }
+});
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const editChoicesBtn=document.getElementById('editChoicesBtn');
+  if(editChoicesBtn){
+    editChoicesBtn.addEventListener('click',(e)=>{
+      e.preventDefault();
+      e.stopPropagation();
+      document.getElementById('experience-planner')?.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+
+  const requestBtn=document.getElementById('requestPersonalOffer');
+  if(requestBtn){
+    requestBtn.addEventListener('click',(e)=>{
+      e.stopPropagation();
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const journeyDockCard=document.getElementById('journeyDockCard');
+  if(journeyDockCard){
+    journeyDockCard.addEventListener('click',(e)=>{
+      if(e.target.closest('button')) return;
+      const href=journeyDockCard.getAttribute('href');
+      if(href && href !== '#'){
+        e.preventDefault();
+        window.location.href=href;
+      }
+    });
   }
 });
