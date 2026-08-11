@@ -6448,3 +6448,185 @@ body{
 .globe-zone.final-turkiye .journey-latitude-field{
   display:none!important;
 }
+
+
+
+/* =========================================================
+   CREATE EXPERIENCE — LAYOUT CLEANUP
+   Fix the visually broken Step 03 block.
+   ========================================================= */
+
+/* Correct section header label visually belongs to step 03. */
+#experience-planner .section-kicker,
+#experience-planner .section-topline,
+#experience-planner .section-label{
+  position:relative;
+  z-index:5;
+}
+
+/* Give this block the same disciplined inner spacing as Trip Planner. */
+#experience-planner{
+  position:relative;
+  overflow:hidden!important;
+  padding-bottom:34px!important;
+}
+
+#experience-planner .tp-section-head,
+#experience-planner .section-head,
+#experience-planner .planner-head{
+  padding:42px 34px 26px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.05fr) minmax(320px,.75fr)!important;
+  gap:52px!important;
+  align-items:end!important;
+}
+
+/* The title was too large and was colliding with the panel edge. */
+#experience-planner h2,
+#experience-planner .section-title{
+  margin:0!important;
+  max-width:690px!important;
+  font-size:clamp(44px,4.3vw,72px)!important;
+  line-height:.92!important;
+  letter-spacing:-.035em!important;
+}
+
+/* Supporting copy becomes a deliberate right-column element. */
+#experience-planner .section-intro,
+#experience-planner .planner-intro,
+#experience-planner .section-description{
+  max-width:520px!important;
+  margin:0 0 8px auto!important;
+  font-size:16px!important;
+  line-height:1.55!important;
+}
+
+/* Main questionnaire card: inset from both sides, not touching frame. */
+#experience-planner .experience-builder,
+#experience-planner .planner-builder,
+#experience-planner .create-builder,
+#experience-planner .builder-shell{
+  margin:10px 34px 0!important;
+  width:auto!important;
+  max-width:none!important;
+  border-radius:28px!important;
+}
+
+/* If the actual form is the direct large child, give it the same inset. */
+#experience-planner > .experience-form,
+#experience-planner > .planner-form{
+  margin-left:34px!important;
+  margin-right:34px!important;
+  width:auto!important;
+}
+
+/* Vertical step rail should sit inside the form instead of against viewport edge. */
+#experience-planner .step-rail,
+#experience-planner .planner-steps,
+#experience-planner .experience-steps{
+  flex:0 0 78px!important;
+  min-width:78px!important;
+}
+
+/* Remove accidental negative/edge positioning visible in screenshot. */
+#experience-planner [class*="planner"] h3,
+#experience-planner [class*="experience"] h3{
+  margin-top:0!important;
+}
+
+/* Top bar needs breathing room and must not collide with body content. */
+#experience-planner > .tp-section-bar,
+#experience-planner > .section-bar,
+#experience-planner > .panel-bar{
+  min-height:44px!important;
+  padding:0 28px!important;
+  display:flex!important;
+  align-items:center!important;
+}
+
+/* Page-wide arcs remain behind this section, but do not interfere with readability. */
+#experience-planner::before{
+  opacity:.42!important;
+}
+
+/* Desktop alignment to the same content axis as the rest of Special Offers. */
+@media(min-width:1100px){
+  #experience-planner .tp-section-head,
+  #experience-planner .section-head,
+  #experience-planner .planner-head{
+    padding-left:54px!important;
+    padding-right:54px!important;
+  }
+
+  #experience-planner .experience-builder,
+  #experience-planner .planner-builder,
+  #experience-planner .create-builder,
+  #experience-planner .builder-shell,
+  #experience-planner > .experience-form,
+  #experience-planner > .planner-form{
+    margin-left:54px!important;
+    margin-right:54px!important;
+  }
+}
+
+@media(max-width:900px){
+  #experience-planner .tp-section-head,
+  #experience-planner .section-head,
+  #experience-planner .planner-head{
+    grid-template-columns:1fr!important;
+    gap:18px!important;
+    padding:30px 22px 20px!important;
+  }
+
+  #experience-planner h2,
+  #experience-planner .section-title{
+    font-size:clamp(38px,10vw,58px)!important;
+    line-height:.96!important;
+  }
+
+  #experience-planner .section-intro,
+  #experience-planner .planner-intro,
+  #experience-planner .section-description{
+    margin-left:0!important;
+  }
+
+  #experience-planner .experience-builder,
+  #experience-planner .planner-builder,
+  #experience-planner .create-builder,
+  #experience-planner .builder-shell,
+  #experience-planner > .experience-form,
+  #experience-planner > .planner-form{
+    margin-left:18px!important;
+    margin-right:18px!important;
+  }
+}
+
+
+
+/* =========================================================
+   FINAL PAGE STATEMENT — SAME SCALE AS SECTION TITLES
+   ========================================================= */
+.gift-ending .heart-line{
+  font-family:var(--so-display-font, Georgia, "Times New Roman", serif)!important;
+  font-size:var(--so-section-title-size, clamp(34px,4.1vw,58px))!important;
+  line-height:var(--so-section-title-line,.98)!important;
+  font-weight:var(--so-section-title-weight,500)!important;
+  letter-spacing:var(--so-section-title-track,-.022em)!important;
+  max-width:980px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+
+.gift-ending .heart-line span{
+  font-size:inherit!important;
+  line-height:inherit!important;
+  font-weight:inherit!important;
+  letter-spacing:inherit!important;
+}
+
+@media(max-width:760px){
+  .gift-ending .heart-line{
+    font-size:var(--so-section-title-size,clamp(29px,8.6vw,40px))!important;
+    line-height:1!important;
+  }
+}
