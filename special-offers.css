@@ -6245,3 +6245,206 @@ body{
     animation:none!important;
   }
 }
+
+
+
+/* =========================================================
+   FULL-WIDTH ORBITS FIX
+   Match Trip Planner: arcs belong to the viewport, NOT to
+   the inner content container.
+   ========================================================= */
+
+/* Important: shell must not clip the global field. */
+.so-tp-shell{
+  overflow:visible!important;
+  isolation:isolate!important;
+}
+
+/* Global orbit field spans the full viewport width. */
+.so-page-orbits{
+  position:absolute!important;
+  top:0!important;
+  bottom:0!important;
+  left:50%!important;
+  width:100vw!important;
+  max-width:none!important;
+  transform:translateX(-50%)!important;
+  overflow:visible!important;
+  pointer-events:none!important;
+  z-index:0!important;
+}
+
+/* Make every major arc wider than viewport so the curvature
+   visibly continues beyond the central content frame. */
+.so-page-orbit{
+  left:50%!important;
+  width:138vw!important;
+  max-width:none!important;
+  height:560px!important;
+  transform-origin:center center!important;
+  border-color:rgba(52,157,181,.115)!important;
+}
+
+/* More Trip-Planner-like placement: arcs visibly cross the full screen. */
+.so-page-orbit-1{
+  top:1.5%!important;
+  transform:translateX(-50%) rotate(-1deg)!important;
+  opacity:.86!important;
+}
+.so-page-orbit-2{
+  top:17%!important;
+  transform:translateX(-50%) rotate(.6deg)!important;
+  opacity:.72!important;
+}
+.so-page-orbit-3{
+  top:36%!important;
+  transform:translateX(-50%) rotate(-.5deg)!important;
+  opacity:.63!important;
+}
+.so-page-orbit-4{
+  top:59%!important;
+  transform:translateX(-50%) rotate(.8deg)!important;
+  opacity:.52!important;
+}
+.so-page-orbit-5{
+  top:81%!important;
+  transform:translateX(-50%) rotate(-.6deg)!important;
+  opacity:.38!important;
+}
+
+/* The secondary repeating arc texture also spans viewport. */
+.so-page-orbits::before{
+  content:""!important;
+  position:absolute!important;
+  top:0!important;
+  bottom:0!important;
+  left:50%!important;
+  width:116vw!important;
+  transform:translateX(-50%)!important;
+  opacity:.64!important;
+  background:
+    repeating-radial-gradient(
+      ellipse at 52% -4%,
+      transparent 0 31px,
+      rgba(22,118,136,.055) 32px 33px,
+      transparent 35px 68px
+    ),
+    linear-gradient(
+      176deg,
+      transparent 0 22%,
+      rgba(15,104,124,.055) 29%,
+      transparent 37% 100%
+    )!important;
+}
+
+/* Moon path is also page-level, not panel-level. */
+.so-page-moon-path{
+  left:50%!important;
+  width:28vw!important;
+  min-width:300px!important;
+  transform:translateX(-50%) rotate(-1.5deg)!important;
+}
+
+/* Gold currents cross wider too. */
+.so-page-gold-current{
+  left:50%!important;
+  right:auto!important;
+  width:86vw!important;
+  transform:translateX(-50%)!important;
+}
+.so-page-gold-current-1{
+  top:28%!important;
+  transform:translateX(-50%) rotate(-.8deg)!important;
+}
+.so-page-gold-current-2{
+  top:73%!important;
+  width:72vw!important;
+  transform:translateX(-50%) rotate(.9deg)!important;
+}
+
+/* HERO: don't let the central frame visually terminate the arcs. */
+.so-hero{
+  overflow:visible!important;
+}
+
+/* Keep only the panel content clipped where needed, not the global arcs. */
+.so-hero > *{
+  position:relative;
+  z-index:2;
+}
+
+/* Local hero texture may extend past panel boundaries as well. */
+.so-hero::before{
+  left:50%!important;
+  right:auto!important;
+  width:100vw!important;
+  transform:translateX(-50%)!important;
+  border-radius:0!important;
+  pointer-events:none!important;
+}
+
+/* Prevent section panels from hiding the page-wide background around them. */
+.so-tp-shell > .tp-section,
+.so-tp-shell > section.tp-section{
+  overflow:hidden!important;
+  background:
+    linear-gradient(180deg,rgba(9,31,48,.88),rgba(4,18,30,.92))!important;
+}
+
+/* The page field remains visible in the gutters left/right of every panel. */
+body{
+  overflow-x:hidden!important;
+}
+
+/* Desktop: arcs intentionally wider than content frame. */
+@media(min-width:1100px){
+  .so-page-orbit{
+    width:150vw!important;
+    height:610px!important;
+  }
+  .so-page-orbits::before{
+    width:128vw!important;
+  }
+}
+
+/* Mobile: still full-screen, but reduce amplitude so curvature remains readable. */
+@media(max-width:760px){
+  .so-page-orbits{
+    width:100vw!important;
+  }
+  .so-page-orbit{
+    width:220vw!important;
+    height:360px!important;
+  }
+  .so-page-orbits::before{
+    width:190vw!important;
+  }
+  .so-page-moon-path{
+    width:42vw!important;
+    min-width:180px!important;
+  }
+}
+
+/* =========================================================
+   JOURNEY GLOBAL-TO-GLOBE CONTINUITY
+   The page arcs stay full-width; local globe latitudes sit
+   above them only inside the animation scene.
+   ========================================================= */
+.so-journey{
+  overflow:visible!important;
+}
+
+.so-journey .journey-grid{
+  position:relative;
+  z-index:2;
+}
+
+.journey-latitude-field{
+  z-index:3!important;
+}
+
+/* Final Türkiye stays clean: only local globe latitudes vanish.
+   Full-page background arcs remain behind the section. */
+.globe-zone.final-turkiye .journey-latitude-field{
+  display:none!important;
+}
