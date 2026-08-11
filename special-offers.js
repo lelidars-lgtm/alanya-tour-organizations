@@ -293,6 +293,20 @@ function landOfferCard(){
   if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='REPLAY MY JOURNEY ↻';
 }
 
+
+function setHeartOriginFromAlanya(){
+  const pin=document.getElementById('alanyaLandingPin');
+  const zone=document.getElementById('globeZone');
+  if(!pin||!zone) return;
+  const pr=pin.getBoundingClientRect();
+  const zr=zone.getBoundingClientRect();
+  if(!zr.width||!zr.height) return;
+  const x=((pr.left+pr.width/2-zr.left)/zr.width)*100;
+  const y=((pr.top+pr.height/2-zr.top)/zr.height)*100;
+  zone.style.setProperty('--heart-origin-x',`${x}%`);
+  zone.style.setProperty('--heart-origin-y',`${y}%`);
+}
+
 function runJourney(fromPlanner=false){
   buildJourneyCard();
   resetJourneyVisual();
@@ -317,6 +331,14 @@ function runJourney(fromPlanner=false){
         'card-landed','heart-return'
       );
       globeZone.classList.add('final-turkiye');
+      const finalStageRM=document.getElementById('finalTurkiyeStage');
+      if(finalStageRM){finalStageRM.style.display='grid';finalStageRM.style.visibility='visible';finalStageRM.style.opacity='1';}
+      const finalStage=document.getElementById('finalTurkiyeStage');
+      if(finalStage){
+        finalStage.style.display='grid';
+        finalStage.style.visibility='visible';
+        finalStage.style.opacity='1';
+      }
       status.innerHTML='<strong>WE ARE HERE.</strong><span>ALANYA · 36.532392° N · 32.038899° E</span>';
       startJourney.disabled=false;
       startJourney.classList.remove('is-active');
@@ -385,6 +407,7 @@ function runJourney(fromPlanner=false){
 
     /* 08 Blue light collapses into Alanya point. */
     queueJourney(()=>{
+      setHeartOriginFromAlanya();
       globeZone.classList.add('light-collapse');
       status.innerHTML='<strong>THE WORLD BECOMES A FEELING.</strong><span>COLD BLUE LIGHT → ONE WARM RED CORE</span>';
     },10650);
@@ -396,6 +419,7 @@ function runJourney(fromPlanner=false){
 
     /* 10 Red digital heart is born. */
     queueJourney(()=>{
+      setHeartOriginFromAlanya();
       globeZone.classList.add('journey-heart');
       status.innerHTML='<strong>A HEART IS BORN.</strong><span>ONE PLACE → ONE FEELING</span>';
     },12150);
@@ -447,6 +471,9 @@ startJourney.addEventListener('click',()=>runJourney(false));
 
 window.addEventListener('resize',()=>{
   setLogoFlightGeometry();
+  if(globeZone.classList.contains('alanya-landed')||globeZone.classList.contains('journey-heart')){
+    setHeartOriginFromAlanya();
+  }
   if(globeZone.classList.contains('journey-card-launch') || globeZone.classList.contains('card-landed')){
     setCardFlightGeometry();
   }
