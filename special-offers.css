@@ -5599,3 +5599,137 @@ body{
     font-size:7px!important;
   }
 }
+
+
+
+/* =========================================================
+   FINAL FIX — CARD SLOT LOCKED + HEART LOCATION SYMBOL
+   ========================================================= */
+
+/* The left destination area is a fixed two-row stack:
+   label on top, ghost/real card in the exact same second row. */
+.journey-copy{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+}
+
+.journey-dock{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  grid-template-rows:auto 300px!important;
+  width:100%!important;
+  max-width:380px!important;
+  min-height:334px!important;
+  margin-top:18px!important;
+  align-self:flex-start!important;
+}
+
+.journey-dock-label{
+  grid-column:1!important;
+  grid-row:1!important;
+  margin:0 0 10px!important;
+}
+
+/* Ghost and real card are OVERLAID in exactly one slot.
+   Neither can push the other down. */
+.journey-card-placeholder,
+#journeyDockCard{
+  grid-column:1!important;
+  grid-row:2!important;
+  position:absolute!important;
+  left:0!important;
+  top:0!important;
+  width:100%!important;
+  max-width:380px!important;
+  min-height:286px!important;
+  margin:0!important;
+  box-sizing:border-box!important;
+}
+
+/* Final state: keep the real card in that same slot. */
+#journeyDockCard.final-visible{
+  position:absolute!important;
+  left:0!important;
+  top:0!important;
+  margin:0!important;
+  transform:translateY(0) scale(1)!important;
+}
+
+/* Prevent any previous final-state rule from stretching the left column. */
+.so-journey:has(.globe-zone.final-turkiye) .journey-copy{
+  align-self:flex-start!important;
+  justify-content:flex-start!important;
+}
+.so-journey:has(.globe-zone.final-turkiye) .journey-dock{
+  margin-top:18px!important;
+}
+.so-journey:has(.globe-zone.final-turkiye) #journeyDockCard.final-visible{
+  top:0!important;
+  bottom:auto!important;
+}
+
+/* ---------------------------------------------------------
+   Heart symbol at exact Alanya coordinate
+   --------------------------------------------------------- */
+.final-alanya-marker,
+.final-alanya-marker-core{
+  display:none!important;
+}
+
+.final-alanya-heart{
+  fill:#ff315b!important;
+  stroke:#ffd36b!important;
+  stroke-width:2.6!important;
+  vector-effect:non-scaling-stroke!important;
+  filter:
+    drop-shadow(0 0 8px rgba(255,49,91,.95))
+    drop-shadow(0 0 18px rgba(255,49,91,.72))
+    drop-shadow(0 0 30px rgba(255,211,107,.30))!important;
+}
+
+.final-alanya-heart-core{
+  fill:#fff5d6!important;
+  filter:drop-shadow(0 0 7px rgba(255,255,255,.9))!important;
+}
+
+.final-alanya-heart-pin{
+  transform-box:fill-box;
+  transform-origin:center;
+}
+
+.globe-zone.final-turkiye .final-alanya-heart-pin{
+  animation:finalHeartBreath 2.2s ease-in-out infinite;
+}
+
+@keyframes finalHeartBreath{
+  0%,100%{
+    filter:drop-shadow(0 0 7px rgba(255,49,91,.28));
+  }
+  50%{
+    filter:drop-shadow(0 0 16px rgba(255,49,91,.60));
+  }
+}
+
+.final-alanya-pulse{
+  stroke:#ff4968!important;
+  stroke-width:2.5!important;
+}
+
+/* WE ARE HERE sits beside the heart and remains ON the map */
+.globe-zone.final-turkiye .final-we-are-here{
+  transform:translate(22px,-8px)!important;
+}
+
+@media(max-width:900px){
+  .journey-dock{
+    max-width:100%!important;
+    grid-template-rows:auto 286px!important;
+    min-height:320px!important;
+  }
+  .journey-card-placeholder,
+  #journeyDockCard{
+    max-width:100%!important;
+  }
+}

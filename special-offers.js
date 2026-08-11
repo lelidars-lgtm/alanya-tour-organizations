@@ -464,6 +464,15 @@ function runJourney(fromPlanner=false){
       journeyCardPlaceholder?.classList.add('is-hidden');
       dockCard?.style.removeProperty('transform');
       dockCard?.style.removeProperty('margin-top');
+      if(dockCard){
+        dockCard.style.removeProperty('position');
+        dockCard.style.removeProperty('left');
+        dockCard.style.removeProperty('right');
+        dockCard.style.removeProperty('top');
+        dockCard.style.removeProperty('bottom');
+        dockCard.style.removeProperty('margin');
+        dockCard.style.removeProperty('transform');
+      }
       dockCard?.classList.add('final-visible');
       dockLabel?.classList.add('ready');
       return;
