@@ -233,11 +233,11 @@ function animateTourCardContinuously(duration=1550){
   cancelTourCardFlight();
 
   const zone=globeZone.getBoundingClientRect();
-  const heartSvg=heartTransform?.querySelector('svg');
-  const heart=heartSvg?.getBoundingClientRect() || heartTransform?.getBoundingClientRect();
-  if(!heart || !heart.width || !heart.height || !zone.width || !zone.height) return;
+  const heart=heartTransform?.getBoundingClientRect();
 
-  /* TRUE visible center of the SVG heart in globe-zone coordinates. */
+  if(!heart || !heart.width || !heart.height) return;
+
+  /* EXACT START = geometric center of the visible heart */
   const sx=(heart.left + heart.width/2) - zone.left;
   const sy=(heart.top + heart.height/2) - zone.top;
 
@@ -245,36 +245,45 @@ function animateTourCardContinuously(duration=1550){
   const ex=(dock.left + dock.width*.50) - zone.left;
   const ey=(dock.top + Math.min(dock.height*.42,96)) - zone.top;
 
+  /* One smooth arc from heart center to card slot */
   const c1x=sx - zone.width*.08;
-  const c1y=sy - zone.height*.15;
+  const c1y=sy - zone.height*.16;
   const c2x=ex + zone.width*.14;
-  const c2y=ey - zone.height*.10;
+  const c2y=ey - zone.height*.11;
 
   const start=performance.now();
-  const bez=(a,b,c,d,t)=>{const mt=1-t;return mt*mt*mt*a+3*mt*mt*t*b+3*mt*t*t*c+t*t*t*d;};
+
+  const bez=(a,b,c,d,t)=>{
+    const mt=1-t;
+    return mt*mt*mt*a + 3*mt*mt*t*b + 3*mt*t*t*c + t*t*t*d;
+  };
+
   const ease=t=>1-Math.pow(1-t,3);
 
-  /* Critical: legacy CSS uses left/top 50%. Zero them BEFORE transform. */
   tourCardFly.classList.add('card-flight-active');
-  tourCardFly.style.left='0px';
-  tourCardFly.style.top='0px';
   tourCardFly.style.visibility='visible';
   tourCardFly.style.opacity='0';
-  tourCardFly.style.filter='blur(4px) brightness(1.35)';
-  tourCardFly.style.transform=`translate(${sx}px,${sy}px) translate(-50%,-50%) scale(.035) rotate(-3deg)`;
+  tourCardFly.style.filter='blur(5px) brightness(1.35)';
+
+  /* place card at heart center before first frame */
+  tourCardFly.style.transform=
+    `translate(${sx}px,${sy}px) translate(-50%,-50%) scale(.08) rotate(-5deg)`;
 
   const frame=(now)=>{
     const raw=Math.min(1,(now-start)/duration);
     const t=ease(raw);
+
     const x=bez(sx,c1x,c2x,ex,t);
     const y=bez(sy,c1y,c2y,ey,t);
-    const scale=.035+(.84-.035)*(1-Math.pow(1-t,1.22));
-    const rotate=-3*(1-t);
-    const blur=Math.max(0,4*(1-raw*4));
 
-    tourCardFly.style.opacity=raw<.065?String(raw/.065):'1';
+    const scale=.08 + (.84-.08)*(1-Math.pow(1-t,1.25));
+    const rotate=-5*(1-t);
+    const blur=Math.max(0,5*(1-raw*3.5));
+
+    tourCardFly.style.opacity=raw<.08 ? String(raw/.08) : '1';
     tourCardFly.style.filter=`blur(${blur}px) brightness(${1.35-.35*t})`;
-    tourCardFly.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%) scale(${scale}) rotate(${rotate}deg)`;
+    tourCardFly.style.transform=
+      `translate(${x}px,${y}px) translate(-50%,-50%) scale(${scale}) rotate(${rotate}deg)`;
 
     if(raw<1){
       tourCardFlightRaf=requestAnimationFrame(frame);
@@ -282,9 +291,11 @@ function animateTourCardContinuously(duration=1550){
       tourCardFlightRaf=0;
       tourCardFly.style.opacity='1';
       tourCardFly.style.filter='none';
-      tourCardFly.style.transform=`translate(${ex}px,${ey}px) translate(-50%,-50%) scale(.84)`;
+      tourCardFly.style.transform=
+        `translate(${ex}px,${ey}px) translate(-50%,-50%) scale(.84) rotate(0deg)`;
     }
   };
+
   tourCardFlightRaf=requestAnimationFrame(frame);
 }
 
@@ -421,8 +432,6 @@ function resetJourneyVisual(){
     tourCardFly.style.opacity='0';
     tourCardFly.style.filter='none';
     tourCardFly.style.transform='';
-    tourCardFly.style.left='';
-    tourCardFly.style.top='';
   }
   cancelAircraftAnimations();
   if(orbitPlaneGroup){
@@ -454,21 +463,31 @@ function resetJourneyVisual(){
 }
 
 function landOfferCard(){
-  tourCardFly?.classList.remove('card-flight-active');
-  if(tourCardFly){
-    tourCardFly.style.opacity='0';
-    tourCardFly.style.visibility='hidden';
-    tourCardFly.style.left='';
-    tourCardFly.style.top='';
-  }
+  cancelTourCardFlight();
 
-  dockCard.classList.remove('visible','final-visible');
+  // 1) Show the permanent card in the destination slot FIRST.
+  if(dockCard){
+    dockCard.classList.add('handoff-ready','final-visible');
+    dockCard.style.removeProperty('opacity');
+    dockCard.style.removeProperty('visibility');
+    dockCard.style.removeProperty('transform');
+    dockCard.style.removeProperty('filter');
+    void dockCard.offsetWidth;
+  }
   dockLabel?.classList.add('ready');
-  globeZone.classList.add('card-landed');
-  status.innerHTML='<strong>YOUR EXPERIENCE HAS ARRIVED.</strong><span>ALANYA → YOUR PERSONAL OFFER</span>';
-  startJourney.disabled=false;
-  startJourney.classList.add('is-active');
-  if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='REPLAY MY JOURNEY ↻';
+  journeyCardPlaceholder?.classList.add('is-hidden');
+
+  // 2) Only after the dock card is painted, hide the flying copy.
+  requestAnimationFrame(()=>{
+    if(tourCardFly){
+      tourCardFly.classList.remove('card-flight-active');
+      tourCardFly.style.opacity='0';
+      tourCardFly.style.visibility='hidden';
+      tourCardFly.style.pointerEvents='none';
+    }
+    dockCard?.classList.remove('handoff-ready');
+    globeZone.classList.add('card-landed');
+  });
 }
 
 
@@ -664,7 +683,7 @@ function runJourney(fromPlanner=false){
       globeZone.classList.add('journey-card-launch');
       animateTourCardContinuously(1550);
       status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>STRAIGHT FROM THE HEART</span>';
-    },15320);
+    },15150);
 
     queueJourney(()=>{
       cancelTourCardFlight();
@@ -673,7 +692,7 @@ function runJourney(fromPlanner=false){
 
     /* 13 Heart returns to original Alanya point and disappears. */
     queueJourney(()=>{
-      dockCard.classList.remove('visible','final-visible');
+      dockCard?.classList.add('final-visible');
       globeZone.classList.add('heart-return');
       status.innerHTML='<strong>THE HEART COMES HOME.</strong><span>BACK TO ALANYA</span>';
     },18000);
@@ -685,11 +704,7 @@ function runJourney(fromPlanner=false){
       startJourney.disabled=false;
       startJourney.classList.remove('is-active');
       if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
-      queueJourney(()=>{
-        journeyCardPlaceholder?.classList.add('is-hidden');
-      dockCard?.classList.add('final-visible');
-        dockLabel?.classList.add('ready');
-      },520);
+      
     },19250);
   });
 }
