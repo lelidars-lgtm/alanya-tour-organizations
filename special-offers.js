@@ -177,12 +177,12 @@ const dockCardMeta=document.getElementById('dockCardMeta');
 const finalTurkiyeStage=document.getElementById('finalTurkiyeStage');
 
 const RANDOM_TOURS=[
-  {title:'Aspendos, Side & Manavgat Waterfall',meta:'History & Culture · Full Day',image:'images/history-culture/history-culture-hero.png'},
-  {title:'Land of Legends — Day Tour',meta:'Family Experience · Belek',image:'images/family-experiences/hero.png'},
-  {title:'Alanya Paragliding',meta:'Air Experience · Alanya',image:'images/air-experiences/air-category-hero.png'},
-  {title:'Family Jeep Safari',meta:'Nature & Adventure · Alanya',image:'images/nature-adventure/canyon-adventures.png'},
-  {title:'Private Yacht Charter',meta:'VIP Service · Private Experience',image:'images/vip-services/HERO.png'},
-  {title:'Turkish Hammam & Spa',meta:'Wellness & Relax · Alanya',image:'images/wellness-relax/hero.jpeg'}
+  {title:'Aspendos, Side & Manavgat Waterfall',meta:'History & Culture · Full Day',image:'images/history-culture/history-culture-hero.png',url:'manavgat-aspendos-side.html'},
+  {title:'Land of Legends — Day Tour',meta:'Family Experience · Belek',image:'images/family-experiences/hero.png',url:'land-of-legends.html'},
+  {title:'Alanya Paragliding',meta:'Air Experience · Alanya',image:'images/air-experiences/air-category-hero.png',url:'paragliding.html'},
+  {title:'Family Jeep Safari',meta:'Nature & Adventure · Alanya',image:'images/nature-adventure/canyon-adventures.png',url:'family-jeep-safari.html'},
+  {title:'Private Yacht Charter',meta:'VIP Service · Private Experience',image:'images/vip-services/HERO.png',url:'private-yacht-charter.html'},
+  {title:'Turkish Hammam & Spa',meta:'Wellness & Relax · Alanya',image:'images/wellness-relax/hero.jpeg',url:'turkish-hammam.html'}
 ];
 let activeRandomTour=null;
 let journeyTimerPool=[];
@@ -199,6 +199,7 @@ function buildJourneyCard(){
   const title=activeRandomTour.title;
   const text='A tour chosen by the journey — discover where the heart takes you.';
   dockCardTitle.textContent=title; dockCardText.textContent=text;
+  if(dockCard) dockCard.setAttribute('href',activeRandomTour.url||'#');
   flyCardTitle.textContent=title; flyCardText.textContent=text;
   const bg=`url("${activeRandomTour.image}")`;
   if(flyCardThumb) flyCardThumb.style.backgroundImage=bg;
@@ -381,7 +382,7 @@ function runJourney(fromPlanner=false){
 
     /* 13 Heart returns to original Alanya point and disappears. */
     queueJourney(()=>{
-      dockCard.classList.remove('visible');
+      dockCard.classList.add('visible');
       globeZone.classList.add('heart-return');
       status.innerHTML='<strong>THE HEART COMES HOME.</strong><span>BACK TO ALANYA</span>';
     },18000);
@@ -792,3 +793,16 @@ if (canvas && globeShell && globeZone) {
   }
 }
 }).catch(err => console.error('Three.js failed to load:', err));
+document.addEventListener('DOMContentLoaded',()=>{
+  const card=document.getElementById('dockCard');
+  if(card){
+    card.style.pointerEvents='auto';
+    if(card.tagName!=='A'){
+      card.setAttribute('role','link');
+      card.setAttribute('tabindex','0');
+      const open=()=>{ const href=card.getAttribute('data-href')||card.getAttribute('href'); if(href&&href!=='#') window.location.href=href; };
+      card.addEventListener('click',open);
+      card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+    }
+  }
+});

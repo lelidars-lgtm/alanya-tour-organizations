@@ -4382,3 +4382,127 @@ body{
     filter:none!important;
   }
 }
+
+
+
+/* =========================================================
+   FINAL JOURNEY CORRECTION
+   Keep clickable tour card on the LEFT.
+   Remove final globe, oversized gold sentence and extra red point.
+   ========================================================= */
+
+/* Left random tour card must remain fully visible and interactive. */
+.journey-dock-card{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  cursor:pointer!important;
+  text-decoration:none!important;
+  filter:none!important;
+  transform:none!important;
+  background:linear-gradient(145deg,rgba(7,29,44,.98),rgba(3,14,24,.99))!important;
+  border:1px solid rgba(243,198,109,.30)!important;
+  box-shadow:0 16px 38px rgba(0,0,0,.28)!important;
+}
+.journey-dock-card:hover{
+  transform:translateY(-3px)!important;
+  border-color:rgba(243,198,109,.65)!important;
+  box-shadow:0 20px 44px rgba(0,0,0,.34),0 0 22px rgba(243,198,109,.08)!important;
+}
+.journey-dock-card,
+.journey-dock-card *{
+  opacity:1!important;
+}
+.journey-dock-card strong{
+  color:#fff!important;
+}
+.journey-dock-card p{
+  color:#aebcc8!important;
+}
+.journey-dock-card small,
+.journey-dock-card .random-tour-meta{
+  color:#f3c66d!important;
+}
+
+/* In final state the LEFT card stays. */
+.so-journey:has(.globe-zone.final-turkiye) .journey-copy{
+  display:block!important;
+}
+.so-journey:has(.globe-zone.final-turkiye) .journey-dock,
+.so-journey:has(.globe-zone.final-turkiye) .journey-dock-card{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+}
+
+/* Hide the stale final status / replay UI, but NOT the left card. */
+.so-journey:has(.globe-zone.final-turkiye) .journey-status{
+  display:none!important;
+}
+.so-journey:has(.globe-zone.final-turkiye) .globe-cta-wrap{
+  display:none!important;
+}
+
+/* Final frame must not keep the globe. */
+.globe-zone.final-turkiye .live-globe-canvas,
+.globe-zone.final-turkiye .globe-aura-ring,
+.globe-zone.final-turkiye .reference-depth-haze,
+.globe-zone.final-turkiye .globe-bokeh-layer,
+.globe-zone.final-turkiye .journey-overlay-svg,
+.globe-zone.final-turkiye .turkiye-zoom-stage,
+.globe-zone.final-turkiye .heart-transform,
+.globe-zone.final-turkiye .tour-card-fly{
+  opacity:0!important;
+  visibility:hidden!important;
+}
+
+/* Remove the extra red/blue origin point and duplicated WE ARE HERE from old layers. */
+.globe-zone.final-turkiye::after,
+.globe-zone.final-turkiye .globe-location-overlay,
+.globe-zone.final-turkiye .alanya-landing-pin{
+  display:none!important;
+}
+
+/* Keep only the FINAL Türkiye map and its proper Alanya marker. */
+.globe-zone.final-turkiye .final-turkiye-stage{
+  opacity:1!important;
+  visibility:visible!important;
+}
+.globe-zone.final-turkiye .final-we-are-here{
+  display:block!important;
+}
+
+/* Giant gold bottom sentence is removed entirely. */
+.final-waiting-text{
+  display:none!important;
+}
+
+/* Restore clean two-column final composition: card left, Türkiye right. */
+.so-journey:has(.globe-zone.final-turkiye) .journey-grid{
+  grid-template-columns:minmax(280px,.72fr) minmax(520px,1.28fr)!important;
+  gap:34px!important;
+  align-items:center!important;
+}
+.so-journey:has(.globe-zone.final-turkiye) .journey-copy{
+  align-self:center!important;
+}
+.so-journey:has(.globe-zone.final-turkiye) .globe-zone{
+  min-height:560px!important;
+}
+
+/* Do not show the experimental map-attached card from later version, if present. */
+.final-map-offer{display:none!important}
+
+@media(max-width:900px){
+  .so-journey:has(.globe-zone.final-turkiye) .journey-grid{
+    grid-template-columns:1fr!important;
+  }
+  .so-journey:has(.globe-zone.final-turkiye) .journey-copy{
+    order:2;
+  }
+  .so-journey:has(.globe-zone.final-turkiye) .journey-visual-column{
+    order:1;
+  }
+}
