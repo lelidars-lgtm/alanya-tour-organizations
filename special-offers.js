@@ -155,6 +155,7 @@ const startJourney=document.getElementById('startJourney');
 const globeZone=document.getElementById('globeZone');
 const status=document.getElementById('journeyStatus');
 const dockCard=document.getElementById('journeyDockCard');
+const journeyCardPlaceholder=document.getElementById('journeyCardPlaceholder');
 const dockLabel=document.querySelector('.journey-dock-label');
 const dockCardTitle=document.getElementById('dockCardTitle');
 const dockCardText=document.getElementById('dockCardText');
@@ -261,6 +262,8 @@ function endLogoFlight(){
 }
 
 function resetJourneyVisual(){
+  journeyCardPlaceholder?.classList.remove('is-hidden');
+  dockCard?.classList.remove('visible','final-visible');
   clearJourneyTimers(); endLogoFlight();
   globeZone.classList.remove('journey-running','orbit-flight','orbit-complete','journey-arrived','turkiye-focus','alanya-landed','journey-pulse','light-collapse','journey-heart','heart-full','journey-explode','journey-card-launch','card-landed','heart-return','final-turkiye');
   dockCard.classList.remove('visible'); dockLabel?.classList.remove('ready');
@@ -310,6 +313,8 @@ function setHeartOriginFromAlanya(){
 function runJourney(fromPlanner=false){
   buildJourneyCard();
   resetJourneyVisual();
+  journeyCardPlaceholder?.classList.add('is-hidden');
+  dockCard?.classList.remove('visible','final-visible');
   dockCard?.classList.remove('visible','final-visible');
   dockLabel?.classList.remove('ready');
 
@@ -343,6 +348,7 @@ function runJourney(fromPlanner=false){
       startJourney.disabled=false;
       startJourney.classList.remove('is-active');
       if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
+      journeyCardPlaceholder?.classList.add('is-hidden');
       dockCard?.classList.add('final-visible');
       dockLabel?.classList.add('ready');
       return;
@@ -460,7 +466,8 @@ function runJourney(fromPlanner=false){
       startJourney.classList.remove('is-active');
       if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
       queueJourney(()=>{
-        dockCard?.classList.add('final-visible');
+        journeyCardPlaceholder?.classList.add('is-hidden');
+      dockCard?.classList.add('final-visible');
         dockLabel?.classList.add('ready');
       },520);
     },19250);

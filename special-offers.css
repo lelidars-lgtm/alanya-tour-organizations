@@ -5177,3 +5177,106 @@ body{
     min-height:470px!important;
   }
 }
+
+
+
+/* =========================================================
+   GHOST CARD SLOT — PREVIEW → HIDE → REAL CARD ARRIVES
+   ========================================================= */
+
+/* The empty destination slot is visible before the journey. */
+.journey-card-placeholder{
+  display:block!important;
+  width:100%;
+  max-width:360px;
+  padding:18px;
+  margin-top:12px;
+  border:1px solid rgba(243,198,109,.17);
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(7,29,44,.26),rgba(3,14,24,.19));
+  opacity:.24;
+  visibility:visible;
+  pointer-events:none;
+  filter:saturate(.22);
+  transition:opacity .38s ease,visibility .38s ease,transform .38s ease,filter .38s ease;
+}
+.journey-card-placeholder .placeholder-label{
+  color:#f3c66d;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.14em;
+  margin-bottom:12px;
+}
+.journey-card-placeholder .placeholder-image{
+  height:112px;
+  border-radius:12px;
+  border:1px solid rgba(243,198,109,.10);
+  background:
+    radial-gradient(circle at 28% 36%,rgba(54,170,214,.10),transparent 34%),
+    linear-gradient(145deg,rgba(9,34,50,.55),rgba(3,17,29,.68));
+  position:relative;
+  overflow:hidden;
+}
+.journey-card-placeholder .placeholder-image::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(105deg,transparent 18%,rgba(255,255,255,.035) 43%,transparent 67%);
+  transform:translateX(-100%);
+  animation:placeholderShimmer 4.6s ease-in-out infinite;
+}
+.journey-card-placeholder .placeholder-title{
+  margin-top:14px;
+  color:rgba(235,244,248,.48);
+  font:500 21px/1.08 Georgia,"Times New Roman",serif;
+}
+.journey-card-placeholder .placeholder-copy{
+  margin-top:9px;
+  color:rgba(170,190,202,.42);
+  font-size:13px;
+  line-height:1.45;
+}
+.journey-card-placeholder .placeholder-meta{
+  margin-top:13px;
+  color:rgba(243,198,109,.42);
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:.10em;
+}
+@keyframes placeholderShimmer{
+  0%,55%{transform:translateX(-100%)}
+  75%,100%{transform:translateX(120%)}
+}
+
+/* During animation the placeholder disappears completely. */
+.journey-card-placeholder.is-hidden{
+  opacity:0!important;
+  visibility:hidden!important;
+  transform:translateY(8px) scale(.98)!important;
+  filter:blur(3px)!important;
+}
+
+/* Real card is always hidden until the explicit final-visible state. */
+#journeyDockCard{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+  transform:translateY(12px) scale(.96)!important;
+  filter:blur(3px)!important;
+}
+#journeyDockCard.final-visible{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  transform:translateY(0) scale(1)!important;
+  filter:none!important;
+  animation:realCardArrival .72s cubic-bezier(.18,.84,.22,1) both;
+}
+@keyframes realCardArrival{
+  0%{opacity:0;transform:translateY(16px) scale(.92);filter:blur(5px)}
+  72%{opacity:1;transform:translateY(-2px) scale(1.02);filter:blur(0)}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:none}
+}
+@media(max-width:900px){
+  .journey-card-placeholder{max-width:none}
+}
