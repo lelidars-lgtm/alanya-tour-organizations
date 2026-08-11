@@ -165,6 +165,7 @@ const offerResultMeta=document.getElementById('offerResultMeta');
 const requestPersonalOffer=document.getElementById('requestPersonalOffer');
 const alanyaDot=document.querySelector('.destination-dot');
 const tourCardFly=document.getElementById('tourCardFly');
+const heartTransform=document.getElementById('heartTransform');
 const atoFlightOverlay=document.getElementById('atoFlightOverlay');
 const atoFlightRouteBase=document.getElementById('atoFlightRouteBase');
 const atoFlightRouteLive=document.getElementById('atoFlightRouteLive');
@@ -211,6 +212,75 @@ function buildJourneyCard(){
   if(dockCardMeta) dockCardMeta.textContent=activeRandomTour.meta;
   const chips=[planner.occasion,planner.people,planner.feeling,planner.groupSize].filter(Boolean);
   offerResultMeta.innerHTML=chips.map(v=>`<span>${v}</span>`).join('');
+}
+
+
+let tourCardFlightRaf=0;
+
+function cancelTourCardFlight(){
+  if(tourCardFlightRaf){
+    cancelAnimationFrame(tourCardFlightRaf);
+    tourCardFlightRaf=0;
+  }
+}
+
+function animateTourCardContinuously(duration=1650){
+  if(!tourCardFly||!globeZone||!dockCard) return;
+  cancelTourCardFlight();
+
+  const zone=globeZone.getBoundingClientRect();
+  const heart=(heartTransform||globeZone).getBoundingClientRect();
+  const dock=dockCard.getBoundingClientRect();
+
+  const sx=(heart.left+heart.width/2)-zone.left;
+  const sy=(heart.top+heart.height/2)-zone.top;
+
+  const ex=(dock.left+dock.width*.58)-zone.left;
+  const ey=(dock.top+Math.min(dock.height*.40,92))-zone.top;
+
+  // One continuous cubic Bézier: heart → lifted arc → card slot.
+  const c1x=sx-(zone.width*.10);
+  const c1y=sy-(zone.height*.12);
+  const c2x=ex+(zone.width*.16);
+  const c2y=ey-(zone.height*.16);
+
+  const start=performance.now();
+
+  const bez=(a,b,c,d,t)=>{
+    const mt=1-t;
+    return mt*mt*mt*a + 3*mt*mt*t*b + 3*mt*t*t*c + t*t*t*d;
+  };
+
+  const ease=(t)=>0.5-0.5*Math.cos(Math.PI*t); // smooth, no plateau
+
+  const frame=(now)=>{
+    const raw=Math.min(1,(now-start)/duration);
+    const t=ease(raw);
+
+    const x=bez(sx,c1x,c2x,ex,t);
+    const y=bez(sy,c1y,c2y,ey,t);
+
+    // Card grows continuously; no keyframe hold.
+    const scale=.20 + (.84-.20)*(1-Math.pow(1-t,1.35));
+    const rotate=-4*(1-t);
+
+    tourCardFly.style.opacity=raw<.06 ? String(raw/.06) : '1';
+    tourCardFly.style.filter=`blur(${Math.max(0,5*(1-raw*4))}px)`;
+    tourCardFly.style.transform=
+      `translate(${x}px,${y}px) translate(-50%,-50%) scale(${scale}) rotate(${rotate}deg)`;
+
+    if(raw<1){
+      tourCardFlightRaf=requestAnimationFrame(frame);
+    }else{
+      tourCardFlightRaf=0;
+      tourCardFly.style.opacity='1';
+      tourCardFly.style.filter='none';
+      tourCardFly.style.transform=
+        `translate(${ex}px,${ey}px) translate(-50%,-50%) scale(.84) rotate(0deg)`;
+    }
+  };
+
+  tourCardFlightRaf=requestAnimationFrame(frame);
 }
 
 function setCardFlightGeometry(){
@@ -340,6 +410,12 @@ function endLogoFlight(){
 }
 
 function resetJourneyVisual(){
+  cancelTourCardFlight();
+  if(tourCardFly){
+    tourCardFly.style.opacity='0';
+    tourCardFly.style.filter='none';
+    tourCardFly.style.transform='';
+  }
   cancelAircraftAnimations();
   if(orbitPlaneGroup){
     orbitPlaneGroup.removeAttribute('transform');
@@ -566,6 +642,7 @@ function runJourney(fromPlanner=false){
     queueJourney(()=>{
       setCardFlightGeometry();
       globeZone.classList.add('journey-card-launch');
+      animateTourCardContinuously(1650);
       status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>THE HEART CHOOSES AN EXPERIENCE</span>';
     },14600);
 
@@ -574,6 +651,7 @@ function runJourney(fromPlanner=false){
     },15350);
 
     queueJourney(()=>{
+      cancelTourCardFlight();
       landOfferCard();
     },16250);
 
@@ -607,7 +685,7 @@ window.addEventListener('resize',()=>{
   if(globeZone.classList.contains('alanya-landed')||globeZone.classList.contains('journey-heart')){
     setHeartOriginFromExactAlanya();
   }
-  if(globeZone.classList.contains('journey-card-launch') || globeZone.classList.contains('card-landed')){
+  if(globeZone.classList.contains('card-landed')){
     setCardFlightGeometry();
   }
 });

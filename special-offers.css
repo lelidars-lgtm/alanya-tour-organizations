@@ -5733,3 +5733,21 @@ body{
     max-width:100%!important;
   }
 }
+
+
+
+/* =========================================================
+   CARD FLIGHT — NO PAUSE / NO CSS KEYFRAME CONFLICTS
+   JS owns the complete flight from heart to dock.
+   ========================================================= */
+.globe-zone.journey-card-launch .tour-card-fly{
+  animation:none!important;
+}
+.globe-zone.journey-card-launch .tour-card-fly::after{
+  animation:none!important;
+  opacity:0!important;
+}
+.tour-card-fly{
+  will-change:transform,opacity,filter;
+  transition:none!important;
+}
