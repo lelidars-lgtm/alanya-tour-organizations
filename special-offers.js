@@ -267,10 +267,24 @@ function resetJourneyVisual(){
   status.innerHTML='<strong>ALANYA TOUR ORGANIZATIONS IS WAITING.</strong><span>LOGO → FLIGHT → GLOBE → TÜRKİYE → ALANYA → HEART → TOUR</span>';
   startJourney.disabled=false; startJourney.classList.remove('is-active');
   if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='START MY JOURNEY →';
+
+  document.querySelectorAll('.journey-overlay-svg .route-base,.journey-overlay-svg .route-live').forEach(p=>{
+    p.style.opacity='0';
+    p.style.visibility='hidden';
+    p.style.stroke='transparent';
+  });
+  document.querySelectorAll('.journey-overlay-svg .plane-group').forEach(p=>{
+    p.style.opacity='0';
+    p.style.visibility='hidden';
+  });
+
+  dockCard?.classList.remove('visible','final-visible');
+  dockLabel?.classList.remove('ready');
 }
 
 function landOfferCard(){
-  dockCard.classList.add('visible');
+
+  dockCard.classList.remove('visible','final-visible');
   dockLabel?.classList.add('ready');
   globeZone.classList.add('card-landed');
   status.innerHTML='<strong>YOUR EXPERIENCE HAS ARRIVED.</strong><span>ALANYA → YOUR PERSONAL OFFER</span>';
@@ -282,6 +296,8 @@ function landOfferCard(){
 function runJourney(fromPlanner=false){
   buildJourneyCard();
   resetJourneyVisual();
+  dockCard?.classList.remove('visible','final-visible');
+  dockLabel?.classList.remove('ready');
 
   requestAnimationFrame(()=>{
     setCardFlightGeometry();
@@ -310,6 +326,15 @@ function runJourney(fromPlanner=false){
     /* 03 AIRCRAFT REACHES GLOBE AND ORBITS IT. */
     queueJourney(()=>{
       endLogoFlight();
+      document.querySelectorAll('.journey-overlay-svg .route-base,.journey-overlay-svg .route-live').forEach(p=>{
+        p.style.removeProperty('opacity');
+        p.style.removeProperty('visibility');
+        p.style.removeProperty('stroke');
+      });
+      document.querySelectorAll('.journey-overlay-svg .plane-group').forEach(p=>{
+        p.style.removeProperty('opacity');
+        p.style.removeProperty('visibility');
+      });
       globeZone.classList.add('journey-running','orbit-flight');
       status.innerHTML='<strong>AROUND THE WORLD.</strong><span>ONE ORBIT → ONE DESTINATION</span>';
     },3300);
@@ -382,7 +407,7 @@ function runJourney(fromPlanner=false){
 
     /* 13 Heart returns to original Alanya point and disappears. */
     queueJourney(()=>{
-      dockCard.classList.add('visible');
+      dockCard.classList.remove('visible','final-visible');
       globeZone.classList.add('heart-return');
       status.innerHTML='<strong>THE HEART COMES HOME.</strong><span>BACK TO ALANYA</span>';
     },18000);
@@ -394,6 +419,10 @@ function runJourney(fromPlanner=false){
       startJourney.disabled=false;
       startJourney.classList.remove('is-active');
       if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
+      queueJourney(()=>{
+        dockCard?.classList.add('final-visible');
+        dockLabel?.classList.add('ready');
+      },520);
     },19250);
   });
 }
