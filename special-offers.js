@@ -233,11 +233,11 @@ function animateTourCardContinuously(duration=1550){
   cancelTourCardFlight();
 
   const zone=globeZone.getBoundingClientRect();
-  const heart=heartTransform?.getBoundingClientRect();
+  const heartSvg=heartTransform?.querySelector('svg');
+  const heart=heartSvg?.getBoundingClientRect() || heartTransform?.getBoundingClientRect();
+  if(!heart || !heart.width || !heart.height || !zone.width || !zone.height) return;
 
-  if(!heart || !heart.width || !heart.height) return;
-
-  /* EXACT START = geometric center of the visible heart */
+  /* TRUE visible center of the SVG heart in globe-zone coordinates. */
   const sx=(heart.left + heart.width/2) - zone.left;
   const sy=(heart.top + heart.height/2) - zone.top;
 
@@ -245,45 +245,36 @@ function animateTourCardContinuously(duration=1550){
   const ex=(dock.left + dock.width*.50) - zone.left;
   const ey=(dock.top + Math.min(dock.height*.42,96)) - zone.top;
 
-  /* One smooth arc from heart center to card slot */
   const c1x=sx - zone.width*.08;
-  const c1y=sy - zone.height*.16;
+  const c1y=sy - zone.height*.15;
   const c2x=ex + zone.width*.14;
-  const c2y=ey - zone.height*.11;
+  const c2y=ey - zone.height*.10;
 
   const start=performance.now();
-
-  const bez=(a,b,c,d,t)=>{
-    const mt=1-t;
-    return mt*mt*mt*a + 3*mt*mt*t*b + 3*mt*t*t*c + t*t*t*d;
-  };
-
+  const bez=(a,b,c,d,t)=>{const mt=1-t;return mt*mt*mt*a+3*mt*mt*t*b+3*mt*t*t*c+t*t*t*d;};
   const ease=t=>1-Math.pow(1-t,3);
 
+  /* Critical: legacy CSS uses left/top 50%. Zero them BEFORE transform. */
   tourCardFly.classList.add('card-flight-active');
+  tourCardFly.style.left='0px';
+  tourCardFly.style.top='0px';
   tourCardFly.style.visibility='visible';
   tourCardFly.style.opacity='0';
-  tourCardFly.style.filter='blur(5px) brightness(1.35)';
-
-  /* place card at heart center before first frame */
-  tourCardFly.style.transform=
-    `translate(${sx}px,${sy}px) translate(-50%,-50%) scale(.08) rotate(-5deg)`;
+  tourCardFly.style.filter='blur(4px) brightness(1.35)';
+  tourCardFly.style.transform=`translate(${sx}px,${sy}px) translate(-50%,-50%) scale(.035) rotate(-3deg)`;
 
   const frame=(now)=>{
     const raw=Math.min(1,(now-start)/duration);
     const t=ease(raw);
-
     const x=bez(sx,c1x,c2x,ex,t);
     const y=bez(sy,c1y,c2y,ey,t);
+    const scale=.035+(.84-.035)*(1-Math.pow(1-t,1.22));
+    const rotate=-3*(1-t);
+    const blur=Math.max(0,4*(1-raw*4));
 
-    const scale=.08 + (.84-.08)*(1-Math.pow(1-t,1.25));
-    const rotate=-5*(1-t);
-    const blur=Math.max(0,5*(1-raw*3.5));
-
-    tourCardFly.style.opacity=raw<.08 ? String(raw/.08) : '1';
+    tourCardFly.style.opacity=raw<.065?String(raw/.065):'1';
     tourCardFly.style.filter=`blur(${blur}px) brightness(${1.35-.35*t})`;
-    tourCardFly.style.transform=
-      `translate(${x}px,${y}px) translate(-50%,-50%) scale(${scale}) rotate(${rotate}deg)`;
+    tourCardFly.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%) scale(${scale}) rotate(${rotate}deg)`;
 
     if(raw<1){
       tourCardFlightRaf=requestAnimationFrame(frame);
@@ -291,11 +282,9 @@ function animateTourCardContinuously(duration=1550){
       tourCardFlightRaf=0;
       tourCardFly.style.opacity='1';
       tourCardFly.style.filter='none';
-      tourCardFly.style.transform=
-        `translate(${ex}px,${ey}px) translate(-50%,-50%) scale(.84) rotate(0deg)`;
+      tourCardFly.style.transform=`translate(${ex}px,${ey}px) translate(-50%,-50%) scale(.84)`;
     }
   };
-
   tourCardFlightRaf=requestAnimationFrame(frame);
 }
 
@@ -432,6 +421,8 @@ function resetJourneyVisual(){
     tourCardFly.style.opacity='0';
     tourCardFly.style.filter='none';
     tourCardFly.style.transform='';
+    tourCardFly.style.left='';
+    tourCardFly.style.top='';
   }
   cancelAircraftAnimations();
   if(orbitPlaneGroup){
@@ -467,6 +458,8 @@ function landOfferCard(){
   if(tourCardFly){
     tourCardFly.style.opacity='0';
     tourCardFly.style.visibility='hidden';
+    tourCardFly.style.left='';
+    tourCardFly.style.top='';
   }
 
   dockCard.classList.remove('visible','final-visible');
@@ -671,7 +664,7 @@ function runJourney(fromPlanner=false){
       globeZone.classList.add('journey-card-launch');
       animateTourCardContinuously(1550);
       status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>STRAIGHT FROM THE HEART</span>';
-    },15150);
+    },15320);
 
     queueJourney(()=>{
       cancelTourCardFlight();

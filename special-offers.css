@@ -5793,3 +5793,55 @@ body{
   opacity:1!important;
   visibility:visible!important;
 }
+
+/* =========================================================
+   TRUE HEART-CENTER CARD ORIGIN + BIGGER CONFETTI
+   Fixes double-positioning from left:50/top:50 + JS translate.
+   ========================================================= */
+
+/* JS flight coordinates are absolute inside globe-zone.
+   Do NOT add the legacy 50%/50% positioning during flight. */
+.tour-card-fly.card-flight-active{
+  left:0!important;
+  top:0!important;
+  margin:0!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+  animation:none!important;
+}
+
+/* Prevent a clipped first letter / stray 'T' at the left edge before launch. */
+.tour-card-fly:not(.card-flight-active){
+  left:50%!important;
+  top:50%!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  overflow:hidden!important;
+}
+
+/* Stronger confetti burst */
+.confetti-burst{
+  width:1px!important;
+  height:1px!important;
+  z-index:12!important;
+}
+.confetti-burst span{
+  width:var(--s,10px)!important;
+  height:calc(var(--s,10px) * 1.55)!important;
+  border-radius:5px!important;
+  box-shadow:0 0 8px rgba(255,219,126,.28)!important;
+}
+.confetti-burst span:nth-child(5n){background:linear-gradient(180deg,#ff4b72,#ffd16c)!important}
+.confetti-burst span:nth-child(6n){background:linear-gradient(180deg,#6be9df,#ffffff)!important}
+.confetti-burst span:nth-child(7n){background:linear-gradient(180deg,#ffffff,#ffcf66)!important}
+.globe-zone.journey-explode .confetti-burst span{
+  animation:confettiBurstLarge 1.28s cubic-bezier(.12,.76,.18,1) forwards!important;
+  animation-delay:calc((var(--i) % 6) * 12ms)!important;
+}
+@keyframes confettiBurstLarge{
+  0%{opacity:0;transform:translate(0,0) rotate(0deg) scale(.22)}
+  7%{opacity:1;transform:translate(0,0) rotate(0deg) scale(1.15)}
+  68%{opacity:1}
+  100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(.82)}
+}
