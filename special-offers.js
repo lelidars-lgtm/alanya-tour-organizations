@@ -174,6 +174,7 @@ const flyCardThumb=document.getElementById('flyCardThumb');
 const flyCardMeta=document.getElementById('flyCardMeta');
 const dockCardThumb=document.getElementById('dockCardThumb');
 const dockCardMeta=document.getElementById('dockCardMeta');
+const finalTurkiyeStage=document.getElementById('finalTurkiyeStage');
 
 const RANDOM_TOURS=[
   {title:'Aspendos, Side & Manavgat Waterfall',meta:'History & Culture · Full Day',image:'images/history-culture/history-culture-hero.png'},
@@ -238,12 +239,29 @@ function setLogoFlightGeometry(){
   atoFlightRouteBase.setAttribute('d',d); atoFlightRouteLive.setAttribute('d',d);
   atoLaunchPlane.style.offsetPath=`path("${d}")`;
 }
-function launchFromLogo(){setLogoFlightGeometry();atoFlightOverlay?.classList.remove('fly');void atoFlightOverlay?.offsetWidth;atoFlightOverlay?.classList.add('active','fly')}
-function endLogoFlight(){atoFlightOverlay?.classList.remove('fly','active')}
+function launchFromLogo(){
+  if(!atoFlightOverlay) return;
+  setLogoFlightGeometry();
+  atoFlightOverlay.classList.remove('fly','route-visible','route-fade');
+  void atoFlightOverlay.offsetWidth;
+  atoFlightOverlay.classList.add('active');
+  // Aircraft appears first. The route is revealed a fraction later.
+  requestAnimationFrame(()=>{
+    atoFlightOverlay.classList.add('fly');
+    setTimeout(()=>atoFlightOverlay.classList.add('route-visible'),220);
+  });
+}
+function endLogoFlight(){
+  if(!atoFlightOverlay) return;
+  atoFlightOverlay.classList.add('route-fade');
+  setTimeout(()=>{
+    atoFlightOverlay.classList.remove('fly','active','route-visible','route-fade');
+  },520);
+}
 
 function resetJourneyVisual(){
   clearJourneyTimers(); endLogoFlight();
-  globeZone.classList.remove('journey-running','orbit-flight','journey-arrived','turkiye-focus','alanya-landed','journey-pulse','light-collapse','journey-heart','heart-full','journey-explode','journey-card-launch','card-landed');
+  globeZone.classList.remove('journey-running','orbit-flight','orbit-complete','journey-arrived','turkiye-focus','alanya-landed','journey-pulse','light-collapse','journey-heart','heart-full','journey-explode','journey-card-launch','card-landed','heart-return','final-turkiye');
   dockCard.classList.remove('visible'); dockLabel?.classList.remove('ready');
   status.innerHTML='<strong>ALANYA TOUR ORGANIZATIONS IS WAITING.</strong><span>LOGO → FLIGHT → GLOBE → TÜRKİYE → ALANYA → HEART → TOUR</span>';
   startJourney.disabled=false; startJourney.classList.remove('is-active');
@@ -261,26 +279,121 @@ function landOfferCard(){
 }
 
 function runJourney(fromPlanner=false){
-  buildJourneyCard(); resetJourneyVisual();
+  buildJourneyCard();
+  resetJourneyVisual();
+
   requestAnimationFrame(()=>{
-    setCardFlightGeometry(); setLogoFlightGeometry(); void globeZone.offsetWidth;
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){globeZone.classList.add('journey-heart','heart-full');landOfferCard();return;}
-    startJourney.classList.add('is-active'); startJourney.disabled=true;
+    setCardFlightGeometry();
+    setLogoFlightGeometry();
+    void globeZone.offsetWidth;
+
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      globeZone.classList.add('final-turkiye');
+      status.innerHTML='<strong>WE ARE HERE.</strong><span>ALANYA · 36.532392° N · 32.038899° E</span>';
+      return;
+    }
+
+    startJourney.classList.add('is-active');
+    startJourney.disabled=true;
     if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='THIS IS MY JOURNEY';
 
-    launchFromLogo();
-    status.innerHTML='<strong>THE JOURNEY BEGINS HERE.</strong><span>ALANYA TOUR ORGANIZATIONS → THE WORLD</span>';
+    /* 01 START — only logo + globe, no route. */
+    status.innerHTML='<strong>THE JOURNEY BEGINS HERE.</strong><span>ALANYA TOUR ORGANIZATIONS</span>';
 
-    queueJourney(()=>{endLogoFlight();globeZone.classList.add('journey-running','orbit-flight');status.innerHTML='<strong>AROUND THE WORLD.</strong><span>ONE ORBIT → ONE DESTINATION</span>';},2450);
-    queueJourney(()=>{globeZone.classList.remove('orbit-flight');globeZone.classList.add('journey-arrived','turkiye-focus');status.innerHTML='<strong>REPUBLIC OF TÜRKİYE.</strong><span>THE WORLD NARROWS TO ONE PLACE</span>';},5850);
-    queueJourney(()=>{globeZone.classList.add('alanya-landed');status.innerHTML='<strong>WE ARE HERE.</strong><span>ALANYA · 36.532392° N · 32.038899° E</span>';},7100);
-    queueJourney(()=>{globeZone.classList.add('journey-pulse');status.innerHTML='<strong>ALANYA TOUR ORGANIZATIONS IS WAITING.</strong><span>THIS POINT IS WHERE YOUR STORY BEGINS</span>';},8050);
-    queueJourney(()=>{globeZone.classList.add('light-collapse');status.innerHTML='<strong>THE WORLD BECOMES A FEELING.</strong><span>COLD BLUE LIGHT → ONE WARM RED CORE</span>';},8950);
-    queueJourney(()=>{globeZone.classList.add('journey-heart');status.innerHTML='<strong>A HEART IS BORN.</strong><span>ALANYA → EMOTION → MEMORY</span>';},9900);
-    queueJourney(()=>{globeZone.classList.add('heart-full');status.innerHTML='<strong>FOLLOW YOUR HEART.</strong><span>ONE HEART · ONE JOURNEY</span>';},11150);
-    queueJourney(()=>{setCardFlightGeometry();globeZone.classList.add('journey-card-launch');status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>THE HEART CHOOSES A NEW EXPERIENCE</span>';},12350);
-    queueJourney(()=>globeZone.classList.add('journey-explode'),13050);
-    queueJourney(landOfferCard,13950);
+    /* 02 AIRCRAFT LEAVES LOGO — route appears only after launch. */
+    queueJourney(()=>{
+      launchFromLogo();
+      status.innerHTML='<strong>FOLLOW THE FLIGHT.</strong><span>ALANYA TOUR ORGANIZATIONS → THE WORLD</span>';
+    },650);
+
+    /* 03 AIRCRAFT REACHES GLOBE AND ORBITS IT. */
+    queueJourney(()=>{
+      endLogoFlight();
+      globeZone.classList.add('journey-running','orbit-flight');
+      status.innerHTML='<strong>AROUND THE WORLD.</strong><span>ONE ORBIT → ONE DESTINATION</span>';
+    },3300);
+
+    /* 04 ORBIT LINE / PLANE DISAPPEAR, THEN FOCUS ON TÜRKİYE. */
+    queueJourney(()=>{
+      globeZone.classList.add('orbit-complete');
+    },6150);
+
+    queueJourney(()=>{
+      globeZone.classList.remove('orbit-flight');
+      globeZone.classList.add('journey-arrived','turkiye-focus');
+      status.innerHTML='<strong>REPUBLIC OF TÜRKİYE.</strong><span>THE WORLD NARROWS TO ONE PLACE</span>';
+    },6750);
+
+    /* 05 ALANYA COORDINATES APPEAR. */
+    queueJourney(()=>{
+      globeZone.classList.add('alanya-landed');
+      status.innerHTML='<strong>ALANYA.</strong><span>36.532392° N · 32.038899° E</span>';
+    },8000);
+
+    /* 06 WE ARE HERE pin drops. */
+    queueJourney(()=>{
+      globeZone.classList.add('journey-pulse');
+      status.innerHTML='<strong>WE ARE HERE.</strong><span>ALANYA · 36.532392° N · 32.038899° E</span>';
+    },8950);
+
+    /* 07 Text changes. */
+    queueJourney(()=>{
+      status.innerHTML='<strong>ALANYA TOUR ORGANIZATIONS IS WAITING.</strong><span>THIS POINT IS WHERE YOUR STORY BEGINS</span>';
+    },9800);
+
+    /* 08 Blue light collapses into Alanya point. */
+    queueJourney(()=>{
+      globeZone.classList.add('light-collapse');
+      status.innerHTML='<strong>THE WORLD BECOMES A FEELING.</strong><span>COLD BLUE LIGHT → ONE WARM RED CORE</span>';
+    },10650);
+
+    /* 09 Red core. */
+    queueJourney(()=>{
+      status.innerHTML='<strong>THE POINT BECOMES A HEART.</strong><span>ALANYA → EMOTION</span>';
+    },11450);
+
+    /* 10 Red digital heart is born. */
+    queueJourney(()=>{
+      globeZone.classList.add('journey-heart');
+      status.innerHTML='<strong>A HEART IS BORN.</strong><span>ONE PLACE → ONE FEELING</span>';
+    },12150);
+
+    /* 11 Heart grows to globe scale. */
+    queueJourney(()=>{
+      globeZone.classList.add('heart-full');
+      status.innerHTML='<strong>FOLLOW YOUR HEART.</strong><span>ONE HEART · ONE JOURNEY</span>';
+    },13350);
+
+    /* 12 Random tour card is born. */
+    queueJourney(()=>{
+      setCardFlightGeometry();
+      globeZone.classList.add('journey-card-launch');
+      status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>THE HEART CHOOSES AN EXPERIENCE</span>';
+    },14600);
+
+    queueJourney(()=>{
+      globeZone.classList.add('journey-explode');
+    },15350);
+
+    queueJourney(()=>{
+      landOfferCard();
+    },16250);
+
+    /* 13 Heart returns to original Alanya point and disappears. */
+    queueJourney(()=>{
+      dockCard.classList.remove('visible');
+      globeZone.classList.add('heart-return');
+      status.innerHTML='<strong>THE HEART COMES HOME.</strong><span>BACK TO ALANYA</span>';
+    },18000);
+
+    /* 14–15 Final state: glowing Türkiye + flag + WE ARE HERE + coordinates. */
+    queueJourney(()=>{
+      globeZone.classList.add('final-turkiye');
+      status.innerHTML='<strong>WE ARE HERE.</strong><span>ALANYA · 36.532392° N · 32.038899° E</span>';
+      startJourney.disabled=false;
+      startJourney.classList.remove('is-active');
+      if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
+    },19250);
   });
 }
 
