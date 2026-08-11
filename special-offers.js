@@ -164,6 +164,26 @@ const offerResultMeta=document.getElementById('offerResultMeta');
 const requestPersonalOffer=document.getElementById('requestPersonalOffer');
 const alanyaDot=document.querySelector('.destination-dot');
 const tourCardFly=document.getElementById('tourCardFly');
+const atoFlightOverlay=document.getElementById('atoFlightOverlay');
+const atoFlightRouteBase=document.getElementById('atoFlightRouteBase');
+const atoFlightRouteLive=document.getElementById('atoFlightRouteLive');
+const atoLaunchPlane=document.getElementById('atoLaunchPlane');
+const siteLogo=document.querySelector('.header .logo');
+const globeStageLive=document.getElementById('globeStageLive');
+const flyCardThumb=document.getElementById('flyCardThumb');
+const flyCardMeta=document.getElementById('flyCardMeta');
+const dockCardThumb=document.getElementById('dockCardThumb');
+const dockCardMeta=document.getElementById('dockCardMeta');
+
+const RANDOM_TOURS=[
+  {title:'Aspendos, Side & Manavgat Waterfall',meta:'History & Culture · Full Day',image:'images/history-culture/history-culture-hero.png'},
+  {title:'Land of Legends — Day Tour',meta:'Family Experience · Belek',image:'images/family-experiences/hero.png'},
+  {title:'Alanya Paragliding',meta:'Air Experience · Alanya',image:'images/air-experiences/air-category-hero.png'},
+  {title:'Family Jeep Safari',meta:'Nature & Adventure · Alanya',image:'images/nature-adventure/canyon-adventures.png'},
+  {title:'Private Yacht Charter',meta:'VIP Service · Private Experience',image:'images/vip-services/HERO.png'},
+  {title:'Turkish Hammam & Spa',meta:'Wellness & Relax · Alanya',image:'images/wellness-relax/hero.jpeg'}
+];
+let activeRandomTour=null;
 let journeyTimerPool=[];
 
 function clearJourneyTimers(){journeyTimerPool.forEach(clearTimeout);journeyTimerPool=[]}
@@ -174,26 +194,17 @@ function plannerHasChoices(){
 }
 
 function buildJourneyCard(){
-  const title = planner.occasion ? planner.occasion + ' Experience' : 'Your Special Experience';
-  let parts=[];
-  if(planner.people) parts.push(planner.people);
-  if(planner.feeling) parts.push(planner.feeling.toLowerCase() + ' mood');
-  if(planner.groupSize) parts.push(planner.groupSize.toLowerCase());
-  const text = parts.length
-    ? `Created around ${parts.join(' · ')}.`
-    : 'A custom concept shaped around your celebration.';
-
-  dockCardTitle.textContent=title;
-  dockCardText.textContent=text;
-  flyCardTitle.textContent=title;
-  flyCardText.textContent=text;
-
-  const chips=[
-    planner.occasion,
-    planner.people,
-    planner.feeling,
-    planner.groupSize
-  ].filter(Boolean);
+  activeRandomTour=RANDOM_TOURS[Math.floor(Math.random()*RANDOM_TOURS.length)];
+  const title=activeRandomTour.title;
+  const text='A tour chosen by the journey — discover where the heart takes you.';
+  dockCardTitle.textContent=title; dockCardText.textContent=text;
+  flyCardTitle.textContent=title; flyCardText.textContent=text;
+  const bg=`url("${activeRandomTour.image}")`;
+  if(flyCardThumb) flyCardThumb.style.backgroundImage=bg;
+  if(dockCardThumb) dockCardThumb.style.backgroundImage=bg;
+  if(flyCardMeta) flyCardMeta.textContent=activeRandomTour.meta;
+  if(dockCardMeta) dockCardMeta.textContent=activeRandomTour.meta;
+  const chips=[planner.occasion,planner.people,planner.feeling,planner.groupSize].filter(Boolean);
   offerResultMeta.innerHTML=chips.map(v=>`<span>${v}</span>`).join('');
 }
 
@@ -217,14 +228,25 @@ function setCardFlightGeometry(){
   globeZone.style.setProperty('--card-fly-y',`${dockCenterY-zoneCenterY}px`);
 }
 
+
+function setLogoFlightGeometry(){
+  if(!atoFlightOverlay||!atoFlightRouteBase||!atoFlightRouteLive||!atoLaunchPlane||!siteLogo||!globeStageLive) return;
+  const logo=siteLogo.getBoundingClientRect(), globe=globeStageLive.getBoundingClientRect();
+  const sx=logo.left+Math.min(logo.width*.78,logo.width-10), sy=logo.top+logo.height*.52;
+  const ex=globe.left+globe.width*.28, ey=globe.top+globe.height*.30, dx=ex-sx;
+  const d=`M ${sx} ${sy} C ${sx+dx*.30} ${sy-Math.max(70,Math.abs(dx)*.10)}, ${sx+dx*.72} ${ey-Math.max(45,Math.abs(dx)*.05)}, ${ex} ${ey}`;
+  atoFlightRouteBase.setAttribute('d',d); atoFlightRouteLive.setAttribute('d',d);
+  atoLaunchPlane.style.offsetPath=`path("${d}")`;
+}
+function launchFromLogo(){setLogoFlightGeometry();atoFlightOverlay?.classList.remove('fly');void atoFlightOverlay?.offsetWidth;atoFlightOverlay?.classList.add('active','fly')}
+function endLogoFlight(){atoFlightOverlay?.classList.remove('fly','active')}
+
 function resetJourneyVisual(){
-  clearJourneyTimers();
-  globeZone.classList.remove('journey-running','journey-arrived','journey-pulse','journey-heart','journey-explode','journey-card-launch','card-landed');
-  dockCard.classList.remove('visible');
-  dockLabel?.classList.remove('ready');
-  status.innerHTML='<strong>ALANYA IS WAITING.</strong><span>GLOBE → FLIGHT → TÜRKİYE → ALANYA → HEART → YOUR OFFER</span>';
-  startJourney.disabled=false;
-  startJourney.classList.remove('is-active');
+  clearJourneyTimers(); endLogoFlight();
+  globeZone.classList.remove('journey-running','orbit-flight','journey-arrived','turkiye-focus','alanya-landed','journey-pulse','light-collapse','journey-heart','heart-full','journey-explode','journey-card-launch','card-landed');
+  dockCard.classList.remove('visible'); dockLabel?.classList.remove('ready');
+  status.innerHTML='<strong>ALANYA TOUR ORGANIZATIONS IS WAITING.</strong><span>LOGO → FLIGHT → GLOBE → TÜRKİYE → ALANYA → HEART → TOUR</span>';
+  startJourney.disabled=false; startJourney.classList.remove('is-active');
   if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='START MY JOURNEY →';
 }
 
@@ -239,56 +261,33 @@ function landOfferCard(){
 }
 
 function runJourney(fromPlanner=false){
-  buildJourneyCard();
-  resetJourneyVisual();
+  buildJourneyCard(); resetJourneyVisual();
   requestAnimationFrame(()=>{
-    setCardFlightGeometry();
-    void globeZone.offsetWidth;
-
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      landOfferCard();
-      return;
-    }
-
-    globeZone.classList.add('journey-running');
-    startJourney.classList.add('is-active');
+    setCardFlightGeometry(); setLogoFlightGeometry(); void globeZone.offsetWidth;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){globeZone.classList.add('journey-heart','heart-full');landOfferCard();return;}
+    startJourney.classList.add('is-active'); startJourney.disabled=true;
     if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='THIS IS MY JOURNEY';
-    startJourney.disabled=true;
-    status.innerHTML='<strong>THE PLANE LEAVES OUR LABEL.</strong><span>ORBITING THE GLOBE → ALANYA</span>';
 
-    queueJourney(()=>{
-      globeZone.classList.add('journey-arrived');
-      status.innerHTML='<strong>WE ARE HERE — ALANYA.</strong><span>THE FLIGHT LANDS AT OUR DESTINATION</span>';
-    },5400);
+    launchFromLogo();
+    status.innerHTML='<strong>THE JOURNEY BEGINS HERE.</strong><span>ALANYA TOUR ORGANIZATIONS → THE WORLD</span>';
 
-    queueJourney(()=>{
-      globeZone.classList.add('journey-pulse');
-      status.innerHTML='<strong>THE GLOBE STARTS TO BEAT.</strong><span>ALANYA → HEARTBEAT</span>';
-    },6450);
-
-    queueJourney(()=>{
-      globeZone.classList.add('journey-heart');
-      status.innerHTML='<strong>THE GLOBE BECOMES A HEART.</strong><span>THE WORLD DISAPPEARS · THE FEELING REMAINS</span>';
-    },7600);
-
-    queueJourney(()=>{
-      globeZone.classList.add('journey-explode');
-      status.innerHTML='<strong>YOUR MOMENT COMES TO LIFE.</strong><span>ALANYA · ENERGY · EMOTION</span>';
-    },8400);
-
-    queueJourney(()=>{
-      setCardFlightGeometry();
-      globeZone.classList.add('journey-card-launch');
-      status.innerHTML='<strong>YOUR OFFER LEAVES ALANYA.</strong><span>FROM THE MAP → INTO YOUR HANDS</span>';
-    },8750);
-
-    queueJourney(landOfferCard,10250);
+    queueJourney(()=>{endLogoFlight();globeZone.classList.add('journey-running','orbit-flight');status.innerHTML='<strong>AROUND THE WORLD.</strong><span>ONE ORBIT → ONE DESTINATION</span>';},2450);
+    queueJourney(()=>{globeZone.classList.remove('orbit-flight');globeZone.classList.add('journey-arrived','turkiye-focus');status.innerHTML='<strong>REPUBLIC OF TÜRKİYE.</strong><span>THE WORLD NARROWS TO ONE PLACE</span>';},5850);
+    queueJourney(()=>{globeZone.classList.add('alanya-landed');status.innerHTML='<strong>WE ARE HERE.</strong><span>ALANYA · 36.532392° N · 32.038899° E</span>';},7100);
+    queueJourney(()=>{globeZone.classList.add('journey-pulse');status.innerHTML='<strong>ALANYA TOUR ORGANIZATIONS IS WAITING.</strong><span>THIS POINT IS WHERE YOUR STORY BEGINS</span>';},8050);
+    queueJourney(()=>{globeZone.classList.add('light-collapse');status.innerHTML='<strong>THE WORLD BECOMES A FEELING.</strong><span>COLD BLUE LIGHT → ONE WARM RED CORE</span>';},8950);
+    queueJourney(()=>{globeZone.classList.add('journey-heart');status.innerHTML='<strong>A HEART IS BORN.</strong><span>ALANYA → EMOTION → MEMORY</span>';},9900);
+    queueJourney(()=>{globeZone.classList.add('heart-full');status.innerHTML='<strong>FOLLOW YOUR HEART.</strong><span>ONE HEART · ONE JOURNEY</span>';},11150);
+    queueJourney(()=>{setCardFlightGeometry();globeZone.classList.add('journey-card-launch');status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>THE HEART CHOOSES A NEW EXPERIENCE</span>';},12350);
+    queueJourney(()=>globeZone.classList.add('journey-explode'),13050);
+    queueJourney(landOfferCard,13950);
   });
 }
 
 startJourney.addEventListener('click',()=>runJourney(false));
 
 window.addEventListener('resize',()=>{
+  setLogoFlightGeometry();
   if(globeZone.classList.contains('journey-card-launch') || globeZone.classList.contains('card-landed')){
     setCardFlightGeometry();
   }
@@ -412,13 +411,13 @@ const globeZone = document.getElementById('globeZone');
 const bokehWrap = document.getElementById('globeBokeh');
 
 if (canvas && globeShell && globeZone) {
-  function createBokehDots(count = 34){
+  function createBokehDots(count = 48){
     if(!bokehWrap) return;
     bokehWrap.innerHTML = '';
     for(let i = 0; i < count; i++){
       const dot = document.createElement('span');
       dot.className = 'bokeh-dot' + (Math.random() > 0.82 ? ' gold' : '');
-      const size = 7 + Math.random() * 18;
+      const size = 7 + Math.random() * 26;
       dot.style.width = size + 'px';
       dot.style.height = size + 'px';
       dot.style.left = Math.random() * 100 + '%';
@@ -475,6 +474,7 @@ if (canvas && globeShell && globeZone) {
     addAtmosphere();
     addNetworkShell();
     addStars();
+    addGoldenStars();
     resize();
     animate();
   }
@@ -493,11 +493,12 @@ if (canvas && globeShell && globeZone) {
     const globeMaterial = new THREE.MeshStandardMaterial({
       map: earthMap,
       normalMap: earthNormal,
-      emissive: new THREE.Color(0x169dff),
+      color: new THREE.Color(0x0b3766),
+      emissive: new THREE.Color(0x00aef0),
       emissiveMap: earthLights,
-      emissiveIntensity: 1.22,
-      roughness: 0.73,
-      metalness: 0.12
+      emissiveIntensity: 1.48,
+      roughness: 0.64,
+      metalness: 0.18
     });
 
     const globe = new THREE.Mesh(globeGeometry, globeMaterial);
@@ -507,6 +508,7 @@ if (canvas && globeShell && globeZone) {
     addAtmosphere();
     addNetworkShell();
     addStars();
+    addGoldenStars();
     resize();
     animate();
   }).catch((err) => {
@@ -517,9 +519,9 @@ if (canvas && globeShell && globeZone) {
   function addAtmosphere(){
     const glowGeometry = new THREE.SphereGeometry(2.38, 96, 96);
     const glowMaterial = new THREE.MeshBasicMaterial({
-      color: 0x45c8ff,
+      color: 0x16c7ff,
       transparent: true,
-      opacity: 0.16
+      opacity: 0.20
     });
     const glow = new THREE.Mesh(glowGeometry, glowMaterial);
     glow.name = 'glowShell';
@@ -529,14 +531,39 @@ if (canvas && globeShell && globeZone) {
   function addNetworkShell(){
     const networkGeometry = new THREE.SphereGeometry(2.43, 72, 72);
     const networkMaterial = new THREE.MeshBasicMaterial({
-      color: 0x57d7ff,
+      color: 0x38c9ff,
       wireframe: true,
       transparent: true,
-      opacity: 0.13
+      opacity: 0.19
     });
     const network = new THREE.Mesh(networkGeometry, networkMaterial);
     network.name = 'networkShell';
     root.add(network);
+  }
+
+
+  function addGoldenStars(){
+    const count = 24;
+    const positions = new Float32Array(count * 3);
+    for(let i=0;i<count;i++){
+      const radius = 4.8 + Math.random()*5.8;
+      const theta = Math.random()*Math.PI*2;
+      const phi = Math.acos((Math.random()*2)-1);
+      positions[i*3] = radius*Math.sin(phi)*Math.cos(theta);
+      positions[i*3+1] = radius*Math.sin(phi)*Math.sin(theta);
+      positions[i*3+2] = radius*Math.cos(phi);
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(positions,3));
+    const m = new THREE.PointsMaterial({
+      color:0xffd382,
+      size:.085,
+      transparent:true,
+      opacity:.72
+    });
+    const pts = new THREE.Points(g,m);
+    pts.name='goldParticles';
+    scene.add(pts);
   }
 
   function addStars(){
@@ -603,6 +630,7 @@ if (canvas && globeShell && globeZone) {
     const glowShell = root.getObjectByName('glowShell');
     const networkShell = root.getObjectByName('networkShell');
     const outerParticles = scene.getObjectByName('outerParticles');
+    const goldParticles = scene.getObjectByName('goldParticles');
 
     const running = globeZone.classList.contains('journey-running');
     const arrived = globeZone.classList.contains('journey-arrived');
@@ -637,7 +665,12 @@ if (canvas && globeShell && globeZone) {
     if (outerParticles) {
       outerParticles.rotation.y += 0.0008;
       outerParticles.rotation.x = Math.sin(t * 0.12) * 0.05;
-      outerParticles.material.opacity = launched ? 0.18 : 0.78;
+      outerParticles.material.opacity = launched ? 0.18 : 0.82;
+    }
+    if (goldParticles) {
+      goldParticles.rotation.y -= 0.00042;
+      goldParticles.rotation.z = Math.sin(t * 0.18) * 0.04;
+      goldParticles.material.opacity = launched ? 0.18 : (0.60 + Math.sin(t*1.1)*0.10);
     }
 
     root.rotation.y += mouseX * 0.0009;

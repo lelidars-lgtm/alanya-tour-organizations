@@ -31,6 +31,16 @@
 <link rel="stylesheet" href="special-offers.css"/>
 </head>
 <body>
+
+<div class="ato-flight-overlay" id="atoFlightOverlay" aria-hidden="true">
+  <svg class="ato-flight-svg" id="atoFlightSvg">
+    <path class="ato-flight-route-base" id="atoFlightRouteBase"></path>
+    <path class="ato-flight-route-live" id="atoFlightRouteLive"></path>
+  </svg>
+  <div class="ato-launch-plane" id="atoLaunchPlane">
+    <svg viewBox="0 0 32 32" role="presentation"><path d="M30 15.2 18.8 11 14.8 2.7c-.6-1.2-1.7-2-3-2.1-1-.1-1.8.8-1.4 1.8l2.3 7L5.3 7.9 2.4 5 1 5.8l2.6 6.1L1 18l1.4.8 2.9-2.9 7.4-1.6-2.3 7c-.4 1 .4 1.9 1.4 1.8 1.3-.1 2.4-.9 3-2.1l4-8.3L30 18.5c1.5-.5 1.5-2.8 0-3.3Z"/></svg>
+  </div>
+</div>
 <header class="header">
   <div class="logo">
     <img src="logo.png" alt="ALANYA TOUR ORGANIZATIONS">
@@ -383,15 +393,17 @@
 <h2>WHERE WILL YOUR HEART TAKE YOU?</h2>
 <p>Start your own journey. Follow the golden route to Türkiye. One destination, one heartbeat, one beginning.</p>
 <div class="journey-status" id="journeyStatus">
-<strong>ALANYA IS WAITING.</strong>
+<strong>ALANYA TOUR ORGANIZATIONS IS WAITING.</strong>
 <span>LABEL → FLIGHT → ORBIT → ALANYA → HEART</span>
 </div>
 <div class="journey-dock" id="journeyDock">
 <div class="journey-dock-label">Tour Card Destination</div>
 <div class="journey-dock-card" id="journeyDockCard">
-<small>YOUR PERSONAL OFFER</small>
+<small>YOUR TOUR HAS ARRIVED</small>
+<div class="random-tour-thumb" id="dockCardThumb"></div>
 <strong id="dockCardTitle">Your Special Experience</strong>
 <p id="dockCardText">A custom concept shaped around your celebration.</p>
+<div class="random-tour-meta" id="dockCardMeta"></div>
 <div class="offer-result-meta" id="offerResultMeta"></div>
 <div class="offer-result-actions">
 <button class="btn tp-btn gold" id="requestPersonalOffer" type="button">Get My Personal Offer →</button>
@@ -405,7 +417,7 @@
 <div class="globe-zone" id="globeZone"><div class="globe-shell globe-shell-live" id="globeShell">
 <div class="globe-stage-live" id="globeStageLive">
 <div class="globe-bokeh-layer" id="globeBokeh"></div>
-<div class="globe-aura-ring"></div>
+<div class="globe-aura-ring"></div><div class="reference-depth-haze"></div>
 <div class="brand-launch-chip">ALANYA TOUR ORGANIZATIONS</div>
 <canvas aria-label="Rotating digital globe" class="live-globe-canvas" id="liveGlobeCanvas"></canvas>
 <svg aria-hidden="true" class="journey-overlay-svg" viewBox="0 0 620 620">
@@ -418,6 +430,26 @@
 </g>
 </g>
 </svg>
+
+<div class="turkiye-zoom-stage" id="turkiyeZoomStage" aria-hidden="true">
+  <div class="turkiye-zoom-map">
+    <div class="turkiye-zoom-title">REPUBLIC OF TÜRKİYE</div>
+    <svg class="turkiye-map-svg" viewBox="0 0 620 300" role="presentation">
+      <defs>
+        <linearGradient id="trMapGlow" x1="0" x2="1"><stop offset="0" stop-color="#0d5b8a"/><stop offset=".5" stop-color="#19a8e9"/><stop offset="1" stop-color="#0b6ca5"/></linearGradient>
+        <filter id="trGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <path class="turkiye-country-shape" filter="url(#trGlow)" d="M45 145 76 126 112 127 140 113 174 119 204 108 238 119 267 104 303 113 333 101 368 110 402 101 436 114 469 108 497 120 525 117 555 132 579 145 562 160 533 164 506 176 474 172 443 183 412 174 381 186 350 177 320 191 289 181 257 194 225 182 196 191 169 178 139 184 112 171 83 172 61 160Z"/>
+      <path class="turkiye-network" d="M75 145 140 113 204 152 267 104 333 151 402 101 469 152 555 132 M112 171 174 119 238 169 303 113 368 168 436 114 506 176 M83 138 169 178 225 133 289 181 350 128 412 174 497 120"/>
+      <g class="turkiye-nodes"><circle cx="76" cy="145" r="3"/><circle cx="140" cy="113" r="3"/><circle cx="174" cy="178" r="3"/><circle cx="204" cy="152" r="3"/><circle cx="267" cy="104" r="3"/><circle cx="289" cy="181" r="3"/><circle cx="333" cy="151" r="3"/><circle cx="368" cy="168" r="3"/><circle cx="402" cy="101" r="3"/><circle cx="436" cy="114" r="3"/><circle cx="469" cy="152" r="3"/><circle cx="506" cy="176" r="3"/></g>
+    </svg>
+    <div class="alanya-landing-pin" id="alanyaLandingPin">
+      <span class="pin-drop"></span>
+      <strong>WE ARE HERE</strong>
+      <small>ALANYA · 36.532392° N · 32.038899° E</small>
+    </div>
+  </div>
+</div>
 <div class="globe-location-overlay">
 <div class="turkiye-chip">Republic of Türkiye</div>
 <div class="alanya-cluster">
@@ -481,9 +513,11 @@
 
 <div class="confetti-burst" id="confettiBurst"><span style="--i:1;--dx:-157px;--dy:-133px;--r:37deg"></span><span style="--i:2;--dx:-134px;--dy:-86px;--r:74deg"></span><span style="--i:3;--dx:-111px;--dy:-39px;--r:111deg"></span><span style="--i:4;--dx:-88px;--dy:8px;--r:148deg"></span><span style="--i:5;--dx:-65px;--dy:55px;--r:185deg"></span><span style="--i:6;--dx:-42px;--dy:102px;--r:222deg"></span><span style="--i:7;--dx:-19px;--dy:149px;--r:259deg"></span><span style="--i:8;--dx:4px;--dy:-164px;--r:296deg"></span><span style="--i:9;--dx:27px;--dy:-117px;--r:333deg"></span><span style="--i:10;--dx:50px;--dy:-70px;--r:10deg"></span><span style="--i:11;--dx:73px;--dy:-23px;--r:47deg"></span><span style="--i:12;--dx:96px;--dy:24px;--r:84deg"></span><span style="--i:13;--dx:119px;--dy:71px;--r:121deg"></span><span style="--i:14;--dx:142px;--dy:118px;--r:158deg"></span><span style="--i:15;--dx:165px;--dy:165px;--r:195deg"></span><span style="--i:16;--dx:-172px;--dy:-148px;--r:232deg"></span><span style="--i:17;--dx:-149px;--dy:-101px;--r:269deg"></span><span style="--i:18;--dx:-126px;--dy:-54px;--r:306deg"></span></div>
 <div class="tour-card-fly" id="tourCardFly">
-<small>YOUR OFFER IS READY</small>
+<small>YOUR RANDOM TOUR</small>
+<div class="random-tour-thumb" id="flyCardThumb"></div>
 <strong id="flyCardTitle">Your Special Experience</strong>
 <p id="flyCardText">A custom concept shaped around your celebration.</p>
+<div class="random-tour-meta" id="flyCardMeta"></div>
 </div>
 </div></div>
 <div class="globe-cta-wrap">
