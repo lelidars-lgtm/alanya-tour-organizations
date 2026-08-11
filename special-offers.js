@@ -310,8 +310,19 @@ function runJourney(fromPlanner=false){
         'turkiye-focus','alanya-landed','journey-pulse','light-collapse',
         'journey-heart','heart-full','journey-explode','journey-card-launch','heart-return'
       );
+      globeZone.classList.remove(
+        'journey-running','orbit-flight','orbit-complete','journey-arrived',
+        'turkiye-focus','alanya-landed','journey-pulse','light-collapse',
+        'journey-heart','heart-full','journey-explode','journey-card-launch',
+        'card-landed','heart-return'
+      );
       globeZone.classList.add('final-turkiye');
       status.innerHTML='<strong>WE ARE HERE.</strong><span>ALANYA · 36.532392° N · 32.038899° E</span>';
+      startJourney.disabled=false;
+      startJourney.classList.remove('is-active');
+      if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
+      dockCard?.classList.add('final-visible');
+      dockLabel?.classList.add('ready');
       return;
     }
 
