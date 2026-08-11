@@ -493,12 +493,12 @@ if (canvas && globeShell && globeZone) {
     const globeMaterial = new THREE.MeshStandardMaterial({
       map: earthMap,
       normalMap: earthNormal,
-      color: new THREE.Color(0x0b3766),
-      emissive: new THREE.Color(0x00aef0),
+      color: new THREE.Color(0x31577a),
+      emissive: new THREE.Color(0x0086c7),
       emissiveMap: earthLights,
-      emissiveIntensity: 1.48,
-      roughness: 0.64,
-      metalness: 0.18
+      emissiveIntensity: 0.72,
+      roughness: 0.78,
+      metalness: 0.05
     });
 
     const globe = new THREE.Mesh(globeGeometry, globeMaterial);
@@ -519,9 +519,9 @@ if (canvas && globeShell && globeZone) {
   function addAtmosphere(){
     const glowGeometry = new THREE.SphereGeometry(2.38, 96, 96);
     const glowMaterial = new THREE.MeshBasicMaterial({
-      color: 0x16c7ff,
+      color: 0x20bfff,
       transparent: true,
-      opacity: 0.20
+      opacity: 0.095
     });
     const glow = new THREE.Mesh(glowGeometry, glowMaterial);
     glow.name = 'glowShell';
@@ -531,10 +531,10 @@ if (canvas && globeShell && globeZone) {
   function addNetworkShell(){
     const networkGeometry = new THREE.SphereGeometry(2.43, 72, 72);
     const networkMaterial = new THREE.MeshBasicMaterial({
-      color: 0x38c9ff,
+      color: 0x55cfff,
       wireframe: true,
       transparent: true,
-      opacity: 0.19
+      opacity: 0.035
     });
     const network = new THREE.Mesh(networkGeometry, networkMaterial);
     network.name = 'networkShell';

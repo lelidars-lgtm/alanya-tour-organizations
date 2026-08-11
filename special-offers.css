@@ -3695,3 +3695,261 @@ body{
     radial-gradient(circle at 42% 35%,rgba(255,255,255,.06),transparent 18%);
   mix-blend-mode:screen;
 }
+
+
+
+/* =========================================================
+   SPECIAL OFFERS — TRIP PLANNER ORBITAL VISUAL LANGUAGE
+   Exact hero layers from Trip Planner + subtle Journey rings
+   ========================================================= */
+
+/* Exact Planner hero atmosphere */
+.so-hero .tp-sea-orbit,
+.so-hero .tp-moon-path,
+.so-hero .tp-gold-wave{
+  position:absolute!important;
+  pointer-events:none!important;
+  z-index:0!important;
+}
+.so-hero .tp-sea-orbit{
+  border-radius:50%;
+  filter:blur(20px);
+  mix-blend-mode:screen;
+  opacity:.38;
+}
+.so-hero .tp-sea-orbit-one{
+  width:52%;
+  height:42%;
+  left:-8%;
+  bottom:2%;
+  background:radial-gradient(circle,rgba(10,145,161,.26),transparent 66%);
+  animation:tpSeaOrbit 10s ease-in-out infinite;
+}
+.so-hero .tp-sea-orbit-two{
+  width:48%;
+  height:38%;
+  right:-8%;
+  bottom:9%;
+  background:radial-gradient(circle,rgba(16,88,137,.27),transparent 68%);
+  animation:tpSeaOrbit 13s ease-in-out infinite reverse;
+}
+.so-hero .tp-moon-path{
+  width:24%;
+  height:118%;
+  top:-31%;
+  left:38%;
+  transform:rotate(-2deg);
+  background:linear-gradient(180deg,rgba(240,245,244,.16),rgba(238,239,214,.07) 38%,rgba(239,196,92,.05) 66%,transparent 92%);
+  filter:blur(24px);
+  opacity:.55;
+  animation:tpMoonShimmer 7s ease-in-out infinite;
+}
+.so-hero .tp-gold-wave{
+  left:9%;
+  right:9%;
+  height:34px;
+  border-radius:50%;
+  filter:blur(1px);
+  opacity:.5;
+  background:linear-gradient(90deg,transparent,rgba(241,210,139,.14) 25%,rgba(252,220,141,.58) 50%,rgba(240,194,94,.12) 75%,transparent);
+  mask:linear-gradient(#000,transparent 72%);
+  -webkit-mask:linear-gradient(#000,transparent 72%);
+}
+.so-hero .tp-gold-wave-one{
+  bottom:28%;
+  transform:rotate(-1.5deg);
+  animation:tpGoldWave 5.5s ease-in-out infinite;
+}
+.so-hero .tp-gold-wave-two{
+  bottom:18%;
+  left:21%;
+  right:15%;
+  opacity:.28;
+  transform:rotate(1.2deg);
+  animation:tpGoldWave 7.2s ease-in-out infinite reverse;
+}
+@keyframes tpSeaOrbit{
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(5%,-3%,0) scale(1.05)}
+}
+@keyframes tpMoonShimmer{
+  0%,100%{opacity:.36;filter:blur(24px)}
+  50%{opacity:.68;filter:blur(19px)}
+}
+@keyframes tpGoldWave{
+  0%,100%{transform:translateX(-2%) rotate(-1deg) scaleX(.96);opacity:.28}
+  50%{transform:translateX(2%) rotate(1deg) scaleX(1.04);opacity:.62}
+}
+
+/* Keep content over the orbit layers */
+.so-hero .hero-copy,
+.so-hero .hero-actions,
+.so-hero .planner-rail{
+  position:relative;
+  z-index:2!important;
+}
+
+/* Journey: same family, but restrained so the 3D globe remains the hero */
+.so-journey{
+  isolation:isolate;
+}
+.so-orbit-atmosphere{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+.so-journey > .shell,
+.so-journey > .journey-grid{
+  position:relative;
+  z-index:2;
+}
+.so-orbit-ring{
+  position:absolute;
+  left:50%;
+  top:54%;
+  border:1px solid rgba(90,196,255,.105);
+  border-radius:50%;
+  transform:translate(-50%,-50%) rotate(-5deg);
+  box-shadow:
+    0 0 18px rgba(32,150,255,.035),
+    inset 0 0 18px rgba(32,150,255,.025);
+}
+.so-orbit-ring-a{
+  width:76%;
+  height:42%;
+  animation:soOrbitDriftA 11s ease-in-out infinite;
+}
+.so-orbit-ring-b{
+  width:92%;
+  height:58%;
+  border-color:rgba(243,198,109,.09);
+  transform:translate(-50%,-50%) rotate(4deg);
+  animation:soOrbitDriftB 14s ease-in-out infinite;
+}
+.so-orbit-ring-c{
+  width:112%;
+  height:76%;
+  border-color:rgba(70,183,255,.06);
+  transform:translate(-50%,-50%) rotate(-9deg);
+  animation:soOrbitDriftA 18s ease-in-out infinite reverse;
+}
+.so-orbit-glow{
+  position:absolute;
+  left:44%;
+  top:50%;
+  width:54%;
+  height:58%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:
+    radial-gradient(circle,rgba(12,146,196,.13),transparent 58%),
+    radial-gradient(circle at 58% 48%,rgba(243,198,109,.045),transparent 38%);
+  filter:blur(28px);
+  animation:soOrbitGlow 9s ease-in-out infinite;
+}
+@keyframes soOrbitDriftA{
+  0%,100%{transform:translate(-50%,-50%) rotate(-5deg) scale(1)}
+  50%{transform:translate(-49%,-52%) rotate(-2deg) scale(1.035)}
+}
+@keyframes soOrbitDriftB{
+  0%,100%{transform:translate(-50%,-50%) rotate(4deg) scale(1)}
+  50%{transform:translate(-51%,-49%) rotate(7deg) scale(.985)}
+}
+@keyframes soOrbitGlow{
+  0%,100%{opacity:.55;transform:translate(-50%,-50%) scale(1)}
+  50%{opacity:.86;transform:translate(-50%,-50%) scale(1.06)}
+}
+
+@media(max-width:760px){
+  .so-hero .tp-moon-path{width:34%;left:33%;opacity:.42}
+  .so-hero .tp-gold-wave{left:5%;right:5%}
+  .so-hero .tp-sea-orbit-one{width:75%;left:-25%}
+  .so-hero .tp-sea-orbit-two{width:72%;right:-24%}
+  .so-orbit-ring-a{width:110%;height:35%}
+  .so-orbit-ring-b{width:135%;height:49%}
+  .so-orbit-ring-c{width:160%;height:64%}
+}
+@media(prefers-reduced-motion:reduce){
+  .so-hero .tp-sea-orbit,
+  .so-hero .tp-moon-path,
+  .so-hero .tp-gold-wave,
+  .so-orbit-ring,
+  .so-orbit-glow{
+    animation:none!important;
+  }
+}
+
+/* =========================================================
+   REALISTIC EARTH CORRECTION
+   Approved target: dark navy Earth + visible continents +
+   cyan coast/rim glow + subtle network + sparse warm lights.
+   ========================================================= */
+.globe-stage-live::before{
+  opacity:.68!important;
+  filter:saturate(1.02) contrast(1.14) brightness(.70)!important;
+  transform:scale(1.035)!important;
+  mask-image:radial-gradient(circle at 50% 50%,#000 0 61%,rgba(0,0,0,.92) 68%,transparent 82%)!important;
+  -webkit-mask-image:radial-gradient(circle at 50% 50%,#000 0 61%,rgba(0,0,0,.92) 68%,transparent 82%)!important;
+}
+.live-globe-canvas{
+  opacity:.92!important;
+  filter:
+    saturate(.96)
+    contrast(1.12)
+    brightness(.72)
+    drop-shadow(0 0 10px rgba(0,188,255,.25))
+    drop-shadow(0 0 28px rgba(0,130,235,.18))!important;
+}
+.globe-aura-ring{
+  opacity:.48!important;
+  filter:blur(25px)!important;
+}
+.globe-bokeh-layer .bokeh-dot{
+  opacity:.32!important;
+  filter:blur(3.4px)!important;
+}
+.globe-bokeh-layer .bokeh-dot.gold{opacity:.38!important}
+
+/* Route is elegant and secondary. */
+.journey-overlay-svg .route-base{
+  stroke:rgba(243,198,109,.12)!important;
+  stroke-width:1.05!important;
+}
+.journey-overlay-svg .route-live{
+  stroke:#f3c66d!important;
+  stroke-width:1.35!important;
+  filter:drop-shadow(0 0 4px rgba(243,198,109,.45))!important;
+}
+
+/* Türkiye / Alanya labels stay hidden until their animation phase. */
+.globe-location-overlay{
+  opacity:0!important;
+  visibility:hidden!important;
+  transition:opacity .35s ease,visibility .35s ease!important;
+}
+.globe-zone.journey-arrived .globe-location-overlay{
+  opacity:1!important;
+  visibility:visible!important;
+}
+.globe-zone.turkiye-focus .globe-location-overlay{
+  opacity:.05!important;
+}
+
+/* Planner-style rings remain behind the Earth. */
+.so-orbit-atmosphere{z-index:0!important}
+.globe-stage-live{z-index:2!important}
+.journey-overlay-svg{z-index:5!important}
+
+/* Add a dark optical core so the ocean stays navy instead of cyan. */
+.globe-stage-live .reference-depth-haze{
+  background:
+    radial-gradient(circle at 50% 50%,rgba(0,9,27,.30) 0 42%,transparent 65%),
+    radial-gradient(circle at 52% 47%,transparent 0 58%,rgba(0,175,255,.08) 64%,transparent 72%),
+    radial-gradient(circle at 38% 31%,rgba(255,255,255,.045),transparent 15%)!important;
+  mix-blend-mode:normal!important;
+}
+
+/* Network is texture, not the subject. */
+.globe-zone:not(.journey-running) .journey-overlay-svg .route-base{opacity:.45}
