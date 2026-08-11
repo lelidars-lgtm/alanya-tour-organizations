@@ -4169,3 +4169,216 @@ body{
     font-size:20px;
   }
 }
+
+
+
+/* =========================================================
+   PAGE-WIDE PLANNER ORBITS + TYPOGRAPHY SCALE FIX
+   Approved reference: Trip Planner background arcs and
+   "WHERE WILL YOUR HEART TAKE YOU?" heading scale.
+   ========================================================= */
+
+/* ---------- ORBITS THROUGHOUT THE WHOLE SPECIAL OFFERS PAGE ---------- */
+.so-tp-shell{
+  position:relative;
+  isolation:isolate;
+}
+
+/* Every major panel carries the same quiet concentric arc language as Planner. */
+.so-tp-shell > .tp-section,
+.so-tp-shell > section.tp-section{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+}
+
+.so-tp-shell > .tp-section::after,
+.so-tp-shell > section.tp-section::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  left:-12%;
+  right:-12%;
+  top:-34%;
+  height:138%;
+  opacity:.36;
+  background:
+    repeating-radial-gradient(
+      ellipse at 50% 2%,
+      transparent 0 76px,
+      rgba(88,154,184,.13) 77px 79px,
+      transparent 80px 132px
+    );
+  filter:drop-shadow(0 0 10px rgba(41,132,176,.045));
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.96),rgba(0,0,0,.72) 68%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.96),rgba(0,0,0,.72) 68%,transparent 100%);
+}
+
+/* A faint moon/sea glow down the center, like Trip Planner. */
+.so-tp-shell > .tp-section::before,
+.so-tp-shell > section.tp-section::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  top:-30%;
+  left:35%;
+  width:30%;
+  height:135%;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(228,243,246,.075),
+      rgba(98,173,196,.035) 38%,
+      rgba(243,198,109,.022) 65%,
+      transparent 92%
+    );
+  filter:blur(28px);
+  opacity:.62;
+}
+
+/* Restore the existing thin gold top highlight above the new background. */
+.so-gateway::before,
+.so-group::before,
+.so-experience::before,
+.so-journey::before,
+.so-gift::before{
+  height:1px!important;
+  left:0!important;
+  width:auto!important;
+  right:0!important;
+  top:0!important;
+  background:linear-gradient(90deg,transparent,rgba(243,198,109,.36),transparent)!important;
+  filter:none!important;
+  opacity:1!important;
+  z-index:4!important;
+}
+
+/* Keep all actual content over the orbital background. */
+.so-tp-shell > .tp-section > *{
+  position:relative;
+  z-index:2;
+}
+
+/* Journey already has its own orbit atmosphere; blend it with page arcs. */
+.so-journey .so-orbit-atmosphere{
+  z-index:1!important;
+}
+
+/* ---------- GLOBAL TYPOGRAPHY NORMALIZATION ---------- */
+/*
+   Reference scale: WHERE WILL YOUR HEART TAKE YOU?
+   Large emotional statements must no longer be 80–124px.
+*/
+.memory h2,
+.journey-copy h2,
+.gift-emotion h2,
+.gift-focus-intro h2,
+.gift-product h3,
+.gift-ending .memory-line,
+.gift-ending .heart-line,
+.gift-memory-top .memory-line,
+.gift-question{
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:clamp(30px,3vw,43px)!important;
+  line-height:1.04!important;
+  letter-spacing:-.018em!important;
+  font-weight:500!important;
+}
+
+/* Specifically the two oversized lines from the screenshot. */
+.gift-memory-top .memory-line,
+.gift-ending .heart-line{
+  max-width:980px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  text-align:center!important;
+}
+
+.gift-memory-top .memory-line span,
+.gift-ending .heart-line span,
+.gift-ending .memory-line span{
+  display:block!important;
+  margin-top:5px!important;
+  font-size:inherit!important;
+  line-height:inherit!important;
+}
+
+/* Secondary emotional copy also comes down one level. */
+.gift-emotion .sub,
+.gift-focus-intro p,
+.gift-ending p,
+.memory p,
+.journey-copy p{
+  font-size:clamp(14px,1.35vw,19px)!important;
+  line-height:1.5!important;
+}
+
+/* Card/choice titles should not jump out bigger than the reference heading. */
+.offer-path h3,
+.question h3,
+.gift-option h3,
+.choice strong,
+.group-choice strong{
+  font-size:clamp(20px,2vw,30px)!important;
+  line-height:1.08!important;
+}
+
+/* Hero remains the one intentional large title. */
+.so-hero h1{
+  font-size:clamp(42px,6vw,72px)!important;
+}
+
+/* Mobile: strong but not billboard-sized. */
+@media(max-width:760px){
+  .so-tp-shell > .tp-section::after,
+  .so-tp-shell > section.tp-section::after{
+    left:-45%;
+    right:-45%;
+    top:-18%;
+    height:118%;
+    opacity:.30;
+    background:
+      repeating-radial-gradient(
+        ellipse at 50% 0%,
+        transparent 0 54px,
+        rgba(88,154,184,.12) 55px 57px,
+        transparent 58px 96px
+      );
+  }
+
+  .memory h2,
+  .journey-copy h2,
+  .gift-emotion h2,
+  .gift-focus-intro h2,
+  .gift-product h3,
+  .gift-ending .memory-line,
+  .gift-ending .heart-line,
+  .gift-memory-top .memory-line,
+  .gift-question{
+    font-size:clamp(27px,8.2vw,38px)!important;
+    line-height:1.03!important;
+  }
+
+  .gift-emotion .sub,
+  .gift-focus-intro p,
+  .gift-ending p,
+  .memory p,
+  .journey-copy p{
+    font-size:14px!important;
+  }
+
+  .offer-path h3,
+  .question h3,
+  .gift-option h3{
+    font-size:clamp(20px,6.4vw,28px)!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .so-tp-shell > .tp-section::after,
+  .so-tp-shell > section.tp-section::after{
+    filter:none!important;
+  }
+}
