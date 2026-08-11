@@ -169,6 +169,8 @@ const atoFlightOverlay=document.getElementById('atoFlightOverlay');
 const atoFlightRouteBase=document.getElementById('atoFlightRouteBase');
 const atoFlightRouteLive=document.getElementById('atoFlightRouteLive');
 const atoLaunchPlane=document.getElementById('atoLaunchPlane');
+const orbitPlaneGroup=document.getElementById('planeGroup');
+const orbitRoutePath=document.querySelector('.journey-overlay-svg .route-live');
 const siteLogo=document.querySelector('.header .logo');
 const globeStageLive=document.getElementById('globeStageLive');
 const flyCardThumb=document.getElementById('flyCardThumb');
@@ -232,6 +234,74 @@ function setCardFlightGeometry(){
 }
 
 
+
+let logoFlightRaf=0;
+let orbitFlightRaf=0;
+
+function cancelAircraftAnimations(){
+  if(logoFlightRaf) cancelAnimationFrame(logoFlightRaf);
+  if(orbitFlightRaf) cancelAnimationFrame(orbitFlightRaf);
+  logoFlightRaf=0;
+  orbitFlightRaf=0;
+}
+
+function animateHtmlPlaneAlongSvg(pathEl, planeEl, duration=2400){
+  if(!pathEl||!planeEl) return;
+  if(logoFlightRaf) cancelAnimationFrame(logoFlightRaf);
+
+  const total=pathEl.getTotalLength();
+  const start=performance.now();
+
+  const frame=(now)=>{
+    const p=Math.min(1,(now-start)/duration);
+    const eased=1-Math.pow(1-p,3);
+    const len=total*eased;
+    const pt=pathEl.getPointAtLength(len);
+    const ahead=pathEl.getPointAtLength(Math.min(total,len+2));
+    const angle=Math.atan2(ahead.y-pt.y,ahead.x-pt.x)*180/Math.PI;
+
+    planeEl.style.left='0px';
+    planeEl.style.top='0px';
+    planeEl.style.transform=`translate(${pt.x}px,${pt.y}px) translate(-50%,-50%) rotate(${angle}deg)`;
+    planeEl.style.opacity='1';
+
+    if(p<1){
+      logoFlightRaf=requestAnimationFrame(frame);
+    }else{
+      logoFlightRaf=0;
+    }
+  };
+  logoFlightRaf=requestAnimationFrame(frame);
+}
+
+function animateSvgPlaneAlongPath(pathEl, groupEl, duration=3050){
+  if(!pathEl||!groupEl) return;
+  if(orbitFlightRaf) cancelAnimationFrame(orbitFlightRaf);
+
+  const total=pathEl.getTotalLength();
+  const start=performance.now();
+
+  const frame=(now)=>{
+    const p=Math.min(1,(now-start)/duration);
+    const eased=p<.5 ? 2*p*p : 1-Math.pow(-2*p+2,2)/2;
+    const len=total*eased;
+    const pt=pathEl.getPointAtLength(len);
+    const ahead=pathEl.getPointAtLength(Math.min(total,len+2));
+    const angle=Math.atan2(ahead.y-pt.y,ahead.x-pt.x)*180/Math.PI;
+
+    groupEl.setAttribute('transform',`translate(${pt.x} ${pt.y}) rotate(${angle})`);
+    groupEl.style.opacity='1';
+    groupEl.style.visibility='visible';
+
+    if(p<1){
+      orbitFlightRaf=requestAnimationFrame(frame);
+    }else{
+      orbitFlightRaf=0;
+    }
+  };
+  orbitFlightRaf=requestAnimationFrame(frame);
+}
+
 function setLogoFlightGeometry(){
   if(!atoFlightOverlay||!atoFlightRouteBase||!atoFlightRouteLive||!atoLaunchPlane||!siteLogo||!globeStageLive) return;
   const logo=siteLogo.getBoundingClientRect(), globe=globeStageLive.getBoundingClientRect();
@@ -239,29 +309,43 @@ function setLogoFlightGeometry(){
   const ex=globe.left+globe.width*.28, ey=globe.top+globe.height*.30, dx=ex-sx;
   const d=`M ${sx} ${sy} C ${sx+dx*.30} ${sy-Math.max(70,Math.abs(dx)*.10)}, ${sx+dx*.72} ${ey-Math.max(45,Math.abs(dx)*.05)}, ${ex} ${ey}`;
   atoFlightRouteBase.setAttribute('d',d); atoFlightRouteLive.setAttribute('d',d);
-  atoLaunchPlane.style.offsetPath=`path("${d}")`;
 }
 function launchFromLogo(){
   if(!atoFlightOverlay) return;
   setLogoFlightGeometry();
   atoFlightOverlay.classList.remove('fly','route-visible','route-fade');
+  atoLaunchPlane.style.opacity='0';
+  atoLaunchPlane.style.transform='translate(-9999px,-9999px)';
   void atoFlightOverlay.offsetWidth;
   atoFlightOverlay.classList.add('active');
-  // Aircraft appears first. The route is revealed a fraction later.
+
   requestAnimationFrame(()=>{
     atoFlightOverlay.classList.add('fly');
+    animateHtmlPlaneAlongSvg(atoFlightRouteLive,atoLaunchPlane,2400);
     setTimeout(()=>atoFlightOverlay.classList.add('route-visible'),220);
   });
 }
 function endLogoFlight(){
   if(!atoFlightOverlay) return;
+  if(logoFlightRaf){
+    cancelAnimationFrame(logoFlightRaf);
+    logoFlightRaf=0;
+  }
   atoFlightOverlay.classList.add('route-fade');
   setTimeout(()=>{
     atoFlightOverlay.classList.remove('fly','active','route-visible','route-fade');
+    atoLaunchPlane.style.opacity='0';
+    atoLaunchPlane.style.transform='translate(-9999px,-9999px)';
   },520);
 }
 
 function resetJourneyVisual(){
+  cancelAircraftAnimations();
+  if(orbitPlaneGroup){
+    orbitPlaneGroup.removeAttribute('transform');
+    orbitPlaneGroup.style.opacity='0';
+    orbitPlaneGroup.style.visibility='hidden';
+  }
   journeyCardPlaceholder?.classList.remove('is-hidden');
   dockCard?.classList.remove('visible','final-visible');
   clearJourneyTimers(); endLogoFlight();
@@ -310,6 +394,30 @@ function setHeartOriginFromAlanya(){
   zone.style.setProperty('--heart-origin-y',`${y}%`);
 }
 
+
+function setHeartOriginFromExactAlanya(){
+  const pin=document.getElementById('alanyaLandingPin');
+  const zone=document.getElementById('globeZone');
+  if(!zone) return;
+
+  // During the live Türkiye phase, use the actual live Alanya pin.
+  if(pin){
+    const pr=pin.getBoundingClientRect();
+    const zr=zone.getBoundingClientRect();
+    if(zr.width && zr.height && pr.width){
+      const x=((pr.left+pr.width/2-zr.left)/zr.width)*100;
+      const y=((pr.top+pr.height/2-zr.top)/zr.height)*100;
+      zone.style.setProperty('--heart-origin-x',`${x}%`);
+      zone.style.setProperty('--heart-origin-y',`${y}%`);
+      return;
+    }
+  }
+
+  // Fallback to the exact geographic Alanya position from the final SVG map.
+  zone.style.setProperty('--heart-origin-x',`33.237%`);
+  zone.style.setProperty('--heart-origin-y',`74.294%`);
+}
+
 function runJourney(fromPlanner=false){
   buildJourneyCard();
   resetJourneyVisual();
@@ -336,6 +444,11 @@ function runJourney(fromPlanner=false){
         'card-landed','heart-return'
       );
       globeZone.classList.add('final-turkiye');
+      const finalPin=document.getElementById('finalAlanyaMapPin');
+      if(finalPin){
+        finalPin.style.opacity='1';
+        finalPin.style.visibility='visible';
+      }
       const finalStageRM=document.getElementById('finalTurkiyeStage');
       if(finalStageRM){finalStageRM.style.display='grid';finalStageRM.style.visibility='visible';finalStageRM.style.opacity='1';}
       const finalStage=document.getElementById('finalTurkiyeStage');
@@ -349,6 +462,8 @@ function runJourney(fromPlanner=false){
       startJourney.classList.remove('is-active');
       if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
       journeyCardPlaceholder?.classList.add('is-hidden');
+      dockCard?.style.removeProperty('transform');
+      dockCard?.style.removeProperty('margin-top');
       dockCard?.classList.add('final-visible');
       dockLabel?.classList.add('ready');
       return;
@@ -380,11 +495,13 @@ function runJourney(fromPlanner=false){
         p.style.removeProperty('visibility');
       });
       globeZone.classList.add('journey-running','orbit-flight');
+      animateSvgPlaneAlongPath(orbitRoutePath,orbitPlaneGroup,3050);
       status.innerHTML='<strong>AROUND THE WORLD.</strong><span>ONE ORBIT → ONE DESTINATION</span>';
     },3300);
 
     /* 04 ORBIT LINE / PLANE DISAPPEAR, THEN FOCUS ON TÜRKİYE. */
     queueJourney(()=>{
+      if(orbitFlightRaf){cancelAnimationFrame(orbitFlightRaf);orbitFlightRaf=0;}
       globeZone.classList.add('orbit-complete');
     },6150);
 
@@ -413,7 +530,7 @@ function runJourney(fromPlanner=false){
 
     /* 08 Blue light collapses into Alanya point. */
     queueJourney(()=>{
-      setHeartOriginFromAlanya();
+      setHeartOriginFromExactAlanya();
       globeZone.classList.add('light-collapse');
       status.innerHTML='<strong>THE WORLD BECOMES A FEELING.</strong><span>COLD BLUE LIGHT → ONE WARM RED CORE</span>';
     },10650);
@@ -425,7 +542,7 @@ function runJourney(fromPlanner=false){
 
     /* 10 Red digital heart is born. */
     queueJourney(()=>{
-      setHeartOriginFromAlanya();
+      setHeartOriginFromExactAlanya();
       globeZone.classList.add('journey-heart');
       status.innerHTML='<strong>A HEART IS BORN.</strong><span>ONE PLACE → ONE FEELING</span>';
     },12150);
@@ -479,7 +596,7 @@ startJourney.addEventListener('click',()=>runJourney(false));
 window.addEventListener('resize',()=>{
   setLogoFlightGeometry();
   if(globeZone.classList.contains('alanya-landed')||globeZone.classList.contains('journey-heart')){
-    setHeartOriginFromAlanya();
+    setHeartOriginFromExactAlanya();
   }
   if(globeZone.classList.contains('journey-card-launch') || globeZone.classList.contains('card-landed')){
     setCardFlightGeometry();

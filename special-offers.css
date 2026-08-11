@@ -5280,3 +5280,322 @@ body{
 @media(max-width:900px){
   .journey-card-placeholder{max-width:none}
 }
+
+
+
+/* =========================================================
+   JOURNEY BUTTON LAYERING
+   During animation the button drops behind the animation layer
+   and becomes visually negligible + non-interactive.
+   ========================================================= */
+
+/* Default/start state */
+.globe-cta-wrap{
+  position:relative;
+  z-index:6;
+}
+
+/* During active journey: button goes behind the animated scene */
+.globe-zone.journey-running ~ .globe-cta-wrap,
+.globe-zone.orbit-flight ~ .globe-cta-wrap,
+.globe-zone.journey-arrived ~ .globe-cta-wrap,
+.globe-zone.turkiye-focus ~ .globe-cta-wrap,
+.globe-zone.alanya-landed ~ .globe-cta-wrap,
+.globe-zone.journey-pulse ~ .globe-cta-wrap,
+.globe-zone.light-collapse ~ .globe-cta-wrap,
+.globe-zone.journey-heart ~ .globe-cta-wrap,
+.globe-zone.heart-full ~ .globe-cta-wrap,
+.globe-zone.journey-card-launch ~ .globe-cta-wrap,
+.globe-zone.heart-return ~ .globe-cta-wrap{
+  z-index:0!important;
+  opacity:.03!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+  filter:blur(2px)!important;
+  transform:scale(.985)!important;
+  transition:
+    opacity .32s ease,
+    filter .32s ease,
+    transform .32s ease,
+    z-index 0s linear .32s!important;
+}
+
+/* The actual button is also visually suppressed */
+.globe-zone.journey-running ~ .globe-cta-wrap #startJourney,
+.globe-zone.orbit-flight ~ .globe-cta-wrap #startJourney,
+.globe-zone.journey-arrived ~ .globe-cta-wrap #startJourney,
+.globe-zone.turkiye-focus ~ .globe-cta-wrap #startJourney,
+.globe-zone.alanya-landed ~ .globe-cta-wrap #startJourney,
+.globe-zone.journey-pulse ~ .globe-cta-wrap #startJourney,
+.globe-zone.light-collapse ~ .globe-cta-wrap #startJourney,
+.globe-zone.journey-heart ~ .globe-cta-wrap #startJourney,
+.globe-zone.heart-full ~ .globe-cta-wrap #startJourney,
+.globe-zone.journey-card-launch ~ .globe-cta-wrap #startJourney,
+.globe-zone.heart-return ~ .globe-cta-wrap #startJourney{
+  opacity:.06!important;
+  pointer-events:none!important;
+  box-shadow:none!important;
+  text-shadow:none!important;
+  filter:blur(1.5px)!important;
+}
+
+/* Animated visual layer stays above button while journey runs */
+.globe-zone.journey-running,
+.globe-zone.orbit-flight,
+.globe-zone.journey-arrived,
+.globe-zone.turkiye-focus,
+.globe-zone.alanya-landed,
+.globe-zone.journey-pulse,
+.globe-zone.light-collapse,
+.globe-zone.journey-heart,
+.globe-zone.heart-full,
+.globe-zone.journey-card-launch,
+.globe-zone.heart-return{
+  position:relative!important;
+  z-index:20!important;
+}
+
+/* Final state overrides suppression and returns emerald replay */
+.globe-zone.final-turkiye ~ .globe-cta-wrap{
+  z-index:30!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  filter:none!important;
+  transform:none!important;
+}
+.globe-zone.final-turkiye ~ .globe-cta-wrap #startJourney{
+  opacity:1!important;
+  pointer-events:auto!important;
+  filter:none!important;
+}
+
+
+
+/* =========================================================
+   STABLE CARD SLOT + STABLE AIRCRAFT FLIGHT
+   ========================================================= */
+
+/* Ghost and real card occupy EXACTLY the same destination slot. */
+.journey-dock{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:auto auto!important;
+  width:100%!important;
+  max-width:360px!important;
+  align-items:start!important;
+}
+.journey-dock-label{
+  grid-column:1!important;
+  grid-row:1!important;
+}
+.journey-card-placeholder,
+#journeyDockCard{
+  grid-column:1!important;
+  grid-row:2!important;
+  width:100%!important;
+  max-width:360px!important;
+  margin:10px 0 0!important;
+  align-self:start!important;
+}
+.journey-card-placeholder{
+  min-height:286px!important;
+}
+#journeyDockCard{
+  min-height:286px!important;
+}
+
+/* Hidden placeholder/card must not push the destination slot down. */
+.journey-card-placeholder.is-hidden,
+#journeyDockCard:not(.final-visible){
+  grid-column:1!important;
+  grid-row:2!important;
+}
+#journeyDockCard.final-visible{
+  grid-column:1!important;
+  grid-row:2!important;
+  margin-top:10px!important;
+}
+
+/* Kill ALL CSS offset-path movement. JS owns aircraft position now. */
+.ato-launch-plane,
+.ato-flight-overlay.fly .ato-launch-plane,
+.globe-zone.orbit-flight .journey-overlay-svg .plane-group,
+.journey-running .plane-group{
+  offset-path:none!important;
+  offset-distance:0!important;
+  animation:none!important;
+}
+
+/* Visibility only; transform is controlled by JS. */
+.ato-flight-overlay.active .ato-launch-plane{
+  opacity:1!important;
+}
+.globe-zone.orbit-flight .journey-overlay-svg .plane-group{
+  opacity:1!important;
+  visibility:visible!important;
+}
+
+/* Route may still draw with CSS; plane itself is JS-driven. */
+.ato-flight-overlay.route-visible .ato-flight-route-live{
+  animation:atoRouteDraw 2.35s cubic-bezier(.18,.8,.18,1) forwards!important;
+}
+.globe-zone.orbit-flight .journey-overlay-svg .route-live{
+  animation:drawRoute 3.05s .02s ease forwards!important;
+}
+
+@media(max-width:900px){
+  .journey-dock,
+  .journey-card-placeholder,
+  #journeyDockCard{
+    max-width:100%!important;
+  }
+}
+
+
+
+/* =========================================================
+   ACCURATE TÜRKİYE MAP — FINAL APPROVED VISUAL
+   Natural Earth geographic outline embedded as SVG.
+   ========================================================= */
+
+.final-turkiye-map{
+  width:min(920px,100%)!important;
+  height:auto!important;
+  overflow:visible!important;
+}
+
+.final-tr-shape{
+  fill:url(#finalTrFill)!important;
+  stroke:#ff3a58!important;
+  stroke-width:3.2!important;
+  vector-effect:non-scaling-stroke!important;
+}
+.final-tr-hotspot{
+  fill:url(#finalTrHotspot)!important;
+  stroke:none!important;
+}
+.final-tr-network line{
+  stroke:rgba(255,71,95,.40)!important;
+  stroke-width:1.05!important;
+  vector-effect:non-scaling-stroke!important;
+}
+.final-tr-nodes circle{
+  fill:#ff3b58!important;
+  opacity:.86!important;
+}
+.final-tr-nodes circle:nth-child(7n+1){
+  fill:#ffb34a!important;
+  opacity:.92!important;
+}
+.final-flag{
+  filter:
+    drop-shadow(0 0 16px rgba(255,255,255,.15))
+    drop-shadow(0 0 28px rgba(255,30,65,.44))!important;
+}
+.flag-crescent-outer{fill:#fff!important}
+.flag-crescent-cut{fill:#8b0b20!important}
+.flag-star{fill:#fff!important}
+
+.final-alanya-pulse{
+  fill:none!important;
+  stroke:#ffc95e!important;
+  stroke-width:3!important;
+  opacity:.68!important;
+  transform-origin:center;
+  animation:finalAlanyaPulse 2.1s ease-out infinite;
+}
+.final-alanya-marker{
+  fill:#f7bd48!important;
+  stroke:#ffe197!important;
+  stroke-width:2.2!important;
+  filter:drop-shadow(0 0 12px rgba(247,189,72,.72));
+}
+.final-alanya-marker-core{fill:#071625!important}
+
+@keyframes finalAlanyaPulse{
+  0%{r:13;opacity:.72}
+  70%{r:34;opacity:.12}
+  100%{r:42;opacity:0}
+}
+
+/* WE ARE HERE is positioned from the same exact SVG Alanya point. */
+.globe-zone.final-turkiye .final-we-are-here{
+  left:33.237%!important;
+  top:74.294%!important;
+  transform:translate(18px,-5px)!important;
+  z-index:1004!important;
+  pointer-events:none!important;
+}
+.globe-zone.final-turkiye .final-we-are-here strong,
+.globe-zone.final-turkiye .final-we-are-here small{
+  margin-left:0!important;
+  text-shadow:0 3px 14px rgba(0,0,0,.80)!important;
+}
+.globe-zone.final-turkiye .final-we-are-here strong{
+  font-size:16px!important;
+  letter-spacing:.045em!important;
+}
+.globe-zone.final-turkiye .final-we-are-here small{
+  font-size:8.5px!important;
+}
+
+/* Do not show the old CSS pin; exact SVG pin is now used. */
+.globe-zone.final-turkiye .final-we-are-here .final-pin{
+  display:none!important;
+}
+
+/* Make final Türkiye fill the right visual as in approved mockup. */
+.globe-zone.final-turkiye .final-turkiye-inner{
+  width:min(970px,97%)!important;
+  min-height:520px!important;
+}
+.globe-zone.final-turkiye .final-turkiye-stage{
+  padding:24px 18px 66px!important;
+}
+
+/* clean bokeh only, no circular globe silhouette */
+.globe-zone.final-turkiye .globe-stage-live{
+  background:
+    radial-gradient(circle at 15% 26%,rgba(41,179,255,.13) 0 6px,transparent 29px),
+    radial-gradient(circle at 84% 20%,rgba(255,202,96,.10) 0 5px,transparent 27px),
+    radial-gradient(circle at 79% 73%,rgba(35,163,238,.11) 0 8px,transparent 33px),
+    radial-gradient(circle at 29% 70%,rgba(27,142,220,.10) 0 7px,transparent 31px),
+    radial-gradient(circle at 50% 49%,rgba(255,31,65,.025),transparent 44%),
+    linear-gradient(180deg,#04121f 0%,#020a13 100%)!important;
+}
+.globe-zone.final-turkiye .globe-stage-live::before{
+  background:
+    radial-gradient(circle at 18% 42%,rgba(40,182,255,.14) 0 8px,transparent 34px),
+    radial-gradient(circle at 78% 36%,rgba(39,176,255,.13) 0 10px,transparent 38px),
+    radial-gradient(circle at 63% 15%,rgba(255,199,88,.10) 0 7px,transparent 28px),
+    radial-gradient(circle at 35% 84%,rgba(28,149,232,.10) 0 8px,transparent 30px)!important;
+}
+
+/* map should dominate right column */
+.so-journey:has(.globe-zone.final-turkiye) .journey-grid{
+  grid-template-columns:minmax(310px,.68fr) minmax(650px,1.32fr)!important;
+  gap:42px!important;
+}
+.so-journey:has(.globe-zone.final-turkiye) .journey-visual-column{
+  min-width:0!important;
+}
+.so-journey:has(.globe-zone.final-turkiye) .globe-shell{
+  width:100%!important;
+  max-width:980px!important;
+}
+
+@media(max-width:900px){
+  .so-journey:has(.globe-zone.final-turkiye) .journey-grid{
+    grid-template-columns:1fr!important;
+  }
+  .globe-zone.final-turkiye .final-we-are-here{
+    transform:translate(10px,-3px)!important;
+  }
+  .globe-zone.final-turkiye .final-we-are-here strong{
+    font-size:13px!important;
+  }
+  .globe-zone.final-turkiye .final-we-are-here small{
+    font-size:7px!important;
+  }
+}
