@@ -5779,3 +5779,17 @@ body{
   position:relative;
   z-index:5;
 }
+
+/* =========================================================
+   CARD ORIGIN FIX — CONFETTI → CENTER OF HEART → LEFT SLOT
+   ========================================================= */
+.tour-card-fly{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+  transform-origin:center center!important;
+}
+.tour-card-fly.card-flight-active{
+  opacity:1!important;
+  visibility:visible!important;
+}

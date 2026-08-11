@@ -228,25 +228,28 @@ function cancelTourCardFlight(){
   }
 }
 
-function animateTourCardContinuously(duration=1650){
+function animateTourCardContinuously(duration=1550){
   if(!tourCardFly||!globeZone||!dockCard) return;
   cancelTourCardFlight();
 
   const zone=globeZone.getBoundingClientRect();
-  const heart=(heartTransform||globeZone).getBoundingClientRect();
+  const heart=heartTransform?.getBoundingClientRect();
+
+  if(!heart || !heart.width || !heart.height) return;
+
+  /* EXACT START = geometric center of the visible heart */
+  const sx=(heart.left + heart.width/2) - zone.left;
+  const sy=(heart.top + heart.height/2) - zone.top;
+
   const dock=dockCard.getBoundingClientRect();
+  const ex=(dock.left + dock.width*.50) - zone.left;
+  const ey=(dock.top + Math.min(dock.height*.42,96)) - zone.top;
 
-  const sx=(heart.left+heart.width/2)-zone.left;
-  const sy=(heart.top+heart.height/2)-zone.top;
-
-  const ex=(dock.left+dock.width*.58)-zone.left;
-  const ey=(dock.top+Math.min(dock.height*.40,92))-zone.top;
-
-  // One continuous cubic Bézier: heart → lifted arc → card slot.
-  const c1x=sx-(zone.width*.10);
-  const c1y=sy-(zone.height*.12);
-  const c2x=ex+(zone.width*.16);
-  const c2y=ey-(zone.height*.16);
+  /* One smooth arc from heart center to card slot */
+  const c1x=sx - zone.width*.08;
+  const c1y=sy - zone.height*.16;
+  const c2x=ex + zone.width*.14;
+  const c2y=ey - zone.height*.11;
 
   const start=performance.now();
 
@@ -255,7 +258,16 @@ function animateTourCardContinuously(duration=1650){
     return mt*mt*mt*a + 3*mt*mt*t*b + 3*mt*t*t*c + t*t*t*d;
   };
 
-  const ease=(t)=>0.5-0.5*Math.cos(Math.PI*t); // smooth, no plateau
+  const ease=t=>1-Math.pow(1-t,3);
+
+  tourCardFly.classList.add('card-flight-active');
+  tourCardFly.style.visibility='visible';
+  tourCardFly.style.opacity='0';
+  tourCardFly.style.filter='blur(5px) brightness(1.35)';
+
+  /* place card at heart center before first frame */
+  tourCardFly.style.transform=
+    `translate(${sx}px,${sy}px) translate(-50%,-50%) scale(.08) rotate(-5deg)`;
 
   const frame=(now)=>{
     const raw=Math.min(1,(now-start)/duration);
@@ -264,12 +276,12 @@ function animateTourCardContinuously(duration=1650){
     const x=bez(sx,c1x,c2x,ex,t);
     const y=bez(sy,c1y,c2y,ey,t);
 
-    // Card grows continuously; no keyframe hold.
-    const scale=.20 + (.84-.20)*(1-Math.pow(1-t,1.35));
-    const rotate=-4*(1-t);
+    const scale=.08 + (.84-.08)*(1-Math.pow(1-t,1.25));
+    const rotate=-5*(1-t);
+    const blur=Math.max(0,5*(1-raw*3.5));
 
-    tourCardFly.style.opacity=raw<.06 ? String(raw/.06) : '1';
-    tourCardFly.style.filter=`blur(${Math.max(0,5*(1-raw*4))}px)`;
+    tourCardFly.style.opacity=raw<.08 ? String(raw/.08) : '1';
+    tourCardFly.style.filter=`blur(${blur}px) brightness(${1.35-.35*t})`;
     tourCardFly.style.transform=
       `translate(${x}px,${y}px) translate(-50%,-50%) scale(${scale}) rotate(${rotate}deg)`;
 
@@ -414,6 +426,7 @@ function endLogoFlight(){
 }
 
 function resetJourneyVisual(){
+  tourCardFly?.classList.remove('card-flight-active');
   cancelTourCardFlight();
   if(tourCardFly){
     tourCardFly.style.opacity='0';
@@ -450,6 +463,11 @@ function resetJourneyVisual(){
 }
 
 function landOfferCard(){
+  tourCardFly?.classList.remove('card-flight-active');
+  if(tourCardFly){
+    tourCardFly.style.opacity='0';
+    tourCardFly.style.visibility='hidden';
+  }
 
   dockCard.classList.remove('visible','final-visible');
   dockLabel?.classList.add('ready');
@@ -644,15 +662,16 @@ function runJourney(fromPlanner=false){
 
     /* 12 Random tour card is born. */
     queueJourney(()=>{
-      setCardFlightGeometry();
-      globeZone.classList.add('journey-card-launch');
-      animateTourCardContinuously(1650);
-      status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>THE HEART CHOOSES AN EXPERIENCE</span>';
+      globeZone.classList.add('journey-explode');
+      status.innerHTML='<strong>THE HEART CELEBRATES.</strong><span>ONE MOMENT BEFORE YOUR TOUR APPEARS</span>';
     },14600);
 
     queueJourney(()=>{
-      globeZone.classList.add('journey-explode');
-    },15350);
+      setCardFlightGeometry();
+      globeZone.classList.add('journey-card-launch');
+      animateTourCardContinuously(1550);
+      status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>STRAIGHT FROM THE HEART</span>';
+    },15150);
 
     queueJourney(()=>{
       cancelTourCardFlight();
