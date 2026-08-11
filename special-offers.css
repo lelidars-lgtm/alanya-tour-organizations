@@ -4585,3 +4585,129 @@ body{
   visibility:hidden!important;
   pointer-events:none!important;
 }
+
+
+
+/* =========================================================
+   CLEAN FINAL TÜRKİYE STATE
+   Final frame keeps ONLY:
+   - red Türkiye map + flag
+   - WE ARE HERE + coordinates
+   - clean bokeh background
+   - left random tour card
+   Everything from the globe scene is removed.
+   ========================================================= */
+
+/* Kill every legacy globe/orbit layer in final state. */
+.globe-zone.final-turkiye .live-globe-canvas,
+.globe-zone.final-turkiye .globe-aura-ring,
+.globe-zone.final-turkiye .reference-depth-haze,
+.globe-zone.final-turkiye .journey-overlay-svg,
+.globe-zone.final-turkiye .turkiye-zoom-stage,
+.globe-zone.final-turkiye .globe-location-overlay,
+.globe-zone.final-turkiye .alanya-landing-pin,
+.globe-zone.final-turkiye .heart-transform,
+.globe-zone.final-turkiye .tour-card-fly,
+.globe-zone.final-turkiye .confetti-burst,
+.globe-zone.final-turkiye .globe-effects,
+.globe-zone.final-turkiye::after{
+  display:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  filter:none!important;
+}
+
+/* Remove Planner/Journey orbit atmosphere behind the final map. */
+.so-journey:has(.globe-zone.final-turkiye) .so-orbit-atmosphere,
+.so-journey:has(.globe-zone.final-turkiye)::before,
+.so-journey:has(.globe-zone.final-turkiye)::after{
+  display:none!important;
+}
+
+/* Final visual surface is flat dark navy with bokeh only. */
+.globe-zone.final-turkiye .globe-stage-live{
+  background:
+    radial-gradient(circle at 50% 47%,rgba(255,24,63,.055),transparent 30%),
+    linear-gradient(180deg,#04111d 0%,#020912 100%)!important;
+  box-shadow:none!important;
+  border-radius:22px!important;
+  overflow:hidden!important;
+}
+
+/* Remove embedded reference globe image from pseudo layers in final state. */
+.globe-zone.final-turkiye .globe-stage-live::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  opacity:1!important;
+  display:block!important;
+  background:
+    radial-gradient(circle at 13% 19%,rgba(49,190,255,.42) 0 5px,transparent 15px),
+    radial-gradient(circle at 81% 17%,rgba(255,208,103,.33) 0 4px,transparent 14px),
+    radial-gradient(circle at 72% 73%,rgba(39,178,255,.32) 0 6px,transparent 20px),
+    radial-gradient(circle at 24% 72%,rgba(29,154,231,.27) 0 5px,transparent 18px),
+    radial-gradient(circle at 89% 55%,rgba(47,183,255,.25) 0 5px,transparent 17px),
+    radial-gradient(circle at 38% 31%,rgba(52,194,255,.24) 0 3px,transparent 13px),
+    radial-gradient(circle at 58% 87%,rgba(255,202,90,.20) 0 3px,transparent 12px),
+    radial-gradient(circle at 50% 48%,rgba(255,30,68,.025),transparent 45%)!important;
+  filter:blur(1px)!important;
+  transform:none!important;
+  mask:none!important;
+  -webkit-mask:none!important;
+}
+
+/* Extra bokeh depth — no sphere silhouette. */
+.globe-zone.final-turkiye .globe-stage-live::after{
+  content:""!important;
+  position:absolute!important;
+  inset:-8%!important;
+  z-index:0!important;
+  display:block!important;
+  opacity:.72!important;
+  background:
+    radial-gradient(circle at 18% 42%,rgba(35,170,255,.15) 0 10px,transparent 32px),
+    radial-gradient(circle at 77% 39%,rgba(43,181,255,.13) 0 12px,transparent 36px),
+    radial-gradient(circle at 61% 18%,rgba(255,197,83,.10) 0 8px,transparent 29px),
+    radial-gradient(circle at 34% 84%,rgba(24,135,222,.12) 0 9px,transparent 30px)!important;
+  filter:blur(7px)!important;
+}
+
+/* Final Türkiye map is the only hero object. */
+.globe-zone.final-turkiye .final-turkiye-stage{
+  display:grid!important;
+  opacity:1!important;
+  visibility:visible!important;
+  z-index:5!important;
+  background:transparent!important;
+}
+.globe-zone.final-turkiye .final-turkiye-inner{
+  z-index:6!important;
+}
+.globe-zone.final-turkiye .final-turkiye-map{
+  z-index:6!important;
+  filter:
+    drop-shadow(0 0 18px rgba(255,34,73,.38))
+    drop-shadow(0 0 54px rgba(255,22,65,.20))!important;
+}
+
+/* Do not render the old generic bokeh particle DOM layer;
+   final background is provided by clean pseudo bokeh above. */
+.globe-zone.final-turkiye .globe-bokeh-layer{
+  display:none!important;
+}
+
+/* Keep the original left destination card fully interactive after animation. */
+.so-journey:has(.globe-zone.final-turkiye) .journey-dock-card.final-visible{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  filter:none!important;
+}
+
+/* No giant waiting sentence or replay control in final visual. */
+.globe-zone.final-turkiye .final-waiting-text,
+.so-journey:has(.globe-zone.final-turkiye) .globe-cta-wrap{
+  display:none!important;
+}

@@ -305,6 +305,11 @@ function runJourney(fromPlanner=false){
     void globeZone.offsetWidth;
 
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      globeZone.classList.remove(
+        'journey-running','orbit-flight','orbit-complete','journey-arrived',
+        'turkiye-focus','alanya-landed','journey-pulse','light-collapse',
+        'journey-heart','heart-full','journey-explode','journey-card-launch','heart-return'
+      );
       globeZone.classList.add('final-turkiye');
       status.innerHTML='<strong>WE ARE HERE.</strong><span>ALANYA · 36.532392° N · 32.038899° E</span>';
       return;
