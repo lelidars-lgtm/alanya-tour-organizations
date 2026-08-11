@@ -5810,3 +5810,438 @@ body{
 #journeyDockCard.handoff-ready{
   pointer-events:none!important;
 }
+
+
+
+/* =========================================================
+   UNIFIED SECTION TYPOGRAPHY
+   Five main section titles use one identical serif system.
+   Page ending returns to the same type voice as the opening.
+   ========================================================= */
+
+:root{
+  --so-display-font: Georgia, "Times New Roman", serif;
+  --so-section-title-size: clamp(34px, 4.1vw, 58px);
+  --so-section-title-line: .98;
+  --so-section-title-weight: 500;
+  --so-section-title-track: -.022em;
+}
+
+/* THE FIVE MAIN BLOCK TITLES */
+.so-gateway h2,
+.so-group h2,
+.so-experience h2,
+.so-journey .journey-copy h2,
+.so-gift .gift-focus-intro h2{
+  font-family:var(--so-display-font)!important;
+  font-size:var(--so-section-title-size)!important;
+  line-height:var(--so-section-title-line)!important;
+  font-weight:var(--so-section-title-weight)!important;
+  letter-spacing:var(--so-section-title-track)!important;
+  text-transform:uppercase!important;
+  margin-top:10px!important;
+}
+
+/* Opening hero: same family and weight, only intentionally larger */
+.so-hero h1{
+  font-family:var(--so-display-font)!important;
+  font-weight:var(--so-section-title-weight)!important;
+  letter-spacing:-.025em!important;
+}
+
+/* END OF PAGE — same typographic voice as opening */
+.gift-ending .heart-line{
+  font-family:var(--so-display-font)!important;
+  font-weight:var(--so-section-title-weight)!important;
+  font-size:clamp(38px,5.2vw,72px)!important;
+  line-height:.96!important;
+  letter-spacing:-.025em!important;
+  text-transform:uppercase!important;
+  color:#f7f5ef!important;
+}
+.gift-ending .heart-line span{
+  font-family:var(--so-display-font)!important;
+  font-weight:var(--so-section-title-weight)!important;
+  font-size:inherit!important;
+  line-height:inherit!important;
+  letter-spacing:inherit!important;
+  color:var(--gold2)!important;
+}
+
+/* Supporting final gift headline: same family, subordinate size */
+.gift-memory-top .memory-line{
+  font-family:var(--so-display-font)!important;
+  font-weight:var(--so-section-title-weight)!important;
+}
+
+/* MOBILE */
+@media(max-width:760px){
+  :root{
+    --so-section-title-size:clamp(29px,8.6vw,40px);
+  }
+
+  .gift-ending .heart-line{
+    font-size:clamp(31px,9vw,44px)!important;
+    line-height:.98!important;
+  }
+
+  .so-hero h1{
+    font-size:clamp(40px,12vw,58px)!important;
+  }
+}
+
+
+
+/* =========================================================
+   SPECIAL OFFERS — TRIP PLANNER VISUAL SYSTEM
+   One continuous orbit field from start to finish.
+   Journey block transforms those arcs into globe latitudes.
+   ========================================================= */
+
+/* ---------- 1. ONE CONTINUOUS PAGE-WIDE ORBIT FIELD ---------- */
+.so-tp-shell{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background:
+    radial-gradient(ellipse at 50% 4%,rgba(238,245,247,.055),transparent 27%),
+    radial-gradient(ellipse at 15% 28%,rgba(8,92,116,.12),transparent 28%),
+    radial-gradient(ellipse at 84% 54%,rgba(7,74,103,.11),transparent 31%),
+    linear-gradient(180deg,#020812 0%,#03111d 24%,#031621 58%,#020b14 100%)!important;
+}
+
+.so-page-orbits{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.so-page-orbit{
+  position:absolute;
+  left:50%;
+  width:150%;
+  height:520px;
+  border:1px solid rgba(52,157,181,.105);
+  border-radius:50%;
+  transform:translateX(-50%);
+  box-shadow:
+    0 0 16px rgba(41,132,176,.025),
+    inset 0 0 18px rgba(41,132,176,.018);
+  filter:drop-shadow(0 0 10px rgba(41,132,176,.025));
+}
+
+.so-page-orbit-1{top:3%;   transform:translateX(-50%) rotate(-1.2deg);opacity:.78}
+.so-page-orbit-2{top:19%;  transform:translateX(-50%) rotate(.8deg); opacity:.64}
+.so-page-orbit-3{top:38%;  transform:translateX(-50%) rotate(-.6deg);opacity:.58}
+.so-page-orbit-4{top:61%;  transform:translateX(-50%) rotate(1deg);  opacity:.48}
+.so-page-orbit-5{top:83%;  transform:translateX(-50%) rotate(-.8deg);opacity:.34}
+
+/* thin secondary lines make it read as the Planner ocean/arcs, not rings pasted on sections */
+.so-page-orbits::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.55;
+  background:
+    repeating-radial-gradient(
+      ellipse at 52% -3%,
+      transparent 0 27px,
+      rgba(22,118,136,.047) 28px 29px,
+      transparent 30px 58px
+    ),
+    linear-gradient(176deg,transparent 0 22%,rgba(15,104,124,.045) 29%,transparent 37% 100%);
+}
+
+/* central moon path borrowed from the Trip Planner visual language */
+.so-page-moon-path{
+  position:absolute;
+  top:-2%;
+  left:39%;
+  width:23%;
+  height:104%;
+  transform:rotate(-1.5deg);
+  background:
+    linear-gradient(180deg,
+      rgba(240,245,244,.105),
+      rgba(238,239,214,.04) 36%,
+      rgba(239,196,92,.025) 64%,
+      transparent 94%);
+  filter:blur(29px);
+  opacity:.46;
+}
+
+/* subtle gold currents continue the page rhythm */
+.so-page-gold-current{
+  position:absolute;
+  left:8%;
+  right:8%;
+  height:28px;
+  border-radius:50%;
+  opacity:.16;
+  background:
+    linear-gradient(90deg,
+      transparent,
+      rgba(241,210,139,.08) 24%,
+      rgba(252,220,141,.34) 50%,
+      rgba(240,194,94,.07) 76%,
+      transparent);
+  filter:blur(1.2px);
+}
+.so-page-gold-current-1{top:28%;transform:rotate(-.8deg)}
+.so-page-gold-current-2{top:73%;left:18%;right:14%;transform:rotate(.9deg);opacity:.10}
+
+/* Content always sits above the global field */
+.so-tp-shell > section,
+.so-tp-shell > nav,
+.so-tp-shell > .tp-progress,
+.so-tp-shell > .so-page-orbits + *{
+  position:relative;
+  z-index:2;
+}
+
+/* ---------- 2. REMOVE THE OLD "ONE SET OF ARCS PER SECTION" LOOK ---------- */
+.so-tp-shell > .tp-section::after,
+.so-tp-shell > section.tp-section::after{
+  display:none!important;
+  content:none!important;
+}
+
+.so-tp-shell > .tp-section::before,
+.so-tp-shell > section.tp-section::before{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  top:0!important;
+  width:auto!important;
+  height:1px!important;
+  z-index:4!important;
+  opacity:1!important;
+  filter:none!important;
+  background:
+    linear-gradient(90deg,transparent,rgba(243,198,109,.36),transparent)!important;
+}
+
+/* keep the panel architecture of Trip Planner */
+.so-tp-shell > .tp-section,
+.so-tp-shell > section.tp-section{
+  position:relative!important;
+  z-index:2!important;
+  border:1px solid rgba(214,162,74,.18)!important;
+  border-radius:22px!important;
+  background:
+    linear-gradient(180deg,rgba(9,31,48,.90),rgba(4,18,30,.94))!important;
+  box-shadow:0 24px 70px rgba(0,0,0,.24)!important;
+  overflow:hidden!important;
+  backdrop-filter:blur(2px);
+}
+
+/* Let the global lines faintly read through without turning panels transparent */
+.so-tp-shell > .tp-section > *,
+.so-tp-shell > section.tp-section > *{
+  position:relative;
+  z-index:2;
+}
+
+/* ---------- 3. HERO: KEEP FULL TRIP PLANNER SIGNATURE ATMOSPHERE ---------- */
+.so-hero{
+  position:relative!important;
+  overflow:hidden!important;
+  background:
+    linear-gradient(180deg,rgba(1,10,19,.26),rgba(2,13,23,.67) 72%,rgba(2,13,23,.84)),
+    radial-gradient(ellipse at 50% 4%,rgba(238,245,247,.15),rgba(238,245,247,.02) 23%,transparent 48%),
+    radial-gradient(ellipse at 18% 66%,rgba(4,97,119,.26),transparent 45%),
+    radial-gradient(ellipse at 80% 72%,rgba(4,68,96,.24),transparent 44%),
+    linear-gradient(180deg,#03111c,#031825 50%,#020b14)!important;
+}
+
+/* Exact planner-style hero arc texture */
+.so-hero::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  opacity:.88!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background:
+    repeating-radial-gradient(
+      ellipse at 52% -18%,
+      transparent 0 30px,
+      rgba(223,235,239,.055) 31px 32px,
+      transparent 34px 68px
+    ),
+    repeating-linear-gradient(
+      176deg,
+      transparent 0 34px,
+      rgba(14,111,131,.06) 35px 36px,
+      transparent 38px 74px
+    ),
+    linear-gradient(180deg,rgba(255,255,255,.015),rgba(255,255,255,0))!important;
+  animation:tpSeaBreath 12s ease-in-out infinite;
+}
+
+/* ---------- 4. JOURNEY: PAGE ARCS BECOME LATITUDES ---------- */
+.so-journey{
+  position:relative!important;
+  isolation:isolate!important;
+}
+
+/* The separate old orbit atmosphere is now secondary, not dominant */
+.so-journey .so-orbit-atmosphere{
+  opacity:.24!important;
+  z-index:0!important;
+}
+
+.journey-latitude-field{
+  position:absolute;
+  inset:-6%;
+  z-index:1;
+  pointer-events:none;
+  opacity:.72;
+  transition:opacity .5s ease,filter .5s ease;
+}
+
+/* Latitude lines physically wrap the globe area */
+.journey-latitude{
+  position:absolute;
+  left:50%;
+  width:82%;
+  height:26%;
+  border:1px solid rgba(61,184,227,.16);
+  border-radius:50%;
+  transform:translateX(-50%);
+  box-shadow:0 0 12px rgba(46,173,224,.035);
+}
+.journey-latitude.lat-1{top:17%;height:18%;opacity:.36}
+.journey-latitude.lat-2{top:27%;height:22%;opacity:.58}
+.journey-latitude.lat-3{top:38%;height:24%;opacity:.80}
+.journey-latitude.lat-4{top:49%;height:24%;opacity:.72}
+.journey-latitude.lat-5{top:60%;height:22%;opacity:.50}
+.journey-latitude.lat-6{top:70%;height:18%;opacity:.28}
+
+/* two subtle longitude ellipses add a spherical read */
+.journey-longitude{
+  position:absolute;
+  top:15%;
+  bottom:15%;
+  left:50%;
+  width:48%;
+  border:1px solid rgba(63,182,224,.10);
+  border-radius:50%;
+  transform:translateX(-50%);
+}
+.journey-longitude.long-1{transform:translateX(-50%) rotate(15deg)}
+.journey-longitude.long-2{transform:translateX(-50%) rotate(-15deg);opacity:.7}
+
+/* During flight, one latitude glows briefly like a route current */
+.globe-zone.orbit-flight .journey-latitude.lat-3{
+  border-color:rgba(243,198,109,.35);
+  box-shadow:0 0 18px rgba(243,198,109,.10);
+}
+
+/* During heart transition, globe latitude system warms into the heart network */
+.globe-zone.light-collapse .journey-latitude-field,
+.globe-zone.journey-heart .journey-latitude-field,
+.globe-zone.heart-full .journey-latitude-field{
+  filter:hue-rotate(132deg) saturate(1.6) brightness(1.08);
+  opacity:.58;
+}
+.globe-zone.journey-heart .journey-latitude,
+.globe-zone.heart-full .journey-latitude,
+.globe-zone.journey-heart .journey-longitude,
+.globe-zone.heart-full .journey-longitude{
+  border-color:rgba(255,55,88,.22)!important;
+  box-shadow:0 0 15px rgba(255,55,88,.045)!important;
+}
+
+/* Final Türkiye: all globe latitudes disappear, leaving only bokeh + map */
+.globe-zone.final-turkiye .journey-latitude-field{
+  display:none!important;
+  opacity:0!important;
+}
+
+/* ---------- 5. ENDING: GLOBAL ORBITS CONTINUE TO THE LAST LINE ---------- */
+.so-gift,
+.gift-ending{
+  position:relative!important;
+  z-index:2!important;
+}
+.gift-ending{
+  background:
+    linear-gradient(180deg,rgba(4,18,30,.72),rgba(2,9,17,.88))!important;
+}
+.gift-ending::after{
+  content:"";
+  position:absolute;
+  left:-18%;
+  right:-18%;
+  bottom:-18%;
+  height:58%;
+  z-index:0;
+  pointer-events:none;
+  opacity:.30;
+  background:
+    repeating-radial-gradient(
+      ellipse at 50% 100%,
+      transparent 0 34px,
+      rgba(24,117,139,.07) 35px 36px,
+      transparent 38px 72px
+    );
+}
+.gift-ending > *{
+  position:relative;
+  z-index:2;
+}
+
+/* ---------- 6. ANIMATION ---------- */
+@keyframes tpSeaBreath{
+  0%,100%{transform:translate3d(0,0,0);opacity:.82}
+  50%{transform:translate3d(0,-5px,0);opacity:1}
+}
+
+@media(max-width:900px){
+  .so-page-orbit{
+    width:230%;
+    height:420px;
+  }
+  .so-page-moon-path{
+    left:34%;
+    width:34%;
+  }
+  .journey-latitude{
+    width:96%;
+  }
+}
+
+@media(max-width:760px){
+  .so-page-orbit{
+    width:290%;
+    height:340px;
+    opacity:.36!important;
+  }
+  .so-page-orbit-2{top:22%}
+  .so-page-orbit-3{top:44%}
+  .so-page-orbit-4{top:66%}
+  .so-page-orbit-5{top:86%}
+  .so-page-moon-path{
+    opacity:.26;
+    filter:blur(32px);
+  }
+  .so-page-gold-current{
+    opacity:.07;
+  }
+  .journey-latitude-field{
+    inset:-2%;
+    opacity:.48;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .so-hero::before,
+  .so-page-orbits,
+  .journey-latitude-field{
+    animation:none!important;
+  }
+}
