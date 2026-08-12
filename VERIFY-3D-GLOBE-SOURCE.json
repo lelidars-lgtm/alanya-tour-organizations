@@ -1,0 +1,14 @@
+{
+  "source_zip": "special-offers-premium-package(2).zip",
+  "globe_html_exact_match": true,
+  "globe_js_exact_match": true,
+  "source_globe_html_sha256": "ae9140286e6f199346d40dd3eaf891a73a2977fa810646d868ae2d9e761bfff7",
+  "output_globe_html_sha256": "ae9140286e6f199346d40dd3eaf891a73a2977fa810646d868ae2d9e761bfff7",
+  "source_globe_js_sha256": "dc89d3739e9966d7711f092c833e9fce269445db7ada119c96952c993633c5c7",
+  "output_globe_js_sha256": "dc89d3739e9966d7711f092c833e9fce269445db7ada119c96952c993633c5c7",
+  "heart_offer_present": true,
+  "choose_another_present": true,
+  "phone_before_start_absent": true,
+  "phone_at_claim_present": true,
+  "three_texture_present": true
+}
