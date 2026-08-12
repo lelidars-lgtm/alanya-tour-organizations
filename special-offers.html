@@ -838,22 +838,6 @@
 <p class="footer-copy">© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.</p>
 </footer>
 
-<div class="heart-modal" id="heartEligibilityModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="heartEligibilityTitle">
-  <div class="heart-modal-backdrop" data-heart-close="eligibility"></div>
-  <div class="heart-modal-panel heart-eligibility-panel">
-    <button class="heart-modal-close" type="button" data-heart-close="eligibility" aria-label="Close">×</button>
-    <small class="heart-modal-kicker">ONE HEART OFFER · ONE CONFIRMED PURCHASE</small>
-    <h3 id="heartEligibilityTitle">UNLOCK YOUR HEART OFFER</h3>
-    <p>Enter the WhatsApp number you will use for booking. Opening the Journey does not use your offer — it is redeemed only after a confirmed purchase.</p>
-    <form id="heartEligibilityForm">
-      <label class="heart-field"><span>WHATSAPP NUMBER</span><input id="heartPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+90 5XX XXX XX XX" required></label>
-      <small class="heart-field-help">Use the full international number with country code.</small>
-      <button class="btn tp-btn gold" id="heartEligibilitySubmit" type="submit">CHECK & START JOURNEY →</button>
-      <div class="heart-form-status" id="heartEligibilityStatus" aria-live="polite"></div>
-    </form>
-  </div>
-</div>
-
 <div class="heart-modal" id="heartClaimModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="heartClaimTitle">
   <div class="heart-modal-backdrop" data-heart-close="claim"></div>
   <div class="heart-modal-panel heart-claim-panel">
@@ -868,7 +852,7 @@
     <form id="heartClaimForm">
       <div class="heart-claim-grid">
         <label class="heart-field"><span>YOUR NAME</span><input id="heartClientName" autocomplete="name" required></label>
-        <label class="heart-field"><span>WHATSAPP</span><input id="heartClaimPhone" type="tel" inputmode="tel" autocomplete="tel" required></label>
+        <label class="heart-field"><span>WHATSAPP · TO SAVE YOUR OFFER</span><input id="heartClaimPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+90 5XX XXX XX XX" required></label>
         <label class="heart-field"><span>ADULTS</span><input id="heartAdults" type="number" min="1" max="20" value="2" required></label>
         <label class="heart-field"><span>CHILDREN & AGES</span><input id="heartChildren" placeholder="e.g. 2 children: 4, 9"></label>
         <label class="heart-field"><span>DESIRED DATE</span><input id="heartDesiredDate" type="date"></label>

@@ -159,7 +159,7 @@ nextBtn?.addEventListener('click',()=>{
 backBtn?.addEventListener('click',()=>{if(planner.step>0){planner.step--;renderPlanner();}});
 document.getElementById('sendExperience')?.addEventListener('click',()=>{
   document.getElementById('journey')?.scrollIntoView({behavior:'smooth',block:'center'});
-  setTimeout(()=>beginHeartOfferJourney(),620);
+  setTimeout(()=>runJourney(false),620);
 });
 renderPlanner();
 
@@ -776,8 +776,8 @@ function runJourney(fromPlanner=false){
   });
 }
 
-// HEART OFFER ENTRY: the existing animation is launched only after server-side eligibility check.
-startJourney.addEventListener('click',()=>beginHeartOfferJourney());
+// HEART OFFER ENTRY: Journey is frictionless. WhatsApp is requested only when the client claims the offer.
+startJourney.addEventListener('click',()=>{heartVisualOnly=false;runJourney(false)});
 
 window.addEventListener('resize',()=>{
   setLogoFlightGeometry();
@@ -792,10 +792,7 @@ window.addEventListener('resize',()=>{
 requestPersonalOffer?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();openHeartClaimModal();});
 
 // ===== HEART OFFER COMMERCIAL FLOW =====
-const heartEligibilityModal=document.getElementById('heartEligibilityModal');
 const heartClaimModal=document.getElementById('heartClaimModal');
-const heartEligibilityForm=document.getElementById('heartEligibilityForm');
-const heartEligibilityStatus=document.getElementById('heartEligibilityStatus');
 const heartClaimForm=document.getElementById('heartClaimForm');
 const heartClaimStatus=document.getElementById('heartClaimStatus');
 const viewHeartTour=document.getElementById('viewHeartTour');
@@ -906,54 +903,15 @@ function showHeartRedeemedState(){
   status.innerHTML='<strong>YOUR HEART OFFER HAS ALREADY BEEN USED.</strong><span>THANK YOU FOR TRAVELLING WITH US.</span>';
 }
 
-async function verifyHeartEligibility(phone){
-  const normalized=normalizeHeartPhoneClient(phone);
-  if(normalized.length<10||normalized.length>15) throw new Error('Please enter a valid WhatsApp number with country code.');
-  const data=await heartRpc('heart_offer_check',{p_phone:normalized});
-  heartClientPhone=data.phone||normalized;
-  sessionStorage.setItem('atoHeartPhone',heartClientPhone);
-  if(data.redeemed){showHeartRedeemedState();return false}
-  heartOfferRedeemed=false;heartVisualOnly=false;return true;
-}
-
-async function beginHeartOfferJourney(){
-  if(heartOfferRedeemed){heartVisualOnly=true;runJourney(false);return}
-  const stored=heartClientPhone||sessionStorage.getItem('atoHeartPhone')||'';
-  if(stored){
-    try{
-      status.innerHTML='<strong>CHECKING YOUR HEART OFFER.</strong><span>ONE MOMENT…</span>';
-      if(await verifyHeartEligibility(stored)){runJourney(false)}
-    }catch(err){
-      sessionStorage.removeItem('atoHeartPhone');heartClientPhone='';
-      const phoneInput=document.getElementById('heartPhone');if(phoneInput)phoneInput.value=stored;
-      setHeartStatus(heartEligibilityStatus,err.message,'error');openHeartModal(heartEligibilityModal);
-    }
-    return;
-  }
-  setHeartStatus(heartEligibilityStatus,'');openHeartModal(heartEligibilityModal);setTimeout(()=>document.getElementById('heartPhone')?.focus(),80);
-}
-
-heartEligibilityForm?.addEventListener('submit',async e=>{
-  e.preventDefault();
-  const btn=document.getElementById('heartEligibilitySubmit');
-  const phone=document.getElementById('heartPhone').value;
-  btn.disabled=true;setHeartStatus(heartEligibilityStatus,'Checking with ATO Booking Manager…');
-  try{
-    const ok=await verifyHeartEligibility(phone);
-    closeHeartModal(heartEligibilityModal);
-    if(ok)runJourney(false);
-  }catch(err){setHeartStatus(heartEligibilityStatus,err.message,'error')}
-  finally{btn.disabled=false}
-});
+// No phone check before Journey. Eligibility is enforced securely only at CLAIM,
+// where heart_offer_claim() checks the normalized WhatsApp against REDEEMED offers.
 
 viewHeartTour?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(activeRandomTour?.url)window.location.href=activeRandomTour.url});
-chooseAnotherHeartTour?.addEventListener('click',async e=>{
+chooseAnotherHeartTour?.addEventListener('click',e=>{
   e.preventDefault();e.stopPropagation();
-  if(heartOfferRedeemed){heartVisualOnly=true;runJourney(false);return}
-  try{
-    if(!heartClientPhone){await beginHeartOfferJourney();return}
-    if(await verifyHeartEligibility(heartClientPhone)){runJourney(false)}
-  }catch(err){setHeartStatus(heartEligibilityStatus,err.message,'error');openHeartModal(heartEligibilityModal)}
+  // Always allow another visual/random result before purchase. No phone is required here.
+  heartVisualOnly=false;
+  runJourney(false);
 });
 
 function openHeartClaimModal(){
@@ -964,7 +922,7 @@ function openHeartClaimModal(){
   document.getElementById('heartClaimCategory').textContent=activeRandomTour.category;
   document.getElementById('heartClaimDiscount').textContent=`${discount}% OFF`;
   document.getElementById('heartClaimPrice').textContent=`${heartMoney(activeRandomTour.price)} → ${heartMoney(offerPrice)} · discounted listed base`;
-  document.getElementById('heartClaimPhone').value=heartClientPhone||sessionStorage.getItem('atoHeartPhone')||'';
+  document.getElementById('heartClaimPhone').value=heartClientPhone||'';
   const date=document.getElementById('heartDesiredDate');if(date){date.min=new Date().toISOString().slice(0,10)}
   setHeartStatus(heartClaimStatus,'');openHeartModal(heartClaimModal);
 }
