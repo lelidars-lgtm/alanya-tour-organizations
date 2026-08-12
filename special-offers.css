@@ -8818,3 +8818,64 @@ body.so-premium-body #journey .heart-eligibility-panel form{display:grid;gap:14p
 .ato-space-star.warm{display:none!important;}
 .live-globe-canvas{filter:drop-shadow(0 0 42px rgba(56,167,255,.22)) drop-shadow(0 0 110px rgba(16,101,227,.18));}
 .globe-aura-ring{opacity:.78!important;filter:blur(.2px);}
+
+/* ===== JOURNEY EARTH — THREE.JS PHOTOREAL LAYER ===== */
+body.so-premium-body #journey .globe-stage-live{
+  isolation:isolate!important;
+}
+body.so-premium-body #journey .three-globe-canvas{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  z-index:4!important;
+  opacity:0;
+  pointer-events:none;
+  border:0!important;
+  border-radius:50%!important;
+  background:transparent!important;
+  filter:drop-shadow(0 0 28px rgba(70,187,255,.24)) drop-shadow(0 0 88px rgba(18,99,226,.20));
+  transition:opacity .65s ease,transform 1.05s cubic-bezier(.2,.8,.2,1),filter .8s ease;
+  transform:scale(.995);
+}
+body.so-premium-body #journey .globe-zone.three-globe-ready .three-globe-canvas{
+  opacity:1;
+  pointer-events:auto;
+}
+body.so-premium-body #journey .globe-zone.three-globe-ready .live-globe-canvas{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+body.so-premium-body #journey .globe-zone.three-globe-ready.turkiye-focus .three-globe-canvas{
+  opacity:.16!important;
+  transform:scale(1.16)!important;
+  filter:blur(.7px) drop-shadow(0 0 34px rgba(60,178,255,.18))!important;
+}
+body.so-premium-body #journey .globe-zone.three-globe-ready.light-collapse .three-globe-canvas{
+  opacity:0!important;
+  transform:scale(.68)!important;
+  filter:blur(6px) brightness(1.25)!important;
+}
+body.so-premium-body #journey .globe-zone.three-globe-ready.journey-heart .three-globe-canvas,
+body.so-premium-body #journey .globe-zone.three-globe-ready.heart-full .three-globe-canvas,
+body.so-premium-body #journey .globe-zone.three-globe-ready.journey-explode .three-globe-canvas,
+body.so-premium-body #journey .globe-zone.three-globe-ready.journey-card-launch .three-globe-canvas,
+body.so-premium-body #journey .globe-zone.three-globe-ready.final-turkiye .three-globe-canvas{
+  opacity:0!important;
+  pointer-events:none!important;
+}
+/* No permanent gold orbit over the idle Earth. The approved route appears only while Journey runs. */
+body.so-premium-body #journey .globe-zone:not(.journey-running):not(.orbit-flight) .journey-overlay-svg .route-base,
+body.so-premium-body #journey .globe-zone:not(.journey-running):not(.orbit-flight) .journey-overlay-svg .route-live{
+  opacity:0!important;
+}
+body.so-premium-body #journey .three-globe-ready .globe-aura-ring{
+  opacity:.36!important;
+  border-color:rgba(109,207,255,.07)!important;
+  box-shadow:0 0 45px rgba(34,147,255,.08),inset 0 0 44px rgba(37,149,255,.04)!important;
+}
+@media(max-width:900px){
+  body.so-premium-body #journey .three-globe-canvas{pointer-events:none!important}
+}

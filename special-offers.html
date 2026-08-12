@@ -458,6 +458,7 @@
 <div class="globe-aura-ring"></div><div class="reference-depth-haze"></div>
 <div class="brand-launch-chip">ALANYA TOUR ORGANIZATIONS</div>
 <canvas aria-label="Rotating digital globe" class="live-globe-canvas" id="liveGlobeCanvas"></canvas>
+<canvas aria-label="Interactive 3D Earth" aria-hidden="true" class="three-globe-canvas" id="threeGlobeCanvas"></canvas>
 <svg aria-hidden="true" class="journey-overlay-svg" viewbox="0 0 620 620">
 <path class="route-base" d="M126 176 C170 92 286 48 402 80 C522 116 594 235 572 364 C551 484 436 558 315 548 C208 540 112 470 102 362 C95 286 129 223 177 194 C250 149 339 171 386 239 C415 281 426 250 415 266"></path>
 <path class="route-live" d="M126 176 C170 92 286 48 402 80 C522 116 594 235 572 364 C551 484 436 558 315 548 C208 540 112 470 102 362 C95 286 129 223 177 194 C250 149 339 171 386 239 C415 281 426 250 415 266"></path>
@@ -821,15 +822,15 @@
 
 <div aria-label="Choose gift certificate type" class="gift-options gift-options-analytical" role="group">
 <button class="gift-option" data-gift-mode="freedom" data-gift-type="Chosen Amount" type="button">
-<small>01 · FREEDOM GIFT</small><strong>LET THEM CHOOSE</strong>
-<p>You choose the value. They choose the experience and date later.</p>
-<div class="gift-option-analysis"><span><b>BEST WHEN</b>You don't want to guess their schedule or favourite tour.</span><span><b>THE ADVANTAGE</b>Maximum freedom. One amount can become any eligible memory.</span><span><b>CERTIFICATE SHOWS</b>The gift value — not a fixed activity.</span></div>
+<small>01 · FREEDOM GIFT</small><strong>LET THE RECIPIENT CHOOSE</strong>
+<p>You choose the value. The recipient chooses the experience and date later.</p>
+<div class="gift-option-analysis"><span><b>BEST WHEN</b>You don't want to guess the recipient’s schedule or favourite tour.</span><span><b>THE ADVANTAGE</b>Maximum freedom. One amount can become any eligible memory.</span><span><b>CERTIFICATE SHOWS</b>The gift value — not a fixed activity.</span></div>
 <div class="gift-option-output">OUTPUT · VALUE CERTIFICATE →</div>
 </button>
 <button class="gift-option" data-gift-mode="signature" data-gift-type="Specific Experience" type="button">
-<small>02 · SIGNATURE GIFT</small><strong>CHOOSE FOR THEM</strong>
+<small>02 · SIGNATURE GIFT</small><strong>CHOOSE FOR THE RECIPIENT</strong>
 <p>You choose the experience. The exact date can still stay flexible.</p>
-<div class="gift-option-analysis"><span><b>BEST WHEN</b>You already know what would genuinely delight them.</span><span><b>THE ADVANTAGE</b>More emotional and personal. The price does not need to appear on the gift.</span><span><b>CERTIFICATE SHOWS</b>The chosen experience and recipient — not the price.</span></div>
+<div class="gift-option-analysis"><span><b>BEST WHEN</b>You already know what would genuinely delight the recipient.</span><span><b>THE ADVANTAGE</b>More emotional and personal. The price does not need to appear on the gift.</span><span><b>CERTIFICATE SHOWS</b>The chosen experience and recipient — not the price.</span></div>
 <div class="gift-option-output">OUTPUT · EXPERIENCE CERTIFICATE →</div>
 </button>
 </div>
@@ -899,6 +900,15 @@
 </template>
 
 <div class="toast" id="toast"></div>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.1/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="journey-globe-three.js"></script>
 <script src="special-offers-bootstrap.js"></script>
 </body>
 </html>

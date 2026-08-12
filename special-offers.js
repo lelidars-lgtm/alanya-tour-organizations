@@ -1161,7 +1161,8 @@ const allowedLangs = ["ru", "en", "tr", "de", "pl"];
       for(let i=0;i<points.length;i++){const p=proj(points[i][0],points[i][1],1,cx,cy,rr);if(p.z<=0){pen=false;continue}if(!pen){ctx.moveTo(p.x,p.y);pen=true}else ctx.lineTo(p.x,p.y)}ctx.stroke();
     }
     function fallbackFrame(now){
-      requestAnimationFrame(fallbackFrame);const rect=globeShell.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);const size=Math.max(360,Math.round(rect.width*dpr));if(canvas.width!==size||canvas.height!==size){canvas.width=size;canvas.height=size}
+      requestAnimationFrame(fallbackFrame);
+      if(window.ATO_THREE_GLOBE_ACTIVE) return;const rect=globeShell.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);const size=Math.max(360,Math.round(rect.width*dpr));if(canvas.width!==size||canvas.height!==size){canvas.width=size;canvas.height=size}
       const dt=Math.min(.05,(now-last2)/1000);last2=now;ang+=dt*(globeZone.classList.contains('journey-running')?.55:.16);
       ctx.clearRect(0,0,size,size);const cx=size/2,cy=size/2,rr=size*.355;
       const g=ctx.createRadialGradient(cx-rr*.28,cy-rr*.35,rr*.08,cx,cy,rr*1.25);g.addColorStop(0,'#184b83');g.addColorStop(.55,'#061d40');g.addColorStop(1,'rgba(1,7,19,.15)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,rr,0,Math.PI*2);ctx.fill();
@@ -1358,7 +1359,9 @@ const allowedLangs = ["ru", "en", "tr", "de", "pl"];
     gl.useProgram(lineProgram);bindAttr(lineProgram,'aPos',buf,3);gl.uniformMatrix4fv(gl.getUniformLocation(lineProgram,'uMVP'),false,mvp);gl.uniform4fv(gl.getUniformLocation(lineProgram,'uColor'),color);gl.drawArrays(mode,0,count);
   }
   function render(now){
-    requestAnimationFrame(render);resize();
+    requestAnimationFrame(render);
+    if(window.ATO_THREE_GLOBE_ACTIVE) return;
+    resize();
     const dt=Math.min(.05,(now-last)/1000);last=now;
     const running=globeZone.classList.contains('journey-running');
     const routeActive=running||globeZone.classList.contains('orbit-flight')||globeZone.classList.contains('journey-arrived')||globeZone.classList.contains('turkiye-focus')||globeZone.classList.contains('alanya-landed');
