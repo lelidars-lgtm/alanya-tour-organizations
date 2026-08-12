@@ -1140,17 +1140,202 @@ if (canvas && globeShell && globeZone3D) {
   }
   createBokehDots();
 
-  const gl = canvas.getContext('webgl', {
-    alpha: true,
-    antialias: true,
-    premultipliedAlpha: false,
-    powerPreference: 'high-performance'
-  }) || canvas.getContext('experimental-webgl', { alpha: true, antialias: true });
+  function startCpuGlobeFallback(){
+    const ctx = canvas.getContext('2d', { alpha:true });
+    if(!ctx){
+      globeZone3D.dataset.globeMode = 'css-fallback-last-resort';
+      canvas.classList.add('webgl-unavailable');
+      console.warn('[ATO] Neither WebGL nor Canvas2D globe renderer is available.');
+      return;
+    }
+
+    globeZone3D.dataset.globeMode = 'canvas2d-spherical-geodesic';
+    canvas.classList.remove('webgl-unavailable');
+    canvas.classList.add('canvas2d-spherical-fallback');
+    console.info('[ATO] WebGL unavailable: using animated Canvas2D spherical globe.');
+
+    const TAU = Math.PI * 2;
+    let N = 300;
+    let imageData = null;
+    let pixels = null;
+    let texturePixels = null;
+    let texW = 0, texH = 0;
+    let angleY = -0.45;
+    let last = performance.now();
+    let mouseX2 = 0, mouseY2 = 0;
+
+    // Build a true triangular icosphere network for the non-WebGL fallback.
+    function buildCpuGeodesic(subdivisions=2){
+      const t=(1+Math.sqrt(5))/2;
+      let verts=[
+        [-1,t,0],[1,t,0],[-1,-t,0],[1,-t,0],
+        [0,-1,t],[0,1,t],[0,-1,-t],[0,1,-t],
+        [t,0,-1],[t,0,1],[-t,0,-1],[-t,0,1]
+      ].map(v=>{const l=Math.hypot(...v);return [v[0]/l,v[1]/l,v[2]/l]});
+      let faces=[
+        [0,11,5],[0,5,1],[0,1,7],[0,7,10],[0,10,11],
+        [1,5,9],[5,11,4],[11,10,2],[10,7,6],[7,1,8],
+        [3,9,4],[3,4,2],[3,2,6],[3,6,8],[3,8,9],
+        [4,9,5],[2,4,11],[6,2,10],[8,6,7],[9,8,1]
+      ];
+      for(let level=0;level<subdivisions;level++){
+        const cache=new Map(), next=[];
+        const mid=(a,b)=>{
+          const key=a<b?`${a}_${b}`:`${b}_${a}`;
+          if(cache.has(key)) return cache.get(key);
+          const A=verts[a],B=verts[b];
+          let x=(A[0]+B[0])*.5,y=(A[1]+B[1])*.5,z=(A[2]+B[2])*.5;
+          const l=Math.hypot(x,y,z)||1; const idx=verts.length;
+          verts.push([x/l,y/l,z/l]); cache.set(key,idx); return idx;
+        };
+        for(const [a,b,c] of faces){const ab=mid(a,b),bc=mid(b,c),ca=mid(c,a);next.push([a,ab,ca],[b,bc,ab],[c,ca,bc],[ab,bc,ca]);}
+        faces=next;
+      }
+      const set=new Set(), edges=[];
+      const add=(a,b)=>{const k=a<b?`${a}_${b}`:`${b}_${a}`;if(set.has(k))return;set.add(k);edges.push([a,b]);};
+      for(const [a,b,c] of faces){add(a,b);add(b,c);add(c,a);}
+      return {verts,edges};
+    }
+    const geo=buildCpuGeodesic(2);
+
+    function resizeCpu(){
+      const r=globeShell.getBoundingClientRect();
+      const dpr=Math.min(window.devicePixelRatio||1,1.5);
+      N=Math.max(240,Math.min(360,Math.round(Math.min(r.width,r.height)*dpr)));
+      if(canvas.width!==N || canvas.height!==N){
+        canvas.width=N; canvas.height=N;
+        imageData=ctx.createImageData(N,N); pixels=imageData.data;
+      }
+    }
+    resizeCpu();
+    window.addEventListener('resize',resizeCpu,{passive:true});
+    if('ResizeObserver' in window) new ResizeObserver(resizeCpu).observe(globeShell);
+
+    globeShell.addEventListener('pointermove',e=>{
+      const r=globeShell.getBoundingClientRect();
+      mouseX2=((e.clientX-r.left)/Math.max(1,r.width)-.5)*2;
+      mouseY2=((e.clientY-r.top)/Math.max(1,r.height)-.5)*2;
+    });
+    globeShell.addEventListener('pointerleave',()=>{mouseX2=0;mouseY2=0;});
+
+    const img=new Image();
+    img.decoding='async';
+    img.onload=()=>{
+      const off=document.createElement('canvas');
+      texW=768; texH=384; off.width=texW; off.height=texH;
+      const o=off.getContext('2d',{willReadFrequently:true});
+      o.drawImage(img,0,0,texW,texH);
+      texturePixels=o.getImageData(0,0,texW,texH).data;
+      globeZone3D.dataset.globeTextures='local-ready-cpu';
+    };
+    img.onerror=()=>{ globeZone3D.dataset.globeTextures='procedural-cpu'; };
+    img.src='assets/globe/earth_atmos_2048.jpg';
+
+    function rotatePoint(v, ay, ax){
+      const cy=Math.cos(ay), sy=Math.sin(ay), cx=Math.cos(ax), sx=Math.sin(ax);
+      let x=cy*v[0]+sy*v[2], z=-sy*v[0]+cy*v[2], y=v[1];
+      const y2=cx*y-sx*z, z2=sx*y+cx*z;
+      return [x,y2,z2];
+    }
+
+    function sampleTexture(ox,oy,oz){
+      if(!texturePixels){
+        const land=(Math.sin(Math.atan2(oz,ox)*6.5)+Math.sin(Math.asin(Math.max(-1,Math.min(1,oy)))*9.0))>0.55;
+        return land?[26,105,116]:[7,42,91];
+      }
+      let u=0.5-Math.atan2(oz,ox)/TAU;
+      u=u-Math.floor(u);
+      const v=Math.max(0,Math.min(0.999999,0.5-Math.asin(Math.max(-1,Math.min(1,oy)))/Math.PI));
+      const tx=Math.min(texW-1,Math.floor(u*texW)), ty=Math.min(texH-1,Math.floor(v*texH));
+      const i=(ty*texW+tx)*4;
+      return [texturePixels[i],texturePixels[i+1],texturePixels[i+2]];
+    }
+
+    function renderEarth(t){
+      if(!imageData || !pixels) return;
+      const c=(N-1)/2, radius=N*0.455;
+      const cy=Math.cos(angleY), sy=Math.sin(angleY);
+      const tilt=-0.10+mouseY2*0.05, cx=Math.cos(-tilt), sx=Math.sin(-tilt);
+      const lx=-0.38,ly=0.54,lz=0.75;
+      pixels.fill(0);
+      for(let py=0;py<N;py++){
+        const ny=(c-py)/radius;
+        for(let px=0;px<N;px++){
+          const nx=(px-c)/radius, rr=nx*nx+ny*ny;
+          if(rr>1) continue;
+          const z=Math.sqrt(1-rr);
+          // Inverse X tilt, then inverse Y spin -> object-space texture lookup.
+          const iy=cx*ny+sx*z, iz=-sx*ny+cx*z;
+          const ox=cy*nx-sy*iz, oz=sy*nx+cy*iz, oy=iy;
+          const rgb=sampleTexture(ox,oy,oz);
+          const diffuse=Math.max(0,nx*lx+ny*ly+z*lz);
+          const shade=0.34+0.82*diffuse;
+          const rim=Math.pow(1-z,2.4);
+          const idx=(py*N+px)*4;
+          pixels[idx]=Math.min(255,rgb[0]*shade+10*rim);
+          pixels[idx+1]=Math.min(255,rgb[1]*shade+120*rim);
+          pixels[idx+2]=Math.min(255,rgb[2]*shade+255*rim);
+          pixels[idx+3]=255;
+        }
+      }
+      ctx.putImageData(imageData,0,0);
+
+      // Atmosphere and true triangular shell are drawn in projected 3D.
+      ctx.save();
+      ctx.translate(c,c);
+      ctx.beginPath();ctx.arc(0,0,radius,0,TAU);ctx.clip();
+      const shellAngle=angleY*1.24+t*0.24;
+      const tilt2=-0.10+Math.sin(t*.36)*.055;
+      ctx.lineWidth=Math.max(0.8,N/340);
+      ctx.strokeStyle='rgba(52,204,255,.72)';
+      ctx.shadowColor='rgba(0,174,255,.92)';
+      ctx.shadowBlur=Math.max(2,N/95);
+      for(const [a,b] of geo.edges){
+        const A=rotatePoint(geo.verts[a],shellAngle,tilt2), B=rotatePoint(geo.verts[b],shellAngle,tilt2);
+        if(A[2]<-.08 && B[2]<-.08) continue;
+        const alpha=Math.max(.15,Math.min(1,(A[2]+B[2]+2)*.25));
+        ctx.globalAlpha=.34+.48*alpha;
+        ctx.beginPath();
+        ctx.moveTo(A[0]*radius*1.012,-A[1]*radius*1.012);
+        ctx.lineTo(B[0]*radius*1.012,-B[1]*radius*1.012);
+        ctx.stroke();
+      }
+      ctx.globalAlpha=1;ctx.restore();
+
+      const glow=ctx.createRadialGradient(c,c,radius*.80,c,c,radius*1.12);
+      glow.addColorStop(0,'rgba(0,145,255,0)');
+      glow.addColorStop(.72,'rgba(0,160,255,.03)');
+      glow.addColorStop(.93,'rgba(49,205,255,.30)');
+      glow.addColorStop(1,'rgba(49,205,255,0)');
+      ctx.fillStyle=glow;ctx.beginPath();ctx.arc(c,c,radius*1.12,0,TAU);ctx.fill();
+    }
+
+    function cpuAnimate(now){
+      requestAnimationFrame(cpuAnimate);
+      const dt=Math.min((now-last)/1000,.05); last=now;
+      const running=globeZone3D.classList.contains('journey-running');
+      // Deliberately obvious rotation: ~11°/s at rest, faster during Journey.
+      const speed=running?0.34:0.19;
+      angleY += (speed + mouseX2*.035)*dt;
+      renderEarth(now/1000);
+    }
+    requestAnimationFrame(cpuAnimate);
+  }
+
+  let gl = null;
+  try{
+    gl = canvas.getContext('webgl', {
+      alpha: true,
+      antialias: true,
+      premultipliedAlpha: false,
+      powerPreference: 'high-performance'
+    }) || canvas.getContext('experimental-webgl', { alpha: true, antialias: true });
+  }catch(err){
+    console.warn('[ATO] WebGL context creation failed; switching to Canvas2D.', err);
+  }
 
   if (!gl) {
-    globeZone3D.dataset.globeMode = 'css-fallback';
-    canvas.classList.add('webgl-unavailable');
-    console.warn('[ATO] WebGL is unavailable on this device. Static globe fallback is active.');
+    startCpuGlobeFallback();
   } else {
     globeZone3D.dataset.globeMode = 'webgl-3d-geodesic';
 

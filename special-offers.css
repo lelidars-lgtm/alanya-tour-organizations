@@ -8758,3 +8758,15 @@ body.so-premium-body #journey #journeyDockCard.visual-only #requestPersonalOffer
 .globe-zone:not(.final-turkiye) .reference-depth-haze{
   opacity:.28!important;
 }
+
+
+/* V4: animated spherical Canvas2D fallback for browsers/devices without WebGL. */
+.live-globe-canvas.canvas2d-spherical-fallback{
+  background:none!important;
+  background-image:none!important;
+  opacity:1!important;
+  border-radius:50%!important;
+  filter:saturate(1.10) contrast(1.08) brightness(.98)
+    drop-shadow(0 0 16px rgba(46,205,255,.42))
+    drop-shadow(0 0 46px rgba(0,128,255,.24))!important;
+}
