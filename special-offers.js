@@ -1206,10 +1206,11 @@ const allowedLangs = ["ru", "en", "tr", "de", "pl"];
       float light=max(dot(n,lightDir),0.0);
       float rim=pow(1.0-max(n.z,0.0),2.25);
       vec3 tex=texture2D(uTex,vUV).rgb;
-      vec3 col=tex*(0.48+0.78*light);
-      col+=vec3(0.02,0.30,0.62)*rim*1.05;
-      col+=vec3(0.02,0.10,0.19)*(1.0-light)*0.40;
-      gl_FragColor=vec4(col,0.98);
+      vec3 col=tex*(0.42+0.68*light);
+      col=mix(col, vec3(0.04,0.15,0.29), 0.18);
+      col+=vec3(0.10,0.42,0.78)*rim*0.92;
+      col+=vec3(0.01,0.05,0.11)*(1.0-light)*0.45;
+      gl_FragColor=vec4(col,0.985);
     }`;
   const LINE_VERT=`
     attribute vec3 aPos;
@@ -1299,14 +1300,26 @@ const allowedLangs = ["ru", "en", "tr", "de", "pl"];
     const xy=(lon,lat)=>[(lon+180)/360*c.width,(90-lat)/180*c.height];
     ctx.lineJoin='round';ctx.lineCap='round';
     continents.forEach(poly=>{
-      ctx.beginPath();poly.forEach((pt,i)=>{const [x,y]=xy(pt[0],pt[1]);i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.closePath();
-      const cg=ctx.createLinearGradient(0,0,c.width,c.height);cg.addColorStop(0,'#071321');cg.addColorStop(.5,'#0b1e2d');cg.addColorStop(1,'#06111e');
-      ctx.fillStyle=cg;ctx.fill();ctx.strokeStyle='rgba(100,205,255,.72)';ctx.lineWidth=1.5;ctx.stroke();
+      ctx.beginPath();
+      poly.forEach((pt,i)=>{const [x,y]=xy(pt[0],pt[1]);i?ctx.lineTo(x,y):ctx.moveTo(x,y)});
+      ctx.closePath();
+      const cg=ctx.createLinearGradient(0,0,c.width,c.height);
+      cg.addColorStop(0,'rgba(20,53,86,.78)');
+      cg.addColorStop(.52,'rgba(12,38,68,.82)');
+      cg.addColorStop(1,'rgba(8,24,47,.88)');
+      ctx.fillStyle=cg;
+      ctx.shadowColor='rgba(73,181,255,.16)';
+      ctx.shadowBlur=8;
+      ctx.fill();
+      ctx.shadowBlur=0;
+      ctx.strokeStyle='rgba(118,220,255,.24)';
+      ctx.lineWidth=0.9;
+      ctx.stroke();
     });
-    /* Fine blue network on land / map texture. */
-    ctx.strokeStyle='rgba(67,181,245,.18)';ctx.lineWidth=.7;
-    for(let i=0;i<42;i++){
-      const a=xy(-155+Math.random()*300,55-Math.random()*95),b=xy(-155+Math.random()*300,55-Math.random()*95);
+    /* Very subtle tech network only, to avoid visual trash. */
+    ctx.strokeStyle='rgba(82,193,255,.08)';ctx.lineWidth=.55;
+    for(let i=0;i<18;i++){
+      const a=xy(-150+Math.random()*290,50-Math.random()*85),b=xy(-150+Math.random()*290,50-Math.random()*85);
       ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke();
     }
     return c;
@@ -1348,6 +1361,7 @@ const allowedLangs = ["ru", "en", "tr", "de", "pl"];
     requestAnimationFrame(render);resize();
     const dt=Math.min(.05,(now-last)/1000);last=now;
     const running=globeZone.classList.contains('journey-running');
+    const routeActive=running||globeZone.classList.contains('orbit-flight')||globeZone.classList.contains('journey-arrived')||globeZone.classList.contains('turkiye-focus')||globeZone.classList.contains('alanya-landed');
     const hidden=globeZone.classList.contains('light-collapse')||globeZone.classList.contains('journey-heart')||globeZone.classList.contains('journey-explode')||globeZone.classList.contains('final-turkiye');
     rotY+=dt*(running?.55:.16);rotX+=(targetX-rotX+8*Math.PI/180)*dt*.9;const y=rotY+targetY;
     const model=multiply(rotateX(rotX),rotateY(y));
@@ -1362,8 +1376,8 @@ const allowedLangs = ["ru", "en", "tr", "de", "pl"];
     gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);gl.uniform1i(gl.getUniformLocation(sphereProgram,'uTex'),0);gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,sphereIdx);gl.drawElements(gl.TRIANGLES,sphere.idx.length,gl.UNSIGNED_SHORT,0);
 
     gl.disable(gl.CULL_FACE);gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE);
-    drawLines(gridBuf,grid.length/3,mvp,new Float32Array([.28,.78,1.0,.34]));
-    drawLines(routeBuf,route.length/3,mvp,new Float32Array([1.0,.72,.20,.88]),gl.LINE_STRIP);
+    drawLines(gridBuf,grid.length/3,mvp,new Float32Array([.30,.78,1.0,.24]));
+    if(routeActive){drawLines(routeBuf,route.length/3,mvp,new Float32Array([.96,.77,.34,.78]),gl.LINE_STRIP);}
     gl.disable(gl.BLEND);
   }
   requestAnimationFrame(render);

@@ -8812,3 +8812,9 @@ body.so-premium-body #journey .journey-overlay-svg .route-live{stroke:#f3c66d!im
 body.so-premium-body #journey .journey-cta{pointer-events:auto!important;cursor:pointer!important;position:relative!important;z-index:15!important}
 body.so-premium-body #journey .heart-eligibility-panel form{display:grid;gap:14px}
 @media(max-width:900px){body.so-premium-body #journey .globe-shell-live,body.so-premium-body #journey .globe-stage-live{width:min(560px,100%)!important}}
+
+
+/* Globe beauty cleanup */
+.ato-space-star.warm{display:none!important;}
+.live-globe-canvas{filter:drop-shadow(0 0 42px rgba(56,167,255,.22)) drop-shadow(0 0 110px rgba(16,101,227,.18));}
+.globe-aura-ring{opacity:.78!important;filter:blur(.2px);}
