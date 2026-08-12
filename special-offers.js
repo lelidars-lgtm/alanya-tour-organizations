@@ -1157,19 +1157,15 @@ if (canvas && globeShell && globeZone) {
   warm.position.set(-4, 1, 3);
   scene.add(warm);
 
+  /* =========================================================
+     APPROVED 3D HYBRID GLOBE
+     Keep the volumetric wireframe sphere AND restore visible continents.
+     Journey timeline / Heart Offer logic is untouched.
+     ========================================================= */
   const loader = new THREE.TextureLoader();
   const globeGeometry = new THREE.SphereGeometry(2.28, 128, 128);
 
-  function makeFallbackGlobe(){
-    const mat = new THREE.MeshStandardMaterial({
-      color: 0x05234b,
-      emissive: 0x1aa3ff,
-      emissiveIntensity: 0.9,
-      roughness: 0.7,
-      metalness: 0.15
-    });
-    const mesh = new THREE.Mesh(globeGeometry, mat);
-    root.add(mesh);
+  function finishGlobeSetup(){
     addAtmosphere();
     addNetworkShell();
     addStars();
@@ -1178,40 +1174,51 @@ if (canvas && globeShell && globeZone) {
     animate();
   }
 
-  const assets = {
+  function makeFallbackGlobe(){
+    /* Fallback still keeps the approved 3D blue sphere + wireframe. */
+    const fallbackMaterial = new THREE.MeshStandardMaterial({
+      color: 0x05234b,
+      emissive: 0x1aa3ff,
+      emissiveIntensity: 0.72,
+      roughness: 0.76,
+      metalness: 0.08
+    });
+    const fallback = new THREE.Mesh(globeGeometry, fallbackMaterial);
+    fallback.name = 'mainGlobe';
+    root.add(fallback);
+    finishGlobeSetup();
+  }
+
+  const earthAssets = {
     map: 'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg',
     lights: 'https://threejs.org/examples/textures/planets/earth_lights_2048.png',
     normal: 'https://threejs.org/examples/textures/planets/earth_normal_2048.jpg'
   };
 
   Promise.all([
-    loader.loadAsync(assets.map),
-    loader.loadAsync(assets.lights),
-    loader.loadAsync(assets.normal)
+    loader.loadAsync(earthAssets.map),
+    loader.loadAsync(earthAssets.lights),
+    loader.loadAsync(earthAssets.normal)
   ]).then(([earthMap, earthLights, earthNormal]) => {
-    const globeMaterial = new THREE.MeshStandardMaterial({
+    /* Continents stay clearly visible beneath the luminous wireframe while rotating. */
+    earthMap.colorSpace = THREE.SRGBColorSpace;
+    const earthMaterial = new THREE.MeshStandardMaterial({
       map: earthMap,
       normalMap: earthNormal,
-      color: new THREE.Color(0x31577a),
-      emissive: new THREE.Color(0x0086c7),
+      color: new THREE.Color(0x4d7898),
+      emissive: new THREE.Color(0x006d9f),
       emissiveMap: earthLights,
-      emissiveIntensity: 0.72,
+      emissiveIntensity: 0.62,
       roughness: 0.78,
-      metalness: 0.05
+      metalness: 0.04
     });
 
-    const globe = new THREE.Mesh(globeGeometry, globeMaterial);
-    globe.name = 'mainGlobe';
-    root.add(globe);
-
-    addAtmosphere();
-    addNetworkShell();
-    addStars();
-    addGoldenStars();
-    resize();
-    animate();
+    const earth = new THREE.Mesh(globeGeometry, earthMaterial);
+    earth.name = 'mainGlobe';
+    root.add(earth);
+    finishGlobeSetup();
   }).catch((err) => {
-    console.warn('Live globe textures failed to load, using fallback globe.', err);
+    console.warn('Earth textures failed to load; using 3D fallback globe.', err);
     makeFallbackGlobe();
   });
 
@@ -1228,12 +1235,14 @@ if (canvas && globeShell && globeZone) {
   }
 
   function addNetworkShell(){
-    const networkGeometry = new THREE.SphereGeometry(2.43, 72, 72);
+    const networkGeometry = new THREE.SphereGeometry(2.43, 96, 72);
     const networkMaterial = new THREE.MeshBasicMaterial({
-      color: 0x55cfff,
+      color: 0x35c9ff,
       wireframe: true,
       transparent: true,
-      opacity: 0.035
+      opacity: 0.36,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending
     });
     const network = new THREE.Mesh(networkGeometry, networkMaterial);
     network.name = 'networkShell';
@@ -1358,7 +1367,7 @@ if (canvas && globeShell && globeZone) {
     if (networkShell) {
       networkShell.rotation.y += spin * 1.25;
       networkShell.rotation.z = Math.sin(t * 0.26) * 0.03;
-      networkShell.material.opacity = launched ? 0.05 : (pulsing ? 0.22 : 0.13);
+      networkShell.material.opacity = launched ? 0.08 : (pulsing ? 0.28 : 0.32);
     }
 
     if (outerParticles) {
