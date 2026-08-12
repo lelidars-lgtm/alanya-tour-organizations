@@ -1129,8 +1129,8 @@ if (canvas && globeShell && globeZone) {
   createBokehDots();
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
-  camera.position.set(0, 0, 7.9);
+  const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+  camera.position.set(0, 0.12, 7.2);
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -1142,32 +1142,33 @@ if (canvas && globeShell && globeZone) {
   const root = new THREE.Group();
   scene.add(root);
 
-  const ambient = new THREE.AmbientLight(0x79c8ff, 0.82);
+  const ambient = new THREE.AmbientLight(0x79c8ff, 1.02);
   scene.add(ambient);
 
-  const key = new THREE.PointLight(0x8fe4ff, 3.4, 40);
-  key.position.set(4.2, 2.8, 6);
+  const key = new THREE.PointLight(0xa9ecff, 4.8, 48);
+  key.position.set(4.8, 3.1, 6.8);
   scene.add(key);
 
-  const rim = new THREE.PointLight(0x258bff, 2.5, 30);
-  rim.position.set(-5.5, -2.4, -3);
+  const rim = new THREE.PointLight(0x1b79ff, 3.6, 34);
+  rim.position.set(-5.8, -2.8, -2.7);
   scene.add(rim);
 
-  const warm = new THREE.PointLight(0xffd27b, 0.8, 24);
-  warm.position.set(-4, 1, 3);
+  const warm = new THREE.PointLight(0xffd27b, 1.25, 28);
+  warm.position.set(-3.4, 1.3, 3.5);
   scene.add(warm);
 
   /* =========================================================
-     APPROVED 3D HYBRID GLOBE
-     Keep the volumetric wireframe sphere AND restore visible continents.
-     Journey timeline / Heart Offer logic is untouched.
+     PREMIUM DIGITAL 3D GLOBE
+     Stronger volume, clearer continents, layered wireframe.
+     Journey timeline / Heart Offer logic stays untouched.
      ========================================================= */
   const loader = new THREE.TextureLoader();
-  const globeGeometry = new THREE.SphereGeometry(2.28, 128, 128);
+  const globeGeometry = new THREE.SphereGeometry(2.24, 160, 160);
 
   function finishGlobeSetup(){
     addAtmosphere();
     addNetworkShell();
+    addInnerWireShell();
     addStars();
     addGoldenStars();
     resize();
@@ -1175,47 +1176,102 @@ if (canvas && globeShell && globeZone) {
   }
 
   function makeFallbackGlobe(){
-    /* Fallback still keeps the approved 3D blue sphere + wireframe. */
-    const fallbackMaterial = new THREE.MeshStandardMaterial({
-      color: 0x05234b,
-      emissive: 0x1aa3ff,
-      emissiveIntensity: 0.72,
-      roughness: 0.76,
-      metalness: 0.08
+    const coreMaterial = new THREE.MeshPhongMaterial({
+      color: 0x0b2b52,
+      emissive: 0x0b7dbe,
+      emissiveIntensity: 0.44,
+      shininess: 48,
+      transparent: true,
+      opacity: 0.96
     });
-    const fallback = new THREE.Mesh(globeGeometry, fallbackMaterial);
-    fallback.name = 'mainGlobe';
-    root.add(fallback);
+    const core = new THREE.Mesh(globeGeometry, coreMaterial);
+    core.name = 'mainGlobe';
+    root.add(core);
+
+    const continentsFallback = new THREE.Mesh(
+      new THREE.SphereGeometry(2.245, 160, 160),
+      new THREE.MeshBasicMaterial({
+        color: 0x79d8ff,
+        transparent: true,
+        opacity: 0.10,
+        blending: THREE.AdditiveBlending
+      })
+    );
+    continentsFallback.name = 'continentsShell';
+    root.add(continentsFallback);
+
     finishGlobeSetup();
   }
 
   const earthAssets = {
     map: 'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg',
     lights: 'https://threejs.org/examples/textures/planets/earth_lights_2048.png',
-    normal: 'https://threejs.org/examples/textures/planets/earth_normal_2048.jpg'
+    normal: 'https://threejs.org/examples/textures/planets/earth_normal_2048.jpg',
+    specular: 'https://threejs.org/examples/textures/planets/earth_specular_2048.jpg'
   };
 
   Promise.all([
     loader.loadAsync(earthAssets.map),
     loader.loadAsync(earthAssets.lights),
-    loader.loadAsync(earthAssets.normal)
-  ]).then(([earthMap, earthLights, earthNormal]) => {
-    /* Continents stay clearly visible beneath the luminous wireframe while rotating. */
+    loader.loadAsync(earthAssets.normal),
+    loader.loadAsync(earthAssets.specular)
+  ]).then(([earthMap, earthLights, earthNormal, earthSpecular]) => {
     earthMap.colorSpace = THREE.SRGBColorSpace;
-    const earthMaterial = new THREE.MeshStandardMaterial({
-      map: earthMap,
-      normalMap: earthNormal,
-      color: new THREE.Color(0x4d7898),
-      emissive: new THREE.Color(0x006d9f),
-      emissiveMap: earthLights,
-      emissiveIntensity: 0.62,
-      roughness: 0.78,
-      metalness: 0.04
-    });
+    earthLights.colorSpace = THREE.SRGBColorSpace;
 
-    const earth = new THREE.Mesh(globeGeometry, earthMaterial);
-    earth.name = 'mainGlobe';
-    root.add(earth);
+    const coreMaterial = new THREE.MeshPhongMaterial({
+      color: new THREE.Color(0x0a2f58),
+      emissive: new THREE.Color(0x0b7bc4),
+      emissiveIntensity: 0.48,
+      specular: new THREE.Color(0x9fe8ff),
+      shininess: 46,
+      transparent: true,
+      opacity: 0.98,
+      bumpMap: earthNormal,
+      bumpScale: 0.07
+    });
+    const core = new THREE.Mesh(globeGeometry, coreMaterial);
+    core.name = 'mainGlobe';
+    root.add(core);
+
+    const continentMaterial = new THREE.MeshPhongMaterial({
+      map: earthMap,
+      specularMap: earthSpecular,
+      bumpMap: earthNormal,
+      bumpScale: 0.03,
+      color: new THREE.Color(0x6fd4ff),
+      emissive: new THREE.Color(0x0d5a86),
+      emissiveMap: earthLights,
+      emissiveIntensity: 0.42,
+      specular: new THREE.Color(0xdff7ff),
+      shininess: 22,
+      transparent: true,
+      opacity: 0.62,
+      blending: THREE.NormalBlending,
+      depthWrite: false
+    });
+    const continents = new THREE.Mesh(
+      new THREE.SphereGeometry(2.252, 160, 160),
+      continentMaterial
+    );
+    continents.name = 'continentsShell';
+    root.add(continents);
+
+    const highlightMaterial = new THREE.MeshBasicMaterial({
+      map: earthMap,
+      color: new THREE.Color(0x9fe8ff),
+      transparent: true,
+      opacity: 0.11,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
+    });
+    const highlight = new THREE.Mesh(
+      new THREE.SphereGeometry(2.262, 160, 160),
+      highlightMaterial
+    );
+    highlight.name = 'continentsHighlight';
+    root.add(highlight);
+
     finishGlobeSetup();
   }).catch((err) => {
     console.warn('Earth textures failed to load; using 3D fallback globe.', err);
@@ -1223,15 +1279,44 @@ if (canvas && globeShell && globeZone) {
   });
 
   function addAtmosphere(){
-    const glowGeometry = new THREE.SphereGeometry(2.38, 96, 96);
+    const glowGeometry = new THREE.SphereGeometry(2.38, 128, 128);
     const glowMaterial = new THREE.MeshBasicMaterial({
-      color: 0x20bfff,
+      color: 0x43cfff,
       transparent: true,
-      opacity: 0.095
+      opacity: 0.14,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false
     });
     const glow = new THREE.Mesh(glowGeometry, glowMaterial);
     glow.name = 'glowShell';
     root.add(glow);
+
+    const haloMaterial = new THREE.MeshBasicMaterial({
+      color: 0x1d8dff,
+      transparent: true,
+      opacity: 0.07,
+      blending: THREE.AdditiveBlending,
+      side: THREE.BackSide,
+      depthWrite: false
+    });
+    const halo = new THREE.Mesh(new THREE.SphereGeometry(2.56, 96, 96), haloMaterial);
+    halo.name = 'haloShell';
+    root.add(halo);
+  }
+
+  function addInnerWireShell(){
+    const innerGeometry = new THREE.SphereGeometry(2.29, 84, 60);
+    const innerMaterial = new THREE.MeshBasicMaterial({
+      color: 0x80dbff,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.16,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending
+    });
+    const inner = new THREE.Mesh(innerGeometry, innerMaterial);
+    inner.name = 'innerWireShell';
+    root.add(inner);
   }
 
   function addNetworkShell(){
@@ -1240,7 +1325,7 @@ if (canvas && globeShell && globeZone) {
       color: 0x35c9ff,
       wireframe: true,
       transparent: true,
-      opacity: 0.36,
+      opacity: 0.42,
       depthWrite: false,
       blending: THREE.AdditiveBlending
     });
@@ -1302,7 +1387,6 @@ if (canvas && globeShell && globeZone) {
     particles.name = 'outerParticles';
     scene.add(particles);
   }
-
   let mouseX = 0;
   let mouseY = 0;
 
@@ -1336,7 +1420,11 @@ if (canvas && globeShell && globeZone) {
     const t = clock.getElapsedTime();
     const mainGlobe = root.getObjectByName('mainGlobe');
     const glowShell = root.getObjectByName('glowShell');
+    const haloShell = root.getObjectByName('haloShell');
     const networkShell = root.getObjectByName('networkShell');
+    const innerWireShell = root.getObjectByName('innerWireShell');
+    const continentsShell = root.getObjectByName('continentsShell');
+    const continentsHighlight = root.getObjectByName('continentsHighlight');
     const outerParticles = scene.getObjectByName('outerParticles');
     const goldParticles = scene.getObjectByName('goldParticles');
 
@@ -1355,19 +1443,41 @@ if (canvas && globeShell && globeZone) {
 
     if (mainGlobe) {
       mainGlobe.rotation.y += spin;
-      mainGlobe.rotation.x = Math.sin(t * 0.35) * 0.03 + mouseY * 0.06;
-      mainGlobe.rotation.z = Math.sin(t * 0.18) * 0.02;
+      mainGlobe.rotation.x = 0.22 + Math.sin(t * 0.35) * 0.028 + mouseY * 0.055;
+      mainGlobe.rotation.z = Math.sin(t * 0.18) * 0.018;
+    }
+
+    if (continentsShell) {
+      continentsShell.rotation.y += spin * 1.004;
+      continentsShell.rotation.x = 0.22 + Math.sin(t * 0.35) * 0.028 + mouseY * 0.055;
+      continentsShell.rotation.z = Math.sin(t * 0.18) * 0.018;
+      continentsShell.material.opacity = launched ? 0.38 : 0.66;
+    }
+    if (continentsHighlight) {
+      continentsHighlight.rotation.y += spin * 1.008;
+      continentsHighlight.rotation.x = 0.22 + Math.sin(t * 0.35) * 0.028 + mouseY * 0.055;
+      continentsHighlight.rotation.z = Math.sin(t * 0.18) * 0.018;
+      continentsHighlight.material.opacity = launched ? 0.06 : (0.12 + Math.sin(t*1.5)*0.02);
     }
 
     if (glowShell) {
       glowShell.rotation.y += spin * 0.82;
-      glowShell.material.opacity = heart ? 0.08 : (0.14 + Math.sin(t * 1.8) * 0.018);
+      glowShell.material.opacity = heart ? 0.08 : (0.17 + Math.sin(t * 1.8) * 0.022);
+    }
+    if (haloShell) {
+      haloShell.rotation.y -= spin * 0.38;
+      haloShell.material.opacity = heart ? 0.05 : (0.09 + Math.sin(t*1.1)*0.012);
     }
 
     if (networkShell) {
       networkShell.rotation.y += spin * 1.25;
       networkShell.rotation.z = Math.sin(t * 0.26) * 0.03;
-      networkShell.material.opacity = launched ? 0.08 : (pulsing ? 0.28 : 0.32);
+      networkShell.material.opacity = launched ? 0.08 : (pulsing ? 0.30 : 0.42);
+    }
+    if (innerWireShell) {
+      innerWireShell.rotation.y -= spin * 0.92;
+      innerWireShell.rotation.z = -Math.sin(t * 0.22) * 0.022;
+      innerWireShell.material.opacity = launched ? 0.05 : (pulsing ? 0.14 : 0.17);
     }
 
     if (outerParticles) {
@@ -1382,6 +1492,7 @@ if (canvas && globeShell && globeZone) {
     }
 
     root.rotation.y += mouseX * 0.0009;
+    root.rotation.x = -0.06 + mouseY * 0.012;
 
     renderer.render(scene, camera);
   }
