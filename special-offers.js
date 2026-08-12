@@ -9,9 +9,15 @@ document.querySelectorAll('.offer-path').forEach(card=>{
   });
 });
 
+// Header
+const menuBtn=document.getElementById('menuBtn');
+const mainNav=document.getElementById('mainNav');
+menuBtn?.addEventListener('click',()=>mainNav.classList.toggle('open'));
+mainNav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mainNav.classList.remove('open')));
+
 
 // Group & Event Planner
-const groupPlanner={step:0,type:'',guests:'',interest:'',date:'',hotel:'',flexible:false};
+const groupPlanner={step:0,type:'',guests:'',date:'',hotel:'',flexible:false};
 const groupQuestions=[...document.querySelectorAll('.group-question')];
 const groupIndexes=[...document.querySelectorAll('[data-group-index]')];
 const groupNext=document.getElementById('groupPlannerNext');
@@ -19,56 +25,20 @@ const groupBack=document.getElementById('groupPlannerBack');
 const groupDate=document.getElementById('groupPreferredDate');
 const groupHotel=document.getElementById('groupHotelArea');
 const groupFlexible=document.getElementById('groupFlexibleDate');
-const groupDatePickerBtn=document.getElementById('groupDatePickerBtn');
-
-function localISODate(date=new Date()){
-  const y=date.getFullYear();
-  const m=String(date.getMonth()+1).padStart(2,'0');
-  const d=String(date.getDate()).padStart(2,'0');
-  return `${y}-${m}-${d}`;
-}
-if(groupDate) groupDate.min=localISODate();
-
-function openNativeDatePicker(input){
-  if(!input) return;
-  try{ if(typeof input.showPicker==='function'){ input.showPicker(); return; } }catch(_e){}
-  input.focus();
-  input.click();
-}
-groupDatePickerBtn?.addEventListener('click',()=>openNativeDatePicker(groupDate));
 
 function groupStepReady(){
   if(groupPlanner.step===0) return !!groupPlanner.type;
   if(groupPlanner.step===1) return !!groupPlanner.guests;
-  if(groupPlanner.step===2) return !!groupPlanner.interest;
-  if(groupPlanner.step===3) return groupPlanner.flexible || !!groupPlanner.date;
-  if(groupPlanner.step===4) return true;
+  if(groupPlanner.step===2) return groupPlanner.flexible || !!groupPlanner.date;
+  if(groupPlanner.step===3) return true;
   return false;
-}
-function updateGroupPreview(){
-  const timing=groupPlanner.flexible?'Flexible — manager checks best date':(groupPlanner.date||'Choose a preferred date');
-  const type=document.getElementById('groupPreviewType');
-  const guests=document.getElementById('groupPreviewGuests');
-  const date=document.getElementById('groupPreviewDate');
-  const interest=document.getElementById('groupPreviewInterest');
-  const hotel=document.getElementById('groupPreviewHotel');
-  const statusEl=document.getElementById('groupPreviewStatus');
-  if(type) type.textContent=groupPlanner.type||'Choose the group type';
-  if(guests) guests.textContent=groupPlanner.guests||'—';
-  if(interest) interest.textContent=groupPlanner.interest||'Choose a direction';
-  if(date) date.textContent=timing;
-  if(hotel) hotel.textContent=groupPlanner.hotel||'To be confirmed';
-  if(statusEl){
-    const labels=['TELL US WHO WE ARE PLANNING FOR','SET THE REAL GROUP SIZE','CHOOSE AN EXPERIENCE DIRECTION','CHOOSE A DATE OR KEEP IT FLEXIBLE','ADD THE STARTING POINT'];
-    statusEl.textContent=`STEP ${String(groupPlanner.step+1).padStart(2,'0')} OF 05 · ${labels[groupPlanner.step]}`;
-  }
 }
 function renderGroupPlanner(){
   groupQuestions.forEach((q,i)=>q.classList.toggle('active',i===groupPlanner.step));
   groupIndexes.forEach((x,i)=>x.classList.toggle('active',i===groupPlanner.step));
-  if(groupBack) groupBack.hidden=groupPlanner.step===0;
-  if(groupNext){groupNext.disabled=!groupStepReady();groupNext.textContent=groupPlanner.step===4?'Create My Group Request →':'Continue →';}
-  updateGroupPreview();
+  groupBack.hidden=groupPlanner.step===0;
+  groupNext.disabled=!groupStepReady();
+  groupNext.textContent=groupPlanner.step===3?'Create My Group Request →':'Continue →';
 }
 document.querySelectorAll('.group-question').forEach((q,step)=>{
   q.querySelectorAll('.group-choice').forEach(btn=>btn.addEventListener('click',()=>{
@@ -76,38 +46,55 @@ document.querySelectorAll('.group-question').forEach((q,step)=>{
     btn.classList.add('selected');
     if(step===0) groupPlanner.type=btn.dataset.value;
     if(step===1) groupPlanner.guests=btn.dataset.value;
-    if(step===2) groupPlanner.interest=btn.dataset.value;
     renderGroupPlanner();
   }));
 });
 groupDate?.addEventListener('input',()=>{
   groupPlanner.date=groupDate.value;
-  if(groupPlanner.date){groupPlanner.flexible=false;groupFlexible?.classList.remove('selected');}
+  if(groupPlanner.date){
+    groupPlanner.flexible=false;
+    groupFlexible?.classList.remove('selected');
+  }
   renderGroupPlanner();
 });
-groupDate?.addEventListener('change',()=>{groupPlanner.date=groupDate.value;renderGroupPlanner();});
 groupFlexible?.addEventListener('click',()=>{
   groupPlanner.flexible=!groupPlanner.flexible;
   groupFlexible.classList.toggle('selected',groupPlanner.flexible);
-  if(groupPlanner.flexible && groupDate){groupDate.value='';groupPlanner.date='';}
+  if(groupPlanner.flexible && groupDate){
+    groupDate.value='';
+    groupPlanner.date='';
+  }
   renderGroupPlanner();
 });
-groupHotel?.addEventListener('input',()=>{groupPlanner.hotel=groupHotel.value.trim();updateGroupPreview();});
+groupHotel?.addEventListener('input',()=>{groupPlanner.hotel=groupHotel.value.trim()});
 groupNext?.addEventListener('click',()=>{
   if(!groupStepReady()) return;
-  if(groupPlanner.step<4){groupPlanner.step++;renderGroupPlanner();return;}
+  if(groupPlanner.step<3){
+    groupPlanner.step++;
+    renderGroupPlanner();
+    return;
+  }
   groupPlanner.hotel=groupHotel?.value.trim()||'';
   const timing=groupPlanner.flexible?'Flexible date':(groupPlanner.date||'Date to confirm');
-  const summary=document.getElementById('groupSummaryText');
-  if(summary) summary.textContent=`${groupPlanner.type} · ${groupPlanner.guests} · ${groupPlanner.interest} · ${timing}${groupPlanner.hotel?` · ${groupPlanner.hotel}`:''}. Your manager receives this exact planning brief and checks transport, availability and group conditions.`;
-  document.getElementById('groupPlannerSummary')?.classList.add('show');
-  document.getElementById('groupPlannerSummary')?.scrollIntoView({behavior:'smooth',block:'nearest'});
-  updateGroupPreview();
+  document.getElementById('groupSummaryText').textContent=
+    `${groupPlanner.type} · ${groupPlanner.guests} · ${timing}${groupPlanner.hotel?` · ${groupPlanner.hotel}`:''}. We’ll prepare a personal group proposal around these details.`;
+  document.getElementById('groupPlannerSummary').classList.add('show');
+  document.getElementById('groupPlannerSummary').scrollIntoView({behavior:'smooth',block:'nearest'});
 });
-groupBack?.addEventListener('click',()=>{if(groupPlanner.step>0){groupPlanner.step--;renderGroupPlanner();}});
+groupBack?.addEventListener('click',()=>{
+  if(groupPlanner.step>0){groupPlanner.step--;renderGroupPlanner()}
+});
 document.getElementById('sendGroupOffer')?.addEventListener('click',()=>{
-  const timing=groupPlanner.flexible?'Flexible — please recommend the best date':(groupPlanner.date||'To confirm');
-  const lines=['GROUP & EVENT OFFER REQUEST','',`Type: ${groupPlanner.type||'—'}`,`Guests: ${groupPlanner.guests||'—'}`,`Experience direction: ${groupPlanner.interest||'—'}`,`Preferred date: ${timing}`,`Hotel / Area: ${groupPlanner.hotel||'Not specified'}`,'','Please check transport, availability, final price and the best group conditions for this request.'];
+  const timing=groupPlanner.flexible?'Flexible':(groupPlanner.date||'To confirm');
+  const lines=[
+    'GROUP & EVENT OFFER REQUEST','',
+    `Type: ${groupPlanner.type||'—'}`,
+    `Guests: ${groupPlanner.guests||'—'}`,
+    `Preferred date: ${timing}`,
+    `Hotel / Area: ${groupPlanner.hotel||'Not specified'}`,
+    '',
+    'Please prepare a personal group offer around these details.'
+  ];
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lines.join('\n'))}`,'_blank','noopener');
 });
 renderGroupPlanner();
@@ -115,50 +102,35 @@ renderGroupPlanner();
 // Special Experience Planner
 const planner={step:0,occasion:'',people:'',feeling:'',groupSize:''};
 const questions=[...document.querySelectorAll('.question')];
-const indexes=[...document.querySelectorAll('#experience-planner .planner-index span')];
+const indexes=[...document.querySelectorAll('.planner-index span')];
 const nextBtn=document.getElementById('plannerNext');
 const backBtn=document.getElementById('plannerBack');
 function currentField(){return ['occasion','people','feeling','groupSize'][planner.step]}
-function updateExperiencePreview(){
-  const values=[planner.occasion,planner.people,planner.feeling,planner.groupSize];
-  const labels=['Occasion','People','Feeling','Group size'];
-  const host=document.getElementById('experiencePreviewChips');
-  if(host){host.innerHTML=values.map((v,i)=>`<span class="${v?'filled':''}">${v||labels[i]}</span>`).join('');}
-  const title=document.getElementById('experiencePreviewTitle');
-  if(title){
-    if(values.every(Boolean)) title.textContent=`${planner.feeling.toUpperCase()} · ${planner.people.toUpperCase()} · ${planner.occasion.toUpperCase()}`;
-    else title.textContent='YOUR STORY STARTS WITH FOUR CHOICES';
-  }
-  const copy=document.getElementById('experiencePreviewCopy');
-  if(copy){copy.textContent=values.every(Boolean)?`The Journey will keep the surprise, but it will rank compatible experiences for a ${planner.feeling.toLowerCase()} ${planner.occasion.toLowerCase()} for ${planner.people.toLowerCase()} (${planner.groupSize.toLowerCase()}).`:'As you choose, this brief becomes the input for your Journey of the Heart. The final tour stays a surprise, but it will be selected from experiences that fit your answers.';}
-}
 function renderPlanner(){
   questions.forEach((q,i)=>q.classList.toggle('active',i===planner.step));
   indexes.forEach((x,i)=>x.classList.toggle('active',i===planner.step));
-  if(backBtn) backBtn.hidden=planner.step===0;
-  if(nextBtn){nextBtn.disabled=!planner[currentField()];nextBtn.textContent=planner.step===3?'Create My Experience →':'Continue →';}
-  updateExperiencePreview();
+  backBtn.hidden=planner.step===0;
+  nextBtn.disabled=!planner[currentField()];
+  nextBtn.textContent=planner.step===3?'Create My Experience →':'Continue →';
 }
 document.querySelectorAll('.choice-grid').forEach(grid=>{
   grid.querySelectorAll('.choice').forEach(btn=>btn.addEventListener('click',()=>{
     grid.querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));
     btn.classList.add('selected');
     planner[grid.dataset.field]=btn.textContent.trim();
-    if(nextBtn) nextBtn.disabled=false;
-    updateExperiencePreview();
+    nextBtn.disabled=false;
   }));
 });
-nextBtn?.addEventListener('click',()=>{
+nextBtn.addEventListener('click',()=>{
   if(!planner[currentField()]) return;
   if(planner.step<3){planner.step++;renderPlanner();return;}
-  document.getElementById('plannerSummary')?.classList.add('show');
-  const summary=document.getElementById('summaryText');
-  if(summary) summary.textContent=`${planner.occasion} · ${planner.people} · ${planner.feeling} · ${planner.groupSize}. The Journey will now create a surprise match from experiences compatible with these choices.`;
-  document.getElementById('plannerSummary')?.scrollIntoView({behavior:'smooth',block:'nearest'});
+  document.getElementById('plannerSummary').classList.add('show');
+  document.getElementById('summaryText').textContent=`${planner.occasion} · ${planner.people} · ${planner.feeling} · ${planner.groupSize}. We’ll prepare an individual proposal around these choices.`;
+  document.getElementById('plannerSummary').scrollIntoView({behavior:'smooth',block:'nearest'});
 });
-backBtn?.addEventListener('click',()=>{if(planner.step>0){planner.step--;renderPlanner();}});
-document.getElementById('sendExperience')?.addEventListener('click',()=>{
-  document.getElementById('journey')?.scrollIntoView({behavior:'smooth',block:'center'});
+backBtn.addEventListener('click',()=>{if(planner.step>0){planner.step--;renderPlanner()}});
+document.getElementById('sendExperience').addEventListener('click',()=>{
+  document.getElementById('journey').scrollIntoView({behavior:'smooth',block:'center'});
   setTimeout(()=>runJourney(true),620);
 });
 renderPlanner();
@@ -208,34 +180,15 @@ const dockCardThumb=document.getElementById('dockCardThumb');
 const dockCardMeta=document.getElementById('dockCardMeta');
 const finalTurkiyeStage=document.getElementById('finalTurkiyeStage');
 
-const HEART_DISCOUNTS={
-  'Sea Experiences':15,
-  'Nature & Adventure':20,
-  'Extreme & Adventure':10,
-  'Family Experiences':15,
-  'History & Culture':20,
-  'Water Sports':13,
-  'Air Experiences':17,
-  'Wellness & Relax':15,
-  'VIP Services':20
-};
-
 const RANDOM_TOURS=[
-  {id:'relax-boat-tour',title:'Relax Boat Tour in Alanya',category:'Sea Experiences',price:25,priceUnit:'listed base price',meta:'Sea Experiences · Alanya',image:'images/relax-boat/relax-hero.jpg',url:'relax-boat-tour.html'},
-  {id:'green-canyon',title:'Green Canyon in Alanya',category:'Nature & Adventure',price:35,priceUnit:'listed base price',meta:'Nature & Adventure · Green Canyon',image:'assets/images/tours/green-canyon.jpg',url:'green-canyon.html'},
-  {id:'rafting-koprulu-canyon',title:'Rafting in Köprülü Canyon',category:'Extreme & Adventure',price:25,priceUnit:'listed base price',meta:'Extreme & Adventure · Köprülü Canyon',image:'images/rafting/rafting.hero.png',url:'rafting-koprulu-canyon.html'},
-  {id:'land-of-legends',title:'The Land of Legends — Day Tour',category:'Family Experiences',price:75,priceUnit:'adult listed base price',meta:'Family Experiences · Belek',image:'assets/images/tours/land-of-legends.png',url:'land-of-legends.html'},
-  {id:'manavgat-aspendos-side',title:'Aspendos, Side & Manavgat Waterfall',category:'History & Culture',price:75,priceUnit:'listed base price',meta:'History & Culture · Full Day',image:'assets/images/tours/manavgat-aspendos-side.png',url:'manavgat-aspendos-side.html'},
-  {id:'scuba-diving',title:'Scuba Diving in Alanya',category:'Water Sports',price:35,priceUnit:'listed base price',meta:'Water Sports · Alanya',image:'assets/images/tours/scuba-diving.png',url:'scuba-diving.html'},
-  {id:'paragliding',title:'Alanya Paragliding',category:'Air Experiences',price:75,priceUnit:'per person listed price',meta:'Air Experiences · Alanya',image:'assets/images/tours/paragliding.png',url:'paragliding.html'},
-  {id:'turkish-hammam',title:'Turkish Hammam in Alanya',category:'Wellness & Relax',price:35,priceUnit:'listed base price',meta:'Wellness & Relax · Alanya',image:'assets/images/tours/turkish-hammam.png',url:'turkish-hammam.html'},
-  {id:'private-photographer',title:'Private Photographer in Alanya',category:'VIP Services',price:100,priceUnit:'1 hour listed base price',meta:'VIP Services · Alanya',image:'assets/images/tours/private-photographer.png',url:'private-photographer.html'}
+  {title:'Aspendos, Side & Manavgat Waterfall',meta:'History & Culture · Full Day',image:'images/history-culture/history-culture-hero.png',url:'manavgat-aspendos-side.html'},
+  {title:'Land of Legends — Day Tour',meta:'Family Experience · Belek',image:'images/family-experiences/hero.png',url:'land-of-legends.html'},
+  {title:'Alanya Paragliding',meta:'Air Experience · Alanya',image:'images/air-experiences/air-category-hero.png',url:'paragliding.html'},
+  {title:'Family Jeep Safari',meta:'Nature & Adventure · Alanya',image:'images/nature-adventure/canyon-adventures.png',url:'family-jeep-safari.html'},
+  {title:'Private Yacht Charter',meta:'VIP Service · Private Experience',image:'images/vip-services/HERO.png',url:'private-yacht-charter.html'},
+  {title:'Turkish Hammam & Spa',meta:'Wellness & Relax · Alanya',image:'images/wellness-relax/hero.jpeg',url:'turkish-hammam.html'}
 ];
 let activeRandomTour=null;
-let lastRandomTourId=null;
-let heartClientPhone='';
-let heartOfferRedeemed=false;
-let heartVisualOnly=false;
 let journeyTimerPool=[];
 
 function clearJourneyTimers(){journeyTimerPool.forEach(clearTimeout);journeyTimerPool=[]}
@@ -245,37 +198,23 @@ function plannerHasChoices(){
   return Boolean(planner.occasion||planner.people||planner.feeling||planner.groupSize);
 }
 
-function heartMoney(value){
-  if(value===null||value===undefined||Number.isNaN(Number(value))) return 'Manager confirms';
-  const n=Number(value);
-  return `€${Number.isInteger(n)?n:n.toFixed(2)}`;
-}
-
 function buildJourneyCard(){
-  const pool=RANDOM_TOURS.filter(t=>t.id!==lastRandomTourId);
-  activeRandomTour=(pool.length?pool:RANDOM_TOURS)[Math.floor(Math.random()*(pool.length?pool.length:RANDOM_TOURS.length))];
-  lastRandomTourId=activeRandomTour.id;
+  activeRandomTour=RANDOM_TOURS[Math.floor(Math.random()*RANDOM_TOURS.length)];
   const title=activeRandomTour.title;
   const text='A tour chosen by the journey — discover where the heart takes you.';
-  const discount=HEART_DISCOUNTS[activeRandomTour.category]||0;
-  const offerPrice=activeRandomTour.price?activeRandomTour.price*(1-discount/100):null;
   dockCardTitle.textContent=title; dockCardText.textContent=text;
+  if(dockCard){
+    dockCard.setAttribute('href',activeRandomTour.url||'#');
+    dockCard.setAttribute('aria-label',`Open ${title}`);
+  }
+  if(dockCard) dockCard.setAttribute('href',activeRandomTour.url||'#');
   flyCardTitle.textContent=title; flyCardText.textContent=text;
   const bg=`url("${activeRandomTour.image}")`;
   if(flyCardThumb) flyCardThumb.style.backgroundImage=bg;
   if(dockCardThumb) dockCardThumb.style.backgroundImage=bg;
   if(flyCardMeta) flyCardMeta.textContent=activeRandomTour.meta;
   if(dockCardMeta) dockCardMeta.textContent=activeRandomTour.meta;
-  const discountEl=document.getElementById('heartDiscountValue');
-  const regularEl=document.getElementById('heartRegularPrice');
-  const offerEl=document.getElementById('heartOfferPrice');
-  const claimBtn=document.getElementById('requestPersonalOffer');
-  if(discountEl) discountEl.textContent=`${discount}% OFF`;
-  if(regularEl) regularEl.textContent=`${heartMoney(activeRandomTour.price)} · ${activeRandomTour.priceUnit}`;
-  if(offerEl) offerEl.textContent=`${heartMoney(offerPrice)} · discounted base`;
-  if(claimBtn) claimBtn.textContent=heartVisualOnly?'OFFER ALREADY USED':`CLAIM ${discount}% OFFER →`;
-  dockCard?.classList.toggle('visual-only',heartVisualOnly);
-  const chips=[activeRandomTour.category,planner.occasion,planner.people,planner.feeling,planner.groupSize].filter(Boolean);
+  const chips=[planner.occasion,planner.people,planner.feeling,planner.groupSize].filter(Boolean);
   offerResultMeta.innerHTML=chips.map(v=>`<span>${v}</span>`).join('');
 }
 
@@ -503,7 +442,7 @@ function resetJourneyVisual(){
   journeyCardPlaceholder?.classList.remove('is-hidden');
   dockCard?.classList.remove('visible','final-visible');
   clearJourneyTimers(); endLogoFlight();
-  globeZone.classList.remove('journey-running','orbit-flight','orbit-complete','journey-arrived','turkiye-focus','alanya-landed','journey-pulse','light-collapse','journey-heart','heart-full','journey-explode','journey-card-launch','card-landed','heart-after-card','heart-return','final-turkiye');
+  globeZone.classList.remove('journey-running','orbit-flight','orbit-complete','journey-arrived','turkiye-focus','alanya-landed','journey-pulse','light-collapse','journey-heart','heart-full','journey-explode','journey-card-launch','card-landed','heart-return','final-turkiye');
   dockCard.classList.remove('visible'); dockLabel?.classList.remove('ready');
   status.innerHTML='<strong>ALANYA TOUR ORGANIZATIONS IS WAITING.</strong><span>LOGO → FLIGHT → GLOBE → TÜRKİYE → ALANYA → HEART → TOUR</span>';
   startJourney.disabled=false; startJourney.classList.remove('is-active');
@@ -594,6 +533,7 @@ function runJourney(fromPlanner=false){
   resetJourneyVisual();
   journeyCardPlaceholder?.classList.add('is-hidden');
   dockCard?.classList.remove('visible','final-visible');
+  dockCard?.classList.remove('visible','final-visible');
   dockLabel?.classList.remove('ready');
 
   requestAnimationFrame(()=>{
@@ -605,13 +545,13 @@ function runJourney(fromPlanner=false){
       globeZone.classList.remove(
         'journey-running','orbit-flight','orbit-complete','journey-arrived',
         'turkiye-focus','alanya-landed','journey-pulse','light-collapse',
-        'journey-heart','heart-full','journey-explode','journey-card-launch','heart-after-card','heart-return'
+        'journey-heart','heart-full','journey-explode','journey-card-launch','heart-return'
       );
       globeZone.classList.remove(
         'journey-running','orbit-flight','orbit-complete','journey-arrived',
         'turkiye-focus','alanya-landed','journey-pulse','light-collapse',
         'journey-heart','heart-full','journey-explode','journey-card-launch',
-        'card-landed','heart-after-card','heart-return'
+        'card-landed','heart-return'
       );
       globeZone.classList.add('final-turkiye');
       const finalPin=document.getElementById('finalAlanyaMapPin');
@@ -743,26 +683,19 @@ function runJourney(fromPlanner=false){
       globeZone.classList.add('journey-card-launch');
       animateTourCardContinuously(1550);
       status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>STRAIGHT FROM THE HEART</span>';
-    },16050);
-
-    /* 12B Once the card has clearly left the heart, let the heart breathe down
-       in several diminishing pulses until only a luminous red core remains. */
-    queueJourney(()=>{
-      globeZone.classList.add('heart-after-card');
-      status.innerHTML='<strong>THE HEART LETS IT FLY.</strong><span>ONE LAST BEAT · THEN HOME</span>';
-    },16650);
+    },15150);
 
     queueJourney(()=>{
       cancelTourCardFlight();
       landOfferCard();
-    },17650);
+    },16250);
 
     /* 13 Heart returns to original Alanya point and disappears. */
     queueJourney(()=>{
       dockCard?.classList.add('final-visible');
       globeZone.classList.add('heart-return');
       status.innerHTML='<strong>THE HEART COMES HOME.</strong><span>BACK TO ALANYA</span>';
-    },19000);
+    },18000);
 
     /* 14–15 Final state: glowing Türkiye + flag + WE ARE HERE + coordinates. */
     queueJourney(()=>{
@@ -772,7 +705,7 @@ function runJourney(fromPlanner=false){
       startJourney.classList.remove('is-active');
       if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
       
-    },20250);
+    },19250);
   });
 }
 
@@ -788,241 +721,14 @@ window.addEventListener('resize',()=>{
   }
 });
 
-requestPersonalOffer?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();openHeartClaimModal();});
-
-// ===== HEART OFFER COMMERCIAL FLOW =====
-const heartEligibilityModal=document.getElementById('heartEligibilityModal');
-const heartClaimModal=document.getElementById('heartClaimModal');
-const heartEligibilityForm=document.getElementById('heartEligibilityForm');
-const heartEligibilityStatus=document.getElementById('heartEligibilityStatus');
-const heartClaimForm=document.getElementById('heartClaimForm');
-const heartClaimStatus=document.getElementById('heartClaimStatus');
-const viewHeartTour=document.getElementById('viewHeartTour');
-const chooseAnotherHeartTour=document.getElementById('chooseAnotherHeartTour');
-
-function openHeartModal(modal){if(!modal)return;modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.documentElement.style.overflow='hidden'}
-function closeHeartModal(modal){if(!modal)return;modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');if(!document.querySelector('.heart-modal.is-open')) document.documentElement.style.removeProperty('overflow')}
-document.querySelectorAll('[data-heart-close]').forEach(el=>el.addEventListener('click',()=>closeHeartModal(el.closest('.heart-modal'))));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.heart-modal.is-open').forEach(closeHeartModal)});
-
-function normalizeHeartPhoneClient(raw){
-  let d=String(raw||'').replace(/\D/g,'');
-  if(d.startsWith('00')) d=d.slice(2);
-  if(/^0\d{10}$/.test(d)) d='90'+d.slice(1);
-  return d;
-}
-function setHeartStatus(el,msg,type=''){if(!el)return;el.textContent=msg||'';el.classList.remove('is-error','is-success');if(type)el.classList.add(`is-${type}`)}
-// Heart Offer uses the SAME Supabase / ATO Booking Manager as Map + Trip Planner.
-// No second manager and no cookie/localStorage enforcement.
-let heartBookingConfigPromise=null;
-function detectHeartBookingConfig(){
-  const candidates=[
-    window.ATO_BOOKING_CONFIG,
-    window.ATO_CONFIG,
-    window.ATOBookingConfig,
-    window.atoBookingConfig
-  ].filter(Boolean);
-  for(const cfg of candidates){
-    const url=cfg.supabaseUrl||cfg.supabaseURL||cfg.url||cfg.SUPABASE_URL||'';
-    const key=cfg.supabaseAnonKey||cfg.supabaseKey||cfg.anonKey||cfg.publishableKey||cfg.supabasePublishableKey||cfg.SUPABASE_ANON_KEY||cfg.SUPABASE_PUBLISHABLE_KEY||'';
-    if(/^https:\/\/.+\.supabase\.co\/?$/i.test(String(url))&&String(key).length>20){
-      return {url:String(url).replace(/\/$/,''),key:String(key)};
-    }
-  }
-  return null;
-}
-function loadHeartConfigScript(src){
-  return new Promise((resolve,reject)=>{
-    const existing=[...document.scripts].find(x=>x.src&&new URL(x.src,location.href).pathname===src);
-    if(existing){
-      if(detectHeartBookingConfig()) return resolve();
-      existing.addEventListener('load',()=>resolve(),{once:true});
-      existing.addEventListener('error',()=>reject(new Error(`Could not load ${src}`)),{once:true});
-      setTimeout(resolve,350);
-      return;
-    }
-    const el=document.createElement('script');el.src=src;el.async=false;
-    el.onload=()=>resolve();el.onerror=()=>reject(new Error(`Could not load ${src}`));
-    document.head.appendChild(el);
-  });
-}
-async function getHeartBookingConfig(){
-  const ready=detectHeartBookingConfig();if(ready)return ready;
-  if(!heartBookingConfigPromise){
-    heartBookingConfigPromise=(async()=>{
-      const paths=['/booking-config.js','/interactive-map/booking-config.js','/assets/js/ato-config.js'];
-      for(const src of paths){
-        try{await loadHeartConfigScript(src)}catch(_){/* try next known ATO config location */}
-        const cfg=detectHeartBookingConfig();if(cfg)return cfg;
-      }
-      throw new Error('ATO Booking Manager connection was not found. Upload this page to the same site where Map / Booking Manager is connected.');
-    })();
-  }
-  return heartBookingConfigPromise;
-}
-async function heartRpc(functionName,payload){
-  const cfg=await getHeartBookingConfig();
-  const res=await fetch(`${cfg.url}/rest/v1/rpc/${functionName}`,{
-    method:'POST',
-    headers:{
-      apikey:cfg.key,
-      Authorization:`Bearer ${cfg.key}`,
-      'Content-Type':'application/json',
-      Accept:'application/json'
-    },
-    body:JSON.stringify(payload||{}),
-    cache:'no-store'
-  });
-  let data=null;try{data=await res.json()}catch{}
-  if(!res.ok){
-    const message=data?.message||data?.details||data?.hint||`Heart Offer / ATO Booking Manager error (${res.status})`;
-    const err=new Error(message);err.status=res.status;err.data=data;throw err;
-  }
-  return data||{};
-}
-
-function showHeartRedeemedState(){
-  heartOfferRedeemed=true;heartVisualOnly=true;
-  const dock=document.getElementById('journeyDock');
-  const template=document.getElementById('heartRedeemedTemplate');
-  journeyCardPlaceholder?.classList.add('is-hidden');
-  dockCard?.classList.remove('visible','final-visible');
-  let state=document.getElementById('heartRedeemedState');
-  if(!state&&dock&&template){
-    state=document.createElement('div');
-    state.id='heartRedeemedState';
-    state.innerHTML=template.innerHTML;
-    dock.appendChild(state);
-    state.querySelector('#heartReplayVisual')?.addEventListener('click',()=>{
-      state.classList.add('is-hidden');
-      heartVisualOnly=true;
-      runJourney(false);
-    });
-  }
-  state?.classList.remove('is-hidden');
-  startJourney.disabled=false;startJourney.classList.remove('is-active');
-  if(startJourney.querySelector('span'))startJourney.querySelector('span').textContent='WATCH JOURNEY AGAIN →';
-  status.innerHTML='<strong>YOUR HEART OFFER HAS ALREADY BEEN USED.</strong><span>THANK YOU FOR TRAVELLING WITH US.</span>';
-}
-
-async function verifyHeartEligibility(phone){
-  const normalized=normalizeHeartPhoneClient(phone);
-  if(normalized.length<10||normalized.length>15) throw new Error('Please enter a valid WhatsApp number with country code.');
-  const data=await heartRpc('heart_offer_check',{p_phone:normalized});
-  heartClientPhone=data.phone||normalized;
-  sessionStorage.setItem('atoHeartPhone',heartClientPhone);
-  if(data.redeemed){showHeartRedeemedState();return false}
-  heartOfferRedeemed=false;heartVisualOnly=false;return true;
-}
-
-async function beginHeartOfferJourney(){
-  if(heartOfferRedeemed){heartVisualOnly=true;runJourney(false);return}
-  const stored=heartClientPhone||sessionStorage.getItem('atoHeartPhone')||'';
-  if(stored){
-    try{
-      status.innerHTML='<strong>CHECKING YOUR HEART OFFER.</strong><span>ONE MOMENT…</span>';
-      if(await verifyHeartEligibility(stored)){runJourney(false)}
-    }catch(err){
-      sessionStorage.removeItem('atoHeartPhone');heartClientPhone='';
-      const phoneInput=document.getElementById('heartPhone');if(phoneInput)phoneInput.value=stored;
-      setHeartStatus(heartEligibilityStatus,err.message,'error');openHeartModal(heartEligibilityModal);
-    }
-    return;
-  }
-  setHeartStatus(heartEligibilityStatus,'');openHeartModal(heartEligibilityModal);setTimeout(()=>document.getElementById('heartPhone')?.focus(),80);
-}
-
-heartEligibilityForm?.addEventListener('submit',async e=>{
-  e.preventDefault();
-  const btn=document.getElementById('heartEligibilitySubmit');
-  const phone=document.getElementById('heartPhone').value;
-  btn.disabled=true;setHeartStatus(heartEligibilityStatus,'Checking with ATO Booking Manager…');
-  try{
-    const ok=await verifyHeartEligibility(phone);
-    closeHeartModal(heartEligibilityModal);
-    if(ok)runJourney(false);
-  }catch(err){setHeartStatus(heartEligibilityStatus,err.message,'error')}
-  finally{btn.disabled=false}
-});
-
-viewHeartTour?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(activeRandomTour?.url)window.location.href=activeRandomTour.url});
-chooseAnotherHeartTour?.addEventListener('click',e=>{
-  e.preventDefault();
-  e.stopPropagation();
-  heartVisualOnly=false;
-  runJourney(false);
-});
-
-function openHeartClaimModal(){
-  if(heartVisualOnly||heartOfferRedeemed||!activeRandomTour)return;
-  const discount=HEART_DISCOUNTS[activeRandomTour.category]||0;
-  const offerPrice=activeRandomTour.price?activeRandomTour.price*(1-discount/100):null;
-  document.getElementById('heartClaimTour').textContent=activeRandomTour.title;
-  document.getElementById('heartClaimCategory').textContent=activeRandomTour.category;
-  document.getElementById('heartClaimDiscount').textContent=`${discount}% OFF`;
-  document.getElementById('heartClaimPrice').textContent=`${heartMoney(activeRandomTour.price)} → ${heartMoney(offerPrice)} · discounted listed base`;
-  document.getElementById('heartClaimPhone').value=heartClientPhone||sessionStorage.getItem('atoHeartPhone')||'';
-  const date=document.getElementById('heartDesiredDate');if(date){date.min=new Date().toISOString().slice(0,10)}
-  setHeartStatus(heartClaimStatus,'');openHeartModal(heartClaimModal);
-}
-
-heartClaimForm?.addEventListener('submit',async e=>{
-  e.preventDefault();if(!activeRandomTour)return;
-  const btn=document.getElementById('heartClaimSubmit');btn.disabled=true;setHeartStatus(heartClaimStatus,'Saving your Heart Offer in ATO Booking Manager…');
-  const payload={
-    phone:document.getElementById('heartClaimPhone').value,
-    clientName:document.getElementById('heartClientName').value.trim(),
-    adults:Number(document.getElementById('heartAdults').value||1),
-    children:document.getElementById('heartChildren').value.trim(),
-    desiredDate:document.getElementById('heartDesiredDate').value,
-    hotel:document.getElementById('heartHotel').value.trim(),
-    comment:document.getElementById('heartComment').value.trim(),
-    tourId:activeRandomTour.id,
-    planner:{occasion:planner.occasion||'',people:planner.people||'',feeling:planner.feeling||'',groupSize:planner.groupSize||''}
-  };
-  try{
-    const normalized=normalizeHeartPhoneClient(payload.phone);
-    if(normalized.length<10||normalized.length>15) throw new Error('Please enter a valid WhatsApp number with country code.');
-    const result=await heartRpc('heart_offer_claim',{
-      p_phone:normalized,
-      p_client_name:payload.clientName,
-      p_adults:payload.adults,
-      p_children:payload.children,
-      p_desired_date:payload.desiredDate||null,
-      p_hotel:payload.hotel,
-      p_comment:payload.comment,
-      p_tour_id:payload.tourId,
-      p_planner:payload.planner
-    });
-    if(result.redeemed){closeHeartModal(heartClaimModal);showHeartRedeemedState();return}
-    heartClientPhone=result.phone||normalized;sessionStorage.setItem('atoHeartPhone',heartClientPhone);
-    setHeartStatus(heartClaimStatus,`Offer ${result.code} is now PENDING in your ATO Booking Manager. Opening WhatsApp…`,'success');
-    const lines=[
-      '❤️ HEART OFFER CLAIM','',
-      `Offer code: ${result.code}`,
-      `Status: ${result.status}`,
-      'ATO Booking Manager: request saved in the same queue as Map / Trip Planner requests',
-      `Tour: ${result.tour.title}`,
-      `Category: ${result.tour.category}`,
-      `Regular listed price: ${result.pricing.regularPriceText}`,
-      `Heart discount: ${result.pricing.discount}%`,
-      `Heart listed price: ${result.pricing.offerPriceText}`,
-      'Final booking total: manager confirms after guest ages / tariff rules.','',
-      `Client: ${result.client.clientName}`,
-      `WhatsApp: +${result.phone}`,
-      `Adults: ${result.client.adults}`,
-      `Children & ages: ${result.client.children||'—'}`,
-      `Desired date: ${result.client.desiredDate||'Flexible'}`,
-      `Hotel / area: ${result.client.hotel||'—'}`,
-      `Comment: ${result.client.comment||'—'}`
-    ];
-    if(result.client.planner?.occasion) lines.push('',`Journey occasion: ${result.client.planner.occasion}`);
-    lines.push('',`Tour page: ${location.origin}/${String(result.tour.url||'').replace(/^\//,'')}`,'','The Heart Offer is redeemed automatically only when the manager CONFIRMS this booking in ATO Booking Manager.');
-    setTimeout(()=>window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lines.join('\n'))}`,'_blank','noopener'),250);
-    setTimeout(()=>closeHeartModal(heartClaimModal),900);
-  }catch(err){
-    setHeartStatus(heartClaimStatus,err.message,'error');
-  }finally{btn.disabled=false}
+requestPersonalOffer?.addEventListener('click',()=>{
+  const lines=['SPECIAL EXPERIENCE REQUEST',''];
+  if(planner.occasion) lines.push(`Occasion: ${planner.occasion}`);
+  if(planner.people) lines.push(`For: ${planner.people}`);
+  if(planner.feeling) lines.push(`Feeling: ${planner.feeling}`);
+  if(planner.groupSize) lines.push(`Group size: ${planner.groupSize}`);
+  lines.push('','Please prepare my personal offer.');
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lines.join('\n'))}`,'_blank','noopener');
 });
 
 // Certificate subtle tilt: desktop only, tiny angle.
@@ -1039,7 +745,30 @@ if(window.matchMedia('(pointer:fine)').matches){
   card.addEventListener('pointerleave',()=>card.style.transform='rotateY(0deg) rotateX(0deg)');
 }
 
-// Gift builder/live preview removed from page by design.
+// Gift mini planner
+const giftOptions=[...document.querySelectorAll('.gift-option')];
+const giftForm=document.getElementById('giftForm');
+giftOptions.forEach(btn=>btn.addEventListener('click',()=>{
+  giftOptions.forEach(x=>x.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('giftType').value=btn.dataset.giftType;
+  giftForm.classList.add('show');
+  giftForm.scrollIntoView({behavior:'smooth',block:'nearest'});
+}));
+giftForm.addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=new FormData(giftForm);
+  const text=[
+    'GIFT CERTIFICATE REQUEST','',
+    `Type: ${f.get('giftType')}`,
+    `Recipient: ${f.get('recipient')}`,
+    `From: ${f.get('giver')}`,
+    `Occasion: ${f.get('occasion')||'—'}`,
+    `Amount / Experience: ${f.get('choice')}`,
+    `Personal message: ${f.get('message')||'—'}`
+  ].join('\n');
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`,'_blank','noopener');
+});
 
 const allowedLangs = ["ru", "en", "tr", "de", "pl"];
   const savedLang = localStorage.getItem("atoLanguage");
@@ -1129,8 +858,8 @@ if (canvas && globeShell && globeZone) {
   createBokehDots();
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
-  camera.position.set(0, 0.12, 7.2);
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+  camera.position.set(0, 0, 7.9);
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -1142,192 +871,98 @@ if (canvas && globeShell && globeZone) {
   const root = new THREE.Group();
   scene.add(root);
 
-  const ambient = new THREE.AmbientLight(0x79c8ff, 1.02);
+  const ambient = new THREE.AmbientLight(0x79c8ff, 0.82);
   scene.add(ambient);
 
-  const key = new THREE.PointLight(0xa9ecff, 4.8, 48);
-  key.position.set(4.8, 3.1, 6.8);
+  const key = new THREE.PointLight(0x8fe4ff, 3.4, 40);
+  key.position.set(4.2, 2.8, 6);
   scene.add(key);
 
-  const rim = new THREE.PointLight(0x1b79ff, 3.6, 34);
-  rim.position.set(-5.8, -2.8, -2.7);
+  const rim = new THREE.PointLight(0x258bff, 2.5, 30);
+  rim.position.set(-5.5, -2.4, -3);
   scene.add(rim);
 
-  const warm = new THREE.PointLight(0xffd27b, 1.25, 28);
-  warm.position.set(-3.4, 1.3, 3.5);
+  const warm = new THREE.PointLight(0xffd27b, 0.8, 24);
+  warm.position.set(-4, 1, 3);
   scene.add(warm);
 
-  /* =========================================================
-     PREMIUM DIGITAL 3D GLOBE
-     Stronger volume, clearer continents, layered wireframe.
-     Journey timeline / Heart Offer logic stays untouched.
-     ========================================================= */
   const loader = new THREE.TextureLoader();
-  const globeGeometry = new THREE.SphereGeometry(2.24, 160, 160);
+  const globeGeometry = new THREE.SphereGeometry(2.28, 128, 128);
 
-  function finishGlobeSetup(){
+  function makeFallbackGlobe(){
+    const mat = new THREE.MeshStandardMaterial({
+      color: 0x05234b,
+      emissive: 0x1aa3ff,
+      emissiveIntensity: 0.9,
+      roughness: 0.7,
+      metalness: 0.15
+    });
+    const mesh = new THREE.Mesh(globeGeometry, mat);
+    root.add(mesh);
     addAtmosphere();
     addNetworkShell();
-    addInnerWireShell();
     addStars();
     addGoldenStars();
     resize();
     animate();
   }
 
-  function makeFallbackGlobe(){
-    const coreMaterial = new THREE.MeshPhongMaterial({
-      color: 0x0b2b52,
-      emissive: 0x0b7dbe,
-      emissiveIntensity: 0.44,
-      shininess: 48,
-      transparent: true,
-      opacity: 0.96
-    });
-    const core = new THREE.Mesh(globeGeometry, coreMaterial);
-    core.name = 'mainGlobe';
-    root.add(core);
-
-    const continentsFallback = new THREE.Mesh(
-      new THREE.SphereGeometry(2.245, 160, 160),
-      new THREE.MeshBasicMaterial({
-        color: 0x79d8ff,
-        transparent: true,
-        opacity: 0.10,
-        blending: THREE.AdditiveBlending
-      })
-    );
-    continentsFallback.name = 'continentsShell';
-    root.add(continentsFallback);
-
-    finishGlobeSetup();
-  }
-
-  const earthAssets = {
+  const assets = {
     map: 'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg',
     lights: 'https://threejs.org/examples/textures/planets/earth_lights_2048.png',
-    normal: 'https://threejs.org/examples/textures/planets/earth_normal_2048.jpg',
-    specular: 'https://threejs.org/examples/textures/planets/earth_specular_2048.jpg'
+    normal: 'https://threejs.org/examples/textures/planets/earth_normal_2048.jpg'
   };
 
   Promise.all([
-    loader.loadAsync(earthAssets.map),
-    loader.loadAsync(earthAssets.lights),
-    loader.loadAsync(earthAssets.normal),
-    loader.loadAsync(earthAssets.specular)
-  ]).then(([earthMap, earthLights, earthNormal, earthSpecular]) => {
-    earthMap.colorSpace = THREE.SRGBColorSpace;
-    earthLights.colorSpace = THREE.SRGBColorSpace;
-
-    const coreMaterial = new THREE.MeshPhongMaterial({
-      color: new THREE.Color(0x0a2f58),
-      emissive: new THREE.Color(0x0b7bc4),
-      emissiveIntensity: 0.48,
-      specular: new THREE.Color(0x9fe8ff),
-      shininess: 46,
-      transparent: true,
-      opacity: 0.98,
-      bumpMap: earthNormal,
-      bumpScale: 0.07
-    });
-    const core = new THREE.Mesh(globeGeometry, coreMaterial);
-    core.name = 'mainGlobe';
-    root.add(core);
-
-    const continentMaterial = new THREE.MeshPhongMaterial({
+    loader.loadAsync(assets.map),
+    loader.loadAsync(assets.lights),
+    loader.loadAsync(assets.normal)
+  ]).then(([earthMap, earthLights, earthNormal]) => {
+    const globeMaterial = new THREE.MeshStandardMaterial({
       map: earthMap,
-      specularMap: earthSpecular,
-      bumpMap: earthNormal,
-      bumpScale: 0.03,
-      color: new THREE.Color(0x6fd4ff),
-      emissive: new THREE.Color(0x0d5a86),
+      normalMap: earthNormal,
+      color: new THREE.Color(0x31577a),
+      emissive: new THREE.Color(0x0086c7),
       emissiveMap: earthLights,
-      emissiveIntensity: 0.42,
-      specular: new THREE.Color(0xdff7ff),
-      shininess: 22,
-      transparent: true,
-      opacity: 0.62,
-      blending: THREE.NormalBlending,
-      depthWrite: false
+      emissiveIntensity: 0.72,
+      roughness: 0.78,
+      metalness: 0.05
     });
-    const continents = new THREE.Mesh(
-      new THREE.SphereGeometry(2.252, 160, 160),
-      continentMaterial
-    );
-    continents.name = 'continentsShell';
-    root.add(continents);
 
-    const highlightMaterial = new THREE.MeshBasicMaterial({
-      map: earthMap,
-      color: new THREE.Color(0x9fe8ff),
-      transparent: true,
-      opacity: 0.11,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
-    const highlight = new THREE.Mesh(
-      new THREE.SphereGeometry(2.262, 160, 160),
-      highlightMaterial
-    );
-    highlight.name = 'continentsHighlight';
-    root.add(highlight);
+    const globe = new THREE.Mesh(globeGeometry, globeMaterial);
+    globe.name = 'mainGlobe';
+    root.add(globe);
 
-    finishGlobeSetup();
+    addAtmosphere();
+    addNetworkShell();
+    addStars();
+    addGoldenStars();
+    resize();
+    animate();
   }).catch((err) => {
-    console.warn('Earth textures failed to load; using 3D fallback globe.', err);
+    console.warn('Live globe textures failed to load, using fallback globe.', err);
     makeFallbackGlobe();
   });
 
   function addAtmosphere(){
-    const glowGeometry = new THREE.SphereGeometry(2.38, 128, 128);
+    const glowGeometry = new THREE.SphereGeometry(2.38, 96, 96);
     const glowMaterial = new THREE.MeshBasicMaterial({
-      color: 0x43cfff,
+      color: 0x20bfff,
       transparent: true,
-      opacity: 0.14,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
+      opacity: 0.095
     });
     const glow = new THREE.Mesh(glowGeometry, glowMaterial);
     glow.name = 'glowShell';
     root.add(glow);
-
-    const haloMaterial = new THREE.MeshBasicMaterial({
-      color: 0x1d8dff,
-      transparent: true,
-      opacity: 0.07,
-      blending: THREE.AdditiveBlending,
-      side: THREE.BackSide,
-      depthWrite: false
-    });
-    const halo = new THREE.Mesh(new THREE.SphereGeometry(2.56, 96, 96), haloMaterial);
-    halo.name = 'haloShell';
-    root.add(halo);
-  }
-
-  function addInnerWireShell(){
-    const innerGeometry = new THREE.SphereGeometry(2.29, 84, 60);
-    const innerMaterial = new THREE.MeshBasicMaterial({
-      color: 0x80dbff,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.16,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending
-    });
-    const inner = new THREE.Mesh(innerGeometry, innerMaterial);
-    inner.name = 'innerWireShell';
-    root.add(inner);
   }
 
   function addNetworkShell(){
-    const networkGeometry = new THREE.SphereGeometry(2.43, 96, 72);
+    const networkGeometry = new THREE.SphereGeometry(2.43, 72, 72);
     const networkMaterial = new THREE.MeshBasicMaterial({
-      color: 0x35c9ff,
+      color: 0x55cfff,
       wireframe: true,
       transparent: true,
-      opacity: 0.42,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending
+      opacity: 0.035
     });
     const network = new THREE.Mesh(networkGeometry, networkMaterial);
     network.name = 'networkShell';
@@ -1387,6 +1022,7 @@ if (canvas && globeShell && globeZone) {
     particles.name = 'outerParticles';
     scene.add(particles);
   }
+
   let mouseX = 0;
   let mouseY = 0;
 
@@ -1420,11 +1056,7 @@ if (canvas && globeShell && globeZone) {
     const t = clock.getElapsedTime();
     const mainGlobe = root.getObjectByName('mainGlobe');
     const glowShell = root.getObjectByName('glowShell');
-    const haloShell = root.getObjectByName('haloShell');
     const networkShell = root.getObjectByName('networkShell');
-    const innerWireShell = root.getObjectByName('innerWireShell');
-    const continentsShell = root.getObjectByName('continentsShell');
-    const continentsHighlight = root.getObjectByName('continentsHighlight');
     const outerParticles = scene.getObjectByName('outerParticles');
     const goldParticles = scene.getObjectByName('goldParticles');
 
@@ -1443,41 +1075,19 @@ if (canvas && globeShell && globeZone) {
 
     if (mainGlobe) {
       mainGlobe.rotation.y += spin;
-      mainGlobe.rotation.x = 0.22 + Math.sin(t * 0.35) * 0.028 + mouseY * 0.055;
-      mainGlobe.rotation.z = Math.sin(t * 0.18) * 0.018;
-    }
-
-    if (continentsShell) {
-      continentsShell.rotation.y += spin * 1.004;
-      continentsShell.rotation.x = 0.22 + Math.sin(t * 0.35) * 0.028 + mouseY * 0.055;
-      continentsShell.rotation.z = Math.sin(t * 0.18) * 0.018;
-      continentsShell.material.opacity = launched ? 0.38 : 0.66;
-    }
-    if (continentsHighlight) {
-      continentsHighlight.rotation.y += spin * 1.008;
-      continentsHighlight.rotation.x = 0.22 + Math.sin(t * 0.35) * 0.028 + mouseY * 0.055;
-      continentsHighlight.rotation.z = Math.sin(t * 0.18) * 0.018;
-      continentsHighlight.material.opacity = launched ? 0.06 : (0.12 + Math.sin(t*1.5)*0.02);
+      mainGlobe.rotation.x = Math.sin(t * 0.35) * 0.03 + mouseY * 0.06;
+      mainGlobe.rotation.z = Math.sin(t * 0.18) * 0.02;
     }
 
     if (glowShell) {
       glowShell.rotation.y += spin * 0.82;
-      glowShell.material.opacity = heart ? 0.08 : (0.17 + Math.sin(t * 1.8) * 0.022);
-    }
-    if (haloShell) {
-      haloShell.rotation.y -= spin * 0.38;
-      haloShell.material.opacity = heart ? 0.05 : (0.09 + Math.sin(t*1.1)*0.012);
+      glowShell.material.opacity = heart ? 0.08 : (0.14 + Math.sin(t * 1.8) * 0.018);
     }
 
     if (networkShell) {
       networkShell.rotation.y += spin * 1.25;
       networkShell.rotation.z = Math.sin(t * 0.26) * 0.03;
-      networkShell.material.opacity = launched ? 0.08 : (pulsing ? 0.30 : 0.42);
-    }
-    if (innerWireShell) {
-      innerWireShell.rotation.y -= spin * 0.92;
-      innerWireShell.rotation.z = -Math.sin(t * 0.22) * 0.022;
-      innerWireShell.material.opacity = launched ? 0.05 : (pulsing ? 0.14 : 0.17);
+      networkShell.material.opacity = launched ? 0.05 : (pulsing ? 0.22 : 0.13);
     }
 
     if (outerParticles) {
@@ -1492,12 +1102,24 @@ if (canvas && globeShell && globeZone) {
     }
 
     root.rotation.y += mouseX * 0.0009;
-    root.rotation.x = -0.06 + mouseY * 0.012;
 
     renderer.render(scene, camera);
   }
 }
 }).catch(err => console.error('Three.js failed to load:', err));
+document.addEventListener('DOMContentLoaded',()=>{
+  const card=document.getElementById('dockCard');
+  if(card){
+    card.style.pointerEvents='auto';
+    if(card.tagName!=='A'){
+      card.setAttribute('role','link');
+      card.setAttribute('tabindex','0');
+      const open=()=>{ const href=card.getAttribute('data-href')||card.getAttribute('href'); if(href&&href!=='#') window.location.href=href; };
+      card.addEventListener('click',open);
+      card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+    }
+  }
+});
 
 document.addEventListener('DOMContentLoaded',()=>{
   const editChoicesBtn=document.getElementById('editChoicesBtn');
