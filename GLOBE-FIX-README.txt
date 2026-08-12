@@ -1,18 +1,12 @@
-ALANYA TOUR ORGANIZATIONS — 3D GLOBE FIX
+SPECIAL OFFERS — 3D GLOBE V2
 
-WHAT WAS CHANGED
-- Removed the external Three.js CDN dependency from the globe renderer.
-- Removed external threejs.org texture URLs.
-- Added local Earth day, night-lights and normal-map textures.
-- Rebuilt the globe as a real native WebGL sphere generated from 3D vertices.
-- The globe starts as 3D immediately; texture loading only upgrades the surface.
-- Added local procedural 3D material fallback if a texture is missing.
-- Added CSS fallback only for devices where WebGL itself is unavailable.
-- Kept the existing Journey / Türkiye / Alanya / Heart DOM and animation classes intact.
+What was fixed after checking the published screenshot:
+1. Removed the static uploaded globe image that was still embedded in CSS on .globe-stage-live::before.
+   That flat image was sitting behind the WebGL canvas and visually dominated the result.
+2. The WebGL canvas is now the only Earth surface during the live globe scene.
+3. Increased side-lighting, shadow contrast, rim atmosphere and specular highlight so the sphere reads clearly as volume.
+4. Added a small permanent axial tilt to make rotation/curvature easier to perceive.
+5. Final Türkiye-state bokeh remains intact.
 
-UPLOAD
-Upload the ENTIRE contents of this ZIP together. Do not upload only the HTML file.
-The folder assets/globe/ must remain next to special-offers.html exactly as packaged.
-
-IMPORTANT
-If you upload only special-offers.html and omit assets/globe/, the sphere will still render in 3D, but without the photographic Earth skin.
+Upload ALL files and folders, preserving assets/globe/.
+Then hard-refresh the published page with Ctrl+F5.

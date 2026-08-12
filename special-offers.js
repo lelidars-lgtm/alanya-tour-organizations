@@ -1212,15 +1212,18 @@ if (canvas && globeShell && globeZone3D) {
 
         vec3 mappedDay = dayTex * vec3(0.72, 0.91, 1.08);
         vec3 surface = mix(procedural, mappedDay, uTextureMix);
-        surface *= 0.26 + diffuse * 1.03;
+        surface *= 0.16 + diffuse * 1.18;
 
         float nightSide = pow(1.0 - softLight, 2.1);
         vec3 cityGlow = nightTex * vec3(1.25, 1.02, 0.58) * nightSide * 0.90 * uTextureMix;
-        vec3 cyanRim = vec3(0.04, 0.55, 1.0) * fresnel * 0.90;
-        vec3 blueAtmosphere = vec3(0.03, 0.22, 0.50) * limb * 0.27;
+        vec3 cyanRim = vec3(0.04, 0.55, 1.0) * fresnel * 1.18;
+        vec3 blueAtmosphere = vec3(0.03, 0.22, 0.50) * limb * 0.40;
         float shimmer = 0.985 + 0.015 * sin(uTime * 1.7 + vUV.y * 10.0);
 
-        vec3 color = (surface + cityGlow + cyanRim + blueAtmosphere) * shimmer;
+        vec3 h = normalize(l + v);
+        float specular = pow(max(dot(n, h), 0.0), 42.0) * 0.26;
+        vec3 specularGlow = vec3(0.12, 0.28, 0.46) * specular;
+        vec3 color = (surface + cityGlow + cyanRim + blueAtmosphere + specularGlow) * shimmer;
         gl_FragColor = vec4(color, 1.0);
       }
     `;
@@ -1557,7 +1560,7 @@ if (canvas && globeShell && globeZone3D) {
       gl.uniformMatrix4fv(sphereLoc.projection, false, projection);
       gl.uniformMatrix4fv(sphereLoc.view, false, view);
       gl.uniformMatrix4fv(sphereLoc.model, false, model);
-      gl.uniform3f(sphereLoc.lightDir, 0.64, 0.38, 0.86);
+      gl.uniform3f(sphereLoc.lightDir, 0.92, 0.24, 0.32);
       gl.uniform3f(sphereLoc.cameraPos, 0, 0, 7.9);
       gl.uniform1f(sphereLoc.textureMix, textureMix);
       gl.uniform1f(sphereLoc.time, t);
@@ -1614,8 +1617,8 @@ if (canvas && globeShell && globeZone3D) {
       if (exploding || launched) spin = 0.001;
 
       rotationY += (spin + mouseX * 0.0009) * dt;
-      const rx = Math.sin(t * 0.35) * 0.03 + mouseY * 0.06;
-      const rz = Math.sin(t * 0.18) * 0.02;
+      const rx = -0.11 + Math.sin(t * 0.35) * 0.035 + mouseY * 0.07;
+      const rz = 0.055 + Math.sin(t * 0.18) * 0.025;
       const model = modelMatrix(rx, rotationY, rz);
       const gridModel = modelMatrix(rx, rotationY * 1.04, rz + Math.sin(t * 0.26) * 0.02);
       const gridOpacity = launched ? 0.025 : (pulsing ? 0.13 : 0.055 + Math.sin(t*1.4)*0.008);

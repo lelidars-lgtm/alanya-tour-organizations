@@ -8699,3 +8699,33 @@ body.so-premium-body #journey #journeyDockCard.visual-only #requestPersonalOffer
     inset 22px 12px 38px rgba(116,206,255,.12),
     0 0 36px rgba(72,178,255,.18);
 }
+
+/* =========================================================
+   3D GLOBE V2 — REMOVE STATIC REFERENCE EARTH
+   The previous ::before layer contained the uploaded flat globe image.
+   It was visually competing with the real WebGL sphere and made the
+   result look like a 2D picture. Keep final-state bokeh intact.
+   ========================================================= */
+.globe-zone:not(.final-turkiye) .globe-stage-live::before{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  background-image:none!important;
+  opacity:0!important;
+  filter:none!important;
+  transform:none!important;
+  mask:none!important;
+  -webkit-mask:none!important;
+}
+
+/* The real canvas is now the only Earth surface. */
+.globe-zone:not(.final-turkiye) .live-globe-canvas{
+  opacity:1!important;
+  filter:
+    saturate(1.06)
+    contrast(1.16)
+    brightness(.86)
+    drop-shadow(0 0 12px rgba(0,188,255,.30))
+    drop-shadow(0 0 34px rgba(0,130,235,.20))
+    drop-shadow(0 0 72px rgba(0,94,220,.13))!important;
+}
