@@ -8729,3 +8729,32 @@ body.so-premium-body #journey #journeyDockCard.visual-only #requestPersonalOffer
     drop-shadow(0 0 34px rgba(0,130,235,.20))
     drop-shadow(0 0 72px rgba(0,94,220,.13))!important;
 }
+
+
+/* =========================================================
+   3D GLOBE V3 — VISIBLE ROTATION + BLUE GEODESIC NETWORK
+   ========================================================= */
+.globe-zone:not(.final-turkiye) .globe-stage-live::before{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  opacity:0!important;
+}
+.globe-zone:not(.final-turkiye) .live-globe-canvas{
+  opacity:1!important;
+  transform:translateZ(0) scale(1.018)!important;
+  filter:
+    saturate(1.14)
+    contrast(1.10)
+    brightness(.98)
+    drop-shadow(0 0 14px rgba(42,202,255,.36))
+    drop-shadow(0 0 38px rgba(0,140,255,.25))
+    drop-shadow(0 0 80px rgba(0,80,220,.16))!important;
+}
+.globe-zone:not(.final-turkiye) .globe-aura-ring{
+  opacity:.62!important;
+  filter:blur(21px)!important;
+}
+.globe-zone:not(.final-turkiye) .reference-depth-haze{
+  opacity:.28!important;
+}

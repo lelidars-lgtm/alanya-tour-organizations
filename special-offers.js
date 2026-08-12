@@ -1152,7 +1152,7 @@ if (canvas && globeShell && globeZone3D) {
     canvas.classList.add('webgl-unavailable');
     console.warn('[ATO] WebGL is unavailable on this device. Static globe fallback is active.');
   } else {
-    globeZone3D.dataset.globeMode = 'webgl-3d';
+    globeZone3D.dataset.globeMode = 'webgl-3d-geodesic';
 
     const vertexShaderSource = `
       attribute vec3 aPosition;
@@ -1191,7 +1191,7 @@ if (canvas && globeShell && globeZone3D) {
         vec3 tangent = normalize(cross(referenceAxis, n));
         vec3 bitangent = normalize(cross(n, tangent));
         vec3 sampledNormal = texture2D(uNormalMap, vUV).xyz * 2.0 - 1.0;
-        sampledNormal.xy *= 0.24 * uTextureMix;
+        sampledNormal.xy *= 0.10 * uTextureMix;
         n = normalize(tangent * sampledNormal.x + bitangent * sampledNormal.y + n * max(sampledNormal.z, 0.28));
 
         vec3 l = normalize(uLightDir);
@@ -1210,14 +1210,14 @@ if (canvas && globeShell && globeZone3D) {
         float landMask = smoothstep(-0.10, 0.55, sin(vUV.x * 31.0) * sin(vUV.y * 21.0));
         vec3 procedural = mix(proceduralOcean, proceduralLand, landMask * 0.35);
 
-        vec3 mappedDay = dayTex * vec3(0.72, 0.91, 1.08);
+        vec3 mappedDay = dayTex * vec3(0.88, 0.98, 1.08);
         vec3 surface = mix(procedural, mappedDay, uTextureMix);
-        surface *= 0.16 + diffuse * 1.18;
+        surface *= 0.30 + diffuse * 1.08;
 
         float nightSide = pow(1.0 - softLight, 2.1);
         vec3 cityGlow = nightTex * vec3(1.25, 1.02, 0.58) * nightSide * 0.90 * uTextureMix;
-        vec3 cyanRim = vec3(0.04, 0.55, 1.0) * fresnel * 1.18;
-        vec3 blueAtmosphere = vec3(0.03, 0.22, 0.50) * limb * 0.40;
+        vec3 cyanRim = vec3(0.03, 0.62, 1.0) * fresnel * 1.48;
+        vec3 blueAtmosphere = vec3(0.02, 0.30, 0.72) * limb * 0.55;
         float shimmer = 0.985 + 0.015 * sin(uTime * 1.7 + vUV.y * 10.0);
 
         vec3 h = normalize(l + v);
@@ -1310,41 +1310,59 @@ if (canvas && globeShell && globeZone3D) {
       };
     }
 
-    function createGrid(radius = 2.315){
-      const lines = [];
-      const segments = 128;
-      const latitudes = [-60,-40,-20,0,20,40,60];
-      const longitudes = Array.from({length: 16}, (_,i)=>i * 22.5);
+    function createGeodesicWireframe(radius = 2.445, subdivisions = 3){
+      // True triangular geodesic shell. This recreates the intended
+      // blue faceted network instead of a latitude/longitude grid.
+      const t = (1 + Math.sqrt(5)) / 2;
+      let vertices = [
+        [-1,t,0],[1,t,0],[-1,-t,0],[1,-t,0],
+        [0,-1,t],[0,1,t],[0,-1,-t],[0,1,-t],
+        [t,0,-1],[t,0,1],[-t,0,-1],[-t,0,1]
+      ].map(v => {
+        const l = Math.hypot(v[0],v[1],v[2]);
+        return [v[0]/l, v[1]/l, v[2]/l];
+      });
+      let faces = [
+        [0,11,5],[0,5,1],[0,1,7],[0,7,10],[0,10,11],
+        [1,5,9],[5,11,4],[11,10,2],[10,7,6],[7,1,8],
+        [3,9,4],[3,4,2],[3,2,6],[3,6,8],[3,8,9],
+        [4,9,5],[2,4,11],[6,2,10],[8,6,7],[9,8,1]
+      ];
 
-      for(const deg of latitudes){
-        const lat = deg * Math.PI / 180;
-        const y = Math.sin(lat) * radius;
-        const r = Math.cos(lat) * radius;
-        for(let i=0;i<segments;i++){
-          const a = i / segments * Math.PI * 2;
-          const b = (i+1) / segments * Math.PI * 2;
-          lines.push(r*Math.cos(a), y, r*Math.sin(a));
-          lines.push(r*Math.cos(b), y, r*Math.sin(b));
+      for(let level=0; level<subdivisions; level++){
+        const cache = new Map();
+        const midpoint = (a,b) => {
+          const key = a < b ? `${a}_${b}` : `${b}_${a}`;
+          if(cache.has(key)) return cache.get(key);
+          const va = vertices[a], vb = vertices[b];
+          let x=(va[0]+vb[0])*0.5, y=(va[1]+vb[1])*0.5, z=(va[2]+vb[2])*0.5;
+          const l=Math.hypot(x,y,z) || 1;
+          const idx=vertices.length;
+          vertices.push([x/l,y/l,z/l]);
+          cache.set(key,idx);
+          return idx;
+        };
+        const next=[];
+        for(const [a,b,c] of faces){
+          const ab=midpoint(a,b), bc=midpoint(b,c), ca=midpoint(c,a);
+          next.push([a,ab,ca],[b,bc,ab],[c,ca,bc],[ab,bc,ca]);
         }
+        faces=next;
       }
 
-      for(const deg of longitudes){
-        const lon = deg * Math.PI / 180;
-        for(let i=0;i<segments/2;i++){
-          const a = -Math.PI/2 + i/(segments/2) * Math.PI;
-          const b = -Math.PI/2 + (i+1)/(segments/2) * Math.PI;
-          lines.push(
-            radius*Math.cos(a)*Math.cos(lon),
-            radius*Math.sin(a),
-            radius*Math.cos(a)*Math.sin(lon)
-          );
-          lines.push(
-            radius*Math.cos(b)*Math.cos(lon),
-            radius*Math.sin(b),
-            radius*Math.cos(b)*Math.sin(lon)
-          );
-        }
-      }
+      const edgeSet = new Set();
+      const lines=[];
+      const addEdge=(a,b)=>{
+        const key=a<b?`${a}_${b}`:`${b}_${a}`;
+        if(edgeSet.has(key)) return;
+        edgeSet.add(key);
+        const va=vertices[a], vb=vertices[b];
+        lines.push(
+          va[0]*radius,va[1]*radius,va[2]*radius,
+          vb[0]*radius,vb[1]*radius,vb[2]*radius
+        );
+      };
+      for(const [a,b,c] of faces){ addEdge(a,b); addEdge(b,c); addEdge(c,a); }
       return new Float32Array(lines);
     }
 
@@ -1448,13 +1466,13 @@ if (canvas && globeShell && globeZone3D) {
     const sphereProgram = createProgram(vertexShaderSource, fragmentShaderSource);
     const lineProgram = createProgram(lineVertexShaderSource, lineFragmentShaderSource);
     const sphere = createSphere();
-    const grid = createGrid();
+    const network = createGeodesicWireframe();
 
     const spherePositionBuffer = createBuffer(gl.ARRAY_BUFFER, sphere.positions);
     const sphereNormalBuffer = createBuffer(gl.ARRAY_BUFFER, sphere.normals);
     const sphereUVBuffer = createBuffer(gl.ARRAY_BUFFER, sphere.uvs);
     const sphereIndexBuffer = createBuffer(gl.ELEMENT_ARRAY_BUFFER, sphere.indices);
-    const gridBuffer = createBuffer(gl.ARRAY_BUFFER, grid);
+    const networkBuffer = createBuffer(gl.ARRAY_BUFFER, network);
 
     const sphereLoc = {
       position: gl.getAttribLocation(sphereProgram, 'aPosition'),
@@ -1560,7 +1578,7 @@ if (canvas && globeShell && globeZone3D) {
       gl.uniformMatrix4fv(sphereLoc.projection, false, projection);
       gl.uniformMatrix4fv(sphereLoc.view, false, view);
       gl.uniformMatrix4fv(sphereLoc.model, false, model);
-      gl.uniform3f(sphereLoc.lightDir, 0.92, 0.24, 0.32);
+      gl.uniform3f(sphereLoc.lightDir, -0.42, 0.58, 0.72);
       gl.uniform3f(sphereLoc.cameraPos, 0, 0, 7.9);
       gl.uniform1f(sphereLoc.textureMix, textureMix);
       gl.uniform1f(sphereLoc.time, t);
@@ -1581,18 +1599,18 @@ if (canvas && globeShell && globeZone3D) {
       gl.drawElements(gl.TRIANGLES, sphere.indices.length, gl.UNSIGNED_SHORT, 0);
     }
 
-    function drawGrid(model, opacity){
+    function drawNetwork(model, opacity){
       gl.useProgram(lineProgram);
-      bindAttribute(gridBuffer, lineLoc.position, 3);
+      bindAttribute(networkBuffer, lineLoc.position, 3);
       gl.uniformMatrix4fv(lineLoc.projection, false, projection);
       gl.uniformMatrix4fv(lineLoc.view, false, view);
       gl.uniformMatrix4fv(lineLoc.model, false, model);
-      gl.uniform4f(lineLoc.color, 0.22, 0.78, 1.0, opacity);
+      gl.uniform4f(lineLoc.color, 0.18, 0.78, 1.0, opacity);
       gl.enable(gl.BLEND);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
       gl.enable(gl.DEPTH_TEST);
       gl.depthMask(false);
-      gl.drawArrays(gl.LINES, 0, grid.length / 3);
+      gl.drawArrays(gl.LINES, 0, network.length / 3);
       gl.depthMask(true);
       gl.disable(gl.BLEND);
     }
@@ -1610,22 +1628,26 @@ if (canvas && globeShell && globeZone3D) {
       const exploding = globeZone3D.classList.contains('journey-explode');
       const launched = globeZone3D.classList.contains('journey-card-launch') || globeZone3D.classList.contains('card-landed');
 
-      let spin = 0.0024;
-      if (running) spin = 0.0072;
-      if (arrived) spin = 0.004;
-      if (heart || pulsing) spin = 0.0031;
-      if (exploding || launched) spin = 0.001;
+      // Rotation is deliberately visible at rest. The old value was so subtle
+      // that the photographic texture looked static on desktop.
+      let spin = 0.0048;
+      if (running) spin = 0.0105;
+      if (arrived) spin = 0.0065;
+      if (heart || pulsing) spin = 0.0055;
+      if (exploding || launched) spin = 0.0024;
 
       rotationY += (spin + mouseX * 0.0009) * dt;
       const rx = -0.11 + Math.sin(t * 0.35) * 0.035 + mouseY * 0.07;
       const rz = 0.055 + Math.sin(t * 0.18) * 0.025;
       const model = modelMatrix(rx, rotationY, rz);
-      const gridModel = modelMatrix(rx, rotationY * 1.04, rz + Math.sin(t * 0.26) * 0.02);
-      const gridOpacity = launched ? 0.025 : (pulsing ? 0.13 : 0.055 + Math.sin(t*1.4)*0.008);
+      // Network shell is a separate sphere and drifts faster than the Earth,
+      // which makes the geometry unmistakably three-dimensional.
+      const networkModel = modelMatrix(rx * 0.92, rotationY * 1.28 + t * 0.045, rz + Math.sin(t * 0.30) * 0.055);
+      const networkOpacity = launched ? 0.065 : (pulsing ? 0.25 : 0.145 + Math.sin(t*1.7)*0.018);
 
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
       drawSphere(model, t);
-      drawGrid(gridModel, gridOpacity);
+      drawNetwork(networkModel, networkOpacity);
     }
 
     requestAnimationFrame(animate);
