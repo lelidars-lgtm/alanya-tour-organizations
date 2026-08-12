@@ -159,7 +159,7 @@ nextBtn?.addEventListener('click',()=>{
 backBtn?.addEventListener('click',()=>{if(planner.step>0){planner.step--;renderPlanner();}});
 document.getElementById('sendExperience')?.addEventListener('click',()=>{
   document.getElementById('journey')?.scrollIntoView({behavior:'smooth',block:'center'});
-  setTimeout(()=>beginHeartOfferJourney(),620);
+  setTimeout(()=>runJourney(false),620);
 });
 renderPlanner();
 
@@ -776,10 +776,10 @@ function runJourney(fromPlanner=false){
   });
 }
 
-// HEART OFFER ENTRY: the existing animation is launched only after server-side eligibility check.
+// HEART OFFER ENTRY: Journey starts immediately. WhatsApp eligibility is checked only when CLAIM OFFER is submitted.
 /* LIVE IDLE STATE INIT */
 resetJourneyVisual();
-startJourney.addEventListener('click',()=>beginHeartOfferJourney());
+startJourney.addEventListener('click',()=>runJourney(false));
 
 window.addEventListener('resize',()=>{
   setLogoFlightGeometry();
@@ -794,10 +794,7 @@ window.addEventListener('resize',()=>{
 requestPersonalOffer?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();openHeartClaimModal();});
 
 // ===== HEART OFFER COMMERCIAL FLOW =====
-const heartEligibilityModal=document.getElementById('heartEligibilityModal');
 const heartClaimModal=document.getElementById('heartClaimModal');
-const heartEligibilityForm=document.getElementById('heartEligibilityForm');
-const heartEligibilityStatus=document.getElementById('heartEligibilityStatus');
 const heartClaimForm=document.getElementById('heartClaimForm');
 const heartClaimStatus=document.getElementById('heartClaimStatus');
 const viewHeartTour=document.getElementById('viewHeartTour');
@@ -816,7 +813,7 @@ function normalizeHeartPhoneClient(raw){
 }
 function setHeartStatus(el,msg,type=''){if(!el)return;el.textContent=msg||'';el.classList.remove('is-error','is-success');if(type)el.classList.add(`is-${type}`)}
 // Heart Offer uses the SAME Supabase / ATO Booking Manager as Map + Trip Planner.
-// No second manager and no cookie/localStorage enforcement.
+// No second manager and no cookie/localStorage enforcement. Phone eligibility is checked only when the client claims the offer.
 let heartBookingConfigPromise=null;
 function detectHeartBookingConfig(){
   const candidates=[
@@ -918,44 +915,18 @@ async function verifyHeartEligibility(phone){
   heartOfferRedeemed=false;heartVisualOnly=false;return true;
 }
 
-async function beginHeartOfferJourney(){
-  if(heartOfferRedeemed){heartVisualOnly=true;runJourney(false);return}
-  const stored=heartClientPhone||sessionStorage.getItem('atoHeartPhone')||'';
-  if(stored){
-    try{
-      status.innerHTML='<strong>CHECKING YOUR HEART OFFER.</strong><span>ONE MOMENT…</span>';
-      if(await verifyHeartEligibility(stored)){runJourney(false)}
-    }catch(err){
-      sessionStorage.removeItem('atoHeartPhone');heartClientPhone='';
-      const phoneInput=document.getElementById('heartPhone');if(phoneInput)phoneInput.value=stored;
-      setHeartStatus(heartEligibilityStatus,err.message,'error');openHeartModal(heartEligibilityModal);
-    }
-    return;
-  }
-  setHeartStatus(heartEligibilityStatus,'');openHeartModal(heartEligibilityModal);setTimeout(()=>document.getElementById('heartPhone')?.focus(),80);
+function beginHeartOfferJourney(){
+  // No phone gate before Journey. Eligibility is checked only at CLAIM OFFER.
+  heartVisualOnly=false;
+  runJourney(false);
 }
 
-heartEligibilityForm?.addEventListener('submit',async e=>{
-  e.preventDefault();
-  const btn=document.getElementById('heartEligibilitySubmit');
-  const phone=document.getElementById('heartPhone').value;
-  btn.disabled=true;setHeartStatus(heartEligibilityStatus,'Checking with ATO Booking Manager…');
-  try{
-    const ok=await verifyHeartEligibility(phone);
-    closeHeartModal(heartEligibilityModal);
-    if(ok)runJourney(false);
-  }catch(err){setHeartStatus(heartEligibilityStatus,err.message,'error')}
-  finally{btn.disabled=false}
-});
-
 viewHeartTour?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(activeRandomTour?.url)window.location.href=activeRandomTour.url});
-chooseAnotherHeartTour?.addEventListener('click',async e=>{
+chooseAnotherHeartTour?.addEventListener('click',e=>{
   e.preventDefault();e.stopPropagation();
-  if(heartOfferRedeemed){heartVisualOnly=true;runJourney(false);return}
-  try{
-    if(!heartClientPhone){await beginHeartOfferJourney();return}
-    if(await verifyHeartEligibility(heartClientPhone)){runJourney(false)}
-  }catch(err){setHeartStatus(heartEligibilityStatus,err.message,'error');openHeartModal(heartEligibilityModal)}
+  // Choosing another tour does not consume or require an offer.
+  heartVisualOnly=false;
+  runJourney(false);
 });
 
 function openHeartClaimModal(){
@@ -988,6 +959,16 @@ heartClaimForm?.addEventListener('submit',async e=>{
   try{
     const normalized=normalizeHeartPhoneClient(payload.phone);
     if(normalized.length<10||normalized.length>15) throw new Error('Please enter a valid WhatsApp number with country code.');
+
+    // Real one-time check happens here — at CLAIM, not before the animation.
+    const eligibility=await heartRpc('heart_offer_check',{p_phone:normalized});
+    if(eligibility?.redeemed){
+      closeHeartModal(heartClaimModal);
+      heartClientPhone=eligibility.phone||normalized;
+      showHeartRedeemedState();
+      return;
+    }
+
     const result=await heartRpc('heart_offer_claim',{
       p_phone:normalized,
       p_client_name:payload.clientName,
