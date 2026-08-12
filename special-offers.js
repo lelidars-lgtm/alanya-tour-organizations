@@ -156,7 +156,6 @@ const globeZone=document.getElementById('globeZone');
 const status=document.getElementById('journeyStatus');
 const dockCard=document.getElementById('journeyDockCard');
 const journeyCardPlaceholder=document.getElementById('journeyCardPlaceholder');
-const dockLabel=document.querySelector('.journey-dock-label');
 const dockCardTitle=document.getElementById('dockCardTitle');
 const dockCardText=document.getElementById('dockCardText');
 const flyCardTitle=document.getElementById('flyCardTitle');
@@ -443,7 +442,7 @@ function resetJourneyVisual(){
   dockCard?.classList.remove('visible','final-visible');
   clearJourneyTimers(); endLogoFlight();
   globeZone.classList.remove('journey-running','orbit-flight','orbit-complete','journey-arrived','turkiye-focus','alanya-landed','journey-pulse','light-collapse','journey-heart','heart-full','journey-explode','journey-card-launch','card-landed','heart-return','final-turkiye');
-  dockCard.classList.remove('visible'); dockLabel?.classList.remove('ready');
+  dockCard.classList.remove('visible');
   status.innerHTML='<strong>ALANYA TOUR ORGANIZATIONS IS WAITING.</strong><span>LOGO → FLIGHT → GLOBE → TÜRKİYE → ALANYA → HEART → TOUR</span>';
   startJourney.disabled=false; startJourney.classList.remove('is-active');
   if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='START MY JOURNEY →';
@@ -459,7 +458,6 @@ function resetJourneyVisual(){
   });
 
   dockCard?.classList.remove('visible','final-visible');
-  dockLabel?.classList.remove('ready');
 }
 
 function landOfferCard(){
@@ -474,7 +472,6 @@ function landOfferCard(){
     dockCard.style.removeProperty('filter');
     void dockCard.offsetWidth;
   }
-  dockLabel?.classList.add('ready');
   journeyCardPlaceholder?.classList.add('is-hidden');
 
   // 2) Only after the dock card is painted, hide the flying copy.
@@ -534,7 +531,6 @@ function runJourney(fromPlanner=false){
   journeyCardPlaceholder?.classList.add('is-hidden');
   dockCard?.classList.remove('visible','final-visible');
   dockCard?.classList.remove('visible','final-visible');
-  dockLabel?.classList.remove('ready');
 
   requestAnimationFrame(()=>{
     setCardFlightGeometry();
@@ -584,7 +580,6 @@ function runJourney(fromPlanner=false){
         dockCard.style.removeProperty('transform');
       }
       dockCard?.classList.add('final-visible');
-      dockLabel?.classList.add('ready');
       return;
     }
 
@@ -672,32 +667,33 @@ function runJourney(fromPlanner=false){
       status.innerHTML='<strong>FOLLOW YOUR HEART.</strong><span>ONE HEART · ONE JOURNEY</span>';
     },13350);
 
-    /* 12 Random tour card is born. */
+    /* 12 Heart celebrates first. Confetti must finish before the tour card is born. */
     queueJourney(()=>{
       globeZone.classList.add('journey-explode');
       status.innerHTML='<strong>THE HEART CELEBRATES.</strong><span>ONE MOMENT BEFORE YOUR TOUR APPEARS</span>';
     },14600);
 
+    /* 13 After confetti is fully finished, launch the tour card from the exact heart centre. */
     queueJourney(()=>{
       setCardFlightGeometry();
       globeZone.classList.add('journey-card-launch');
       animateTourCardContinuously(1550);
       status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>STRAIGHT FROM THE HEART</span>';
-    },15150);
+    },16300);
 
     queueJourney(()=>{
       cancelTourCardFlight();
       landOfferCard();
-    },16250);
+    },18100);
 
-    /* 13 Heart returns to original Alanya point and disappears. */
+    /* 14 Heart returns to original Alanya point and disappears. */
     queueJourney(()=>{
       dockCard?.classList.add('final-visible');
       globeZone.classList.add('heart-return');
       status.innerHTML='<strong>THE HEART COMES HOME.</strong><span>BACK TO ALANYA</span>';
-    },18000);
+    },19400);
 
-    /* 14–15 Final state: glowing Türkiye + flag + WE ARE HERE + coordinates. */
+    /* 15 Final state: glowing Türkiye + flag + WE ARE HERE + coordinates. */
     queueJourney(()=>{
       globeZone.classList.add('final-turkiye');
       status.innerHTML='<strong>WE ARE HERE.</strong><span>ALANYA · 36.532392° N · 32.038899° E</span>';
@@ -705,7 +701,7 @@ function runJourney(fromPlanner=false){
       startJourney.classList.remove('is-active');
       if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
       
-    },19250);
+    },20700);
   });
 }
 
