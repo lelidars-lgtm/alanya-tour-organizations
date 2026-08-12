@@ -8600,18 +8600,94 @@ body.so-premium-body .gift-ending .heart-line span{
 @media (max-width:700px){.heart-modal-panel{padding:24px 16px;border-radius:19px}.heart-claim-grid{grid-template-columns:1fr}.heart-field-wide{grid-column:auto}.heart-offer-actions{grid-template-columns:1fr}.heart-offer-actions .heart-claim-main{grid-column:auto}.heart-price-strip{grid-template-columns:1fr}}
 
 
+/* =========================================================
+   JOURNEY RESULT HEIGHT FIX — 2026-08-12
+   Keep the approved fixed ghost-card slot DURING the animation.
+   Once the real result is visible in the final Türkiye state,
+   return the result card to normal document flow so the Journey
+   panel grows to the card's true height instead of clipping it.
+   This does not change globe / heart / confetti / card-flight timing.
+   ========================================================= */
+body.so-premium-body #journey:has(.globe-zone.final-turkiye) .journey-dock{
+  grid-template-rows:auto auto!important;
+  min-height:0!important;
+  height:auto!important;
+  overflow:visible!important;
+}
+body.so-premium-body #journey:has(.globe-zone.final-turkiye) .journey-card-placeholder{
+  display:none!important;
+}
+body.so-premium-body #journey:has(.globe-zone.final-turkiye) #journeyDockCard.final-visible{
+  position:relative!important;
+  grid-column:1!important;
+  grid-row:2!important;
+  left:auto!important;
+  top:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:100%!important;
+  max-width:380px!important;
+  min-height:0!important;
+  height:auto!important;
+  margin:0!important;
+  overflow:hidden!important;
+  transform:none!important;
+}
+body.so-premium-body #journey:has(.globe-zone.final-turkiye) .journey-grid{
+  align-items:start!important;
+  padding-bottom:46px!important;
+}
+body.so-premium-body #journey:has(.globe-zone.final-turkiye) .journey-copy{
+  align-self:start!important;
+  height:auto!important;
+  min-height:0!important;
+}
 
-/* ===== EXACT JOURNEY GEOMETRY LOCK =====
-   Commercial discount content is physically removed from layout until
-   the source Journey animation has completely reached final-turkiye. */
-#heartCommercialLayer[hidden]{display:none!important}
-.heart-offer-card:not(.heart-commercial-ready) #heartCommercialLayer{display:none!important}
-.heart-offer-card.heart-commercial-ready #heartCommercialLayer{display:block!important}
-.heart-offer-card.heart-commercial-ready #journeyLegacyActions,
-.heart-offer-card.heart-commercial-ready #journeyMatchInsight,
-.heart-offer-card.heart-commercial-ready #journeyBonus{display:none!important}
-.heart-offer-card:not(.heart-commercial-ready) #journeyLegacyActions{display:flex!important}
-.heart-offer-card:not(.heart-commercial-ready) #journeyMatchInsight{display:block!important}
-.heart-offer-card:not(.heart-commercial-ready) #heartOfferEyebrow{color:rgba(243,198,109,.55)!important}
-/* The source card geometry remains unchanged while the animation runs. */
-.heart-offer-card:not(.heart-commercial-ready) .heart-commercial-layer *{animation:none!important}
+@media(max-width:900px){
+  body.so-premium-body #journey:has(.globe-zone.final-turkiye) #journeyDockCard.final-visible{
+    max-width:none!important;
+  }
+  body.so-premium-body #journey:has(.globe-zone.final-turkiye) .journey-grid{
+    padding-bottom:38px!important;
+  }
+}
+
+
+/* ===== LIVE IDLE GLOBE — FINAL FIX 2026-08-12 17:42 ===== */
+/* The real Three.js globe is the only Earth image in idle state.
+   Remove the old embedded static reference frame that visually masked rotation. */
+body.so-premium-body #journey .globe-zone{
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+}
+body.so-premium-body #journey .globe-stage-live{
+  background:transparent!important;
+  overflow:visible!important;
+}
+body.so-premium-body #journey .globe-stage-live::before{
+  content:""!important;
+  background:none!important;
+  background-image:none!important;
+  opacity:0!important;
+  filter:none!important;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+  pointer-events:none!important;
+}
+/* Keep the atmospheric glow/bokeh, but never a second static globe silhouette. */
+body.so-premium-body #journey .globe-stage-live::after{
+  opacity:1!important;
+}
+body.so-premium-body #journey .globe-zone:not(.journey-heart):not(.heart-full):not(.journey-explode):not(.journey-card-launch):not(.final-turkiye) .live-globe-canvas{
+  opacity:1!important;
+  visibility:visible!important;
+}
+/* Idle and replay always begin from the live globe, never a stale final map. */
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .final-turkiye-stage{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
