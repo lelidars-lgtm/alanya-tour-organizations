@@ -1,23 +1,27 @@
 {
-  "js_syntax_checked_externally": true,
-  "idle_reset_on_load": true,
-  "immediate_fallback_globe": true,
-  "fallback_named_mainGlobe": true,
-  "texture_upgrade_same_mesh": true,
-  "idle_spin_default": true,
-  "rotation_each_frame": true,
-  "static_reference_disabled": true,
-  "globe_free_space": true,
-  "red_heart_preserved": true,
-  "heart_after_card_preserved": true,
-  "index_live_sync_preserved": true,
-  "commercial_discount_matrix_preserved": true,
-  "ato_manager_rpc_preserved": true,
-  "all_checks_passed": true,
+  "source_archive": "ПОСЛЕДНИЙ ВАРИАНТ ДЛЯ НОВОЙ СТРАНИЦЫ.zip",
+  "checks": {
+    "source_is_user_last_variant": true,
+    "start_button_present": true,
+    "eligibility_modal_present": true,
+    "eligibility_form_present": true,
+    "start_button_handler_present": true,
+    "self_contained_webgl_present": true,
+    "external_three_removed": true,
+    "canvas_fallback_present": true,
+    "globe_canvas_present": true,
+    "free_space_globe_css_present": true,
+    "heart_offer_rpc_preserved": true,
+    "ato_manager_sql_preserved": true,
+    "index_live_sync_preserved": true,
+    "all_static_checks_passed": true
+  },
   "sha256": {
-    "special-offers.html": "3855e27133d5a229706f140d18641ce1d7cfbd204da3f629a18c92ef49f3f23e",
-    "special-offers.css": "4fb0a6376a6db4cd9837bff98df830c3dd93640f36b8cfb88771a0692054901c",
-    "special-offers.js": "4445c4d70fefbf962d618901dffa14228130cc78a317bab5ce28d8d8569e251a",
-    "special-offers-bootstrap.js": "a9b5fe349a32cd4ea81ff330d48986a3a24c2b4b92c37f221b49d581656b0ff4"
+    "special-offers.html": "b37adb16d031f00538fa29c7acbfa69fd029c55303eeed5282618fe3d4c301fe",
+    "special-offers.css": "1e4e62bacd76644ab4bf372750f71058d3d5d75a306dc7146c4266986acadc39",
+    "special-offers.js": "1f4c08b989e338aea05c25f8c6f6c14089e35fe3fc6c638b40e9f32a6778684f",
+    "special-offers-bootstrap.js": "a9b5fe349a32cd4ea81ff330d48986a3a24c2b4b92c37f221b49d581656b0ff4",
+    "HEART-OFFER-ATO-BOOKING-MANAGER.sql": "2eaa4978d26cc860d2a61371aa558247089a50f39264efd0d79b058c6181b647",
+    "ATO-BOOKING-MANAGER-CONNECT-RU.txt": "271125400c8402e1327e7265453222732adf097493c4ca01f35184795078b593"
   }
 }
