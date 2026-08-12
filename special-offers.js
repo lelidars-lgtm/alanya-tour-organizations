@@ -9,9 +9,15 @@ document.querySelectorAll('.offer-path').forEach(card=>{
   });
 });
 
+// Header
+const menuBtn=document.getElementById('menuBtn');
+const mainNav=document.getElementById('mainNav');
+menuBtn?.addEventListener('click',()=>mainNav.classList.toggle('open'));
+mainNav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mainNav.classList.remove('open')));
+
 
 // Group & Event Planner
-const groupPlanner={step:0,type:'',guests:'',interest:'',date:'',hotel:'',flexible:false};
+const groupPlanner={step:0,type:'',guests:'',date:'',hotel:'',flexible:false};
 const groupQuestions=[...document.querySelectorAll('.group-question')];
 const groupIndexes=[...document.querySelectorAll('[data-group-index]')];
 const groupNext=document.getElementById('groupPlannerNext');
@@ -19,56 +25,20 @@ const groupBack=document.getElementById('groupPlannerBack');
 const groupDate=document.getElementById('groupPreferredDate');
 const groupHotel=document.getElementById('groupHotelArea');
 const groupFlexible=document.getElementById('groupFlexibleDate');
-const groupDatePickerBtn=document.getElementById('groupDatePickerBtn');
-
-function localISODate(date=new Date()){
-  const y=date.getFullYear();
-  const m=String(date.getMonth()+1).padStart(2,'0');
-  const d=String(date.getDate()).padStart(2,'0');
-  return `${y}-${m}-${d}`;
-}
-if(groupDate) groupDate.min=localISODate();
-
-function openNativeDatePicker(input){
-  if(!input) return;
-  try{ if(typeof input.showPicker==='function'){ input.showPicker(); return; } }catch(_e){}
-  input.focus();
-  input.click();
-}
-groupDatePickerBtn?.addEventListener('click',()=>openNativeDatePicker(groupDate));
 
 function groupStepReady(){
   if(groupPlanner.step===0) return !!groupPlanner.type;
   if(groupPlanner.step===1) return !!groupPlanner.guests;
-  if(groupPlanner.step===2) return !!groupPlanner.interest;
-  if(groupPlanner.step===3) return groupPlanner.flexible || !!groupPlanner.date;
-  if(groupPlanner.step===4) return true;
+  if(groupPlanner.step===2) return groupPlanner.flexible || !!groupPlanner.date;
+  if(groupPlanner.step===3) return true;
   return false;
-}
-function updateGroupPreview(){
-  const timing=groupPlanner.flexible?'Flexible — manager checks best date':(groupPlanner.date||'Choose a preferred date');
-  const type=document.getElementById('groupPreviewType');
-  const guests=document.getElementById('groupPreviewGuests');
-  const date=document.getElementById('groupPreviewDate');
-  const interest=document.getElementById('groupPreviewInterest');
-  const hotel=document.getElementById('groupPreviewHotel');
-  const statusEl=document.getElementById('groupPreviewStatus');
-  if(type) type.textContent=groupPlanner.type||'Choose the group type';
-  if(guests) guests.textContent=groupPlanner.guests||'—';
-  if(interest) interest.textContent=groupPlanner.interest||'Choose a direction';
-  if(date) date.textContent=timing;
-  if(hotel) hotel.textContent=groupPlanner.hotel||'To be confirmed';
-  if(statusEl){
-    const labels=['TELL US WHO WE ARE PLANNING FOR','SET THE REAL GROUP SIZE','CHOOSE AN EXPERIENCE DIRECTION','CHOOSE A DATE OR KEEP IT FLEXIBLE','ADD THE STARTING POINT'];
-    statusEl.textContent=`STEP ${String(groupPlanner.step+1).padStart(2,'0')} OF 05 · ${labels[groupPlanner.step]}`;
-  }
 }
 function renderGroupPlanner(){
   groupQuestions.forEach((q,i)=>q.classList.toggle('active',i===groupPlanner.step));
   groupIndexes.forEach((x,i)=>x.classList.toggle('active',i===groupPlanner.step));
-  if(groupBack) groupBack.hidden=groupPlanner.step===0;
-  if(groupNext){groupNext.disabled=!groupStepReady();groupNext.textContent=groupPlanner.step===4?'Create My Group Request →':'Continue →';}
-  updateGroupPreview();
+  groupBack.hidden=groupPlanner.step===0;
+  groupNext.disabled=!groupStepReady();
+  groupNext.textContent=groupPlanner.step===3?'Create My Group Request →':'Continue →';
 }
 document.querySelectorAll('.group-question').forEach((q,step)=>{
   q.querySelectorAll('.group-choice').forEach(btn=>btn.addEventListener('click',()=>{
@@ -76,38 +46,55 @@ document.querySelectorAll('.group-question').forEach((q,step)=>{
     btn.classList.add('selected');
     if(step===0) groupPlanner.type=btn.dataset.value;
     if(step===1) groupPlanner.guests=btn.dataset.value;
-    if(step===2) groupPlanner.interest=btn.dataset.value;
     renderGroupPlanner();
   }));
 });
 groupDate?.addEventListener('input',()=>{
   groupPlanner.date=groupDate.value;
-  if(groupPlanner.date){groupPlanner.flexible=false;groupFlexible?.classList.remove('selected');}
+  if(groupPlanner.date){
+    groupPlanner.flexible=false;
+    groupFlexible?.classList.remove('selected');
+  }
   renderGroupPlanner();
 });
-groupDate?.addEventListener('change',()=>{groupPlanner.date=groupDate.value;renderGroupPlanner();});
 groupFlexible?.addEventListener('click',()=>{
   groupPlanner.flexible=!groupPlanner.flexible;
   groupFlexible.classList.toggle('selected',groupPlanner.flexible);
-  if(groupPlanner.flexible && groupDate){groupDate.value='';groupPlanner.date='';}
+  if(groupPlanner.flexible && groupDate){
+    groupDate.value='';
+    groupPlanner.date='';
+  }
   renderGroupPlanner();
 });
-groupHotel?.addEventListener('input',()=>{groupPlanner.hotel=groupHotel.value.trim();updateGroupPreview();});
+groupHotel?.addEventListener('input',()=>{groupPlanner.hotel=groupHotel.value.trim()});
 groupNext?.addEventListener('click',()=>{
   if(!groupStepReady()) return;
-  if(groupPlanner.step<4){groupPlanner.step++;renderGroupPlanner();return;}
+  if(groupPlanner.step<3){
+    groupPlanner.step++;
+    renderGroupPlanner();
+    return;
+  }
   groupPlanner.hotel=groupHotel?.value.trim()||'';
   const timing=groupPlanner.flexible?'Flexible date':(groupPlanner.date||'Date to confirm');
-  const summary=document.getElementById('groupSummaryText');
-  if(summary) summary.textContent=`${groupPlanner.type} · ${groupPlanner.guests} · ${groupPlanner.interest} · ${timing}${groupPlanner.hotel?` · ${groupPlanner.hotel}`:''}. Your manager receives this exact planning brief and checks transport, availability and group conditions.`;
-  document.getElementById('groupPlannerSummary')?.classList.add('show');
-  document.getElementById('groupPlannerSummary')?.scrollIntoView({behavior:'smooth',block:'nearest'});
-  updateGroupPreview();
+  document.getElementById('groupSummaryText').textContent=
+    `${groupPlanner.type} · ${groupPlanner.guests} · ${timing}${groupPlanner.hotel?` · ${groupPlanner.hotel}`:''}. We’ll prepare a personal group proposal around these details.`;
+  document.getElementById('groupPlannerSummary').classList.add('show');
+  document.getElementById('groupPlannerSummary').scrollIntoView({behavior:'smooth',block:'nearest'});
 });
-groupBack?.addEventListener('click',()=>{if(groupPlanner.step>0){groupPlanner.step--;renderGroupPlanner();}});
+groupBack?.addEventListener('click',()=>{
+  if(groupPlanner.step>0){groupPlanner.step--;renderGroupPlanner()}
+});
 document.getElementById('sendGroupOffer')?.addEventListener('click',()=>{
-  const timing=groupPlanner.flexible?'Flexible — please recommend the best date':(groupPlanner.date||'To confirm');
-  const lines=['GROUP & EVENT OFFER REQUEST','',`Type: ${groupPlanner.type||'—'}`,`Guests: ${groupPlanner.guests||'—'}`,`Experience direction: ${groupPlanner.interest||'—'}`,`Preferred date: ${timing}`,`Hotel / Area: ${groupPlanner.hotel||'Not specified'}`,'','Please check transport, availability, final price and the best group conditions for this request.'];
+  const timing=groupPlanner.flexible?'Flexible':(groupPlanner.date||'To confirm');
+  const lines=[
+    'GROUP & EVENT OFFER REQUEST','',
+    `Type: ${groupPlanner.type||'—'}`,
+    `Guests: ${groupPlanner.guests||'—'}`,
+    `Preferred date: ${timing}`,
+    `Hotel / Area: ${groupPlanner.hotel||'Not specified'}`,
+    '',
+    'Please prepare a personal group offer around these details.'
+  ];
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lines.join('\n'))}`,'_blank','noopener');
 });
 renderGroupPlanner();
@@ -115,50 +102,35 @@ renderGroupPlanner();
 // Special Experience Planner
 const planner={step:0,occasion:'',people:'',feeling:'',groupSize:''};
 const questions=[...document.querySelectorAll('.question')];
-const indexes=[...document.querySelectorAll('#experience-planner .planner-index span')];
+const indexes=[...document.querySelectorAll('.planner-index span')];
 const nextBtn=document.getElementById('plannerNext');
 const backBtn=document.getElementById('plannerBack');
 function currentField(){return ['occasion','people','feeling','groupSize'][planner.step]}
-function updateExperiencePreview(){
-  const values=[planner.occasion,planner.people,planner.feeling,planner.groupSize];
-  const labels=['Occasion','People','Feeling','Group size'];
-  const host=document.getElementById('experiencePreviewChips');
-  if(host){host.innerHTML=values.map((v,i)=>`<span class="${v?'filled':''}">${v||labels[i]}</span>`).join('');}
-  const title=document.getElementById('experiencePreviewTitle');
-  if(title){
-    if(values.every(Boolean)) title.textContent=`${planner.feeling.toUpperCase()} · ${planner.people.toUpperCase()} · ${planner.occasion.toUpperCase()}`;
-    else title.textContent='YOUR STORY STARTS WITH FOUR CHOICES';
-  }
-  const copy=document.getElementById('experiencePreviewCopy');
-  if(copy){copy.textContent=values.every(Boolean)?`The Journey will keep the surprise, but it will rank compatible experiences for a ${planner.feeling.toLowerCase()} ${planner.occasion.toLowerCase()} for ${planner.people.toLowerCase()} (${planner.groupSize.toLowerCase()}).`:'As you choose, this brief becomes the input for your Journey of the Heart. The final tour stays a surprise, but it will be selected from experiences that fit your answers.';}
-}
 function renderPlanner(){
   questions.forEach((q,i)=>q.classList.toggle('active',i===planner.step));
   indexes.forEach((x,i)=>x.classList.toggle('active',i===planner.step));
-  if(backBtn) backBtn.hidden=planner.step===0;
-  if(nextBtn){nextBtn.disabled=!planner[currentField()];nextBtn.textContent=planner.step===3?'Create My Experience →':'Continue →';}
-  updateExperiencePreview();
+  backBtn.hidden=planner.step===0;
+  nextBtn.disabled=!planner[currentField()];
+  nextBtn.textContent=planner.step===3?'Create My Experience →':'Continue →';
 }
 document.querySelectorAll('.choice-grid').forEach(grid=>{
   grid.querySelectorAll('.choice').forEach(btn=>btn.addEventListener('click',()=>{
     grid.querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));
     btn.classList.add('selected');
     planner[grid.dataset.field]=btn.textContent.trim();
-    if(nextBtn) nextBtn.disabled=false;
-    updateExperiencePreview();
+    nextBtn.disabled=false;
   }));
 });
-nextBtn?.addEventListener('click',()=>{
+nextBtn.addEventListener('click',()=>{
   if(!planner[currentField()]) return;
   if(planner.step<3){planner.step++;renderPlanner();return;}
-  document.getElementById('plannerSummary')?.classList.add('show');
-  const summary=document.getElementById('summaryText');
-  if(summary) summary.textContent=`${planner.occasion} · ${planner.people} · ${planner.feeling} · ${planner.groupSize}. The Journey will now create a surprise match from experiences compatible with these choices.`;
-  document.getElementById('plannerSummary')?.scrollIntoView({behavior:'smooth',block:'nearest'});
+  document.getElementById('plannerSummary').classList.add('show');
+  document.getElementById('summaryText').textContent=`${planner.occasion} · ${planner.people} · ${planner.feeling} · ${planner.groupSize}. We’ll prepare an individual proposal around these choices.`;
+  document.getElementById('plannerSummary').scrollIntoView({behavior:'smooth',block:'nearest'});
 });
-backBtn?.addEventListener('click',()=>{if(planner.step>0){planner.step--;renderPlanner();}});
-document.getElementById('sendExperience')?.addEventListener('click',()=>{
-  document.getElementById('journey')?.scrollIntoView({behavior:'smooth',block:'center'});
+backBtn.addEventListener('click',()=>{if(planner.step>0){planner.step--;renderPlanner()}});
+document.getElementById('sendExperience').addEventListener('click',()=>{
+  document.getElementById('journey').scrollIntoView({behavior:'smooth',block:'center'});
   setTimeout(()=>runJourney(true),620);
 });
 renderPlanner();
@@ -209,15 +181,14 @@ const dockCardMeta=document.getElementById('dockCardMeta');
 const finalTurkiyeStage=document.getElementById('finalTurkiyeStage');
 
 const RANDOM_TOURS=[
-  {title:'Aspendos, Side & Manavgat Waterfall',meta:'History & Culture · Full Day',image:'images/history-culture/history-culture-hero.png',url:'manavgat-aspendos-side.html',tags:['Cultural','Family','Team','Large Group','Education'],groupFriendly:true},
-  {title:'Land of Legends — Day Tour',meta:'Family Experience · Belek',image:'images/family-experiences/hero.png',url:'land-of-legends.html',tags:['Fun','Family','Friends','Birthday','Celebration'],groupFriendly:true},
-  {title:'Alanya Paragliding',meta:'Air Experience · Alanya',image:'images/air-experiences/air-category-hero.png',url:'paragliding.html',tags:['Adventurous','Couple','Friends','Birthday'],groupFriendly:false},
-  {title:'Family Jeep Safari',meta:'Nature & Adventure · Alanya',image:'images/nature-adventure/canyon-adventures.png',url:'family-jeep-safari.html',tags:['Adventurous','Fun','Family','Friends','Team'],groupFriendly:true},
-  {title:'Private Yacht Charter',meta:'VIP Service · Private Experience',image:'images/vip-services/HERO.png',url:'private-yacht-charter.html',tags:['Romantic','Exclusive','Couple','Family','Friends','Wedding','Anniversary','Birthday'],groupFriendly:true},
-  {title:'Turkish Hammam & Spa',meta:'Wellness & Relax · Alanya',image:'images/wellness-relax/hero.jpeg',url:'turkish-hammam.html',tags:['Relaxed','Romantic','Couple','Family','Anniversary'],groupFriendly:true}
+  {title:'Aspendos, Side & Manavgat Waterfall',meta:'History & Culture · Full Day',image:'images/history-culture/history-culture-hero.png',url:'manavgat-aspendos-side.html'},
+  {title:'Land of Legends — Day Tour',meta:'Family Experience · Belek',image:'images/family-experiences/hero.png',url:'land-of-legends.html'},
+  {title:'Alanya Paragliding',meta:'Air Experience · Alanya',image:'images/air-experiences/air-category-hero.png',url:'paragliding.html'},
+  {title:'Family Jeep Safari',meta:'Nature & Adventure · Alanya',image:'images/nature-adventure/canyon-adventures.png',url:'family-jeep-safari.html'},
+  {title:'Private Yacht Charter',meta:'VIP Service · Private Experience',image:'images/vip-services/HERO.png',url:'private-yacht-charter.html'},
+  {title:'Turkish Hammam & Spa',meta:'Wellness & Relax · Alanya',image:'images/wellness-relax/hero.jpeg',url:'turkish-hammam.html'}
 ];
 let activeRandomTour=null;
-let activeMatchReason='A surprise selected from experiences that fit your answers.';
 let journeyTimerPool=[];
 
 function clearJourneyTimers(){journeyTimerPool.forEach(clearTimeout);journeyTimerPool=[]}
@@ -228,25 +199,15 @@ function plannerHasChoices(){
 }
 
 function buildJourneyCard(){
-  const signals=[planner.occasion,planner.people,planner.feeling].filter(Boolean);
-  const needsGroup=Boolean(planner.groupSize && planner.groupSize!=='2–4 Guests');
-  const ranked=RANDOM_TOURS.map(tour=>{
-    let score=0;
-    signals.forEach(s=>{if(tour.tags.includes(s)) score+=3;});
-    if(needsGroup) score+=tour.groupFriendly?2:-4;
-    if(planner.people==='Large Group') score+=tour.groupFriendly?3:-6;
-    if(planner.people==='Family' && tour.tags.includes('Family')) score+=2;
-    return {...tour,score};
-  }).sort((a,b)=>b.score-a.score);
-  const bestScore=ranked[0]?.score??0;
-  const candidates=ranked.filter((t,i)=>i<3 && t.score>=Math.max(0,bestScore-2));
-  activeRandomTour=(candidates.length?candidates:RANDOM_TOURS)[Math.floor(Math.random()*(candidates.length?candidates.length:RANDOM_TOURS.length))];
-  const matchedSignals=signals.filter(s=>activeRandomTour.tags.includes(s));
-  activeMatchReason=matchedSignals.length?`Matched to ${matchedSignals.join(' + ')}${needsGroup&&activeRandomTour.groupFriendly?' + group-friendly format':''}.`:'A surprise chosen from the strongest compatible experiences for your brief.';
+  activeRandomTour=RANDOM_TOURS[Math.floor(Math.random()*RANDOM_TOURS.length)];
   const title=activeRandomTour.title;
-  const text='A surprise chosen by the journey — guided by your answers, not by chance alone.';
+  const text='A tour chosen by the journey — discover where the heart takes you.';
   dockCardTitle.textContent=title; dockCardText.textContent=text;
-  if(dockCard){dockCard.setAttribute('href',activeRandomTour.url||'#');dockCard.setAttribute('aria-label',`Open ${title}`);}
+  if(dockCard){
+    dockCard.setAttribute('href',activeRandomTour.url||'#');
+    dockCard.setAttribute('aria-label',`Open ${title}`);
+  }
+  if(dockCard) dockCard.setAttribute('href',activeRandomTour.url||'#');
   flyCardTitle.textContent=title; flyCardText.textContent=text;
   const bg=`url("${activeRandomTour.image}")`;
   if(flyCardThumb) flyCardThumb.style.backgroundImage=bg;
@@ -255,9 +216,6 @@ function buildJourneyCard(){
   if(dockCardMeta) dockCardMeta.textContent=activeRandomTour.meta;
   const chips=[planner.occasion,planner.people,planner.feeling,planner.groupSize].filter(Boolean);
   offerResultMeta.innerHTML=chips.map(v=>`<span>${v}</span>`).join('');
-  const reason=document.getElementById('journeyMatchReason'); if(reason) reason.textContent=activeMatchReason;
-  const bonus=document.getElementById('journeyBonus');
-  if(bonus) bonus.hidden=!needsGroup;
 }
 
 
@@ -484,7 +442,7 @@ function resetJourneyVisual(){
   journeyCardPlaceholder?.classList.remove('is-hidden');
   dockCard?.classList.remove('visible','final-visible');
   clearJourneyTimers(); endLogoFlight();
-  globeZone.classList.remove('journey-running','orbit-flight','orbit-complete','journey-arrived','turkiye-focus','alanya-landed','journey-pulse','light-collapse','journey-heart','heart-full','journey-explode','journey-card-launch','card-landed','heart-after-card','heart-return','final-turkiye');
+  globeZone.classList.remove('journey-running','orbit-flight','orbit-complete','journey-arrived','turkiye-focus','alanya-landed','journey-pulse','light-collapse','journey-heart','heart-full','journey-explode','journey-card-launch','card-landed','heart-return','final-turkiye');
   dockCard.classList.remove('visible'); dockLabel?.classList.remove('ready');
   status.innerHTML='<strong>ALANYA TOUR ORGANIZATIONS IS WAITING.</strong><span>LOGO → FLIGHT → GLOBE → TÜRKİYE → ALANYA → HEART → TOUR</span>';
   startJourney.disabled=false; startJourney.classList.remove('is-active');
@@ -575,6 +533,7 @@ function runJourney(fromPlanner=false){
   resetJourneyVisual();
   journeyCardPlaceholder?.classList.add('is-hidden');
   dockCard?.classList.remove('visible','final-visible');
+  dockCard?.classList.remove('visible','final-visible');
   dockLabel?.classList.remove('ready');
 
   requestAnimationFrame(()=>{
@@ -586,13 +545,13 @@ function runJourney(fromPlanner=false){
       globeZone.classList.remove(
         'journey-running','orbit-flight','orbit-complete','journey-arrived',
         'turkiye-focus','alanya-landed','journey-pulse','light-collapse',
-        'journey-heart','heart-full','journey-explode','journey-card-launch','heart-after-card','heart-return'
+        'journey-heart','heart-full','journey-explode','journey-card-launch','heart-return'
       );
       globeZone.classList.remove(
         'journey-running','orbit-flight','orbit-complete','journey-arrived',
         'turkiye-focus','alanya-landed','journey-pulse','light-collapse',
         'journey-heart','heart-full','journey-explode','journey-card-launch',
-        'card-landed','heart-after-card','heart-return'
+        'card-landed','heart-return'
       );
       globeZone.classList.add('final-turkiye');
       const finalPin=document.getElementById('finalAlanyaMapPin');
@@ -724,26 +683,19 @@ function runJourney(fromPlanner=false){
       globeZone.classList.add('journey-card-launch');
       animateTourCardContinuously(1550);
       status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>STRAIGHT FROM THE HEART</span>';
-    },16050);
-
-    /* 12B Once the card has clearly left the heart, let the heart breathe down
-       in several diminishing pulses until only a luminous red core remains. */
-    queueJourney(()=>{
-      globeZone.classList.add('heart-after-card');
-      status.innerHTML='<strong>THE HEART LETS IT FLY.</strong><span>ONE LAST BEAT · THEN HOME</span>';
-    },16650);
+    },15150);
 
     queueJourney(()=>{
       cancelTourCardFlight();
       landOfferCard();
-    },17650);
+    },16250);
 
     /* 13 Heart returns to original Alanya point and disappears. */
     queueJourney(()=>{
       dockCard?.classList.add('final-visible');
       globeZone.classList.add('heart-return');
       status.innerHTML='<strong>THE HEART COMES HOME.</strong><span>BACK TO ALANYA</span>';
-    },19000);
+    },18000);
 
     /* 14–15 Final state: glowing Türkiye + flag + WE ARE HERE + coordinates. */
     queueJourney(()=>{
@@ -753,7 +705,7 @@ function runJourney(fromPlanner=false){
       startJourney.classList.remove('is-active');
       if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
       
-    },20250);
+    },19250);
   });
 }
 
@@ -770,15 +722,12 @@ window.addEventListener('resize',()=>{
 });
 
 requestPersonalOffer?.addEventListener('click',()=>{
-  const hasGroupBonus=Boolean(planner.groupSize && planner.groupSize!=='2–4 Guests');
   const lines=['SPECIAL EXPERIENCE REQUEST',''];
-  if(activeRandomTour){lines.push(`Journey match: ${activeRandomTour.title}`,`Category: ${activeRandomTour.meta}`,`Why this match: ${activeMatchReason}`,'');}
   if(planner.occasion) lines.push(`Occasion: ${planner.occasion}`);
   if(planner.people) lines.push(`For: ${planner.people}`);
   if(planner.feeling) lines.push(`Feeling: ${planner.feeling}`);
   if(planner.groupSize) lines.push(`Group size: ${planner.groupSize}`);
-  if(hasGroupBonus) lines.push('Journey group bonus: 5% OFF for every paying guest — please confirm final conditions.');
-  lines.push('','Please check availability, final price and confirm this personal Journey offer.');
+  lines.push('','Please prepare my personal offer.');
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lines.join('\n'))}`,'_blank','noopener');
 });
 
@@ -796,65 +745,248 @@ if(window.matchMedia('(pointer:fine)').matches){
   card.addEventListener('pointerleave',()=>card.style.transform='rotateY(0deg) rotateX(0deg)');
 }
 
-// Gift builder/live preview removed from page by design.
+// Gift mini planner
+const giftOptions=[...document.querySelectorAll('.gift-option')];
+const giftForm=document.getElementById('giftForm');
+giftOptions.forEach(btn=>btn.addEventListener('click',()=>{
+  giftOptions.forEach(x=>x.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('giftType').value=btn.dataset.giftType;
+  giftForm.classList.add('show');
+  giftForm.scrollIntoView({behavior:'smooth',block:'nearest'});
+}));
+giftForm.addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=new FormData(giftForm);
+  const text=[
+    'GIFT CERTIFICATE REQUEST','',
+    `Type: ${f.get('giftType')}`,
+    `Recipient: ${f.get('recipient')}`,
+    `From: ${f.get('giver')}`,
+    `Occasion: ${f.get('occasion')||'—'}`,
+    `Amount / Experience: ${f.get('choice')}`,
+    `Personal message: ${f.get('message')||'—'}`
+  ].join('\n');
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`,'_blank','noopener');
+});
 
 const allowedLangs = ["ru", "en", "tr", "de", "pl"];
-  const savedLang = localStorage.getItem("atoLanguage");
-  const currentLang = allowedLangs.includes(savedLang) ? savedLang : "en";
-  function updateLang(lang) {
-    document.querySelectorAll("[data-" + lang + "]").forEach(el => {
-      el.textContent = el.getAttribute("data-" + lang);
-    });
-    const langLabel = document.querySelector(".language-dropdown > span");
-    if (langLabel) langLabel.textContent = lang.toUpperCase();
-    document.documentElement.lang = lang;
-    localStorage.setItem("atoLanguage", lang);
-  }
-  updateLang(currentLang);
-  document.querySelectorAll(".language-menu a").forEach(link => {
-    link.addEventListener("click", function(e) {
-      e.preventDefault();
-      const lang = this.getAttribute("data-lang");
-      if (allowedLangs.includes(lang)) updateLang(lang);
-    });
+const savedLang = localStorage.getItem("atoLanguage");
+const currentLang = allowedLangs.includes(savedLang) ? savedLang : "en";
+
+function updateLang(lang) {
+  document.querySelectorAll("[data-" + lang + "]").forEach(el => {
+    el.textContent = el.getAttribute("data-" + lang);
   });
-  const mobileBtn = document.getElementById('mobileMenuBtn');
-  const nav = document.querySelector('.nav');
-  const overlay = document.getElementById('mobileOverlay');
-  const aboutDropdown = document.querySelector('.nav-dropdown');
-  const languageDropdown = document.querySelector('.language-dropdown');
-  const languageClose = document.querySelector('.language-close');
-  function toggleMenu() {
-    nav.classList.toggle('active');
+  const langLabel = document.querySelector(".language-dropdown > span");
+  if (langLabel) langLabel.textContent = lang.toUpperCase();
+  document.documentElement.lang = lang;
+  localStorage.setItem("atoLanguage", lang);
+}
+
+/* =========================================================
+   SITE CHROME — LIVE SYNC FROM /index.html
+   Header + promo bar are not maintained separately on this page.
+   On every deployed page load we read the current Index markup and
+   only the Index CSS rules that belong to the header / promo bar.
+   The static markup in special-offers.html remains a safe fallback.
+   ========================================================= */
+const INDEX_CHROME_HINTS = [
+  '.header', '.logo', '.logo-text', '.logo-title', '.logo-subtitle',
+  '.nav', '.nav-item', '.nav-dropdown', '.contact-link',
+  '.dropdown-menu', '.dropdown-icon', '.arrow-icon',
+  '.language', '.language-dropdown', '.language-menu', '.language-close',
+  '.globe-icon', '.mobile-menu-btn', '.mobile-overlay',
+  '.header-tour-search', '.promo-bar', '.promo-track', '.promo-text',
+  '.promo-dot', '.fire'
+];
+
+function indexChromeSelector(selectorText='') {
+  return INDEX_CHROME_HINTS.some(token => selectorText.includes(token));
+}
+
+function serializeIndexChromeRules(ruleList) {
+  let output = '';
+  for (const rule of Array.from(ruleList || [])) {
+    try {
+      if (rule.type === CSSRule.STYLE_RULE) {
+        if (indexChromeSelector(rule.selectorText)) output += rule.cssText + '\n';
+        continue;
+      }
+      if (rule.type === CSSRule.MEDIA_RULE) {
+        const inner = serializeIndexChromeRules(rule.cssRules);
+        if (inner) output += `@media ${rule.conditionText}{${inner}}\n`;
+        continue;
+      }
+      if (typeof CSSRule.SUPPORTS_RULE !== 'undefined' && rule.type === CSSRule.SUPPORTS_RULE) {
+        const inner = serializeIndexChromeRules(rule.cssRules);
+        if (inner) output += `@supports ${rule.conditionText}{${inner}}\n`;
+        continue;
+      }
+      if (rule.type === CSSRule.KEYFRAMES_RULE || rule.type === CSSRule.FONT_FACE_RULE) {
+        output += rule.cssText + '\n';
+        continue;
+      }
+      if (rule.cssRules) {
+        const inner = serializeIndexChromeRules(rule.cssRules);
+        if (inner) output += inner;
+      }
+    } catch (_) {}
+  }
+  return output;
+}
+
+async function extractIndexChromeCss(cssText) {
+  if (!cssText || !('CSSStyleSheet' in window)) return '';
+  const cleaned = cssText.replace(/@charset[^;]+;/gi,'').replace(/@import[^;]+;/gi,'');
+  try {
+    const sheet = new CSSStyleSheet();
+    await sheet.replace(cleaned);
+    return serializeIndexChromeRules(sheet.cssRules);
+  } catch (err) {
+    console.warn('Index chrome CSS parsing skipped:', err);
+    return '';
+  }
+}
+
+function normalizeIndexHeaderLinks(header) {
+  header.querySelectorAll('a[href]').forEach(link => {
+    const href = (link.getAttribute('href') || '').trim();
+    // Anchors copied from Index must still point back to Index sections.
+    if (href.startsWith('#')) link.setAttribute('href', `index.html${href}`);
+  });
+
+  header.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+  const special = Array.from(header.querySelectorAll('a, .nav-item')).find(item =>
+    /SPECIAL\s+OFFERS/i.test(item.textContent || '')
+  );
+  if (special) special.classList.add('active');
+}
+
+async function loadIndexChromeCss(indexDoc, indexUrl) {
+  const cssChunks = [];
+
+  for (const style of Array.from(indexDoc.querySelectorAll('style'))) {
+    const part = await extractIndexChromeCss(style.textContent || '');
+    if (part) cssChunks.push(part);
+  }
+
+  for (const link of Array.from(indexDoc.querySelectorAll('link[rel="stylesheet"][href]'))) {
+    try {
+      const href = new URL(link.getAttribute('href'), indexUrl).href;
+      if (new URL(href).origin !== location.origin) continue;
+      const response = await fetch(href, { cache: 'no-store' });
+      if (!response.ok) continue;
+      const part = await extractIndexChromeCss(await response.text());
+      if (part) cssChunks.push(part);
+    } catch (err) {
+      console.warn('Index stylesheet sync skipped:', err);
+    }
+  }
+
+  if (!cssChunks.length) return;
+  let style = document.getElementById('ato-index-chrome-live-styles');
+  if (!style) {
+    style = document.createElement('style');
+    style.id = 'ato-index-chrome-live-styles';
+    document.head.appendChild(style);
+  }
+  style.textContent = `/* LIVE HEADER + PROMO CSS FROM INDEX */\n${cssChunks.join('\n')}`;
+}
+
+async function syncSiteChromeFromIndex() {
+  const currentHeader = document.querySelector('header.header');
+  const currentPromo = document.querySelector('.promo-bar');
+  if (!currentHeader || !currentPromo) return;
+
+  try {
+    const indexUrl = new URL('index.html', location.href);
+    const response = await fetch(indexUrl.href, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`Index returned ${response.status}`);
+
+    const source = await response.text();
+    const indexDoc = new DOMParser().parseFromString(source, 'text/html');
+    const sourceHeader = indexDoc.querySelector('header.header');
+    const sourcePromo = indexDoc.querySelector('.promo-bar');
+    if (!sourceHeader || !sourcePromo) throw new Error('Header or promo bar not found in Index');
+
+    // Load Index chrome styles first so replacement is visually seamless.
+    await loadIndexChromeCss(indexDoc, indexUrl);
+
+    const nextHeader = sourceHeader.cloneNode(true);
+    const nextPromo = sourcePromo.cloneNode(true);
+    normalizeIndexHeaderLinks(nextHeader);
+
+    currentHeader.replaceWith(nextHeader);
+    currentPromo.replaceWith(nextPromo);
+    updateLang(currentLang);
+    document.documentElement.dataset.indexChromeSynced = 'true';
+    document.dispatchEvent(new CustomEvent('ato:index-chrome-ready'));
+  } catch (err) {
+    // Keep the embedded fallback header/promo if Index cannot be reached.
+    console.warn('Using Special Offers fallback header/promo:', err);
+    document.documentElement.dataset.indexChromeSynced = 'fallback';
+  }
+}
+
+/* Delegated header controls survive replacement by the live Index markup. */
+document.addEventListener('click', (e) => {
+  const langLink = e.target.closest('.language-menu a[data-lang]');
+  if (langLink) {
+    e.preventDefault();
+    const lang = langLink.getAttribute('data-lang');
+    if (allowedLangs.includes(lang)) updateLang(lang);
+    langLink.closest('.language-dropdown')?.classList.remove('open');
+    return;
+  }
+
+  const closeLang = e.target.closest('.language-close');
+  if (closeLang) {
+    e.preventDefault();
+    e.stopPropagation();
+    closeLang.closest('.language-dropdown')?.classList.remove('open');
+    return;
+  }
+
+  const mobileBtn = e.target.closest('#mobileMenuBtn');
+  if (mobileBtn) {
+    e.preventDefault();
+    const header = mobileBtn.closest('.header') || document;
+    const nav = header.querySelector('.nav');
+    const overlay = header.querySelector('#mobileOverlay') || document.getElementById('mobileOverlay');
+    nav?.classList.toggle('active');
     mobileBtn.classList.toggle('active');
-    overlay.classList.toggle('active');
+    overlay?.classList.toggle('active');
+    return;
   }
-  if (mobileBtn && nav && overlay) {
-    mobileBtn.addEventListener('click', toggleMenu);
-    overlay.addEventListener('click', toggleMenu);
+
+  const overlay = e.target.closest('#mobileOverlay');
+  if (overlay) {
+    const header = overlay.closest('.header') || document;
+    header.querySelector('.nav')?.classList.remove('active');
+    header.querySelector('#mobileMenuBtn')?.classList.remove('active');
+    overlay.classList.remove('active');
+    return;
   }
-  if (aboutDropdown) {
-    aboutDropdown.addEventListener('click', function(e) {
-      if (window.innerWidth <= 980) {
-        e.stopPropagation();
-        this.classList.toggle('open');
-      }
-    });
-  }
-  if (languageDropdown) {
-    languageDropdown.addEventListener('click', function(e) {
-      if (window.innerWidth <= 980) {
-        e.stopPropagation();
-        this.classList.toggle('open');
-      }
-    });
-  }
-  if (languageClose && languageDropdown) {
-    languageClose.addEventListener('click', function(e) {
+
+  if (window.innerWidth <= 980) {
+    const about = e.target.closest('.nav-dropdown');
+    if (about && !e.target.closest('.dropdown-menu a')) {
       e.stopPropagation();
-      languageDropdown.classList.remove('open');
-    });
+      about.classList.toggle('open');
+      return;
+    }
+
+    const language = e.target.closest('.language-dropdown');
+    if (language && !e.target.closest('.language-menu a')) {
+      e.stopPropagation();
+      language.classList.toggle('open');
+    }
   }
+});
+
+updateLang(currentLang);
+syncSiteChromeFromIndex();
 
 
   
@@ -1135,6 +1267,19 @@ if (canvas && globeShell && globeZone) {
   }
 }
 }).catch(err => console.error('Three.js failed to load:', err));
+document.addEventListener('DOMContentLoaded',()=>{
+  const card=document.getElementById('dockCard');
+  if(card){
+    card.style.pointerEvents='auto';
+    if(card.tagName!=='A'){
+      card.setAttribute('role','link');
+      card.setAttribute('tabindex','0');
+      const open=()=>{ const href=card.getAttribute('data-href')||card.getAttribute('href'); if(href&&href!=='#') window.location.href=href; };
+      card.addEventListener('click',open);
+      card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+    }
+  }
+});
 
 document.addEventListener('DOMContentLoaded',()=>{
   const editChoicesBtn=document.getElementById('editChoicesBtn');
