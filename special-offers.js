@@ -159,7 +159,7 @@ nextBtn?.addEventListener('click',()=>{
 backBtn?.addEventListener('click',()=>{if(planner.step>0){planner.step--;renderPlanner();}});
 document.getElementById('sendExperience')?.addEventListener('click',()=>{
   document.getElementById('journey')?.scrollIntoView({behavior:'smooth',block:'center'});
-  setTimeout(()=>runJourney(false),620);
+  setTimeout(()=>runJourney(true),620);
 });
 renderPlanner();
 
@@ -776,9 +776,6 @@ function runJourney(fromPlanner=false){
   });
 }
 
-// HEART OFFER ENTRY: Journey starts immediately. WhatsApp eligibility is checked only when CLAIM OFFER is submitted.
-/* LIVE IDLE STATE INIT */
-resetJourneyVisual();
 startJourney.addEventListener('click',()=>runJourney(false));
 
 window.addEventListener('resize',()=>{
@@ -794,7 +791,10 @@ window.addEventListener('resize',()=>{
 requestPersonalOffer?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();openHeartClaimModal();});
 
 // ===== HEART OFFER COMMERCIAL FLOW =====
+const heartEligibilityModal=document.getElementById('heartEligibilityModal');
 const heartClaimModal=document.getElementById('heartClaimModal');
+const heartEligibilityForm=document.getElementById('heartEligibilityForm');
+const heartEligibilityStatus=document.getElementById('heartEligibilityStatus');
 const heartClaimForm=document.getElementById('heartClaimForm');
 const heartClaimStatus=document.getElementById('heartClaimStatus');
 const viewHeartTour=document.getElementById('viewHeartTour');
@@ -813,7 +813,7 @@ function normalizeHeartPhoneClient(raw){
 }
 function setHeartStatus(el,msg,type=''){if(!el)return;el.textContent=msg||'';el.classList.remove('is-error','is-success');if(type)el.classList.add(`is-${type}`)}
 // Heart Offer uses the SAME Supabase / ATO Booking Manager as Map + Trip Planner.
-// No second manager and no cookie/localStorage enforcement. Phone eligibility is checked only when the client claims the offer.
+// No second manager and no cookie/localStorage enforcement.
 let heartBookingConfigPromise=null;
 function detectHeartBookingConfig(){
   const candidates=[
@@ -915,16 +915,40 @@ async function verifyHeartEligibility(phone){
   heartOfferRedeemed=false;heartVisualOnly=false;return true;
 }
 
-function beginHeartOfferJourney(){
-  // No phone gate before Journey. Eligibility is checked only at CLAIM OFFER.
-  heartVisualOnly=false;
-  runJourney(false);
+async function beginHeartOfferJourney(){
+  if(heartOfferRedeemed){heartVisualOnly=true;runJourney(false);return}
+  const stored=heartClientPhone||sessionStorage.getItem('atoHeartPhone')||'';
+  if(stored){
+    try{
+      status.innerHTML='<strong>CHECKING YOUR HEART OFFER.</strong><span>ONE MOMENT…</span>';
+      if(await verifyHeartEligibility(stored)){runJourney(false)}
+    }catch(err){
+      sessionStorage.removeItem('atoHeartPhone');heartClientPhone='';
+      const phoneInput=document.getElementById('heartPhone');if(phoneInput)phoneInput.value=stored;
+      setHeartStatus(heartEligibilityStatus,err.message,'error');openHeartModal(heartEligibilityModal);
+    }
+    return;
+  }
+  setHeartStatus(heartEligibilityStatus,'');openHeartModal(heartEligibilityModal);setTimeout(()=>document.getElementById('heartPhone')?.focus(),80);
 }
+
+heartEligibilityForm?.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const btn=document.getElementById('heartEligibilitySubmit');
+  const phone=document.getElementById('heartPhone').value;
+  btn.disabled=true;setHeartStatus(heartEligibilityStatus,'Checking with ATO Booking Manager…');
+  try{
+    const ok=await verifyHeartEligibility(phone);
+    closeHeartModal(heartEligibilityModal);
+    if(ok)runJourney(false);
+  }catch(err){setHeartStatus(heartEligibilityStatus,err.message,'error')}
+  finally{btn.disabled=false}
+});
 
 viewHeartTour?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(activeRandomTour?.url)window.location.href=activeRandomTour.url});
 chooseAnotherHeartTour?.addEventListener('click',e=>{
-  e.preventDefault();e.stopPropagation();
-  // Choosing another tour does not consume or require an offer.
+  e.preventDefault();
+  e.stopPropagation();
   heartVisualOnly=false;
   runJourney(false);
 });
@@ -960,7 +984,7 @@ heartClaimForm?.addEventListener('submit',async e=>{
     const normalized=normalizeHeartPhoneClient(payload.phone);
     if(normalized.length<10||normalized.length>15) throw new Error('Please enter a valid WhatsApp number with country code.');
 
-    // Real one-time check happens here — at CLAIM, not before the animation.
+    // Eligibility is checked only when the client actually claims the offer.
     const eligibility=await heartRpc('heart_offer_check',{p_phone:normalized});
     if(eligibility?.redeemed){
       closeHeartModal(heartClaimModal);
@@ -1088,284 +1112,282 @@ const allowedLangs = ["ru", "en", "tr", "de", "pl"];
 
   
 
-/* ===== ATO SELF-CONTAINED WEBGL 3D GLOBE =====
-   No CDN / Three.js dependency. The sphere, map texture, grid and route are
-   rendered locally so the Journey globe cannot disappear when a third-party
-   module fails to load. */
-(function initAtoWebGLGlobe(){
-  const canvas=document.getElementById('liveGlobeCanvas');
-  const globeShell=document.getElementById('globeShell');
-  const globeZone=document.getElementById('globeZone');
-  const bokehWrap=document.getElementById('globeBokeh');
-  if(!canvas||!globeShell||!globeZone) return;
+import('https://unpkg.com/three@0.160.1/build/three.module.js').then(({default: _unused, ...THREE_NS}) => { const THREE = THREE_NS;
 
-  /* Replace the old large blurred bokeh with a sparse star field. */
-  if(bokehWrap){
-    bokehWrap.innerHTML='';
-    for(let i=0;i<54;i++){
-      const dot=document.createElement('span');
-      dot.className='ato-space-star'+(i%13===0?' warm':'');
-      const s=1+Math.random()*2.8;
-      dot.style.width=s+'px';dot.style.height=s+'px';
-      dot.style.left=(4+Math.random()*92)+'%';dot.style.top=(5+Math.random()*90)+'%';
-      dot.style.opacity=(.24+Math.random()*.58).toFixed(2);
-      dot.style.animationDelay=(Math.random()*4).toFixed(2)+'s';
+const canvas = document.getElementById('liveGlobeCanvas');
+const globeShell = document.getElementById('globeShell');
+const globeZone = document.getElementById('globeZone');
+const bokehWrap = document.getElementById('globeBokeh');
+
+if (canvas && globeShell && globeZone) {
+  function createBokehDots(count = 48){
+    if(!bokehWrap) return;
+    bokehWrap.innerHTML = '';
+    for(let i = 0; i < count; i++){
+      const dot = document.createElement('span');
+      dot.className = 'bokeh-dot' + (Math.random() > 0.82 ? ' gold' : '');
+      const size = 7 + Math.random() * 26;
+      dot.style.width = size + 'px';
+      dot.style.height = size + 'px';
+      dot.style.left = Math.random() * 100 + '%';
+      dot.style.top = 18 + Math.random() * 72 + '%';
+      dot.style.animationDuration = (7 + Math.random() * 8) + 's';
+      dot.style.animationDelay = (Math.random() * 6) + 's';
       bokehWrap.appendChild(dot);
     }
   }
+  createBokehDots();
 
-  const gl=canvas.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:false})||canvas.getContext('experimental-webgl');
-  if(!gl){
-    /* Safety fallback only: browsers without WebGL still see a rotating spherical globe. */
-    canvas.classList.add('ato-webgl-unavailable');
-    const ctx=canvas.getContext('2d');
-    if(!ctx){console.error('[ATO] Neither WebGL nor Canvas2D is available.');return;}
-    const land=[
-      [[-168,72],[-145,70],[-128,58],[-118,49],[-102,50],[-91,55],[-78,49],[-66,44],[-79,31],[-96,21],[-111,27],[-126,32],[-145,55]],
-      [[-82,13],[-70,10],[-58,4],[-48,-10],[-51,-24],[-61,-39],[-70,-55],[-76,-36],[-80,-15]],
-      [[-58,82],[-29,79],[-19,66],[-43,59],[-61,70]],
-      [[-11,71],[15,70],[31,60],[40,50],[31,40],[16,35],[1,42],[-10,55]],
-      [[-17,37],[8,36],[34,30],[45,10],[39,-14],[25,-35],[10,-35],[-5,-20],[-15,5]],
-      [[29,70],[65,75],[103,70],[139,59],[158,44],[147,31],[125,24],[106,10],[82,18],[62,35],[42,44]],
-      [[111,-10],[145,-12],[155,-27],[145,-40],[121,-38],[110,-25]]
-    ];
-    let ang=-65*Math.PI/180,last2=performance.now();
-    function proj(lonD,latD,r,cx,cy,rr){
-      const lon=lonD*Math.PI/180,lat=latD*Math.PI/180,cl=Math.cos(lat);
-      let x=cl*Math.cos(lon),y=Math.sin(lat),z=cl*Math.sin(lon);
-      const ca=Math.cos(ang),sa=Math.sin(ang);const x1=ca*x+sa*z,z1=-sa*x+ca*z;
-      const tilt=8*Math.PI/180,ct=Math.cos(tilt),st=Math.sin(tilt);const y1=ct*y-st*z1,z2=st*y+ct*z1;
-      return {x:cx+x1*rr*r,y:cy-y1*rr*r,z:z2};
-    }
-    function lineGeo(points,color,width,cx,cy,rr){
-      ctx.strokeStyle=color;ctx.lineWidth=width;ctx.beginPath();let pen=false;
-      for(let i=0;i<points.length;i++){const p=proj(points[i][0],points[i][1],1,cx,cy,rr);if(p.z<=0){pen=false;continue}if(!pen){ctx.moveTo(p.x,p.y);pen=true}else ctx.lineTo(p.x,p.y)}ctx.stroke();
-    }
-    function fallbackFrame(now){
-      requestAnimationFrame(fallbackFrame);
-      if(window.ATO_THREE_GLOBE_ACTIVE) return;const rect=globeShell.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);const size=Math.max(360,Math.round(rect.width*dpr));if(canvas.width!==size||canvas.height!==size){canvas.width=size;canvas.height=size}
-      const dt=Math.min(.05,(now-last2)/1000);last2=now;ang+=dt*(globeZone.classList.contains('journey-running')?.55:.16);
-      ctx.clearRect(0,0,size,size);const cx=size/2,cy=size/2,rr=size*.355;
-      const g=ctx.createRadialGradient(cx-rr*.28,cy-rr*.35,rr*.08,cx,cy,rr*1.25);g.addColorStop(0,'#184b83');g.addColorStop(.55,'#061d40');g.addColorStop(1,'rgba(1,7,19,.15)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,rr,0,Math.PI*2);ctx.fill();
-      ctx.save();ctx.beginPath();ctx.arc(cx,cy,rr,0,Math.PI*2);ctx.clip();
-      for(let lat=-75;lat<=75;lat+=15){const pts=[];for(let lon=-180;lon<=180;lon+=3)pts.push([lon,lat]);lineGeo(pts,'rgba(77,201,255,.30)',Math.max(1,dpr*.7),cx,cy,rr)}
-      for(let lon=-180;lon<180;lon+=15){const pts=[];for(let lat=-88;lat<=88;lat+=3)pts.push([lon,lat]);lineGeo(pts,'rgba(77,201,255,.30)',Math.max(1,dpr*.7),cx,cy,rr)}
-      land.forEach(poly=>lineGeo([...poly,poly[0]],'rgba(105,219,255,.88)',Math.max(1.3,dpr*1.15),cx,cy,rr));
-      const route=[];for(let i=0;i<100;i++){const t=i/99;route.push([-112+(144.0389)*t,35+(1.5324)*t+28*Math.sin(Math.PI*t)])}lineGeo(route,'rgba(244,194,83,.96)',Math.max(1.6,dpr*1.45),cx,cy,rr);
-      ctx.restore();ctx.strokeStyle='rgba(93,211,255,.65)';ctx.lineWidth=Math.max(1.2,dpr);ctx.beginPath();ctx.arc(cx,cy,rr,0,Math.PI*2);ctx.stroke();
-      ctx.shadowBlur=35*dpr;ctx.shadowColor='rgba(40,151,255,.65)';ctx.strokeStyle='rgba(79,194,255,.18)';ctx.lineWidth=5*dpr;ctx.beginPath();ctx.arc(cx,cy,rr*1.015,0,Math.PI*2);ctx.stroke();ctx.shadowBlur=0;
-    }
-    requestAnimationFrame(fallbackFrame);
-    console.warn('[ATO] WebGL unavailable; Canvas2D spherical fallback is active.');
-    return;
-  }
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+  camera.position.set(0, 0, 7.9);
 
-  const VERT=`
-    attribute vec3 aPos;
-    attribute vec3 aNormal;
-    attribute vec2 aUV;
-    uniform mat4 uMVP;
-    uniform mat4 uModel;
-    varying vec3 vNormal;
-    varying vec2 vUV;
-    varying vec3 vWorld;
-    void main(){
-      vec4 world=uModel*vec4(aPos,1.0);
-      vWorld=world.xyz;
-      vNormal=normalize(mat3(uModel)*aNormal);
-      vUV=aUV;
-      gl_Position=uMVP*vec4(aPos,1.0);
-    }`;
-  const FRAG=`
-    precision mediump float;
-    varying vec3 vNormal;
-    varying vec2 vUV;
-    varying vec3 vWorld;
-    uniform sampler2D uTex;
-    void main(){
-      vec3 n=normalize(vNormal);
-      vec3 lightDir=normalize(vec3(-0.45,0.70,0.95));
-      float light=max(dot(n,lightDir),0.0);
-      float rim=pow(1.0-max(n.z,0.0),2.25);
-      vec3 tex=texture2D(uTex,vUV).rgb;
-      vec3 col=tex*(0.42+0.68*light);
-      col=mix(col, vec3(0.04,0.15,0.29), 0.18);
-      col+=vec3(0.10,0.42,0.78)*rim*0.92;
-      col+=vec3(0.01,0.05,0.11)*(1.0-light)*0.45;
-      gl_FragColor=vec4(col,0.985);
-    }`;
-  const LINE_VERT=`
-    attribute vec3 aPos;
-    uniform mat4 uMVP;
-    void main(){gl_Position=uMVP*vec4(aPos,1.0);}`;
-  const LINE_FRAG=`
-    precision mediump float;
-    uniform vec4 uColor;
-    void main(){gl_FragColor=uColor;}`;
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: true
+  });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  function shader(type,src){
-    const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
-    if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)||'Shader compilation failed');
-    return s;
-  }
-  function program(vs,fs){
-    const p=gl.createProgram();gl.attachShader(p,shader(gl.VERTEX_SHADER,vs));gl.attachShader(p,shader(gl.FRAGMENT_SHADER,fs));gl.linkProgram(p);
-    if(!gl.getProgramParameter(p,gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p)||'Program link failed');
-    return p;
-  }
-  const sphereProgram=program(VERT,FRAG);
-  const lineProgram=program(LINE_VERT,LINE_FRAG);
+  const root = new THREE.Group();
+  scene.add(root);
 
-  function makeSphere(latSeg=72,lonSeg=144){
-    const pos=[],norm=[],uv=[],idx=[];
-    for(let y=0;y<=latSeg;y++){
-      const v=y/latSeg,lat=(.5-v)*Math.PI;
-      const cl=Math.cos(lat),sl=Math.sin(lat);
-      for(let x=0;x<=lonSeg;x++){
-        const u=x/lonSeg,lon=(u*2-1)*Math.PI;
-        const px=cl*Math.cos(lon),py=sl,pz=cl*Math.sin(lon);
-        pos.push(px,py,pz);norm.push(px,py,pz);uv.push(u,1-v);
-      }
-    }
-    for(let y=0;y<latSeg;y++)for(let x=0;x<lonSeg;x++){
-      const a=y*(lonSeg+1)+x,b=a+lonSeg+1;
-      idx.push(a,b,a+1,b,b+1,a+1);
-    }
-    return {pos:new Float32Array(pos),norm:new Float32Array(norm),uv:new Float32Array(uv),idx:new Uint16Array(idx)};
-  }
-  function buffer(data,target=gl.ARRAY_BUFFER){const b=gl.createBuffer();gl.bindBuffer(target,b);gl.bufferData(target,data,gl.STATIC_DRAW);return b}
-  const sphere=makeSphere();
-  const spherePos=buffer(sphere.pos),sphereNorm=buffer(sphere.norm),sphereUV=buffer(sphere.uv),sphereIdx=buffer(sphere.idx,gl.ELEMENT_ARRAY_BUFFER);
+  const ambient = new THREE.AmbientLight(0x79c8ff, 0.82);
+  scene.add(ambient);
 
-  function sphericalPoint(lonDeg,latDeg,r=1.018){
-    const lon=lonDeg*Math.PI/180,lat=latDeg*Math.PI/180,cl=Math.cos(lat);
-    return [r*cl*Math.cos(lon),r*Math.sin(lat),r*cl*Math.sin(lon)];
-  }
-  const grid=[];
-  for(let lat=-75;lat<=75;lat+=15){
-    for(let lon=-180;lon<180;lon+=3){grid.push(...sphericalPoint(lon,lat),...sphericalPoint(lon+3,lat))}
-  }
-  for(let lon=-180;lon<180;lon+=15){
-    for(let lat=-87;lat<87;lat+=3){grid.push(...sphericalPoint(lon,lat),...sphericalPoint(lon,lat+3))}
-  }
-  const gridBuf=buffer(new Float32Array(grid));
+  const key = new THREE.PointLight(0x8fe4ff, 3.4, 40);
+  key.position.set(4.2, 2.8, 6);
+  scene.add(key);
 
-  /* Golden great-circle-like Journey line ending at Alanya. */
-  const route=[];
-  const lon0=-112,lon1=32.0389,lat0=35,lat1=36.5324;
-  for(let i=0;i<100;i++){
-    const t=i/99;
-    const lon=lon0+(lon1-lon0)*t;
-    const lat=lat0+(lat1-lat0)*t+28*Math.sin(Math.PI*t);
-    route.push(...sphericalPoint(lon,lat,1.034));
-  }
-  const routeBuf=buffer(new Float32Array(route));
+  const rim = new THREE.PointLight(0x258bff, 2.5, 30);
+  rim.position.set(-5.5, -2.4, -3);
+  scene.add(rim);
 
-  /* Local equirectangular texture: dark oceans + stylised world continents. */
-  function makeEarthTexture(){
-    const c=document.createElement('canvas');c.width=1024;c.height=512;const ctx=c.getContext('2d');
-    const g=ctx.createLinearGradient(0,0,0,c.height);g.addColorStop(0,'#102d55');g.addColorStop(.52,'#061a38');g.addColorStop(1,'#031025');ctx.fillStyle=g;ctx.fillRect(0,0,c.width,c.height);
-    ctx.strokeStyle='rgba(70,171,235,.08)';ctx.lineWidth=1;
-    for(let y=32;y<c.height;y+=32){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(c.width,y);ctx.stroke()}
-    const continents=[
-      [[-168,72],[-145,70],[-128,58],[-118,49],[-102,50],[-91,55],[-78,49],[-66,44],[-79,31],[-96,21],[-111,27],[-126,32],[-145,55]],
-      [[-82,13],[-70,10],[-58,4],[-48,-10],[-51,-24],[-61,-39],[-70,-55],[-76,-36],[-80,-15]],
-      [[-58,82],[-29,79],[-19,66],[-43,59],[-61,70]],
-      [[-11,71],[15,70],[31,60],[40,50],[31,40],[16,35],[1,42],[-10,55]],
-      [[-17,37],[8,36],[34,30],[45,10],[39,-14],[25,-35],[10,-35],[-5,-20],[-15,5]],
-      [[29,70],[65,75],[103,70],[139,59],[158,44],[147,31],[125,24],[106,10],[82,18],[62,35],[42,44]],
-      [[66,25],[84,28],[94,20],[87,8],[76,7],[68,17]],
-      [[111,-10],[145,-12],[155,-27],[145,-40],[121,-38],[110,-25]],
-      [[130,34],[142,42],[146,35],[139,30]],
-      [[95,5],[118,4],[135,-5],[121,-12],[104,-7]]
-    ];
-    const xy=(lon,lat)=>[(lon+180)/360*c.width,(90-lat)/180*c.height];
-    ctx.lineJoin='round';ctx.lineCap='round';
-    continents.forEach(poly=>{
-      ctx.beginPath();
-      poly.forEach((pt,i)=>{const [x,y]=xy(pt[0],pt[1]);i?ctx.lineTo(x,y):ctx.moveTo(x,y)});
-      ctx.closePath();
-      const cg=ctx.createLinearGradient(0,0,c.width,c.height);
-      cg.addColorStop(0,'rgba(20,53,86,.78)');
-      cg.addColorStop(.52,'rgba(12,38,68,.82)');
-      cg.addColorStop(1,'rgba(8,24,47,.88)');
-      ctx.fillStyle=cg;
-      ctx.shadowColor='rgba(73,181,255,.16)';
-      ctx.shadowBlur=8;
-      ctx.fill();
-      ctx.shadowBlur=0;
-      ctx.strokeStyle='rgba(118,220,255,.24)';
-      ctx.lineWidth=0.9;
-      ctx.stroke();
+  const warm = new THREE.PointLight(0xffd27b, 0.8, 24);
+  warm.position.set(-4, 1, 3);
+  scene.add(warm);
+
+  const loader = new THREE.TextureLoader();
+  const globeGeometry = new THREE.SphereGeometry(2.28, 128, 128);
+
+  function makeFallbackGlobe(){
+    const mat = new THREE.MeshStandardMaterial({
+      color: 0x05234b,
+      emissive: 0x1aa3ff,
+      emissiveIntensity: 0.9,
+      roughness: 0.7,
+      metalness: 0.15
     });
-    /* Very subtle tech network only, to avoid visual trash. */
-    ctx.strokeStyle='rgba(82,193,255,.08)';ctx.lineWidth=.55;
-    for(let i=0;i<18;i++){
-      const a=xy(-150+Math.random()*290,50-Math.random()*85),b=xy(-150+Math.random()*290,50-Math.random()*85);
-      ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.stroke();
-    }
-    return c;
-  }
-  const tex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tex);gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,true);
-  gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,makeEarthTexture());
-  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
-  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.REPEAT);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
-
-  function perspective(fovy,aspect,near,far){
-    const f=1/Math.tan(fovy/2),nf=1/(near-far);
-    return new Float32Array([f/aspect,0,0,0,0,f,0,0,0,0,(far+near)*nf,-1,0,0,2*far*near*nf,0]);
-  }
-  function identity(){return new Float32Array([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1])}
-  function multiply(a,b){
-    const o=new Float32Array(16);
-    for(let c=0;c<4;c++)for(let r=0;r<4;r++)o[c*4+r]=a[0*4+r]*b[c*4+0]+a[1*4+r]*b[c*4+1]+a[2*4+r]*b[c*4+2]+a[3*4+r]*b[c*4+3];
-    return o;
-  }
-  function rotateX(a){const c=Math.cos(a),s=Math.sin(a);return new Float32Array([1,0,0,0,0,c,s,0,0,-s,c,0,0,0,0,1])}
-  function rotateY(a){const c=Math.cos(a),s=Math.sin(a);return new Float32Array([c,0,-s,0,0,1,0,0,s,0,c,0,0,0,0,1])}
-  function translate(z){const m=identity();m[14]=z;return m}
-
-  let rotY=-65*Math.PI/180,rotX=8*Math.PI/180,targetX=0,targetY=0,last=performance.now();
-  globeShell.addEventListener('pointermove',e=>{const r=globeShell.getBoundingClientRect();targetY=((e.clientX-r.left)/r.width-.5)*.18;targetX=((e.clientY-r.top)/r.height-.5)*.11});
-  globeShell.addEventListener('pointerleave',()=>{targetX=0;targetY=0});
-
-  function bindAttr(program,name,buf,size){const loc=gl.getAttribLocation(program,name);if(loc<0)return;gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,size,gl.FLOAT,false,0,0)}
-  function resize(){
-    const r=globeShell.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2),w=Math.max(360,Math.round(r.width*dpr)),h=Math.max(360,Math.round(r.width*dpr));
-    if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h}canvas.style.width='100%';canvas.style.height='100%';gl.viewport(0,0,w,h);
-  }
-  window.addEventListener('resize',resize,{passive:true});resize();
-
-  function drawLines(buf,count,mvp,color,mode=gl.LINES){
-    gl.useProgram(lineProgram);bindAttr(lineProgram,'aPos',buf,3);gl.uniformMatrix4fv(gl.getUniformLocation(lineProgram,'uMVP'),false,mvp);gl.uniform4fv(gl.getUniformLocation(lineProgram,'uColor'),color);gl.drawArrays(mode,0,count);
-  }
-  function render(now){
-    requestAnimationFrame(render);
-    if(window.ATO_THREE_GLOBE_ACTIVE) return;
+    const mesh = new THREE.Mesh(globeGeometry, mat);
+    root.add(mesh);
+    addAtmosphere();
+    addNetworkShell();
+    addStars();
+    addGoldenStars();
     resize();
-    const dt=Math.min(.05,(now-last)/1000);last=now;
-    const running=globeZone.classList.contains('journey-running');
-    const routeActive=running||globeZone.classList.contains('orbit-flight')||globeZone.classList.contains('journey-arrived')||globeZone.classList.contains('turkiye-focus')||globeZone.classList.contains('alanya-landed');
-    const hidden=globeZone.classList.contains('light-collapse')||globeZone.classList.contains('journey-heart')||globeZone.classList.contains('journey-explode')||globeZone.classList.contains('final-turkiye');
-    rotY+=dt*(running?.55:.16);rotX+=(targetX-rotX+8*Math.PI/180)*dt*.9;const y=rotY+targetY;
-    const model=multiply(rotateX(rotX),rotateY(y));
-    const view=multiply(translate(-3.45),model);
-    const proj=perspective(34*Math.PI/180,canvas.width/canvas.height,.1,100);
-    const mvp=multiply(proj,view);
-
-    gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);if(hidden)return;
-    gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.disable(gl.BLEND);gl.enable(gl.CULL_FACE);gl.cullFace(gl.BACK);
-    gl.useProgram(sphereProgram);bindAttr(sphereProgram,'aPos',spherePos,3);bindAttr(sphereProgram,'aNormal',sphereNorm,3);bindAttr(sphereProgram,'aUV',sphereUV,2);
-    gl.uniformMatrix4fv(gl.getUniformLocation(sphereProgram,'uMVP'),false,mvp);gl.uniformMatrix4fv(gl.getUniformLocation(sphereProgram,'uModel'),false,model);
-    gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);gl.uniform1i(gl.getUniformLocation(sphereProgram,'uTex'),0);gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,sphereIdx);gl.drawElements(gl.TRIANGLES,sphere.idx.length,gl.UNSIGNED_SHORT,0);
-
-    gl.disable(gl.CULL_FACE);gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE);
-    drawLines(gridBuf,grid.length/3,mvp,new Float32Array([.30,.78,1.0,.24]));
-    if(routeActive){drawLines(routeBuf,route.length/3,mvp,new Float32Array([.96,.77,.34,.78]),gl.LINE_STRIP);}
-    gl.disable(gl.BLEND);
+    animate();
   }
-  requestAnimationFrame(render);
-})();
+
+  const assets = {
+    map: 'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg',
+    lights: 'https://threejs.org/examples/textures/planets/earth_lights_2048.png',
+    normal: 'https://threejs.org/examples/textures/planets/earth_normal_2048.jpg'
+  };
+
+  Promise.all([
+    loader.loadAsync(assets.map),
+    loader.loadAsync(assets.lights),
+    loader.loadAsync(assets.normal)
+  ]).then(([earthMap, earthLights, earthNormal]) => {
+    const globeMaterial = new THREE.MeshStandardMaterial({
+      map: earthMap,
+      normalMap: earthNormal,
+      color: new THREE.Color(0x31577a),
+      emissive: new THREE.Color(0x0086c7),
+      emissiveMap: earthLights,
+      emissiveIntensity: 0.72,
+      roughness: 0.78,
+      metalness: 0.05
+    });
+
+    const globe = new THREE.Mesh(globeGeometry, globeMaterial);
+    globe.name = 'mainGlobe';
+    root.add(globe);
+
+    addAtmosphere();
+    addNetworkShell();
+    addStars();
+    addGoldenStars();
+    resize();
+    animate();
+  }).catch((err) => {
+    console.warn('Live globe textures failed to load, using fallback globe.', err);
+    makeFallbackGlobe();
+  });
+
+  function addAtmosphere(){
+    const glowGeometry = new THREE.SphereGeometry(2.38, 96, 96);
+    const glowMaterial = new THREE.MeshBasicMaterial({
+      color: 0x20bfff,
+      transparent: true,
+      opacity: 0.095
+    });
+    const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+    glow.name = 'glowShell';
+    root.add(glow);
+  }
+
+  function addNetworkShell(){
+    const networkGeometry = new THREE.SphereGeometry(2.43, 72, 72);
+    const networkMaterial = new THREE.MeshBasicMaterial({
+      color: 0x55cfff,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.035
+    });
+    const network = new THREE.Mesh(networkGeometry, networkMaterial);
+    network.name = 'networkShell';
+    root.add(network);
+  }
+
+
+  function addGoldenStars(){
+    const count = 24;
+    const positions = new Float32Array(count * 3);
+    for(let i=0;i<count;i++){
+      const radius = 4.8 + Math.random()*5.8;
+      const theta = Math.random()*Math.PI*2;
+      const phi = Math.acos((Math.random()*2)-1);
+      positions[i*3] = radius*Math.sin(phi)*Math.cos(theta);
+      positions[i*3+1] = radius*Math.sin(phi)*Math.sin(theta);
+      positions[i*3+2] = radius*Math.cos(phi);
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(positions,3));
+    const m = new THREE.PointsMaterial({
+      color:0xffd382,
+      size:.085,
+      transparent:true,
+      opacity:.72
+    });
+    const pts = new THREE.Points(g,m);
+    pts.name='goldParticles';
+    scene.add(pts);
+  }
+
+  function addStars(){
+    const particleCount = 220;
+    const positions = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < particleCount; i++) {
+      const radius = 7 + Math.random() * 8;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos((Math.random() * 2) - 1);
+
+      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = radius * Math.cos(phi);
+    }
+
+    const particlesGeometry = new THREE.BufferGeometry();
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const particlesMaterial = new THREE.PointsMaterial({
+      color: 0x63d7ff,
+      size: 0.06,
+      transparent: true,
+      opacity: 0.78
+    });
+
+    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    particles.name = 'outerParticles';
+    scene.add(particles);
+  }
+
+  let mouseX = 0;
+  let mouseY = 0;
+
+  globeShell.addEventListener('pointermove', (e) => {
+    const rect = globeShell.getBoundingClientRect();
+    mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+  });
+
+  globeShell.addEventListener('pointerleave', () => {
+    mouseX = 0;
+    mouseY = 0;
+  });
+
+  function resize(){
+    const size = globeShell.getBoundingClientRect();
+    const w = Math.max(320, Math.round(size.width));
+    const h = Math.max(320, Math.round(size.height));
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h, false);
+  }
+
+  window.addEventListener('resize', resize);
+
+  const clock = new THREE.Clock();
+
+  function animate(){
+    requestAnimationFrame(animate);
+
+    const t = clock.getElapsedTime();
+    const mainGlobe = root.getObjectByName('mainGlobe');
+    const glowShell = root.getObjectByName('glowShell');
+    const networkShell = root.getObjectByName('networkShell');
+    const outerParticles = scene.getObjectByName('outerParticles');
+    const goldParticles = scene.getObjectByName('goldParticles');
+
+    const running = globeZone.classList.contains('journey-running');
+    const arrived = globeZone.classList.contains('journey-arrived');
+    const pulsing = globeZone.classList.contains('journey-pulse');
+    const heart = globeZone.classList.contains('journey-heart');
+    const exploding = globeZone.classList.contains('journey-explode');
+    const launched = globeZone.classList.contains('journey-card-launch') || globeZone.classList.contains('card-landed');
+
+    let spin = 0.0024;
+    if (running) spin = 0.0072;
+    if (arrived) spin = 0.004;
+    if (heart || pulsing) spin = 0.0031;
+    if (exploding || launched) spin = 0.001;
+
+    if (mainGlobe) {
+      mainGlobe.rotation.y += spin;
+      mainGlobe.rotation.x = Math.sin(t * 0.35) * 0.03 + mouseY * 0.06;
+      mainGlobe.rotation.z = Math.sin(t * 0.18) * 0.02;
+    }
+
+    if (glowShell) {
+      glowShell.rotation.y += spin * 0.82;
+      glowShell.material.opacity = heart ? 0.08 : (0.14 + Math.sin(t * 1.8) * 0.018);
+    }
+
+    if (networkShell) {
+      networkShell.rotation.y += spin * 1.25;
+      networkShell.rotation.z = Math.sin(t * 0.26) * 0.03;
+      networkShell.material.opacity = launched ? 0.05 : (pulsing ? 0.22 : 0.13);
+    }
+
+    if (outerParticles) {
+      outerParticles.rotation.y += 0.0008;
+      outerParticles.rotation.x = Math.sin(t * 0.12) * 0.05;
+      outerParticles.material.opacity = launched ? 0.18 : 0.82;
+    }
+    if (goldParticles) {
+      goldParticles.rotation.y -= 0.00042;
+      goldParticles.rotation.z = Math.sin(t * 0.18) * 0.04;
+      goldParticles.material.opacity = launched ? 0.18 : (0.60 + Math.sin(t*1.1)*0.10);
+    }
+
+    root.rotation.y += mouseX * 0.0009;
+
+    renderer.render(scene, camera);
+  }
+}
+}).catch(err => console.error('Three.js failed to load:', err));
 
 document.addEventListener('DOMContentLoaded',()=>{
   const editChoicesBtn=document.getElementById('editChoicesBtn');

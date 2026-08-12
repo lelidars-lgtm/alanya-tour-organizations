@@ -8652,230 +8652,38 @@ body.so-premium-body #journey:has(.globe-zone.final-turkiye) .journey-copy{
   }
 }
 
-
-/* ===== LIVE IDLE GLOBE — FINAL FIX 2026-08-12 17:42 ===== */
-/* The real Three.js globe is the only Earth image in idle state.
-   Remove the old embedded static reference frame that visually masked rotation. */
-body.so-premium-body #journey .globe-zone{
-  border:0!important;
-  border-radius:0!important;
-  background:transparent!important;
-  box-shadow:none!important;
-  overflow:visible!important;
-}
-body.so-premium-body #journey .globe-stage-live{
-  background:transparent!important;
-  overflow:visible!important;
-}
-body.so-premium-body #journey .globe-stage-live::before{
-  content:""!important;
-  background:none!important;
-  background-image:none!important;
-  opacity:0!important;
-  filter:none!important;
-  mask-image:none!important;
-  -webkit-mask-image:none!important;
-  pointer-events:none!important;
-}
-/* Keep the atmospheric glow/bokeh, but never a second static globe silhouette. */
-body.so-premium-body #journey .globe-stage-live::after{
-  opacity:1!important;
-}
-body.so-premium-body #journey .globe-zone:not(.journey-heart):not(.heart-full):not(.journey-explode):not(.journey-card-launch):not(.final-turkiye) .live-globe-canvas{
-  opacity:1!important;
-  visibility:visible!important;
-}
-/* Idle and replay always begin from the live globe, never a stale final map. */
-body.so-premium-body #journey .globe-zone:not(.final-turkiye) .final-turkiye-stage{
-  opacity:0!important;
-  visibility:hidden!important;
-  pointer-events:none!important;
-}
-
 /* =========================================================
-   CORRECT BRANCH — CLEAN 3D SPACE GLOBE
-   Applied on special-offers-live-globe-ato-manager only.
-   Keeps Journey / Heart / ATO Manager mechanics unchanged.
+   JOURNEY FINAL CARD — DISCOUNT OFFER LOCK — 2026-08-12
+   Approved result: tour + category discount + regular / heart price
+   + VIEW TOUR / CHOOSE ANOTHER / CLAIM OFFER.
+   Keeps Journey animation and final Türkiye composition unchanged.
    ========================================================= */
-.globe-zone{
-  min-height:680px!important;
-  overflow:visible!important;
-}
-.globe-zone::before{
-  width:760px!important;
-  height:760px!important;
-  background:radial-gradient(circle,rgba(75,191,255,.22) 0%,rgba(18,113,255,.18) 24%,rgba(8,22,45,.16) 46%,transparent 72%)!important;
-  filter:blur(26px)!important;
-}
-.globe-shell,.globe-shell-live,.globe-stage-live{
-  width:min(760px,100%)!important;
-}
-.globe-stage-live{
-  background:transparent!important;
-  border-radius:50%!important;
-  overflow:visible!important;
-}
-/* Remove the embedded photographic reference layer: the globe is now only true WebGL 3D. */
-.globe-stage-live::before{
-  background:none!important;
-  background-image:none!important;
-  opacity:0!important;
-  filter:none!important;
-  mask-image:none!important;
-  -webkit-mask-image:none!important;
-}
-.globe-stage-live::after{
-  inset:-18%!important;
-  background:
-    radial-gradient(circle at 50% 50%,rgba(55,181,255,.18),transparent 36%),
-    radial-gradient(circle at 50% 50%,rgba(23,96,255,.10),transparent 58%)!important;
-  filter:blur(24px)!important;
-  opacity:.9!important;
-}
-.live-globe-canvas{
-  opacity:1!important;
-  filter:
-    saturate(1.08)
-    contrast(1.16)
-    brightness(.92)
-    drop-shadow(0 0 24px rgba(95,213,255,.38))
-    drop-shadow(0 0 70px rgba(31,123,255,.30))
-    drop-shadow(0 0 145px rgba(24,98,255,.20))!important;
-}
-/* Remove old decorative globe layers which made the Earth look like a card/illustration. */
-.journey-latitude-field,
-.reference-depth-haze,
-.brand-launch-chip{
+body.so-premium-body #journey #journeyDockCard .journey-match-insight,
+body.so-premium-body #journey #journeyDockCard #journeyLegacyActions,
+body.so-premium-body #journey #journeyDockCard .journey-bonus{
   display:none!important;
 }
-.globe-aura-ring{
-  inset:7%!important;
-  background:radial-gradient(circle,rgba(57,184,255,.14),rgba(22,108,255,.08) 42%,transparent 70%)!important;
-  border:1px solid rgba(116,214,255,.10)!important;
-  filter:blur(18px)!important;
-  opacity:.66!important;
-}
-.globe-bokeh-layer{inset:-16%!important}
-.globe-bokeh-layer .bokeh-dot{
-  opacity:.40!important;
-  filter:blur(2.4px)!important;
-}
-.globe-bokeh-layer .bokeh-dot.gold{opacity:.30!important}
-/* Gold route remains elegant and secondary on top of the blue technical Earth. */
-.journey-overlay-svg .route-base{
-  stroke:rgba(243,198,109,.12)!important;
-  stroke-width:1.1!important;
-}
-.journey-overlay-svg .route-live{
-  stroke:#f3c66d!important;
-  stroke-width:1.55!important;
-  filter:drop-shadow(0 0 5px rgba(243,198,109,.55))!important;
-}
-@media(max-width:900px){
-  .globe-zone{min-height:560px!important}
-  .globe-shell,.globe-shell-live,.globe-stage-live{width:min(620px,100%)!important}
-}
-
-/* ===== JOURNEY 3D GLOBE — SELF-CONTAINED WEBGL FINAL ===== */
-body.so-premium-body #journey .globe-zone{
-  border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;
-}
-body.so-premium-body #journey .globe-shell-live,
-body.so-premium-body #journey .globe-stage-live{
-  width:min(650px,100%)!important;aspect-ratio:1/1!important;overflow:visible!important;background:transparent!important;
-}
-body.so-premium-body #journey .globe-stage-live::before{content:none!important;display:none!important}
-body.so-premium-body #journey .live-globe-canvas{
-  position:relative!important;z-index:3!important;width:100%!important;height:100%!important;display:block!important;border-radius:50%!important;
-  opacity:1!important;filter:drop-shadow(0 0 18px rgba(66,198,255,.38)) drop-shadow(0 0 55px rgba(21,122,255,.28)) drop-shadow(0 0 115px rgba(10,80,218,.18))!important;
-}
-body.so-premium-body #journey .globe-zone::before{
-  content:""!important;position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;
-  width:min(720px,108%)!important;aspect-ratio:1/1!important;height:auto!important;border-radius:50%!important;
-  background:radial-gradient(circle,rgba(44,176,255,.23) 0%,rgba(23,105,232,.17) 31%,rgba(4,28,67,.09) 54%,transparent 73%)!important;
-  filter:blur(25px)!important;pointer-events:none!important;
-}
-body.so-premium-body #journey .globe-aura-ring{
-  display:block!important;position:absolute!important;inset:7%!important;border-radius:50%!important;z-index:1!important;pointer-events:none!important;
-  border:1px solid rgba(102,211,255,.12)!important;background:transparent!important;
-  box-shadow:0 0 34px rgba(33,159,255,.15),inset 0 0 38px rgba(38,160,255,.08)!important;filter:none!important;
-}
-body.so-premium-body #journey .journey-latitude-field,
-body.so-premium-body #journey .brand-launch-chip,
-body.so-premium-body #journey .reference-depth-haze{display:none!important}
-body.so-premium-body #journey .globe-bokeh-layer{inset:-13%!important;overflow:visible!important;z-index:0!important}
-body.so-premium-body #journey .ato-space-star{position:absolute;border-radius:50%;background:#73d8ff;box-shadow:0 0 7px rgba(72,190,255,.82);animation:atoStarTwinkle 3.4s ease-in-out infinite alternate}
-body.so-premium-body #journey .ato-space-star.warm{background:#f4ca6e;box-shadow:0 0 8px rgba(244,202,110,.70)}
-@keyframes atoStarTwinkle{from{transform:scale(.72);filter:brightness(.75)}to{transform:scale(1.18);filter:brightness(1.45)}}
-body.so-premium-body #journey .journey-overlay-svg{z-index:5!important;overflow:visible!important}
-body.so-premium-body #journey .journey-overlay-svg .route-live{stroke:#f3c66d!important;filter:drop-shadow(0 0 7px rgba(243,198,109,.72))!important}
-body.so-premium-body #journey .journey-cta{pointer-events:auto!important;cursor:pointer!important;position:relative!important;z-index:15!important}
-body.so-premium-body #journey .heart-eligibility-panel form{display:grid;gap:14px}
-@media(max-width:900px){body.so-premium-body #journey .globe-shell-live,body.so-premium-body #journey .globe-stage-live{width:min(560px,100%)!important}}
-
-
-/* Globe beauty cleanup */
-.ato-space-star.warm{display:none!important;}
-.live-globe-canvas{filter:drop-shadow(0 0 42px rgba(56,167,255,.22)) drop-shadow(0 0 110px rgba(16,101,227,.18));}
-.globe-aura-ring{opacity:.78!important;filter:blur(.2px);}
-
-/* ===== JOURNEY EARTH — THREE.JS PHOTOREAL LAYER ===== */
-body.so-premium-body #journey .globe-stage-live{
-  isolation:isolate!important;
-}
-body.so-premium-body #journey .three-globe-canvas{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
+body.so-premium-body #journey #journeyDockCard .heart-commercial-layer{
   display:block!important;
-  z-index:4!important;
-  opacity:0;
-  pointer-events:none;
-  border:0!important;
-  border-radius:50%!important;
-  background:transparent!important;
-  filter:drop-shadow(0 0 28px rgba(70,187,255,.24)) drop-shadow(0 0 88px rgba(18,99,226,.20));
-  transition:opacity .65s ease,transform 1.05s cubic-bezier(.2,.8,.2,1),filter .8s ease;
-  transform:scale(.995);
 }
-body.so-premium-body #journey .globe-zone.three-globe-ready .three-globe-canvas{
-  opacity:1;
-  pointer-events:auto;
+body.so-premium-body #journey #journeyDockCard #heartOfferEyebrow{
+  display:block!important;
+  color:#f3c66d!important;
 }
-body.so-premium-body #journey .globe-zone.three-globe-ready .live-globe-canvas{
-  opacity:0!important;
-  visibility:hidden!important;
-  pointer-events:none!important;
+body.so-premium-body #journey #journeyDockCard.final-visible{
+  padding-bottom:16px!important;
 }
-body.so-premium-body #journey .globe-zone.three-globe-ready.turkiye-focus .three-globe-canvas{
-  opacity:.16!important;
-  transform:scale(1.16)!important;
-  filter:blur(.7px) drop-shadow(0 0 34px rgba(60,178,255,.18))!important;
+body.so-premium-body #journey #journeyDockCard .heart-surprise-offer{
+  display:block!important;
 }
-body.so-premium-body #journey .globe-zone.three-globe-ready.light-collapse .three-globe-canvas{
-  opacity:0!important;
-  transform:scale(.68)!important;
-  filter:blur(6px) brightness(1.25)!important;
+body.so-premium-body #journey #journeyDockCard .heart-price-strip{
+  display:grid!important;
 }
-body.so-premium-body #journey .globe-zone.three-globe-ready.journey-heart .three-globe-canvas,
-body.so-premium-body #journey .globe-zone.three-globe-ready.heart-full .three-globe-canvas,
-body.so-premium-body #journey .globe-zone.three-globe-ready.journey-explode .three-globe-canvas,
-body.so-premium-body #journey .globe-zone.three-globe-ready.journey-card-launch .three-globe-canvas,
-body.so-premium-body #journey .globe-zone.three-globe-ready.final-turkiye .three-globe-canvas{
-  opacity:0!important;
-  pointer-events:none!important;
+body.so-premium-body #journey #journeyDockCard .heart-offer-actions{
+  display:grid!important;
 }
-/* No permanent gold orbit over the idle Earth. The approved route appears only while Journey runs. */
-body.so-premium-body #journey .globe-zone:not(.journey-running):not(.orbit-flight) .journey-overlay-svg .route-base,
-body.so-premium-body #journey .globe-zone:not(.journey-running):not(.orbit-flight) .journey-overlay-svg .route-live{
-  opacity:0!important;
-}
-body.so-premium-body #journey .three-globe-ready .globe-aura-ring{
-  opacity:.36!important;
-  border-color:rgba(109,207,255,.07)!important;
-  box-shadow:0 0 45px rgba(34,147,255,.08),inset 0 0 44px rgba(37,149,255,.04)!important;
-}
-@media(max-width:900px){
-  body.so-premium-body #journey .three-globe-canvas{pointer-events:none!important}
+body.so-premium-body #journey #journeyDockCard.visual-only .heart-surprise-offer,
+body.so-premium-body #journey #journeyDockCard.visual-only .heart-price-strip,
+body.so-premium-body #journey #journeyDockCard.visual-only #requestPersonalOffer{
+  display:none!important;
 }

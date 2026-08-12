@@ -1,0 +1,10 @@
+{
+  "globe_dom_source_sha256": "7dd6c9daa307f78fb7bf5760c61cad750bb02627fb878bb80807b31533258d41",
+  "globe_dom_final_sha256": "7dd6c9daa307f78fb7bf5760c61cad750bb02627fb878bb80807b31533258d41",
+  "globe_renderer_source_sha256": "fe7e2b213c09ec0eb9a9d7f9f15ea6dc8d9a915555c76e2d1a84a8660eab8602",
+  "globe_renderer_final_sha256": "fe7e2b213c09ec0eb9a9d7f9f15ea6dc8d9a915555c76e2d1a84a8660eab8602",
+  "css_source_is_exact_prefix": true,
+  "start_direct": true,
+  "offer_card": true,
+  "choose_another": true
+}
