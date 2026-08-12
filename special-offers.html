@@ -800,7 +800,7 @@
 </div>
 </div>
 <div class="gift-product">
-<div class="gift-memory-top"><div class="memory-line">ONE GIFT. <span>TWO VERY DIFFERENT WAYS TO GIVE IT.</span></div></div>
+
 <div aria-label="Choose gift certificate type" class="gift-options gift-options-analytical" role="group">
 <button class="gift-option" data-gift-mode="freedom" data-gift-type="Chosen Amount" type="button">
 <small>01 · FREEDOM GIFT</small><strong>LET THEM CHOOSE</strong>
@@ -815,52 +815,7 @@
 <div class="gift-option-output">OUTPUT · EXPERIENCE CERTIFICATE →</div>
 </button>
 </div>
-<div class="gift-builder-grid" id="giftBuilderGrid">
-<form class="gift-form" id="giftForm" novalidate="">
-<input id="giftType" name="giftType" type="hidden"/>
-<input id="giftMode" name="giftMode" type="hidden"/>
-<div class="gift-form-intro" id="giftFormIntro"><span>CHOOSE ONE OF THE TWO GIFT TYPES ABOVE</span><strong>The questions will change depending on what you are actually giving.</strong></div>
-<div class="form-grid gift-common-fields">
-<div class="field"><label for="giftRecipient">Recipient</label><input id="giftRecipient" name="recipient" placeholder="Name" required=""/></div>
-<div class="field"><label for="giftGiver">From</label><input id="giftGiver" name="giver" placeholder="Your name" required=""/></div>
-<div class="field full"><label for="giftOccasion">Occasion</label><select id="giftOccasion" name="occasion"><option value="">Choose an occasion</option><option>Birthday</option><option>Anniversary</option><option>Wedding</option><option>Graduation</option><option>Thank You</option><option>Just Because</option><option>Other</option></select></div>
-</div>
-<div class="gift-mode-fields" data-gift-panel="freedom" hidden="" id="giftFreedomFields">
-<div class="gift-mode-explainer"><b>FREEDOM GIFT</b><span>Set the value. The recipient decides what to experience later.</span></div>
-<div class="field"><label for="giftAmount">Gift value (€)</label><input id="giftAmount" inputmode="decimal" min="25" name="amount" placeholder="100" step="5" type="number"/></div>
-<div aria-label="Quick gift values" class="gift-quick-values"><button data-gift-value="50" type="button">€50</button><button data-gift-value="100" type="button">€100</button><button data-gift-value="150" type="button">€150</button><button data-gift-value="200" type="button">€200</button></div>
-<p class="gift-field-note">The recipient can choose an eligible experience and arrange a suitable date with our team.</p>
-</div>
-<div class="gift-mode-fields" data-gift-panel="signature" hidden="" id="giftSignatureFields">
-<div class="gift-mode-explainer"><b>SIGNATURE GIFT</b><span>Choose the experience now. Keep the exact date flexible if you wish.</span></div>
-<div class="form-grid">
-<div class="field full"><label for="giftExperience">Chosen experience</label><select id="giftExperience" name="experience"><option value="">Choose an experience</option><option>Private Yacht Charter</option><option>Alanya Paragliding</option><option>Land of Legends — Day Tour</option><option>Family Jeep Safari</option><option>Turkish Hammam &amp; Spa</option><option>Aspendos, Side &amp; Manavgat Waterfall</option><option>Private Photographer</option><option>Luxury Airport Transfer</option></select></div>
-<div class="field"><label for="giftGuests">For how many guests?</label><select id="giftGuests" name="guests"><option value="">Choose</option><option>1 Guest</option><option>2 Guests</option><option>3–4 Guests</option><option>Family</option><option>Group</option></select></div>
-<div class="field"><label for="giftPreferredDate">Preferred date <span class="label-optional">optional</span></label><div class="date-input-shell"><input id="giftPreferredDate" name="preferredDate" type="date"/><button aria-label="Open gift preferred date calendar" class="date-picker-trigger icon-only" id="giftDatePickerBtn" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M7 3v4M17 3v4M3 10h18"></path></svg></button></div></div>
-</div>
-<label class="gift-flexible-toggle"><input checked="" id="giftDateFlexible" name="dateFlexible" type="checkbox" value="yes"/><span>Keep the date flexible — recommended for a gift</span></label>
-<p class="gift-field-note">The certificate focuses on the experience, not its price. Our manager confirms availability before final issue.</p>
-</div>
-<div class="field full gift-message-field"><label for="giftMessage">Personal message</label><textarea id="giftMessage" name="message" placeholder="A few words from you…"></textarea></div>
-<button class="btn tp-btn gold gift-submit" disabled="" id="giftSubmit" type="submit">Choose Gift Type First</button>
-</form>
-<aside class="gift-live-preview" id="giftLivePreview">
-<div class="outcome-preview-head"><span>LIVE OUTPUT</span><strong>YOUR CERTIFICATE CHANGES HERE</strong><small>Every answer updates the preview before you send the request</small></div>
-<div class="gift-live-certificate-mini" id="giftLiveCertificateMini">
-<img alt="Live gift certificate preview" id="giftLiveMiniImage"/>
-<div class="certificate-live-layer compact">
-<div class="cert-live-label" data-cert-field="fieldLabel">AMOUNT</div>
-<div class="cert-live-box cert-live-main" data-cert-field="mainValue">€100</div>
-<div class="cert-live-box cert-live-recipient" data-cert-field="recipient">YOUR RECIPIENT</div>
-<div class="cert-live-box cert-live-valid" data-cert-field="validUntil">VALID FOR 12 MONTHS</div>
-<div class="cert-live-box cert-live-number" data-cert-field="number">ATO-GIFT-PREVIEW</div>
-<div class="cert-live-description" data-cert-field="description">They choose the experience and suitable date later with our team.</div>
-</div>
-</div>
-<div class="gift-live-details"><span><small>TYPE</small><strong id="giftPreviewType">Choose a gift type</strong></span><span><small>OCCASION</small><strong id="giftPreviewOccasion">—</strong></span><span><small>DATE LOGIC</small><strong id="giftPreviewDateLogic">—</strong></span></div>
-<div class="gift-preview-note"><b>WHAT HAPPENS NEXT</b><span>Your request goes to the manager with exactly this gift logic. After payment/confirmation, the final certificate gets its certificate number and confirmed conditions.</span></div>
-</aside>
-</div>
+
 </div>
 <div class="gift-ending">
 <div class="heart-line">THE BEST GIFTS DON’T TAKE UP SPACE.<span>THEY TAKE A PLACE IN OUR HEARTS.</span></div>

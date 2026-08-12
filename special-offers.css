@@ -8440,3 +8440,115 @@ body.so-premium-body #journey .globe-zone.heart-after-card.heart-return::before{
   }
 }
 
+
+/* =========================================================
+   GIFT OPTION CARDS — PAGE ALIGNMENT + APPROVED BLUE/GOLD HOVER
+   ========================================================= */
+body.so-premium-body #gift .gift-product{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:0 var(--so-scene-x) 30px!important;
+}
+
+body.so-premium-body #gift .gift-options,
+body.so-premium-body #gift .gift-options-analytical{
+  box-sizing:border-box!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:20px 0 0!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:16px!important;
+  align-items:stretch!important;
+}
+
+body.so-premium-body #gift .gift-options-analytical .gift-option{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-width:0!important;
+  height:100%!important;
+  cursor:pointer!important;
+  border:1px solid rgba(214,162,74,.22)!important;
+  background:linear-gradient(145deg,rgba(7,29,44,.96),rgba(3,18,31,.98))!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.16)!important;
+  transition:
+    transform .30s cubic-bezier(.2,.72,.2,1),
+    border-color .30s ease,
+    background .30s ease,
+    box-shadow .30s ease!important;
+}
+
+body.so-premium-body #gift .gift-options-analytical .gift-option:hover,
+body.so-premium-body #gift .gift-options-analytical .gift-option:focus-visible,
+body.so-premium-body #gift .gift-options-analytical .gift-option.selected{
+  transform:translateY(-4px)!important;
+  border-color:rgba(243,198,109,.88)!important;
+  background:
+    radial-gradient(circle at 18% 0%,rgba(38,140,214,.20),transparent 34%),
+    linear-gradient(145deg,rgba(7,62,104,.98),rgba(3,31,63,.99))!important;
+  box-shadow:
+    0 20px 48px rgba(0,0,0,.28),
+    0 0 0 1px rgba(243,198,109,.12),
+    0 0 28px rgba(214,162,74,.12),
+    inset 0 1px 0 rgba(255,255,255,.035)!important;
+}
+
+/* Old approved blue title with a fine gold outline appears on interaction. */
+body.so-premium-body #gift .gift-options-analytical .gift-option:hover strong,
+body.so-premium-body #gift .gift-options-analytical .gift-option:focus-visible strong,
+body.so-premium-body #gift .gift-options-analytical .gift-option.selected strong{
+  color:#158dff!important;
+  -webkit-text-fill-color:#158dff!important;
+  -webkit-text-stroke:.55px rgba(243,198,109,.98)!important;
+  paint-order:stroke fill!important;
+  text-shadow:0 0 18px rgba(21,141,255,.12)!important;
+}
+
+body.so-premium-body #gift .gift-options-analytical .gift-option:hover .gift-option-output,
+body.so-premium-body #gift .gift-options-analytical .gift-option:focus-visible .gift-option-output,
+body.so-premium-body #gift .gift-options-analytical .gift-option.selected .gift-option-output{
+  color:#f3c66d!important;
+}
+
+@media(max-width:760px){
+  body.so-premium-body #gift .gift-product{
+    padding:0 16px 24px!important;
+  }
+  body.so-premium-body #gift .gift-options,
+  body.so-premium-body #gift .gift-options-analytical{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+  }
+  body.so-premium-body #gift .gift-options-analytical .gift-option:hover,
+  body.so-premium-body #gift .gift-options-analytical .gift-option:focus-visible,
+  body.so-premium-body #gift .gift-options-analytical .gift-option.selected{
+    transform:translateY(-2px)!important;
+  }
+}
+
+/* =========================================================
+   GIFT CLOSING MANIFESTO — EXACT HERO TYPOGRAPHY MATCH
+   Same typography as the first two hero manifesto lines.
+   ========================================================= */
+body.so-premium-body .gift-ending .heart-line{
+  max-width:1040px!important;
+  margin:0 auto!important;
+  color:#fff!important;
+  text-align:center!important;
+  font:500 clamp(25px,3.15vw,40px)/1.04 var(--so-display)!important;
+  letter-spacing:-.018em!important;
+}
+body.so-premium-body .gift-ending .heart-line span{
+  display:block!important;
+  margin-top:5px!important;
+  color:var(--gold2)!important;
+  font:inherit!important;
+  letter-spacing:inherit!important;
+}
+@media(max-width:700px){
+  body.so-premium-body .gift-ending .heart-line{
+    font-size:clamp(22px,7vw,31px)!important;
+    line-height:1.04!important;
+  }
+}
