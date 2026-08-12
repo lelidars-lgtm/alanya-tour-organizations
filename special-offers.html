@@ -409,18 +409,28 @@
 <div class="placeholder-copy">Follow the journey and discover where the heart takes you.</div>
 <div class="placeholder-meta">WAITING FOR YOUR JOURNEY</div>
 </div>
-<a aria-label="Open selected tour" class="journey-dock-card" href="#" id="journeyDockCard">
-<small>YOUR TOUR HAS ARRIVED</small>
+<article aria-label="Journey Heart Offer result" aria-live="polite" class="journey-dock-card heart-offer-card" id="journeyDockCard">
+<small id="heartOfferEyebrow">YOUR JOURNEY FOUND THIS FOR YOU</small>
 <div class="random-tour-thumb" id="dockCardThumb"></div>
 <strong id="dockCardTitle">Your Special Experience</strong>
-<p id="dockCardText">A custom concept shaped around your celebration.</p>
-<div class="random-tour-meta" id="dockCardMeta"></div><div class="journey-match-insight" id="journeyMatchInsight"><small>WHY THIS MATCH</small><span id="journeyMatchReason">Your answers will shape the surprise.</span></div><div class="journey-bonus" hidden="" id="journeyBonus"><b>JOURNEY GROUP BONUS</b><span>5% OFF for every paying guest · manager confirms final conditions</span></div>
-<div class="offer-result-meta" id="offerResultMeta"></div>
-<div class="offer-result-actions">
-<button class="btn tp-btn gold" id="requestPersonalOffer" type="button">Get My Personal Offer →</button>
-<button class="btn tp-btn" id="editChoicesBtn" type="button">Edit Choices</button>
+<p id="dockCardText">A tour chosen by the journey — discover where the heart takes you.</p>
+<div class="random-tour-meta" id="dockCardMeta"></div>
+<div class="heart-surprise-offer" id="heartSurpriseOffer">
+<span>YOUR SURPRISE OFFER</span>
+<strong id="heartDiscountValue">—% OFF</strong>
+<small>Unlocked by your journey.</small>
 </div>
-</a>
+<div class="heart-price-strip" id="heartPriceStrip">
+<span><b>REGULAR</b><em id="heartRegularPrice">—</em></span>
+<span><b>HEART PRICE</b><em id="heartOfferPrice">—</em></span>
+</div>
+<div class="offer-result-meta" id="offerResultMeta"></div>
+<div class="offer-result-actions heart-offer-actions">
+<button class="btn tp-btn" id="viewHeartTour" type="button">VIEW TOUR</button>
+<button class="btn tp-btn" id="chooseAnotherHeartTour" type="button">CHOOSE ANOTHER</button>
+<button class="btn tp-btn gold heart-claim-main" id="requestPersonalOffer" type="button">CLAIM OFFER →</button>
+</div>
+</article>
 </div>
 </div>
 <div class="journey-visual-column">
@@ -827,6 +837,60 @@
 <p class="footer-trust">Trusted since 2010 · 35,000+ Happy Guests · Google Verified 5★</p>
 <p class="footer-copy">© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.</p>
 </footer>
+
+<div class="heart-modal" id="heartEligibilityModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="heartEligibilityTitle">
+  <div class="heart-modal-backdrop" data-heart-close="eligibility"></div>
+  <div class="heart-modal-panel heart-eligibility-panel">
+    <button class="heart-modal-close" type="button" data-heart-close="eligibility" aria-label="Close">×</button>
+    <small class="heart-modal-kicker">ONE HEART OFFER · ONE CONFIRMED PURCHASE</small>
+    <h3 id="heartEligibilityTitle">UNLOCK YOUR HEART OFFER</h3>
+    <p>Enter the WhatsApp number you will use for booking. Opening the Journey does not use your offer — it is redeemed only after a confirmed purchase.</p>
+    <form id="heartEligibilityForm">
+      <label class="heart-field"><span>WHATSAPP NUMBER</span><input id="heartPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+90 5XX XXX XX XX" required></label>
+      <small class="heart-field-help">Use the full international number with country code.</small>
+      <button class="btn tp-btn gold" id="heartEligibilitySubmit" type="submit">CHECK & START JOURNEY →</button>
+      <div class="heart-form-status" id="heartEligibilityStatus" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+<div class="heart-modal" id="heartClaimModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="heartClaimTitle">
+  <div class="heart-modal-backdrop" data-heart-close="claim"></div>
+  <div class="heart-modal-panel heart-claim-panel">
+    <button class="heart-modal-close" type="button" data-heart-close="claim" aria-label="Close">×</button>
+    <small class="heart-modal-kicker">YOUR HEART OFFER</small>
+    <h3 id="heartClaimTitle">CLAIM YOUR OFFER</h3>
+    <div class="heart-claim-summary">
+      <strong id="heartClaimTour">Your selected tour</strong>
+      <span id="heartClaimCategory">Category</span>
+      <div><b id="heartClaimDiscount">—% OFF</b><em id="heartClaimPrice">—</em></div>
+    </div>
+    <form id="heartClaimForm">
+      <div class="heart-claim-grid">
+        <label class="heart-field"><span>YOUR NAME</span><input id="heartClientName" autocomplete="name" required></label>
+        <label class="heart-field"><span>WHATSAPP</span><input id="heartClaimPhone" type="tel" inputmode="tel" autocomplete="tel" required></label>
+        <label class="heart-field"><span>ADULTS</span><input id="heartAdults" type="number" min="1" max="20" value="2" required></label>
+        <label class="heart-field"><span>CHILDREN & AGES</span><input id="heartChildren" placeholder="e.g. 2 children: 4, 9"></label>
+        <label class="heart-field"><span>DESIRED DATE</span><input id="heartDesiredDate" type="date"></label>
+        <label class="heart-field"><span>HOTEL / AREA</span><input id="heartHotel" placeholder="Hotel name or area"></label>
+        <label class="heart-field heart-field-wide"><span>COMMENT</span><textarea id="heartComment" placeholder="Anything the manager should know"></textarea></label>
+      </div>
+      <div class="heart-price-note">The displayed Heart Price is the discounted listed base price. Final family/child tariff and total are confirmed by the manager before booking.</div>
+      <button class="btn tp-btn gold heart-submit-claim" id="heartClaimSubmit" type="submit">CREATE MY HEART OFFER CODE →</button>
+      <div class="heart-form-status" id="heartClaimStatus" aria-live="polite"></div>
+    </form>
+  </div>
+</div>
+
+<template id="heartRedeemedTemplate">
+  <div class="heart-redeemed-card">
+    <small>HEART OFFER</small>
+    <strong>YOUR HEART OFFER HAS ALREADY BEEN USED.</strong>
+    <p>Thank you for travelling with us. The Journey can still be replayed as an experience, but it will not create another discount.</p>
+    <button class="btn tp-btn" id="heartReplayVisual" type="button">WATCH THE JOURNEY AGAIN →</button>
+  </div>
+</template>
+
 <div class="toast" id="toast"></div>
 <script src="special-offers.js"></script>
 </body>

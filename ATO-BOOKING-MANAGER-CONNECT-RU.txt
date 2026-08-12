@@ -1,0 +1,34 @@
+ALANYA TOUR ORGANIZATIONS — HEART OFFER → СУЩЕСТВУЮЩИЙ ATO BOOKING MANAGER
+
+ЧТО СДЕЛАНО
+- Никакого второго ATO Manager больше нет.
+- Special Offers / Heart Offer использует тот же Supabase-проект, что Map и ATO Booking Manager.
+- Heart-заявка появляется в обычной очереди ATO Booking Manager со статусом PENDING.
+- Номер заявки имеет вид HEART-26-XXXX.
+- В карточке менеджера видны клиент, WhatsApp, отель, выбранный тур и Heart-цена.
+- В Manager Notes записываются категория, обычная цена, скидка, Heart-цена, код и данные Journey.
+- CHOOSE ANOTHER до покупки не расходует скидку: тот же PENDING-код обновляется новым туром.
+- Обычная кнопка существующего менеджера “CONFIRM BOOKING & CREATE TICKETS” подтверждает заказ.
+- После этого триггер автоматически отмечает Heart Offer как REDEEMED.
+- Этот же нормализованный WhatsApp больше не получает новый Heart Offer.
+- Очистка cookie/localStorage или другой телефон/браузер не снимают REDEEMED, потому что статус хранится в Supabase.
+
+ОДИН РАЗ ПЕРЕД ЗАПУСКОМ
+1. Открой тот ЖЕ Supabase project, который уже обслуживает ATO Booking Manager (alanya-tour-booking).
+2. Открой SQL Editor.
+3. Выполни целиком файл HEART-OFFER-ATO-BOOKING-MANAGER.sql.
+4. Загрузи обновлённые special-offers.html / .css / .js на сайт.
+5. Никакой новый manager.html загружать НЕ надо.
+6. Никакой новый Redis / Upstash / отдельный Vercel API НЕ нужен для этой версии.
+
+КАК ПРОВЕРИТЬ
+1. Открой Special Offers.
+2. Запусти Journey и введи тестовый WhatsApp (не используй реальный клиентский номер для тестового REDEEM).
+3. Получи случайный тур и нажми CLAIM OFFER.
+4. Открой существующий ATO Booking Manager и нажми REFRESH.
+5. Должна появиться заявка HEART-26-XXXX со статусом PENDING.
+6. Нажатие SAVE CHANGES НЕ должно расходовать Heart Offer.
+7. Только “CONFIRM BOOKING & CREATE TICKETS” переводит скидку в REDEEMED.
+
+ВАЖНО
+Heart Offer применяет процент к listed base price выбранного тура. Финальная стоимость семьи/детей и индивидуальные тарифы подтверждаются менеджером перед CONFIRM BOOKING.

@@ -8552,3 +8552,50 @@ body.so-premium-body .gift-ending .heart-line span{
     line-height:1.04!important;
   }
 }
+
+
+/* =========================================================
+   HEART OFFER COMMERCIAL UI — added without changing Journey animation
+   ========================================================= */
+/* ===== HEART OFFER COMMERCIAL FLOW ===== */
+.heart-offer-card{cursor:default!important}
+.heart-offer-card #heartOfferEyebrow{color:#f3c66d;letter-spacing:.12em}
+.heart-surprise-offer{margin:14px 0 12px;padding:13px 14px;border:1px solid rgba(243,198,109,.32);border-radius:14px;background:radial-gradient(circle at 16% 30%,rgba(255,61,102,.10),transparent 38%),linear-gradient(135deg,rgba(214,162,74,.10),rgba(4,21,34,.74));box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
+.heart-surprise-offer>span,.heart-surprise-offer>small{display:block;font:800 9px/1.25 Arial,sans-serif;letter-spacing:.11em;text-transform:uppercase;color:#f3c66d}
+.heart-surprise-offer>strong{display:block;margin:4px 0 3px;font:700 clamp(26px,3.1vw,42px)/.96 Georgia,"Times New Roman",serif;color:#fff;text-shadow:0 0 24px rgba(255,51,96,.18)}
+.heart-surprise-offer>small{color:rgba(223,235,244,.70);letter-spacing:.05em;text-transform:none;font-weight:600}
+.heart-price-strip{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 12px}
+.heart-price-strip span{padding:9px 10px;border:1px solid rgba(243,198,109,.16);border-radius:11px;background:rgba(3,17,29,.48)}
+.heart-price-strip b,.heart-price-strip em{display:block;font-style:normal}
+.heart-price-strip b{font:800 8px/1 Arial,sans-serif;color:#8397a7;letter-spacing:.10em}
+.heart-price-strip em{margin-top:5px;font:800 14px/1 Arial,sans-serif;color:#fff}
+.heart-price-strip span:last-child em{color:#f3c66d}
+.heart-offer-actions{display:grid!important;grid-template-columns:1fr 1fr;gap:8px!important}
+.heart-offer-actions .heart-claim-main{grid-column:1/-1;min-height:46px}
+.heart-offer-actions .btn{min-width:0!important;padding:11px 12px!important;font-size:9px!important}
+
+.heart-modal{position:fixed;inset:0;z-index:100050;display:none;place-items:center;padding:18px}
+.heart-modal.is-open{display:grid}
+.heart-modal-backdrop{position:absolute;inset:0;background:rgba(0,7,14,.78);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.heart-modal-panel{position:relative;z-index:2;width:min(620px,100%);max-height:min(88vh,760px);overflow:auto;border:1px solid rgba(243,198,109,.36);border-radius:24px;padding:30px;background:radial-gradient(circle at 50% -10%,rgba(214,162,74,.13),transparent 40%),linear-gradient(145deg,rgba(7,29,44,.99),rgba(2,13,23,.995));box-shadow:0 30px 90px rgba(0,0,0,.62),0 0 42px rgba(214,162,74,.07);color:#fff}
+.heart-modal-close{position:absolute;right:14px;top:12px;width:38px;height:38px;border:1px solid rgba(243,198,109,.22);border-radius:50%;background:rgba(0,0,0,.18);color:#fff;font-size:24px;cursor:pointer}
+.heart-modal-kicker{display:block;color:#f3c66d;font:800 9px/1.3 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.heart-modal-panel h3{margin:8px 48px 8px 0;font:700 clamp(27px,4vw,45px)/.98 Georgia,"Times New Roman",serif;letter-spacing:-.025em}
+.heart-modal-panel>p{margin:0 0 22px;color:#aebdca;font:500 13px/1.65 Arial,sans-serif}
+.heart-field{display:block}
+.heart-field>span{display:block;margin-bottom:7px;color:#d7e0e7;font:800 9px/1.2 Arial,sans-serif;letter-spacing:.09em}
+.heart-field input,.heart-field textarea{width:100%;border:1px solid rgba(243,198,109,.20);border-radius:12px;background:#061827;color:#fff;padding:13px 14px;outline:none;font:600 13px/1.3 Arial,sans-serif;transition:.22s ease}
+.heart-field textarea{min-height:90px;resize:vertical}
+.heart-field input:focus,.heart-field textarea:focus{border-color:rgba(243,198,109,.66);box-shadow:0 0 0 3px rgba(243,198,109,.07)}
+.heart-field-help{display:block;margin:7px 0 16px;color:#7f93a2;font:500 10px/1.45 Arial,sans-serif}
+.heart-form-status{min-height:20px;margin-top:10px;color:#9fb1bd;font:700 10px/1.45 Arial,sans-serif}
+.heart-form-status.is-error{color:#ff8fa5}.heart-form-status.is-success{color:#f3c66d}
+.heart-claim-summary{margin:16px 0 20px;padding:15px 16px;border:1px solid rgba(243,198,109,.20);border-radius:14px;background:rgba(3,17,29,.48)}
+.heart-claim-summary>strong,.heart-claim-summary>span{display:block}.heart-claim-summary>strong{font:700 20px/1.15 Georgia,"Times New Roman",serif}.heart-claim-summary>span{margin-top:5px;color:#91a4b2;font:700 9px/1.2 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}.heart-claim-summary>div{display:flex;justify-content:space-between;gap:15px;align-items:end;margin-top:12px;padding-top:11px;border-top:1px solid rgba(243,198,109,.12)}.heart-claim-summary b{color:#f3c66d;font:900 22px/1 Arial,sans-serif}.heart-claim-summary em{font-style:normal;color:#fff;font:800 12px/1.3 Arial,sans-serif;text-align:right}
+.heart-claim-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.heart-field-wide{grid-column:1/-1}.heart-price-note{margin:14px 0;color:#8195a4;font:500 10px/1.5 Arial,sans-serif}.heart-submit-claim{width:100%}
+.heart-redeemed-card{padding:22px;border:1px solid rgba(243,198,109,.28);border-radius:18px;background:linear-gradient(145deg,rgba(7,29,44,.96),rgba(3,14,24,.98));text-align:left}.heart-redeemed-card small{display:block;color:#f3c66d;font:800 9px/1.2 Arial,sans-serif;letter-spacing:.12em}.heart-redeemed-card strong{display:block;margin:8px 0;font:700 23px/1.08 Georgia,"Times New Roman",serif}.heart-redeemed-card p{color:#9fb0bc;font:500 11px/1.55 Arial,sans-serif}.heart-redeemed-card .btn{margin-top:8px}
+.heart-offer-card.visual-only .heart-surprise-offer,.heart-offer-card.visual-only .heart-price-strip,.heart-offer-card.visual-only #requestPersonalOffer{display:none!important}
+.heart-offer-card.visual-only #heartOfferEyebrow::after{content:" · VISUAL REPLAY";color:#8ca0af}
+
+@media (max-width:700px){.heart-modal-panel{padding:24px 16px;border-radius:19px}.heart-claim-grid{grid-template-columns:1fr}.heart-field-wide{grid-column:auto}.heart-offer-actions{grid-template-columns:1fr}.heart-offer-actions .heart-claim-main{grid-column:auto}.heart-price-strip{grid-template-columns:1fr}}
+

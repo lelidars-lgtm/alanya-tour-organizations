@@ -159,7 +159,7 @@ nextBtn?.addEventListener('click',()=>{
 backBtn?.addEventListener('click',()=>{if(planner.step>0){planner.step--;renderPlanner();}});
 document.getElementById('sendExperience')?.addEventListener('click',()=>{
   document.getElementById('journey')?.scrollIntoView({behavior:'smooth',block:'center'});
-  setTimeout(()=>runJourney(true),620);
+  setTimeout(()=>beginHeartOfferJourney(),620);
 });
 renderPlanner();
 
@@ -208,16 +208,34 @@ const dockCardThumb=document.getElementById('dockCardThumb');
 const dockCardMeta=document.getElementById('dockCardMeta');
 const finalTurkiyeStage=document.getElementById('finalTurkiyeStage');
 
+const HEART_DISCOUNTS={
+  'Sea Experiences':15,
+  'Nature & Adventure':20,
+  'Extreme & Adventure':10,
+  'Family Experiences':15,
+  'History & Culture':20,
+  'Water Sports':13,
+  'Air Experiences':17,
+  'Wellness & Relax':15,
+  'VIP Services':20
+};
+
 const RANDOM_TOURS=[
-  {title:'Aspendos, Side & Manavgat Waterfall',meta:'History & Culture · Full Day',image:'images/history-culture/history-culture-hero.png',url:'manavgat-aspendos-side.html',tags:['Cultural','Family','Team','Large Group','Education'],groupFriendly:true},
-  {title:'Land of Legends — Day Tour',meta:'Family Experience · Belek',image:'images/family-experiences/hero.png',url:'land-of-legends.html',tags:['Fun','Family','Friends','Birthday','Celebration'],groupFriendly:true},
-  {title:'Alanya Paragliding',meta:'Air Experience · Alanya',image:'images/air-experiences/air-category-hero.png',url:'paragliding.html',tags:['Adventurous','Couple','Friends','Birthday'],groupFriendly:false},
-  {title:'Family Jeep Safari',meta:'Nature & Adventure · Alanya',image:'images/nature-adventure/canyon-adventures.png',url:'family-jeep-safari.html',tags:['Adventurous','Fun','Family','Friends','Team'],groupFriendly:true},
-  {title:'Private Yacht Charter',meta:'VIP Service · Private Experience',image:'images/vip-services/HERO.png',url:'private-yacht-charter.html',tags:['Romantic','Exclusive','Couple','Family','Friends','Wedding','Anniversary','Birthday'],groupFriendly:true},
-  {title:'Turkish Hammam & Spa',meta:'Wellness & Relax · Alanya',image:'images/wellness-relax/hero.jpeg',url:'turkish-hammam.html',tags:['Relaxed','Romantic','Couple','Family','Anniversary'],groupFriendly:true}
+  {id:'relax-boat-tour',title:'Relax Boat Tour in Alanya',category:'Sea Experiences',price:25,priceUnit:'listed base price',meta:'Sea Experiences · Alanya',image:'images/relax-boat/relax-hero.jpg',url:'relax-boat-tour.html'},
+  {id:'green-canyon',title:'Green Canyon in Alanya',category:'Nature & Adventure',price:35,priceUnit:'listed base price',meta:'Nature & Adventure · Green Canyon',image:'assets/images/tours/green-canyon.jpg',url:'green-canyon.html'},
+  {id:'rafting-koprulu-canyon',title:'Rafting in Köprülü Canyon',category:'Extreme & Adventure',price:25,priceUnit:'listed base price',meta:'Extreme & Adventure · Köprülü Canyon',image:'images/rafting/rafting.hero.png',url:'rafting-koprulu-canyon.html'},
+  {id:'land-of-legends',title:'The Land of Legends — Day Tour',category:'Family Experiences',price:75,priceUnit:'adult listed base price',meta:'Family Experiences · Belek',image:'assets/images/tours/land-of-legends.png',url:'land-of-legends.html'},
+  {id:'manavgat-aspendos-side',title:'Aspendos, Side & Manavgat Waterfall',category:'History & Culture',price:75,priceUnit:'listed base price',meta:'History & Culture · Full Day',image:'assets/images/tours/manavgat-aspendos-side.png',url:'manavgat-aspendos-side.html'},
+  {id:'scuba-diving',title:'Scuba Diving in Alanya',category:'Water Sports',price:35,priceUnit:'listed base price',meta:'Water Sports · Alanya',image:'assets/images/tours/scuba-diving.png',url:'scuba-diving.html'},
+  {id:'paragliding',title:'Alanya Paragliding',category:'Air Experiences',price:75,priceUnit:'per person listed price',meta:'Air Experiences · Alanya',image:'assets/images/tours/paragliding.png',url:'paragliding.html'},
+  {id:'turkish-hammam',title:'Turkish Hammam in Alanya',category:'Wellness & Relax',price:35,priceUnit:'listed base price',meta:'Wellness & Relax · Alanya',image:'assets/images/tours/turkish-hammam.png',url:'turkish-hammam.html'},
+  {id:'private-photographer',title:'Private Photographer in Alanya',category:'VIP Services',price:100,priceUnit:'1 hour listed base price',meta:'VIP Services · Alanya',image:'assets/images/tours/private-photographer.png',url:'private-photographer.html'}
 ];
 let activeRandomTour=null;
-let activeMatchReason='A surprise selected from experiences that fit your answers.';
+let lastRandomTourId=null;
+let heartClientPhone='';
+let heartOfferRedeemed=false;
+let heartVisualOnly=false;
 let journeyTimerPool=[];
 
 function clearJourneyTimers(){journeyTimerPool.forEach(clearTimeout);journeyTimerPool=[]}
@@ -227,37 +245,38 @@ function plannerHasChoices(){
   return Boolean(planner.occasion||planner.people||planner.feeling||planner.groupSize);
 }
 
+function heartMoney(value){
+  if(value===null||value===undefined||Number.isNaN(Number(value))) return 'Manager confirms';
+  const n=Number(value);
+  return `€${Number.isInteger(n)?n:n.toFixed(2)}`;
+}
+
 function buildJourneyCard(){
-  const signals=[planner.occasion,planner.people,planner.feeling].filter(Boolean);
-  const needsGroup=Boolean(planner.groupSize && planner.groupSize!=='2–4 Guests');
-  const ranked=RANDOM_TOURS.map(tour=>{
-    let score=0;
-    signals.forEach(s=>{if(tour.tags.includes(s)) score+=3;});
-    if(needsGroup) score+=tour.groupFriendly?2:-4;
-    if(planner.people==='Large Group') score+=tour.groupFriendly?3:-6;
-    if(planner.people==='Family' && tour.tags.includes('Family')) score+=2;
-    return {...tour,score};
-  }).sort((a,b)=>b.score-a.score);
-  const bestScore=ranked[0]?.score??0;
-  const candidates=ranked.filter((t,i)=>i<3 && t.score>=Math.max(0,bestScore-2));
-  activeRandomTour=(candidates.length?candidates:RANDOM_TOURS)[Math.floor(Math.random()*(candidates.length?candidates.length:RANDOM_TOURS.length))];
-  const matchedSignals=signals.filter(s=>activeRandomTour.tags.includes(s));
-  activeMatchReason=matchedSignals.length?`Matched to ${matchedSignals.join(' + ')}${needsGroup&&activeRandomTour.groupFriendly?' + group-friendly format':''}.`:'A surprise chosen from the strongest compatible experiences for your brief.';
+  const pool=RANDOM_TOURS.filter(t=>t.id!==lastRandomTourId);
+  activeRandomTour=(pool.length?pool:RANDOM_TOURS)[Math.floor(Math.random()*(pool.length?pool.length:RANDOM_TOURS.length))];
+  lastRandomTourId=activeRandomTour.id;
   const title=activeRandomTour.title;
-  const text='A surprise chosen by the journey — guided by your answers, not by chance alone.';
+  const text='A tour chosen by the journey — discover where the heart takes you.';
+  const discount=HEART_DISCOUNTS[activeRandomTour.category]||0;
+  const offerPrice=activeRandomTour.price?activeRandomTour.price*(1-discount/100):null;
   dockCardTitle.textContent=title; dockCardText.textContent=text;
-  if(dockCard){dockCard.setAttribute('href',activeRandomTour.url||'#');dockCard.setAttribute('aria-label',`Open ${title}`);}
   flyCardTitle.textContent=title; flyCardText.textContent=text;
   const bg=`url("${activeRandomTour.image}")`;
   if(flyCardThumb) flyCardThumb.style.backgroundImage=bg;
   if(dockCardThumb) dockCardThumb.style.backgroundImage=bg;
   if(flyCardMeta) flyCardMeta.textContent=activeRandomTour.meta;
   if(dockCardMeta) dockCardMeta.textContent=activeRandomTour.meta;
-  const chips=[planner.occasion,planner.people,planner.feeling,planner.groupSize].filter(Boolean);
+  const discountEl=document.getElementById('heartDiscountValue');
+  const regularEl=document.getElementById('heartRegularPrice');
+  const offerEl=document.getElementById('heartOfferPrice');
+  const claimBtn=document.getElementById('requestPersonalOffer');
+  if(discountEl) discountEl.textContent=`${discount}% OFF`;
+  if(regularEl) regularEl.textContent=`${heartMoney(activeRandomTour.price)} · ${activeRandomTour.priceUnit}`;
+  if(offerEl) offerEl.textContent=`${heartMoney(offerPrice)} · discounted base`;
+  if(claimBtn) claimBtn.textContent=heartVisualOnly?'OFFER ALREADY USED':`CLAIM ${discount}% OFFER →`;
+  dockCard?.classList.toggle('visual-only',heartVisualOnly);
+  const chips=[activeRandomTour.category,planner.occasion,planner.people,planner.feeling,planner.groupSize].filter(Boolean);
   offerResultMeta.innerHTML=chips.map(v=>`<span>${v}</span>`).join('');
-  const reason=document.getElementById('journeyMatchReason'); if(reason) reason.textContent=activeMatchReason;
-  const bonus=document.getElementById('journeyBonus');
-  if(bonus) bonus.hidden=!needsGroup;
 }
 
 
@@ -757,7 +776,8 @@ function runJourney(fromPlanner=false){
   });
 }
 
-startJourney.addEventListener('click',()=>runJourney(false));
+// HEART OFFER ENTRY: the existing animation is launched only after server-side eligibility check.
+startJourney.addEventListener('click',()=>beginHeartOfferJourney());
 
 window.addEventListener('resize',()=>{
   setLogoFlightGeometry();
@@ -769,17 +789,243 @@ window.addEventListener('resize',()=>{
   }
 });
 
-requestPersonalOffer?.addEventListener('click',()=>{
-  const hasGroupBonus=Boolean(planner.groupSize && planner.groupSize!=='2–4 Guests');
-  const lines=['SPECIAL EXPERIENCE REQUEST',''];
-  if(activeRandomTour){lines.push(`Journey match: ${activeRandomTour.title}`,`Category: ${activeRandomTour.meta}`,`Why this match: ${activeMatchReason}`,'');}
-  if(planner.occasion) lines.push(`Occasion: ${planner.occasion}`);
-  if(planner.people) lines.push(`For: ${planner.people}`);
-  if(planner.feeling) lines.push(`Feeling: ${planner.feeling}`);
-  if(planner.groupSize) lines.push(`Group size: ${planner.groupSize}`);
-  if(hasGroupBonus) lines.push('Journey group bonus: 5% OFF for every paying guest — please confirm final conditions.');
-  lines.push('','Please check availability, final price and confirm this personal Journey offer.');
-  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lines.join('\n'))}`,'_blank','noopener');
+requestPersonalOffer?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();openHeartClaimModal();});
+
+// ===== HEART OFFER COMMERCIAL FLOW =====
+const heartEligibilityModal=document.getElementById('heartEligibilityModal');
+const heartClaimModal=document.getElementById('heartClaimModal');
+const heartEligibilityForm=document.getElementById('heartEligibilityForm');
+const heartEligibilityStatus=document.getElementById('heartEligibilityStatus');
+const heartClaimForm=document.getElementById('heartClaimForm');
+const heartClaimStatus=document.getElementById('heartClaimStatus');
+const viewHeartTour=document.getElementById('viewHeartTour');
+const chooseAnotherHeartTour=document.getElementById('chooseAnotherHeartTour');
+
+function openHeartModal(modal){if(!modal)return;modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.documentElement.style.overflow='hidden'}
+function closeHeartModal(modal){if(!modal)return;modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');if(!document.querySelector('.heart-modal.is-open')) document.documentElement.style.removeProperty('overflow')}
+document.querySelectorAll('[data-heart-close]').forEach(el=>el.addEventListener('click',()=>closeHeartModal(el.closest('.heart-modal'))));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.heart-modal.is-open').forEach(closeHeartModal)});
+
+function normalizeHeartPhoneClient(raw){
+  let d=String(raw||'').replace(/\D/g,'');
+  if(d.startsWith('00')) d=d.slice(2);
+  if(/^0\d{10}$/.test(d)) d='90'+d.slice(1);
+  return d;
+}
+function setHeartStatus(el,msg,type=''){if(!el)return;el.textContent=msg||'';el.classList.remove('is-error','is-success');if(type)el.classList.add(`is-${type}`)}
+// Heart Offer uses the SAME Supabase / ATO Booking Manager as Map + Trip Planner.
+// No second manager and no cookie/localStorage enforcement.
+let heartBookingConfigPromise=null;
+function detectHeartBookingConfig(){
+  const candidates=[
+    window.ATO_BOOKING_CONFIG,
+    window.ATO_CONFIG,
+    window.ATOBookingConfig,
+    window.atoBookingConfig
+  ].filter(Boolean);
+  for(const cfg of candidates){
+    const url=cfg.supabaseUrl||cfg.supabaseURL||cfg.url||cfg.SUPABASE_URL||'';
+    const key=cfg.supabaseAnonKey||cfg.supabaseKey||cfg.anonKey||cfg.publishableKey||cfg.supabasePublishableKey||cfg.SUPABASE_ANON_KEY||cfg.SUPABASE_PUBLISHABLE_KEY||'';
+    if(/^https:\/\/.+\.supabase\.co\/?$/i.test(String(url))&&String(key).length>20){
+      return {url:String(url).replace(/\/$/,''),key:String(key)};
+    }
+  }
+  return null;
+}
+function loadHeartConfigScript(src){
+  return new Promise((resolve,reject)=>{
+    const existing=[...document.scripts].find(x=>x.src&&new URL(x.src,location.href).pathname===src);
+    if(existing){
+      if(detectHeartBookingConfig()) return resolve();
+      existing.addEventListener('load',()=>resolve(),{once:true});
+      existing.addEventListener('error',()=>reject(new Error(`Could not load ${src}`)),{once:true});
+      setTimeout(resolve,350);
+      return;
+    }
+    const el=document.createElement('script');el.src=src;el.async=false;
+    el.onload=()=>resolve();el.onerror=()=>reject(new Error(`Could not load ${src}`));
+    document.head.appendChild(el);
+  });
+}
+async function getHeartBookingConfig(){
+  const ready=detectHeartBookingConfig();if(ready)return ready;
+  if(!heartBookingConfigPromise){
+    heartBookingConfigPromise=(async()=>{
+      const paths=['/booking-config.js','/interactive-map/booking-config.js','/assets/js/ato-config.js'];
+      for(const src of paths){
+        try{await loadHeartConfigScript(src)}catch(_){/* try next known ATO config location */}
+        const cfg=detectHeartBookingConfig();if(cfg)return cfg;
+      }
+      throw new Error('ATO Booking Manager connection was not found. Upload this page to the same site where Map / Booking Manager is connected.');
+    })();
+  }
+  return heartBookingConfigPromise;
+}
+async function heartRpc(functionName,payload){
+  const cfg=await getHeartBookingConfig();
+  const res=await fetch(`${cfg.url}/rest/v1/rpc/${functionName}`,{
+    method:'POST',
+    headers:{
+      apikey:cfg.key,
+      Authorization:`Bearer ${cfg.key}`,
+      'Content-Type':'application/json',
+      Accept:'application/json'
+    },
+    body:JSON.stringify(payload||{}),
+    cache:'no-store'
+  });
+  let data=null;try{data=await res.json()}catch{}
+  if(!res.ok){
+    const message=data?.message||data?.details||data?.hint||`Heart Offer / ATO Booking Manager error (${res.status})`;
+    const err=new Error(message);err.status=res.status;err.data=data;throw err;
+  }
+  return data||{};
+}
+
+function showHeartRedeemedState(){
+  heartOfferRedeemed=true;heartVisualOnly=true;
+  const dock=document.getElementById('journeyDock');
+  const template=document.getElementById('heartRedeemedTemplate');
+  journeyCardPlaceholder?.classList.add('is-hidden');
+  dockCard?.classList.remove('visible','final-visible');
+  let state=document.getElementById('heartRedeemedState');
+  if(!state&&dock&&template){
+    state=document.createElement('div');
+    state.id='heartRedeemedState';
+    state.innerHTML=template.innerHTML;
+    dock.appendChild(state);
+    state.querySelector('#heartReplayVisual')?.addEventListener('click',()=>{
+      state.classList.add('is-hidden');
+      heartVisualOnly=true;
+      runJourney(false);
+    });
+  }
+  state?.classList.remove('is-hidden');
+  startJourney.disabled=false;startJourney.classList.remove('is-active');
+  if(startJourney.querySelector('span'))startJourney.querySelector('span').textContent='WATCH JOURNEY AGAIN →';
+  status.innerHTML='<strong>YOUR HEART OFFER HAS ALREADY BEEN USED.</strong><span>THANK YOU FOR TRAVELLING WITH US.</span>';
+}
+
+async function verifyHeartEligibility(phone){
+  const normalized=normalizeHeartPhoneClient(phone);
+  if(normalized.length<10||normalized.length>15) throw new Error('Please enter a valid WhatsApp number with country code.');
+  const data=await heartRpc('heart_offer_check',{p_phone:normalized});
+  heartClientPhone=data.phone||normalized;
+  sessionStorage.setItem('atoHeartPhone',heartClientPhone);
+  if(data.redeemed){showHeartRedeemedState();return false}
+  heartOfferRedeemed=false;heartVisualOnly=false;return true;
+}
+
+async function beginHeartOfferJourney(){
+  if(heartOfferRedeemed){heartVisualOnly=true;runJourney(false);return}
+  const stored=heartClientPhone||sessionStorage.getItem('atoHeartPhone')||'';
+  if(stored){
+    try{
+      status.innerHTML='<strong>CHECKING YOUR HEART OFFER.</strong><span>ONE MOMENT…</span>';
+      if(await verifyHeartEligibility(stored)){runJourney(false)}
+    }catch(err){
+      sessionStorage.removeItem('atoHeartPhone');heartClientPhone='';
+      const phoneInput=document.getElementById('heartPhone');if(phoneInput)phoneInput.value=stored;
+      setHeartStatus(heartEligibilityStatus,err.message,'error');openHeartModal(heartEligibilityModal);
+    }
+    return;
+  }
+  setHeartStatus(heartEligibilityStatus,'');openHeartModal(heartEligibilityModal);setTimeout(()=>document.getElementById('heartPhone')?.focus(),80);
+}
+
+heartEligibilityForm?.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const btn=document.getElementById('heartEligibilitySubmit');
+  const phone=document.getElementById('heartPhone').value;
+  btn.disabled=true;setHeartStatus(heartEligibilityStatus,'Checking with ATO Booking Manager…');
+  try{
+    const ok=await verifyHeartEligibility(phone);
+    closeHeartModal(heartEligibilityModal);
+    if(ok)runJourney(false);
+  }catch(err){setHeartStatus(heartEligibilityStatus,err.message,'error')}
+  finally{btn.disabled=false}
+});
+
+viewHeartTour?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(activeRandomTour?.url)window.location.href=activeRandomTour.url});
+chooseAnotherHeartTour?.addEventListener('click',async e=>{
+  e.preventDefault();e.stopPropagation();
+  if(heartOfferRedeemed){heartVisualOnly=true;runJourney(false);return}
+  try{
+    if(!heartClientPhone){await beginHeartOfferJourney();return}
+    if(await verifyHeartEligibility(heartClientPhone)){runJourney(false)}
+  }catch(err){setHeartStatus(heartEligibilityStatus,err.message,'error');openHeartModal(heartEligibilityModal)}
+});
+
+function openHeartClaimModal(){
+  if(heartVisualOnly||heartOfferRedeemed||!activeRandomTour)return;
+  const discount=HEART_DISCOUNTS[activeRandomTour.category]||0;
+  const offerPrice=activeRandomTour.price?activeRandomTour.price*(1-discount/100):null;
+  document.getElementById('heartClaimTour').textContent=activeRandomTour.title;
+  document.getElementById('heartClaimCategory').textContent=activeRandomTour.category;
+  document.getElementById('heartClaimDiscount').textContent=`${discount}% OFF`;
+  document.getElementById('heartClaimPrice').textContent=`${heartMoney(activeRandomTour.price)} → ${heartMoney(offerPrice)} · discounted listed base`;
+  document.getElementById('heartClaimPhone').value=heartClientPhone||sessionStorage.getItem('atoHeartPhone')||'';
+  const date=document.getElementById('heartDesiredDate');if(date){date.min=new Date().toISOString().slice(0,10)}
+  setHeartStatus(heartClaimStatus,'');openHeartModal(heartClaimModal);
+}
+
+heartClaimForm?.addEventListener('submit',async e=>{
+  e.preventDefault();if(!activeRandomTour)return;
+  const btn=document.getElementById('heartClaimSubmit');btn.disabled=true;setHeartStatus(heartClaimStatus,'Saving your Heart Offer in ATO Booking Manager…');
+  const payload={
+    phone:document.getElementById('heartClaimPhone').value,
+    clientName:document.getElementById('heartClientName').value.trim(),
+    adults:Number(document.getElementById('heartAdults').value||1),
+    children:document.getElementById('heartChildren').value.trim(),
+    desiredDate:document.getElementById('heartDesiredDate').value,
+    hotel:document.getElementById('heartHotel').value.trim(),
+    comment:document.getElementById('heartComment').value.trim(),
+    tourId:activeRandomTour.id,
+    planner:{occasion:planner.occasion||'',people:planner.people||'',feeling:planner.feeling||'',groupSize:planner.groupSize||''}
+  };
+  try{
+    const normalized=normalizeHeartPhoneClient(payload.phone);
+    if(normalized.length<10||normalized.length>15) throw new Error('Please enter a valid WhatsApp number with country code.');
+    const result=await heartRpc('heart_offer_claim',{
+      p_phone:normalized,
+      p_client_name:payload.clientName,
+      p_adults:payload.adults,
+      p_children:payload.children,
+      p_desired_date:payload.desiredDate||null,
+      p_hotel:payload.hotel,
+      p_comment:payload.comment,
+      p_tour_id:payload.tourId,
+      p_planner:payload.planner
+    });
+    if(result.redeemed){closeHeartModal(heartClaimModal);showHeartRedeemedState();return}
+    heartClientPhone=result.phone||normalized;sessionStorage.setItem('atoHeartPhone',heartClientPhone);
+    setHeartStatus(heartClaimStatus,`Offer ${result.code} is now PENDING in your ATO Booking Manager. Opening WhatsApp…`,'success');
+    const lines=[
+      '❤️ HEART OFFER CLAIM','',
+      `Offer code: ${result.code}`,
+      `Status: ${result.status}`,
+      'ATO Booking Manager: request saved in the same queue as Map / Trip Planner requests',
+      `Tour: ${result.tour.title}`,
+      `Category: ${result.tour.category}`,
+      `Regular listed price: ${result.pricing.regularPriceText}`,
+      `Heart discount: ${result.pricing.discount}%`,
+      `Heart listed price: ${result.pricing.offerPriceText}`,
+      'Final booking total: manager confirms after guest ages / tariff rules.','',
+      `Client: ${result.client.clientName}`,
+      `WhatsApp: +${result.phone}`,
+      `Adults: ${result.client.adults}`,
+      `Children & ages: ${result.client.children||'—'}`,
+      `Desired date: ${result.client.desiredDate||'Flexible'}`,
+      `Hotel / area: ${result.client.hotel||'—'}`,
+      `Comment: ${result.client.comment||'—'}`
+    ];
+    if(result.client.planner?.occasion) lines.push('',`Journey occasion: ${result.client.planner.occasion}`);
+    lines.push('',`Tour page: ${location.origin}/${String(result.tour.url||'').replace(/^\//,'')}`,'','The Heart Offer is redeemed automatically only when the manager CONFIRMS this booking in ATO Booking Manager.');
+    setTimeout(()=>window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lines.join('\n'))}`,'_blank','noopener'),250);
+    setTimeout(()=>closeHeartModal(heartClaimModal),900);
+  }catch(err){
+    setHeartStatus(heartClaimStatus,err.message,'error');
+  }finally{btn.disabled=false}
 });
 
 // Certificate subtle tilt: desktop only, tiny angle.
