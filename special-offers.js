@@ -1112,14 +1112,16 @@ const allowedLangs = ["ru", "en", "tr", "de", "pl"];
 
   
 
-import('https://unpkg.com/three@0.160.1/build/three.module.js').then(({default: _unused, ...THREE_NS}) => { const THREE = THREE_NS;
-
+/* === AUTONOMOUS WEBGL 3D GLOBE ===
+ * No Three.js CDN dependency. The sphere geometry, lighting, rotation and
+ * local Earth textures are rendered directly with WebGL.
+ */
 const canvas = document.getElementById('liveGlobeCanvas');
 const globeShell = document.getElementById('globeShell');
-const globeZone = document.getElementById('globeZone');
+const globeZone3D = document.getElementById('globeZone');
 const bokehWrap = document.getElementById('globeBokeh');
 
-if (canvas && globeShell && globeZone) {
+if (canvas && globeShell && globeZone3D) {
   function createBokehDots(count = 48){
     if(!bokehWrap) return;
     bokehWrap.innerHTML = '';
@@ -1138,256 +1140,494 @@ if (canvas && globeShell && globeZone) {
   }
   createBokehDots();
 
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
-  camera.position.set(0, 0, 7.9);
-
-  const renderer = new THREE.WebGLRenderer({
-    canvas,
+  const gl = canvas.getContext('webgl', {
+    alpha: true,
     antialias: true,
-    alpha: true
-  });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    premultipliedAlpha: false,
+    powerPreference: 'high-performance'
+  }) || canvas.getContext('experimental-webgl', { alpha: true, antialias: true });
 
-  const root = new THREE.Group();
-  scene.add(root);
+  if (!gl) {
+    globeZone3D.dataset.globeMode = 'css-fallback';
+    canvas.classList.add('webgl-unavailable');
+    console.warn('[ATO] WebGL is unavailable on this device. Static globe fallback is active.');
+  } else {
+    globeZone3D.dataset.globeMode = 'webgl-3d';
 
-  const ambient = new THREE.AmbientLight(0x79c8ff, 0.82);
-  scene.add(ambient);
+    const vertexShaderSource = `
+      attribute vec3 aPosition;
+      attribute vec3 aNormal;
+      attribute vec2 aUV;
+      uniform mat4 uProjection;
+      uniform mat4 uView;
+      uniform mat4 uModel;
+      varying vec3 vNormal;
+      varying vec3 vWorldPos;
+      varying vec2 vUV;
+      void main(){
+        vec4 world = uModel * vec4(aPosition, 1.0);
+        vWorldPos = world.xyz;
+        vNormal = normalize(mat3(uModel) * aNormal);
+        vUV = aUV;
+        gl_Position = uProjection * uView * world;
+      }
+    `;
 
-  const key = new THREE.PointLight(0x8fe4ff, 3.4, 40);
-  key.position.set(4.2, 2.8, 6);
-  scene.add(key);
+    const fragmentShaderSource = `
+      precision mediump float;
+      uniform sampler2D uDayMap;
+      uniform sampler2D uNightMap;
+      uniform sampler2D uNormalMap;
+      uniform vec3 uLightDir;
+      uniform vec3 uCameraPos;
+      uniform float uTextureMix;
+      uniform float uTime;
+      varying vec3 vNormal;
+      varying vec3 vWorldPos;
+      varying vec2 vUV;
+      void main(){
+        vec3 n = normalize(vNormal);
+        vec3 referenceAxis = abs(n.y) < 0.94 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0);
+        vec3 tangent = normalize(cross(referenceAxis, n));
+        vec3 bitangent = normalize(cross(n, tangent));
+        vec3 sampledNormal = texture2D(uNormalMap, vUV).xyz * 2.0 - 1.0;
+        sampledNormal.xy *= 0.24 * uTextureMix;
+        n = normalize(tangent * sampledNormal.x + bitangent * sampledNormal.y + n * max(sampledNormal.z, 0.28));
 
-  const rim = new THREE.PointLight(0x258bff, 2.5, 30);
-  rim.position.set(-5.5, -2.4, -3);
-  scene.add(rim);
+        vec3 l = normalize(uLightDir);
+        vec3 v = normalize(uCameraPos - vWorldPos);
 
-  const warm = new THREE.PointLight(0xffd27b, 0.8, 24);
-  warm.position.set(-4, 1, 3);
-  scene.add(warm);
+        float diffuse = max(dot(n, l), 0.0);
+        float softLight = smoothstep(-0.20, 0.78, dot(n, l));
+        float fresnel = pow(1.0 - max(dot(n, v), 0.0), 3.0);
+        float limb = pow(1.0 - max(dot(n, v), 0.0), 1.45);
 
-  const loader = new THREE.TextureLoader();
-  const globeGeometry = new THREE.SphereGeometry(2.28, 128, 128);
+        vec3 dayTex = texture2D(uDayMap, vUV).rgb;
+        vec3 nightTex = texture2D(uNightMap, vUV).rgb;
 
-  function makeFallbackGlobe(){
-    const mat = new THREE.MeshStandardMaterial({
-      color: 0x05234b,
-      emissive: 0x1aa3ff,
-      emissiveIntensity: 0.9,
-      roughness: 0.7,
-      metalness: 0.15
-    });
-    const mesh = new THREE.Mesh(globeGeometry, mat);
-    root.add(mesh);
-    addAtmosphere();
-    addNetworkShell();
-    addStars();
-    addGoldenStars();
-    resize();
-    animate();
-  }
+        vec3 proceduralOcean = vec3(0.015, 0.105, 0.245);
+        vec3 proceduralLand = vec3(0.10, 0.33, 0.39);
+        float landMask = smoothstep(-0.10, 0.55, sin(vUV.x * 31.0) * sin(vUV.y * 21.0));
+        vec3 procedural = mix(proceduralOcean, proceduralLand, landMask * 0.35);
 
-  const assets = {
-    map: 'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg',
-    lights: 'https://threejs.org/examples/textures/planets/earth_lights_2048.png',
-    normal: 'https://threejs.org/examples/textures/planets/earth_normal_2048.jpg'
-  };
+        vec3 mappedDay = dayTex * vec3(0.72, 0.91, 1.08);
+        vec3 surface = mix(procedural, mappedDay, uTextureMix);
+        surface *= 0.26 + diffuse * 1.03;
 
-  Promise.all([
-    loader.loadAsync(assets.map),
-    loader.loadAsync(assets.lights),
-    loader.loadAsync(assets.normal)
-  ]).then(([earthMap, earthLights, earthNormal]) => {
-    const globeMaterial = new THREE.MeshStandardMaterial({
-      map: earthMap,
-      normalMap: earthNormal,
-      color: new THREE.Color(0x31577a),
-      emissive: new THREE.Color(0x0086c7),
-      emissiveMap: earthLights,
-      emissiveIntensity: 0.72,
-      roughness: 0.78,
-      metalness: 0.05
-    });
+        float nightSide = pow(1.0 - softLight, 2.1);
+        vec3 cityGlow = nightTex * vec3(1.25, 1.02, 0.58) * nightSide * 0.90 * uTextureMix;
+        vec3 cyanRim = vec3(0.04, 0.55, 1.0) * fresnel * 0.90;
+        vec3 blueAtmosphere = vec3(0.03, 0.22, 0.50) * limb * 0.27;
+        float shimmer = 0.985 + 0.015 * sin(uTime * 1.7 + vUV.y * 10.0);
 
-    const globe = new THREE.Mesh(globeGeometry, globeMaterial);
-    globe.name = 'mainGlobe';
-    root.add(globe);
+        vec3 color = (surface + cityGlow + cyanRim + blueAtmosphere) * shimmer;
+        gl_FragColor = vec4(color, 1.0);
+      }
+    `;
 
-    addAtmosphere();
-    addNetworkShell();
-    addStars();
-    addGoldenStars();
-    resize();
-    animate();
-  }).catch((err) => {
-    console.warn('Live globe textures failed to load, using fallback globe.', err);
-    makeFallbackGlobe();
-  });
+    const lineVertexShaderSource = `
+      attribute vec3 aPosition;
+      uniform mat4 uProjection;
+      uniform mat4 uView;
+      uniform mat4 uModel;
+      void main(){
+        gl_Position = uProjection * uView * uModel * vec4(aPosition, 1.0);
+      }
+    `;
 
-  function addAtmosphere(){
-    const glowGeometry = new THREE.SphereGeometry(2.38, 96, 96);
-    const glowMaterial = new THREE.MeshBasicMaterial({
-      color: 0x20bfff,
-      transparent: true,
-      opacity: 0.095
-    });
-    const glow = new THREE.Mesh(glowGeometry, glowMaterial);
-    glow.name = 'glowShell';
-    root.add(glow);
-  }
+    const lineFragmentShaderSource = `
+      precision mediump float;
+      uniform vec4 uColor;
+      void main(){ gl_FragColor = uColor; }
+    `;
 
-  function addNetworkShell(){
-    const networkGeometry = new THREE.SphereGeometry(2.43, 72, 72);
-    const networkMaterial = new THREE.MeshBasicMaterial({
-      color: 0x55cfff,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.035
-    });
-    const network = new THREE.Mesh(networkGeometry, networkMaterial);
-    network.name = 'networkShell';
-    root.add(network);
-  }
-
-
-  function addGoldenStars(){
-    const count = 24;
-    const positions = new Float32Array(count * 3);
-    for(let i=0;i<count;i++){
-      const radius = 4.8 + Math.random()*5.8;
-      const theta = Math.random()*Math.PI*2;
-      const phi = Math.acos((Math.random()*2)-1);
-      positions[i*3] = radius*Math.sin(phi)*Math.cos(theta);
-      positions[i*3+1] = radius*Math.sin(phi)*Math.sin(theta);
-      positions[i*3+2] = radius*Math.cos(phi);
-    }
-    const g = new THREE.BufferGeometry();
-    g.setAttribute('position', new THREE.BufferAttribute(positions,3));
-    const m = new THREE.PointsMaterial({
-      color:0xffd382,
-      size:.085,
-      transparent:true,
-      opacity:.72
-    });
-    const pts = new THREE.Points(g,m);
-    pts.name='goldParticles';
-    scene.add(pts);
-  }
-
-  function addStars(){
-    const particleCount = 220;
-    const positions = new Float32Array(particleCount * 3);
-
-    for (let i = 0; i < particleCount; i++) {
-      const radius = 7 + Math.random() * 8;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos((Math.random() * 2) - 1);
-
-      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
-      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-      positions[i * 3 + 2] = radius * Math.cos(phi);
+    function compileShader(type, source){
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if(!gl.getShaderParameter(shader, gl.COMPILE_STATUS)){
+        const error = gl.getShaderInfoLog(shader);
+        gl.deleteShader(shader);
+        throw new Error('WebGL shader compilation failed: ' + error);
+      }
+      return shader;
     }
 
-    const particlesGeometry = new THREE.BufferGeometry();
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    function createProgram(vsSource, fsSource){
+      const program = gl.createProgram();
+      gl.attachShader(program, compileShader(gl.VERTEX_SHADER, vsSource));
+      gl.attachShader(program, compileShader(gl.FRAGMENT_SHADER, fsSource));
+      gl.linkProgram(program);
+      if(!gl.getProgramParameter(program, gl.LINK_STATUS)){
+        const error = gl.getProgramInfoLog(program);
+        gl.deleteProgram(program);
+        throw new Error('WebGL program link failed: ' + error);
+      }
+      return program;
+    }
 
-    const particlesMaterial = new THREE.PointsMaterial({
-      color: 0x63d7ff,
-      size: 0.06,
-      transparent: true,
-      opacity: 0.78
+    function createSphere(radius = 2.28, latBands = 72, lonBands = 108){
+      const positions = [];
+      const normals = [];
+      const uvs = [];
+      const indices = [];
+
+      for(let lat = 0; lat <= latBands; lat++){
+        const theta = lat * Math.PI / latBands;
+        const sinTheta = Math.sin(theta);
+        const cosTheta = Math.cos(theta);
+        for(let lon = 0; lon <= lonBands; lon++){
+          const phi = lon * Math.PI * 2 / lonBands;
+          const sinPhi = Math.sin(phi);
+          const cosPhi = Math.cos(phi);
+          const x = sinTheta * cosPhi;
+          const y = cosTheta;
+          const z = sinTheta * sinPhi;
+          positions.push(radius * x, radius * y, radius * z);
+          normals.push(x, y, z);
+          // Reverse U so the Earth texture orientation matches the original Three.js globe.
+          uvs.push(1 - lon / lonBands, 1 - lat / latBands);
+        }
+      }
+
+      for(let lat = 0; lat < latBands; lat++){
+        for(let lon = 0; lon < lonBands; lon++){
+          const first = lat * (lonBands + 1) + lon;
+          const second = first + lonBands + 1;
+          indices.push(first, second, first + 1);
+          indices.push(second, second + 1, first + 1);
+        }
+      }
+
+      return {
+        positions: new Float32Array(positions),
+        normals: new Float32Array(normals),
+        uvs: new Float32Array(uvs),
+        indices: new Uint16Array(indices)
+      };
+    }
+
+    function createGrid(radius = 2.315){
+      const lines = [];
+      const segments = 128;
+      const latitudes = [-60,-40,-20,0,20,40,60];
+      const longitudes = Array.from({length: 16}, (_,i)=>i * 22.5);
+
+      for(const deg of latitudes){
+        const lat = deg * Math.PI / 180;
+        const y = Math.sin(lat) * radius;
+        const r = Math.cos(lat) * radius;
+        for(let i=0;i<segments;i++){
+          const a = i / segments * Math.PI * 2;
+          const b = (i+1) / segments * Math.PI * 2;
+          lines.push(r*Math.cos(a), y, r*Math.sin(a));
+          lines.push(r*Math.cos(b), y, r*Math.sin(b));
+        }
+      }
+
+      for(const deg of longitudes){
+        const lon = deg * Math.PI / 180;
+        for(let i=0;i<segments/2;i++){
+          const a = -Math.PI/2 + i/(segments/2) * Math.PI;
+          const b = -Math.PI/2 + (i+1)/(segments/2) * Math.PI;
+          lines.push(
+            radius*Math.cos(a)*Math.cos(lon),
+            radius*Math.sin(a),
+            radius*Math.cos(a)*Math.sin(lon)
+          );
+          lines.push(
+            radius*Math.cos(b)*Math.cos(lon),
+            radius*Math.sin(b),
+            radius*Math.cos(b)*Math.sin(lon)
+          );
+        }
+      }
+      return new Float32Array(lines);
+    }
+
+    function createBuffer(target, data, usage = gl.STATIC_DRAW){
+      const buffer = gl.createBuffer();
+      gl.bindBuffer(target, buffer);
+      gl.bufferData(target, data, usage);
+      return buffer;
+    }
+
+    function createSolidTexture(r, g, b, a = 255){
+      const texture = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, texture);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([r,g,b,a]));
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      return texture;
+    }
+
+    function isPowerOf2(value){ return (value & (value - 1)) === 0; }
+
+    function loadImageIntoTexture(url, texture){
+      return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.decoding = 'async';
+        image.onload = () => {
+          gl.bindTexture(gl.TEXTURE_2D, texture);
+          gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+          if(isPowerOf2(image.width) && isPowerOf2(image.height)){
+            gl.generateMipmap(gl.TEXTURE_2D);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+          } else {
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+          }
+          resolve(image);
+        };
+        image.onerror = () => reject(new Error('Could not load globe texture: ' + url));
+        image.src = url;
+      });
+    }
+
+    function mat4Identity(){
+      return new Float32Array([1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]);
+    }
+
+    function mat4Multiply(a, b){
+      const out = new Float32Array(16);
+      for(let col=0; col<4; col++){
+        for(let row=0; row<4; row++){
+          let sum = 0;
+          for(let k=0; k<4; k++) sum += a[k*4 + row] * b[col*4 + k];
+          out[col*4 + row] = sum;
+        }
+      }
+      return out;
+    }
+
+    function mat4Perspective(fovy, aspect, near, far){
+      const f = 1 / Math.tan(fovy / 2);
+      const nf = 1 / (near - far);
+      const out = new Float32Array(16);
+      out[0] = f / aspect;
+      out[5] = f;
+      out[10] = (far + near) * nf;
+      out[11] = -1;
+      out[14] = 2 * far * near * nf;
+      return out;
+    }
+
+    function mat4Translation(x,y,z){
+      const out = mat4Identity();
+      out[12] = x; out[13] = y; out[14] = z;
+      return out;
+    }
+
+    function mat4RotationX(a){
+      const c = Math.cos(a), s = Math.sin(a);
+      return new Float32Array([1,0,0,0, 0,c,s,0, 0,-s,c,0, 0,0,0,1]);
+    }
+
+    function mat4RotationY(a){
+      const c = Math.cos(a), s = Math.sin(a);
+      return new Float32Array([c,0,-s,0, 0,1,0,0, s,0,c,0, 0,0,0,1]);
+    }
+
+    function mat4RotationZ(a){
+      const c = Math.cos(a), s = Math.sin(a);
+      return new Float32Array([c,s,0,0, -s,c,0,0, 0,0,1,0, 0,0,0,1]);
+    }
+
+    function modelMatrix(rx, ry, rz){
+      return mat4Multiply(mat4RotationZ(rz), mat4Multiply(mat4RotationX(rx), mat4RotationY(ry)));
+    }
+
+    const sphereProgram = createProgram(vertexShaderSource, fragmentShaderSource);
+    const lineProgram = createProgram(lineVertexShaderSource, lineFragmentShaderSource);
+    const sphere = createSphere();
+    const grid = createGrid();
+
+    const spherePositionBuffer = createBuffer(gl.ARRAY_BUFFER, sphere.positions);
+    const sphereNormalBuffer = createBuffer(gl.ARRAY_BUFFER, sphere.normals);
+    const sphereUVBuffer = createBuffer(gl.ARRAY_BUFFER, sphere.uvs);
+    const sphereIndexBuffer = createBuffer(gl.ELEMENT_ARRAY_BUFFER, sphere.indices);
+    const gridBuffer = createBuffer(gl.ARRAY_BUFFER, grid);
+
+    const sphereLoc = {
+      position: gl.getAttribLocation(sphereProgram, 'aPosition'),
+      normal: gl.getAttribLocation(sphereProgram, 'aNormal'),
+      uv: gl.getAttribLocation(sphereProgram, 'aUV'),
+      projection: gl.getUniformLocation(sphereProgram, 'uProjection'),
+      view: gl.getUniformLocation(sphereProgram, 'uView'),
+      model: gl.getUniformLocation(sphereProgram, 'uModel'),
+      dayMap: gl.getUniformLocation(sphereProgram, 'uDayMap'),
+      nightMap: gl.getUniformLocation(sphereProgram, 'uNightMap'),
+      normalMap: gl.getUniformLocation(sphereProgram, 'uNormalMap'),
+      lightDir: gl.getUniformLocation(sphereProgram, 'uLightDir'),
+      cameraPos: gl.getUniformLocation(sphereProgram, 'uCameraPos'),
+      textureMix: gl.getUniformLocation(sphereProgram, 'uTextureMix'),
+      time: gl.getUniformLocation(sphereProgram, 'uTime')
+    };
+
+    const lineLoc = {
+      position: gl.getAttribLocation(lineProgram, 'aPosition'),
+      projection: gl.getUniformLocation(lineProgram, 'uProjection'),
+      view: gl.getUniformLocation(lineProgram, 'uView'),
+      model: gl.getUniformLocation(lineProgram, 'uModel'),
+      color: gl.getUniformLocation(lineProgram, 'uColor')
+    };
+
+    const dayTexture = createSolidTexture(20, 76, 128, 255);
+    const nightTexture = createSolidTexture(0, 8, 20, 255);
+    const normalTexture = createSolidTexture(128, 128, 255, 255);
+    let textureMix = 0;
+
+    Promise.all([
+      loadImageIntoTexture('assets/globe/earth_atmos_2048.jpg', dayTexture),
+      loadImageIntoTexture('assets/globe/earth_lights_2048.png', nightTexture),
+      loadImageIntoTexture('assets/globe/earth_normal_2048.jpg', normalTexture)
+    ]).then(() => {
+      textureMix = 1;
+      globeZone3D.dataset.globeTextures = 'local-ready';
+    }).catch((err) => {
+      // The sphere remains genuinely 3D even if a local texture file is missing.
+      // Only the photographic Earth skin is replaced by the procedural material.
+      globeZone3D.dataset.globeTextures = 'procedural-fallback';
+      console.warn('[ATO] Local globe texture load failed; using procedural 3D material.', err);
     });
 
-    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    particles.name = 'outerParticles';
-    scene.add(particles);
-  }
+    gl.enable(gl.DEPTH_TEST);
+    gl.depthFunc(gl.LEQUAL);
+    gl.enable(gl.CULL_FACE);
+    gl.cullFace(gl.BACK);
+    gl.clearColor(0,0,0,0);
 
-  let mouseX = 0;
-  let mouseY = 0;
+    let projection = mat4Perspective(40 * Math.PI / 180, 1, 0.1, 100);
+    const view = mat4Translation(0, 0, -7.9);
+    let mouseX = 0;
+    let mouseY = 0;
+    let rotationY = -0.35;
+    let lastTime = performance.now();
+    const startTime = lastTime;
 
-  globeShell.addEventListener('pointermove', (e) => {
-    const rect = globeShell.getBoundingClientRect();
-    mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-    mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-  });
+    globeShell.addEventListener('pointermove', (e) => {
+      const rect = globeShell.getBoundingClientRect();
+      mouseX = ((e.clientX - rect.left) / Math.max(rect.width, 1) - 0.5) * 2;
+      mouseY = ((e.clientY - rect.top) / Math.max(rect.height, 1) - 0.5) * 2;
+    });
 
-  globeShell.addEventListener('pointerleave', () => {
-    mouseX = 0;
-    mouseY = 0;
-  });
+    globeShell.addEventListener('pointerleave', () => {
+      mouseX = 0;
+      mouseY = 0;
+    });
 
-  function resize(){
-    const size = globeShell.getBoundingClientRect();
-    const w = Math.max(320, Math.round(size.width));
-    const h = Math.max(320, Math.round(size.height));
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
-    renderer.setSize(w, h, false);
-  }
+    function resize(){
+      const rect = globeShell.getBoundingClientRect();
+      const cssW = Math.max(320, Math.round(rect.width));
+      const cssH = Math.max(320, Math.round(rect.height));
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = Math.round(cssW * dpr);
+      const h = Math.round(cssH * dpr);
+      if(canvas.width !== w || canvas.height !== h){
+        canvas.width = w;
+        canvas.height = h;
+      }
+      gl.viewport(0, 0, w, h);
+      projection = mat4Perspective(40 * Math.PI / 180, cssW / cssH, 0.1, 100);
+    }
+    window.addEventListener('resize', resize, {passive:true});
+    if('ResizeObserver' in window){
+      new ResizeObserver(resize).observe(globeShell);
+    }
+    resize();
 
-  window.addEventListener('resize', resize);
+    function bindAttribute(buffer, location, size){
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+      gl.enableVertexAttribArray(location);
+      gl.vertexAttribPointer(location, size, gl.FLOAT, false, 0, 0);
+    }
 
-  const clock = new THREE.Clock();
+    function drawSphere(model, t){
+      gl.useProgram(sphereProgram);
+      bindAttribute(spherePositionBuffer, sphereLoc.position, 3);
+      bindAttribute(sphereNormalBuffer, sphereLoc.normal, 3);
+      bindAttribute(sphereUVBuffer, sphereLoc.uv, 2);
+      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, sphereIndexBuffer);
 
-  function animate(){
+      gl.uniformMatrix4fv(sphereLoc.projection, false, projection);
+      gl.uniformMatrix4fv(sphereLoc.view, false, view);
+      gl.uniformMatrix4fv(sphereLoc.model, false, model);
+      gl.uniform3f(sphereLoc.lightDir, 0.64, 0.38, 0.86);
+      gl.uniform3f(sphereLoc.cameraPos, 0, 0, 7.9);
+      gl.uniform1f(sphereLoc.textureMix, textureMix);
+      gl.uniform1f(sphereLoc.time, t);
+
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, dayTexture);
+      gl.uniform1i(sphereLoc.dayMap, 0);
+      gl.activeTexture(gl.TEXTURE1);
+      gl.bindTexture(gl.TEXTURE_2D, nightTexture);
+      gl.uniform1i(sphereLoc.nightMap, 1);
+      gl.activeTexture(gl.TEXTURE2);
+      gl.bindTexture(gl.TEXTURE_2D, normalTexture);
+      gl.uniform1i(sphereLoc.normalMap, 2);
+
+      gl.disable(gl.BLEND);
+      gl.enable(gl.DEPTH_TEST);
+      gl.depthMask(true);
+      gl.drawElements(gl.TRIANGLES, sphere.indices.length, gl.UNSIGNED_SHORT, 0);
+    }
+
+    function drawGrid(model, opacity){
+      gl.useProgram(lineProgram);
+      bindAttribute(gridBuffer, lineLoc.position, 3);
+      gl.uniformMatrix4fv(lineLoc.projection, false, projection);
+      gl.uniformMatrix4fv(lineLoc.view, false, view);
+      gl.uniformMatrix4fv(lineLoc.model, false, model);
+      gl.uniform4f(lineLoc.color, 0.22, 0.78, 1.0, opacity);
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+      gl.enable(gl.DEPTH_TEST);
+      gl.depthMask(false);
+      gl.drawArrays(gl.LINES, 0, grid.length / 3);
+      gl.depthMask(true);
+      gl.disable(gl.BLEND);
+    }
+
+    function animate(now){
+      requestAnimationFrame(animate);
+      const dt = Math.min((now - lastTime) / 16.6667, 3);
+      lastTime = now;
+      const t = (now - startTime) / 1000;
+
+      const running = globeZone3D.classList.contains('journey-running');
+      const arrived = globeZone3D.classList.contains('journey-arrived');
+      const pulsing = globeZone3D.classList.contains('journey-pulse');
+      const heart = globeZone3D.classList.contains('journey-heart');
+      const exploding = globeZone3D.classList.contains('journey-explode');
+      const launched = globeZone3D.classList.contains('journey-card-launch') || globeZone3D.classList.contains('card-landed');
+
+      let spin = 0.0024;
+      if (running) spin = 0.0072;
+      if (arrived) spin = 0.004;
+      if (heart || pulsing) spin = 0.0031;
+      if (exploding || launched) spin = 0.001;
+
+      rotationY += (spin + mouseX * 0.0009) * dt;
+      const rx = Math.sin(t * 0.35) * 0.03 + mouseY * 0.06;
+      const rz = Math.sin(t * 0.18) * 0.02;
+      const model = modelMatrix(rx, rotationY, rz);
+      const gridModel = modelMatrix(rx, rotationY * 1.04, rz + Math.sin(t * 0.26) * 0.02);
+      const gridOpacity = launched ? 0.025 : (pulsing ? 0.13 : 0.055 + Math.sin(t*1.4)*0.008);
+
+      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+      drawSphere(model, t);
+      drawGrid(gridModel, gridOpacity);
+    }
+
     requestAnimationFrame(animate);
-
-    const t = clock.getElapsedTime();
-    const mainGlobe = root.getObjectByName('mainGlobe');
-    const glowShell = root.getObjectByName('glowShell');
-    const networkShell = root.getObjectByName('networkShell');
-    const outerParticles = scene.getObjectByName('outerParticles');
-    const goldParticles = scene.getObjectByName('goldParticles');
-
-    const running = globeZone.classList.contains('journey-running');
-    const arrived = globeZone.classList.contains('journey-arrived');
-    const pulsing = globeZone.classList.contains('journey-pulse');
-    const heart = globeZone.classList.contains('journey-heart');
-    const exploding = globeZone.classList.contains('journey-explode');
-    const launched = globeZone.classList.contains('journey-card-launch') || globeZone.classList.contains('card-landed');
-
-    let spin = 0.0024;
-    if (running) spin = 0.0072;
-    if (arrived) spin = 0.004;
-    if (heart || pulsing) spin = 0.0031;
-    if (exploding || launched) spin = 0.001;
-
-    if (mainGlobe) {
-      mainGlobe.rotation.y += spin;
-      mainGlobe.rotation.x = Math.sin(t * 0.35) * 0.03 + mouseY * 0.06;
-      mainGlobe.rotation.z = Math.sin(t * 0.18) * 0.02;
-    }
-
-    if (glowShell) {
-      glowShell.rotation.y += spin * 0.82;
-      glowShell.material.opacity = heart ? 0.08 : (0.14 + Math.sin(t * 1.8) * 0.018);
-    }
-
-    if (networkShell) {
-      networkShell.rotation.y += spin * 1.25;
-      networkShell.rotation.z = Math.sin(t * 0.26) * 0.03;
-      networkShell.material.opacity = launched ? 0.05 : (pulsing ? 0.22 : 0.13);
-    }
-
-    if (outerParticles) {
-      outerParticles.rotation.y += 0.0008;
-      outerParticles.rotation.x = Math.sin(t * 0.12) * 0.05;
-      outerParticles.material.opacity = launched ? 0.18 : 0.82;
-    }
-    if (goldParticles) {
-      goldParticles.rotation.y -= 0.00042;
-      goldParticles.rotation.z = Math.sin(t * 0.18) * 0.04;
-      goldParticles.material.opacity = launched ? 0.18 : (0.60 + Math.sin(t*1.1)*0.10);
-    }
-
-    root.rotation.y += mouseX * 0.0009;
-
-    renderer.render(scene, camera);
   }
 }
-}).catch(err => console.error('Three.js failed to load:', err));
 
 document.addEventListener('DOMContentLoaded',()=>{
   const editChoicesBtn=document.getElementById('editChoicesBtn');

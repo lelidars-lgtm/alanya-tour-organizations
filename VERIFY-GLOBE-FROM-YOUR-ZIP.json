@@ -1,10 +1,24 @@
 {
-  "globe_dom_source_sha256": "7dd6c9daa307f78fb7bf5760c61cad750bb02627fb878bb80807b31533258d41",
-  "globe_dom_final_sha256": "7dd6c9daa307f78fb7bf5760c61cad750bb02627fb878bb80807b31533258d41",
-  "globe_renderer_source_sha256": "fe7e2b213c09ec0eb9a9d7f9f15ea6dc8d9a915555c76e2d1a84a8660eab8602",
-  "globe_renderer_final_sha256": "fe7e2b213c09ec0eb9a9d7f9f15ea6dc8d9a915555c76e2d1a84a8660eab8602",
-  "css_source_is_exact_prefix": true,
-  "start_direct": true,
-  "offer_card": true,
-  "choose_another": true
+  "fix": "AUTONOMOUS_WEBGL_3D_GLOBE",
+  "three_js_cdn_dependency_removed": true,
+  "external_threejs_texture_dependency_removed": true,
+  "uses_native_webgl": true,
+  "sphere_geometry_generated_in_code": true,
+  "local_texture_assets": {
+    "assets/globe/earth_atmos_2048.jpg": true,
+    "assets/globe/earth_lights_2048.png": true,
+    "assets/globe/earth_normal_2048.jpg": true
+  },
+  "globe_canvas_present": true,
+  "globe_css_fallback_present": true,
+  "javascript_syntax_check": "PASS (node --check)",
+  "sha256": {
+    "special-offers.html": "1587ed8a928191417d18ffcfa4a9c187a81414d07d4c8d352740026cb107033c",
+    "special-offers.css": "f4646fd64b5a41d14a2041a41d23ece7c4e0b707ff5e3f2286af5bad2cd91cac",
+    "special-offers.js": "234ce9b112a3b90cda2cab4deee063935dbf6a5a1edd51cb422d822ba08e66da",
+    "special-offers-bootstrap.js": "a9b5fe349a32cd4ea81ff330d48986a3a24c2b4b92c37f221b49d581656b0ff4",
+    "assets/globe/earth_atmos_2048.jpg": "2faa400d1eade3bc44caf6750d1b772bd9bbb6d87362c02bc7c3304e78fa0a9d",
+    "assets/globe/earth_lights_2048.png": "0564fa57f5fade2f65e56d3ad59b3c6bf5e32c44f60370a3e46fd367b0cabaee",
+    "assets/globe/earth_normal_2048.jpg": "3fc43e9639c34e8223c4a871e3bdf5b2d52ee79f7e89ce3f28cba45d4cac031a"
+  }
 }

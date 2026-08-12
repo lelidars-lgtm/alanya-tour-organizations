@@ -8687,3 +8687,15 @@ body.so-premium-body #journey #journeyDockCard.visual-only .heart-price-strip,
 body.so-premium-body #journey #journeyDockCard.visual-only #requestPersonalOffer{
   display:none!important;
 }
+
+/* Autonomous WebGL globe fallback: only used when the device has no WebGL context. */
+.live-globe-canvas.webgl-unavailable{
+  background:
+    radial-gradient(circle at 34% 26%, rgba(255,255,255,.20), rgba(255,255,255,0) 22%),
+    radial-gradient(circle at 68% 72%, rgba(0,48,104,.08), rgba(0,13,38,.42) 72%),
+    url('assets/globe/earth_atmos_2048.jpg') center / cover no-repeat;
+  box-shadow:
+    inset -44px -24px 68px rgba(0,10,30,.66),
+    inset 22px 12px 38px rgba(116,206,255,.12),
+    0 0 36px rgba(72,178,255,.18);
+}
