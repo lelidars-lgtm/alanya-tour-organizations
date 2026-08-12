@@ -484,7 +484,7 @@ function resetJourneyVisual(){
   journeyCardPlaceholder?.classList.remove('is-hidden');
   dockCard?.classList.remove('visible','final-visible');
   clearJourneyTimers(); endLogoFlight();
-  globeZone.classList.remove('journey-running','orbit-flight','orbit-complete','journey-arrived','turkiye-focus','alanya-landed','journey-pulse','light-collapse','journey-heart','heart-full','journey-explode','journey-card-launch','card-landed','heart-after-card','heart-return','final-turkiye');
+  globeZone.classList.remove('journey-running','orbit-flight','orbit-complete','journey-arrived','turkiye-focus','alanya-landed','journey-pulse','light-collapse','journey-heart','heart-full','journey-explode','journey-card-launch','card-landed','heart-return','final-turkiye');
   dockCard.classList.remove('visible'); dockLabel?.classList.remove('ready');
   status.innerHTML='<strong>ALANYA TOUR ORGANIZATIONS IS WAITING.</strong><span>LOGO → FLIGHT → GLOBE → TÜRKİYE → ALANYA → HEART → TOUR</span>';
   startJourney.disabled=false; startJourney.classList.remove('is-active');
@@ -586,13 +586,13 @@ function runJourney(fromPlanner=false){
       globeZone.classList.remove(
         'journey-running','orbit-flight','orbit-complete','journey-arrived',
         'turkiye-focus','alanya-landed','journey-pulse','light-collapse',
-        'journey-heart','heart-full','journey-explode','journey-card-launch','heart-after-card','heart-return'
+        'journey-heart','heart-full','journey-explode','journey-card-launch','heart-return'
       );
       globeZone.classList.remove(
         'journey-running','orbit-flight','orbit-complete','journey-arrived',
         'turkiye-focus','alanya-landed','journey-pulse','light-collapse',
         'journey-heart','heart-full','journey-explode','journey-card-launch',
-        'card-landed','heart-after-card','heart-return'
+        'card-landed','heart-return'
       );
       globeZone.classList.add('final-turkiye');
       const finalPin=document.getElementById('finalAlanyaMapPin');
@@ -725,13 +725,6 @@ function runJourney(fromPlanner=false){
       animateTourCardContinuously(1550);
       status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>STRAIGHT FROM THE HEART</span>';
     },16050);
-
-    /* 12B Once the card has clearly left the heart, let the heart breathe down
-       in several diminishing pulses until only a luminous red core remains. */
-    queueJourney(()=>{
-      globeZone.classList.add('heart-after-card');
-      status.innerHTML='<strong>THE HEART LETS IT FLY.</strong><span>ONE LAST BEAT · THEN HOME</span>';
-    },16650);
 
     queueJourney(()=>{
       cancelTourCardFlight();
