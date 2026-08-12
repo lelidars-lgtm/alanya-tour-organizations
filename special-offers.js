@@ -1037,7 +1037,10 @@ const allowedLangs = ["ru", "en", "tr", "de", "pl"];
 
   
 
-import('https://unpkg.com/three@0.160.1/build/three.module.js').then(({default: _unused, ...THREE_NS}) => { const THREE = THREE_NS;
+const loadATOThree=()=>import('https://unpkg.com/three@0.160.0/build/three.module.js')
+  .catch(()=>import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js'));
+
+loadATOThree().then(({default: _unused, ...THREE_NS}) => { const THREE = THREE_NS;
 
 const canvas = document.getElementById('liveGlobeCanvas');
 const globeShell = document.getElementById('globeShell');
@@ -1095,6 +1098,19 @@ if (canvas && globeShell && globeZone) {
   const loader = new THREE.TextureLoader();
   const globeGeometry = new THREE.SphereGeometry(2.28, 128, 128);
 
+  let globeAnimationStarted=false;
+
+  function startGlobeAnimationOnce(){
+    if(globeAnimationStarted) return;
+    globeAnimationStarted=true;
+    addAtmosphere();
+    addNetworkShell();
+    addStars();
+    addGoldenStars();
+    resize();
+    animate();
+  }
+
   function makeFallbackGlobe(){
     const mat = new THREE.MeshStandardMaterial({
       color: 0x05234b,
@@ -1104,14 +1120,13 @@ if (canvas && globeShell && globeZone) {
       metalness: 0.15
     });
     const mesh = new THREE.Mesh(globeGeometry, mat);
+    mesh.name = 'mainGlobe';
     root.add(mesh);
-    addAtmosphere();
-    addNetworkShell();
-    addStars();
-    addGoldenStars();
-    resize();
-    animate();
+    startGlobeAnimationOnce();
+    return mesh;
   }
+
+  const globe = makeFallbackGlobe();
 
   const assets = {
     map: 'https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg',
@@ -1135,19 +1150,11 @@ if (canvas && globeShell && globeZone) {
       metalness: 0.05
     });
 
-    const globe = new THREE.Mesh(globeGeometry, globeMaterial);
-    globe.name = 'mainGlobe';
-    root.add(globe);
-
-    addAtmosphere();
-    addNetworkShell();
-    addStars();
-    addGoldenStars();
-    resize();
-    animate();
+    if(globe.material && typeof globe.material.dispose==='function') globe.material.dispose();
+    globe.material=globeMaterial;
+    globe.material.needsUpdate=true;
   }).catch((err) => {
-    console.warn('Live globe textures failed to load, using fallback globe.', err);
-    makeFallbackGlobe();
+    console.warn('Live globe textures failed to load; rotating fallback globe remains active.', err);
   });
 
   function addAtmosphere(){
