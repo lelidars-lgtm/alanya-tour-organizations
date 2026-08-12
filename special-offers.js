@@ -159,7 +159,7 @@ nextBtn?.addEventListener('click',()=>{
 backBtn?.addEventListener('click',()=>{if(planner.step>0){planner.step--;renderPlanner();}});
 document.getElementById('sendExperience')?.addEventListener('click',()=>{
   document.getElementById('journey')?.scrollIntoView({behavior:'smooth',block:'center'});
-  setTimeout(()=>beginHeartOfferJourney(),620);
+  setTimeout(()=>runJourney(true),620);
 });
 renderPlanner();
 
@@ -779,7 +779,7 @@ function runJourney(fromPlanner=false){
 // HEART OFFER ENTRY: the existing animation is launched only after server-side eligibility check.
 /* LIVE IDLE STATE INIT */
 resetJourneyVisual();
-startJourney.addEventListener('click',()=>beginHeartOfferJourney());
+startJourney.addEventListener('click',()=>runJourney(false));
 
 window.addEventListener('resize',()=>{
   setLogoFlightGeometry();
@@ -949,13 +949,11 @@ heartEligibilityForm?.addEventListener('submit',async e=>{
 });
 
 viewHeartTour?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(activeRandomTour?.url)window.location.href=activeRandomTour.url});
-chooseAnotherHeartTour?.addEventListener('click',async e=>{
-  e.preventDefault();e.stopPropagation();
-  if(heartOfferRedeemed){heartVisualOnly=true;runJourney(false);return}
-  try{
-    if(!heartClientPhone){await beginHeartOfferJourney();return}
-    if(await verifyHeartEligibility(heartClientPhone)){runJourney(false)}
-  }catch(err){setHeartStatus(heartEligibilityStatus,err.message,'error');openHeartModal(heartEligibilityModal)}
+chooseAnotherHeartTour?.addEventListener('click',e=>{
+  e.preventDefault();
+  e.stopPropagation();
+  heartVisualOnly=false;
+  runJourney(false);
 });
 
 function openHeartClaimModal(){
@@ -1165,8 +1163,6 @@ if (canvas && globeShell && globeZone) {
   const loader = new THREE.TextureLoader();
   const globeGeometry = new THREE.SphereGeometry(2.28, 128, 128);
 
-  /* LIVE IDLE GLOBE — start immediately, then upgrade textures in place.
-     This prevents a frozen-looking first frame while network textures load. */
   function makeFallbackGlobe(){
     const mat = new THREE.MeshStandardMaterial({
       color: 0x05234b,
@@ -1176,7 +1172,6 @@ if (canvas && globeShell && globeZone) {
       metalness: 0.15
     });
     const mesh = new THREE.Mesh(globeGeometry, mat);
-    mesh.name = 'mainGlobe';
     root.add(mesh);
     addAtmosphere();
     addNetworkShell();
@@ -1184,7 +1179,6 @@ if (canvas && globeShell && globeZone) {
     addGoldenStars();
     resize();
     animate();
-    return mesh;
   }
 
   const assets = {
@@ -1192,9 +1186,6 @@ if (canvas && globeShell && globeZone) {
     lights: 'https://threejs.org/examples/textures/planets/earth_lights_2048.png',
     normal: 'https://threejs.org/examples/textures/planets/earth_normal_2048.jpg'
   };
-
-  /* The rotating fallback exists from the first rendered frame. */
-  const liveGlobe = makeFallbackGlobe();
 
   Promise.all([
     loader.loadAsync(assets.map),
@@ -1212,12 +1203,19 @@ if (canvas && globeShell && globeZone) {
       metalness: 0.05
     });
 
-    /* Upgrade the SAME spinning mesh — never replace it with a static frame. */
-    if (liveGlobe.material?.dispose) liveGlobe.material.dispose();
-    liveGlobe.material = globeMaterial;
+    const globe = new THREE.Mesh(globeGeometry, globeMaterial);
+    globe.name = 'mainGlobe';
+    root.add(globe);
+
+    addAtmosphere();
+    addNetworkShell();
+    addStars();
+    addGoldenStars();
+    resize();
+    animate();
   }).catch((err) => {
-    /* Keep the already-running fallback globe. */
-    console.warn('Live globe textures failed to load; rotating fallback remains active.', err);
+    console.warn('Live globe textures failed to load, using fallback globe.', err);
+    makeFallbackGlobe();
   });
 
   function addAtmosphere(){
