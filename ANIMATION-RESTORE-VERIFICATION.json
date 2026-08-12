@@ -1,0 +1,11 @@
+{
+  "source_run_sha256": "f85c2586634f25d00058325f5b912dea32c1eba01a8e7283b67214951f031067",
+  "output_run_sha256": "f85c2586634f25d00058325f5b912dea32c1eba01a8e7283b67214951f031067",
+  "runJourney_exact": true,
+  "css_source_exact_prefix": true,
+  "phone_gate_before_journey_present": false,
+  "claim_phone_present": true,
+  "commercial_hidden_during_animation": true,
+  "image_fallback_present": true,
+  "discount_matrix_count": 9
+}

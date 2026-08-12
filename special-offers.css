@@ -8599,3 +8599,19 @@ body.so-premium-body .gift-ending .heart-line span{
 
 @media (max-width:700px){.heart-modal-panel{padding:24px 16px;border-radius:19px}.heart-claim-grid{grid-template-columns:1fr}.heart-field-wide{grid-column:auto}.heart-offer-actions{grid-template-columns:1fr}.heart-offer-actions .heart-claim-main{grid-column:auto}.heart-price-strip{grid-template-columns:1fr}}
 
+
+
+/* ===== EXACT JOURNEY GEOMETRY LOCK =====
+   Commercial discount content is physically removed from layout until
+   the source Journey animation has completely reached final-turkiye. */
+#heartCommercialLayer[hidden]{display:none!important}
+.heart-offer-card:not(.heart-commercial-ready) #heartCommercialLayer{display:none!important}
+.heart-offer-card.heart-commercial-ready #heartCommercialLayer{display:block!important}
+.heart-offer-card.heart-commercial-ready #journeyLegacyActions,
+.heart-offer-card.heart-commercial-ready #journeyMatchInsight,
+.heart-offer-card.heart-commercial-ready #journeyBonus{display:none!important}
+.heart-offer-card:not(.heart-commercial-ready) #journeyLegacyActions{display:flex!important}
+.heart-offer-card:not(.heart-commercial-ready) #journeyMatchInsight{display:block!important}
+.heart-offer-card:not(.heart-commercial-ready) #heartOfferEyebrow{color:rgba(243,198,109,.55)!important}
+/* The source card geometry remains unchanged while the animation runs. */
+.heart-offer-card:not(.heart-commercial-ready) .heart-commercial-layer *{animation:none!important}
