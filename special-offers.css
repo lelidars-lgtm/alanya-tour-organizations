@@ -8651,3 +8651,39 @@ body.so-premium-body #journey:has(.globe-zone.final-turkiye) .journey-copy{
     padding-bottom:38px!important;
   }
 }
+
+/* =========================================================
+   JOURNEY FINAL CARD — DISCOUNT OFFER LOCK — 2026-08-12
+   Approved result: tour + category discount + regular / heart price
+   + VIEW TOUR / CHOOSE ANOTHER / CLAIM OFFER.
+   Keeps Journey animation and final Türkiye composition unchanged.
+   ========================================================= */
+body.so-premium-body #journey #journeyDockCard .journey-match-insight,
+body.so-premium-body #journey #journeyDockCard #journeyLegacyActions,
+body.so-premium-body #journey #journeyDockCard .journey-bonus{
+  display:none!important;
+}
+body.so-premium-body #journey #journeyDockCard .heart-commercial-layer{
+  display:block!important;
+}
+body.so-premium-body #journey #journeyDockCard #heartOfferEyebrow{
+  display:block!important;
+  color:#f3c66d!important;
+}
+body.so-premium-body #journey #journeyDockCard.final-visible{
+  padding-bottom:16px!important;
+}
+body.so-premium-body #journey #journeyDockCard .heart-surprise-offer{
+  display:block!important;
+}
+body.so-premium-body #journey #journeyDockCard .heart-price-strip{
+  display:grid!important;
+}
+body.so-premium-body #journey #journeyDockCard .heart-offer-actions{
+  display:grid!important;
+}
+body.so-premium-body #journey #journeyDockCard.visual-only .heart-surprise-offer,
+body.so-premium-body #journey #journeyDockCard.visual-only .heart-price-strip,
+body.so-premium-body #journey #journeyDockCard.visual-only #requestPersonalOffer{
+  display:none!important;
+}

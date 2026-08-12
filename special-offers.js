@@ -776,9 +776,6 @@ function runJourney(fromPlanner=false){
   });
 }
 
-// HEART OFFER ENTRY: the existing animation is launched only after server-side eligibility check.
-/* LIVE IDLE STATE INIT */
-resetJourneyVisual();
 startJourney.addEventListener('click',()=>runJourney(false));
 
 window.addEventListener('resize',()=>{
