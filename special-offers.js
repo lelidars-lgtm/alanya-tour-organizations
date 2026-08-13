@@ -1648,6 +1648,7 @@ if (canvas && globeShell && globeZone3D) {
   } else {
     globeZone3D.dataset.globeMode = 'webgl-3d-geodesic';
 
+
     const vertexShaderSource = `
       attribute vec3 aPosition;
       attribute vec3 aNormal;
