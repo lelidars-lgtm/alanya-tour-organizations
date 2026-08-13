@@ -1,0 +1,954 @@
+[
+  {
+    "name": "Pirate Yacht",
+    "category": "Sea Experiences",
+    "url": "/pirate-yacht.html",
+    "price": null,
+    "priceLabel": "",
+    "duration": "6 hours",
+    "meta": [
+      "6 hours",
+      "Family friendly",
+      "Lunch included"
+    ],
+    "tags": [
+      "couples",
+      "family",
+      "friends",
+      "kids"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Relax Boat Tour",
+    "category": "Sea Experiences",
+    "url": "/relax-boat-tour.html",
+    "price": null,
+    "priceLabel": "",
+    "duration": "5–6 hours",
+    "meta": [
+      "5–6 hours",
+      "10–15 guests",
+      "Hidden bays"
+    ],
+    "tags": [
+      "friends",
+      "relax"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Catamaran",
+    "category": "Sea Experiences",
+    "url": "/catamaran.html",
+    "price": null,
+    "priceLabel": "",
+    "duration": "Sea route",
+    "meta": [
+      "Sea route",
+      "Swimming",
+      "Comfort deck"
+    ],
+    "tags": [
+      "couples",
+      "friends",
+      "relax"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Private Fishing",
+    "category": "Sea Experiences",
+    "url": "/private-fishing.html",
+    "price": null,
+    "priceLabel": "",
+    "duration": "Private",
+    "meta": [
+      "Private",
+      "Fishing",
+      "Calm sea"
+    ],
+    "tags": [
+      "friends",
+      "private",
+      "relax",
+      "vip"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Fishing Tour",
+    "category": "Sea Experiences",
+    "url": "/fishing-tour.html",
+    "price": null,
+    "priceLabel": "",
+    "duration": "Fishing",
+    "meta": [
+      "Fishing",
+      "Sea views",
+      "Relaxed"
+    ],
+    "tags": [
+      "friends",
+      "relax"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Luxury Yacht Cruise",
+    "category": "Sea Experiences",
+    "url": "/luxury-yacht-cruise.html",
+    "price": null,
+    "priceLabel": "",
+    "duration": "Premium",
+    "meta": [
+      "Premium",
+      "Private mood",
+      "Sunset"
+    ],
+    "tags": [
+      "couples",
+      "friends",
+      "luxury",
+      "private",
+      "vip"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Adrasan – Suluada – Porto Genovese Bay",
+    "category": "Sea Experiences",
+    "url": "/suluada-porto-genovese.html",
+    "price": null,
+    "priceLabel": "",
+    "duration": "Suluada",
+    "meta": [
+      "Suluada",
+      "Porto Genovese",
+      "Bay route"
+    ],
+    "tags": [
+      "friends"
+    ],
+    "keywords": [
+      "adrasan",
+      "porto genovese"
+    ]
+  },
+  {
+    "name": "Gazipaşa Bays",
+    "category": "Sea Experiences",
+    "url": "/gazipasa-bays.html",
+    "price": null,
+    "priceLabel": "",
+    "duration": "Hidden bays",
+    "meta": [
+      "Hidden bays",
+      "Ancient coast",
+      "Caves"
+    ],
+    "tags": [
+      "friends"
+    ],
+    "keywords": [
+      "gazipasa",
+      "hidden bays"
+    ]
+  },
+  {
+    "name": "Rafting in Köprülü Canyon",
+    "category": "Extreme & Adventure",
+    "url": "/rafting-koprulu-canyon.html",
+    "price": 30.0,
+    "priceLabel": "€30",
+    "duration": "Full Day",
+    "meta": [
+      "Full Day",
+      "Adventure"
+    ],
+    "tags": [
+      "extreme",
+      "friends"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Jeep Safari",
+    "category": "Extreme & Adventure",
+    "url": "/jeep-safari.html",
+    "price": 25.0,
+    "priceLabel": "€25",
+    "duration": "Full Day",
+    "meta": [
+      "Full Day",
+      "All Ages"
+    ],
+    "tags": [
+      "extreme",
+      "family",
+      "friends",
+      "kids"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Quad Safari",
+    "category": "Extreme & Adventure",
+    "url": "/quad-safari.html",
+    "price": 30.0,
+    "priceLabel": "€30",
+    "duration": "2–3 Hours",
+    "meta": [
+      "2–3 Hours",
+      "Active"
+    ],
+    "tags": [
+      "extreme",
+      "friends"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Family Jeep Safari",
+    "category": "Extreme & Adventure",
+    "url": "/family-jeep-safari.html",
+    "price": 25.0,
+    "priceLabel": "€25",
+    "duration": "Full Day",
+    "meta": [
+      "Full Day",
+      "All Ages"
+    ],
+    "tags": [
+      "extreme",
+      "family",
+      "friends",
+      "kids"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Family Buggy Safari",
+    "category": "Extreme & Adventure",
+    "url": "/family-buggy-safari.html",
+    "price": 35.0,
+    "priceLabel": "€35",
+    "duration": "2–3 Hours",
+    "meta": [
+      "2–3 Hours",
+      "Family"
+    ],
+    "tags": [
+      "extreme",
+      "family",
+      "friends",
+      "kids"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Green Canyon",
+    "category": "Nature & Adventure",
+    "url": "/green-canyon.html",
+    "price": 30.0,
+    "priceLabel": "€30",
+    "duration": "Full Day",
+    "meta": [
+      "Full Day",
+      "All Ages"
+    ],
+    "tags": [
+      "family",
+      "kids"
+    ],
+    "keywords": [
+      "boat",
+      "canyon"
+    ]
+  },
+  {
+    "name": "Sapadere Canyon",
+    "category": "Nature & Adventure",
+    "url": "/sapadere-canyon.html",
+    "price": 30.0,
+    "priceLabel": "€30",
+    "duration": "Half Day",
+    "meta": [
+      "Half Day",
+      "Family"
+    ],
+    "tags": [
+      "family",
+      "kids"
+    ],
+    "keywords": [
+      "waterfall",
+      "canyon"
+    ]
+  },
+  {
+    "name": "Pamukkale & Salda Lake",
+    "category": "Nature & Adventure",
+    "url": "/pamukkale-salda-lake.html",
+    "price": 45.0,
+    "priceLabel": "€45",
+    "duration": "Full Day",
+    "meta": [
+      "Full Day",
+      "Scenic"
+    ],
+    "tags": [],
+    "keywords": []
+  },
+  {
+    "name": "Horse Riding / Horse Farm",
+    "category": "Nature & Adventure",
+    "url": "/horse-riding.html",
+    "price": 35.0,
+    "priceLabel": "€35",
+    "duration": "2–3 Hours",
+    "meta": [
+      "2–3 Hours",
+      "Family"
+    ],
+    "tags": [
+      "family",
+      "kids"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Cappadocia",
+    "category": "History & Culture",
+    "url": "/cappadocia.html",
+    "price": 100.0,
+    "priceLabel": "€100",
+    "duration": "2 Days",
+    "meta": [
+      "2 Days",
+      "Culture"
+    ],
+    "tags": [],
+    "keywords": [
+      "kapadokya",
+      "balloon",
+      "cave"
+    ]
+  },
+  {
+    "name": "Demre – Myra – Kekova",
+    "category": "History & Culture",
+    "url": "/demre-myra-kekova.html",
+    "price": 100.0,
+    "priceLabel": "€100",
+    "duration": "Full Day",
+    "meta": [
+      "Full Day",
+      "History"
+    ],
+    "tags": [],
+    "keywords": [
+      "myra",
+      "kekova",
+      "st nicholas"
+    ]
+  },
+  {
+    "name": "Istanbul Tour",
+    "category": "History & Culture",
+    "url": "/istanbul-tour.html",
+    "price": 290.0,
+    "priceLabel": "€290",
+    "duration": "Full Day",
+    "meta": [
+      "Full Day",
+      "City"
+    ],
+    "tags": [],
+    "keywords": []
+  },
+  {
+    "name": "Syedra Ancient City",
+    "category": "History & Culture",
+    "url": "/syedra-ancient-city.html",
+    "price": 45.0,
+    "priceLabel": "€45",
+    "duration": "Half Day",
+    "meta": [
+      "Half Day",
+      "History"
+    ],
+    "tags": [],
+    "keywords": []
+  },
+  {
+    "name": "Anamur",
+    "category": "History & Culture",
+    "url": "/anamur.html",
+    "price": 75.0,
+    "priceLabel": "€75",
+    "duration": "Full Day",
+    "meta": [
+      "Full Day",
+      "Culture"
+    ],
+    "tags": [],
+    "keywords": []
+  },
+  {
+    "name": "Aspendos Ancient City & Roman Theatre",
+    "category": "History & Culture",
+    "url": "/aspendos.html",
+    "price": 65.0,
+    "priceLabel": "€65",
+    "duration": "Full Day",
+    "meta": [
+      "Full Day",
+      "Ancient"
+    ],
+    "tags": [],
+    "keywords": [
+      "roman theatre"
+    ]
+  },
+  {
+    "name": "Alanya City Tour",
+    "category": "History & Culture",
+    "url": "/alanya-city-tour.html",
+    "price": 35.0,
+    "priceLabel": "€35",
+    "duration": "Half Day",
+    "meta": [
+      "Half Day",
+      "City"
+    ],
+    "tags": [],
+    "keywords": [
+      "cleopatra",
+      "castle",
+      "cable car"
+    ]
+  },
+  {
+    "name": "Manavgat – M.A.S. – Side",
+    "category": "History & Culture",
+    "url": "/manavgat-aspendos-side.html",
+    "price": 75.0,
+    "priceLabel": "€75",
+    "duration": "Full Day",
+    "meta": [
+      "Full Day",
+      "Family"
+    ],
+    "tags": [
+      "family",
+      "kids"
+    ],
+    "keywords": [
+      "side",
+      "waterfall"
+    ]
+  },
+  {
+    "name": "The Land of Legends",
+    "category": "Family Experiences",
+    "url": "/land-of-legends.html",
+    "price": 95.0,
+    "priceLabel": "€95",
+    "duration": "Full Day",
+    "meta": [
+      "Full Day",
+      "Family"
+    ],
+    "tags": [
+      "family",
+      "kids"
+    ],
+    "keywords": [
+      "belek",
+      "theme park"
+    ]
+  },
+  {
+    "name": "Sealanya Dolphin Show",
+    "category": "Family Experiences",
+    "url": "/sealanya-dolphinpark.html",
+    "price": 35.0,
+    "priceLabel": "€35",
+    "duration": "Show",
+    "meta": [
+      "Show",
+      "Kids"
+    ],
+    "tags": [
+      "family",
+      "kids"
+    ],
+    "keywords": [
+      "dolphin",
+      "dolphinpark"
+    ]
+  },
+  {
+    "name": "Eftalia Island Waterpark",
+    "category": "Family Experiences",
+    "url": "/eftalia-island-waterpark.html",
+    "price": 45.0,
+    "priceLabel": "€45",
+    "duration": "Full Day",
+    "meta": [
+      "Full Day",
+      "Water"
+    ],
+    "tags": [
+      "family",
+      "kids"
+    ],
+    "keywords": [
+      "waterpark",
+      "slides"
+    ]
+  },
+  {
+    "name": "Night Jeep Safari",
+    "category": "Family Experiences",
+    "url": "/night-jeep-safari.html",
+    "price": 35.0,
+    "priceLabel": "€35",
+    "duration": "Evening",
+    "meta": [
+      "Evening",
+      "Adventure"
+    ],
+    "tags": [
+      "couples",
+      "family",
+      "kids"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Paragliding",
+    "category": "Air Experiences",
+    "url": "/paragliding.html",
+    "price": 75.0,
+    "priceLabel": "€75",
+    "duration": "Flight",
+    "meta": [
+      "Flight",
+      "Popular"
+    ],
+    "tags": [
+      "couples",
+      "extreme"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Helicopter Flight",
+    "category": "Air Experiences",
+    "url": "/helicopter-flight.html",
+    "price": 250.0,
+    "priceLabel": "€250",
+    "duration": "Aerial",
+    "meta": [
+      "Aerial",
+      "VIP"
+    ],
+    "tags": [
+      "couples",
+      "private",
+      "vip"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Tandem Skydive",
+    "category": "Air Experiences",
+    "url": "/skydive-experience.html",
+    "price": 500.0,
+    "priceLabel": "€500",
+    "duration": "Extreme",
+    "meta": [
+      "Extreme",
+      "Adrenaline"
+    ],
+    "tags": [
+      "extreme"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Parasailing Adventure",
+    "category": "Water Sports",
+    "url": "/parasailing.html",
+    "price": 70.0,
+    "priceLabel": "€70",
+    "duration": "Short ride",
+    "meta": [
+      "Short ride",
+      "Panoramic"
+    ],
+    "tags": [
+      "extreme",
+      "friends"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Jet Ski Safari",
+    "category": "Water Sports",
+    "url": "/jet-ski.html",
+    "price": 60.0,
+    "priceLabel": "€60",
+    "duration": "Flexible time",
+    "meta": [
+      "Flexible time",
+      "Open sea"
+    ],
+    "tags": [
+      "extreme",
+      "friends"
+    ],
+    "keywords": [
+      "jetski"
+    ]
+  },
+  {
+    "name": "E-Foil Experience & Training",
+    "category": "Water Sports",
+    "url": "/e-foil.html",
+    "price": 110.0,
+    "priceLabel": "€110",
+    "duration": "Lesson",
+    "meta": [
+      "Lesson",
+      "Instructor"
+    ],
+    "tags": [
+      "friends"
+    ],
+    "keywords": [
+      "efoil"
+    ]
+  },
+  {
+    "name": "Professional Wakeboarding",
+    "category": "Water Sports",
+    "url": "/wakeboard.html",
+    "price": 70.0,
+    "priceLabel": "€70",
+    "duration": "Sport ride",
+    "meta": [
+      "Sport ride",
+      "Speedboat"
+    ],
+    "tags": [
+      "friends",
+      "luxury"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Water Ski Experience",
+    "category": "Water Sports",
+    "url": "/water-ski.html",
+    "price": 70.0,
+    "priceLabel": "€70",
+    "duration": "Sport ride",
+    "meta": [
+      "Sport ride",
+      "Sea trail"
+    ],
+    "tags": [
+      "friends"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Luxury Jet Car",
+    "category": "Water Sports",
+    "url": "/luxury-jet-car.html",
+    "price": 100.0,
+    "priceLabel": "€100",
+    "duration": "VIP mood",
+    "meta": [
+      "VIP mood",
+      "Premium"
+    ],
+    "tags": [
+      "friends",
+      "luxury",
+      "private",
+      "vip"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "VIP Speed Boat Tour",
+    "category": "Water Sports",
+    "url": "/speed-boat-tour.html",
+    "price": 300.0,
+    "priceLabel": "€300",
+    "duration": "Sea tour",
+    "meta": [
+      "Sea tour",
+      "Fast ride"
+    ],
+    "tags": [
+      "friends",
+      "luxury",
+      "private",
+      "vip"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Twister Ride",
+    "category": "Water Sports",
+    "url": "/twister.html",
+    "price": 170.0,
+    "priceLabel": "€170",
+    "duration": "Fun ride",
+    "meta": [
+      "Fun ride",
+      "Friends"
+    ],
+    "tags": [
+      "friends"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Banana Boat",
+    "category": "Water Sports",
+    "url": "/banana-boat.html",
+    "price": 120.0,
+    "priceLabel": "€120",
+    "duration": "Short ride",
+    "meta": [
+      "Short ride",
+      "Group"
+    ],
+    "tags": [
+      "family",
+      "friends",
+      "kids"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Sofa Ride",
+    "category": "Water Sports",
+    "url": "/sofa-ride.html",
+    "price": 25.0,
+    "priceLabel": "€25",
+    "duration": "Fun ride",
+    "meta": [
+      "Fun ride",
+      "Sea spray"
+    ],
+    "tags": [
+      "friends"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Extreme Ringo",
+    "category": "Water Sports",
+    "url": "/ringo.html",
+    "price": 25.0,
+    "priceLabel": "€25",
+    "duration": "Fast ride",
+    "meta": [
+      "Fast ride",
+      "Adrenaline"
+    ],
+    "tags": [
+      "extreme",
+      "friends"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Stand Up Paddleboarding",
+    "category": "Water Sports",
+    "url": "/sup-boarding.html",
+    "price": 35.0,
+    "priceLabel": "€35",
+    "duration": "Calm ride",
+    "meta": [
+      "Calm ride",
+      "Clear water"
+    ],
+    "tags": [
+      "friends",
+      "relax"
+    ],
+    "keywords": [
+      "sup",
+      "paddle"
+    ]
+  },
+  {
+    "name": "Scuba Diving Experience",
+    "category": "Water Sports",
+    "url": "/scuba-diving.html",
+    "price": 35.0,
+    "priceLabel": "€35",
+    "duration": "Half day",
+    "meta": [
+      "Half day",
+      "Instructor"
+    ],
+    "tags": [
+      "friends"
+    ],
+    "keywords": [
+      "diving"
+    ]
+  },
+  {
+    "name": "Airport VIP Transfer",
+    "category": "VIP Service",
+    "url": "/airport-vip-transfer.html",
+    "price": null,
+    "priceLabel": "VIP",
+    "duration": "On Request",
+    "meta": [
+      "On Request",
+      "Luxury"
+    ],
+    "tags": [
+      "couples",
+      "luxury",
+      "private",
+      "vip"
+    ],
+    "keywords": [
+      "airport transfer"
+    ]
+  },
+  {
+    "name": "Luxury Yacht",
+    "category": "VIP Service",
+    "url": "/luxury-yacht.html",
+    "price": null,
+    "priceLabel": "VIP",
+    "duration": "24/7",
+    "meta": [
+      "24/7",
+      "Private"
+    ],
+    "tags": [
+      "couples",
+      "luxury",
+      "private",
+      "vip"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Personal Concierge",
+    "category": "VIP Service",
+    "url": "/personal-concierge.html",
+    "price": null,
+    "priceLabel": "VIP",
+    "duration": "Daily",
+    "meta": [
+      "Daily",
+      "Sea VIP"
+    ],
+    "tags": [
+      "couples",
+      "luxury",
+      "private",
+      "vip"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Helicopter Experience",
+    "category": "VIP Service",
+    "url": "/helicopter-experience.html",
+    "price": null,
+    "priceLabel": "VIP",
+    "duration": "Flexible",
+    "meta": [
+      "Flexible",
+      "Private"
+    ],
+    "tags": [
+      "couples",
+      "luxury",
+      "private",
+      "vip"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Private Photographer",
+    "category": "VIP Service",
+    "url": "/private-photographer.html",
+    "price": null,
+    "priceLabel": "VIP",
+    "duration": "On Request",
+    "meta": [
+      "On Request",
+      "Creative"
+    ],
+    "tags": [
+      "couples",
+      "luxury",
+      "private",
+      "vip"
+    ],
+    "keywords": [
+      "photoshoot",
+      "photo"
+    ]
+  },
+  {
+    "name": "Turkish Hammam",
+    "category": "Wellness & Relax",
+    "url": "/turkish-hammam.html",
+    "price": null,
+    "priceLabel": "Ask",
+    "duration": "Daily",
+    "meta": [
+      "Daily",
+      "Relax"
+    ],
+    "tags": [
+      "couples",
+      "relax"
+    ],
+    "keywords": [
+      "hamam",
+      "turkish bath",
+      "spa"
+    ]
+  },
+  {
+    "name": "Turkish Massage & Spa",
+    "category": "Wellness & Relax",
+    "url": "/turkish-massage-spa.html",
+    "price": null,
+    "priceLabel": "Ask",
+    "duration": "Daily",
+    "meta": [
+      "Daily",
+      "Spa"
+    ],
+    "tags": [
+      "couples",
+      "luxury",
+      "relax"
+    ],
+    "keywords": [
+      "massage",
+      "spa",
+      "wellness"
+    ]
+  }
+]

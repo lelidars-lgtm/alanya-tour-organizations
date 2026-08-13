@@ -4,14 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>ALANYA TOUR ORGANIZATIONS — Экскурсии в Алании</title>
+  <title>ALANYA TOUR ORGANIZATIONS — Tours in Alanya</title>
 
   <meta 
     name="description" 
-    content="Экскурсии в Алании: морские прогулки, сафари, каньоны, водные развлечения, полёты, хамам, VIP-сервис и индивидуальные туры. Бронирование через WhatsApp." 
+    content="Tours in Alanya: boat trips, safaris, canyons, water sports, flights, hammam, VIP services and private tours. Book quickly via WhatsApp." 
   />
 
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/assets/css/tour-finder-v1.css" />
 
 <style>
 /* VIP SERVICE — Google AI style: gold + rainbow border running strictly around the perimeter */
@@ -342,6 +343,16 @@
   .footer-strip .footer-legal-links{font-size:12px;gap:7px;}
 }
 </style>
+
+<style id="ato-gold-category-svg-icons">
+/* Unified gold SVG category symbols — cards + TOURS dropdown */
+.ato-gold-category-icon{color:#f3c66d!important;display:flex!important;align-items:center;justify-content:center;}
+.ato-gold-category-icon .ato-cat-svg{width:32px;height:32px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 7px rgba(243,198,109,.28));}
+.ato-dropdown-svg-icon{color:#f3c66d!important;display:inline-flex!important;align-items:center;justify-content:center;width:22px;height:22px;flex:0 0 22px;}
+.ato-dropdown-svg-icon .ato-cat-svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.category-card:hover .ato-gold-category-icon .ato-cat-svg{filter:drop-shadow(0 0 10px rgba(243,198,109,.55));transform:scale(1.06);}
+.ato-gold-category-icon .ato-cat-svg{transition:transform .25s ease,filter .25s ease;}
+</style>
 </head>
 
 <body>
@@ -371,14 +382,14 @@
         <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10L12 15L17 10"/></svg>
       </button>
       <div class="dropdown-menu ato-tours-menu" role="menu">
-        <a href="sea-experiences.html" role="menuitem"><span class="dropdown-icon">⚓</span>SEA EXPERIENCES</a>
-        <a href="extreme-adventure.html" role="menuitem"><span class="dropdown-icon">⚡</span>EXTREME &amp; ADVENTURE</a>
-        <a href="nature-adventures.html" role="menuitem"><span class="dropdown-icon">◆</span>NATURE &amp; ADVENTURE</a>
-        <a href="history-culture.html" role="menuitem"><span class="dropdown-icon">◇</span>HISTORY &amp; CULTURE</a>
-        <a href="family-experiences.html" role="menuitem"><span class="dropdown-icon">♥</span>FAMILY EXPERIENCES</a>
-        <a href="water-sports.html" role="menuitem"><span class="dropdown-icon">≈</span>WATER SPORTS</a>
-        <a href="air-experiences.html" role="menuitem"><span class="dropdown-icon">✦</span>AIR EXPERIENCES</a>
-        <a href="wellness-relax.html" role="menuitem"><span class="dropdown-icon">✺</span>WELLNESS &amp; RELAX</a>
+        <a href="sea-experiences.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18c2.2 0 2.2 1.5 4.4 1.5S9.6 18 11.8 18s2.2 1.5 4.4 1.5S18.4 18 20.6 18"/><path d="M12 4v10"/><path d="M12 5 6.5 12H12"/><path d="M12 6.5 17.5 12H12"/></svg></span>SEA EXPERIENCES</a>
+        <a href="extreme-adventure.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 2 5.5 13h5.2L9.8 22 18.5 9.7h-5.3z"/></svg></span>EXTREME &amp; ADVENTURE</a>
+        <a href="nature-adventures.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20c4.5-1 8-4.5 10-9"/><path d="M7 14c-2.2-3.5.4-7.7 8.8-9-1 8-4.7 11.3-8.8 9Z"/><path d="M13 9c1.7.1 3.7.8 5.8 2.1-2 4.8-5.2 6.4-8.2 5"/></svg></span>NATURE &amp; ADVENTURE</a>
+        <a href="history-culture.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 9 8-5 8 5"/><path d="M5 10h14"/><path d="M7 10v8M11 10v8M15 10v8M19 10v8"/><path d="M4 19h16M3 21h18"/></svg></span>HISTORY &amp; CULTURE</a>
+        <a href="family-experiences.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="2.3"/><circle cx="16" cy="8" r="2.3"/><circle cx="12" cy="13" r="1.8"/><path d="M3.5 19c.5-3.5 2.2-5.3 4.5-5.3 1.2 0 2.2.4 3 1.1M20.5 19c-.5-3.5-2.2-5.3-4.5-5.3-1.2 0-2.2.4-3 1.1"/><path d="M8.5 20c.4-2.6 1.6-4 3.5-4s3.1 1.4 3.5 4"/></svg></span>FAMILY EXPERIENCES</a>
+        <a href="water-sports.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8c2.2 0 2.2 1.5 4.4 1.5S9.6 8 11.8 8s2.2 1.5 4.4 1.5S18.4 8 20.6 8"/><path d="M3 13c2.2 0 2.2 1.5 4.4 1.5s2.2-1.5 4.4-1.5 2.2 1.5 4.4 1.5 2.2-1.5 4.4-1.5"/><path d="M3 18c2.2 0 2.2 1.5 4.4 1.5s2.2-1.5 4.4-1.5 2.2 1.5 4.4 1.5 2.2-1.5 4.4-1.5"/></svg></span>WATER SPORTS</a>
+        <a href="air-experiences.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9c2-4 5-6 8-6s6 2 8 6"/><path d="M4 9h16"/><path d="M4 9 10 16M20 9l-6 7"/><path d="M10 16h4l1 4h-6z"/></svg></span>AIR EXPERIENCES</a>
+        <a href="wellness-relax.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20c-4-2.5-6.5-5.8-6.5-9.2 2.9.2 5.1 1.4 6.5 3.5 1.4-2.1 3.6-3.3 6.5-3.5 0 3.4-2.5 6.7-6.5 9.2Z"/><path d="M12 14.3C9.8 11.7 9.8 8.8 12 5c2.2 3.8 2.2 6.7 0 9.3Z"/></svg></span>WELLNESS &amp; RELAX</a>
       </div>
     </div>
 
@@ -439,7 +450,7 @@
       <path d="M12 3C9 6 7.5 9 7.5 12C7.5 15 9 18 12 21" />
     </svg>
 
-    <span>RU</span>
+    <span>EN</span>
 
     <svg class="arrow-icon" viewBox="0 0 24 24">
       <path d="M7 10L12 15L17 10" />
@@ -530,7 +541,7 @@
     <a href="sea-experiences.html" class="category-card">
       <div class="category-img">
         <img src="sea.jpg" alt="Sea Experiences">
-        <div class="category-icon">⚓</div>
+        <div class="category-icon ato-gold-category-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18c2.2 0 2.2 1.5 4.4 1.5S9.6 18 11.8 18s2.2 1.5 4.4 1.5S18.4 18 20.6 18"/><path d="M12 4v10"/><path d="M12 5 6.5 12H12"/><path d="M12 6.5 17.5 12H12"/></svg></div>
       </div>
       <div class="category-body">
         <h3>1. SEA EXPERIENCES</h3>
@@ -543,7 +554,7 @@
 
   <div class="category-img">
     <img src="extreme.jpg" alt="Extreme Adventure">
-    <div class="category-icon">⚡</div>
+    <div class="category-icon ato-gold-category-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 2 5.5 13h5.2L9.8 22 18.5 9.7h-5.3z"/></svg></div>
   </div>
 
   <div class="category-body">
@@ -563,7 +574,7 @@
     <a href="nature-adventures.html" class="category-card">
       <div class="category-img">
         <img src="nature.jpg" alt="Nature Adventure">
-        <div class="category-icon">🌿</div>
+        <div class="category-icon ato-gold-category-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20c4.5-1 8-4.5 10-9"/><path d="M7 14c-2.2-3.5.4-7.7 8.8-9-1 8-4.7 11.3-8.8 9Z"/><path d="M13 9c1.7.1 3.7.8 5.8 2.1-2 4.8-5.2 6.4-8.2 5"/></svg></div>
       </div>
       <div class="category-body">
         <h3>3. NATURE & ADVENTURE</h3>
@@ -575,7 +586,7 @@
     <a href="history-culture.html" class="category-card">
       <div class="category-img">
         <img src="history.jpg" alt="History Culture">
-        <div class="category-icon">🏛️</div>
+        <div class="category-icon ato-gold-category-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 9 8-5 8 5"/><path d="M5 10h14"/><path d="M7 10v8M11 10v8M15 10v8M19 10v8"/><path d="M4 19h16M3 21h18"/></svg></div>
       </div>
       <div class="category-body">
         <h3>4. HISTORY & CULTURE</h3>
@@ -587,7 +598,7 @@
     <a href="family-experiences.html" class="category-card">
       <div class="category-img">
         <img src="family.jpg" alt="Family Experiences">
-        <div class="category-icon">👨‍👩‍👧</div>
+        <div class="category-icon ato-gold-category-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="2.3"/><circle cx="16" cy="8" r="2.3"/><circle cx="12" cy="13" r="1.8"/><path d="M3.5 19c.5-3.5 2.2-5.3 4.5-5.3 1.2 0 2.2.4 3 1.1M20.5 19c-.5-3.5-2.2-5.3-4.5-5.3-1.2 0-2.2.4-3 1.1"/><path d="M8.5 20c.4-2.6 1.6-4 3.5-4s3.1 1.4 3.5 4"/></svg></div>
       </div>
       <div class="category-body">
         <h3>5. FAMILY EXPERIENCES</h3>
@@ -599,7 +610,7 @@
     <a href="air-experiences.html" class="category-card">
       <div class="category-img">
         <img src="air.jpg" alt="Air Experiences">
-        <div class="category-icon">🪂</div>
+        <div class="category-icon ato-gold-category-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9c2-4 5-6 8-6s6 2 8 6"/><path d="M4 9h16"/><path d="M4 9 10 16M20 9l-6 7"/><path d="M10 16h4l1 4h-6z"/></svg></div>
       </div>
       <div class="category-body">
         <h3>6. AIR EXPERIENCES</h3>
@@ -611,7 +622,7 @@
     <a href="water-sports.html" class="category-card">
       <div class="category-img">
         <img src="watersports.jpg" alt="Water Sports">
-        <div class="category-icon">🌊</div>
+        <div class="category-icon ato-gold-category-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8c2.2 0 2.2 1.5 4.4 1.5S9.6 8 11.8 8s2.2 1.5 4.4 1.5S18.4 8 20.6 8"/><path d="M3 13c2.2 0 2.2 1.5 4.4 1.5s2.2-1.5 4.4-1.5 2.2 1.5 4.4 1.5 2.2-1.5 4.4-1.5"/><path d="M3 18c2.2 0 2.2 1.5 4.4 1.5s2.2-1.5 4.4-1.5 2.2 1.5 4.4 1.5 2.2-1.5 4.4-1.5"/></svg></div>
       </div>
       <div class="category-body">
         <h3>7. WATER SPORTS</h3>
@@ -623,7 +634,7 @@
     <a href="wellness-relax.html" class="category-card">
       <div class="category-img">
         <img src="wellness.jpg" alt="Wellness Relax">
-        <div class="category-icon">🪷</div>
+        <div class="category-icon ato-gold-category-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20c-4-2.5-6.5-5.8-6.5-9.2 2.9.2 5.1 1.4 6.5 3.5 1.4-2.1 3.6-3.3 6.5-3.5 0 3.4-2.5 6.7-6.5 9.2Z"/><path d="M12 14.3C9.8 11.7 9.8 8.8 12 5c2.2 3.8 2.2 6.7 0 9.3Z"/></svg></div>
       </div>
       <div class="category-body">
         <h3>8. WELLNESS & RELAX</h3>
@@ -652,6 +663,11 @@
       <button type="button" data-filter-tag="relax"><span>✺</span> Relax</button>
       <button type="button" data-filter-tag="luxury"><span>◆</span> Luxury</button>
     </div>
+    <div class="ato-filter-status" id="atoSidebarFilterStatus" hidden>
+      <span><strong id="atoSidebarResultCount">0</strong> tours found</span>
+      <button type="button" class="ato-reset-filter" id="atoSidebarReset">Reset</button>
+    </div>
+    <div class="ato-sidebar-results" id="atoSidebarResults" hidden></div>
 
     <h4>🔥 ПОПУЛЯРНЫЕ ТУРЫ</h4>
 
@@ -878,6 +894,22 @@
   </div>
 </section>
 
+<div class="ato-tour-finder-modal" id="atoTourFinderModal" aria-hidden="true">
+  <section class="ato-tour-finder-dialog" role="dialog" aria-modal="true" aria-labelledby="atoTourFinderTitle">
+    <div class="ato-tour-finder-head">
+      <div><div class="ato-tour-finder-eyebrow">ALANYA TOUR ORGANIZATIONS</div><h2 id="atoTourFinderTitle">Find your perfect tour</h2></div>
+      <button type="button" class="ato-tour-finder-close" id="atoTourFinderClose" aria-label="Close tour finder">×</button>
+    </div>
+    <div class="ato-tour-finder-controls">
+      <div class="ato-tour-finder-search-wrap"><span aria-hidden="true">⌕</span><input id="atoTourFinderSearch" type="search" autocomplete="off" placeholder="Search Cappadocia, rafting, kids, yacht, spa..."></div>
+      <div class="ato-filter-label">Categories</div><div class="ato-chip-row" id="atoTourFinderCategories"></div>
+      <div class="ato-filter-label">Quick filters</div><div class="ato-chip-row" id="atoTourFinderTags"></div>
+    </div>
+    <div class="ato-tour-finder-summary"><span><strong id="atoTourFinderCount">0</strong> matching tours</span><button type="button" class="ato-reset-filter" id="atoTourFinderReset">Reset filters</button></div>
+    <div class="ato-tour-finder-results" id="atoTourFinderResults"></div>
+  </section>
+</div>
+
 <footer class="footer-strip">
   <p class="footer-main-line">
     © 2026 ALANYA TOUR ORGANIZATIONS —
@@ -902,54 +934,173 @@
   </a>
 </div>
 
-<script src="assets/js/shared-filters.js"></script>
+<script src="/assets/js/tour-finder-v1.js"></script>
 <script>
-(function(){
-  const search=document.getElementById('officialTourSearch');
-  const buttons=[...document.querySelectorAll('[data-filter-tag]')];
-  const cards=[...document.querySelectorAll('.category-card')];
-  const categoryHints={family:['family'],kids:['family'],extreme:['extreme'],relax:['wellness'],vip:['vip'],luxury:['vip'],private:['vip']};
-  function apply(state){
-    const tags=Array.isArray(state.selectedTags)?state.selectedTags:[];
-    if(search&&search.value!==String(state.search||''))search.value=state.search||'';
-    buttons.forEach(btn=>btn.classList.toggle('is-active',tags.includes(btn.dataset.filterTag)));
-    const query=String(state.search||'').toLocaleLowerCase('en').trim();
-    const categoryTags=tags.filter(tag=>categoryHints[tag]);
-    cards.forEach(card=>{
-      const text=card.textContent.toLocaleLowerCase('en');
-      const href=(card.getAttribute('href')||'').toLocaleLowerCase('en');
-      const matchesQuery=!query||text.includes(query)||href.includes(query);
-      const matchesTags=!categoryTags.length||categoryTags.some(tag=>categoryHints[tag].some(hint=>text.includes(hint)||href.includes(hint)));
-      card.classList.toggle('is-filter-hidden',!(matchesQuery&&matchesTags));
-    });
-  }
-  let timer;
-  search?.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(()=>window.AlanyaFilters.set({search:search.value}),120);});
-  buttons.forEach(btn=>btn.addEventListener('click',()=>{
-    const state=window.AlanyaFilters.get();
-    const tags=new Set(state.selectedTags||[]);
-    tags.has(btn.dataset.filterTag)?tags.delete(btn.dataset.filterTag):tags.add(btn.dataset.filterTag);
-    window.AlanyaFilters.set({selectedTags:[...tags]});
-  }));
-  window.AlanyaFilters.subscribe(apply);
-})();
-</script>
-<script>
-  const allowedLangs = ["ru", "en", "tr", "de", "pl"];
+  const allowedLangs = ["en", "ru", "tr", "de", "pl"];
   const savedLang = localStorage.getItem("atoLanguage");
   const currentLang = allowedLangs.includes(savedLang) ? savedLang : "en";
+
+  const langIndex = {en:0, ru:1, tr:2, de:3, pl:4};
+  const T = {
+    tours:["TOURS","ТУРЫ","TURLAR","TOUREN","WYCIECZKI"],
+    sea:["SEA EXPERIENCES","МОРСКИЕ ПРИКЛЮЧЕНИЯ","DENİZ DENEYİMLERİ","MEERESERLEBNISSE","MORSKIE PRZYGODY"],
+    extreme:["EXTREME & ADVENTURE","ЭКСТРИМ И ПРИКЛЮЧЕНИЯ","EKSTREM & MACERA","EXTREM & ABENTEUER","EKSTREMALNE PRZYGODY"],
+    nature:["NATURE & ADVENTURE","ПРИРОДА И ПРИКЛЮЧЕНИЯ","DOĞA & MACERA","NATUR & ABENTEUER","NATURA I PRZYGODA"],
+    history:["HISTORY & CULTURE","ИСТОРИЯ И КУЛЬТУРА","TARİH & KÜLTÜR","GESCHICHTE & KULTUR","HISTORIA I KULTURA"],
+    family:["FAMILY EXPERIENCES","СЕМЕЙНЫЙ ОТДЫХ","AİLE DENEYİMLERİ","FAMILIENERLEBNISSE","RODZINNE ATRAKCJE"],
+    water:["WATER SPORTS","ВОДНЫЕ ВИДЫ СПОРТА","SU SPORLARI","WASSERSPORT","SPORTY WODNE"],
+    air:["AIR EXPERIENCES","ВОЗДУШНЫЕ ПРИКЛЮЧЕНИЯ","HAVA DENEYİMLERİ","LUFTERLEBNISSE","PRZYGODY W POWIETRZU"],
+    wellness:["WELLNESS & RELAX","ВЕЛНЕС И ОТДЫХ","WELLNESS & RAHATLAMA","WELLNESS & ENTSPANNUNG","WELLNESS I RELAKS"],
+    map:["EXPLORE MAP","ИЗУЧИТЬ КАРТУ","HARİTAYI KEŞFET","KARTE ENTDECKEN","ODKRYJ MAPĘ"],
+    planner:["TRIP PLANNER","ПЛАНИРОВЩИК ПОЕЗДКИ","SEYAHAT PLANLAYICI","REISEPLANER","PLANER PODRÓŻY"],
+    combo:["COMBO DEALS","КОМБО-ПРЕДЛОЖЕНИЯ","KOMBO FIRSATLAR","KOMBI-ANGEBOTE","PAKIETY COMBO"],
+    offers:["SPECIAL OFFERS","СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ","ÖZEL FIRSATLAR","SONDERANGEBOTE","OFERTY SPECJALNE"],
+    vip:["VIP SERVICE","VIP-СЕРВИС","VIP HİZMET","VIP-SERVICE","USŁUGI VIP"],
+    about:["ABOUT US","О НАС","HAKKIMIZDA","ÜBER UNS","O NAS"],
+    company:["OUR COMPANY","НАША КОМПАНИЯ","ŞİRKETİMİZ","UNSER UNTERNEHMEN","NASZA FIRMA"],
+    licenses:["LICENSES & CERTIFICATIONS","ЛИЦЕНЗИИ И СЕРТИФИКАТЫ","LİSANSLAR & SERTİFİKALAR","LIZENZEN & ZERTIFIKATE","LICENCJE I CERTYFIKATY"],
+    legal:["Legal Information","Юридическая информация","Yasal Bilgiler","Rechtliche Informationen","Informacje prawne"],
+    verify:["TÜRSAB Verification ↗","Проверка TÜRSAB ↗","TÜRSAB Doğrulama ↗","TÜRSAB-Prüfung ↗","Weryfikacja TÜRSAB ↗"],
+    contactDetails:["CONTACT / COMPANY DETAILS","КОНТАКТЫ / ДАННЫЕ КОМПАНИИ","İLETİŞİM / ŞİRKET BİLGİLERİ","KONTAKT / FIRMENDATEN","KONTAKT / DANE FIRMY"],
+    searchNav:["🔍 SEARCH TOURS…  ⚙","🔍 ПОИСК ТУРОВ…  ⚙","🔍 TUR ARA…  ⚙","🔍 TOUREN SUCHEN…  ⚙","🔍 SZUKAJ WYCIECZEK…  ⚙"],
+    slogan:["TRAVEL WITH LOVE. TRAVEL WITH US.","ПУТЕШЕСТВУЙТЕ С ЛЮБОВЬЮ. ПУТЕШЕСТВУЙТЕ С НАМИ.","SEVGİYLE SEYAHAT EDİN. BİZİMLE SEYAHAT EDİN.","REISEN SIE MIT LIEBE. REISEN SIE MIT UNS.","PODRÓŻUJ Z MIŁOŚCIĄ. PODRÓŻUJ Z NAMI."],
+    promoServices:["VIP YACHT TOURS • FAMILY SAFARI • PRIVATE TRANSFERS","VIP-ТУРЫ НА ЯХТЕ • СЕМЕЙНОЕ САФАРИ • ЧАСТНЫЕ ТРАНСФЕРЫ","VIP YAT TURLARI • AİLE SAFARİSİ • ÖZEL TRANSFERLER","VIP-YACHTTOUREN • FAMILIENSAFARI • PRIVATTRANSFERS","REJSY VIP • RODZINNE SAFARI • PRYWATNE TRANSFERY"],
+    book:["Book via WhatsApp","Забронировать через WhatsApp","WhatsApp'tan Rezervasyon Yap","Über WhatsApp buchen","Zarezerwuj przez WhatsApp"],
+    mainCategories:["MAIN CATEGORIES","ОСНОВНЫЕ КАТЕГОРИИ","ANA KATEGORİLER","HAUPTKATEGORIEN","GŁÓWNE KATEGORIE"],
+    discover:["Discover Your Perfect Experience","Найдите своё идеальное путешествие","Mükemmel Deneyiminizi Keşfedin","Entdecken Sie Ihr perfektes Erlebnis","Odkryj swoje idealne przeżycie"],
+    explore:["Explore the best tours in Alanya and across Türkiye","Откройте лучшие туры в Алании и по всей Турции","Alanya ve Türkiye'nin en iyi turlarını keşfedin","Entdecken Sie die besten Touren in Alanya und der ganzen Türkei","Odkryj najlepsze wycieczki w Alanyi i całej Turcji"],
+    dSea:["Pirate Yacht, Relax Boat Tour, Catamaran, Luxury Yacht Cruise and hidden bays.","Пиратская яхта, прогулочный катер, катамаран, роскошная яхта и скрытые бухты.","Korsan yatı, dinlendirici tekne turu, katamaran, lüks yat turu ve gizli koylar.","Piratenyacht, Relax-Bootstour, Katamaran, Luxusyacht und versteckte Buchten.","Jacht piracki, relaksujący rejs, katamaran, luksusowy jacht i ukryte zatoki."],
+    dExtreme:["Rafting in Köprülü Canyon, Quad Safari, Family Jeep Safari, Family Buggy Safari and Jeep Safari.","Рафтинг в каньоне Кёпрюлю, квадро-сафари, семейное джип-сафари, багги и джип-сафари.","Köprülü Kanyon'da rafting, quad safari, aile jeep safari, aile buggy safari ve jeep safari.","Rafting im Köprülü Canyon, Quad-Safari, Familien-Jeep-Safari, Buggy-Safari und Jeep-Safari.","Rafting w kanionie Köprülü, quad safari, rodzinne jeep safari, buggy safari i jeep safari."],
+    dNature:["Green Canyon, Sapadere Canyon, Pamukkale, Salda Lake and nature routes.","Зелёный каньон, каньон Сападере, Памуккале, озеро Салда и природные маршруты.","Green Canyon, Sapadere Kanyonu, Pamukkale, Salda Gölü ve doğa rotaları.","Green Canyon, Sapadere Canyon, Pamukkale, Salda-See und Naturrouten.","Green Canyon, kanion Sapadere, Pamukkale, jezioro Salda i trasy przyrodnicze."],
+    dHistory:["Cappadocia, Pamukkale, Demre Myra Kekova, Side, Aspendos and Istanbul.","Каппадокия, Памуккале, Демре–Мира–Кекова, Сиде, Аспендос и Стамбул.","Kapadokya, Pamukkale, Demre Myra Kekova, Side, Aspendos ve İstanbul.","Kappadokien, Pamukkale, Demre Myra Kekova, Side, Aspendos und Istanbul.","Kapadocja, Pamukkale, Demre Myra Kekova, Side, Aspendos i Stambuł."],
+    dFamily:["The Land of Legends, dolphin show, waterparks and family entertainment.","The Land of Legends, шоу дельфинов, аквапарки и семейные развлечения.","The Land of Legends, yunus gösterisi, su parkları ve aile eğlenceleri.","The Land of Legends, Delfinshow, Wasserparks und Familienunterhaltung.","The Land of Legends, pokaz delfinów, parki wodne i rodzinna rozrywka."],
+    dAir:["Paragliding, helicopter flight, skydive and unforgettable aerial emotions.","Параглайдинг, полёт на вертолёте, прыжок с парашютом и незабываемые эмоции.","Yamaç paraşütü, helikopter uçuşu, paraşütle atlama ve unutulmaz hava deneyimleri.","Paragliding, Hubschrauberflug, Fallschirmsprung und unvergessliche Erlebnisse.","Paralotnia, lot helikopterem, skok ze spadochronem i niezapomniane emocje."],
+    dWater:["Parasailing, Jet Ski, Banana, Phantom, Big Mable, Wakeboard and Diving.","Парасейлинг, гидроцикл, банан, Phantom, Big Mable, вейкборд и дайвинг.","Parasailing, jet ski, banana, Phantom, Big Mable, wakeboard ve dalış.","Parasailing, Jetski, Banana, Phantom, Big Mable, Wakeboard und Tauchen.","Parasailing, skuter wodny, banan, Phantom, Big Mable, wakeboard i nurkowanie."],
+    dWellness:["Hammam, Turkish massage, spa programs and premium relaxation experiences.","Хамам, турецкий массаж, SPA-программы и премиальный отдых.","Hamam, Türk masajı, spa programları ve premium rahatlama deneyimleri.","Hamam, türkische Massage, Spa-Programme und Premium-Entspannung.","Hammam, masaż turecki, programy spa i relaks premium."],
+    findTour:["FIND YOUR PERFECT TOUR","НАЙДИТЕ ИДЕАЛЬНЫЙ ТУР","MÜKEMMEL TURUNUZU BULUN","FINDEN SIE IHRE PERFEKTE TOUR","ZNAJDŹ IDEALNĄ WYCIECZKĘ"],
+    searchPlaceholder:["Search tours, activities...","Поиск туров и развлечений...","Tur ve aktiviteleri ara...","Touren und Aktivitäten suchen...","Szukaj wycieczek i atrakcji..."],
+    filters:["FILTERS","ФИЛЬТРЫ","FİLTRELER","FILTER","FILTRY"],
+    filterLabels:["Family|VIP|Private|Kids|Couples|Friends|Extreme|Relax|Luxury","Семья|VIP|Частный|Дети|Пары|Друзья|Экстрим|Отдых|Люкс","Aile|VIP|Özel|Çocuklar|Çiftler|Arkadaşlar|Ekstrem|Rahatlama|Lüks","Familie|VIP|Privat|Kinder|Paare|Freunde|Extrem|Entspannung|Luxus","Rodzina|VIP|Prywatne|Dzieci|Pary|Przyjaciele|Ekstremalne|Relaks|Luksus"],
+    popular:["🔥 POPULAR TOURS","🔥 ПОПУЛЯРНЫЕ ТУРЫ","🔥 POPÜLER TURLAR","🔥 BELIEBTE TOUREN","🔥 POPULARNE WYCIECZKI"],
+    sale:["START YOUR ADVENTURE NOW! GREAT PRICES • UNFORGETTABLE EXPERIENCES","НАЧНИТЕ ПРИКЛЮЧЕНИЕ СЕЙЧАС! ВЫГОДНЫЕ ЦЕНЫ • ЯРКИЕ ЭМОЦИИ","MACERANIZA ŞİMDİ BAŞLAYIN! AVANTAJLI FİYATLAR • UNUTULMAZ DENEYİMLER","STARTEN SIE JETZT! TOP-PREISE • UNVERGESSLICHE ERLEBNISSE","ZACZNIJ PRZYGODĘ TERAZ! ŚWIETNE CENY • NIEZAPOMNIANE WRAŻENIA"],
+    from:["from","от","başlangıç","ab","od"],
+    viewAll:["VIEW ALL TOURS →","СМОТРЕТЬ ВСЕ ТУРЫ →","TÜM TURLARI GÖR →","ALLE TOUREN ANSEHEN →","ZOBACZ WSZYSTKIE WYCIECZKI →"],
+    stats:["Years Experience|Destinations|Happy Guests|Premium Support","Лет опыта|Направлений|Довольных гостей|Премиальная поддержка","Yıllık Deneyim|Destinasyon|Mutlu Misafir|Premium Destek","Jahre Erfahrung|Reiseziele|Zufriedene Gäste|Premium-Support","Lat doświadczenia|Kierunków|Zadowolonych gości|Wsparcie premium"],
+    vipDesc:["Helicopter Charter, Luxury Airport Transfer, Private Yacht Charter, Private Driver, Private Photographer and premium private experiences.","Чартер вертолёта, VIP-трансфер из аэропорта, частная яхта, личный водитель, фотограф и премиальные услуги.","Helikopter kiralama, lüks havalimanı transferi, özel yat, özel şoför, fotoğrafçı ve premium deneyimler.","Hubschrauber-Charter, Luxus-Flughafentransfer, Privatyacht, Privatfahrer, Fotograf und Premium-Erlebnisse.","Czarter helikoptera, luksusowy transfer, prywatny jacht, kierowca, fotograf i usługi premium."],
+    discoverVip:["DISCOVER VIP","ОТКРЫТЬ VIP","VIP'Yİ KEŞFET","VIP ENTDECKEN","ODKRYJ VIP"],
+    aboutTitle:["About Our Company","О нашей компании","Şirketimiz Hakkında","Über unser Unternehmen","O naszej firmie"],
+    aboutHtml:["<b>ALANYA TOUR ORGANIZATIONS</b> is a travel company based in Alanya. We create more than tours—we create experiences that stay with you long after your journey ends.","<b>ALANYA TOUR ORGANIZATIONS</b> — туристическая компания в Алании. Мы создаём не просто экскурсии, а впечатления, которые остаются с вами надолго.","<b>ALANYA TOUR ORGANIZATIONS</b>, Alanya merkezli bir turizm şirketidir. Sadece turlar değil, yolculuğunuzdan sonra da sizinle kalan deneyimler yaratıyoruz.","<b>ALANYA TOUR ORGANIZATIONS</b> ist ein Reiseunternehmen in Alanya. Wir schaffen nicht nur Touren, sondern Erlebnisse, die lange in Erinnerung bleiben.","<b>ALANYA TOUR ORGANIZATIONS</b> to biuro turystyczne w Alanyi. Tworzymy nie tylko wycieczki, lecz także wspomnienia, które zostają na długo."],
+    about2:["Since 2010, we have organized boat trips, safaris, canyon adventures, historical routes, premium yacht cruises, private tours, transfers and signature itineraries across Alanya, Antalya and Türkiye.","С 2010 года мы организуем морские прогулки, сафари, каньоны, исторические маршруты, премиальные яхты, индивидуальные туры и трансферы по Алании, Анталии и всей Турции.","2010'dan beri Alanya, Antalya ve Türkiye genelinde tekne turları, safariler, kanyonlar, tarihi rotalar, premium yatlar, özel turlar ve transferler düzenliyoruz.","Seit 2010 organisieren wir Bootstouren, Safaris, Canyon-Abenteuer, historische Routen, Premium-Yachten, Privattouren und Transfers in Alanya, Antalya und der ganzen Türkei.","Od 2010 roku organizujemy rejsy, safari, kaniony, trasy historyczne, luksusowe jachty, wycieczki prywatne i transfery w Alanyi, Antalyi i całej Turcji."],
+    about3:["We do not sell one-size-fits-all excursions. We select each experience to suit your travel style, hotel, family composition, mood and preferred level of comfort.","Мы не продаём случайные экскурсии. Мы подбираем путешествие под ваш стиль отдыха, отель, состав семьи, настроение и уровень комфорта.","Standart turlar satmıyoruz. Her deneyimi seyahat tarzınıza, otelinize, aile yapınıza, ruh halinize ve konfor beklentinize göre seçiyoruz.","Wir verkaufen keine beliebigen Standardausflüge. Wir wählen jedes Erlebnis passend zu Ihrem Reisestil, Hotel, Ihrer Familie und Ihrem Komfortanspruch.","Nie sprzedajemy przypadkowych wycieczek. Dobieramy podróż do Twojego stylu, hotelu, rodziny, nastroju i oczekiwanego komfortu."],
+    about4:["For some, it is a sunset yacht cruise past Alanya Castle. For others, it is a flight above the coast, ancient Cappadocia, the snow-white terraces of Pamukkale or the hidden bays of the Mediterranean.","Для одних это закат на яхте у крепости Алании. Для других — полёт над побережьем, древняя Каппадокия, белоснежные террасы Памуккале или скрытые бухты Средиземного моря.","Bazıları için Alanya Kalesi önünde gün batımı yat turudur. Diğerleri için sahil üzerinde uçuş, Kapadokya, Pamukkale veya Akdeniz'in gizli koylarıdır.","Für manche ist es eine Yachtfahrt bei Sonnenuntergang vor der Burg von Alanya. Für andere ein Flug über die Küste, Kappadokien, Pamukkale oder versteckte Mittelmeerbuchten.","Dla jednych to rejs o zachodzie słońca obok zamku w Alanyi. Dla innych lot nad wybrzeżem, Kapadocja, Pamukkale lub ukryte zatoki Morza Śródziemnego."],
+    about5:["Over more than 16 years, our guests have explored over 60 destinations with us across the Republic of Türkiye—from luxury resorts and private beaches to ancient cities, natural canyons and coastal routes.","За более чем 16 лет наши гости открыли с нами свыше 60 направлений Турции — от роскошных курортов и частных пляжей до древних городов, каньонов и морских маршрутов.","16 yılı aşkın sürede misafirlerimiz bizimle Türkiye genelinde lüks tatil yerlerinden antik kentlere ve kanyonlara kadar 60'tan fazla destinasyonu keşfetti.","In über 16 Jahren haben unsere Gäste mit uns mehr als 60 Reiseziele in der Türkei entdeckt—von Luxusresorts bis zu antiken Städten und Naturcanyons.","Przez ponad 16 lat nasi goście odkryli z nami ponad 60 miejsc w Turcji—od luksusowych kurortów po starożytne miasta i kaniony."],
+    about6:["We create holidays without chaos, stress or uncertainty. Every itinerary is planned in advance—from the transfer and route to the atmosphere of the day itself.","Мы создаём отдых без хаоса, стресса и неопределённости. Каждая программа продумана заранее — от трансфера и маршрута до атмосферы самого дня.","Kaos, stres ve belirsizlik olmadan tatiller yaratıyoruz. Her program transferden rotaya ve günün atmosferine kadar önceden planlanır.","Wir schaffen Urlaub ohne Chaos, Stress oder Unsicherheit. Jedes Programm wird vom Transfer bis zur Atmosphäre des Tages im Voraus geplant.","Tworzymy wypoczynek bez chaosu, stresu i niepewności. Każdy program planujemy wcześniej—od transferu po atmosferę całego dnia."],
+    about7:["<b>Your holiday should never be left to chance. It is time that deserves to be beautiful, comfortable and truly unforgettable.</b>","<b>Ваш отдых — не случайность. Это время, которое должно быть красивым, комфортным и по-настоящему незабываемым.</b>","<b>Tatiliniz şansa bırakılmamalı. Güzel, konforlu ve gerçekten unutulmaz olmayı hak eden bir zamandır.</b>","<b>Ihr Urlaub sollte nicht dem Zufall überlassen werden. Er verdient es, schön, komfortabel und unvergesslich zu sein.</b>","<b>Twój urlop nie powinien być dziełem przypadku. Zasługuje na to, by był piękny, komfortowy i niezapomniany.</b>"],
+    contact:["Contact Us","Связаться с нами","Bize Ulaşın","Kontaktieren Sie uns","Skontaktuj się z nami"],
+    phone:["WhatsApp / Phone","WhatsApp / телефон","WhatsApp / Telefon","WhatsApp / Telefon","WhatsApp / Telefon"],
+    office:["Office in Alanya","Офис в Алании","Alanya Ofisi","Büro in Alanya","Biuro w Alanyi"],
+    open:["Open Every Day","Работаем каждый день","Her Gün Açığız","Täglich geöffnet","Otwarte codziennie"],
+    officeHours:["Office: 08:00–01:00","Офис: 08:00–01:00","Ofis: 08:00–01:00","Büro: 08:00–01:00","Biuro: 08:00–01:00"],
+    online:["Online booking: 24/7","Онлайн-бронирование: 24/7","Online rezervasyon: 7/24","Online-Buchung: 24/7","Rezerwacja online: 24/7"],
+    companyLegal:["Company & Legal Information","Компания и юридическая информация","Şirket & Yasal Bilgiler","Unternehmen & Rechtliches","Firma i informacje prawne"],
+    privacy:["Privacy & Cookies","Конфиденциальность и cookies","Gizlilik & Çerezler","Datenschutz & Cookies","Prywatność i pliki cookie"],
+    popup:["Looking for the right tour in Alanya?","Подобрать экскурсию в Алании?","Alanya'da doğru turu mu arıyorsunuz?","Suchen Sie die passende Tour in Alanya?","Szukasz odpowiedniej wycieczki w Alanyi?"],
+    message:["Message Us on WhatsApp","Написать нам в WhatsApp","WhatsApp'tan Bize Yazın","Schreiben Sie uns auf WhatsApp","Napisz do nas na WhatsApp"]
+  };
+
+  const q = (selector) => document.querySelector(selector);
+  const qa = (selector) => [...document.querySelectorAll(selector)];
+  const tr = (key, lang) => T[key][langIndex[lang]];
+
+  function setOwnText(el, value) {
+    if (!el) return;
+    const textNodes = [...el.childNodes].filter(node => node.nodeType === Node.TEXT_NODE);
+    if (textNodes.length) {
+      textNodes[0].nodeValue = value;
+      textNodes.slice(1).forEach(node => node.nodeValue = "");
+    } else {
+      el.append(document.createTextNode(value));
+    }
+  }
+
+  const selectorKeys = {
+    ".ato-header-dropdown[data-header-dropdown='tours'] .ato-dropdown-trigger span":"tours",
+    ".nav > a[href='/interactive-map/'] span":"map",
+    ".nav > a[href='trip-planner.html'] span":"planner",
+    ".nav > a[href='combo-deals.html'] span":"combo",
+    ".nav > a[href='special-offers.html'] span:last-child":"offers",
+    ".nav > a[href='vip-service.html'] span":"vip",
+    ".ato-header-dropdown[data-header-dropdown='about'] .ato-dropdown-trigger span":"about",
+    ".ato-about-menu .ato-subitem[href='legal-information.html']":"legal",
+    ".ato-about-menu .ato-subitem[href*='tursab.org.tr']":"verify",
+    "#headerTourSearch span":"searchNav",
+    ".main-categories-head > span":"mainCategories",
+    ".main-categories-head h2":"discover",
+    ".main-categories-head p":"explore",
+    ".tour-sidebar > h3":"findTour",
+    ".tour-sidebar > h4:first-of-type":"filters",
+    ".tour-sidebar > h4:last-of-type":"popular",
+    ".sidebar-sale":"sale",
+    ".view-all":"viewAll",
+    ".vip-service-text h3":"vip",
+    ".vip-service-text p":"vipDesc",
+    ".vip-discover-btn":"discoverVip",
+    ".about-text h2":"aboutTitle",
+    ".contacts > h2":"contact",
+    ".contact-grid > div:nth-child(1) b":"phone",
+    ".contact-grid > div:nth-child(2) b":"office",
+    ".contact-grid > div:nth-child(3) b":"open",
+    ".footer-legal-links a:nth-of-type(1)":"companyLegal",
+    ".footer-legal-links a:nth-of-type(2)":"privacy",
+    ".whatsapp-popup p":"popup",
+    ".whatsapp-popup a":"message"
+  };
+
+  const ownTextKeys = {
+    ".ato-tours-menu a:nth-child(1)":"sea", ".ato-tours-menu a:nth-child(2)":"extreme",
+    ".ato-tours-menu a:nth-child(3)":"nature", ".ato-tours-menu a:nth-child(4)":"history",
+    ".ato-tours-menu a:nth-child(5)":"family", ".ato-tours-menu a:nth-child(6)":"water",
+    ".ato-tours-menu a:nth-child(7)":"air", ".ato-tours-menu a:nth-child(8)":"wellness",
+    ".ato-about-menu > a:first-child":"company", ".ato-about-menu .ato-menu-group-label":"licenses",
+    ".ato-about-menu > a:last-child":"contactDetails"
+  };
+
+  const cardKeys = [["sea","dSea"],["extreme","dExtreme"],["nature","dNature"],["history","dHistory"],["family","dFamily"],["air","dAir"],["water","dWater"],["wellness","dWellness"]];
 
   function updateLang(lang) {
     document.querySelectorAll("[data-" + lang + "]").forEach(el => {
       el.textContent = el.getAttribute("data-" + lang);
     });
 
+    Object.entries(selectorKeys).forEach(([selector,key]) => {
+      const el=q(selector); if(el) el.textContent=tr(key,lang);
+    });
+    Object.entries(ownTextKeys).forEach(([selector,key]) => setOwnText(q(selector),tr(key,lang)));
+    q(".promo-track > span:nth-child(3)").textContent=tr("slogan",lang);
+    q(".promo-track > span:nth-child(5)").textContent=tr("promoServices",lang);
+    q(".main-btn").textContent=tr("book",lang);
+    q(".main-btn").href="https://wa.me/905387045999?text="+encodeURIComponent({en:"Hello! I would like to book a tour in Alanya.",ru:"Здравствуйте! Хочу забронировать экскурсию в Алании.",tr:"Merhaba! Alanya'da bir tur rezervasyonu yapmak istiyorum.",de:"Hallo! Ich möchte eine Tour in Alanya buchen.",pl:"Dzień dobry! Chcę zarezerwować wycieczkę w Alanyi."}[lang]);
+    cardKeys.forEach(([title,desc],i)=>{const card=qa(".category-card")[i]; if(card){card.querySelector("h3").textContent=(i+1)+". "+tr(title,lang); card.querySelector("p").textContent=tr(desc,lang);}});
+    q("#officialTourSearch").placeholder=tr("searchPlaceholder",lang);
+    const labels=tr("filterLabels",lang).split("|");
+    qa("[data-filter-tag]").forEach((btn,i)=>setOwnText(btn," "+labels[i]));
+    qa(".popular-tour span").forEach(el=>el.textContent=tr("from",lang)+" "+el.textContent.replace(/^\D*(€\d+)$/,"$1"));
+    const stats=tr("stats",lang).split("|"); qa(".stat-item span").forEach((el,i)=>el.textContent=stats[i]);
+    const about=["aboutHtml","about2","about3","about4","about5","about6","about7"];
+    qa(".about-text p").forEach((el,i)=>el.innerHTML=tr(about[i],lang));
+    const hours=q(".contact-grid > div:nth-child(3)");
+    if(hours) hours.innerHTML="<b>"+tr("open",lang)+"</b><br>"+tr("officeHours",lang)+"<br>"+tr("online",lang);
+    q(".footer-main-line").textContent="© 2026 ALANYA TOUR ORGANIZATIONS — "+tr("slogan",lang);
+    q(".whatsapp-popup a").href="https://wa.me/905387045999?text="+encodeURIComponent({en:"Hello! Please help me choose a tour in Alanya.",ru:"Здравствуйте! Помогите подобрать экскурсию в Алании.",tr:"Merhaba! Alanya'da bir tur seçmeme yardımcı olur musunuz?",de:"Hallo! Bitte helfen Sie mir, eine Tour in Alanya auszuwählen.",pl:"Dzień dobry! Proszę pomóc mi wybrać wycieczkę w Alanyi."}[lang]);
+
     const langLabel = document.querySelector(".language-dropdown > span");
     if (langLabel) {
       langLabel.textContent = lang.toUpperCase();
     }
     document.documentElement.lang = lang;
+    document.title={en:"ALANYA TOUR ORGANIZATIONS — Tours in Alanya",ru:"ALANYA TOUR ORGANIZATIONS — Экскурсии в Алании",tr:"ALANYA TOUR ORGANIZATIONS — Alanya Turları",de:"ALANYA TOUR ORGANIZATIONS — Touren in Alanya",pl:"ALANYA TOUR ORGANIZATIONS — Wycieczki w Alanyi"}[lang];
     localStorage.setItem("atoLanguage", lang);
+    window.dispatchEvent(new CustomEvent("ato-language-changed",{detail:{lang}}));
   }
 
   updateLang(currentLang);
@@ -957,11 +1108,13 @@
   document.querySelectorAll(".language-menu a").forEach(link => {
     link.addEventListener("click", function(e) {
       e.preventDefault();
+      e.stopPropagation();
 
       const lang = this.getAttribute("data-lang");
 
       if (allowedLangs.includes(lang)) {
         updateLang(lang);
+        document.querySelector(".language-dropdown")?.classList.remove("open");
       }
     });
   });
@@ -1045,11 +1198,8 @@
     });
   }
 
-  if(headerTourSearch && officialTourSearch){
-    headerTourSearch.addEventListener('click', function(e){
-      e.preventDefault();
-      officialTourSearch.scrollIntoView({behavior:'smooth', block:'center'});
-      window.setTimeout(() => officialTourSearch.focus({preventScroll:true}), 450);
+  if(headerTourSearch){
+    headerTourSearch.addEventListener('click', function(){
       if(isMobile()) setMenu(false);
     });
   }
