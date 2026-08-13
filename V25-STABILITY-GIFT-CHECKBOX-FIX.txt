@@ -1,0 +1,11 @@
+ALANYA TOUR ORGANIZATIONS — SPECIAL OFFERS V25
+
+FIXED
+1. Removed ambient whole-page/hero breathing animations that were perceived as page flicker.
+2. Removed live-certificate field flash on every Gift form update.
+3. Fixed Signature Gift -> "Keep the exact experience date flexible" checkbox:
+   - normal compact checkbox
+   - no 100% width / 44px field styling
+   - aligned next to its text on desktop and mobile
+4. Journey animation, 3D globe, heart, confetti and CTA mechanics were not disabled.
+5. The approved globe renderer/assets from the restored V24 remain unchanged.

@@ -1648,7 +1648,6 @@ if (canvas && globeShell && globeZone3D) {
   } else {
     globeZone3D.dataset.globeMode = 'webgl-3d-geodesic';
 
-
     const vertexShaderSource = `
       attribute vec3 aPosition;
       attribute vec3 aNormal;
@@ -1992,10 +1991,7 @@ if (canvas && globeShell && globeZone3D) {
       lightDir: gl.getUniformLocation(sphereProgram, 'uLightDir'),
       cameraPos: gl.getUniformLocation(sphereProgram, 'uCameraPos'),
       textureMix: gl.getUniformLocation(sphereProgram, 'uTextureMix'),
-      time: gl.getUniformLocation(sphereProgram, 'uTime'),
-      normalStrength: gl.getUniformLocation(sphereProgram, 'uNormalStrength'),
-      exposure: gl.getUniformLocation(sphereProgram, 'uExposure'),
-      atmosphereStrength: gl.getUniformLocation(sphereProgram, 'uAtmosphereStrength')
+      time: gl.getUniformLocation(sphereProgram, 'uTime')
     };
 
     const lineLoc = {

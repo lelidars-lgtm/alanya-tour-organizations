@@ -9388,76 +9388,6 @@ body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-stage{
 }
 
 /* =========================================================
-   V22 — ALL MOBILE DEVICES = DESKTOP VISUAL PARITY
-   Covers iPhone/iPad plus Android phones/tablets across mobile browsers.
-   Desktop geometry, animation, heart, confetti and final state are untouched.
-   ========================================================= */
-@media (max-width:1180px), (hover:none) and (pointer:coarse){
-  body.so-premium-body #journey .journey-visual-column{
-    width:100%!important;
-    min-width:0!important;
-    align-items:center!important;
-  }
-
-  body.so-premium-body #journey .globe-shell,
-  body.so-premium-body #journey .globe-shell-live{
-    width:min(430px,calc(100vw - 48px))!important;
-    max-width:430px!important;
-    margin:0 auto!important;
-  }
-
-  body.so-premium-body #journey .globe-zone:not(.final-turkiye){
-    width:100%!important;
-    min-height:0!important;
-    padding:18px 0 10px!important;
-    display:grid!important;
-    place-items:center!important;
-  }
-
-  body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-stage-live{
-    width:100%!important;
-    max-width:430px!important;
-    aspect-ratio:1/1!important;
-    transform:none!important;
-    margin:0 auto!important;
-  }
-
-  /* Safari compositing safeguard. Shader does the main correction; this only
-     keeps the canvas in the same dark/contrasty range as desktop. */
-  body.so-premium-body #journey .globe-zone[data-globe-compat="mobile-safe-v22"] .live-globe-canvas{
-    filter:
-      saturate(.92)
-      contrast(1.14)
-      brightness(.76)
-      drop-shadow(0 0 12px rgba(0,188,255,.24))
-      drop-shadow(0 0 32px rgba(0,130,235,.18))
-      drop-shadow(0 0 72px rgba(39,135,255,.11))!important;
-  }
-
-  body.so-premium-body #journey .globe-cta-wrap{
-    width:100%!important;
-    margin-top:20px!important;
-  }
-  body.so-premium-body #journey #startJourney{
-    width:min(520px,100%)!important;
-    min-width:0!important;
-    margin-left:auto!important;
-    margin-right:auto!important;
-  }
-}
-
-@media (max-width:470px){
-  body.so-premium-body #journey .globe-shell,
-  body.so-premium-body #journey .globe-shell-live{
-    width:min(390px,calc(100vw - 38px))!important;
-    max-width:390px!important;
-  }
-  body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-stage-live{
-    max-width:390px!important;
-  }
-}
-
-/* =========================================================
    GIFT CERTIFICATE INTERACTION V23 — 2026-08-13
    Buttons, form, live certificate, calendars and mobile flow.
    ========================================================= */
@@ -9501,5 +9431,85 @@ body.so-premium-body .gift-live-certificate-mini .certificate-live-layer.signatu
   body.so-premium-body #gift .certificate-stage .certificate-wrap{
     width:100%!important;
     max-width:100%!important;
+  }
+}
+
+/* =========================================================
+   V25 — PAGE STABILITY + GIFT SIGNATURE CHECKBOX FIX
+   2026-08-13
+   - Stop ambient page/hero pulsing that reads as whole-page flicker.
+   - Keep Journey, globe rotation, heart, confetti and intentional CTA effects intact.
+   - Restore the Signature Gift flexible-date checkbox to a normal compact control.
+   ========================================================= */
+
+/* Static ambient background: no whole-page breathing/flicker. */
+body.so-premium-body .so-hero::before,
+body.so-premium-body .so-hero .tp-sea-orbit,
+body.so-premium-body .so-hero .tp-moon-path,
+body.so-premium-body .so-hero .tp-gold-wave{
+  animation:none!important;
+}
+
+/* Do not flash the certificate fields every time the Gift form changes. */
+body.so-premium-body .certificate-live-layer.is-updating .cert-live-main,
+body.so-premium-body .certificate-live-layer.is-updating .cert-live-recipient{
+  animation:none!important;
+}
+
+/* Signature Gift: the flexible-date option must be one normal checkbox + text line. */
+body.so-premium-body .field label.gift-flexible-toggle{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:9px!important;
+  width:100%!important;
+  margin:11px 0 0!important;
+  color:#c7d2d9!important;
+  font:700 9px/1.35 var(--so-ui)!important;
+  letter-spacing:.02em!important;
+  text-transform:uppercase!important;
+  cursor:pointer!important;
+}
+body.so-premium-body .field label.gift-flexible-toggle input[type="checkbox"]{
+  -webkit-appearance:checkbox!important;
+  appearance:auto!important;
+  flex:0 0 17px!important;
+  width:17px!important;
+  min-width:17px!important;
+  max-width:17px!important;
+  height:17px!important;
+  min-height:17px!important;
+  max-height:17px!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:3px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  outline:none!important;
+  accent-color:#d6a24a!important;
+  vertical-align:middle!important;
+}
+body.so-premium-body .field label.gift-flexible-toggle span{
+  display:block!important;
+  min-width:0!important;
+  padding:0!important;
+  margin:0!important;
+}
+
+@media(max-width:760px){
+  body.so-premium-body .field label.gift-flexible-toggle{
+    align-items:flex-start!important;
+    gap:8px!important;
+    font-size:8.5px!important;
+  }
+  body.so-premium-body .field label.gift-flexible-toggle input[type="checkbox"]{
+    flex-basis:18px!important;
+    width:18px!important;
+    min-width:18px!important;
+    max-width:18px!important;
+    height:18px!important;
+    min-height:18px!important;
+    max-height:18px!important;
   }
 }
