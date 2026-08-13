@@ -796,10 +796,7 @@ window.addEventListener('resize',()=>{
 requestPersonalOffer?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();openHeartClaimModal();});
 
 // ===== HEART OFFER COMMERCIAL FLOW =====
-const heartEligibilityModal=document.getElementById('heartEligibilityModal');
 const heartClaimModal=document.getElementById('heartClaimModal');
-const heartEligibilityForm=document.getElementById('heartEligibilityForm');
-const heartEligibilityStatus=document.getElementById('heartEligibilityStatus');
 const heartClaimForm=document.getElementById('heartClaimForm');
 const heartClaimStatus=document.getElementById('heartClaimStatus');
 const viewHeartTour=document.getElementById('viewHeartTour');
@@ -910,45 +907,6 @@ function showHeartRedeemedState(){
   status.innerHTML='<strong>YOUR HEART OFFER HAS ALREADY BEEN USED.</strong><span>THANK YOU FOR TRAVELLING WITH US.</span>';
 }
 
-async function verifyHeartEligibility(phone){
-  const normalized=normalizeHeartPhoneClient(phone);
-  if(normalized.length<10||normalized.length>15) throw new Error('Please enter a valid WhatsApp number with country code.');
-  const data=await heartRpc('heart_offer_check',{p_phone:normalized});
-  heartClientPhone=data.phone||normalized;
-  sessionStorage.setItem('atoHeartPhone',heartClientPhone);
-  if(data.redeemed){showHeartRedeemedState();return false}
-  heartOfferRedeemed=false;heartVisualOnly=false;return true;
-}
-
-async function beginHeartOfferJourney(){
-  if(heartOfferRedeemed){heartVisualOnly=true;runJourney(false);return}
-  const stored=heartClientPhone||sessionStorage.getItem('atoHeartPhone')||'';
-  if(stored){
-    try{
-      status.innerHTML='<strong>CHECKING YOUR HEART OFFER.</strong><span>ONE MOMENT…</span>';
-      if(await verifyHeartEligibility(stored)){runJourney(false)}
-    }catch(err){
-      sessionStorage.removeItem('atoHeartPhone');heartClientPhone='';
-      const phoneInput=document.getElementById('heartPhone');if(phoneInput)phoneInput.value=stored;
-      setHeartStatus(heartEligibilityStatus,err.message,'error');openHeartModal(heartEligibilityModal);
-    }
-    return;
-  }
-  setHeartStatus(heartEligibilityStatus,'');openHeartModal(heartEligibilityModal);setTimeout(()=>document.getElementById('heartPhone')?.focus(),80);
-}
-
-heartEligibilityForm?.addEventListener('submit',async e=>{
-  e.preventDefault();
-  const btn=document.getElementById('heartEligibilitySubmit');
-  const phone=document.getElementById('heartPhone').value;
-  btn.disabled=true;setHeartStatus(heartEligibilityStatus,'Checking with ATO Booking Manager…');
-  try{
-    const ok=await verifyHeartEligibility(phone);
-    closeHeartModal(heartEligibilityModal);
-    if(ok)runJourney(false);
-  }catch(err){setHeartStatus(heartEligibilityStatus,err.message,'error')}
-  finally{btn.disabled=false}
-});
 
 viewHeartTour?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(activeRandomTour?.url)window.location.href=activeRandomTour.url});
 chooseAnotherHeartTour?.addEventListener('click',e=>{
@@ -1288,140 +1246,7 @@ giftForm?.addEventListener('submit',async e=>{
 
 giftUpdatePreview();
 
-const allowedLangs = ["ru", "en", "tr", "de", "pl"];
-  const savedLang = localStorage.getItem("atoLanguage");
-  const currentLang = allowedLangs.includes(savedLang) ? savedLang : "en";
-  function updateLang(lang) {
-    document.querySelectorAll("[data-" + lang + "]").forEach(el => {
-      el.textContent = el.getAttribute("data-" + lang);
-    });
-    const langLabel = document.querySelector(".language-dropdown > span");
-    if (langLabel) langLabel.textContent = lang.toUpperCase();
-    document.documentElement.lang = lang;
-    localStorage.setItem("atoLanguage", lang);
-  }
-  updateLang(currentLang);
-  document.querySelectorAll(".language-menu a").forEach(link => {
-    link.addEventListener("click", function(e) {
-      e.preventDefault();
-      const lang = this.getAttribute("data-lang");
-      if (allowedLangs.includes(lang)) updateLang(lang);
-    });
-  });
-(function(){
-  const mobileBtn = document.getElementById('mobileMenuBtn');
-  const nav = document.querySelector('.nav');
-  const overlay = document.getElementById('mobileOverlay');
-  const dropdowns = [...document.querySelectorAll('.ato-header-dropdown')];
-  const languageDropdown = document.querySelector('.language-dropdown');
-  const languageClose = document.querySelector('.language-close');
-  const headerTourSearch = document.getElementById('headerTourSearch');
-  const officialTourSearch = document.getElementById('officialTourSearch');
-
-  function isMobile(){ return window.innerWidth <= 980; }
-
-  function setDropdown(dropdown, open){
-    if(!dropdown) return;
-    dropdown.classList.toggle('open', open);
-    const trigger = dropdown.querySelector('.ato-dropdown-trigger');
-    if(trigger) trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-
-  function closeDropdowns(except=null){
-    dropdowns.forEach(dd => { if(dd !== except) setDropdown(dd, false); });
-  }
-
-  function setMenu(open){
-    if(!mobileBtn || !nav || !overlay) return;
-    nav.classList.toggle('active', open);
-    mobileBtn.classList.toggle('active', open);
-    overlay.classList.toggle('active', open);
-    mobileBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if(!open){
-      closeDropdowns();
-      languageDropdown?.classList.remove('open');
-    }
-  }
-
-  if(mobileBtn && nav && overlay){
-    mobileBtn.setAttribute('role','button');
-    mobileBtn.setAttribute('tabindex','0');
-    mobileBtn.setAttribute('aria-label','Open navigation');
-    mobileBtn.setAttribute('aria-expanded','false');
-    mobileBtn.addEventListener('click', () => setMenu(!nav.classList.contains('active')));
-    mobileBtn.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); setMenu(!nav.classList.contains('active')); }
-    });
-    overlay.addEventListener('click', () => setMenu(false));
-  }
-
-  dropdowns.forEach(dropdown => {
-    const trigger = dropdown.querySelector('.ato-dropdown-trigger');
-    if(!trigger) return;
-    trigger.addEventListener('click', e => {
-      e.preventDefault();
-      e.stopPropagation();
-      const willOpen = !dropdown.classList.contains('open');
-      closeDropdowns(dropdown);
-      setDropdown(dropdown, willOpen);
-    });
-  });
-
-  if(languageDropdown){
-    languageDropdown.addEventListener('click', function(e){
-      if(isMobile()){
-        e.stopPropagation();
-        closeDropdowns();
-        this.classList.toggle('open');
-      }
-    });
-  }
-
-  if(languageClose && languageDropdown){
-    languageClose.addEventListener('click', function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      languageDropdown.classList.remove('open');
-    });
-  }
-
-  if(headerTourSearch && officialTourSearch){
-    headerTourSearch.addEventListener('click', function(e){
-      e.preventDefault();
-      officialTourSearch.scrollIntoView({behavior:'smooth', block:'center'});
-      window.setTimeout(() => officialTourSearch.focus({preventScroll:true}), 450);
-      if(isMobile()) setMenu(false);
-    });
-  }
-
-  nav?.querySelectorAll('a[href]').forEach(link => {
-    link.addEventListener('click', () => {
-      closeDropdowns();
-      if(isMobile()) setMenu(false);
-    });
-  });
-
-  document.addEventListener('click', e => {
-    if(!e.target.closest('.ato-header-dropdown')) closeDropdowns();
-  });
-
-  document.addEventListener('keydown', e => {
-    if(e.key === 'Escape'){
-      closeDropdowns();
-      languageDropdown?.classList.remove('open');
-      if(isMobile()) setMenu(false);
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    if(!isMobile()){
-      nav?.classList.remove('active');
-      mobileBtn?.classList.remove('active');
-      overlay?.classList.remove('active');
-    }
-    closeDropdowns();
-  });
-})();
+// Header, dropdown and language behavior is owned by index-header-loader.js.
 
 /* === AUTONOMOUS WEBGL 3D GLOBE ===
  * No Three.js CDN dependency. The sphere geometry, lighting, rotation and

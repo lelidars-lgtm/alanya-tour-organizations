@@ -242,7 +242,7 @@ input {
   min-height: 100vh;
   background-image:
     linear-gradient(90deg, rgba(3,8,20,.35), rgba(3,8,20,.08)),
-    url("hero-bg.jpg");
+    linear-gradient(180deg,#06111f,#06111f);
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -683,7 +683,7 @@ h1 {
   content: "";
   position: absolute;
   inset: -30px;
-  background: url("map-turkey.jpg") center/cover no-repeat;
+  background: none;
   filter: blur(70px);
   transform: scale(1.35);
   opacity: .5;
@@ -946,7 +946,7 @@ h1 {
   .hero {
     background-image:
       linear-gradient(to bottom, rgba(3,8,20,.30), rgba(3,8,20,.45)),
-      url("mobile-hero.jpg");
+      linear-gradient(180deg,#081120,#081120);
     min-height: 100svh;
     padding: 150px 24px 60px;
     background-position: center center;
@@ -7041,11 +7041,25 @@ body.so-premium-body::after{
   opacity:.66;
 }
 
-body.so-premium-body .header,
-body.so-premium-body .promo-bar,
+/* Keep the live index chrome behavior intact. The old page-specific rule made
+   the original sticky header/promo relative, which changed index behavior. */
+body.so-premium-body .header{
+  position:sticky;
+  top:0;
+  z-index:9999;
+}
+body.so-premium-body .promo-bar{
+  position:sticky;
+  top:104px;
+  z-index:9998;
+}
 body.so-premium-body .original-site-footer{
   position:relative;
   z-index:20;
+}
+@media(max-width:980px){
+  body.so-premium-body .promo-bar{top:84px;}
+  body.so-premium-body::before{inset:118px 0 0;}
 }
 
 body.so-premium-body .so-tp-shell{
@@ -8806,7 +8820,36 @@ body.so-premium-body #journey #journeyDockCard.visual-only #requestPersonalOffer
 .globe-zone.journey-arrived .globe-bokeh-layer .bokeh-dot.gold{
   opacity:.32!important;
 }
-\n\n/* === APPROVED GLOBE V7: STARS AFTER BOKEH === */\n.globe-bokeh-layer .globe-star{\n  position:absolute;\n  z-index:2;\n  display:block;\n  border-radius:50%;\n  pointer-events:none;\n  background:rgba(218,240,255,.96);\n  opacity:.48;\n  box-shadow:0 0 4px rgba(94,193,255,.60),0 0 9px rgba(40,145,255,.22);\n  animation:atoStarTwinkle ease-in-out infinite;\n}\n.globe-bokeh-layer .globe-star.gold{\n  background:rgba(255,224,158,.98);\n  opacity:.52;\n  box-shadow:0 0 4px rgba(255,205,108,.72),0 0 10px rgba(255,178,60,.22);\n}\n.globe-zone.journey-running .globe-bokeh-layer .globe-star,\n.globe-zone.orbit-flight .globe-bokeh-layer .globe-star,\n.globe-zone.journey-arrived .globe-bokeh-layer .globe-star{\n  opacity:.66;\n}\n@keyframes atoStarTwinkle{\n  0%,100%{transform:scale(.65);opacity:.18}\n  45%{transform:scale(1);opacity:.72}\n  62%{transform:scale(1.22);opacity:.48}\n}\n
+
+
+/* === APPROVED GLOBE V7: STARS AFTER BOKEH === */
+.globe-bokeh-layer .globe-star{
+  position:absolute;
+  z-index:2;
+  display:block;
+  border-radius:50%;
+  pointer-events:none;
+  background:rgba(218,240,255,.96);
+  opacity:.48;
+  box-shadow:0 0 4px rgba(94,193,255,.60),0 0 9px rgba(40,145,255,.22);
+  animation:atoStarTwinkle ease-in-out infinite;
+}
+.globe-bokeh-layer .globe-star.gold{
+  background:rgba(255,224,158,.98);
+  opacity:.52;
+  box-shadow:0 0 4px rgba(255,205,108,.72),0 0 10px rgba(255,178,60,.22);
+}
+.globe-zone.journey-running .globe-bokeh-layer .globe-star,
+.globe-zone.orbit-flight .globe-bokeh-layer .globe-star,
+.globe-zone.journey-arrived .globe-bokeh-layer .globe-star{
+  opacity:.66;
+}
+@keyframes atoStarTwinkle{
+  0%,100%{transform:scale(.65);opacity:.18}
+  45%{transform:scale(1);opacity:.72}
+  62%{transform:scale(1.22);opacity:.48}
+}
+
 /* =========================================================
    V9 FINAL JOURNEY COMPOSITION — KEEP FINAL VISUAL IN GLOBE POSITION
    Only final-state positioning/scale is changed.
@@ -9223,6 +9266,51 @@ body.so-premium-body .so-hero .tp-sea-orbit,
 body.so-premium-body .so-hero .tp-moon-path,
 body.so-premium-body .so-hero .tp-gold-wave{
   animation:none!important;
+}
+
+/* V26 — HERO LIGHT ARCS
+   The arcs rise as centered semicircles toward the central light source. */
+body.so-premium-body .so-hero::before{
+  inset:0!important;
+  left:0!important;
+  right:0!important;
+  width:100%!important;
+  transform:none!important;
+  background:
+    repeating-radial-gradient(
+      ellipse 68% 52% at 50% 92%,
+      transparent 0 42px,
+      rgba(223,235,239,.06) 43px 45px,
+      transparent 47px 88px
+    ),
+    radial-gradient(
+      ellipse 22% 74% at 50% 4%,
+      rgba(238,245,247,.075) 0%,
+      rgba(164,211,220,.028) 42%,
+      transparent 76%
+    ),
+    linear-gradient(180deg,rgba(255,255,255,.015),rgba(255,255,255,0))!important;
+  -webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.98) 0%,rgba(0,0,0,.78) 70%,transparent 100%)!important;
+  mask-image:linear-gradient(to top,rgba(0,0,0,.98) 0%,rgba(0,0,0,.78) 70%,transparent 100%)!important;
+}
+
+@media(max-width:760px){
+  body.so-premium-body .so-hero::before{
+    background:
+      repeating-radial-gradient(
+        ellipse 92% 48% at 50% 90%,
+        transparent 0 34px,
+        rgba(223,235,239,.06) 35px 37px,
+        transparent 39px 72px
+      ),
+      radial-gradient(
+        ellipse 30% 72% at 50% 4%,
+        rgba(238,245,247,.07) 0%,
+        rgba(164,211,220,.025) 42%,
+        transparent 76%
+      ),
+      linear-gradient(180deg,rgba(255,255,255,.015),rgba(255,255,255,0))!important;
+  }
 }
 
 /* Do not flash the certificate fields every time the Gift form changes. */

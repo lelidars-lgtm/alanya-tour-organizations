@@ -1,0 +1,41 @@
+ALANYA TOUR ORGANIZATIONS — SPECIAL OFFERS
+FINAL CODE AUDIT · 2026-08-13
+
+STATUS
+Static structure/syntax audit passed after repairs.
+Main load-flicker architecture has been replaced with a stable first-frame + single live-sync design.
+
+FIXED DEFECTS
+1. CSS parser-breaking literal \\n block: repaired.
+2. Two competing header loaders / two index fetch pipelines: reduced to one.
+3. Header initially absent and inserted later: replaced with first-frame index fallback.
+4. Temporary desktop-sized 138px host on mobile: removed.
+5. Main Special Offers JS delayed behind bootstrap/index network fetch: removed.
+6. Old Shadow DOM/light DOM mismatch in header controls: removed.
+7. Index-only #about / #officialTourSearch anchors from Special Offers: rebased to /index.html#...
+8. Mobile language click bubbling/reopen bug: repaired.
+9. Old Special Offers rule overriding index sticky header/promo: repaired.
+10. Dead Heart modal references to nonexistent DOM: removed without changing claim-time backend validation.
+11. Stale missing local background image references: removed.
+
+PRESERVED ON PURPOSE
+- Approved Special Offers visual composition.
+- Journey sequence.
+- 3D globe, night lights, mesh, bokeh/stars.
+- Heart birth / end sequence.
+- Confetti and intentional CTA effects.
+- Gift block design and behavior.
+
+CHECKS
+PASS JavaScript syntax
+PASS CSS parse
+PASS HTML parse
+PASS duplicate IDs
+PASS required packaged assets
+PASS internal anchor targets
+PASS CSS animation -> keyframe references
+PASS header/promo first-frame presence
+PASS single header loader architecture
+
+LIMIT OF THIS AUDIT
+Backend/network behavior cannot be proven from a standalone ZIP alone. The Journey random-tour cards reference 9 shared tour images from the full site; those images were not part of the supplied Special Offers ZIP and remain a deployment-level dependency. Live Heart/Gift RPC behavior still depends on the deployed Supabase/Booking Manager configuration and installed database functions. The page is designed to fail safely for header synchronization: if live /index.html sync fails, the first-frame header/promo remains usable instead of disappearing or flashing.
