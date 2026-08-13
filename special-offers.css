@@ -9070,18 +9070,6 @@ body.so-premium-body #journey .globe-zone.orbit-flight .journey-overlay-svg .pla
    Previous V12/V15/V16 final overrides were removed.
    ========================================================= */
 
-/* MAIN 3D GLOBE: larger, stable, unchanged geometry. */
-body.so-premium-body #journey .globe-shell{
-  width:min(100%,720px)!important;
-  max-width:720px!important;
-}
-body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-stage-live{
-  width:min(600px,100%)!important;
-  max-width:600px!important;
-  aspect-ratio:1/1!important;
-  transform:scale(1.06)!important;
-  transform-origin:center center!important;
-}
 
 /* FINAL: one black sphere, no flex/grid positioning fights. */
 body.so-premium-body #journey .globe-zone.final-turkiye{
@@ -9261,10 +9249,6 @@ body.so-premium-body #journey .globe-zone.journey-explode .confetti-burst span{
 }
 
 @media(max-width:900px){
-  body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-stage-live{
-    width:min(520px,100%)!important;
-    transform:scale(1.03)!important;
-  }
   body.so-premium-body #journey .globe-zone.final-turkiye{
     min-height:500px!important;
   }
@@ -9386,6 +9370,7 @@ body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-stage{
   from{opacity:0}
   to{opacity:1}
 }
+
 
 /* =========================================================
    GIFT CERTIFICATE INTERACTION V23 — 2026-08-13
@@ -9511,5 +9496,132 @@ body.so-premium-body .field label.gift-flexible-toggle span{
     height:18px!important;
     min-height:18px!important;
     max-height:18px!important;
+  }
+}
+
+
+/* =========================================================
+   V25 — AUTHORITATIVE GLOBE SOURCE OF TRUTH
+   Imported from the uploaded working desktop version on 2026-08-13.
+   ONE renderer / ONE shading path on desktop and mobile.
+   Mobile changes SIZE ONLY — never exposure, texture, lighting or color.
+   ========================================================= */
+body.so-premium-body #journey .globe-shell,
+body.so-premium-body #journey .globe-shell-live{
+  width:min(620px,100%)!important;
+  max-width:620px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  overflow:visible!important;
+}
+body.so-premium-body #journey .globe-zone:not(.final-turkiye){
+  background:transparent!important;
+  overflow:visible!important;
+}
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-stage-live{
+  position:relative!important;
+  width:min(620px,100%)!important;
+  max-width:620px!important;
+  aspect-ratio:1/1!important;
+  margin:0 auto!important;
+  transform:none!important;
+  transform-origin:center center!important;
+  border-radius:50%!important;
+  display:grid!important;
+  place-items:center!important;
+  isolation:isolate!important;
+  overflow:visible!important;
+}
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-stage-live::before{
+  content:none!important;
+  display:none!important;
+  background:none!important;
+  background-image:none!important;
+  opacity:0!important;
+  filter:none!important;
+  transform:none!important;
+  mask:none!important;
+  -webkit-mask:none!important;
+}
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas{
+  position:relative!important;
+  z-index:2!important;
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  border-radius:50%!important;
+  opacity:1!important;
+  transform:translateZ(0) scale(1.018)!important;
+  filter:
+    saturate(1.14)
+    contrast(1.10)
+    brightness(.98)
+    drop-shadow(0 0 14px rgba(42,202,255,.36))
+    drop-shadow(0 0 38px rgba(0,140,255,.25))
+    drop-shadow(0 0 80px rgba(0,80,220,.16))!important;
+}
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-aura-ring{
+  opacity:.62!important;
+  filter:blur(21px)!important;
+}
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .reference-depth-haze{
+  opacity:.28!important;
+}
+body.so-premium-body #journey .live-globe-canvas.canvas2d-spherical-fallback{
+  background:none!important;
+  background-image:none!important;
+  opacity:1!important;
+  border-radius:50%!important;
+  filter:
+    saturate(1.10)
+    contrast(1.08)
+    brightness(.98)
+    drop-shadow(0 0 16px rgba(46,205,255,.42))
+    drop-shadow(0 0 46px rgba(0,128,255,.24))!important;
+}
+
+/* Same actual globe on phones/tablets. Only fit the 620px stage into the viewport. */
+@media (max-width:760px), (hover:none) and (pointer:coarse){
+  body.so-premium-body #journey .journey-visual-column{
+    width:100%!important;
+    min-width:0!important;
+    align-items:center!important;
+  }
+  body.so-premium-body #journey .globe-shell,
+  body.so-premium-body #journey .globe-shell-live{
+    width:min(620px,calc(100vw - 32px))!important;
+    max-width:620px!important;
+  }
+  body.so-premium-body #journey .globe-zone:not(.final-turkiye){
+    width:100%!important;
+    min-height:0!important;
+    padding-left:0!important;
+    padding-right:0!important;
+    display:grid!important;
+    place-items:center!important;
+  }
+  body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-stage-live{
+    width:100%!important;
+    max-width:620px!important;
+    aspect-ratio:1/1!important;
+    margin:0 auto!important;
+    transform:none!important;
+  }
+  body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas{
+    /* Deliberately identical to desktop. */
+    transform:translateZ(0) scale(1.018)!important;
+    filter:
+      saturate(1.14)
+      contrast(1.10)
+      brightness(.98)
+      drop-shadow(0 0 14px rgba(42,202,255,.36))
+      drop-shadow(0 0 38px rgba(0,140,255,.25))
+      drop-shadow(0 0 80px rgba(0,80,220,.16))!important;
+  }
+}
+@media (max-width:420px){
+  body.so-premium-body #journey .globe-shell,
+  body.so-premium-body #journey .globe-shell-live{
+    width:calc(100vw - 24px)!important;
   }
 }

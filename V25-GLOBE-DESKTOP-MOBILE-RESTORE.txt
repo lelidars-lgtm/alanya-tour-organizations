@@ -1,0 +1,9 @@
+ALANYA TOUR ORGANIZATIONS — V25 GLOBE RESTORE
+
+Source of truth: uploaded working desktop special-offers(4).js + matching globe CSS behavior.
+- Exact globe renderer block copied into V25.
+- Native WebGL remains preferred.
+- Local earth_atmos / earth_lights / earth_normal assets retained.
+- Mobile uses the SAME renderer/shader/filter as desktop; only the stage width is responsive.
+- Removed V22 mobile-specific globe treatment.
+- V25 Gift Certificate, no-flicker and checkbox fixes are retained.
