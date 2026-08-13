@@ -8807,3 +8807,226 @@ body.so-premium-body #journey #journeyDockCard.visual-only #requestPersonalOffer
   opacity:.32!important;
 }
 \n\n/* === APPROVED GLOBE V7: STARS AFTER BOKEH === */\n.globe-bokeh-layer .globe-star{\n  position:absolute;\n  z-index:2;\n  display:block;\n  border-radius:50%;\n  pointer-events:none;\n  background:rgba(218,240,255,.96);\n  opacity:.48;\n  box-shadow:0 0 4px rgba(94,193,255,.60),0 0 9px rgba(40,145,255,.22);\n  animation:atoStarTwinkle ease-in-out infinite;\n}\n.globe-bokeh-layer .globe-star.gold{\n  background:rgba(255,224,158,.98);\n  opacity:.52;\n  box-shadow:0 0 4px rgba(255,205,108,.72),0 0 10px rgba(255,178,60,.22);\n}\n.globe-zone.journey-running .globe-bokeh-layer .globe-star,\n.globe-zone.orbit-flight .globe-bokeh-layer .globe-star,\n.globe-zone.journey-arrived .globe-bokeh-layer .globe-star{\n  opacity:.66;\n}\n@keyframes atoStarTwinkle{\n  0%,100%{transform:scale(.65);opacity:.18}\n  45%{transform:scale(1);opacity:.72}\n  62%{transform:scale(1.22);opacity:.48}\n}\n
+/* =========================================================
+   V9 FINAL JOURNEY COMPOSITION — KEEP FINAL VISUAL IN GLOBE POSITION
+   Only final-state positioning/scale is changed.
+   ========================================================= */
+@media (min-width: 901px){
+  .so-journey:has(.globe-zone.final-turkiye) .journey-grid{
+    grid-template-columns:minmax(330px,.82fr) minmax(560px,1.18fr)!important;
+    gap:38px!important;
+    align-items:center!important;
+  }
+
+  .so-journey:has(.globe-zone.final-turkiye) .journey-visual-column{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    overflow:visible!important;
+  }
+
+  .so-journey:has(.globe-zone.final-turkiye) .globe-shell{
+    width:min(680px,100%)!important;
+    max-width:680px!important;
+    margin:0 auto!important;
+  }
+
+  .globe-zone.final-turkiye{
+    width:100%!important;
+    min-height:500px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  .globe-zone.final-turkiye .globe-stage-live{
+    position:relative!important;
+    width:min(650px,100%)!important;
+    height:auto!important;
+    min-height:0!important;
+    aspect-ratio:1/1!important;
+    margin:0 auto!important;
+    transform:translateY(-10px)!important;
+    border-radius:0!important;
+    overflow:visible!important;
+    background:transparent!important;
+    box-shadow:none!important;
+  }
+
+  .globe-zone.final-turkiye .globe-stage-live::before,
+  .globe-zone.final-turkiye .globe-stage-live::after{
+    border-radius:0!important;
+  }
+
+  .globe-zone.final-turkiye .final-turkiye-stage{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    padding:0!important;
+    display:grid!important;
+    place-items:center!important;
+    background:transparent!important;
+  }
+
+  .globe-zone.final-turkiye .final-turkiye-inner{
+    width:min(640px,96%)!important;
+    height:auto!important;
+    min-height:420px!important;
+    display:grid!important;
+    place-items:center!important;
+  }
+
+  .globe-zone.final-turkiye .final-turkiye-map{
+    width:min(610px,100%)!important;
+    height:auto!important;
+    margin:0 auto!important;
+  }
+
+  .globe-zone.final-turkiye .final-we-are-here{
+    left:66%!important;
+    top:62%!important;
+  }
+
+  .so-journey:has(.globe-zone.final-turkiye) #startJourney{
+    width:min(520px,82%)!important;
+    margin:6px auto 0!important;
+  }
+}
+
+
+/* =========================================================
+   JOURNEY V10 — SMOOTH HEART / CONFETTI / CARD SEQUENCING
+   One transform animation owns the heart at each stage.
+   Confetti fully completes before the tour card leaves.
+   ========================================================= */
+
+/* Use each confetti particle's delay, but give the whole burst enough air. */
+body.so-premium-body #journey .globe-zone.journey-explode .confetti-burst span{
+  animation-name:confettiBurst!important;
+  animation-duration:1.55s!important;
+  animation-timing-function:cubic-bezier(.16,.72,.20,1)!important;
+  animation-delay:var(--delay,0s)!important;
+  animation-fill-mode:forwards!important;
+  will-change:transform,opacity!important;
+}
+
+/* More clearly multicolour without changing the established palette. */
+body.so-premium-body #journey .confetti-burst span:nth-child(5n+1){background:linear-gradient(180deg,#f3c66d,#fff0b8)!important}
+body.so-premium-body #journey .confetti-burst span:nth-child(5n+2){background:linear-gradient(180deg,#63d7ff,#dff7ff)!important}
+body.so-premium-body #journey .confetti-burst span:nth-child(5n+3){background:linear-gradient(180deg,#19c7a5,#b8fff0)!important}
+body.so-premium-body #journey .confetti-burst span:nth-child(5n+4){background:linear-gradient(180deg,#ff5d78,#ffd0d8)!important}
+body.so-premium-body #journey .confetti-burst span:nth-child(5n){background:linear-gradient(180deg,#a987ff,#e7ddff)!important}
+
+/* Celebration is a pulse — do NOT make the heart disappear while confetti flies. */
+body.so-premium-body #journey .globe-zone.heart-full.journey-explode .heart-transform{
+  opacity:1!important;
+  animation:soHeartCelebrationPulse 1.65s cubic-bezier(.18,.74,.20,1) forwards!important;
+  will-change:transform,filter,opacity!important;
+}
+@keyframes soHeartCelebrationPulse{
+  0%{opacity:1;transform:translate(-50%,-50%) scale(1.34);filter:drop-shadow(0 0 18px rgba(255,42,82,.72)) drop-shadow(0 0 54px rgba(255,30,68,.50))}
+  22%{transform:translate(-50%,-50%) scale(1.40);filter:drop-shadow(0 0 24px rgba(255,72,108,.88)) drop-shadow(0 0 70px rgba(255,27,67,.62))}
+  46%{transform:translate(-50%,-50%) scale(1.32)}
+  68%{transform:translate(-50%,-50%) scale(1.37);filter:drop-shadow(0 0 21px rgba(255,65,103,.82)) drop-shadow(0 0 58px rgba(255,25,64,.52))}
+  100%{opacity:1;transform:translate(-50%,-50%) scale(1.34);filter:drop-shadow(0 0 18px rgba(255,42,82,.72)) drop-shadow(0 0 48px rgba(255,30,68,.46))}
+}
+
+/* Hold the heart calmly while the card starts its flight. This prevents the
+   old heart-full animation from restarting and causing a visible jump. */
+body.so-premium-body #journey .globe-zone.heart-full.journey-card-launch:not(.heart-after-card) .heart-transform{
+  opacity:1!important;
+  animation:soHeartCardHold 1.10s ease-in-out infinite!important;
+  will-change:transform,filter!important;
+}
+@keyframes soHeartCardHold{
+  0%,100%{transform:translate(-50%,-50%) scale(1.34)}
+  50%{transform:translate(-50%,-50%) scale(1.365)}
+}
+
+/* Once the card has visibly departed, collapse in two clean beats instead
+   of several competing pulses. */
+body.so-premium-body #journey .globe-zone.heart-full.journey-card-launch.heart-after-card .heart-transform{
+  opacity:1!important;
+  animation:soHeartSmoothIntoCore 2.00s cubic-bezier(.20,.70,.20,1) forwards!important;
+  will-change:transform,filter,opacity!important;
+}
+@keyframes soHeartSmoothIntoCore{
+  0%{opacity:1;transform:translate(-50%,-50%) scale(1.34);filter:drop-shadow(0 0 19px rgba(255,55,91,.82)) drop-shadow(0 0 58px rgba(255,25,64,.54))}
+  18%{transform:translate(-50%,-50%) scale(1.39)}
+  38%{transform:translate(-50%,-50%) scale(1.02);filter:drop-shadow(0 0 18px rgba(255,62,98,.76)) drop-shadow(0 0 46px rgba(255,24,61,.46))}
+  54%{transform:translate(-50%,-50%) scale(1.08)}
+  76%{transform:translate(-50%,-50%) scale(.53);filter:drop-shadow(0 0 16px rgba(255,84,112,.82)) drop-shadow(0 0 38px rgba(255,24,60,.48))}
+  88%{transform:translate(-50%,-50%) scale(.57)}
+  100%{opacity:1;transform:translate(-50%,-50%) scale(.27);filter:drop-shadow(0 0 14px rgba(255,111,136,.96)) drop-shadow(0 0 30px rgba(255,29,64,.66))}
+}
+
+/* Match the nebula to the same 2-second collapse so it never lags behind. */
+body.so-premium-body #journey .globe-zone.journey-card-launch.heart-after-card::before{
+  animation:soHeartNebulaSmoothIntoCore 2.00s cubic-bezier(.20,.70,.20,1) forwards!important;
+}
+@keyframes soHeartNebulaSmoothIntoCore{
+  0%{opacity:.92;transform:translate(-50%,-50%) scale(1.04);filter:blur(23px) brightness(1.10)}
+  35%{opacity:.78;transform:translate(-50%,-50%) scale(.88);filter:blur(22px) brightness(1.08)}
+  70%{opacity:.48;transform:translate(-50%,-50%) scale(.55);filter:blur(18px) brightness(1.12)}
+  100%{opacity:.20;transform:translate(-50%,-50%) scale(.28);filter:blur(13px) brightness(1.20)}
+}
+
+/* Return from the exact tiny core state with no scale reset. */
+body.so-premium-body #journey .globe-zone.heart-full.heart-after-card.heart-return .heart-transform{
+  opacity:1!important;
+  animation:soHeartCoreHomeSmooth 1.25s cubic-bezier(.22,.72,.20,1) forwards!important;
+}
+@keyframes soHeartCoreHomeSmooth{
+  0%{opacity:1;transform:translate(-50%,-50%) scale(.27)}
+  18%{transform:translate(-50%,-50%) scale(.31)}
+  72%{opacity:.76;transform:translate(calc(-50% + 110px),calc(-50% + 58px)) scale(.13)}
+  100%{opacity:0;transform:translate(calc(-50% + 140px),calc(-50% + 76px)) scale(.02)}
+}
+
+/* Reduce expensive filter churn during the busiest transition. */
+body.so-premium-body #journey .globe-zone.journey-explode::before,
+body.so-premium-body #journey .globe-zone.journey-card-launch::before{
+  animation-duration:2.6s!important;
+}
+
+/* =========================================================
+   V11 — HEART PRICE CELLS MATCH EMERALD PLAY AGAIN
+   Visual-only refinement: preserve size, text and layout.
+   ========================================================= */
+body.so-premium-body #journey #journeyDockCard .heart-price-strip span{
+  position:relative!important;
+  overflow:hidden!important;
+  border:1px solid rgba(68,255,194,.76)!important;
+  background:
+    linear-gradient(180deg,rgba(10,99,81,.78),rgba(5,48,45,.94))!important;
+  box-shadow:
+    0 0 0 1px rgba(68,255,194,.08) inset,
+    0 0 12px rgba(35,255,181,.18),
+    0 0 28px rgba(20,209,150,.11)!important;
+}
+body.so-premium-body #journey #journeyDockCard .heart-price-strip span::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(115deg,transparent 12%,rgba(128,255,220,.08) 45%,transparent 72%);
+  opacity:.78;
+}
+body.so-premium-body #journey #journeyDockCard .heart-price-strip b{
+  position:relative;
+  z-index:1;
+  color:rgba(205,244,232,.68)!important;
+  text-shadow:0 0 9px rgba(68,255,194,.16)!important;
+}
+body.so-premium-body #journey #journeyDockCard .heart-price-strip em{
+  position:relative;
+  z-index:1;
+  color:#effff9!important;
+  text-shadow:0 0 11px rgba(128,255,220,.26)!important;
+}
+body.so-premium-body #journey #journeyDockCard .heart-price-strip span:last-child em{
+  color:#effff9!important;
+}

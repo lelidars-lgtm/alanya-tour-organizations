@@ -289,7 +289,7 @@ function cancelTourCardFlight(){
   }
 }
 
-function animateTourCardContinuously(duration=1550){
+function animateTourCardContinuously(duration=1800){
   if(!tourCardFly||!globeZone||!dockCard) return;
   cancelTourCardFlight();
 
@@ -728,53 +728,56 @@ function runJourney(fromPlanner=false){
       status.innerHTML='<strong>A HEART IS BORN.</strong><span>ONE PLACE → ONE FEELING</span>';
     },12150);
 
-    /* 11 Heart grows to globe scale. */
+    /* 11 Heart grows once, then settles. */
     queueJourney(()=>{
       globeZone.classList.add('heart-full');
       status.innerHTML='<strong>FOLLOW YOUR HEART.</strong><span>ONE HEART · ONE JOURNEY</span>';
-    },13350);
+    },13250);
 
-    /* 12 Random tour card is born. */
+    /* 12 Celebration: give the full confetti burst time to finish. */
     queueJourney(()=>{
       globeZone.classList.add('journey-explode');
       status.innerHTML='<strong>THE HEART CELEBRATES.</strong><span>ONE MOMENT BEFORE YOUR TOUR APPEARS</span>';
-    },14600);
+    },14350);
 
+    /* 12A Card starts only after the complete confetti burst. */
     queueJourney(()=>{
+      globeZone.classList.remove('journey-explode');
       setCardFlightGeometry();
       globeZone.classList.add('journey-card-launch');
-      animateTourCardContinuously(1550);
+      animateTourCardContinuously(1800);
       status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>STRAIGHT FROM THE HEART</span>';
-    },16050);
+    },16150);
 
-    /* 12B Once the card has clearly left the heart, let the heart breathe down
-       in several diminishing pulses until only a luminous red core remains. */
+    /* 12B The heart starts shrinking only after the card has clearly escaped. */
     queueJourney(()=>{
       globeZone.classList.add('heart-after-card');
       status.innerHTML='<strong>THE HEART LETS IT FLY.</strong><span>ONE LAST BEAT · THEN HOME</span>';
-    },16650);
+    },17050);
 
+    /* Card completes its continuous bezier flight before the dock handoff. */
     queueJourney(()=>{
       cancelTourCardFlight();
       landOfferCard();
-    },17650);
+    },18050);
 
-    /* 13 Heart returns to original Alanya point and disappears. */
+    /* 13 Heart returns only after its pulse-down animation has completed. */
     queueJourney(()=>{
       dockCard?.classList.add('final-visible');
+      globeZone.classList.remove('journey-card-launch');
       globeZone.classList.add('heart-return');
       status.innerHTML='<strong>THE HEART COMES HOME.</strong><span>BACK TO ALANYA</span>';
-    },19000);
+    },19150);
 
-    /* 14–15 Final state: glowing Türkiye + flag + WE ARE HERE + coordinates. */
+    /* 14–15 Final state begins after the return animation is fully complete. */
     queueJourney(()=>{
+      globeZone.classList.remove('heart-full','heart-after-card','heart-return');
       globeZone.classList.add('final-turkiye');
       status.innerHTML='<strong>WE ARE HERE.</strong><span>ALANYA · 36.532392° N · 32.038899° E</span>';
       startJourney.disabled=false;
       startJourney.classList.remove('is-active');
       if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
-      
-    },20250);
+    },20650);
   });
 }
 
