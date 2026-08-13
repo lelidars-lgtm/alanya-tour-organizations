@@ -1,2 +1,3 @@
-FIX: correct Supabase project URL and make the existing interactive-map booking-config.js take priority in Booking Manager.
-No SQL changes required. Copy contents into repository root with replacement, commit and push.
+ATO TOUR FINDER PREMIUM V4
+Self-contained index.html + shared CSS/JS for site-wide integration.
+Catalog: 58 tours.
