@@ -105,6 +105,25 @@
       font-size:13px;
       font-weight:900;
       margin-bottom:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      align-items:center;
+      max-width:860px;
+    }
+
+    .eyebrow-base{
+      color:rgba(243,198,109,.88);
+    }
+
+    .eyebrow-glow{
+      color:#fff4c8;
+      text-shadow:
+        0 0 10px rgba(255,234,163,.85),
+        0 0 22px rgba(243,198,109,.68),
+        0 0 36px rgba(214,162,74,.46);
+      filter:drop-shadow(0 0 12px rgba(243,198,109,.35));
+      animation:alivePulse 2.8s ease-in-out infinite;
     }
 
     .sea-hero h1{
@@ -116,6 +135,68 @@
       max-width:720px;
       margin-bottom:18px;
       text-shadow:0 18px 44px rgba(0,0,0,.55);
+    }
+
+    .hero-title{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:2px;
+    }
+
+    .hero-combo,
+    .hero-deals{
+      display:block;
+      position:relative;
+    }
+
+    .hero-combo{
+      color:#ffffff;
+      text-shadow:0 18px 44px rgba(0,0,0,.55);
+    }
+
+    .hero-deals{
+      background:linear-gradient(180deg,#fff0b8 0%,#f3c66d 34%,#d6a24a 70%,#b9781f 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow:0 14px 34px rgba(0,0,0,.35);
+    }
+
+    .combo-star{
+      position:absolute;
+      display:block;
+      color:#ffe7a2;
+      font-size:20px;
+      line-height:1;
+      text-shadow:
+        0 0 8px rgba(255,231,162,.95),
+        0 0 18px rgba(243,198,109,.92),
+        0 0 30px rgba(214,162,74,.55);
+      animation:starTwinkle 2.2s ease-in-out infinite;
+      pointer-events:none;
+    }
+
+    .combo-star-left{
+      left:-12px;
+      bottom:4px;
+      animation-delay:.15s;
+    }
+
+    .combo-star-right{
+      right:-12px;
+      top:-8px;
+      animation-delay:.8s;
+    }
+
+    @keyframes alivePulse{
+      0%,100%{opacity:1; text-shadow:0 0 10px rgba(255,234,163,.85),0 0 22px rgba(243,198,109,.68),0 0 36px rgba(214,162,74,.46);}
+      50%{opacity:1; text-shadow:0 0 14px rgba(255,244,200,.95),0 0 30px rgba(243,198,109,.90),0 0 46px rgba(214,162,74,.62);}
+    }
+
+    @keyframes starTwinkle{
+      0%,100%{transform:scale(1) rotate(0deg); opacity:1;}
+      50%{transform:scale(1.22) rotate(12deg); opacity:.9;}
     }
 
     .category-divider{
@@ -453,6 +534,131 @@
       flex:0 0 auto;
     }
 
+
+    /* ===== UNIFORM CATEGORY CARDS ===== */
+    .tour-grid{
+      align-items:stretch;
+    }
+
+    .tour-card{
+      height:100%;
+    }
+
+    .tour-body{
+      display:grid;
+      grid-template-rows:72px 54px 86px 1fr;
+      align-content:stretch;
+    }
+
+    .tour-body h3{
+      min-height:0;
+      margin:0;
+      display:flex;
+      align-items:flex-start;
+    }
+
+    .tour-price{
+      min-height:0;
+      margin:0;
+      align-self:start;
+      display:flex;
+      align-items:flex-end;
+      padding-top:6px;
+    }
+
+    .tour-body > p{
+      min-height:0;
+      margin:0;
+      padding-top:10px;
+      align-self:start;
+    }
+
+    .tour-bottom{
+      margin-top:0;
+      align-self:end;
+      min-height:62px;
+      width:100%;
+    }
+
+    .tour-bottom .meta{
+      flex:1 1 auto;
+      min-width:0;
+    }
+
+    .card-actions{
+      margin-left:auto;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:10px;
+      flex:0 0 auto;
+    }
+
+    .card-actions .circle-arrow{
+      margin:0;
+    }
+
+    .card-actions .card-compare-control,
+    .card-actions [class*="compare"],
+    .card-actions [data-compare],
+    .card-actions button,
+    .card-actions a:not(.circle-arrow){
+      position:static !important;
+      inset:auto !important;
+      float:none !important;
+      transform:none !important;
+      margin:0 !important;
+      flex:0 0 auto !important;
+      white-space:nowrap;
+    }
+
+    @media(max-width:720px){
+      .tour-body{
+        display:flex;
+        flex-direction:column;
+      }
+
+      .tour-body h3,
+      .tour-price,
+      .tour-body > p{
+        min-height:0;
+      }
+
+      .tour-body h3{margin-bottom:12px}
+      .tour-price{margin:2px 0 15px;padding-top:0}
+      .tour-body > p{margin-bottom:18px;padding-top:0}
+
+      .tour-bottom{
+        margin-top:auto;
+        gap:10px;
+      }
+
+      .tour-bottom .meta{
+        gap:8px 12px;
+      }
+
+      .card-actions{
+        gap:8px;
+      }
+    }
+
+    @media(max-width:460px){
+      .tour-bottom{
+        align-items:flex-end;
+      }
+
+      .tour-bottom .meta{
+        font-size:12px;
+      }
+
+      .card-actions .card-compare-control,
+      .card-actions [class*="compare"]{
+        font-size:11px !important;
+        padding-left:12px !important;
+        padding-right:12px !important;
+      }
+    }
+
     /* ===== CTA ===== */
 
     .booking-cta{
@@ -590,6 +796,10 @@
 
       .breadcrumbs{margin-bottom:42px}
       .sea-hero h1{font-size:52px}
+      .eyebrow{gap:4px;letter-spacing:.14em;font-size:11px}
+      .combo-star{font-size:16px}
+      .combo-star-left{left:-8px;bottom:2px}
+      .combo-star-right{right:-8px;top:-5px}
       .hero-subtitle{font-size:16px}
 
       .category-shell{
@@ -639,9 +849,9 @@
   <div class="sea-hero-inner">
     <div class="breadcrumbs">Home › Tours › <span>Combo Deals</span></div>
 
-    <div class="eyebrow">ONE DAY · UNFORGETTABLE EXPERIENCES · FREE YOUR MIND · FEEL ALIVE</div>
+    <div class="eyebrow"><span class="eyebrow-base">ONE DAY · UNFORGETTABLE EXPERIENCES · FREE YOUR MIND ·</span> <span class="eyebrow-glow">FEEL ALIVE</span></div>
 
-    <h1>Combo<br>Deals</h1>
+    <h1 class="hero-title"><span class="hero-combo">COMBO<span class="combo-star combo-star-left">✦</span><span class="combo-star combo-star-right">✦</span></span><span class="hero-deals">DEALS</span></h1>
 
     <div class="category-divider" aria-hidden="true">
       <span class="category-divider-line"></span>
@@ -693,7 +903,7 @@
 
         <a href="rafting-buggy-zipline-6-in-1.html" class="tour-card">
           <div class="tour-image">
-            <img src="images/rafting/rafting.hero.png" alt="Rafting, Buggy & Zipline 6 in 1">
+            <img src="images/rafting-6-in-1/HERO.png" alt="Rafting, Buggy & Zipline 6 in 1">
             <span class="badge">New · 6 in 1</span>
           </div>
           <div class="tour-body">
@@ -867,6 +1077,74 @@
     hero.style.backgroundImage = `${overlay}, url("${fallback}")`;
   };
   probe.src = external + '?v=20260813';
+})();
+</script>
+
+
+<script id="uniform-category-card-controls">
+(function(){
+  function prepareBottom(card){
+    const bottom=card.querySelector('.tour-bottom');
+    if(!bottom) return null;
+    let actions=bottom.querySelector('.card-actions');
+    if(!actions){
+      actions=document.createElement('div');
+      actions.className='card-actions';
+      const arrow=bottom.querySelector('.circle-arrow');
+      if(arrow){
+        bottom.appendChild(actions);
+        actions.appendChild(arrow);
+      }else{
+        bottom.appendChild(actions);
+      }
+    }
+    return actions;
+  }
+
+  function findCompare(card, actions){
+    const selectors=[
+      'button',
+      '[role="button"]',
+      '[data-compare]',
+      '[data-action*="compare" i]',
+      'a[class*="compare" i]',
+      '[class*="compare" i]'
+    ];
+    const all=[...card.querySelectorAll(selectors.join(','))];
+    return all.find(el=>{
+      if(actions.contains(el)) return false;
+      if(el.closest('.tour-bottom')) return false;
+      const txt=(el.textContent||'').replace(/\s+/g,' ').trim();
+      return /(^|\s|\+)compare(\s|$)/i.test(txt) || /compare/i.test(el.className||'');
+    }) || null;
+  }
+
+  function normalizeCard(card){
+    const actions=prepareBottom(card);
+    if(!actions) return;
+    const compare=findCompare(card,actions);
+    const arrow=actions.querySelector('.circle-arrow');
+    if(compare){
+      compare.classList.add('card-compare-control');
+      if(arrow) actions.insertBefore(compare,arrow);
+      else actions.appendChild(compare);
+    }
+  }
+
+  function normalizeAll(){
+    document.querySelectorAll('.tour-card').forEach(normalizeCard);
+  }
+
+  normalizeAll();
+  document.addEventListener('DOMContentLoaded',normalizeAll,{once:true});
+  window.addEventListener('load',normalizeAll,{once:true});
+
+  const observer=new MutationObserver(()=>normalizeAll());
+  observer.observe(document.documentElement,{childList:true,subtree:true});
+
+  setTimeout(normalizeAll,250);
+  setTimeout(normalizeAll,800);
+  setTimeout(normalizeAll,1600);
 })();
 </script>
 
