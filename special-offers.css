@@ -9350,3 +9350,39 @@ body.so-premium-body #journey .globe-zone.heart-return .globe-stage-live::after{
   opacity:0!important;
   visibility:hidden!important;
 }
+
+
+/* =========================================================
+   V20 — HIDE BOTH BLUE LAYERS DURING HEART LIFECYCLE
+   After the heart is born and while it shrinks/returns, neither the old blue
+   globe nor the blue Türkiye/WE ARE HERE layer may show underneath.
+   ========================================================= */
+body.so-premium-body #journey .globe-zone.journey-heart .turkiye-zoom-stage,
+body.so-premium-body #journey .globe-zone.heart-full .turkiye-zoom-stage,
+body.so-premium-body #journey .globe-zone.journey-explode .turkiye-zoom-stage,
+body.so-premium-body #journey .globe-zone.journey-card-launch .turkiye-zoom-stage,
+body.so-premium-body #journey .globe-zone.heart-after-card .turkiye-zoom-stage,
+body.so-premium-body #journey .globe-zone.heart-return .turkiye-zoom-stage,
+body.so-premium-body #journey .globe-zone.journey-heart .final-turkiye-stage,
+body.so-premium-body #journey .globe-zone.heart-full .final-turkiye-stage,
+body.so-premium-body #journey .globe-zone.journey-explode .final-turkiye-stage,
+body.so-premium-body #journey .globe-zone.journey-card-launch .final-turkiye-stage,
+body.so-premium-body #journey .globe-zone.heart-after-card .final-turkiye-stage,
+body.so-premium-body #journey .globe-zone.heart-return .final-turkiye-stage{
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+
+/* Also do not let the final blue Türkiye layer pop in instantly at the same
+   moment the heart finishes shrinking. Let the heart clear first. */
+body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-stage{
+  opacity:0!important;
+  visibility:visible!important;
+  animation:finalTurkiyeFadeInV20 .42s ease forwards!important;
+  animation-delay:.22s!important;
+}
+@keyframes finalTurkiyeFadeInV20{
+  from{opacity:0}
+  to{opacity:1}
+}
