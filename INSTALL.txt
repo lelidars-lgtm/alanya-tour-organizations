@@ -1,0 +1,26 @@
+ALANYA TOUR ORGANIZATIONS — GLOBAL COMPARE POSITION PATCH
+
+GOAL
+Every tour-category card uses one fixed action order:
+    ＋ Compare   →
+Compare is immediately LEFT of the thin gold arrow.
+
+REPLACE ONLY THESE TWO EXISTING FILES IN THE SITE ROOT:
+1) assets/js/trip-planner-shared.js
+2) assets/css/trip-planner-shared.css
+
+DO NOT replace category HTML files.
+They already load the shared Trip Planner asset, so one shared update controls all category cards.
+
+WHAT THIS PATCH ALSO DOES
+- reuses existing hard-coded Compare buttons when a category already has one;
+- removes page-specific Compare event listeners by safely replacing legacy controls;
+- prevents duplicate Compare buttons;
+- moves the arrow into the same .card-actions container;
+- keeps Compare directly before the arrow on desktop and mobile;
+- preserves the existing Trip Planner localStorage pool and dock;
+- supports cards injected later by JavaScript via MutationObserver.
+
+IMPORTANT
+Keep the existing <script src="assets/js/trip-planner-shared.js"></script> and
+<link rel="stylesheet" href="assets/css/trip-planner-shared.css"> connections.

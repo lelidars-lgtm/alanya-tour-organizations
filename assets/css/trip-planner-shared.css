@@ -1,56 +1,90 @@
-/* ALANYA TOUR ORGANIZATIONS — shared Trip Planner controls */
-.ato-compare-control{
-  position:relative;z-index:8;align-self:flex-end;overflow:hidden;isolation:isolate;
-  display:inline-flex;align-items:center;justify-content:center;gap:6px;
-  min-height:34px;margin:0 0 12px;padding:8px 14px;border:1px solid rgba(243,198,109,.88);
+/* ALANYA TOUR ORGANIZATIONS — GLOBAL Compare / Trip Planner controls
+   One approved position on every category card:
+   [meta information]                    [＋ Compare] [gold arrow]
+*/
+
+/* Keep the action pair together at the bottom-right of every tour card. */
+.tour-bottom{
+  display:flex;
+  align-items:center;
+}
+
+.tour-bottom > .meta,
+.tour-bottom .meta{
+  flex:1 1 auto;
+  min-width:0;
+}
+
+.tour-bottom > .card-actions,
+.tour-bottom .ato-card-actions{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+
+.tour-bottom .card-actions .circle-arrow,
+.tour-bottom .ato-card-actions .circle-arrow{
+  margin:0 !important;
+  flex:0 0 auto;
+}
+
+/* Global Compare control. Old per-category positioning is deliberately overridden. */
+.tour-bottom .ato-compare-control,
+.tour-bottom .card-actions .ato-compare-control,
+.tour-bottom .card-actions .compare-btn.ato-compare-control{
+  position:static !important;
+  inset:auto !important;
+  right:auto !important;
+  bottom:auto !important;
+  top:auto !important;
+  left:auto !important;
+  float:none !important;
+  transform:none !important;
+  z-index:8;
+  align-self:auto !important;
+  flex:0 0 auto !important;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  min-height:34px;
+  margin:0 !important;
+  padding:8px 12px;
+  border:1px solid rgba(243,198,109,.82);
   border-radius:999px;
-  background:linear-gradient(120deg,#07384a 0%,#0b6a73 22%,#19a0a2 38%,#f3c96d 52%,#0f5f74 67%,#083449 100%);
-  background-size:220% 220%;
-  color:#fff;font:900 10px/1 Arial,sans-serif;letter-spacing:.055em;text-transform:uppercase;
-  box-shadow:0 8px 24px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.18);
-  cursor:pointer;user-select:none;transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-  animation:atoCompareWave 6s ease-in-out infinite;
+  background:linear-gradient(135deg,rgba(5,55,51,.96),rgba(7,86,72,.96));
+  color:#fff;
+  font:900 10px/1 Arial,sans-serif;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  box-shadow:0 8px 24px rgba(0,0,0,.30);
+  cursor:pointer;
+  user-select:none;
+  transition:background .2s ease, box-shadow .2s ease, border-color .2s ease, color .2s ease;
 }
-.ato-compare-control::before{
-  content:"";position:absolute;inset:0;z-index:-1;opacity:.55;
-  background:linear-gradient(110deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.34) 32%,rgba(255,255,255,.05) 46%,rgba(255,255,255,0) 58%);
-  transform:translateX(-135%);
-  animation:atoCompareSheen 3.8s ease-in-out infinite;
+
+.tour-bottom .ato-compare-control:hover{
+  border-color:#f5cf76;
+  box-shadow:0 10px 28px rgba(0,0,0,.42),0 0 18px rgba(243,198,109,.12);
 }
-.ato-compare-control::after{
-  content:"";position:absolute;left:-8%;right:-8%;bottom:-58%;height:90%;z-index:-1;
-  background:radial-gradient(ellipse at center,rgba(255,255,255,.18) 0%,rgba(255,255,255,.08) 36%,rgba(255,255,255,0) 72%);
-  animation:atoComparePulse 4.8s ease-in-out infinite;
+
+.tour-bottom .ato-compare-control.is-added,
+.tour-bottom .ato-compare-control.is-selected{
+  background:linear-gradient(135deg,#08705d,#0b9275);
+  color:#fff;
 }
-.ato-compare-control:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(0,0,0,.46), inset 0 1px 0 rgba(255,255,255,.24);border-color:#f5d58f}
-.ato-compare-control.is-added{
-  background:linear-gradient(180deg,#fff0b8 0%,#f4d67f 18%,#e7bb62 52%,#d79c32 100%);
-  background-size:180% 180%;
-  color:#071523;
-  border-color:#f5d58f;
-  box-shadow:0 10px 28px rgba(0,0,0,.34), 0 0 0 1px rgba(255,229,167,.26) inset;
-  animation:atoCompareWave 5.5s ease-in-out infinite;
+
+.tour-bottom .ato-compare-control:focus-visible{
+  outline:2px solid #f5cf76;
+  outline-offset:2px;
 }
-.ato-compare-control.is-added::before{
-  opacity:.42;
-  background:linear-gradient(110deg,rgba(255,255,255,0) 10%,rgba(255,255,255,.55) 29%,rgba(255,255,255,.12) 46%,rgba(255,255,255,0) 64%);
-}
-.ato-compare-control.is-added::after{
-  background:radial-gradient(ellipse at center,rgba(255,248,212,.28) 0%,rgba(255,239,184,.14) 36%,rgba(255,255,255,0) 74%);
-}
-.ato-compare-control:focus-visible{outline:2px solid #f5cf76;outline-offset:2px}
-@keyframes atoCompareWave{
-  0%,100%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-}
-@keyframes atoCompareSheen{
-  0%,14%{transform:translateX(-135%)}
-  45%,100%{transform:translateX(135%)}
-}
-@keyframes atoComparePulse{
-  0%,100%{transform:translateY(0) scaleX(1);opacity:.42}
-  50%{transform:translateY(-6%) scaleX(1.04);opacity:.68}
-}
+
+/* Trip Planner dock — preserved from the approved shared component. */
 .ato-planner-dock{
   position:fixed;z-index:99990;left:50%;bottom:22px;transform:translate(-50%,16px);
   display:flex;align-items:center;gap:12px;min-width:310px;max-width:calc(100vw - 24px);
@@ -66,31 +100,39 @@
 .ato-planner-clear{width:31px;height:31px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:transparent;color:#fff;font-size:18px;cursor:pointer}
 .ato-planner-toast{position:fixed;z-index:99999;left:50%;bottom:92px;transform:translateX(-50%);padding:11px 16px;border:1px solid rgba(243,198,109,.68);border-radius:10px;background:#071b29;color:#fff;box-shadow:0 15px 45px rgba(0,0,0,.5);font:700 12px/1.35 Arial,sans-serif;opacity:0;pointer-events:none;transition:.2s ease}
 .ato-planner-toast.show{opacity:1}
+
 @media(max-width:760px){
-  .ato-compare-control{min-height:30px;margin-bottom:10px;padding:7px 10px;font-size:9px}
+  .tour-bottom > .card-actions,
+  .tour-bottom .ato-card-actions{gap:7px}
+
+  .tour-bottom .ato-compare-control,
+  .tour-bottom .card-actions .ato-compare-control,
+  .tour-bottom .card-actions .compare-btn.ato-compare-control{
+    min-height:30px;
+    padding:7px 9px;
+    font-size:9px;
+  }
+
   .ato-planner-dock{bottom:70px;min-width:0;width:calc(100% - 20px);padding-left:12px;gap:7px}
   .ato-planner-open{padding:10px 11px;font-size:10px}
-  .ato-planner-dock strong{font-size:10px}.ato-planner-dock small{font-size:9px}
+  .ato-planner-dock strong{font-size:10px}
+  .ato-planner-dock small{font-size:9px}
 }
 
-/* Premium compare recommendation window — max 4 */
-.ato-planner-dock{
-  min-width:min(720px,calc(100vw - 28px));
-  padding:12px 12px 12px 14px;
-  border-color:rgba(243,198,109,.72);
-  background:linear-gradient(120deg,rgba(4,24,38,.985),rgba(5,51,58,.985));
-  box-shadow:0 22px 70px rgba(0,0,0,.62),0 0 35px rgba(214,162,74,.08);
-}
-.ato-planner-dock-icon{width:38px;height:38px;flex:0 0 38px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(243,198,109,.48);color:#f5cf76;background:rgba(214,162,74,.07);font-size:16px}
-.ato-planner-dock-copy strong{font-size:11px;letter-spacing:.12em}
-.ato-planner-dock-copy small{max-width:440px;line-height:1.35}
-.ato-planner-count{flex:0 0 auto;min-width:42px;padding:8px 9px;text-align:center;border-radius:999px;border:1px solid rgba(243,198,109,.45);color:#f5cf76;font:900 11px/1 Arial,sans-serif;background:rgba(214,162,74,.06)}
-.ato-planner-dock.is-complete{border-color:#f3c66d;box-shadow:0 22px 75px rgba(0,0,0,.64),0 0 40px rgba(214,162,74,.16)}
-.ato-planner-dock.is-complete .ato-planner-count{background:linear-gradient(180deg,#f5d77e,#d9a13a);color:#071523;border-color:#f5d77e}
-@media(max-width:760px){
-  .ato-planner-dock{min-width:0;width:calc(100% - 16px);padding:10px;display:grid;grid-template-columns:34px 1fr auto;gap:8px}
-  .ato-planner-dock-icon{width:34px;height:34px;flex-basis:34px}
-  .ato-planner-open{grid-column:1/3;width:100%}
-  .ato-planner-clear{grid-column:3;grid-row:2}
-  .ato-planner-count{grid-column:3;grid-row:1}
+@media(max-width:460px){
+  .tour-bottom{
+    align-items:flex-end;
+    gap:8px;
+  }
+
+  .tour-bottom > .card-actions,
+  .tour-bottom .ato-card-actions{gap:6px}
+
+  .tour-bottom .ato-compare-control,
+  .tour-bottom .card-actions .ato-compare-control,
+  .tour-bottom .card-actions .compare-btn.ato-compare-control{
+    padding:7px 8px;
+    font-size:8.5px;
+    letter-spacing:.035em;
+  }
 }
