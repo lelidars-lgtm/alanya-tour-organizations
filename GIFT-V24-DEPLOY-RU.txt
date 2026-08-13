@@ -1,0 +1,64 @@
+ALANYA TOUR ORGANIZATIONS — V24 ELECTRONIC GIFT CERTIFICATE
+
+ЧТО СДЕЛАНО
+1. Gift Builder на Special Offers больше не является только WhatsApp-формой.
+2. При отправке сайт сначала сохраняет реальную заявку GIFT-26-XXXXX в ТОТ ЖЕ Supabase / ATO Booking Manager.
+3. Сертификат сразу получает защищённую электронную ссылку с random UUID token, но остаётся REQUESTED и НЕ ДЕЙСТВУЕТ.
+4. После оплаты/проверки менеджер подтверждает эту заявку обычной кнопкой CONFIRM BOOKING в существующем ATO Booking Manager.
+5. Серверный trigger только после подтверждения:
+   - переводит сертификат в ACTIVE;
+   - выдаёт уникальный номер ATO-GIFT-26-XXXXXX;
+   - фиксирует дату выдачи;
+   - ставит срок действия 12 месяцев.
+6. Одна и та же электронная ссылка автоматически начинает показывать ACTIVE-сертификат после подтверждения.
+7. Создана отдельная страница gift-certificate.html с тем же утверждённым изображением сертификата + живыми данными.
+8. Состояния: REQUESTED / ACTIVE / REDEEMED / EXPIRED / CANCELLED.
+9. Публичная ссылка НЕ содержит телефон покупателя и не даёт доступа к базе — только безопасные поля самого сертификата.
+10. Реальный certificate code нельзя сгенерировать в браузере: он создаётся только на сервере при подтверждении менеджером.
+
+КАК ЗАЯВКА ВИДНА В СУЩЕСТВУЮЩЕМ ATO BOOKING MANAGER
+- request_no: GIFT-26-XXXXX
+- guest: From → Recipient
+- hotel/type: GIFT CERTIFICATE · FREEDOM или SIGNATURE
+- status: PENDING до подтверждения
+- Manager Notes: тип, сумма/experience, получатель, отправитель, даты, сообщение, private electronic certificate link
+- После CONFIRM BOOKING сертификат становится ACTIVE.
+
+ВАЖНО
+Gift Certificate намеренно записывается в public.bookings с tours=[].
+Причина: это не экскурсионный e-ticket. Так существующий Booking Manager не создаёт ложную экскурсионную карточку для подарочного сертификата.
+
+ОДИН РАЗ В SUPABASE
+Открыть тот же project alanya-tour-booking → SQL Editor → выполнить целиком:
+GIFT-CERTIFICATE-ATO-BOOKING-MANAGER.sql
+
+ФАЙЛЫ НА САЙТ
+- special-offers.html
+- special-offers.js
+- special-offers.css
+- gift-certificate.html
+- assets/gift-certificate-template.png
+- существующие assets/globe/* не менять/не удалять
+
+ОТДЕЛЬНАЯ ВКЛАДКА GIFTS В ЭТОМ ЖЕ ЛИЧНОМ КАБИНЕТЕ
+Файл booking-manager-gifts-addon.js добавляет поверх СУЩЕСТВУЮЩЕГО ATO Booking Manager кнопку:
+🎁 GIFT CERTIFICATES
+
+Внутри: REQUESTED / ACTIVE / REDEEMED / EXPIRED / CANCELLED, Open Certificate, Copy Link, Mark Redeemed.
+Он использует ту же авторизацию и тот же Supabase. Второго кабинета нет.
+
+Чтобы включить эту вкладку, в ТЕКУЩИЙ booking-manager/index.html перед </body> добавить только:
+<script src="/booking-manager-gifts-addon.js"></script>
+
+Я НЕ подменял текущий booking-manager/index.html старой копией, потому что действующий кабинет уже использует вашу текущую авторизацию. Это защищает его от отката/поломки.
+
+ПРОВЕРКА
+1. Сначала запустить SQL.
+2. Загрузить файлы.
+3. На Special Offers создать тестовый Freedom Gift с тестовым номером.
+4. Убедиться, что в ATO Booking Manager появился GIFT-26-XXXXX / PENDING.
+5. Открыть electronic link — должен быть REQUESTED / AWAITING CONFIRMATION.
+6. В ATO Booking Manager подтвердить GIFT-заявку.
+7. Обновить ту же electronic link — статус ACTIVE + уникальный ATO-GIFT-26-XXXXXX.
+8. Проверить Print / Save PDF и Copy Certificate Code.
+9. Если включён manager addon — открыть 🎁 GIFT CERTIFICATES и проверить фильтры/ссылку/REDEEMED.

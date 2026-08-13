@@ -834,6 +834,112 @@
 </button>
 </div>
 
+<div class="gift-builder-grid" id="giftBuilder" hidden>
+<form class="gift-form show" id="giftCertificateForm">
+<div class="gift-form-intro">
+<span id="giftFormModeLabel">CHOOSE A GIFT TYPE ABOVE</span>
+<strong id="giftFormModeText">Select Freedom Gift or Signature Gift to build the certificate request.</strong>
+</div>
+
+<div class="form-grid">
+<div class="field">
+<label for="giftRecipientName">Recipient name</label>
+<input id="giftRecipientName" name="recipient" autocomplete="name" minlength="2" placeholder="Who is the gift for?" required/>
+</div>
+<div class="field">
+<label for="giftSenderName">Your name</label>
+<input id="giftSenderName" name="sender" autocomplete="name" minlength="2" placeholder="Who is giving the gift?" required/>
+</div>
+<div class="field full">
+<label for="giftBuyerPhone">Your WhatsApp</label>
+<input id="giftBuyerPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="24" placeholder="+90 5XX XXX XX XX" required/>
+</div>
+</div>
+
+<div class="gift-mode-fields" id="giftFreedomFields" hidden>
+<div class="gift-mode-explainer"><b>FREEDOM GIFT · CHOOSE THE VALUE</b><span>The recipient can choose the eligible experience and suitable date later with our team.</span></div>
+<div class="field">
+<label for="giftAmount">Gift value · EUR</label>
+<input id="giftAmount" name="amount" type="number" inputmode="decimal" min="1" step="1" placeholder="100"/>
+</div>
+<div aria-label="Quick gift values" class="gift-quick-values" id="giftQuickValues">
+<button data-gift-value="50" type="button">€50</button>
+<button data-gift-value="75" type="button">€75</button>
+<button data-gift-value="100" type="button">€100</button>
+<button data-gift-value="150" type="button">€150</button>
+<button data-gift-value="200" type="button">€200</button>
+</div>
+<p class="gift-field-note">You can also enter any other value. The final certificate is confirmed by the manager before issue.</p>
+</div>
+
+<div class="gift-mode-fields" id="giftSignatureFields" hidden>
+<div class="gift-mode-explainer"><b>SIGNATURE GIFT · CHOOSE THE EXPERIENCE</b><span>Choose the experience now. The exact excursion date may stay flexible.</span></div>
+<div class="field">
+<label for="giftExperience">Experience</label>
+<input id="giftExperience" name="experience" list="giftExperienceSuggestions" placeholder="e.g. Alanya Paragliding"/>
+<datalist id="giftExperienceSuggestions">
+<option value="Relax Boat Tour in Alanya"></option>
+<option value="Green Canyon in Alanya"></option>
+<option value="Rafting in Köprülü Canyon"></option>
+<option value="The Land of Legends — Day Tour"></option>
+<option value="Aspendos, Side & Manavgat Waterfall"></option>
+<option value="Scuba Diving in Alanya"></option>
+<option value="Alanya Paragliding"></option>
+<option value="Turkish Hammam in Alanya"></option>
+<option value="Private Photographer in Alanya"></option>
+</datalist>
+</div>
+<div class="field gift-signature-date-field">
+<label for="giftPreferredDate">Preferred experience date <span class="label-optional">or keep flexible</span></label>
+<div class="date-input-shell">
+<input id="giftPreferredDate" name="preferredDate" type="date"/>
+<button aria-label="Open preferred experience date calendar" class="date-picker-trigger" id="giftPreferredDateBtn" type="button"><span>Choose date</span></button>
+</div>
+<label class="gift-flexible-toggle" for="giftFlexibleDate"><input id="giftFlexibleDate" type="checkbox" checked/> <span>Keep the exact experience date flexible</span></label>
+</div>
+</div>
+
+<div class="gift-mode-fields gift-delivery-fields">
+<div class="gift-mode-explainer"><b>PERSONALISE THE GIFT</b><span>Choose when you plan to give the certificate and add a personal message if you want.</span></div>
+<div class="field">
+<label for="giftDeliveryDate">Give certificate on <span class="label-optional">optional</span></label>
+<div class="date-input-shell">
+<input id="giftDeliveryDate" name="deliveryDate" type="date"/>
+<button aria-label="Open certificate date calendar" class="date-picker-trigger" id="giftDeliveryDateBtn" type="button"><span>Choose date</span></button>
+</div>
+</div>
+<div class="field gift-message-field">
+<label for="giftMessage">Message on the gift <span class="label-optional">optional</span></label>
+<textarea id="giftMessage" name="message" maxlength="280" placeholder="A short personal message for the recipient"></textarea>
+<div class="gift-character-count" id="giftMessageCount">0 / 280</div>
+</div>
+</div>
+
+<button class="btn tp-btn gold gift-submit" id="giftSubmit" type="submit">SAVE REQUEST & OPEN WHATSAPP →</button>
+<div aria-live="polite" class="gift-form-status" id="giftFormStatus"></div>
+</form>
+
+<aside aria-live="polite" class="gift-live-preview" id="giftLivePreview">
+<div class="gift-live-certificate-mini">
+<img alt="Live Gift Certificate preview" id="giftPreviewImage"/>
+<div class="certificate-live-layer compact" id="giftMiniCertificateLayer">
+<div class="cert-live-label" data-cert-field="fieldLabel">AMOUNT</div>
+<div class="cert-live-box cert-live-main" data-cert-field="mainValue">€100</div>
+<div class="cert-live-box cert-live-recipient" data-cert-field="recipient">YOUR RECIPIENT</div>
+<div class="cert-live-box cert-live-valid" data-cert-field="validUntil">VALID FOR 12 MONTHS</div>
+<div class="cert-live-box cert-live-number" data-cert-field="number">ATO-GIFT-PREVIEW</div>
+<div class="cert-live-description" data-cert-field="description">The recipient chooses the experience and suitable date later with our team.</div>
+</div>
+</div>
+<div class="gift-live-details">
+<span><small>TYPE</small><strong id="giftPreviewType">Choose a gift type</strong></span>
+<span><small>GIFT</small><strong id="giftPreviewValue">—</strong></span>
+<span><small>DATE</small><strong id="giftPreviewDate">Flexible</strong></span>
+</div>
+<p class="gift-preview-note"><b>LIVE PREVIEW</b><span>This is a visual preview. Your request is saved in ATO Booking Manager first. The electronic certificate becomes valid only after manager confirmation.</span></p>
+</aside>
+</div>
+
 </div>
 <div class="gift-ending">
 <div class="heart-line">THE BEST GIFTS DON’T TAKE UP SPACE.<span>THEY TAKE A PLACE IN OUR HEARTS.</span></div>

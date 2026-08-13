@@ -1,0 +1,41 @@
+ALANYA TOUR ORGANIZATIONS — SPECIAL OFFERS / GIFT CERTIFICATE V23
+Date: 2026-08-13
+
+FOUND IN V22
+- The two Gift cards were <button> elements but had no JavaScript click handlers.
+- The stylesheet still contained a complete visual system for a Gift Builder, but the HTML form and JS were removed (comment: "Gift builder/live preview removed from page by design").
+- Therefore Freedom Gift / Signature Gift could be highlighted only by CSS hover; no flow opened and no request could be completed.
+- No gift calendar fields existed in the active HTML, so there was nothing to validate or send.
+- The certificate had an existing live overlay but it was never driven by gift input.
+
+FIXED IN V23
+- Freedom Gift and Signature Gift buttons are active and keyboard-accessible.
+- Clicking a mode opens a responsive Gift Builder.
+- Freedom mode: recipient, sender, WhatsApp, EUR value, quick values, gift/presentation date, personal message.
+- Signature mode: recipient, sender, WhatsApp, experience, preferred experience date OR flexible-date toggle, gift/presentation date, personal message.
+- Both calendar inputs use native date controls and explicit "Choose date" triggers.
+- Past dates are blocked via min=today using LOCAL date (avoids UTC day-shift bugs near midnight).
+- If the certificate presentation date is later than today, the preferred experience date cannot be earlier than it.
+- Choosing an exact preferred date automatically disables "flexible"; re-enabling flexible clears the exact date.
+- Required-field validation is mode-aware.
+- Certificate text updates live for amount/experience, recipient and 12-month validity preview.
+- A compact live certificate preview updates alongside the main certificate.
+- Submit opens WhatsApp with a structured, completed Gift Certificate request.
+- V22 globe/Journey code and mobile globe rendering were not changed.
+
+IMPORTANT COMMERCIAL/TECHNICAL LIMIT
+- This version creates a request and opens WhatsApp. It does NOT issue a legally/accounting-final certificate or persist a unique certificate code in a backend database. A real issued certificate/code should be created/confirmed by the manager or by a future backend.
+
+AUTOMATED CHECKS PERFORMED
+- Freedom Gift mode opens and applies the correct required fields.
+- Signature Gift mode opens and switches required fields correctly.
+- Empty required fields block handoff.
+- Invalid short WhatsApp number is blocked.
+- Quick amount buttons update the form and the certificate live preview.
+- Both calendar trigger buttons are wired to the matching native date input.
+- Past dates are browser-invalid.
+- A future certificate presentation date updates the minimum allowed experience date.
+- If a previously selected experience date becomes earlier than the certificate date, it is cleared and Flexible is restored.
+- Choosing an exact experience date disables Flexible; enabling Flexible clears the exact date.
+- Freedom and Signature requests both generate the expected structured WhatsApp text.
+- Gift layout was checked at narrow mobile widths; the certificate is constrained inside its mobile stage.

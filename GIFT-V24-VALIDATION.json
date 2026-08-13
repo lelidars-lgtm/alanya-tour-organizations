@@ -1,0 +1,24 @@
+{
+  "version": "V24",
+  "feature": "Electronic Gift Certificate + existing ATO Booking Manager",
+  "checks": {
+    "special_offers_js_syntax": "PASS",
+    "manager_addon_js_syntax": "PASS",
+    "gift_form_required_dom_ids": "PASS",
+    "electronic_certificate_required_dom_ids": "PASS",
+    "certificate_template": "PASS - 1536x1024 RGBA",
+    "gift_request_saved_before_whatsapp": "PASS - gift_certificate_request RPC runs first",
+    "browser_cannot_activate_certificate": "PASS - ACTIVE is issued by database trigger on manager confirmation",
+    "unique_public_token": "PASS - UUID",
+    "unique_certificate_code": "PASS - generated only on confirmation",
+    "same_booking_manager_queue": "PASS - public.bookings / GIFT- prefix / PENDING",
+    "certificate_states": "PASS - REQUESTED ACTIVE REDEEMED EXPIRED CANCELLED",
+    "public_certificate_hides_buyer_phone": "PASS",
+    "calendar_rules_retained": "PASS",
+    "mobile_certificate_layout": "PASS - responsive CSS",
+    "print_save_pdf": "PASS - enabled only for ACTIVE",
+    "globe_assets_unchanged_from_V23": "PASS - SHA256 identical for earth lights/atmos/normal"
+  },
+  "deployment_dependency": "Run GIFT-CERTIFICATE-ATO-BOOKING-MANAGER.sql once in the existing alanya-tour-booking Supabase project before live form submission.",
+  "manager_ui_note": "Core GIFT requests appear in the existing queue automatically. The dedicated Gift Certificates overlay is enabled by adding booking-manager-gifts-addon.js to the current manager HTML; the current manager HTML was not replaced with an older copy."
+}

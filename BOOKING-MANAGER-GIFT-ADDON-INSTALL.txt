@@ -1,0 +1,6 @@
+В текущем /booking-manager/index.html перед закрывающим </body> добавить одну строку:
+
+<script src="/booking-manager-gifts-addon.js"></script>
+
+Сам файл booking-manager-gifts-addon.js положить в корень сайта рядом с gift-certificate.html.
+Он НЕ меняет login и НЕ создаёт второй manager.
