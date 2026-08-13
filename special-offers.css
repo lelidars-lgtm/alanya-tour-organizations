@@ -9030,3 +9030,104 @@ body.so-premium-body #journey #journeyDockCard .heart-price-strip em{
 body.so-premium-body #journey #journeyDockCard .heart-price-strip span:last-child em{
   color:#effff9!important;
 }
+
+
+/* =========================================================
+   V12 — FINAL TURKIYE POSITION + LOWER PLAY AGAIN + VISIBLE CONFETTI
+   ========================================================= */
+body.so-premium-body #journey .globe-zone.final-turkiye{
+  min-height:540px!important;
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:center!important;
+  padding-top:18px!important;
+}
+body.so-premium-body #journey .globe-zone.final-turkiye .globe-stage-live{
+  width:min(600px,94%)!important;
+  aspect-ratio:1/1!important;
+  min-height:0!important;
+  margin:0 auto!important;
+  transform:translateY(22px)!important;
+  overflow:visible!important;
+}
+body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-stage{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  padding:34px 0 0!important;
+  display:grid!important;
+  place-items:start center!important;
+  align-content:start!important;
+}
+body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-inner{
+  width:min(590px,92%)!important;
+  min-height:380px!important;
+  display:grid!important;
+  place-items:start center!important;
+}
+body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-map{
+  width:min(560px,96%)!important;
+  max-width:560px!important;
+  height:auto!important;
+  margin:0 auto!important;
+}
+body.so-premium-body #journey .globe-zone.final-turkiye .final-we-are-here{
+  left:50%!important;
+  top:77%!important;
+  transform:translate(-50%,0)!important;
+  text-align:center!important;
+}
+body.so-premium-body #journey:has(.globe-zone.final-turkiye) .globe-cta-wrap{
+  margin-top:22px!important;
+}
+body.so-premium-body #journey:has(.globe-zone.final-turkiye) #startJourney{
+  display:block!important;
+  width:min(520px,82%)!important;
+  margin:24px auto 0!important;
+}
+
+/* Confetti must be obvious, brighter and above the heart/card phase. */
+body.so-premium-body #journey .confetti-burst{
+  z-index:16!important;
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.18)) drop-shadow(0 0 16px rgba(255,211,107,.20))!important;
+}
+body.so-premium-body #journey .confetti-burst span{
+  width:12px!important;
+  height:22px!important;
+  border-radius:10px!important;
+  opacity:0!important;
+  box-shadow:0 0 7px rgba(255,255,255,.18), 0 0 14px rgba(255,208,106,.16)!important;
+}
+body.so-premium-body #journey .globe-zone.journey-explode .confetti-burst span{
+  animation-name:confettiBurst!important;
+  animation-duration:max(var(--dur,1.25s),1.65s)!important;
+  animation-timing-function:cubic-bezier(.15,.70,.20,1)!important;
+  animation-delay:var(--delay,0s)!important;
+  animation-fill-mode:forwards!important;
+}
+@keyframes confettiBurst{
+  0%{opacity:0;transform:translate(0,0) rotate(0deg) scale(.30)}
+  10%{opacity:1}
+  38%{opacity:1;transform:translate(calc(var(--dx)*.42),calc(var(--dy)*.42)) rotate(calc(var(--r)*.42)) scale(calc(var(--scale,1)*.96))}
+  82%{opacity:.96}
+  100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(calc(var(--scale,1) * 1.16))}
+}
+@media(max-width:900px){
+  body.so-premium-body #journey .globe-zone.final-turkiye .globe-stage-live{
+    width:min(520px,96%)!important;
+    transform:translateY(12px)!important;
+  }
+  body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-stage{
+    padding-top:18px!important;
+  }
+  body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-map{
+    width:min(500px,96%)!important;
+  }
+  body.so-premium-body #journey .globe-zone.final-turkiye .final-we-are-here{
+    top:79%!important;
+  }
+  body.so-premium-body #journey:has(.globe-zone.final-turkiye) #startJourney{
+    margin-top:18px!important;
+  }
+}
