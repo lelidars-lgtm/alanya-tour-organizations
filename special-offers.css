@@ -9293,3 +9293,60 @@ body.so-premium-body #journey .globe-zone.journey-card-launch::after{
   content:none!important;
   display:none!important;
 }
+
+
+/* =========================================================
+   V19 — HIDE BLUE GLOBE LAYER UNDER HEART SEQUENCE
+   When the heart is born / settles / explodes / shrinks / returns,
+   the cold blue globe layer must disappear completely so it does not
+   show through under the red heart.
+   ========================================================= */
+body.so-premium-body #journey .globe-zone.journey-heart .live-globe-canvas,
+body.so-premium-body #journey .globe-zone.heart-full .live-globe-canvas,
+body.so-premium-body #journey .globe-zone.journey-explode .live-globe-canvas,
+body.so-premium-body #journey .globe-zone.journey-card-launch .live-globe-canvas,
+body.so-premium-body #journey .globe-zone.heart-after-card .live-globe-canvas,
+body.so-premium-body #journey .globe-zone.heart-return .live-globe-canvas,
+body.so-premium-body #journey .globe-zone.journey-heart .globe-aura-ring,
+body.so-premium-body #journey .globe-zone.heart-full .globe-aura-ring,
+body.so-premium-body #journey .globe-zone.journey-explode .globe-aura-ring,
+body.so-premium-body #journey .globe-zone.journey-card-launch .globe-aura-ring,
+body.so-premium-body #journey .globe-zone.heart-after-card .globe-aura-ring,
+body.so-premium-body #journey .globe-zone.heart-return .globe-aura-ring,
+body.so-premium-body #journey .globe-zone.journey-heart .reference-depth-haze,
+body.so-premium-body #journey .globe-zone.heart-full .reference-depth-haze,
+body.so-premium-body #journey .globe-zone.journey-explode .reference-depth-haze,
+body.so-premium-body #journey .globe-zone.journey-card-launch .reference-depth-haze,
+body.so-premium-body #journey .globe-zone.heart-after-card .reference-depth-haze,
+body.so-premium-body #journey .globe-zone.heart-return .reference-depth-haze,
+body.so-premium-body #journey .globe-zone.journey-heart .globe-location-overlay,
+body.so-premium-body #journey .globe-zone.heart-full .globe-location-overlay,
+body.so-premium-body #journey .globe-zone.journey-explode .globe-location-overlay,
+body.so-premium-body #journey .globe-zone.journey-card-launch .globe-location-overlay,
+body.so-premium-body #journey .globe-zone.heart-after-card .globe-location-overlay,
+body.so-premium-body #journey .globe-zone.heart-return .globe-location-overlay,
+body.so-premium-body #journey .globe-zone.journey-heart .journey-latitude-field,
+body.so-premium-body #journey .globe-zone.heart-full .journey-latitude-field,
+body.so-premium-body #journey .globe-zone.journey-explode .journey-latitude-field,
+body.so-premium-body #journey .globe-zone.journey-card-launch .journey-latitude-field,
+body.so-premium-body #journey .globe-zone.heart-after-card .journey-latitude-field,
+body.so-premium-body #journey .globe-zone.heart-return .journey-latitude-field{
+  opacity:0!important;
+  visibility:hidden!important;
+}
+
+body.so-premium-body #journey .globe-zone.journey-heart .globe-stage-live::before,
+body.so-premium-body #journey .globe-zone.heart-full .globe-stage-live::before,
+body.so-premium-body #journey .globe-zone.journey-explode .globe-stage-live::before,
+body.so-premium-body #journey .globe-zone.journey-card-launch .globe-stage-live::before,
+body.so-premium-body #journey .globe-zone.heart-after-card .globe-stage-live::before,
+body.so-premium-body #journey .globe-zone.heart-return .globe-stage-live::before,
+body.so-premium-body #journey .globe-zone.journey-heart .globe-stage-live::after,
+body.so-premium-body #journey .globe-zone.heart-full .globe-stage-live::after,
+body.so-premium-body #journey .globe-zone.journey-explode .globe-stage-live::after,
+body.so-premium-body #journey .globe-zone.journey-card-launch .globe-stage-live::after,
+body.so-premium-body #journey .globe-zone.heart-after-card .globe-stage-live::after,
+body.so-premium-body #journey .globe-zone.heart-return .globe-stage-live::after{
+  opacity:0!important;
+  visibility:hidden!important;
+}
