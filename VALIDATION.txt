@@ -1,0 +1,6 @@
+PASS
+- Static category HTML: no runtime JavaScript required to display content
+- 6 clickable tour cards present
+- New 6-in-1 page link present
+- 5 canonical existing tour links present
+- WhatsApp CTA links present

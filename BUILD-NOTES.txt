@@ -1,0 +1,17 @@
+COMBO DEALS — FIXED BUILD
+
+Files:
+1. combo-deals.html — static category page. Content renders without JavaScript.
+2. rafting-buggy-zipline-6-in-1.html — new tour page.
+
+Existing tour links used by Combo Deals:
+- night-jeep-safari.html
+- land-of-legends.html
+- manavgat-aspendos-side.html
+- pamukkale-salda.html
+- demre-myra-kekova.html
+
+Important:
+Upload combo-deals.html and rafting-buggy-zipline-6-in-1.html to the SAME site level as the existing tour HTML pages. Existing image paths then resolve through the site's current /images/... folders.
+
+The 6-in-1 commercial price is intentionally shown as Ask us / On request until ALANYA TOUR ORGANIZATIONS approves its own price.
