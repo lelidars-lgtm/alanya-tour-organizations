@@ -1333,17 +1333,18 @@ if (canvas && globeShell && globeZone3D) {
           const nightRgb=sampleNightTexture(ox,oy,oz);
           const lightDot=nx*lx+ny*ly+z*lz;
           const diffuse=Math.max(0,lightDot);
-          const shade=0.16+0.64*diffuse;
+          const shade=0.10+0.54*diffuse;
           const softLight=Math.max(0,Math.min(1,(lightDot+0.20)/0.98));
-          const nightSide=Math.pow(1-softLight,1.68);
+          const nightSide=Math.pow(1-softLight,1.42);
+          const duskBand=1-Math.max(0,Math.min(1,(softLight-0.10)/0.52));
           const rim=Math.pow(1-z,2.4);
           const idx=(py*N+px)*4;
-          const nr=Math.pow(nightRgb[0]/255,1.16)*255;
-          const ng=Math.pow(nightRgb[1]/255,1.16)*255;
-          const nb=Math.pow(nightRgb[2]/255,1.16)*255;
-          pixels[idx]=Math.min(255,rgb[0]*shade + nr*nightSide*1.92 + 10*rim);
-          pixels[idx+1]=Math.min(255,rgb[1]*shade + ng*nightSide*1.52 + 120*rim);
-          pixels[idx+2]=Math.min(255,rgb[2]*shade + nb*nightSide*.86 + 255*rim);
+          const nr=Math.pow(nightRgb[0]/255,0.88)*255;
+          const ng=Math.pow(nightRgb[1]/255,0.88)*255;
+          const nb=Math.pow(nightRgb[2]/255,0.88)*255;
+          pixels[idx]=Math.min(255,rgb[0]*shade + nr*nightSide*2.42 + nr*duskBand*0.34 + 10*rim);
+          pixels[idx+1]=Math.min(255,rgb[1]*shade + ng*nightSide*1.92 + ng*duskBand*0.28 + 120*rim);
+          pixels[idx+2]=Math.min(255,rgb[2]*shade + nb*nightSide*1.08 + nb*duskBand*0.16 + 255*rim);
           pixels[idx+3]=255;
         }
       }
@@ -1464,28 +1465,28 @@ if (canvas && globeShell && globeZone3D) {
         float landMask = smoothstep(-0.10, 0.55, sin(vUV.x * 31.0) * sin(vUV.y * 21.0));
         vec3 procedural = mix(proceduralOcean, proceduralLand, landMask * 0.35);
 
-        // V7: darker continents / surface so earth_lights_2048 reads clearly.
-        vec3 mappedDay = dayTex * vec3(0.56, 0.65, 0.76);
-        vec3 surface = mix(procedural * 0.82, mappedDay, uTextureMix);
-        surface *= 0.13 + diffuse * 0.68;
+        // V8: darker continents and much more visible earth_lights_2048.
+        vec3 mappedDay = dayTex * vec3(0.45, 0.53, 0.64);
+        vec3 surface = mix(procedural * 0.74, mappedDay, uTextureMix);
+        surface *= 0.09 + diffuse * 0.56;
 
-        /* Stronger but still localized night-city illumination.
-           Raising the night texture to a power suppresses dim texture noise
-           while preserving the dense city/coast light clusters. */
-        float nightSide = pow(1.0 - softLight, 1.68);
-        float duskBand = 1.0 - smoothstep(0.04, 0.52, softLight);
-        vec3 concentratedLights = pow(max(nightTex, vec3(0.0)), vec3(1.16));
-        vec3 nightGold = concentratedLights * vec3(1.82, 1.44, 0.82);
-        vec3 cityGlow = nightGold * nightSide * 1.92 * uTextureMix;
-        vec3 cityBlend = nightGold * duskBand * 0.34 * uTextureMix;
+        /* Brighter night lights with stronger coastline/city clusters.
+           Using an exponent below 1.0 lifts mid-level light values so
+           earth_lights_2048 becomes visibly richer on the night side. */
+        float nightSide = pow(1.0 - softLight, 1.42);
+        float duskBand = 1.0 - smoothstep(0.10, 0.62, softLight);
+        vec3 concentratedLights = pow(max(nightTex, vec3(0.0)), vec3(0.88));
+        vec3 nightGold = concentratedLights * vec3(2.10, 1.68, 0.98);
+        vec3 cityGlow = nightGold * nightSide * 2.45 * uTextureMix;
+        vec3 cityBlend = nightGold * duskBand * 0.46 * uTextureMix;
 
         vec3 cyanRim = vec3(0.03, 0.62, 1.0) * fresnel * 1.48;
         vec3 blueAtmosphere = vec3(0.02, 0.30, 0.72) * limb * 0.55;
         float shimmer = 0.985 + 0.015 * sin(uTime * 1.7 + vUV.y * 10.0);
 
         vec3 h = normalize(l + v);
-        float specular = pow(max(dot(n, h), 0.0), 42.0) * 0.16;
-        vec3 specularGlow = vec3(0.08, 0.18, 0.32) * specular;
+        float specular = pow(max(dot(n, h), 0.0), 42.0) * 0.12;
+        vec3 specularGlow = vec3(0.06, 0.14, 0.26) * specular;
 
         vec3 color = (surface + cityGlow + cityBlend + cyanRim + blueAtmosphere + specularGlow) * shimmer;
         gl_FragColor = vec4(color, 1.0);
