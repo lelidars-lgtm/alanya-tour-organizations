@@ -9386,3 +9386,18 @@ body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-stage{
   from{opacity:0}
   to{opacity:1}
 }
+
+
+/* =========================================================
+   V21 — RESTORE FINAL END IMMEDIATELY AFTER HEART
+   Keep final blue/Türkiye layer hidden during heart lifecycle,
+   but show it immediately once .final-turkiye begins.
+   ========================================================= */
+body.so-premium-body #journey .globe-zone.final-turkiye .turkiye-zoom-stage,
+body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-stage{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+  animation:none!important;
+  transition:none!important;
+}
