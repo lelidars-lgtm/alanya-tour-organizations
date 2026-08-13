@@ -1,0 +1,23 @@
+ALANYA TOUR ORGANIZATIONS — LEGAL / KVKK COMPLETION
+Updated: 13 August 2026
+
+FILES
+1) Five legal pages in /legal-pages-final/
+2) index-PRIVACY-READY.html
+   - based on the current index source dated 2026-08-13
+   - preserves the current header/footer/content
+   - saves the language only after an explicit language choice
+   - Google Maps is click-to-load instead of auto-loading
+3) ato-kvkk-sensitive-consent.js
+   - add this script to every page/form that asks for pregnancy, wheelchair or reduced-mobility information
+   - explicit consent is separate from the KVKK notice
+   - submission is blocked if sensitive information is selected but consent is not given
+4) trip-planner-KVKK-READY.html
+   - the available Trip Planner source with the consent script included
+
+IMPORTANT
+- Do not change the approved e-ticket.
+- No KEP address has been invented.
+- No decorative 'Accept All' cookie banner was added.
+- If optional analytics/marketing tracking is enabled later, it must be technically gated before activation and the Cookie Notice must be updated.
+- The interactive-map booking form also asks health/accessibility questions. Include ato-kvkk-sensitive-consent.js on that page too.
