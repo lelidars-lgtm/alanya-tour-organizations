@@ -724,10 +724,6 @@ function runJourney(fromPlanner=false){
     /* 10 Red digital heart is born. */
     queueJourney(()=>{
       setHeartOriginFromExactAlanya();
-      // The blue-to-red Alanya core belongs only to the collapse stage.
-      // Remove it before the digital heart appears so no oversized red dot
-      // remains floating over the finished heart.
-      globeZone.classList.remove('light-collapse');
       globeZone.classList.add('journey-heart');
       status.innerHTML='<strong>A HEART IS BORN.</strong><span>ONE PLACE → ONE FEELING</span>';
     },12150);
@@ -751,19 +747,19 @@ function runJourney(fromPlanner=false){
       globeZone.classList.add('journey-card-launch');
       animateTourCardContinuously(1800);
       status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>STRAIGHT FROM THE HEART</span>';
-    },16350);
+    },16150);
 
     /* 12B The heart starts shrinking only after the card has clearly escaped. */
     queueJourney(()=>{
       globeZone.classList.add('heart-after-card');
       status.innerHTML='<strong>THE HEART LETS IT FLY.</strong><span>ONE LAST BEAT · THEN HOME</span>';
-    },17250);
+    },17050);
 
     /* Card completes its continuous bezier flight before the dock handoff. */
     queueJourney(()=>{
       cancelTourCardFlight();
       landOfferCard();
-    },18250);
+    },18050);
 
     /* 13 Heart returns only after its pulse-down animation has completed. */
     queueJourney(()=>{
@@ -771,7 +767,7 @@ function runJourney(fromPlanner=false){
       globeZone.classList.remove('journey-card-launch');
       globeZone.classList.add('heart-return');
       status.innerHTML='<strong>THE HEART COMES HOME.</strong><span>BACK TO ALANYA</span>';
-    },19350);
+    },19150);
 
     /* 14–15 Final state begins after the return animation is fully complete. */
     queueJourney(()=>{
@@ -781,7 +777,7 @@ function runJourney(fromPlanner=false){
       startJourney.disabled=false;
       startJourney.classList.remove('is-active');
       if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
-    },20850);
+    },20650);
   });
 }
 
