@@ -1,0 +1,1 @@
+V6 approved change: slightly darker continents and stronger local assets/globe/earth_lights_2048.png night illumination. All texts, layout, CTA, halo, bokeh, mesh and Journey behavior preserved from V5.

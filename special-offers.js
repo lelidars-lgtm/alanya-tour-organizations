@@ -1418,20 +1418,28 @@ if (canvas && globeShell && globeZone3D) {
         float landMask = smoothstep(-0.10, 0.55, sin(vUV.x * 31.0) * sin(vUV.y * 21.0));
         vec3 procedural = mix(proceduralOcean, proceduralLand, landMask * 0.35);
 
-        vec3 mappedDay = dayTex * vec3(0.84, 0.95, 1.04);
+        vec3 mappedDay = dayTex * vec3(0.72, 0.82, 0.92);
         vec3 surface = mix(procedural, mappedDay, uTextureMix);
-        surface *= 0.27 + diffuse * 1.02;
+        surface *= 0.20 + diffuse * 0.88;
 
-        float nightSide = pow(1.0 - softLight, 2.0);
-        vec3 cityGlow = nightTex * vec3(1.42, 1.12, 0.68) * nightSide * 1.28 * uTextureMix;
+        /* earth_lights_2048.png becomes much more visible on the dark side
+           and softly bleeds into the continent surface near the terminator. */
+        float nightSide = pow(1.0 - softLight, 1.82);
+        float duskBand = smoothstep(0.42, 0.02, softLight);
+
+        vec3 nightGold = nightTex * vec3(1.55, 1.22, 0.74);
+        vec3 cityGlow = nightGold * nightSide * 1.42 * uTextureMix;
+        vec3 cityBlend = nightGold * duskBand * 0.22 * uTextureMix;
+
         vec3 cyanRim = vec3(0.03, 0.62, 1.0) * fresnel * 1.48;
         vec3 blueAtmosphere = vec3(0.02, 0.30, 0.72) * limb * 0.55;
         float shimmer = 0.985 + 0.015 * sin(uTime * 1.7 + vUV.y * 10.0);
 
         vec3 h = normalize(l + v);
-        float specular = pow(max(dot(n, h), 0.0), 42.0) * 0.26;
-        vec3 specularGlow = vec3(0.12, 0.28, 0.46) * specular;
-        vec3 color = (surface + cityGlow + cyanRim + blueAtmosphere + specularGlow) * shimmer;
+        float specular = pow(max(dot(n, h), 0.0), 42.0) * 0.20;
+        vec3 specularGlow = vec3(0.10, 0.22, 0.38) * specular;
+
+        vec3 color = (surface + cityGlow + cityBlend + cyanRim + blueAtmosphere + specularGlow) * shimmer;
         gl_FragColor = vec4(color, 1.0);
       }
     `;
