@@ -8770,3 +8770,37 @@ body.so-premium-body #journey #journeyDockCard.visual-only #requestPersonalOffer
     drop-shadow(0 0 16px rgba(46,205,255,.42))
     drop-shadow(0 0 46px rgba(0,128,255,.24))!important;
 }
+
+
+/* === APPROVED GLOBE V5 ATMOSPHERE REFINEMENT ===
+   Keep layout/text/CTA/halo unchanged.
+   Softer mesh is controlled in JS/WebGL; this block refines bokeh only. */
+.globe-bokeh-layer .bokeh-dot{
+  background:rgba(48,178,255,.92)!important;
+  opacity:.22!important;
+  filter:blur(2.6px)!important;
+  box-shadow:0 0 12px rgba(0,160,255,.18)!important;
+}
+.globe-bokeh-layer .bokeh-dot.gold{
+  background:rgba(255,212,128,.96)!important;
+  opacity:.26!important;
+  box-shadow:0 0 16px rgba(255,190,88,.20)!important;
+}
+.globe-bokeh-layer .bokeh-dot.small{
+  filter:blur(1.5px)!important;
+  opacity:.18!important;
+}
+.globe-bokeh-layer .bokeh-dot.large{
+  filter:blur(5.2px)!important;
+  opacity:.17!important;
+}
+.globe-zone.journey-running .globe-bokeh-layer .bokeh-dot,
+.globe-zone.orbit-flight .globe-bokeh-layer .bokeh-dot,
+.globe-zone.journey-arrived .globe-bokeh-layer .bokeh-dot{
+  opacity:.28!important;
+}
+.globe-zone.journey-running .globe-bokeh-layer .bokeh-dot.gold,
+.globe-zone.orbit-flight .globe-bokeh-layer .bokeh-dot.gold,
+.globe-zone.journey-arrived .globe-bokeh-layer .bokeh-dot.gold{
+  opacity:.32!important;
+}

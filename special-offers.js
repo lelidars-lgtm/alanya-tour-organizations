@@ -508,6 +508,7 @@ function resetJourneyVisual(){
   status.innerHTML='<strong>ALANYA TOUR ORGANIZATIONS IS WAITING.</strong><span>LOGO → FLIGHT → GLOBE → TÜRKİYE → ALANYA → HEART → TOUR</span>';
   startJourney.disabled=false; startJourney.classList.remove('is-active');
   if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='START MY JOURNEY →';
+  createBokehDots(64);
 
   document.querySelectorAll('.journey-overlay-svg .route-base,.journey-overlay-svg .route-live').forEach(p=>{
     p.style.opacity='0';
@@ -651,6 +652,7 @@ function runJourney(fromPlanner=false){
     startJourney.classList.add('is-active');
     startJourney.disabled=true;
     if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='THIS IS MY JOURNEY';
+    createBokehDots(92);
 
     /* 01 START — only logo + globe, no route. */
     status.innerHTML='<strong>THE JOURNEY BEGINS HERE.</strong><span>ALANYA TOUR ORGANIZATIONS</span>';
@@ -1122,23 +1124,44 @@ const globeZone3D = document.getElementById('globeZone');
 const bokehWrap = document.getElementById('globeBokeh');
 
 if (canvas && globeShell && globeZone3D) {
-  function createBokehDots(count = 48){
+  function createBokehDots(count = 64){
     if(!bokehWrap) return;
     bokehWrap.innerHTML = '';
+
     for(let i = 0; i < count; i++){
       const dot = document.createElement('span');
-      dot.className = 'bokeh-dot' + (Math.random() > 0.82 ? ' gold' : '');
-      const size = 7 + Math.random() * 26;
+
+      const isGold = Math.random() > 0.78;
+      const isLarge = Math.random() > 0.72;
+      const isSmall = !isLarge && Math.random() > 0.42;
+
+      let size;
+      if(isLarge){
+        size = 22 + Math.random() * 30;
+      }else if(isSmall){
+        size = 4 + Math.random() * 10;
+      }else{
+        size = 10 + Math.random() * 16;
+      }
+
+      dot.className =
+        'bokeh-dot' +
+        (isGold ? ' gold' : '') +
+        (isLarge ? ' large' : '') +
+        (isSmall ? ' small' : '');
+
       dot.style.width = size + 'px';
       dot.style.height = size + 'px';
       dot.style.left = Math.random() * 100 + '%';
-      dot.style.top = 18 + Math.random() * 72 + '%';
-      dot.style.animationDuration = (7 + Math.random() * 8) + 's';
-      dot.style.animationDelay = (Math.random() * 6) + 's';
+      dot.style.top = 10 + Math.random() * 78 + '%';
+      dot.style.animationDuration = (8 + Math.random() * 10) + 's';
+      dot.style.animationDelay = (Math.random() * 7) + 's';
+      dot.style.transform = `translate3d(0,0,0) scale(${0.88 + Math.random() * 0.34})`;
+
       bokehWrap.appendChild(dot);
     }
   }
-  createBokehDots();
+  createBokehDots(64);
 
   function startCpuGlobeFallback(){
     const ctx = canvas.getContext('2d', { alpha:true });
@@ -1287,14 +1310,14 @@ if (canvas && globeShell && globeZone3D) {
       const shellAngle=angleY*1.24+t*0.24;
       const tilt2=-0.10+Math.sin(t*.36)*.055;
       ctx.lineWidth=Math.max(0.8,N/340);
-      ctx.strokeStyle='rgba(52,204,255,.72)';
-      ctx.shadowColor='rgba(0,174,255,.92)';
-      ctx.shadowBlur=Math.max(2,N/95);
+      ctx.strokeStyle='rgba(42,170,235,.46)';
+      ctx.shadowColor='rgba(0,150,235,.38)';
+      ctx.shadowBlur=Math.max(1.5,N/140);
       for(const [a,b] of geo.edges){
         const A=rotatePoint(geo.verts[a],shellAngle,tilt2), B=rotatePoint(geo.verts[b],shellAngle,tilt2);
         if(A[2]<-.08 && B[2]<-.08) continue;
         const alpha=Math.max(.15,Math.min(1,(A[2]+B[2]+2)*.25));
-        ctx.globalAlpha=.34+.48*alpha;
+        ctx.globalAlpha=.15+.22*alpha;
         ctx.beginPath();
         ctx.moveTo(A[0]*radius*1.012,-A[1]*radius*1.012);
         ctx.lineTo(B[0]*radius*1.012,-B[1]*radius*1.012);
@@ -1395,12 +1418,12 @@ if (canvas && globeShell && globeZone3D) {
         float landMask = smoothstep(-0.10, 0.55, sin(vUV.x * 31.0) * sin(vUV.y * 21.0));
         vec3 procedural = mix(proceduralOcean, proceduralLand, landMask * 0.35);
 
-        vec3 mappedDay = dayTex * vec3(0.88, 0.98, 1.08);
+        vec3 mappedDay = dayTex * vec3(0.84, 0.95, 1.04);
         vec3 surface = mix(procedural, mappedDay, uTextureMix);
-        surface *= 0.30 + diffuse * 1.08;
+        surface *= 0.27 + diffuse * 1.02;
 
-        float nightSide = pow(1.0 - softLight, 2.1);
-        vec3 cityGlow = nightTex * vec3(1.25, 1.02, 0.58) * nightSide * 0.90 * uTextureMix;
+        float nightSide = pow(1.0 - softLight, 2.0);
+        vec3 cityGlow = nightTex * vec3(1.42, 1.12, 0.68) * nightSide * 1.28 * uTextureMix;
         vec3 cyanRim = vec3(0.03, 0.62, 1.0) * fresnel * 1.48;
         vec3 blueAtmosphere = vec3(0.02, 0.30, 0.72) * limb * 0.55;
         float shimmer = 0.985 + 0.015 * sin(uTime * 1.7 + vUV.y * 10.0);
@@ -1790,7 +1813,7 @@ if (canvas && globeShell && globeZone3D) {
       gl.uniformMatrix4fv(lineLoc.projection, false, projection);
       gl.uniformMatrix4fv(lineLoc.view, false, view);
       gl.uniformMatrix4fv(lineLoc.model, false, model);
-      gl.uniform4f(lineLoc.color, 0.18, 0.78, 1.0, opacity);
+      gl.uniform4f(lineLoc.color, 0.13, 0.62, 0.90, opacity);
       gl.enable(gl.BLEND);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
       gl.enable(gl.DEPTH_TEST);
@@ -1828,7 +1851,9 @@ if (canvas && globeShell && globeZone3D) {
       // Network shell is a separate sphere and drifts faster than the Earth,
       // which makes the geometry unmistakably three-dimensional.
       const networkModel = modelMatrix(rx * 0.92, rotationY * 1.28 + t * 0.045, rz + Math.sin(t * 0.30) * 0.055);
-      const networkOpacity = launched ? 0.065 : (pulsing ? 0.25 : 0.145 + Math.sin(t*1.7)*0.018);
+      const networkOpacity = launched
+        ? 0.040
+        : (pulsing ? 0.155 : 0.082 + Math.sin(t * 1.7) * 0.010);
 
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
       drawSphere(model, t);
