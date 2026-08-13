@@ -75,7 +75,7 @@
     window.addEventListener('resize',()=>{if(!isMobile())setMenu(false);closeDropdowns()});
   }
 
-  fetch('index.html',{cache:'no-store'})
+  fetch('index.html',{cache:'default'})
     .then(response=>{if(!response.ok)throw new Error('HTTP '+response.status);return response.text()})
     .then(async html=>{
       const parsed=new DOMParser().parseFromString(html,'text/html');
@@ -89,13 +89,17 @@
       shadow.appendChild(reset);
 
       const stylesheetLinks=[...parsed.querySelectorAll('link[rel="stylesheet"][href]')];
-      for(const link of stylesheetLinks){
+      const stylesheetTexts=await Promise.all(stylesheetLinks.map(async link=>{
         const url=new URL(link.getAttribute('href'),new URL('index.html',location.href)).href;
-        const css=await fetch(url,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Stylesheet '+r.status);return r.text()});
+        const response=await fetch(url,{cache:'default'});
+        if(!response.ok) throw new Error('Stylesheet '+response.status);
+        return response.text();
+      }));
+      stylesheetTexts.forEach(css=>{
         const style=document.createElement('style');
         style.textContent=css;
         shadow.appendChild(style);
-      }
+      });
 
       parsed.querySelectorAll('head style').forEach(source=>{
         const style=document.createElement('style');
@@ -107,9 +111,12 @@
       shadow.appendChild(document.importNode(promo,true));
       host.style.minHeight='0';
       initChrome(shadow);
+      document.documentElement.classList.add('ato-chrome-ready');
+      document.dispatchEvent(new CustomEvent('ato:index-header-ready'));
     })
     .catch(error=>{
       console.error('Index header loader:',error);
       setFailed('Site navigation could not be loaded from index.html.');
+      document.documentElement.classList.add('ato-chrome-ready');
     });
 })();
