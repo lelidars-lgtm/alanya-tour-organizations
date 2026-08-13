@@ -1648,24 +1648,6 @@ if (canvas && globeShell && globeZone3D) {
   } else {
     globeZone3D.dataset.globeMode = 'webgl-3d-geodesic';
 
-    // V22 all-mobile compatibility: use the same safe globe shading on phones
-    // and tablets across iOS/iPadOS and Android, independent of browser engine.
-    // Desktop keeps the approved desktop shader path unchanged.
-    const ua = navigator.userAgent || '';
-    const isIOSorIPadOS = /iP(?:hone|ad|od)/i.test(ua) ||
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    const isAndroid = /Android/i.test(ua);
-    const isMobileUA = /Mobi|Mobile|Tablet/i.test(ua);
-    const coarsePointer = Boolean(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
-    const noHoverTouch = Boolean(window.matchMedia && window.matchMedia('(hover: none)').matches && navigator.maxTouchPoints > 0);
-    const smallTouchScreen = Boolean(
-      navigator.maxTouchPoints > 0 &&
-      Math.min(window.screen?.width || window.innerWidth, window.screen?.height || window.innerHeight) <= 1024
-    );
-    const mobileGlobeSafeMode = Boolean(
-      isIOSorIPadOS || isAndroid || isMobileUA || coarsePointer || noHoverTouch || smallTouchScreen
-    );
-    globeZone3D.dataset.globeCompat = mobileGlobeSafeMode ? 'mobile-safe-v22' : 'desktop';
 
     const vertexShaderSource = `
       attribute vec3 aPosition;
@@ -1687,7 +1669,7 @@ if (canvas && globeShell && globeZone3D) {
     `;
 
     const fragmentShaderSource = `
-      precision highp float;
+      precision mediump float;
       uniform sampler2D uDayMap;
       uniform sampler2D uNightMap;
       uniform sampler2D uNormalMap;
@@ -1695,9 +1677,6 @@ if (canvas && globeShell && globeZone3D) {
       uniform vec3 uCameraPos;
       uniform float uTextureMix;
       uniform float uTime;
-      uniform float uNormalStrength;
-      uniform float uExposure;
-      uniform float uAtmosphereStrength;
       varying vec3 vNormal;
       varying vec3 vWorldPos;
       varying vec2 vUV;
@@ -1707,7 +1686,7 @@ if (canvas && globeShell && globeZone3D) {
         vec3 tangent = normalize(cross(referenceAxis, n));
         vec3 bitangent = normalize(cross(n, tangent));
         vec3 sampledNormal = texture2D(uNormalMap, vUV).xyz * 2.0 - 1.0;
-        sampledNormal.xy *= (0.10 * uNormalStrength) * uTextureMix;
+        sampledNormal.xy *= 0.10 * uTextureMix;
         n = normalize(tangent * sampledNormal.x + bitangent * sampledNormal.y + n * max(sampledNormal.z, 0.28));
 
         vec3 l = normalize(uLightDir);
@@ -1741,8 +1720,8 @@ if (canvas && globeShell && globeZone3D) {
         vec3 cityGlow = nightGold * nightSide * 2.45 * uTextureMix;
         vec3 cityBlend = nightGold * duskBand * 0.46 * uTextureMix;
 
-        vec3 cyanRim = vec3(0.03, 0.62, 1.0) * fresnel * 1.48 * uAtmosphereStrength;
-        vec3 blueAtmosphere = vec3(0.02, 0.30, 0.72) * limb * 0.55 * uAtmosphereStrength;
+        vec3 cyanRim = vec3(0.03, 0.62, 1.0) * fresnel * 1.48;
+        vec3 blueAtmosphere = vec3(0.02, 0.30, 0.72) * limb * 0.55;
         float shimmer = 0.985 + 0.015 * sin(uTime * 1.7 + vUV.y * 10.0);
 
         vec3 h = normalize(l + v);
@@ -1750,12 +1729,6 @@ if (canvas && globeShell && globeZone3D) {
         vec3 specularGlow = vec3(0.06, 0.14, 0.26) * specular;
 
         vec3 color = (surface + cityGlow + cityBlend + cyanRim + blueAtmosphere + specularGlow) * shimmer;
-        color *= uExposure;
-        // Mobile-safe clamp prevents WebKit/GPU over-range compositing from
-        // turning the whole sphere cyan/white while retaining city lights.
-        if (uExposure < 0.99) {
-          color = min(color, vec3(0.82, 0.88, 0.94));
-        }
         gl_FragColor = vec4(color, 1.0);
       }
     `;
@@ -2081,7 +2054,7 @@ if (canvas && globeShell && globeZone3D) {
       const rect = globeShell.getBoundingClientRect();
       const cssW = Math.max(320, Math.round(rect.width));
       const cssH = Math.max(320, Math.round(rect.height));
-      const dpr = Math.min(window.devicePixelRatio || 1, mobileGlobeSafeMode ? 1.5 : 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const w = Math.round(cssW * dpr);
       const h = Math.round(cssH * dpr);
       if(canvas.width !== w || canvas.height !== h){
@@ -2117,9 +2090,6 @@ if (canvas && globeShell && globeZone3D) {
       gl.uniform3f(sphereLoc.cameraPos, 0, 0, 7.9);
       gl.uniform1f(sphereLoc.textureMix, textureMix);
       gl.uniform1f(sphereLoc.time, t);
-      gl.uniform1f(sphereLoc.normalStrength, mobileGlobeSafeMode ? 0.0 : 1.0);
-      gl.uniform1f(sphereLoc.exposure, mobileGlobeSafeMode ? 0.74 : 1.0);
-      gl.uniform1f(sphereLoc.atmosphereStrength, mobileGlobeSafeMode ? 0.58 : 1.0);
 
       gl.activeTexture(gl.TEXTURE0);
       gl.bindTexture(gl.TEXTURE_2D, dayTexture);
