@@ -1160,6 +1160,23 @@ if (canvas && globeShell && globeZone3D) {
 
       bokehWrap.appendChild(dot);
     }
+
+    // Fine stars are appended AFTER the large/soft bokeh so the background
+    // keeps depth: blurred light first, then crisp distant points of light.
+    const starCount = Math.round(count * 1.45);
+    for(let i = 0; i < starCount; i++){
+      const star = document.createElement('span');
+      const isGoldStar = Math.random() > 0.80;
+      const size = 1 + Math.random() * 2.7;
+      star.className = 'globe-star' + (isGoldStar ? ' gold' : '');
+      star.style.width = size + 'px';
+      star.style.height = size + 'px';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = 5 + Math.random() * 88 + '%';
+      star.style.animationDuration = (2.8 + Math.random() * 4.8) + 's';
+      star.style.animationDelay = (Math.random() * 5.5) + 's';
+      bokehWrap.appendChild(star);
+    }
   }
   createBokehDots(64);
 
@@ -1182,6 +1199,7 @@ if (canvas && globeShell && globeZone3D) {
     let imageData = null;
     let pixels = null;
     let texturePixels = null;
+    let nightTexturePixels = null;
     let texW = 0, texH = 0;
     let angleY = -0.45;
     let last = performance.now();
@@ -1254,6 +1272,17 @@ if (canvas && globeShell && globeZone3D) {
     img.onerror=()=>{ globeZone3D.dataset.globeTextures='procedural-cpu'; };
     img.src='assets/globe/earth_atmos_2048.jpg';
 
+    const nightImg=new Image();
+    nightImg.decoding='async';
+    nightImg.onload=()=>{
+      const off=document.createElement('canvas');
+      off.width=768; off.height=384;
+      const o=off.getContext('2d',{willReadFrequently:true});
+      o.drawImage(nightImg,0,0,768,384);
+      nightTexturePixels=o.getImageData(0,0,768,384).data;
+    };
+    nightImg.src='assets/globe/earth_lights_2048.png';
+
     function rotatePoint(v, ay, ax){
       const cy=Math.cos(ay), sy=Math.sin(ay), cx=Math.cos(ax), sx=Math.sin(ax);
       let x=cy*v[0]+sy*v[2], z=-sy*v[0]+cy*v[2], y=v[1];
@@ -1274,6 +1303,16 @@ if (canvas && globeShell && globeZone3D) {
       return [texturePixels[i],texturePixels[i+1],texturePixels[i+2]];
     }
 
+    function sampleNightTexture(ox,oy,oz){
+      if(!nightTexturePixels || !texW || !texH) return [0,0,0];
+      let u=0.5-Math.atan2(oz,ox)/TAU;
+      u=u-Math.floor(u);
+      const v=Math.max(0,Math.min(0.999999,0.5-Math.asin(Math.max(-1,Math.min(1,oy)))/Math.PI));
+      const tx=Math.min(texW-1,Math.floor(u*texW)), ty=Math.min(texH-1,Math.floor(v*texH));
+      const i=(ty*texW+tx)*4;
+      return [nightTexturePixels[i],nightTexturePixels[i+1],nightTexturePixels[i+2]];
+    }
+
     function renderEarth(t){
       if(!imageData || !pixels) return;
       const c=(N-1)/2, radius=N*0.455;
@@ -1291,13 +1330,20 @@ if (canvas && globeShell && globeZone3D) {
           const iy=cx*ny+sx*z, iz=-sx*ny+cx*z;
           const ox=cy*nx-sy*iz, oz=sy*nx+cy*iz, oy=iy;
           const rgb=sampleTexture(ox,oy,oz);
-          const diffuse=Math.max(0,nx*lx+ny*ly+z*lz);
-          const shade=0.34+0.82*diffuse;
+          const nightRgb=sampleNightTexture(ox,oy,oz);
+          const lightDot=nx*lx+ny*ly+z*lz;
+          const diffuse=Math.max(0,lightDot);
+          const shade=0.16+0.64*diffuse;
+          const softLight=Math.max(0,Math.min(1,(lightDot+0.20)/0.98));
+          const nightSide=Math.pow(1-softLight,1.68);
           const rim=Math.pow(1-z,2.4);
           const idx=(py*N+px)*4;
-          pixels[idx]=Math.min(255,rgb[0]*shade+10*rim);
-          pixels[idx+1]=Math.min(255,rgb[1]*shade+120*rim);
-          pixels[idx+2]=Math.min(255,rgb[2]*shade+255*rim);
+          const nr=Math.pow(nightRgb[0]/255,1.16)*255;
+          const ng=Math.pow(nightRgb[1]/255,1.16)*255;
+          const nb=Math.pow(nightRgb[2]/255,1.16)*255;
+          pixels[idx]=Math.min(255,rgb[0]*shade + nr*nightSide*1.92 + 10*rim);
+          pixels[idx+1]=Math.min(255,rgb[1]*shade + ng*nightSide*1.52 + 120*rim);
+          pixels[idx+2]=Math.min(255,rgb[2]*shade + nb*nightSide*.86 + 255*rim);
           pixels[idx+3]=255;
         }
       }
@@ -1418,26 +1464,28 @@ if (canvas && globeShell && globeZone3D) {
         float landMask = smoothstep(-0.10, 0.55, sin(vUV.x * 31.0) * sin(vUV.y * 21.0));
         vec3 procedural = mix(proceduralOcean, proceduralLand, landMask * 0.35);
 
-        vec3 mappedDay = dayTex * vec3(0.72, 0.82, 0.92);
-        vec3 surface = mix(procedural, mappedDay, uTextureMix);
-        surface *= 0.20 + diffuse * 0.88;
+        // V7: darker continents / surface so earth_lights_2048 reads clearly.
+        vec3 mappedDay = dayTex * vec3(0.56, 0.65, 0.76);
+        vec3 surface = mix(procedural * 0.82, mappedDay, uTextureMix);
+        surface *= 0.13 + diffuse * 0.68;
 
-        /* earth_lights_2048.png becomes much more visible on the dark side
-           and softly bleeds into the continent surface near the terminator. */
-        float nightSide = pow(1.0 - softLight, 1.82);
-        float duskBand = smoothstep(0.42, 0.02, softLight);
-
-        vec3 nightGold = nightTex * vec3(1.55, 1.22, 0.74);
-        vec3 cityGlow = nightGold * nightSide * 1.42 * uTextureMix;
-        vec3 cityBlend = nightGold * duskBand * 0.22 * uTextureMix;
+        /* Stronger but still localized night-city illumination.
+           Raising the night texture to a power suppresses dim texture noise
+           while preserving the dense city/coast light clusters. */
+        float nightSide = pow(1.0 - softLight, 1.68);
+        float duskBand = 1.0 - smoothstep(0.04, 0.52, softLight);
+        vec3 concentratedLights = pow(max(nightTex, vec3(0.0)), vec3(1.16));
+        vec3 nightGold = concentratedLights * vec3(1.82, 1.44, 0.82);
+        vec3 cityGlow = nightGold * nightSide * 1.92 * uTextureMix;
+        vec3 cityBlend = nightGold * duskBand * 0.34 * uTextureMix;
 
         vec3 cyanRim = vec3(0.03, 0.62, 1.0) * fresnel * 1.48;
         vec3 blueAtmosphere = vec3(0.02, 0.30, 0.72) * limb * 0.55;
         float shimmer = 0.985 + 0.015 * sin(uTime * 1.7 + vUV.y * 10.0);
 
         vec3 h = normalize(l + v);
-        float specular = pow(max(dot(n, h), 0.0), 42.0) * 0.20;
-        vec3 specularGlow = vec3(0.10, 0.22, 0.38) * specular;
+        float specular = pow(max(dot(n, h), 0.0), 42.0) * 0.16;
+        vec3 specularGlow = vec3(0.08, 0.18, 0.32) * specular;
 
         vec3 color = (surface + cityGlow + cityBlend + cyanRim + blueAtmosphere + specularGlow) * shimmer;
         gl_FragColor = vec4(color, 1.0);
