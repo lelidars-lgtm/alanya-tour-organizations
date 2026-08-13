@@ -1308,46 +1308,120 @@ const allowedLangs = ["ru", "en", "tr", "de", "pl"];
       if (allowedLangs.includes(lang)) updateLang(lang);
     });
   });
+(function(){
   const mobileBtn = document.getElementById('mobileMenuBtn');
   const nav = document.querySelector('.nav');
   const overlay = document.getElementById('mobileOverlay');
-  const aboutDropdown = document.querySelector('.nav-dropdown');
+  const dropdowns = [...document.querySelectorAll('.ato-header-dropdown')];
   const languageDropdown = document.querySelector('.language-dropdown');
   const languageClose = document.querySelector('.language-close');
-  function toggleMenu() {
-    nav.classList.toggle('active');
-    mobileBtn.classList.toggle('active');
-    overlay.classList.toggle('active');
+  const headerTourSearch = document.getElementById('headerTourSearch');
+  const officialTourSearch = document.getElementById('officialTourSearch');
+
+  function isMobile(){ return window.innerWidth <= 980; }
+
+  function setDropdown(dropdown, open){
+    if(!dropdown) return;
+    dropdown.classList.toggle('open', open);
+    const trigger = dropdown.querySelector('.ato-dropdown-trigger');
+    if(trigger) trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
-  if (mobileBtn && nav && overlay) {
-    mobileBtn.addEventListener('click', toggleMenu);
-    overlay.addEventListener('click', toggleMenu);
+
+  function closeDropdowns(except=null){
+    dropdowns.forEach(dd => { if(dd !== except) setDropdown(dd, false); });
   }
-  if (aboutDropdown) {
-    aboutDropdown.addEventListener('click', function(e) {
-      if (window.innerWidth <= 980) {
+
+  function setMenu(open){
+    if(!mobileBtn || !nav || !overlay) return;
+    nav.classList.toggle('active', open);
+    mobileBtn.classList.toggle('active', open);
+    overlay.classList.toggle('active', open);
+    mobileBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if(!open){
+      closeDropdowns();
+      languageDropdown?.classList.remove('open');
+    }
+  }
+
+  if(mobileBtn && nav && overlay){
+    mobileBtn.setAttribute('role','button');
+    mobileBtn.setAttribute('tabindex','0');
+    mobileBtn.setAttribute('aria-label','Open navigation');
+    mobileBtn.setAttribute('aria-expanded','false');
+    mobileBtn.addEventListener('click', () => setMenu(!nav.classList.contains('active')));
+    mobileBtn.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); setMenu(!nav.classList.contains('active')); }
+    });
+    overlay.addEventListener('click', () => setMenu(false));
+  }
+
+  dropdowns.forEach(dropdown => {
+    const trigger = dropdown.querySelector('.ato-dropdown-trigger');
+    if(!trigger) return;
+    trigger.addEventListener('click', e => {
+      e.preventDefault();
+      e.stopPropagation();
+      const willOpen = !dropdown.classList.contains('open');
+      closeDropdowns(dropdown);
+      setDropdown(dropdown, willOpen);
+    });
+  });
+
+  if(languageDropdown){
+    languageDropdown.addEventListener('click', function(e){
+      if(isMobile()){
         e.stopPropagation();
+        closeDropdowns();
         this.classList.toggle('open');
       }
     });
   }
-  if (languageDropdown) {
-    languageDropdown.addEventListener('click', function(e) {
-      if (window.innerWidth <= 980) {
-        e.stopPropagation();
-        this.classList.toggle('open');
-      }
-    });
-  }
-  if (languageClose && languageDropdown) {
-    languageClose.addEventListener('click', function(e) {
+
+  if(languageClose && languageDropdown){
+    languageClose.addEventListener('click', function(e){
+      e.preventDefault();
       e.stopPropagation();
       languageDropdown.classList.remove('open');
     });
   }
 
+  if(headerTourSearch && officialTourSearch){
+    headerTourSearch.addEventListener('click', function(e){
+      e.preventDefault();
+      officialTourSearch.scrollIntoView({behavior:'smooth', block:'center'});
+      window.setTimeout(() => officialTourSearch.focus({preventScroll:true}), 450);
+      if(isMobile()) setMenu(false);
+    });
+  }
 
-  
+  nav?.querySelectorAll('a[href]').forEach(link => {
+    link.addEventListener('click', () => {
+      closeDropdowns();
+      if(isMobile()) setMenu(false);
+    });
+  });
+
+  document.addEventListener('click', e => {
+    if(!e.target.closest('.ato-header-dropdown')) closeDropdowns();
+  });
+
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape'){
+      closeDropdowns();
+      languageDropdown?.classList.remove('open');
+      if(isMobile()) setMenu(false);
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if(!isMobile()){
+      nav?.classList.remove('active');
+      mobileBtn?.classList.remove('active');
+      overlay?.classList.remove('active');
+    }
+    closeDropdowns();
+  });
+})();
 
 /* === AUTONOMOUS WEBGL 3D GLOBE ===
  * No Three.js CDN dependency. The sphere geometry, lighting, rotation and

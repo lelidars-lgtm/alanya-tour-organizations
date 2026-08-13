@@ -19,65 +19,115 @@
 </div>
 </div>
 <header class="header">
-<div class="logo">
-<img alt="ALANYA TOUR ORGANIZATIONS" src="logo.png"/>
-<div class="logo-text">
-<div class="logo-title">ALANYA TOUR</div>
-<div class="logo-subtitle">ORGANIZATIONS</div>
-</div>
-</div>
-<div class="mobile-menu-btn" id="mobileMenuBtn">
-<span></span><span></span><span></span>
-</div>
-<div class="mobile-overlay" id="mobileOverlay"></div>
-<nav class="nav">
-<a class="nav-item" href="index.html#main-categories"><span>TOURS</span></a>
-<a class="nav-item" href="interactive-map/"><span>EXPLORE MAP</span></a>
-<a class="nav-item" href="trip-planner.html"><span>TRIP PLANNER</span></a>
-<div class="nav-item" title="Ready-made tour combinations"><span>COMBO DEALS</span></div>
-<a class="nav-item special active" href="special-offers.html"><span class="fire">🔥</span><span>SPECIAL OFFERS</span></a>
-<a class="nav-item" href="vip-service.html"><span>VIP SERVICE</span></a>
-<div class="nav-item nav-dropdown">
-<span>ABOUT US</span>
-<svg class="arrow-icon" viewbox="0 0 24 24"><path d="M7 10L12 15L17 10"></path></svg>
-<div class="dropdown-menu">
-<a href="index.html#about"><span class="dropdown-icon">◆</span>OUR COMPANY</a>
-<a href="index.html#licenses"><span class="dropdown-icon">◇</span>LICENSES &amp; CERTIFICATIONS</a>
-<a href="index.html#insurance"><span class="dropdown-icon">✓</span>SAFETY &amp; INSURANCE</a>
-</div>
-</div>
-<a class="nav-item header-tour-search" href="index.html#officialTourSearch" id="headerTourSearch"><span>🔍 SEARCH TOURS…  ⚙</span></a>
-</nav>
-<div class="language language-dropdown">
-<svg class="globe-icon" viewbox="0 0 24 24">
-<circle cx="12" cy="12" r="9"></circle>
-<path d="M3 12H21"></path>
-<path d="M12 3C15 6 16.5 9 16.5 12C16.5 15 15 18 12 21"></path>
-<path d="M12 3C9 6 7.5 9 7.5 12C7.5 15 9 18 12 21"></path>
-</svg>
-<span>EN</span>
-<svg class="arrow-icon" viewbox="0 0 24 24"><path d="M7 10L12 15L17 10"></path></svg>
-<div class="language-menu">
-<button class="language-close" type="button" aria-label="Close language menu">×</button>
-<a data-lang="ru" href="#">🇷🇺 Russian</a>
-<a data-lang="en" href="#">🇬🇧 English</a>
-<a data-lang="tr" href="#">🇹🇷 Turkish</a>
-<a data-lang="de" href="#">🇩🇪 German</a>
-<a data-lang="pl" href="#">🇵🇱 Polish</a>
-</div>
-</div>
+  <a href="index.html" class="logo" aria-label="ALANYA TOUR ORGANIZATIONS — Home">
+    <img src="logo.png" alt="ALANYA TOUR ORGANIZATIONS">
+
+    <div class="logo-text">
+      <div class="logo-title">ALANYA TOUR</div>
+      <div class="logo-subtitle">ORGANIZATIONS</div>
+    </div>
+  </a>
+
+  <div class="mobile-menu-btn" id="mobileMenuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-item nav-dropdown ato-header-dropdown" data-header-dropdown="tours">
+      <button class="ato-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+        <span>TOURS</span>
+        <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10L12 15L17 10"/></svg>
+      </button>
+      <div class="dropdown-menu ato-tours-menu" role="menu">
+        <a href="sea-experiences.html" role="menuitem"><span class="dropdown-icon">⚓</span>SEA EXPERIENCES</a>
+        <a href="extreme-adventure.html" role="menuitem"><span class="dropdown-icon">⚡</span>EXTREME &amp; ADVENTURE</a>
+        <a href="nature-adventures.html" role="menuitem"><span class="dropdown-icon">◆</span>NATURE &amp; ADVENTURE</a>
+        <a href="history-culture.html" role="menuitem"><span class="dropdown-icon">◇</span>HISTORY &amp; CULTURE</a>
+        <a href="family-experiences.html" role="menuitem"><span class="dropdown-icon">♥</span>FAMILY EXPERIENCES</a>
+        <a href="water-sports.html" role="menuitem"><span class="dropdown-icon">≈</span>WATER SPORTS</a>
+        <a href="air-experiences.html" role="menuitem"><span class="dropdown-icon">✦</span>AIR EXPERIENCES</a>
+        <a href="wellness-relax.html" role="menuitem"><span class="dropdown-icon">✺</span>WELLNESS &amp; RELAX</a>
+      </div>
+    </div>
+
+    <a href="/interactive-map/" class="nav-item">
+      <span>EXPLORE MAP</span>
+    </a>
+
+    <a href="trip-planner.html" class="nav-item" title="Compare tours and build your itinerary">
+      <span>TRIP PLANNER</span>
+    </a>
+
+    <a href="combo-deals.html" class="nav-item" title="Ready-made tour combinations">
+      <span>COMBO DEALS</span>
+    </a>
+
+    <a href="special-offers.html" class="nav-item special">
+      <span class="fire">🔥</span>
+      <span>SPECIAL OFFERS</span>
+    </a>
+
+    <a href="vip-service.html" class="nav-item">
+      <span>VIP SERVICE</span>
+    </a>
+
+    <div class="nav-item nav-dropdown ato-header-dropdown" data-header-dropdown="about">
+      <button class="ato-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+        <span>ABOUT US</span>
+        <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10L12 15L17 10"/></svg>
+      </button>
+
+      <div class="dropdown-menu ato-about-menu" role="menu">
+        <a href="#about" role="menuitem">
+          <span class="dropdown-icon">◆</span>OUR COMPANY
+        </a>
+
+        <div class="ato-menu-group" aria-label="Licenses and certifications">
+          <div class="ato-menu-group-label"><span class="dropdown-icon">◇</span>LICENSES &amp; CERTIFICATIONS</div>
+          <a class="ato-subitem" href="legal-information.html" role="menuitem">Legal Information</a>
+          <a class="ato-subitem" href="https://www.tursab.org.tr/acenta-arama" target="_blank" rel="noopener" role="menuitem" title="Official TÜRSAB agency search — verify Belge No 2156">TÜRSAB Verification ↗</a>
+        </div>
+
+        <a href="contact.html" role="menuitem">
+          <span class="dropdown-icon">◎</span>CONTACT / COMPANY DETAILS
+        </a>
+      </div>
+    </div>
+
+    <a href="#officialTourSearch" class="nav-item header-tour-search" id="headerTourSearch">
+      <span>🔍 SEARCH TOURS…&nbsp;&nbsp;⚙</span>
+    </a>
+  </nav>
+
+  <div class="language language-dropdown">
+    <svg class="globe-icon" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12H21" />
+      <path d="M12 3C15 6 16.5 9 16.5 12C16.5 15 15 18 12 21" />
+      <path d="M12 3C9 6 7.5 9 7.5 12C7.5 15 9 18 12 21" />
+    </svg>
+
+    <span>RU</span>
+
+    <svg class="arrow-icon" viewBox="0 0 24 24">
+      <path d="M7 10L12 15L17 10" />
+    </svg>
+
+    <div class="language-menu">
+      <button class="language-close">×</button>
+
+      <a href="#" data-lang="ru">🇷🇺 Russian</a>
+      <a href="#" data-lang="en">🇬🇧 English</a>
+      <a href="#" data-lang="tr">🇹🇷 Turkish</a>
+      <a href="#" data-lang="de">🇩🇪 German</a>
+      <a href="#" data-lang="pl">🇵🇱 Polish</a>
+    </div>
+  </div>
 </header>
-<div class="promo-bar">
-<div class="promo-track">
-<span class="promo-text" data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN &amp; DIE 3. GRATIS" data-en="🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE" data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS" data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК" data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE">🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE</span>
-<span class="promo-dot">◆</span>
-<span>TRAVEL WITH LOVE. TRAVEL WITH US.</span>
-<span class="promo-dot">◆</span>
-<span>VIP YACHT TOURS • FAMILY SAFARI • PRIVATE TRANSFERS</span>
-<span class="promo-dot">◆</span>
-<span class="promo-text" data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN &amp; DIE 3. GRATIS" data-en="🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE" data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS" data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК" data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE">🔥 SPECIAL OFFER — BUY 2 TOURS &amp; GET THE 3RD FREE</span>
-</div>
-</div>
 <main class="tp-shell so-tp-shell so-premium-main">
 <div aria-hidden="true" class="so-page-orbits">
 <span class="so-page-orbit so-page-orbit-1"></span>
