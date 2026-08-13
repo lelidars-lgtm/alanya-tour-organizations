@@ -724,6 +724,10 @@ function runJourney(fromPlanner=false){
     /* 10 Red digital heart is born. */
     queueJourney(()=>{
       setHeartOriginFromExactAlanya();
+      // The blue-to-red Alanya core belongs only to the collapse stage.
+      // Remove it before the digital heart appears so no oversized red dot
+      // remains floating over the finished heart.
+      globeZone.classList.remove('light-collapse');
       globeZone.classList.add('journey-heart');
       status.innerHTML='<strong>A HEART IS BORN.</strong><span>ONE PLACE → ONE FEELING</span>';
     },12150);

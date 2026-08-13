@@ -9283,3 +9283,13 @@ body.so-premium-body #journey .globe-zone.journey-explode .confetti-burst span{
     top:79%!important;
   }
 }
+
+
+/* V18 — remove the temporary Alanya red core once the heart exists. */
+body.so-premium-body #journey .globe-zone.journey-heart::after,
+body.so-premium-body #journey .globe-zone.heart-full::after,
+body.so-premium-body #journey .globe-zone.journey-explode::after,
+body.so-premium-body #journey .globe-zone.journey-card-launch::after{
+  content:none!important;
+  display:none!important;
+}
