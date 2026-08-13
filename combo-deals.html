@@ -47,38 +47,9 @@
       position:relative;
       min-height:560px;
       padding:34px 0 70px;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(4,12,22,.82) 0%,
-          rgba(4,12,22,.58) 34%,
-          rgba(4,12,22,.18) 58%,
-          rgba(4,12,22,.06) 100%
-        ),
-        url("images/combo-deals/combo-deals-hero.jpg") center right/cover no-repeat;
+      background:url("images/combo-deals/combo-deals-hero.jpg") center right/cover no-repeat;
       border-bottom:1px solid rgba(214,162,74,.18);
       overflow:hidden;
-    }
-
-    .sea-hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 78% 42%, rgba(214,162,74,.16), transparent 36%),
-        linear-gradient(90deg, rgba(4,12,22,.08), rgba(4,12,22,.34));
-      pointer-events:none;
-    }
-
-    .sea-hero::after{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      height:90px;
-      background:linear-gradient(180deg, transparent, rgba(4,16,29,.72));
-      pointer-events:none;
     }
 
     .sea-hero-inner{
@@ -87,6 +58,27 @@
       width:min(100%,1650px);
       margin:0 auto;
       padding:0 34px;
+      isolation:isolate;
+    }
+
+    /* Soft readability veil ONLY behind the hero text — the image stays bright. */
+    .sea-hero-inner::before{
+      content:"";
+      position:absolute;
+      z-index:0;
+      left:8px;
+      top:72px;
+      width:min(760px,58vw);
+      height:420px;
+      border-radius:42px;
+      background:radial-gradient(ellipse at 34% 46%,rgba(2,8,15,.34) 0%,rgba(2,8,15,.22) 48%,rgba(2,8,15,.08) 68%,transparent 82%);
+      filter:blur(7px);
+      pointer-events:none;
+    }
+
+    .sea-hero-inner > *{
+      position:relative;
+      z-index:1;
     }
 
     .breadcrumbs{
@@ -119,11 +111,12 @@
     .eyebrow-glow{
       color:#fff4c8;
       text-shadow:
-        0 0 10px rgba(255,234,163,.85),
-        0 0 22px rgba(243,198,109,.68),
-        0 0 36px rgba(214,162,74,.46);
-      filter:drop-shadow(0 0 12px rgba(243,198,109,.35));
-      animation:alivePulse 2.8s ease-in-out infinite;
+        0 0 8px rgba(255,244,200,.85),
+        0 0 18px rgba(243,198,109,.70),
+        0 0 34px rgba(214,162,74,.42);
+      filter:drop-shadow(0 0 8px rgba(243,198,109,.28));
+      animation:feelAliveGlow 2.6s ease-in-out infinite;
+      will-change:text-shadow,filter;
     }
 
     .sea-hero h1{
@@ -189,15 +182,24 @@
       animation-delay:.8s;
     }
 
-    @keyframes alivePulse{
-      0%,100%{opacity:1; text-shadow:0 0 10px rgba(255,234,163,.85),0 0 22px rgba(243,198,109,.68),0 0 36px rgba(214,162,74,.46);}
-      50%{opacity:1; text-shadow:0 0 14px rgba(255,244,200,.95),0 0 30px rgba(243,198,109,.90),0 0 46px rgba(214,162,74,.62);}
+
+    @keyframes feelAliveGlow{
+      0%,100%{
+        color:#f8d980;
+        text-shadow:0 0 6px rgba(243,198,109,.45),0 0 14px rgba(214,162,74,.28);
+        filter:drop-shadow(0 0 4px rgba(243,198,109,.18));
+      }
+      50%{
+        color:#fffaf0;
+        text-shadow:0 0 10px rgba(255,250,240,.96),0 0 24px rgba(243,198,109,.92),0 0 44px rgba(214,162,74,.62);
+        filter:drop-shadow(0 0 12px rgba(243,198,109,.46));
+      }
+    }
+    @keyframes starTwinkle{
+      0%,100%{transform:scale(1) rotate(0deg);opacity:1;}
+      50%{transform:scale(1.22) rotate(12deg);opacity:.9;}
     }
 
-    @keyframes starTwinkle{
-      0%,100%{transform:scale(1) rotate(0deg); opacity:1;}
-      50%{transform:scale(1.22) rotate(12deg); opacity:.9;}
-    }
 
     .category-divider{
       display:flex;
@@ -794,6 +796,14 @@
         padding-bottom:54px;
       }
 
+      .sea-hero-inner::before{
+        left:6px;
+        top:62px;
+        width:94%;
+        height:390px;
+        background:radial-gradient(ellipse at 28% 44%,rgba(2,8,15,.30) 0%,rgba(2,8,15,.18) 50%,rgba(2,8,15,.06) 70%,transparent 84%);
+      }
+
       .breadcrumbs{margin-bottom:42px}
       .sea-hero h1{font-size:52px}
       .eyebrow{gap:4px;letter-spacing:.14em;font-size:11px}
@@ -896,7 +906,7 @@
     <div class="tour-group">
       <div class="section-top">
         <h2 class="section-title">Choose Your Combo Experience</h2>
-        <a class="section-link" href="https://wa.me/905387045999?text=Hello!%20Show%20me%20Combo%20Deals%20in%20Alanya." target="_blank">Request a combo →</a>
+        <a class="section-link" href="https://wa.me/905387045999?text=Hello!%20Show%20me%20Combo%20Deals%20in%20Alanya." target="_blank">BUILD YOUR DAY →</a>
       </div>
 
       <div class="tour-grid">
