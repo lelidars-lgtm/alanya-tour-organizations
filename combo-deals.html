@@ -6,7 +6,7 @@
 
   <title>Combo Deals | ALANYA TOUR ORGANIZATIONS</title>
 
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=wtZLrAEZGXagzb_Y4-c0kYWiJNi_nnr8xWn7CiuIuZX2aDxb5kepfBacF7DNGT1u6yZ6wTwvqnP7_Fojf2dj0eG5H1WPwDUjFIIGTrLIz3HU6luldYZLZRV4oURngANXnptchZopAuONyyY0ITJ3uscufhWr5v9JMNjPcvbLDDSr2_e4bC2yzzzk2rrHQMob-Sz66YE7zES_nKVr_tWqptpT8VhHUnnuozi1vW-9cDC0AJlLhDgZTDJCATgaBwum9laIiU1e8vDfOJo-9tVFwg" charset="UTF-8"></script><style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=igqeHEPw0ca8c_CqNGWJ3WVgsMa73BQ9jVkMkf2CEu4qxJ1PjMSfrA2pepUDdyA-ZKWUGqSzPVibIOh9SMQ2CR73YLM45o_xtgFIZmWaohGD67uBqmSD5qsI6NJUq3LrNkixutw5-TNwVpSQCn6FfFbI5oTXe-fHa3g5-cT0lMfzO_iU2jDzHp_GExtW1qZNO5UMLwCYFc48bJQRT42J29nf3Ls_YkSLMxQAKlSgkjorTtq5FCEnjJM5G85AjbZAR4mNIGylm_5Ka8phZSDRhw" charset="UTF-8"></script><style>
     :root{
       --bg:#04101d;
       --navy:#071625;
@@ -850,6 +850,38 @@
     }
 </style>
   <link rel="stylesheet" href="assets/css/trip-planner-shared.css">
+  <style id="combo-page-hard-stop">
+    /* Loaded after shared CSS so the category cannot grow beyond its final CTA. */
+    html,
+    body{
+      min-height:0 !important;
+      height:auto !important;
+      background:#04101d !important;
+    }
+
+    main.sea-page{
+      min-height:0 !important;
+      height:auto !important;
+      margin-bottom:0 !important;
+      padding-bottom:0 !important;
+      background:#04101d !important;
+    }
+
+    main.sea-page::before,
+    main.sea-page::after{
+      content:none !important;
+      display:none !important;
+      background:none !important;
+    }
+
+    main.sea-page > .booking-cta{
+      margin-bottom:0 !important;
+    }
+
+    main.sea-page > .trust-bar{
+      margin-bottom:0 !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -1063,7 +1095,7 @@
 
     <div class="trust-item">
       <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-5"/></svg>
-      Trusted Company<br>Licensed & Insured
+      Trusted Company<br>Licensed &amp; Insured
     </div>
   </section>
 
