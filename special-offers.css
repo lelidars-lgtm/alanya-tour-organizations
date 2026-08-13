@@ -9033,107 +9033,6 @@ body.so-premium-body #journey #journeyDockCard .heart-price-strip span:last-chil
 
 
 /* =========================================================
-   V12 — FINAL TURKIYE POSITION + LOWER PLAY AGAIN + VISIBLE CONFETTI
-   ========================================================= */
-body.so-premium-body #journey .globe-zone.final-turkiye{
-  min-height:540px!important;
-  display:flex!important;
-  align-items:flex-start!important;
-  justify-content:center!important;
-  padding-top:18px!important;
-}
-body.so-premium-body #journey .globe-zone.final-turkiye .globe-stage-live{
-  width:min(600px,94%)!important;
-  aspect-ratio:1/1!important;
-  min-height:0!important;
-  margin:0 auto!important;
-  transform:translateY(22px)!important;
-  overflow:visible!important;
-}
-body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-stage{
-  position:absolute!important;
-  inset:0!important;
-  width:100%!important;
-  height:100%!important;
-  padding:34px 0 0!important;
-  display:grid!important;
-  place-items:start center!important;
-  align-content:start!important;
-}
-body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-inner{
-  width:min(590px,92%)!important;
-  min-height:380px!important;
-  display:grid!important;
-  place-items:start center!important;
-}
-body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-map{
-  width:min(560px,96%)!important;
-  max-width:560px!important;
-  height:auto!important;
-  margin:0 auto!important;
-}
-body.so-premium-body #journey .globe-zone.final-turkiye .final-we-are-here{
-  left:50%!important;
-  top:77%!important;
-  transform:translate(-50%,0)!important;
-  text-align:center!important;
-}
-body.so-premium-body #journey:has(.globe-zone.final-turkiye) .globe-cta-wrap{
-  margin-top:22px!important;
-}
-body.so-premium-body #journey:has(.globe-zone.final-turkiye) #startJourney{
-  display:block!important;
-  width:min(520px,82%)!important;
-  margin:24px auto 0!important;
-}
-
-/* Confetti must be obvious, brighter and above the heart/card phase. */
-body.so-premium-body #journey .confetti-burst{
-  z-index:16!important;
-  filter:drop-shadow(0 0 10px rgba(255,255,255,.18)) drop-shadow(0 0 16px rgba(255,211,107,.20))!important;
-}
-body.so-premium-body #journey .confetti-burst span{
-  width:12px!important;
-  height:22px!important;
-  border-radius:10px!important;
-  opacity:0!important;
-  box-shadow:0 0 7px rgba(255,255,255,.18), 0 0 14px rgba(255,208,106,.16)!important;
-}
-body.so-premium-body #journey .globe-zone.journey-explode .confetti-burst span{
-  animation-name:confettiBurst!important;
-  animation-duration:max(var(--dur,1.25s),1.65s)!important;
-  animation-timing-function:cubic-bezier(.15,.70,.20,1)!important;
-  animation-delay:var(--delay,0s)!important;
-  animation-fill-mode:forwards!important;
-}
-@keyframes confettiBurst{
-  0%{opacity:0;transform:translate(0,0) rotate(0deg) scale(.30)}
-  10%{opacity:1}
-  38%{opacity:1;transform:translate(calc(var(--dx)*.42),calc(var(--dy)*.42)) rotate(calc(var(--r)*.42)) scale(calc(var(--scale,1)*.96))}
-  82%{opacity:.96}
-  100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(calc(var(--scale,1) * 1.16))}
-}
-@media(max-width:900px){
-  body.so-premium-body #journey .globe-zone.final-turkiye .globe-stage-live{
-    width:min(520px,96%)!important;
-    transform:translateY(12px)!important;
-  }
-  body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-stage{
-    padding-top:18px!important;
-  }
-  body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-map{
-    width:min(500px,96%)!important;
-  }
-  body.so-premium-body #journey .globe-zone.final-turkiye .final-we-are-here{
-    top:79%!important;
-  }
-  body.so-premium-body #journey:has(.globe-zone.final-turkiye) #startJourney{
-    margin-top:18px!important;
-  }
-}
-
-
-/* =========================================================
    V13 — HIDE GOLD ROUTE/PLANE OVERLAY EXCEPT DURING ACTIVE FLIGHT
    Fixes the tiny hanging gold line inside the globe before launch and
    outside the specific flight stage.
@@ -9164,20 +9063,39 @@ body.so-premium-body #journey .globe-zone.orbit-flight .journey-overlay-svg .pla
 }
 
 
+
+
 /* =========================================================
-   V15 — RESTORE COOL BLACK SPHERE FINAL, BUT FIX ITS LAYOUT
-   Keep the circular dark sphere in the final state; center Türkiye inside it,
-   keep WE ARE HERE below the map, and place PLAY AGAIN lower.
+   V17 — SINGLE AUTHORITATIVE FINAL + REAL VISIBLE CONFETTI
+   Previous V12/V15/V16 final overrides were removed.
    ========================================================= */
+
+/* MAIN 3D GLOBE: larger, stable, unchanged geometry. */
+body.so-premium-body #journey .globe-shell{
+  width:min(100%,720px)!important;
+  max-width:720px!important;
+}
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-stage-live{
+  width:min(600px,100%)!important;
+  max-width:600px!important;
+  aspect-ratio:1/1!important;
+  transform:scale(1.06)!important;
+  transform-origin:center center!important;
+}
+
+/* FINAL: one black sphere, no flex/grid positioning fights. */
 body.so-premium-body #journey .globe-zone.final-turkiye{
-  min-height:540px!important;
+  position:relative!important;
+  min-height:590px!important;
   display:flex!important;
-  align-items:center!important;
+  align-items:flex-start!important;
   justify-content:center!important;
+  padding:0!important;
 }
 body.so-premium-body #journey .globe-zone.final-turkiye .globe-stage-live{
   position:relative!important;
-  width:min(470px,90%)!important;
+  width:min(560px,94%)!important;
+  max-width:560px!important;
   height:auto!important;
   aspect-ratio:1/1!important;
   min-height:0!important;
@@ -9185,113 +9103,127 @@ body.so-premium-body #journey .globe-zone.final-turkiye .globe-stage-live{
   transform:none!important;
   border-radius:50%!important;
   overflow:hidden!important;
+  isolation:isolate!important;
   background:
-    radial-gradient(circle at 50% 34%, rgba(255,42,82,.12) 0%, rgba(255,42,82,.04) 22%, rgba(0,0,0,0) 42%),
-    radial-gradient(circle at 36% 36%,rgba(25,156,255,.12) 0 9px,transparent 46px),
-    radial-gradient(circle at 76% 63%,rgba(26,144,228,.10) 0 8px,transparent 36px),
-    radial-gradient(circle at 28% 72%,rgba(20,128,210,.09) 0 8px,transparent 34px),
-    radial-gradient(circle at 50% 50%, #07101d 0%, #030812 68%, #02060d 100%)!important;
+    radial-gradient(circle at 50% 32%,rgba(255,45,88,.14) 0%,rgba(255,45,88,.055) 23%,rgba(0,0,0,0) 43%),
+    radial-gradient(circle at 22% 42%,rgba(28,154,235,.10) 0 8px,transparent 40px),
+    radial-gradient(circle at 78% 54%,rgba(22,135,220,.09) 0 9px,transparent 38px),
+    radial-gradient(circle at 50% 50%,#07111d 0%,#030914 68%,#01050b 100%)!important;
   box-shadow:
-    inset 0 0 90px rgba(0,0,0,.58),
-    0 0 70px rgba(255,48,92,.14),
-    0 0 130px rgba(26,144,228,.10)!important;
+    inset 0 0 96px rgba(0,0,0,.62),
+    0 0 62px rgba(255,42,83,.16),
+    0 0 118px rgba(24,132,214,.09)!important;
 }
 body.so-premium-body #journey .globe-zone.final-turkiye .globe-stage-live::before{
   content:""!important;
   position:absolute!important;
   inset:0!important;
+  z-index:0!important;
   border-radius:50%!important;
   background:
-    radial-gradient(circle at 50% 24%,rgba(255,78,118,.17) 0%,rgba(255,50,92,.08) 16%,rgba(0,0,0,0) 36%),
-    radial-gradient(circle at 18% 44%,rgba(40,182,255,.12) 0 8px,transparent 36px),
-    radial-gradient(circle at 82% 38%,rgba(39,176,255,.11) 0 10px,transparent 38px)!important;
+    radial-gradient(circle at 50% 22%,rgba(255,83,117,.12),transparent 31%),
+    radial-gradient(circle at 19% 48%,rgba(41,182,255,.10) 0 7px,transparent 34px),
+    radial-gradient(circle at 81% 42%,rgba(39,176,255,.09) 0 8px,transparent 34px)!important;
+  opacity:1!important;
   pointer-events:none!important;
+  transform:none!important;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
 }
+body.so-premium-body #journey .globe-zone.final-turkiye .globe-stage-live::after{
+  display:none!important;
+}
+
 body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-stage{
   position:absolute!important;
   inset:0!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
+  z-index:6!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
   padding:0!important;
+  margin:0!important;
+  opacity:1!important;
+  visibility:visible!important;
   background:transparent!important;
 }
 body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-inner{
-  width:86%!important;
-  min-height:78%!important;
-  display:flex!important;
-  flex-direction:column!important;
-  align-items:center!important;
-  justify-content:center!important;
-  gap:12px!important;
-  margin:0 auto!important;
-  transform:translateY(8px)!important;
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  display:block!important;
+  transform:none!important;
+}
+body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-kicker{
+  position:absolute!important;
+  left:50%!important;
+  top:7%!important;
+  transform:translateX(-50%)!important;
+  margin:0!important;
+  width:max-content!important;
+  z-index:10!important;
+  color:#f3c66d!important;
+  text-align:center!important;
+  font:900 11px/1 Arial,sans-serif!important;
+  letter-spacing:.18em!important;
 }
 body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-map{
-  width:min(380px,95%)!important;
-  max-width:380px!important;
+  position:absolute!important;
+  left:50%!important;
+  top:27%!important;
+  width:88%!important;
+  max-width:none!important;
   height:auto!important;
-  margin:0 auto!important;
-  display:block!important;
+  margin:0!important;
+  transform:translateX(-50%)!important;
+  overflow:visible!important;
+  z-index:7!important;
+  filter:drop-shadow(0 0 18px rgba(255,34,73,.42)) drop-shadow(0 0 52px rgba(255,22,65,.22))!important;
 }
 body.so-premium-body #journey .globe-zone.final-turkiye .final-we-are-here{
-  position:static!important;
-  left:auto!important;
-  top:auto!important;
+  position:absolute!important;
+  left:50%!important;
+  top:78%!important;
+  transform:translateX(-50%)!important;
+  margin:0!important;
+  z-index:10!important;
+  white-space:nowrap!important;
+  text-align:center!important;
+  pointer-events:none!important;
+}
+body.so-premium-body #journey .globe-zone.final-turkiye .final-we-are-here .final-pin{
+  display:none!important;
+}
+body.so-premium-body #journey .globe-zone.final-turkiye .final-we-are-here strong,
+body.so-premium-body #journey .globe-zone.final-turkiye .final-we-are-here small{
+  display:block!important;
+  margin-left:0!important;
   transform:none!important;
-  margin-top:4px!important;
   text-align:center!important;
 }
 body.so-premium-body #journey .globe-zone.final-turkiye .final-we-are-here strong{
-  display:block!important;
-  margin-bottom:4px!important;
+  font-size:17px!important;
+  letter-spacing:.055em!important;
+}
+body.so-premium-body #journey .globe-zone.final-turkiye .final-we-are-here small{
+  margin-top:7px!important;
+  font-size:8.5px!important;
 }
 body.so-premium-body #journey:has(.globe-zone.final-turkiye) .globe-cta-wrap{
-  margin-top:28px!important;
+  margin-top:30px!important;
 }
 body.so-premium-body #journey:has(.globe-zone.final-turkiye) #startJourney{
   display:block!important;
   width:min(520px,82%)!important;
-  margin:26px auto 0!important;
-}
-@media(max-width:900px){
-  body.so-premium-body #journey .globe-zone.final-turkiye .globe-stage-live{
-    width:min(430px,94%)!important;
-  }
-  body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-map{
-    width:min(340px,96%)!important;
-  }
+  margin:28px auto 0!important;
 }
 
-
-/* =========================================================
-   V16 — BIGGER GLOBE + ACTUALLY VISIBLE CONFETTI
-   ========================================================= */
-
-/* Make the main globe larger before/through the journey without breaking layout. */
-body.so-premium-body #journey .globe-shell{
-  width:min(100%, 700px)!important;
-  max-width:700px!important;
-}
-body.so-premium-body #journey .globe-stage-live{
-  width:min(560px, 100%)!important;
-  max-width:560px!important;
-}
-body.so-premium-body #journey .live-globe-canvas{
-  width:100%!important;
-  height:100%!important;
-}
-body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-stage-live{
-  transform:scale(1.10)!important;
-  transform-origin:center center!important;
-}
-
-/* Keep final black sphere also slightly larger. */
-body.so-premium-body #journey .globe-zone.final-turkiye .globe-stage-live{
-  width:min(520px,92%)!important;
-}
-
-/* Confetti must be impossible to miss. */
+/* CONFETTI: the previous opacity:0!important made all particles invisible.
+   During journey-explode we explicitly switch them ON, while transform animates. */
 body.so-premium-body #journey .confetti-burst{
   position:absolute!important;
   left:50%!important;
@@ -9300,78 +9232,54 @@ body.so-premium-body #journey .confetti-burst{
   height:1px!important;
   z-index:26!important;
   overflow:visible!important;
-  opacity:1!important;
   visibility:visible!important;
   pointer-events:none!important;
-  mix-blend-mode:screen!important;
-  filter:drop-shadow(0 0 10px rgba(255,255,255,.22)) drop-shadow(0 0 22px rgba(255,203,97,.26))!important;
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.22)) drop-shadow(0 0 22px rgba(255,205,96,.24))!important;
 }
 body.so-premium-body #journey .confetti-burst span{
   position:absolute!important;
   left:0!important;
   top:0!important;
   display:block!important;
-  width:14px!important;
-  height:24px!important;
-  border-radius:12px!important;
+  width:13px!important;
+  height:22px!important;
+  border-radius:9px!important;
   opacity:0!important;
   visibility:visible!important;
-  will-change:transform,opacity!important;
-  box-shadow:0 0 10px rgba(255,255,255,.22), 0 0 20px rgba(255,214,115,.22)!important;
+  will-change:transform!important;
+  box-shadow:0 0 8px rgba(255,255,255,.16),0 0 16px rgba(255,211,106,.16)!important;
 }
-
-/* Strong visible burst only on explode stage. */
 body.so-premium-body #journey .globe-zone.journey-explode .confetti-burst span{
-  animation:confettiBurstV16 1.95s cubic-bezier(.14,.74,.18,1) forwards!important;
+  opacity:1!important;
+  animation:confettiFlyV17 1.62s cubic-bezier(.15,.72,.18,1) forwards!important;
   animation-delay:var(--delay,0s)!important;
 }
-
-@keyframes confettiBurstV16{
-  0%{
-    opacity:0;
-    transform:translate(0,0) rotate(0deg) scale(.22);
-  }
-  8%{
-    opacity:1;
-  }
-  24%{
-    opacity:1;
-    transform:translate(calc(var(--dx)*.28),calc(var(--dy)*.28)) rotate(calc(var(--r)*.24)) scale(calc(var(--scale,1) * .92));
-  }
-  60%{
-    opacity:1;
-    transform:translate(calc(var(--dx)*.72),calc(var(--dy)*.72)) rotate(calc(var(--r)*.72)) scale(calc(var(--scale,1) * 1.02));
-  }
-  84%{
-    opacity:.94;
-  }
-  100%{
-    opacity:0;
-    transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(calc(var(--scale,1) * 1.18));
-  }
+@keyframes confettiFlyV17{
+  0%{transform:translate(0,0) rotate(0deg) scale(.25)}
+  12%{transform:translate(0,0) rotate(30deg) scale(var(--scale,1))}
+  100%{transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(var(--scale,1))}
 }
-
-/* Ensure explode stage lasts visually over the heart and not hidden by other layers. */
-body.so-premium-body #journey .globe-zone.journey-explode .confetti-burst{
-  opacity:1!important;
-  visibility:visible!important;
-}
-body.so-premium-body #journey .heart-transform{z-index:18!important}
-body.so-premium-body #journey .tour-card-fly{z-index:24!important}
 
 @media(max-width:900px){
-  body.so-premium-body #journey .globe-shell{
-    width:min(100%, 620px)!important;
-    max-width:620px!important;
-  }
-  body.so-premium-body #journey .globe-stage-live{
-    width:min(500px, 100%)!important;
-    max-width:500px!important;
-  }
   body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-stage-live{
-    transform:scale(1.06)!important;
+    width:min(520px,100%)!important;
+    transform:scale(1.03)!important;
+  }
+  body.so-premium-body #journey .globe-zone.final-turkiye{
+    min-height:500px!important;
   }
   body.so-premium-body #journey .globe-zone.final-turkiye .globe-stage-live{
     width:min(470px,94%)!important;
+  }
+  body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-kicker{
+    top:7%!important;
+    font-size:9px!important;
+  }
+  body.so-premium-body #journey .globe-zone.final-turkiye .final-turkiye-map{
+    top:29%!important;
+    width:90%!important;
+  }
+  body.so-premium-body #journey .globe-zone.final-turkiye .final-we-are-here{
+    top:79%!important;
   }
 }

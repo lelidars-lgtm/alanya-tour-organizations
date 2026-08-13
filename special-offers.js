@@ -747,19 +747,19 @@ function runJourney(fromPlanner=false){
       globeZone.classList.add('journey-card-launch');
       animateTourCardContinuously(1800);
       status.innerHTML='<strong>YOUR TOUR APPEARS.</strong><span>STRAIGHT FROM THE HEART</span>';
-    },16150);
+    },16350);
 
     /* 12B The heart starts shrinking only after the card has clearly escaped. */
     queueJourney(()=>{
       globeZone.classList.add('heart-after-card');
       status.innerHTML='<strong>THE HEART LETS IT FLY.</strong><span>ONE LAST BEAT · THEN HOME</span>';
-    },17050);
+    },17250);
 
     /* Card completes its continuous bezier flight before the dock handoff. */
     queueJourney(()=>{
       cancelTourCardFlight();
       landOfferCard();
-    },18050);
+    },18250);
 
     /* 13 Heart returns only after its pulse-down animation has completed. */
     queueJourney(()=>{
@@ -767,7 +767,7 @@ function runJourney(fromPlanner=false){
       globeZone.classList.remove('journey-card-launch');
       globeZone.classList.add('heart-return');
       status.innerHTML='<strong>THE HEART COMES HOME.</strong><span>BACK TO ALANYA</span>';
-    },19150);
+    },19350);
 
     /* 14–15 Final state begins after the return animation is fully complete. */
     queueJourney(()=>{
@@ -777,7 +777,7 @@ function runJourney(fromPlanner=false){
       startJourney.disabled=false;
       startJourney.classList.remove('is-active');
       if(startJourney.querySelector('span')) startJourney.querySelector('span').textContent='PLAY AGAIN →';
-    },20650);
+    },20850);
   });
 }
 
