@@ -7,8 +7,9 @@ Completed:
 - Freedom Gift and Signature Gift builder, live preview, calendar logic and WhatsApp handoff are included.
 - Gift certificate template, electronic certificate page and Booking Manager integration files are included.
 - Other project sections were preserved from the supplied target project.
-- The Special Offers header was replaced with the approved original working header from ATO-INDEX-HEADER-FOOTER-FINAL/index.html.
-- The scrolling promotion bar was removed completely.
+- Static header and banner copies were removed from Special Offers.
+- index-header-loader.js now reads the live site index.html on every page load and injects its current header and promo-bar with the index styles.
+- Header and banner changes made in index.html therefore appear automatically in Special Offers without copying them again.
 
 Validation:
 - JavaScript syntax check passed.
