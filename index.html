@@ -13,9 +13,6 @@
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="assets/css/trip-planner-shared.css" />
-  <link rel="preload" as="image" href="assets/img/hero/desktop/01-sea-private-yacht.webp" media="(min-width:981px)" fetchpriority="high" />
-  <link rel="preload" as="image" href="assets/img/hero/mobile/01-sea-private-yacht.webp" media="(max-width:980px)" fetchpriority="high" />
-  <link rel="stylesheet" href="assets/css/ato-living-hero.css" />
 <style id="ato-tour-finder-premium-v4">
 /* ================= ATO TOUR FINDER PREMIUM V4 ================= */
 :root{
@@ -562,6 +559,40 @@ body.ato-header-search-open{overflow-x:hidden}
 @media(max-width:520px){.ato-hs-filters-label{display:none}.ato-hs-filters{padding:0 8px}.ato-hs-bar{grid-template-columns:20px minmax(0,1fr) auto 40px;gap:7px;padding-left:12px}#atoHeaderSmartSearch{font-size:13px}.ato-hs-chip{padding:9px 10px;font-size:9px}.ato-hs-result-name{font-size:11px}.ato-hs-result-meta{font-size:8.5px}}
 @media(prefers-reduced-motion:reduce){.ato-header-search-shell,.ato-header-search-scrim,.header .nav,.ato-hs-chip,.ato-hs-close{transition:none!important}}
 </style>
+<style id="ato-header-search-layer-fix-v45">
+/* V4.5 — keep SMART HEADER SEARCH live results above the page scrim.
+   The scrim darkens only page content, never the search panel. */
+.header.ato-search-active{
+  z-index:100700!important;
+}
+.header.ato-search-active .ato-header-search-shell{
+  z-index:100760!important;
+}
+.header.ato-search-active .ato-hs-bar{
+  position:relative;
+  z-index:100780!important;
+}
+.header.ato-search-active .ato-hs-panel{
+  z-index:100770!important;
+  opacity:1!important;
+  filter:none!important;
+  -webkit-filter:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.ato-header-search-scrim{
+  z-index:100400!important;
+  /* Keep the premium dimming, but do not optically blur content that may overlap. */
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  background:linear-gradient(180deg,rgba(1,7,13,.48),rgba(1,7,13,.76))!important;
+}
+@media(max-width:980px){
+  .header.ato-search-active{z-index:100800!important}
+  .header.ato-search-active .ato-header-search-shell{z-index:100820!important}
+}
+</style>
+
 
 <style id="ato-contact-hotline-v44">
 /* ATO V4.4 — company/contact headings + hotline */
@@ -744,35 +775,7 @@ body.ato-header-search-open{overflow-x:hidden}
   </div>
 </div>
 
-<section class="hero ato-living-hero" id="atoLivingHero" aria-label="Featured experiences">
-  <div class="ato-living-hero__stage" aria-hidden="true">
-    <div class="ato-living-hero__scene ato-living-hero__scene--current"></div>
-    <div class="ato-living-hero__scene ato-living-hero__scene--next"></div>
-    <div class="ato-living-hero__edge"></div>
-    <div class="ato-living-hero__transition"></div>
-  </div>
-
-  <a class="ato-living-hero__hit" href="/luxury-yacht-cruise.html" aria-label="SEA EXPERIENCE — PRIVATE YACHT — open tour"></a>
-
-  <div class="ato-living-hero__ui">
-    <div class="ato-living-hero__top">
-      <button class="ato-living-hero__pause" type="button" aria-label="Pause hero animation" aria-pressed="false">Ⅱ</button>
-      <div class="ato-living-hero__progress" aria-hidden="true">
-        <span class="ato-living-hero__current-num">01</span>
-        <span class="ato-living-hero__track"><i></i></span>
-        <span>06</span>
-      </div>
-    </div>
-
-    <a class="ato-living-hero__scroll" href="#main-categories">
-      <span>SCROLL TO EXPLORE</span>
-    </a>
-
-    <a class="ato-living-hero__caption" href="/luxury-yacht-cruise.html" aria-label="SEA EXPERIENCE — PRIVATE YACHT — open tour">
-      <span>SEA EXPERIENCE — PRIVATE YACHT</span><b>↗</b>
-    </a>
-  </div>
-
+<section class="hero">
   <div class="hero-content">
     <p class="badge">Alanya • Antalya • Türkiye</p>
 
@@ -1718,6 +1721,6 @@ render();
 })();
 </script>
 
-<script src="assets/js/ato-living-hero.js" defer></script>
+<!-- ATO TOUR FINDER V4.5 · HEADER RESULTS LAYER FIX -->
 </body>
 </html>
