@@ -1,0 +1,23 @@
+ATO HERO ROOT FIX
+
+IMPORTANT: upload/merge the CONTENTS of this package into the SITE ROOT.
+Do NOT upload the parent folder ATO-HERO-ROOT-FIX as a subfolder.
+
+Correct result in repository root:
+/index.html
+/assets/css/ato-living-hero.css
+/assets/js/ato-living-hero.js
+/assets/img/hero/desktop/01-sea-private-yacht.webp
+/assets/img/hero/desktop/02-air-paragliding.webp
+/assets/img/hero/desktop/03-nature-rafting.webp
+/assets/img/hero/desktop/04-history-cappadocia.webp
+/assets/img/hero/desktop/05-family-land-of-legends.webp
+/assets/img/hero/desktop/06-vip-helicopter.webp
+/assets/img/hero/mobile/01-sea-private-yacht.webp
+/assets/img/hero/mobile/02-air-paragliding.webp
+/assets/img/hero/mobile/03-nature-rafting.webp
+/assets/img/hero/mobile/04-history-cappadocia.webp
+/assets/img/hero/mobile/05-family-land-of-legends.webp
+/assets/img/hero/mobile/06-vip-helicopter.webp
+
+Keep all existing site files not included here, especially styles.css and shared Trip Planner assets.
