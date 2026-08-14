@@ -3,15 +3,8 @@
 
   const KEY = 'atoTripPlannerPool';
   const MAX = 8;
-  const CARD_SELECTOR = '.tour-card';
-  const CONTROL_CANDIDATES = [
-    '.ato-compare-control',
-    '.compare-btn',
-    '[data-compare]',
-    '[data-action*="compare" i]',
-    'button',
-    '[role="button"]'
-  ].join(',');
+  const CARD_SELECTOR = 'a.tour-card[href]';
+  const CONTROL_SELECTOR = '.ato-compare-control, .compare-btn, [data-compare], [data-action*="compare" i]';
 
   const normalizeHref = (href) => {
     if (!href) return '';
@@ -21,14 +14,6 @@
     } catch (_) {
       return String(href).split('?')[0].split('#')[0].split('/').pop() || '';
     }
-  };
-
-  const cardHref = (card) => {
-    if (!card) return '';
-    const direct = card.getAttribute?.('href');
-    if (direct) return normalizeHref(direct);
-    const link = card.querySelector?.('a[href]');
-    return normalizeHref(link?.getAttribute('href') || '');
   };
 
   const read = () => {
@@ -56,64 +41,6 @@
   let observer;
   let normalizeQueued = false;
 
-  function installCriticalLayoutCSS() {
-    if (document.getElementById('ato-compare-arrow-layout-critical-v3')) return;
-    const style = document.createElement('style');
-    style.id = 'ato-compare-arrow-layout-critical-v3';
-    style.textContent = `
-      /* Critical invariant: Compare exists ONLY beside the gold arrow. */
-      .tour-card .ato-compare-control{visibility:hidden!important;}
-      .tour-card .tour-bottom{
-        display:flex!important;
-        align-items:center!important;
-        flex-wrap:nowrap!important;
-      }
-      .tour-card .tour-bottom > .meta,
-      .tour-card .tour-bottom .meta{
-        flex:1 1 auto!important;
-        min-width:0!important;
-      }
-      .tour-card .tour-bottom > .ato-card-actions,
-      .tour-card .tour-bottom .ato-card-actions{
-        position:static!important;
-        inset:auto!important;
-        margin:0 0 0 auto!important;
-        display:inline-flex!important;
-        align-items:center!important;
-        justify-content:flex-end!important;
-        flex:0 0 auto!important;
-        gap:8px!important;
-        white-space:nowrap!important;
-        transform:none!important;
-      }
-      .tour-card .tour-bottom .ato-card-actions > .ato-compare-control{
-        visibility:visible!important;
-        position:static!important;
-        inset:auto!important;
-        top:auto!important;
-        right:auto!important;
-        bottom:auto!important;
-        left:auto!important;
-        float:none!important;
-        transform:none!important;
-        margin:0!important;
-        align-self:center!important;
-        flex:0 0 auto!important;
-      }
-      .tour-card .tour-bottom .ato-card-actions > .circle-arrow{
-        position:static!important;
-        inset:auto!important;
-        margin:0!important;
-        transform:none!important;
-        flex:0 0 auto!important;
-      }
-      @media(max-width:760px){
-        .tour-card .tour-bottom .ato-card-actions{gap:7px!important;}
-      }
-    `;
-    (document.head || document.documentElement).appendChild(style);
-  }
-
   function toast(message) {
     let el = document.querySelector('.ato-planner-toast');
     if (!el) {
@@ -134,7 +61,6 @@
   }
 
   function ensureDock() {
-    if (!document.body) return null;
     let dock = document.querySelector('.ato-planner-dock');
     if (dock) return dock;
 
@@ -167,23 +93,22 @@
 
   function update() {
     document.querySelectorAll('.ato-compare-control').forEach((el) => {
-      const href = normalizeHref(el.dataset.tourHref || cardHref(el.closest('.tour-card')));
-      if (!href) return;
+      const href = normalizeHref(el.dataset.tourHref);
       const added = pool.includes(href);
       el.classList.toggle('is-added', added);
-      el.classList.toggle('is-selected', added);
+      el.classList.toggle('is-selected', added); // compatibility with older category CSS
       el.setAttribute('aria-pressed', added ? 'true' : 'false');
       const label = added ? '✓ Added' : '＋ Compare';
-      if ((el.textContent || '').trim() !== label) el.textContent = label;
+      if (el.textContent !== label) el.textContent = label;
     });
 
+    if (!document.body) return;
     const dock = ensureDock();
-    if (!dock) return;
     const count = pool.length;
     dock.classList.toggle('visible', count > 0);
     const strong = dock.querySelector('strong');
-    const label = `TRIP PLANNER · ${count}/${MAX} TOURS`;
-    if (strong && strong.textContent !== label) strong.textContent = label;
+    const dockLabel = `TRIP PLANNER · ${count}/${MAX} TOURS`;
+    if (strong && strong.textContent !== dockLabel) strong.textContent = dockLabel;
   }
 
   function toggle(href) {
@@ -204,84 +129,96 @@
     update();
   }
 
-  function looksLikeCompare(el) {
-    if (!el || el.closest('.ato-planner-dock')) return false;
-    if (el.classList?.contains('ato-compare-control')) return true;
-    if (el.classList?.contains('compare-btn')) return true;
-    if (el.hasAttribute?.('data-compare')) return true;
-    if (/compare/i.test(el.getAttribute?.('data-action') || '')) return true;
-    const cls = typeof el.className === 'string' ? el.className : '';
-    const txt = (el.textContent || '').replace(/\s+/g, ' ').trim();
-    return /compare/i.test(cls) || /(^|\s|\+)compare(\s|$)/i.test(txt) || /^✓\s*added$/i.test(txt);
-  }
-
-  function findCompareControls(card) {
-    return [...card.querySelectorAll(CONTROL_CANDIDATES)].filter(looksLikeCompare);
-  }
-
-  function ensureActionPair(bottom, arrow) {
-    let actions = arrow.closest('.card-actions, .ato-card-actions');
-    if (actions && !bottom.contains(actions)) actions = null;
-
+  function getOrCreateActions(bottom) {
+    let actions = bottom.querySelector(':scope > .card-actions');
     if (!actions) {
       actions = document.createElement('span');
       actions.className = 'card-actions ato-card-actions';
-      arrow.parentNode.insertBefore(actions, arrow);
-      actions.appendChild(arrow);
+      bottom.appendChild(actions);
     } else {
-      actions.classList.add('card-actions', 'ato-card-actions');
-      if (arrow.parentElement !== actions) actions.appendChild(arrow);
+      actions.classList.add('ato-card-actions');
     }
 
-    return actions;
+    const arrow = bottom.querySelector(':scope > .circle-arrow') || actions.querySelector('.circle-arrow');
+    if (arrow && arrow.parentElement !== actions) actions.appendChild(arrow);
+
+    return { actions, arrow: actions.querySelector('.circle-arrow') };
   }
 
-  function normalizeCard(card) {
-    const href = cardHref(card);
-    if (!href) return;
+  function findExistingControl(card) {
+    const candidates = [...card.querySelectorAll(CONTROL_SELECTOR)];
+    return candidates.find((el) =>
+      !el.closest('.ato-planner-dock') &&
+      !el.classList.contains('ato-planner-open') &&
+      !el.classList.contains('ato-planner-clear')
+    ) || null;
+  }
 
-    const bottom = card.querySelector('.tour-bottom');
-    const arrow = bottom?.querySelector('.circle-arrow');
-
-    // Hard rule: no arrow = no Compare. Never place it on the image/top of the card.
-    if (!bottom || !arrow) {
-      findCompareControls(card).forEach((control) => {
-        if (control.classList.contains('ato-compare-control')) control.remove();
-      });
-      card.dataset.atoPlannerReady = '0';
-      return;
+  function stripLegacyListeners(control) {
+    // Some newer category pages contain their own inline Compare handler.
+    // Cloning removes those page-specific listeners so every category uses one shared pool.
+    if (!control || control.dataset.atoSharedBound === '1') return control;
+    if (control.classList.contains('compare-btn') && !control.classList.contains('ato-compare-control')) {
+      const clone = control.cloneNode(true);
+      control.replaceWith(clone);
+      return clone;
     }
+    return control;
+  }
 
-    const actions = ensureActionPair(bottom, arrow);
-    const controls = findCompareControls(card);
-    let control = controls.find((el) => actions.contains(el)) || controls[0] || null;
-
-    if (!control) {
-      control = document.createElement('span');
-      control.className = 'compare-btn ato-compare-control';
-      control.textContent = '＋ Compare';
-    }
+  function bindControl(control, href) {
+    if (control.dataset.atoSharedBound === '1') return;
 
     control.classList.add('ato-compare-control');
+    control.dataset.atoSharedBound = '1';
     control.dataset.tourHref = href;
     control.setAttribute('role', 'button');
     control.setAttribute('tabindex', '0');
 
-    // Remove duplicate legacy Compare controls, including old image/top controls.
-    controls.forEach((other) => {
-      if (other !== control) other.remove();
-    });
+    const act = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      toggle(href);
+    };
 
-    // Physical DOM order is always: Compare, then gold arrow.
-    if (control.parentElement !== actions || control.nextElementSibling !== arrow) {
-      actions.insertBefore(control, arrow);
+    control.addEventListener('click', act);
+    control.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') act(event);
+    });
+  }
+
+  function normalizeCard(card) {
+    const href = normalizeHref(card.getAttribute('href'));
+    if (!href) return;
+
+    const body = card.querySelector('.tour-body') || card;
+    const bottom = body.querySelector('.tour-bottom');
+    let control = stripLegacyListeners(findExistingControl(card));
+
+    if (!control) {
+      control = document.createElement('span');
+      control.textContent = '＋ Compare';
+    }
+
+    bindControl(control, href);
+
+    if (bottom) {
+      const { actions, arrow } = getOrCreateActions(bottom);
+      if (arrow) {
+        if (control.parentElement !== actions || control.nextElementSibling !== arrow) {
+          actions.insertBefore(control, arrow);
+        }
+      } else if (control.parentElement !== actions) {
+        actions.appendChild(control);
+      }
+    } else if (control.parentElement !== body) {
+      body.appendChild(control);
     }
 
     card.dataset.atoPlannerReady = '1';
   }
 
   function normalizeAll() {
-    installCriticalLayoutCSS();
     document.querySelectorAll(CARD_SELECTOR).forEach(normalizeCard);
     update();
   }
@@ -295,48 +232,17 @@
     });
   }
 
-  function captureCompareClick(event) {
-    const target = event.target instanceof Element ? event.target : null;
-    const control = target?.closest('.ato-compare-control');
-    if (!control) return;
-    const card = control.closest('.tour-card');
-    if (!card) return;
-
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-    toggle(control.dataset.tourHref || cardHref(card));
-  }
-
-  function captureCompareKeydown(event) {
-    if (event.key !== 'Enter' && event.key !== ' ') return;
-    const target = event.target instanceof Element ? event.target : null;
-    const control = target?.closest('.ato-compare-control');
-    if (!control) return;
-    const card = control.closest('.tour-card');
-    if (!card) return;
-
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-    toggle(control.dataset.tourHref || cardHref(card));
-  }
-
   function start() {
     normalizeAll();
-
-    // Capture phase neutralizes old per-page Compare handlers that may load later.
-    document.addEventListener('click', captureCompareClick, true);
-    document.addEventListener('keydown', captureCompareKeydown, true);
 
     if (!observer && document.documentElement) {
       observer = new MutationObserver(queueNormalize);
       observer.observe(document.documentElement, { childList: true, subtree: true });
     }
 
-    setTimeout(normalizeAll, 120);
-    setTimeout(normalizeAll, 450);
-    setTimeout(normalizeAll, 1200);
+    // Covers cards inserted by late category scripts without visible jumping/flicker.
+    setTimeout(normalizeAll, 250);
+    setTimeout(normalizeAll, 800);
   }
 
   if (document.readyState === 'loading') {

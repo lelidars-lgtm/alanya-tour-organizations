@@ -1,64 +1,58 @@
 /* ALANYA TOUR ORGANIZATIONS — GLOBAL Compare / Trip Planner controls
-   APPROVED CARD ORDER:
-   [meta information]                     [＋ Compare] [gold arrow]
-
-   Critical rule: Compare is never positioned on the image/top of a category card.
+   One approved position on every category card:
+   [meta information]                    [＋ Compare] [gold arrow]
 */
 
-/* Hide any legacy image/top control until JS physically moves it beside the arrow. */
-.tour-card .ato-compare-control{
-  visibility:hidden !important;
+/* Keep the action pair together at the bottom-right of every tour card. */
+.tour-bottom{
+  display:flex;
+  align-items:center;
+}
+
+.tour-bottom > .meta,
+.tour-bottom .meta{
+  flex:1 1 auto;
+  min-width:0;
+}
+
+.tour-bottom > .card-actions,
+.tour-bottom .ato-card-actions{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+
+.tour-bottom .card-actions .circle-arrow,
+.tour-bottom .ato-card-actions .circle-arrow{
+  margin:0 !important;
+  flex:0 0 auto;
+}
+
+/* Global Compare control. Old per-category positioning is deliberately overridden. */
+.tour-bottom .ato-compare-control,
+.tour-bottom .card-actions .ato-compare-control,
+.tour-bottom .card-actions .compare-btn.ato-compare-control{
   position:static !important;
   inset:auto !important;
-  transform:none !important;
-}
-
-.tour-card .tour-bottom{
-  display:flex !important;
-  align-items:center !important;
-  flex-wrap:nowrap !important;
-}
-
-.tour-card .tour-bottom > .meta,
-.tour-card .tour-bottom .meta{
-  flex:1 1 auto !important;
-  min-width:0 !important;
-}
-
-.tour-card .tour-bottom > .card-actions,
-.tour-card .tour-bottom > .ato-card-actions,
-.tour-card .tour-bottom .ato-card-actions{
-  position:static !important;
-  inset:auto !important;
-  margin:0 0 0 auto !important;
-  display:inline-flex !important;
-  align-items:center !important;
-  justify-content:flex-end !important;
-  gap:8px !important;
-  flex:0 0 auto !important;
-  white-space:nowrap !important;
-  transform:none !important;
-}
-
-/* Compare is visible only in its approved location immediately left of the arrow. */
-.tour-card .tour-bottom .ato-card-actions > .ato-compare-control{
-  visibility:visible !important;
-  position:static !important;
-  inset:auto !important;
-  top:auto !important;
   right:auto !important;
   bottom:auto !important;
+  top:auto !important;
   left:auto !important;
   float:none !important;
   transform:none !important;
-  margin:0 !important;
-  align-self:center !important;
+  z-index:8;
+  align-self:auto !important;
   flex:0 0 auto !important;
-  display:inline-flex !important;
-  align-items:center !important;
-  justify-content:center !important;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   gap:6px;
   min-height:34px;
+  margin:0 !important;
   padding:8px 12px;
   border:1px solid rgba(243,198,109,.82);
   border-radius:999px;
@@ -71,34 +65,26 @@
   box-shadow:0 8px 24px rgba(0,0,0,.30);
   cursor:pointer;
   user-select:none;
-  transition:background .2s ease,box-shadow .2s ease,border-color .2s ease,color .2s ease;
+  transition:background .2s ease, box-shadow .2s ease, border-color .2s ease, color .2s ease;
 }
 
-.tour-card .tour-bottom .ato-card-actions > .circle-arrow{
-  position:static !important;
-  inset:auto !important;
-  margin:0 !important;
-  transform:none !important;
-  flex:0 0 auto !important;
-}
-
-.tour-card .tour-bottom .ato-compare-control:hover{
+.tour-bottom .ato-compare-control:hover{
   border-color:#f5cf76;
   box-shadow:0 10px 28px rgba(0,0,0,.42),0 0 18px rgba(243,198,109,.12);
 }
 
-.tour-card .tour-bottom .ato-compare-control.is-added,
-.tour-card .tour-bottom .ato-compare-control.is-selected{
+.tour-bottom .ato-compare-control.is-added,
+.tour-bottom .ato-compare-control.is-selected{
   background:linear-gradient(135deg,#08705d,#0b9275);
   color:#fff;
 }
 
-.tour-card .tour-bottom .ato-compare-control:focus-visible{
+.tour-bottom .ato-compare-control:focus-visible{
   outline:2px solid #f5cf76;
   outline-offset:2px;
 }
 
-/* Trip Planner dock */
+/* Trip Planner dock — preserved from the approved shared component. */
 .ato-planner-dock{
   position:fixed;z-index:99990;left:50%;bottom:22px;transform:translate(-50%,16px);
   display:flex;align-items:center;gap:12px;min-width:310px;max-width:calc(100vw - 24px);
@@ -116,11 +102,12 @@
 .ato-planner-toast.show{opacity:1}
 
 @media(max-width:760px){
-  .tour-card .tour-bottom > .card-actions,
-  .tour-card .tour-bottom > .ato-card-actions,
-  .tour-card .tour-bottom .ato-card-actions{gap:7px !important}
+  .tour-bottom > .card-actions,
+  .tour-bottom .ato-card-actions{gap:7px}
 
-  .tour-card .tour-bottom .ato-card-actions > .ato-compare-control{
+  .tour-bottom .ato-compare-control,
+  .tour-bottom .card-actions .ato-compare-control,
+  .tour-bottom .card-actions .compare-btn.ato-compare-control{
     min-height:30px;
     padding:7px 9px;
     font-size:9px;
@@ -133,12 +120,17 @@
 }
 
 @media(max-width:460px){
-  .tour-card .tour-bottom{gap:8px !important}
-  .tour-card .tour-bottom > .card-actions,
-  .tour-card .tour-bottom > .ato-card-actions,
-  .tour-card .tour-bottom .ato-card-actions{gap:6px !important}
+  .tour-bottom{
+    align-items:flex-end;
+    gap:8px;
+  }
 
-  .tour-card .tour-bottom .ato-card-actions > .ato-compare-control{
+  .tour-bottom > .card-actions,
+  .tour-bottom .ato-card-actions{gap:6px}
+
+  .tour-bottom .ato-compare-control,
+  .tour-bottom .card-actions .ato-compare-control,
+  .tour-bottom .card-actions .compare-btn.ato-compare-control{
     padding:7px 8px;
     font-size:8.5px;
     letter-spacing:.035em;
