@@ -13,7 +13,10 @@
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="assets/css/trip-planner-shared.css" />
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=lK-BshYiyVeCbP_fAlj_Ms4Nsn5pc0AifxeuLaB9u1fnjXwJsZFdDanGwnYnDctKzugwioMh56oCyrEHeIFdCcq4p4TIfrFWkR58A3d_9NnQtKr0N8QTqfhB50_WpMgITkPbBjYX_d7ZxI4sXlSROCao3skLjL68giKAEsP-OFIileDqPHCWbwBYTp8XLr15tCoIpXoaKCHkbSogwFW1C6F0sHWy5XBXLRuWfWqSi5kNG7j_WqHFPPaJXYFF7RP2HvIKhhvdcptMiyviyssQcw" charset="UTF-8"></script><style id="ato-tour-finder-premium-v4">
+  <link rel="preload" as="image" href="assets/img/hero/desktop/01-sea-private-yacht.webp" media="(min-width:981px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/img/hero/mobile/01-sea-private-yacht.webp" media="(max-width:980px)" fetchpriority="high" />
+  <link rel="stylesheet" href="assets/css/ato-living-hero.css" />
+<style id="ato-tour-finder-premium-v4">
 /* ================= ATO TOUR FINDER PREMIUM V4 ================= */
 :root{
   --atf-gold:#e4b85b;--atf-gold-2:#ffe1a0;--atf-bg:#050c14;--atf-bg2:#081320;
@@ -775,7 +778,35 @@ body.ato-header-search-open{overflow-x:hidden}
   </div>
 </div>
 
-<section class="hero">
+<section class="hero ato-living-hero" id="atoLivingHero" aria-label="Featured experiences">
+  <div class="ato-living-hero__stage" aria-hidden="true">
+    <div class="ato-living-hero__scene ato-living-hero__scene--current"></div>
+    <div class="ato-living-hero__scene ato-living-hero__scene--next"></div>
+    <div class="ato-living-hero__edge"></div>
+    <div class="ato-living-hero__transition"></div>
+  </div>
+
+  <a class="ato-living-hero__hit" href="/luxury-yacht-cruise.html" aria-label="SEA EXPERIENCE — PRIVATE YACHT — open tour"></a>
+
+  <div class="ato-living-hero__ui">
+    <div class="ato-living-hero__top">
+      <button class="ato-living-hero__pause" type="button" aria-label="Pause hero animation" aria-pressed="false">Ⅱ</button>
+      <div class="ato-living-hero__progress" aria-hidden="true">
+        <span class="ato-living-hero__current-num">01</span>
+        <span class="ato-living-hero__track"><i></i></span>
+        <span>06</span>
+      </div>
+    </div>
+
+    <a class="ato-living-hero__scroll" href="#main-categories">
+      <span>SCROLL TO EXPLORE</span>
+    </a>
+
+    <a class="ato-living-hero__caption" href="/luxury-yacht-cruise.html" aria-label="SEA EXPERIENCE — PRIVATE YACHT — open tour">
+      <span>SEA EXPERIENCE — PRIVATE YACHT</span><b>↗</b>
+    </a>
+  </div>
+
   <div class="hero-content">
     <p class="badge">Alanya • Antalya • Türkiye</p>
 
@@ -1721,6 +1752,7 @@ render();
 })();
 </script>
 
-<!-- ATO TOUR FINDER V4.5 · HEADER RESULTS LAYER FIX -->
+<!-- ATO TOUR FINDER V4.5 · HEADER RESULTS LAYER FIX + LIVING HERO + POPULAR TOURS -->
+<script src="assets/js/ato-living-hero.js" defer></script>
 </body>
 </html>
