@@ -1,353 +1,136 @@
 (() => {
   'use strict';
+  const root = document.getElementById('atoLivingHero');
+  if (!root) return;
 
-  function boot(){
-    const root=document.getElementById('atoLivingHero');
-    if(!root || root.dataset.atoHeroReady==='1') return;
-    root.dataset.atoHeroReady='1';
+  const current = root.querySelector('.ato-living-hero__scene--current');
+  const next = root.querySelector('.ato-living-hero__scene--next');
+  const stage = root.querySelector('.ato-living-hero__stage');
+  const currentNum = root.querySelector('.ato-living-hero__current-num');
+  const totalNum = root.querySelector('.ato-living-hero__total-num');
+  const fill = root.querySelector('.ato-living-hero__track i');
+  const caption = root.querySelector('.ato-living-hero__caption');
+  const captionText = caption?.querySelector('span');
+  const hit = root.querySelector('.ato-living-hero__hit');
+  const pause = root.querySelector('.ato-living-hero__pause');
+  const slogan = root.querySelector('.ato-living-hero__slogan');
+  const mobile = matchMedia('(max-width:980px)');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const current=root.querySelector('.ato-living-hero__scene--current');
-    const next=root.querySelector('.ato-living-hero__scene--next');
-    const transitionHost=root.querySelector('.ato-living-hero__transition');
-    const progressFill=root.querySelector('.ato-living-hero__track i');
-    const currentNum=root.querySelector('.ato-living-hero__current-num');
-    const caption=root.querySelector('.ato-living-hero__caption');
-    const captionText=caption?.querySelector('span');
-    const hit=root.querySelector('.ato-living-hero__hit');
-    const pauseBtn=root.querySelector('.ato-living-hero__pause');
-    const scrollText=root.querySelector('.ato-living-hero__scroll span');
+  const scenes = [
+    {id:'01',file:'01-rafting.webp',transition:'splash',duration:5600,href:'/rafting-koprulu-canyon.html',label:'NATURE & ADVENTURE — RAFTING'},
+    {id:'02',file:'02-cappadocia/composite.webp',transition:'cappadocia',duration:7600,href:'/cappadocia.html',label:'HISTORY & CULTURE — CAPPADOCIA',multi:[
+      '02-cappadocia/01-dawn-balloons.webp','02-cappadocia/02-ancient-rock-houses.webp','02-cappadocia/03-night-lights-balloons.webp'
+    ]},
+    {id:'03',file:'03-pamukkale.webp',transition:'terraces',duration:5400,href:'/pamukkale-salda-lake.html',label:'NATURE & ADVENTURE — PAMUKKALE'},
+    {id:'04',file:'04-istanbul/composite.webp',transition:'istanbul',duration:7600,href:'/istanbul-tour.html',label:'HISTORY & CULTURE — ISTANBUL',multi:[
+      '04-istanbul/01-galata-night.webp','04-istanbul/02-bosphorus-sunset.webp','04-istanbul/03-sultanahmet-seagulls.webp'
+    ]},
+    {id:'05',file:'05-tazy-canyon.webp',transition:'canyon',duration:5600,href:'/nature-adventures.html',label:'NATURE & ADVENTURE — TAZY CANYON'},
+    {id:'06',file:'06-land-of-legends.webp',transition:'reflection',duration:5400,href:'/land-of-legends.html',label:'FAMILY EXPERIENCE — THE LAND OF LEGENDS'},
+    {id:'07',file:'07-jeep-safari.webp',transition:'dust',duration:5200,href:'/jeep-safari.html',label:'NATURE & ADVENTURE — JEEP SAFARI'},
+    {id:'08',file:'08-gazipasa-heart.webp',transition:'heart',duration:5700,href:'/gazipasa-bays.html',label:'GAZİPAŞA — HEART ROCK'},
+    {id:'09',file:'09-vip-helicopter.webp',transition:'rotor',duration:5600,href:'/helicopter-experience.html',label:'VIP SERVICES — HELICOPTER CHARTER'},
+    {id:'10',file:'10-alanya-night.webp',transition:'night',duration:5600,href:'/alanya-city-tour.html',label:'ALANYA BY NIGHT — CASTLE VIEW'}
+  ];
 
-    if(!current || !next || !transitionHost || !progressFill || !currentNum || !caption || !captionText || !hit) return;
+  let i=0, timer=0, stopped=false, busy=false;
+  if (totalNum) totalNum.textContent=String(scenes.length);
+  const dir=()=>`assets/img/hero/${mobile.matches?'mobile':'desktop'}/`;
+  const path=s=>dir()+s.file;
+  const asset=f=>dir()+f;
+  const preload=src=>new Promise(r=>{const im=new Image(); im.onload=im.onerror=r; im.decoding='async'; im.src=src;});
 
-    const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const mobileMq=window.matchMedia('(max-width:980px)');
-    const TRANSITION_LEAD=1120;
-
-    const chapters=[
-      {
-        id:'01', file:'01-sea-private-yacht.webp', enter:'portal', duration:5800,
-        href:'/luxury-yacht-cruise.html',
-        labels:{en:'SEA EXPERIENCE — PRIVATE YACHT',ru:'МОРСКИЕ ВПЕЧАТЛЕНИЯ — ЧАСТНАЯ ЯХТА',tr:'DENİZ DENEYİMİ — ÖZEL YAT',de:'MEERESERLEBNIS — PRIVATE YACHT',pl:'MORSKIE WRAŻENIA — PRYWATNY JACHT'}
-      },
-      {
-        id:'02', file:'02-air-paragliding.webp', enter:'horizon', duration:4900,
-        href:'/paragliding.html',
-        labels:{en:'AIR EXPERIENCE — PARAGLIDING',ru:'ВОЗДУШНЫЕ ВПЕЧАТЛЕНИЯ — ПАРАПЛАН',tr:'HAVA DENEYİMİ — YAMAÇ PARAŞÜTÜ',de:'LUFTERLEBNIS — PARAGLIDING',pl:'PODNIEBNE WRAŻENIA — PARALOTNIA'}
-      },
-      {
-        id:'03', file:'03-nature-rafting.webp', enter:'splash', duration:5200,
-        href:'/rafting-koprulu-canyon.html',
-        labels:{en:'NATURE & ADVENTURE — RAFTING',ru:'ПРИРОДА И ПРИКЛЮЧЕНИЯ — РАФТИНГ',tr:'DOĞA & MACERA — RAFTİNG',de:'NATUR & ABENTEUER — RAFTING',pl:'NATURA & PRZYGODA — RAFTING'}
-      },
-      {
-        id:'04', file:'04-history-cappadocia.webp', enter:'panels', duration:5600,
-        href:'/cappadocia.html',
-        labels:{en:'HISTORY & CULTURE — CAPPADOCIA',ru:'ИСТОРИЯ И КУЛЬТУРА — КАППАДОКИЯ',tr:'TARİH & KÜLTÜR — KAPADOKYA',de:'GESCHICHTE & KULTUR — KAPPADOKIEN',pl:'HISTORIA & KULTURA — KAPADOCJA'}
-      },
-      {
-        id:'05', file:'05-family-land-of-legends.webp', enter:'reflection', duration:5000,
-        href:'/land-of-legends.html',
-        labels:{en:'FAMILY EXPERIENCE — LAND OF LEGENDS',ru:'СЕМЕЙНЫЕ ВПЕЧАТЛЕНИЯ — LAND OF LEGENDS',tr:'AİLE DENEYİMİ — LAND OF LEGENDS',de:'FAMILIENERLEBNIS — LAND OF LEGENDS',pl:'RODZINNE WRAŻENIA — LAND OF LEGENDS'}
-      },
-      {
-        id:'06', file:'06-vip-helicopter.webp', enter:'rotor', duration:5400,
-        href:'/helicopter-experience.html',
-        labels:{en:'VIP SERVICES — HELICOPTER CHARTER',ru:'VIP-СЕРВИС — ВЕРТОЛЁТНЫЙ ЧАРТЕР',tr:'VIP HİZMETLER — HELİKOPTER KİRALAMA',de:'VIP-SERVICE — HELIKOPTER-CHARTER',pl:'USŁUGI VIP — CZARTER HELIKOPTERA'}
-      }
-    ];
-
-    const scrollLabels={
-      en:'SCROLL TO EXPLORE',ru:'ЛИСТАЙТЕ, ЧТОБЫ ИССЛЕДОВАТЬ',tr:'KEŞFETMEK İÇİN KAYDIRIN',de:'SCROLLEN ZUM ENTDECKEN',pl:'PRZEWIŃ, ABY ODKRYWAĆ'
-    };
-
-    let index=0;
-    let busy=false;
-    let paused=false;
-    let timer=null;
-    let deadline=0;
-    let remaining=0;
-    let drift=null;
-    let currentLang=getLang();
-
-    const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-    const isMobile=()=>mobileMq.matches;
-    const pathFor=chapter=>`assets/img/hero/${isMobile()?'mobile':'desktop'}/${chapter.file}`;
-
-    function getLang(){
-      const l=(localStorage.getItem('atoLanguage')||document.documentElement.lang||'en').slice(0,2);
-      return ['en','ru','tr','de','pl'].includes(l)?l:'en';
-    }
-
-    function preload(src){
-      return new Promise(resolve=>{
-        const img=new Image();
-        img.decoding='async';
-        img.onload=()=>{
-          if(img.decode){img.decode().catch(()=>{}).finally(resolve)}
-          else resolve();
-        };
-        img.onerror=resolve;
-        img.src=src;
-      });
-    }
-
-    function paint(el,chapter){
-      el.style.backgroundImage=`url("${pathFor(chapter)}")`;
-      el.style.backgroundPosition='center center';
-    }
-
-    function translateUi(){
-      currentLang=getLang();
-      const label=chapters[index].labels[currentLang]||chapters[index].labels.en;
-      captionText.textContent=label;
-      if(scrollText) scrollText.textContent=scrollLabels[currentLang]||scrollLabels.en;
-      caption.setAttribute('aria-label',label+' — open tour');
-      hit.setAttribute('aria-label',label+' — open tour');
-    }
-
-    function setUi(chapter){
-      currentNum.textContent=chapter.id;
-      caption.href=chapter.href;
-      hit.href=chapter.href;
-      translateUi();
-      caption.classList.remove('is-visible');
-      setTimeout(()=>caption.classList.add('is-visible'),650);
-
-      root.style.setProperty('--ato-hero-duration',`${chapter.duration}ms`);
-      progressFill.classList.remove('is-running');
-      void progressFill.offsetWidth;
-      if(!paused && !reducedMotion) progressFill.classList.add('is-running');
-    }
-
-    function startDrift(chapter){
-      drift?.cancel?.();
-      if(reducedMotion) return;
-      const map={
-        '01':[0.25,-0.25],
-        '02':[-0.65,-0.12],
-        '03':[0.18,-0.40],
-        '04':[0.20,-0.15],
-        '05':[0.12,-0.10],
-        '06':[0.55,-0.22]
-      };
-      const [dx,dy]=map[chapter.id]||[0.2,-0.2];
-      drift=current.animate([
-        {transform:'scale(1.012) translate3d(0,0,0)'},
-        {transform:`scale(1.052) translate3d(${dx}%,${dy}%,0)`}
-      ],{duration:chapter.duration+800,easing:'cubic-bezier(.2,.65,.2,1)',fill:'forwards'});
-    }
-
-    function clearTemp(){
-      transitionHost.replaceChildren();
-      transitionHost.style.opacity='0';
-      next.style.clipPath='';
-      next.style.webkitClipPath='';
-      next.style.opacity='0';
-      next.style.transform='scale(1.012)';
-    }
-
-    function goldTrace(vertical=false){
-      const el=document.createElement('i');
-      el.className='ato-hero-gold-trace';
-      el.style.left=vertical?'58%':'31%';
-      el.style.top='50%';
-      transitionHost.appendChild(el);
-      return el.animate([
-        {opacity:0,transform:`${vertical?'rotate(90deg) ':''}scaleX(.10)`},
-        {opacity:.92,offset:.42,transform:`${vertical?'rotate(90deg) ':''}scaleX(1)`},
-        {opacity:0,transform:`${vertical?'rotate(90deg) ':''}scaleX(1.22)`}
-      ],{duration:720,easing:'cubic-bezier(.2,.72,.2,1)',fill:'forwards'});
-    }
-
-    async function horizonReveal(){
-      next.style.opacity='1';
-      next.style.clipPath='inset(49.7% 0 49.7% 0)';
-      goldTrace(false);
-      await next.animate([
-        {clipPath:'inset(49.7% 0 49.7% 0)',transform:'scale(1.045)'},
-        {clipPath:'inset(0 0 0 0)',transform:'scale(1.012)'}
-      ],{duration:1040,easing:'cubic-bezier(.76,0,.24,1)',fill:'forwards'}).finished;
-    }
-
-    async function splashReveal(){
-      next.style.opacity='1';
-      const start='polygon(0 80%,8% 70%,17% 82%,27% 67%,37% 79%,47% 65%,57% 80%,67% 68%,77% 77%,88% 64%,100% 74%,100% 100%,0 100%)';
-      const end='polygon(0 0,8% 0,17% 0,27% 0,37% 0,47% 0,57% 0,67% 0,77% 0,88% 0,100% 0,100% 100%,0 100%)';
-      next.style.clipPath=start;
-      const flare=document.createElement('i');
-      flare.className='ato-hero-reflection-flare';
-      transitionHost.appendChild(flare);
-      flare.animate([{opacity:0,transform:'translateY(230px)'},{opacity:.78,offset:.45},{opacity:0,transform:'translateY(-220px)'}],{duration:900,easing:'ease-out',fill:'forwards'});
-      await next.animate([
-        {clipPath:start,transform:'scale(1.045) translateY(1.6%)'},
-        {clipPath:end,transform:'scale(1.012) translateY(0)'}
-      ],{duration:1080,easing:'cubic-bezier(.16,.78,.18,1)',fill:'forwards'}).finished;
-    }
-
-    async function panelsReveal(chapter){
-      const host=document.createElement('div');
-      host.className='ato-hero-panels';
-      const count=isMobile()?2:3;
-      for(let i=0;i<count;i++){
-        const p=document.createElement('div');
-        p.className='ato-hero-panel';
-        const bg=document.createElement('i');
-        bg.style.backgroundImage=`url("${pathFor(chapter)}")`;
-        p.appendChild(bg);
-        host.appendChild(p);
-      }
-      transitionHost.appendChild(host);
-      transitionHost.style.opacity='1';
-      [...host.children].forEach((p,i)=>p.animate([
-        {transform:i%2?'translateY(-105%)':'translateY(105%)'},
-        {transform:'translateY(0)'}
-      ],{duration:850,delay:i*80,easing:'cubic-bezier(.70,0,.20,1)',fill:'forwards'}));
-      await sleep(900);
-      next.style.opacity='1';
-      await host.animate([{opacity:1},{opacity:0}],{duration:270,easing:'ease',fill:'forwards'}).finished;
-    }
-
-    async function reflectionReveal(){
-      next.style.opacity='1';
-      next.style.clipPath='inset(50% 0 0 0)';
-      const flare=document.createElement('i');
-      flare.className='ato-hero-reflection-flare';
-      transitionHost.appendChild(flare);
-      flare.animate([{opacity:0},{opacity:.86,offset:.42},{opacity:0}],{duration:760,easing:'ease',fill:'forwards'});
-      await next.animate([
-        {clipPath:'inset(50% 0 0 0)',transform:'scaleY(-1) scale(1.024)',opacity:.80},
-        {clipPath:'inset(0 0 0 0)',transform:'scaleY(1) scale(1.012)',opacity:1}
-      ],{duration:1050,easing:'cubic-bezier(.65,0,.24,1)',fill:'forwards'}).finished;
-    }
-
-    async function rotorReveal(){
-      next.style.opacity='1';
-      const center=isMobile()?'62% 28%':'73% 29%';
-      const start=`circle(0% at ${center})`;
-      const end=`circle(150% at ${center})`;
-      next.style.clipPath=start;
-      const ring=document.createElement('div');
-      ring.style.cssText=`position:absolute;left:${isMobile()?'62%':'73%'};top:${isMobile()?'28%':'29%'};width:8px;height:8px;border:1px solid rgba(214,170,89,.78);border-radius:50%;transform:translate(-50%,-50%);opacity:0;`;
-      transitionHost.appendChild(ring);
-      ring.animate([
-        {width:'8px',height:'8px',opacity:0},
-        {opacity:.86,offset:.28},
-        {width:'130vmax',height:'130vmax',opacity:0}
-      ],{duration:980,easing:'cubic-bezier(.15,.72,.2,1)',fill:'forwards'});
-      await next.animate([
-        {clipPath:start,transform:'scale(1.045)'},
-        {clipPath:end,transform:'scale(1.012)'}
-      ],{duration:1030,easing:'cubic-bezier(.15,.72,.2,1)',fill:'forwards'}).finished;
-    }
-
-    async function portalReveal(){
-      next.style.opacity='1';
-      const center=isMobile()?'58% 47%':'65% 48%';
-      const start=`ellipse(0% 0% at ${center})`;
-      const end=`ellipse(132% 132% at ${center})`;
-      next.style.clipPath=start;
-      goldTrace(true);
-      await next.animate([
-        {clipPath:start,transform:'scale(1.050)'},
-        {clipPath:end,transform:'scale(1.012)'}
-      ],{duration:1110,easing:'cubic-bezier(.72,0,.20,1)',fill:'forwards'}).finished;
-    }
-
-    async function transitionTo(nextIndex){
-      if(busy || paused || reducedMotion) return;
-      busy=true;
-      const target=chapters[nextIndex];
-      await preload(pathFor(target));
-      paint(next,target);
-      caption.classList.remove('is-visible');
-      drift?.pause?.();
-      await sleep(220);
-      transitionHost.style.opacity='1';
-
-      switch(target.enter){
-        case 'horizon': await horizonReveal(); break;
-        case 'splash': await splashReveal(); break;
-        case 'panels': await panelsReveal(target); break;
-        case 'reflection': await reflectionReveal(); break;
-        case 'rotor': await rotorReveal(); break;
-        default: await portalReveal();
-      }
-
-      index=nextIndex;
-      paint(current,target);
-      current.style.opacity='1';
-      current.style.clipPath='';
-      current.style.transform='scale(1.012)';
-      clearTemp();
-      setUi(target);
-      startDrift(target);
-      preload(pathFor(chapters[(index+1)%chapters.length]));
-      busy=false;
-      schedule();
-    }
-
-    function schedule(ms){
-      clearTimeout(timer);
-      if(paused || reducedMotion) return;
-      remaining=Number.isFinite(ms)?ms:Math.max(2600,chapters[index].duration-TRANSITION_LEAD);
-      deadline=performance.now()+remaining;
-      timer=setTimeout(()=>transitionTo((index+1)%chapters.length),remaining);
-    }
-
-    function setPaused(value){
-      if(reducedMotion) return;
-      paused=value;
-      pauseBtn?.setAttribute('aria-pressed',String(value));
-      pauseBtn?.setAttribute('aria-label',value?'Resume hero animation':'Pause hero animation');
-      if(pauseBtn) pauseBtn.textContent=value?'▶':'Ⅱ';
-      if(value){
-        remaining=Math.max(0,deadline-performance.now());
-        clearTimeout(timer);
-        progressFill.style.animationPlayState='paused';
-        drift?.pause?.();
-      }else{
-        progressFill.style.animationPlayState='running';
-        drift?.play?.();
-        schedule(remaining||Math.max(2600,chapters[index].duration-TRANSITION_LEAD));
-      }
-    }
-
-    pauseBtn?.addEventListener('click',()=>setPaused(!paused));
-
-    window.addEventListener('ato-language-changed',()=>translateUi());
-
-    document.addEventListener('visibilitychange',()=>{
-      if(reducedMotion) return;
-      if(document.hidden){
-        remaining=Math.max(0,deadline-performance.now());
-        clearTimeout(timer);
-        drift?.pause?.();
-        progressFill.style.animationPlayState='paused';
-      }else if(!paused){
-        drift?.play?.();
-        progressFill.style.animationPlayState='running';
-        schedule(remaining||Math.max(2600,chapters[index].duration-TRANSITION_LEAD));
-      }
-    });
-
-    let wasMobile=isMobile();
-    window.addEventListener('resize',()=>{
-      const nowMobile=isMobile();
-      if(nowMobile!==wasMobile && !busy){
-        wasMobile=nowMobile;
-        paint(current,chapters[index]);
-        preload(pathFor(chapters[(index+1)%chapters.length]));
-      }
-    },{passive:true});
-
-    paint(current,chapters[0]);
-    setUi(chapters[0]);
-    startDrift(chapters[0]);
-    preload(pathFor(chapters[1]));
-    preload(pathFor(chapters[2]));
-    if(!reducedMotion) schedule();
+  function paint(el,s){ el.style.backgroundImage=`url("${path(s)}")`; el.dataset.transition=s.transition; }
+  function ui(s){
+    currentNum.textContent=s.id;
+    caption.href=hit.href=s.href;
+    captionText.textContent=s.label;
+    caption.setAttribute('aria-label',s.label+' — open tour');
+    hit.setAttribute('aria-label',s.label+' — open tour');
+    root.classList.toggle('is-opening-scene',s.id==='01');
+    slogan?.setAttribute('aria-hidden',s.id==='01'?'false':'true');
+    root.style.setProperty('--ato-hero-duration',Math.max(1400,s.duration-1150)+'ms');
+    fill.classList.remove('is-running'); void fill.offsetWidth;
+    if(!stopped && !reduced) fill.classList.add('is-running');
   }
 
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot,{once:true});
-  else boot();
+  function clearMulti(){ stage.querySelectorAll('.ato-multi-scene').forEach(el=>el.remove()); }
+  function clean(){
+    clearMulti();
+    next.style.cssText=''; next.className='ato-living-hero__scene ato-living-hero__scene--next';
+    root.classList.remove('tr-splash','tr-cappadocia','tr-terraces','tr-istanbul','tr-canyon','tr-reflection','tr-dust','tr-heart','tr-rotor','tr-night');
+  }
+
+  async function revealCappadocia(s){
+    clearMulti();
+    await Promise.all(s.multi.map(f=>preload(asset(f))));
+    const host=document.createElement('div'); host.className='ato-multi-scene ato-multi-scene--cappadocia';
+    s.multi.forEach((f,k)=>{const p=document.createElement('div');p.className=`ato-multi-panel ato-multi-panel--${k+1}`;p.style.backgroundImage=`url("${asset(f)}")`;host.appendChild(p)});
+    stage.appendChild(host);
+    const [a,b,c]=host.children;
+    a.animate([{clipPath:'polygon(0 0,0 0,0 100%,0 100%)',transform:'scale(1.06)'},{clipPath:'polygon(0 0,58% 0,47% 100%,0 100%)',transform:'scale(1.015)'}],{duration:1050,easing:'cubic-bezier(.16,.8,.2,1)',fill:'forwards'});
+    await new Promise(r=>setTimeout(r,720));
+    b.animate([{clipPath:'polygon(52% 0,52% 0,44% 100%,44% 100%)',transform:'translateX(6%) scale(1.08)'},{clipPath:'polygon(42% 0,76% 0,64% 100%,36% 100%)',transform:'translateX(0) scale(1.02)'}],{duration:1150,easing:'cubic-bezier(.16,.82,.22,1)',fill:'forwards'});
+    await new Promise(r=>setTimeout(r,760));
+    await c.animate([{clipPath:'polygon(100% 0,100% 0,100% 100%,100% 100%)',transform:'scale(1.07)'},{clipPath:'polygon(68% 0,100% 0,100% 100%,57% 100%)',transform:'scale(1.015)'}],{duration:1150,easing:'cubic-bezier(.16,.8,.2,1)',fill:'forwards'}).finished.catch(()=>{});
+    await new Promise(r=>setTimeout(r,500));
+    next.style.backgroundImage=`url("${path(s)}")`; next.style.opacity='1'; next.style.clipPath='inset(0)';
+    await host.animate([{opacity:1},{opacity:0}],{duration:420,easing:'ease',fill:'forwards'}).finished.catch(()=>{});
+  }
+
+  async function revealIstanbul(s){
+    clearMulti();
+    await Promise.all(s.multi.map(f=>preload(asset(f))));
+    const host=document.createElement('div'); host.className='ato-multi-scene ato-multi-scene--istanbul';
+    s.multi.forEach((f,k)=>{const p=document.createElement('div');p.className=`ato-multi-panel ato-multi-panel--${k+1}`;p.style.backgroundImage=`url("${asset(f)}")`;host.appendChild(p)});
+    stage.appendChild(host);
+    const [a,b,c]=host.children;
+    a.animate([{clipPath:'polygon(0 0,0 0,0 100%,0 100%)',transform:'translateX(-7%) scale(1.06)'},{clipPath:'polygon(0 0,38% 0,30% 100%,0 100%)',transform:'translateX(0) scale(1.015)'}],{duration:900,easing:'cubic-bezier(.16,.82,.22,1)',fill:'forwards'});
+    await new Promise(r=>setTimeout(r,620));
+    b.animate([{clipPath:'polygon(44% 0,44% 0,38% 100%,38% 100%)',transform:'translateY(5%) scale(1.07)'},{clipPath:'polygon(30% 0,72% 0,66% 100%,25% 100%)',transform:'translateY(0) scale(1.015)'}],{duration:1020,easing:'cubic-bezier(.16,.82,.22,1)',fill:'forwards'});
+    await new Promise(r=>setTimeout(r,680));
+    await c.animate([{clipPath:'polygon(100% 0,100% 0,100% 100%,100% 100%)',transform:'translateX(7%) scale(1.07)'},{clipPath:'polygon(68% 0,100% 0,100% 100%,61% 100%)',transform:'translateX(0) scale(1.015)'}],{duration:1050,easing:'cubic-bezier(.16,.82,.22,1)',fill:'forwards'}).finished.catch(()=>{});
+    host.classList.add('is-complete');
+    await new Promise(r=>setTimeout(r,520));
+    next.style.backgroundImage=`url("${path(s)}")`; next.style.opacity='1'; next.style.clipPath='inset(0)';
+    await host.animate([{opacity:1},{opacity:0}],{duration:420,easing:'ease',fill:'forwards'}).finished.catch(()=>{});
+  }
+
+  async function reveal(type,s){
+    if(type==='cappadocia') return revealCappadocia(s);
+    if(type==='istanbul') return revealIstanbul(s);
+    next.style.opacity='1'; root.classList.add('tr-'+type);
+    const map={
+      splash:['polygon(0 82%,14% 65%,28% 80%,44% 58%,58% 78%,74% 62%,100% 76%,100% 100%,0 100%)','polygon(0 0,100% 0,100% 100%,0 100%)'],
+      terraces:['polygon(0 82%,28% 74%,28% 59%,54% 59%,54% 42%,77% 42%,77% 24%,100% 24%,100% 100%,0 100%)','polygon(0 0,100% 0,100% 100%,0 100%)'],
+      canyon:['polygon(47% 0,53% 0,58% 100%,42% 100%)','polygon(0 0,100% 0,100% 100%,0 100%)'],
+      reflection:['polygon(0 50%,100% 50%,100% 100%,0 100%)','polygon(0 0,100% 0,100% 100%,0 100%)'],
+      dust:['circle(4% at 72% 68%)','circle(145% at 72% 68%)'],
+      heart:['polygon(50% 37%,55% 29%,64% 28%,71% 35%,72% 45%,50% 73%,28% 45%,29% 35%,36% 28%,45% 29%)','polygon(0 0,100% 0,100% 100%,0 100%)'],
+      rotor:['circle(1% at 70% 30%)','circle(145% at 70% 30%)'],
+      night:['inset(47% 47% 47% 47% round 50%)','inset(0 0 0 0 round 0)']
+    };
+    let [a,b]=map[type]||map.splash; next.style.clipPath=a;
+    await next.animate([{clipPath:a,transform:'scale(1.045)'},{clipPath:b,transform:'scale(1.012)'}],{duration:1150,easing:'cubic-bezier(.16,.76,.2,1)',fill:'forwards'}).finished.catch(()=>{});
+  }
+
+  async function go(n){
+    if(busy || stopped || reduced) return;
+    busy=true; const s=scenes[n]; await preload(path(s)); paint(next,s);
+    caption.classList.remove('is-visible');
+    if (scenes[i].id === '01' && s.id !== '01') {root.classList.remove('is-opening-scene'); slogan?.setAttribute('aria-hidden','true'); await new Promise(r=>setTimeout(r,420));}
+    await reveal(s.transition,s);
+    current.style.backgroundImage=next.style.backgroundImage; current.dataset.transition=s.transition;
+    i=n; ui(s); clean(); requestAnimationFrame(()=>caption.classList.add('is-visible'));
+    busy=false; schedule();
+  }
+
+  function schedule(){clearTimeout(timer);if(stopped||reduced)return;timer=setTimeout(()=>go((i+1)%scenes.length),Math.max(2600,scenes[i].duration-1150));}
+  pause?.addEventListener('click',()=>{stopped=!stopped;pause.textContent=stopped?'▶':'Ⅱ';pause.setAttribute('aria-pressed',String(stopped));if(stopped){clearTimeout(timer);fill.classList.remove('is-running')}else{ui(scenes[i]);schedule();}});
+  mobile.addEventListener?.('change',()=>{paint(current,scenes[i]);scenes.forEach(s=>{preload(path(s));s.multi?.forEach(f=>preload(asset(f)))})});
+
+  paint(current,scenes[0]); ui(scenes[0]); caption.classList.add('is-visible');
+  scenes.slice(1,5).forEach(s=>{preload(path(s));s.multi?.forEach(f=>preload(asset(f)))});
+  if(!reduced) schedule();
 })();

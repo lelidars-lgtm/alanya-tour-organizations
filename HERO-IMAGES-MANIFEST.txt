@@ -1,0 +1,39 @@
+ATO LIVING HERO — CLEAN APPROVED IMAGE STRUCTURE
+
+FINAL ORDER
+01 Rafting
+02 Cappadocia
+03 Pamukkale
+04 Istanbul
+05 Tazy Canyon
+06 The Land of Legends
+07 Jeep Safari
+08 Gazipaşa — original Heart Rock image supplied by user
+09 VIP Helicopter — approved wide helicopter image
+10 Alanya by Night
+
+CAPPADOCIA — ONE HERO SCENE / THREE ANIMATED IMAGES
+assets/img/hero/<desktop|mobile>/02-cappadocia/
+  01-dawn-balloons.webp
+  02-ancient-rock-houses.webp
+  03-night-lights-balloons.webp
+  composite.webp
+
+ISTANBUL — ONE HERO SCENE / THREE ANIMATED IMAGES
+assets/img/hero/<desktop|mobile>/04-istanbul/
+  01-galata-night.webp
+  02-bosphorus-sunset.webp
+  03-sultanahmet-seagulls.webp
+  composite.webp
+
+No duplicate 02/04 loose files are kept in the hero folder.
+JS has been updated to use these exact clean folder paths.
+
+CODE AUDIT FIXES (V3.1)
+- UI counter corrected from 06 to 10 and given .ato-living-hero__total-num.
+- Startup crash prevented: total count assignment is null-safe.
+- Initial caption corrected to RAFTING; duplicate arrow removed (CSS supplies the arrow).
+- Pamukkale category/link aligned with current Tour Finder data: Nature & Adventure -> /pamukkale-salda-lake.html.
+- Istanbul link aligned with current Tour Finder data: /istanbul-tour.html.
+- Tazy Canyon has no dedicated page in this index dataset, so its safe fallback is /nature-adventures.html.
+- Progress bar timing now matches the actual time before the next transition begins.

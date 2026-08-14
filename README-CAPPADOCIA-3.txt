@@ -1,0 +1,1 @@
+Scene 02 Cappadocia = dawn + ancient rock houses + night Cappadocia. All other scenes unchanged.
