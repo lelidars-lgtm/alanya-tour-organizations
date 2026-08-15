@@ -2262,3 +2262,529 @@ body > .footer-strip{
     padding-top:26px!important;
   }
 }
+
+
+/* =========================================================
+   ATO V7.3 — ABOUT: TWO COPY COLUMNS + BLENDED VISUAL RIGHT
+   ========================================================= */
+
+#about.about-premium{
+  padding:
+    clamp(48px,4.4vw,68px)
+    clamp(28px,6.8vw,116px)
+    clamp(36px,3.5vw,52px)!important;
+  overflow:hidden!important;
+}
+
+#about .about-container{
+  width:min(1440px,100%)!important;
+  max-width:1440px!important;
+  margin:0 auto!important;
+
+  display:grid!important;
+  grid-template-columns:minmax(0,1.62fr) minmax(350px,.72fr)!important;
+  column-gap:clamp(34px,4.1vw,66px)!important;
+  align-items:stretch!important;
+}
+
+/* Left side: heading + two editorial text columns. */
+#about .about-text{
+  width:auto!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+#about .about-text h2{
+  margin:0 0 28px!important;
+}
+
+#about .about-copy{
+  column-count:2!important;
+  column-gap:clamp(26px,2.9vw,42px)!important;
+  column-rule:1px solid rgba(218,177,96,.08)!important;
+}
+
+#about .about-copy p{
+  margin:0 0 13px!important;
+  font-size:clamp(12.5px,.94vw,15px)!important;
+  line-height:1.62!important;
+}
+
+#about .about-copy p:last-child{
+  column-span:all!important;
+  margin:9px 0 0!important;
+  padding:14px 0 0!important;
+}
+
+/* Right side: exact Türkiye visual, no card or visible boundary. */
+#about .about-image-wrapper{
+  position:relative!important;
+  align-self:stretch!important;
+
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  min-height:420px!important;
+  max-height:none!important;
+  aspect-ratio:auto!important;
+
+  margin:58px 0 0!important;
+  overflow:visible!important;
+
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+
+#about .about-image-wrapper img{
+  position:absolute!important;
+  inset:0!important;
+
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+
+  object-fit:contain!important;
+  object-position:center center!important;
+
+  filter:none!important;
+  transform:none!important;
+  opacity:1!important;
+}
+
+/* Remove all old image-card/panorama overlays. */
+#about .about-image-wrapper::before,
+#about .about-image-wrapper::after{
+  display:none!important;
+}
+
+/* A tiny ambient glow behind the map, not a card. */
+#about .about-image-wrapper{
+  filter:drop-shadow(0 12px 34px rgba(0,0,0,.08))!important;
+}
+
+/* Keep the transition into Contact compact and seamless. */
+#about + #contacts.contacts{
+  margin-top:0!important;
+  padding-top:30px!important;
+}
+
+
+/* ------------------------- TABLET ------------------------- */
+@media(max-width:1100px){
+  #about .about-container{
+    grid-template-columns:minmax(0,1.50fr) minmax(310px,.70fr)!important;
+    column-gap:30px!important;
+  }
+
+  #about .about-image-wrapper{
+    margin-top:54px!important;
+    min-height:390px!important;
+  }
+
+  #about .about-copy{
+    column-gap:24px!important;
+  }
+}
+
+
+/* ------------------------- MOBILE ------------------------- */
+@media(max-width:820px){
+  #about.about-premium{
+    padding:42px 20px 28px!important;
+  }
+
+  #about .about-container{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:22px!important;
+  }
+
+  #about .about-text{
+    order:1!important;
+  }
+
+  #about .about-copy{
+    column-count:1!important;
+    column-rule:0!important;
+  }
+
+  #about .about-image-wrapper{
+    order:2!important;
+    width:100%!important;
+    min-height:300px!important;
+    height:320px!important;
+    margin:4px 0 0!important;
+  }
+}
+
+@media(max-width:560px){
+  #about.about-premium{
+    padding:36px 14px 24px!important;
+  }
+
+  #about .about-image-wrapper{
+    height:286px!important;
+    min-height:286px!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.4 — LIVE TÜRKİYE / REAL GEOLOCATION
+   Exact red Natural Earth SVG from Special Offers.
+   ========================================================= */
+
+#about .about-container{
+  grid-template-columns:minmax(0,1.58fr) minmax(390px,.78fr)!important;
+}
+
+#about .about-live-turkiye{
+  position:relative!important;
+  align-self:stretch!important;
+  min-height:420px!important;
+  margin:52px 0 0!important;
+  overflow:visible!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  filter:none!important;
+}
+
+#about .about-live-kicker{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:6;
+  color:#e3b961;
+  font:700 9px/1 Arial,sans-serif;
+  letter-spacing:.22em;
+  white-space:nowrap;
+}
+
+#about .about-live-map-inner{
+  position:absolute;
+  inset:18px -5% 52px -5%;
+  display:grid;
+  place-items:center;
+  pointer-events:none;
+}
+
+#about .final-turkiye-map{
+  display:block;
+  width:100%!important;
+  height:auto!important;
+  overflow:visible!important;
+  filter:
+    drop-shadow(0 0 16px rgba(255,34,73,.32))
+    drop-shadow(0 0 46px rgba(255,22,65,.18));
+  animation:atoAboutMapBreath 5.2s ease-in-out infinite;
+}
+
+#about .final-tr-shape{
+  fill:url(#finalTrFill)!important;
+  stroke:#ff3a58!important;
+  stroke-width:3.0!important;
+  vector-effect:non-scaling-stroke;
+}
+
+#about .final-tr-hotspot{
+  fill:url(#finalTrHotspot)!important;
+  stroke:none!important;
+}
+
+#about .final-tr-network line{
+  stroke:rgba(255,71,95,.38)!important;
+  stroke-width:1.0!important;
+  vector-effect:non-scaling-stroke;
+  stroke-dasharray:5 8;
+  animation:atoAboutNetworkFlow 8s linear infinite;
+}
+
+#about .final-tr-nodes circle{
+  fill:#ff3b58!important;
+  opacity:.78;
+  animation:atoAboutNodePulse 3.6s ease-in-out infinite;
+}
+
+#about .final-tr-nodes circle:nth-child(7n+1){
+  fill:#ffb34a!important;
+  opacity:.94;
+}
+
+#about .final-tr-nodes circle:nth-child(3n){
+  animation-delay:-1.2s;
+}
+#about .final-tr-nodes circle:nth-child(5n){
+  animation-delay:-2.1s;
+}
+
+#about .final-flag{
+  filter:
+    drop-shadow(0 0 14px rgba(255,255,255,.12))
+    drop-shadow(0 0 26px rgba(255,30,65,.36))!important;
+}
+#about .flag-crescent-outer{fill:#fff!important}
+#about .flag-crescent-cut{fill:#8b0b20!important}
+#about .flag-star{fill:#fff!important}
+
+/* ATO / Alanya marker from Special Offers */
+#about .final-alanya-marker,
+#about .final-alanya-marker-core{
+  display:none!important;
+}
+#about .final-alanya-heart{
+  fill:#ff315b!important;
+  stroke:#ffd36b!important;
+  stroke-width:2.6!important;
+  vector-effect:non-scaling-stroke!important;
+  filter:
+    drop-shadow(0 0 7px rgba(255,49,91,.92))
+    drop-shadow(0 0 17px rgba(255,49,91,.68))
+    drop-shadow(0 0 28px rgba(255,211,107,.25))!important;
+}
+#about .final-alanya-heart-core{
+  fill:#fff5d6!important;
+  filter:drop-shadow(0 0 6px rgba(255,255,255,.85))!important;
+}
+#about .final-alanya-heart-pin{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:atoAboutHeartBreath 2.2s ease-in-out infinite;
+}
+#about .final-alanya-pulse{
+  fill:none!important;
+  stroke:#ff4968!important;
+  stroke-width:2.5!important;
+  opacity:.68;
+  animation:atoAboutAlanyaPulse 2.1s ease-out infinite;
+}
+
+/* Fixed ATO label aligned to the exact SVG Alanya coordinate */
+#about .about-live-ato-label{
+  position:absolute;
+  left:33.237%;
+  top:74.294%;
+  z-index:7;
+  transform:translate(22px,-8px);
+  white-space:nowrap;
+  text-align:left;
+  pointer-events:none;
+}
+#about .about-live-ato-label strong,
+#about .about-live-ato-label small{
+  display:block;
+  text-shadow:0 3px 13px rgba(0,0,0,.82);
+}
+#about .about-live-ato-label strong{
+  color:#f4ead7;
+  font:700 12px/1 Arial,sans-serif;
+  letter-spacing:.08em;
+}
+#about .about-live-ato-label small{
+  margin-top:5px;
+  color:#e3b961;
+  font:700 7px/1.2 Arial,sans-serif;
+  letter-spacing:.06em;
+}
+
+/* Real visitor marker */
+#about .about-user-map-pin[aria-hidden="true"]{
+  display:none;
+}
+#about .about-user-pulse{
+  fill:none;
+  stroke:#63d9ff;
+  stroke-width:3;
+  opacity:.72;
+  animation:atoAboutUserPulse 1.9s ease-out infinite;
+}
+#about .about-user-dot{
+  fill:#5bcdf5;
+  stroke:#d9f7ff;
+  stroke-width:2;
+  filter:drop-shadow(0 0 10px rgba(91,205,245,.85));
+}
+#about .about-user-core{
+  fill:#061522;
+}
+
+#about .about-live-user-label{
+  position:absolute;
+  z-index:8;
+  display:none;
+  transform:translate(18px,-34px);
+  white-space:nowrap;
+  pointer-events:none;
+}
+#about .about-live-user-label.is-visible{
+  display:block;
+}
+#about .about-live-user-label strong{
+  display:block;
+  color:#dff8ff;
+  font:700 10px/1 Arial,sans-serif;
+  letter-spacing:.08em;
+  text-shadow:0 3px 12px rgba(0,0,0,.80);
+}
+#about .about-live-user-label small{
+  display:block;
+  margin-top:4px;
+  color:#6fdcff;
+  font:700 7px/1.2 Arial,sans-serif;
+  text-shadow:0 3px 12px rgba(0,0,0,.80);
+}
+
+/* Geolocation control — intentionally small and quiet */
+#about .about-live-geolocate{
+  position:absolute;
+  left:50%;
+  bottom:6px;
+  transform:translateX(-50%);
+  z-index:12;
+
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:34px;
+  padding:0 14px;
+
+  border:1px solid rgba(221,182,103,.30);
+  border-radius:999px;
+  background:rgba(5,18,30,.48);
+  color:#e8e1d4;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+
+  font:700 8px/1 Arial,sans-serif;
+  letter-spacing:.12em;
+  cursor:pointer;
+  transition:.25s ease;
+}
+#about .about-live-geolocate:hover{
+  border-color:rgba(225,188,112,.64);
+  color:#f3c66d;
+  background:rgba(7,24,39,.72);
+}
+#about .about-live-geolocate[aria-pressed="true"]{
+  border-color:rgba(99,217,255,.50);
+  color:#bfefff;
+}
+#about .about-live-geolocate-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#e3b961;
+  box-shadow:0 0 10px rgba(227,185,97,.42);
+}
+#about .about-live-geolocate[aria-pressed="true"] .about-live-geolocate-dot{
+  background:#63d9ff;
+  box-shadow:0 0 12px rgba(99,217,255,.65);
+  animation:atoAboutGeoDot 1.4s ease-in-out infinite;
+}
+
+#about .about-live-geo-status{
+  position:absolute;
+  left:50%;
+  bottom:-14px;
+  transform:translateX(-50%);
+  min-height:12px;
+  color:rgba(210,222,233,.55);
+  font:700 7px/1 Arial,sans-serif;
+  letter-spacing:.10em;
+  white-space:nowrap;
+}
+#about .about-live-geo-status[data-state="active"]{color:#70dfff}
+#about .about-live-geo-status[data-state="error"]{color:#d6a862}
+#about .about-live-geo-status[data-state="outside"]{color:#c0cfda}
+
+@keyframes atoAboutMapBreath{
+  0%,100%{transform:scale(1);filter:drop-shadow(0 0 16px rgba(255,34,73,.28)) drop-shadow(0 0 44px rgba(255,22,65,.15))}
+  50%{transform:scale(1.012);filter:drop-shadow(0 0 22px rgba(255,34,73,.38)) drop-shadow(0 0 58px rgba(255,22,65,.22))}
+}
+@keyframes atoAboutNetworkFlow{
+  to{stroke-dashoffset:-130}
+}
+@keyframes atoAboutNodePulse{
+  0%,100%{opacity:.48}
+  50%{opacity:1}
+}
+@keyframes atoAboutHeartBreath{
+  0%,100%{filter:drop-shadow(0 0 7px rgba(255,49,91,.28))}
+  50%{filter:drop-shadow(0 0 16px rgba(255,49,91,.60))}
+}
+@keyframes atoAboutAlanyaPulse{
+  0%{r:13;opacity:.72}
+  70%{r:34;opacity:.12}
+  100%{r:42;opacity:0}
+}
+@keyframes atoAboutUserPulse{
+  0%{r:11;opacity:.76}
+  80%{r:30;opacity:.08}
+  100%{r:34;opacity:0}
+}
+@keyframes atoAboutGeoDot{
+  0%,100%{opacity:.55;transform:scale(.88)}
+  50%{opacity:1;transform:scale(1.18)}
+}
+
+@media(max-width:1100px){
+  #about .about-container{
+    grid-template-columns:minmax(0,1.48fr) minmax(330px,.72fr)!important;
+  }
+  #about .about-live-turkiye{
+    min-height:390px!important;
+    margin-top:50px!important;
+  }
+}
+
+@media(max-width:820px){
+  #about .about-container{
+    grid-template-columns:1fr!important;
+    gap:18px!important;
+  }
+  #about .about-live-turkiye{
+    min-height:390px!important;
+    height:390px!important;
+    margin:2px 0 18px!important;
+  }
+  #about .about-live-map-inner{
+    inset:18px -8% 54px -8%;
+  }
+  #about .about-live-ato-label strong{font-size:10px}
+  #about .about-live-ato-label small{font-size:6px}
+}
+
+@media(max-width:560px){
+  #about .about-live-turkiye{
+    min-height:320px!important;
+    height:320px!important;
+  }
+  #about .about-live-map-inner{
+    inset:20px -13% 56px -13%;
+  }
+  #about .about-live-geolocate{
+    min-height:32px;
+    padding:0 12px;
+    font-size:7px;
+  }
+  #about .about-live-ato-label{
+    transform:translate(15px,-6px);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #about .final-turkiye-map,
+  #about .final-tr-network line,
+  #about .final-tr-nodes circle,
+  #about .final-alanya-heart-pin,
+  #about .final-alanya-pulse,
+  #about .about-user-pulse,
+  #about .about-live-geolocate-dot{
+    animation:none!important;
+  }
+}
