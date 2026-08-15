@@ -1918,3 +1918,347 @@
     border-radius:16px!important;
   }
 }
+
+
+/* =========================================================
+   ATO V7.1 — COMPACT SECTION FLOW / PAGE ENDS AT MAP
+   No large dead gaps between blocks.
+   ========================================================= */
+
+/* ---------- MAIN CATEGORIES / VIP → ABOUT ---------- */
+#main-categories.main-categories-section{
+  padding-bottom:34px!important;
+}
+
+#main-categories .vip-service-premium-link{
+  margin-bottom:0!important;
+}
+
+#main-categories .vip-service-premium{
+  margin-bottom:0!important;
+}
+
+
+/* ---------- ABOUT ---------- */
+#about.about-premium{
+  margin:0!important;
+  padding:
+    clamp(46px,4.2vw,66px)
+    clamp(28px,6.8vw,116px)
+    clamp(34px,3.4vw,48px)!important;
+}
+
+#about .about-container{
+  gap:clamp(34px,4vw,62px)!important;
+}
+
+#about .about-text h2{
+  margin-bottom:24px!important;
+}
+
+#about .about-copy p{
+  margin-bottom:13px!important;
+}
+
+#about .about-copy p:last-child{
+  margin-top:10px!important;
+  padding-top:14px!important;
+}
+
+/* Shorter visual fades — keep continuity without creating "air". */
+#about.about-premium::before{
+  height:66px!important;
+}
+
+#about.about-premium::after{
+  height:62px!important;
+}
+
+
+/* ---------- ABOUT → CONTACT ---------- */
+#about + #contacts.contacts{
+  margin-top:0!important;
+  padding-top:42px!important;
+}
+
+
+/* ---------- CONTACT ---------- */
+#contacts.contacts{
+  margin:0!important;
+  padding:
+    42px
+    clamp(28px,6.8vw,116px)
+    0!important;
+}
+
+#contacts.contacts > h2{
+  margin:0 auto 26px!important;
+}
+
+#contacts.contacts > h2::after{
+  margin-top:15px!important;
+}
+
+#contacts .contact-grid{
+  margin:0 auto 22px!important;
+  gap:16px!important;
+}
+
+#contacts .contact-grid > div{
+  min-height:168px!important;
+  padding:52px 26px 24px!important;
+}
+
+/* Map is the final visible element on the page. */
+#contacts .map-wrapper{
+  margin:0 auto!important;
+  height:clamp(300px,31vw,430px)!important;
+}
+
+/* No section floor after the map. */
+#contacts.contacts::after{
+  display:none!important;
+}
+
+html,
+body{
+  margin-bottom:0!important;
+  padding-bottom:0!important;
+}
+
+body > .footer-strip{
+  display:none!important;
+}
+
+
+/* ---------- TABLET ---------- */
+@media(max-width:980px){
+  #main-categories.main-categories-section{
+    padding-bottom:26px!important;
+  }
+
+  #about.about-premium{
+    padding:42px 20px 30px!important;
+  }
+
+  #about + #contacts.contacts{
+    padding-top:34px!important;
+  }
+
+  #contacts.contacts{
+    padding:34px 20px 0!important;
+  }
+
+  #contacts.contacts > h2{
+    margin-bottom:22px!important;
+  }
+
+  #contacts .contact-grid{
+    margin-bottom:18px!important;
+  }
+
+  #contacts .map-wrapper{
+    height:350px!important;
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+@media(max-width:560px){
+  #main-categories.main-categories-section{
+    padding-bottom:20px!important;
+  }
+
+  #about.about-premium{
+    padding:36px 14px 24px!important;
+  }
+
+  #about .about-container{
+    gap:22px!important;
+  }
+
+  #about .about-text h2{
+    margin-bottom:20px!important;
+  }
+
+  #about + #contacts.contacts{
+    padding-top:28px!important;
+  }
+
+  #contacts.contacts{
+    padding:28px 14px 0!important;
+  }
+
+  #contacts.contacts > h2{
+    margin-bottom:20px!important;
+  }
+
+  #contacts .contact-grid{
+    margin-bottom:14px!important;
+  }
+
+  #contacts .map-wrapper{
+    height:320px!important;
+    border-radius:16px 16px 0 0!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.2 — FULL-WIDTH TÜRKİYE LOCATION VISUAL
+   About copy above / borderless artwork across the full section.
+   ========================================================= */
+
+#about.about-premium{
+  padding-left:0!important;
+  padding-right:0!important;
+  padding-bottom:0!important;
+  overflow:hidden!important;
+}
+
+/* About copy remains compact and editorial, but no longer shares
+   the row with a separate image card. */
+#about .about-container{
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  display:block!important;
+}
+
+#about .about-text{
+  width:min(1440px,calc(100% - clamp(56px,13.6vw,232px)))!important;
+  margin:0 auto!important;
+  padding:0!important;
+}
+
+#about .about-copy{
+  column-count:2!important;
+  column-gap:clamp(32px,4vw,64px)!important;
+  column-rule:1px solid rgba(218,177,96,.08)!important;
+}
+
+/* The previous card becomes a seamless panoramic visual field. */
+#about .about-image-wrapper{
+  position:relative!important;
+  width:100vw!important;
+  max-width:none!important;
+  height:clamp(470px,36vw,650px)!important;
+  margin:
+    clamp(28px,3vw,44px)
+    calc(50% - 50vw)
+    0!important;
+
+  overflow:hidden!important;
+
+  aspect-ratio:auto!important;
+  border:0!important;
+  border-radius:0!important;
+  background:#071522!important;
+  box-shadow:none!important;
+}
+
+/* No poster-card styling. */
+#about .about-image-wrapper img{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+
+  filter:none!important;
+  transform:none!important;
+}
+
+/* Subtle photographic fade at the top so the artwork grows out of copy. */
+#about .about-image-wrapper::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:2!important;
+  inset:0!important;
+  pointer-events:none!important;
+
+  background:
+    linear-gradient(
+      180deg,
+      #071421 0%,
+      rgba(7,20,33,.52) 5%,
+      rgba(7,20,33,.10) 15%,
+      rgba(7,20,33,0) 27%,
+      rgba(6,19,31,0) 68%,
+      rgba(6,19,31,.22) 79%,
+      rgba(6,19,31,.64) 91%,
+      #061321 100%
+    )!important;
+}
+
+/* Soft horizontal edge falloff — no visible image boundary. */
+#about .about-image-wrapper::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:3!important;
+  inset:0!important;
+  height:auto!important;
+  pointer-events:none!important;
+
+  background:
+    linear-gradient(
+      90deg,
+      #071421 0%,
+      rgba(7,20,33,.48) 5%,
+      rgba(7,20,33,.08) 13%,
+      rgba(7,20,33,0) 23%,
+      rgba(7,20,33,0) 77%,
+      rgba(7,20,33,.08) 87%,
+      rgba(7,20,33,.48) 95%,
+      #071421 100%
+    )!important;
+}
+
+/* Contact starts directly out of the bottom dissolve. */
+#about + #contacts.contacts{
+  margin-top:0!important;
+  padding-top:34px!important;
+  border-top:0!important;
+}
+
+
+/* ------------------------- TABLET ------------------------- */
+@media(max-width:980px){
+  #about .about-text{
+    width:calc(100% - 40px)!important;
+  }
+
+  #about .about-copy{
+    column-count:1!important;
+    column-rule:0!important;
+  }
+
+  #about .about-image-wrapper{
+    height:clamp(410px,68vw,570px)!important;
+    margin-top:26px!important;
+  }
+}
+
+
+/* ------------------------- MOBILE ------------------------- */
+@media(max-width:560px){
+  #about .about-text{
+    width:calc(100% - 28px)!important;
+  }
+
+  #about .about-image-wrapper{
+    height:390px!important;
+    margin-top:22px!important;
+  }
+
+  #about .about-image-wrapper img{
+    object-fit:cover!important;
+    object-position:center center!important;
+  }
+
+  #about + #contacts.contacts{
+    padding-top:26px!important;
+  }
+}
