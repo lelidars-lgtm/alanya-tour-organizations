@@ -4414,3 +4414,927 @@ body{
 @media(prefers-reduced-motion:reduce){
   .ato-assistant-panel,.ato-assistant-launch,.ato-assistant-msg.is-temporary .ato-assistant-msg__body{transition:none!important;animation:none!important}
 }
+
+
+/* =========================================================
+   ATO V7.10.1 — STRUCTURE REPAIR
+   1) Promo ribbon must sit DIRECTLY under the main header.
+   2) Footer must be the final visible page section.
+   ========================================================= */
+
+/* Root styles.css previously leaves a positional offset on .promo-bar.
+   Even after position:relative, the old top value can still move it down.
+   Reset every positional residue explicitly. */
+body > .promo-bar{
+  position:relative!important;
+  top:0!important;
+  right:auto!important;
+  bottom:auto!important;
+  left:0!important;
+  inset:auto!important;
+
+  display:block!important;
+  width:100%!important;
+  margin:0!important;
+  padding-left:0!important;
+  padding-right:0!important;
+
+  transform:none!important;
+  translate:none!important;
+
+  z-index:30!important;
+}
+
+/* No artificial black spacer between header and promo / promo and Hero. */
+.header + .ato-header-search-scrim + .promo-bar{
+  margin-top:0!important;
+  margin-bottom:0!important;
+}
+
+body > .promo-bar + #atoLivingHero{
+  margin-top:0!important;
+}
+
+/* The old WhatsApp fallback remains valid HTML but must never flash
+   before the AI Assistant initializes. */
+body > .whatsapp-popup,
+body > .ato-concierge{
+  display:none!important;
+}
+
+/* Footer closes the document visually. */
+.footer-strip{
+  margin-bottom:0!important;
+}
+
+body{
+  padding-bottom:0!important;
+}
+
+
+/* =========================================================
+   ATO V7.10.2 — EDITORIAL SIDEBAR + ABOUT DIVIDER
+   1) Popular Tours: Hero-style typography and calmer hierarchy.
+   2) Metrics: one fixed alignment grid; no 35000+ collision.
+   3) About: full-width champagne divider above the section.
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. POPULAR TOURS — editorial, not promotional-template.
+   --------------------------------------------------------- */
+
+.tour-sidebar .popular-feature-card{
+  padding:20px 18px 17px!important;
+  border:1px solid rgba(215,176,98,.30)!important;
+  border-radius:25px!important;
+  background:
+    linear-gradient(180deg,rgba(8,23,38,.82),rgba(5,17,29,.68))!important;
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.018),
+    0 18px 44px rgba(0,0,0,.08)!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-heading{
+  margin:0 0 11px!important;
+  padding:0 0 11px!important;
+  border-bottom:1px solid rgba(215,176,98,.15)!important;
+  line-height:1!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-heading a{
+  color:#e0b45f!important;
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+  font-size:13px!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:.105em!important;
+  text-transform:uppercase!important;
+  -webkit-text-stroke:.15px rgba(237,203,137,.28)!important;
+}
+
+
+/* Two balanced editorial statements.
+   Both sides use the Hero serif; neither side looks like a banner ad. */
+.tour-sidebar .popular-feature-card .sidebar-sale-link{
+  display:block!important;
+  margin:0 0 8px!important;
+  text-decoration:none!important;
+}
+
+.tour-sidebar .popular-feature-card .sidebar-sale{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  align-items:center!important;
+  column-gap:24px!important;
+
+  width:100%!important;
+  min-height:105px!important;
+  margin:0!important;
+  padding:13px 0 14px!important;
+
+  border-top:0!important;
+  border-bottom:1px solid rgba(215,176,98,.14)!important;
+}
+
+.tour-sidebar .popular-feature-card .sidebar-sale::after{
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  top:17px!important;
+  bottom:17px!important;
+  width:1px!important;
+  transform:translateX(-.5px)!important;
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(215,176,98,.18) 24%,
+      rgba(215,176,98,.18) 76%,
+      transparent
+    )!important;
+}
+
+.tour-sidebar .sidebar-sale__lead,
+.tour-sidebar .sidebar-sale__tail{
+  margin:0!important;
+  padding:0!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-weight:400!important;
+  font-style:normal!important;
+  text-transform:uppercase!important;
+  text-wrap:balance!important;
+}
+
+.tour-sidebar .sidebar-sale__lead{
+  max-width:132px!important;
+
+  color:#f5eee2!important;
+  font-size:20px!important;
+  line-height:.96!important;
+  letter-spacing:.018em!important;
+  text-align:left!important;
+
+  -webkit-text-stroke:.18px rgba(215,176,98,.30)!important;
+  text-shadow:0 2px 13px rgba(0,0,0,.26)!important;
+}
+
+.tour-sidebar .sidebar-sale__tail{
+  justify-self:end!important;
+  max-width:137px!important;
+
+  color:#dfb964!important;
+  font-size:13px!important;
+  line-height:1.16!important;
+  letter-spacing:.075em!important;
+  text-align:right!important;
+
+  -webkit-text-stroke:.10px rgba(238,205,140,.18)!important;
+  text-shadow:0 2px 12px rgba(0,0,0,.22)!important;
+}
+
+
+/* Tour rows: calm luxury typography instead of bold SaaS cards. */
+.tour-sidebar .popular-feature-card .popular-tour{
+  display:grid!important;
+  grid-template-columns:82px minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:15px!important;
+
+  min-height:91px!important;
+  padding:13px 0!important;
+
+  border-bottom:1px solid rgba(255,255,255,.075)!important;
+  text-decoration:none!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-tour img{
+  width:82px!important;
+  height:64px!important;
+  border-radius:13px!important;
+  object-fit:cover!important;
+
+  border:1px solid rgba(215,176,98,.17)!important;
+  box-shadow:0 8px 20px rgba(0,0,0,.14)!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-tour div{
+  min-width:0!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-tour b{
+  display:block!important;
+  margin:0 0 6px!important;
+
+  color:#f2ece2!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Times New Roman",
+    serif!important;
+
+  font-size:17px!important;
+  font-weight:400!important;
+  line-height:1.02!important;
+  letter-spacing:.018em!important;
+  text-transform:none!important;
+
+  -webkit-text-stroke:.12px rgba(215,176,98,.18)!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-tour span{
+  display:block!important;
+
+  color:#d8ad5a!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:11px!important;
+  font-weight:600!important;
+  line-height:1!important;
+  letter-spacing:.035em!important;
+  text-transform:none!important;
+}
+
+
+/* "View all" becomes an editorial action line, not a giant CTA pill. */
+.tour-sidebar .popular-feature-card .view-all{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+
+  width:100%!important;
+  min-height:43px!important;
+  margin:3px 0 0!important;
+  padding:12px 1px 2px!important;
+
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+
+  color:#f1e8d8!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Times New Roman",
+    serif!important;
+
+  font-size:14px!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:.04em!important;
+  text-transform:none!important;
+  text-decoration:none!important;
+}
+
+.tour-sidebar .popular-feature-card .view-all::after{
+  content:"↗"!important;
+  color:#d8ad5a!important;
+  font-size:18px!important;
+  line-height:1!important;
+}
+
+.tour-sidebar .popular-feature-card .view-all:hover{
+  color:#fff7e9!important;
+  transform:none!important;
+}
+
+
+/* ---------------------------------------------------------
+   2. METRICS — fixed two-column ledger.
+   Every label starts at the exact same horizontal position.
+   --------------------------------------------------------- */
+
+.premium-stats.vertical-stats{
+  margin-top:17px!important;
+  padding:3px 0!important;
+}
+
+.premium-stats.vertical-stats .stat-item{
+  display:grid!important;
+  grid-template-columns:132px minmax(0,1fr)!important;
+  align-items:baseline!important;
+  column-gap:16px!important;
+
+  width:100%!important;
+  min-width:0!important;
+  padding:17px 5px 16px!important;
+}
+
+.premium-stats.vertical-stats .stat-item strong{
+  display:block!important;
+  width:132px!important;
+  max-width:132px!important;
+  min-width:132px!important;
+
+  margin:0!important;
+  padding:0!important;
+
+  white-space:nowrap!important;
+  overflow:visible!important;
+
+  color:#f5eee2!important;
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-size:43px!important;
+  font-weight:400!important;
+  line-height:.90!important;
+  letter-spacing:-.015em!important;
+
+  font-variant-numeric:lining-nums tabular-nums!important;
+  font-feature-settings:"lnum" 1,"tnum" 1!important;
+
+  -webkit-text-stroke:.34px rgba(216,177,95,.78)!important;
+}
+
+.premium-stats.vertical-stats .stat-item span{
+  display:block!important;
+  min-width:0!important;
+
+  margin:0!important;
+  padding:0!important;
+
+  color:rgba(240,233,220,.72)!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Times New Roman",
+    serif!important;
+
+  font-size:13.5px!important;
+  font-weight:400!important;
+  line-height:1.08!important;
+  letter-spacing:.025em!important;
+  text-transform:none!important;
+
+  white-space:normal!important;
+  overflow-wrap:normal!important;
+}
+
+
+/* ---------------------------------------------------------
+   3. ABOUT — full horizontal divider after VIP.
+   --------------------------------------------------------- */
+
+#about.about-premium{
+  position:relative!important;
+  border-top:0!important;
+}
+
+#about.about-premium::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:2!important;
+  top:0!important;
+  left:0!important;
+  right:0!important;
+  width:100%!important;
+  height:1px!important;
+  pointer-events:none!important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(215,176,98,0) 0%,
+      rgba(215,176,98,.18) 8%,
+      rgba(215,176,98,.38) 50%,
+      rgba(215,176,98,.18) 92%,
+      rgba(215,176,98,0) 100%
+    )!important;
+
+  box-shadow:0 1px rgba(255,255,255,.012)!important;
+}
+
+
+/* Mobile keeps the same hierarchy without collisions. */
+@media(max-width:720px){
+  .tour-sidebar .popular-feature-card{
+    padding:18px 16px 15px!important;
+    border-radius:22px!important;
+  }
+
+  .tour-sidebar .popular-feature-card .sidebar-sale{
+    grid-template-columns:1fr 1fr!important;
+    column-gap:20px!important;
+    min-height:98px!important;
+    row-gap:0!important;
+  }
+
+  .tour-sidebar .sidebar-sale__lead{
+    max-width:118px!important;
+    font-size:18px!important;
+    text-align:left!important;
+  }
+
+  .tour-sidebar .sidebar-sale__tail{
+    max-width:126px!important;
+    font-size:12px!important;
+    text-align:right!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour{
+    grid-template-columns:74px minmax(0,1fr)!important;
+    gap:13px!important;
+    min-height:84px!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour img{
+    width:74px!important;
+    height:59px!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour b{
+    font-size:16px!important;
+  }
+
+  .premium-stats.vertical-stats .stat-item{
+    grid-template-columns:126px minmax(0,1fr)!important;
+    column-gap:14px!important;
+    padding:15px 4px 14px!important;
+  }
+
+  .premium-stats.vertical-stats .stat-item strong{
+    width:126px!important;
+    min-width:126px!important;
+    max-width:126px!important;
+    font-size:40px!important;
+  }
+
+  .premium-stats.vertical-stats .stat-item span{
+    font-size:13px!important;
+  }
+}
+
+@media(max-width:390px){
+  .premium-stats.vertical-stats .stat-item{
+    grid-template-columns:118px minmax(0,1fr)!important;
+    column-gap:12px!important;
+  }
+
+  .premium-stats.vertical-stats .stat-item strong{
+    width:118px!important;
+    min-width:118px!important;
+    max-width:118px!important;
+    font-size:37px!important;
+  }
+
+  .premium-stats.vertical-stats .stat-item span{
+    font-size:12px!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.10.3 — ATO ASSISTANT LAUNCH / PREMIUM SERVICE TAB
+   Compact editorial control instead of generic chat widget.
+   ========================================================= */
+
+.ato-assistant-launch{
+  position:relative!important;
+
+  display:grid!important;
+  grid-template-columns:8px minmax(0,1fr) 34px!important;
+  align-items:center!important;
+  column-gap:12px!important;
+
+  width:272px!important;
+  min-height:64px!important;
+
+  padding:10px 11px 10px 15px!important;
+
+  border:1px solid rgba(216,177,95,.34)!important;
+  border-radius:19px!important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(7,22,37,.94) 0%,
+      rgba(5,17,29,.96) 100%
+    )!important;
+
+  color:#f4ead8!important;
+
+  box-shadow:
+    0 16px 42px rgba(0,0,0,.22),
+    inset 0 1px rgba(255,255,255,.025)!important;
+
+  backdrop-filter:blur(16px) saturate(.88)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(.88)!important;
+
+  overflow:hidden!important;
+
+  transition:
+    transform .28s ease,
+    border-color .28s ease,
+    box-shadow .28s ease,
+    background .28s ease!important;
+}
+
+/* Fine champagne light across the upper edge. */
+.ato-assistant-launch::before{
+  content:""!important;
+  position:absolute!important;
+  left:18px!important;
+  right:50px!important;
+  top:0!important;
+  height:1px!important;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(235,201,135,.46) 42%,
+      rgba(235,201,135,.12) 82%,
+      transparent
+    )!important;
+
+  pointer-events:none!important;
+}
+
+.ato-assistant-launch:hover{
+  transform:translateY(-2px)!important;
+
+  border-color:rgba(228,190,119,.54)!important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9,27,44,.96) 0%,
+      rgba(5,18,31,.97) 100%
+    )!important;
+
+  box-shadow:
+    0 19px 48px rgba(0,0,0,.26),
+    0 0 19px rgba(216,177,95,.035),
+    inset 0 1px rgba(255,255,255,.03)!important;
+}
+
+
+/* Small champagne jewel — recognition point, not decoration overload. */
+.ato-assistant-launch__signal{
+  width:6px!important;
+  height:6px!important;
+  margin:0!important;
+
+  border-radius:50%!important;
+  background:#ddb666!important;
+
+  box-shadow:
+    0 0 0 1px rgba(255,246,222,.16),
+    0 0 10px rgba(221,182,102,.24)!important;
+}
+
+
+/* Editorial copy block. */
+.ato-assistant-launch__copy{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  min-width:0!important;
+
+  text-align:left!important;
+}
+
+.ato-assistant-launch__copy small{
+  display:block!important;
+  margin:0 0 4px!important;
+
+  color:#d7ad61!important;
+
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:7.5px!important;
+  font-weight:700!important;
+  line-height:1!important;
+  letter-spacing:.18em!important;
+  text-transform:uppercase!important;
+
+  white-space:nowrap!important;
+}
+
+.ato-assistant-launch__copy strong{
+  display:block!important;
+  margin:0!important;
+
+  color:#f5eee2!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-size:18px!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:.032em!important;
+
+  white-space:nowrap!important;
+
+  -webkit-text-stroke:.16px rgba(215,173,97,.30)!important;
+
+  text-shadow:
+    0 2px 12px rgba(0,0,0,.30)!important;
+}
+
+
+/* Arrow becomes a precise service control, not a floating glyph. */
+.ato-assistant-launch__arrow{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+
+  width:32px!important;
+  height:32px!important;
+
+  justify-self:end!important;
+
+  border:1px solid rgba(216,177,95,.24)!important;
+  border-radius:50%!important;
+
+  background:rgba(216,177,95,.018)!important;
+
+  color:#dcb56a!important;
+
+  font-family:"Times New Roman",serif!important;
+  font-size:16px!important;
+  font-weight:400!important;
+  line-height:1!important;
+
+  transition:
+    color .28s ease,
+    border-color .28s ease,
+    background .28s ease,
+    transform .28s ease!important;
+}
+
+.ato-assistant-launch:hover .ato-assistant-launch__arrow{
+  color:#f1ce87!important;
+  border-color:rgba(228,190,119,.46)!important;
+  background:rgba(216,177,95,.035)!important;
+  transform:translate(1px,-1px)!important;
+}
+
+
+/* Open/hidden state remains intact. */
+.ato-assistant-launch.is-hidden{
+  opacity:0!important;
+  pointer-events:none!important;
+  transform:translateY(10px)!important;
+}
+
+
+/* Mobile — compact but still keeps ATO ASSISTANT on one line. */
+@media(max-width:720px){
+  .ato-assistant-launch{
+    grid-template-columns:7px minmax(0,1fr) 31px!important;
+    column-gap:10px!important;
+
+    width:232px!important;
+    min-height:58px!important;
+
+    padding:9px 9px 9px 13px!important;
+
+    border-radius:17px!important;
+  }
+
+  .ato-assistant-launch__copy small{
+    margin-bottom:3px!important;
+    font-size:6.8px!important;
+    letter-spacing:.16em!important;
+  }
+
+  .ato-assistant-launch__copy strong{
+    font-size:16px!important;
+    letter-spacing:.025em!important;
+  }
+
+  .ato-assistant-launch__arrow{
+    width:29px!important;
+    height:29px!important;
+    font-size:15px!important;
+  }
+}
+
+@media(max-width:390px){
+  .ato-assistant-launch{
+    width:218px!important;
+  }
+
+  .ato-assistant-launch__copy strong{
+    font-size:15px!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.10.4 — ASSISTANT ADAPTIVE GOLD GLOW
+   Quiet champagne attention cue + section-aware depth.
+   ========================================================= */
+
+.ato-assistant-launch{
+  --ato-assist-bg-1:rgba(7,22,37,.95);
+  --ato-assist-bg-2:rgba(5,17,29,.97);
+  --ato-assist-line:rgba(216,177,95,.34);
+  --ato-assist-line-hot:rgba(231,196,128,.58);
+  --ato-assist-glow:rgba(216,177,95,.22);
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--ato-assist-bg-1) 0%,
+      var(--ato-assist-bg-2) 100%
+    )!important;
+
+  border-color:var(--ato-assist-line)!important;
+
+  isolation:isolate!important;
+
+  transition:
+    transform .42s ease,
+    border-color .62s ease,
+    background .72s ease,
+    box-shadow .62s ease!important;
+}
+
+/* Soft outer aura. It appears briefly, then almost disappears.
+   This attracts the eye without behaving like an advertisement. */
+.ato-assistant-launch::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:-1!important;
+  inset:-2px!important;
+
+  border-radius:21px!important;
+  pointer-events:none!important;
+
+  border:1px solid rgba(226,190,120,.06)!important;
+
+  box-shadow:
+    0 0 10px rgba(216,177,95,.02),
+    0 0 24px var(--ato-assist-glow)!important;
+
+  opacity:.04!important;
+
+  animation:atoAssistantGoldBreath 8.6s cubic-bezier(.45,0,.22,1) infinite!important;
+}
+
+@keyframes atoAssistantGoldBreath{
+  0%,48%,100%{
+    opacity:.035;
+    transform:scale(.994);
+  }
+  57%{
+    opacity:.09;
+    transform:scale(.998);
+  }
+  64%{
+    opacity:.29;
+    transform:scale(1.008);
+  }
+  71%{
+    opacity:.10;
+    transform:scale(1.001);
+  }
+}
+
+/* The tiny jewel responds a fraction earlier than the aura. */
+.ato-assistant-launch__signal{
+  animation:atoAssistantSignalBreath 8.6s ease-in-out infinite!important;
+}
+
+@keyframes atoAssistantSignalBreath{
+  0%,48%,100%{
+    box-shadow:
+      0 0 0 1px rgba(255,246,222,.12),
+      0 0 7px rgba(221,182,102,.15);
+  }
+  61%,66%{
+    box-shadow:
+      0 0 0 1px rgba(255,246,222,.24),
+      0 0 13px rgba(221,182,102,.40);
+  }
+}
+
+
+/* ---------------- section-aware tones ----------------
+   Same gold identity throughout; only background depth changes.
+   ----------------------------------------------------- */
+
+.ato-assistant-launch[data-tone="hero"]{
+  --ato-assist-bg-1:rgba(4,20,35,.90);
+  --ato-assist-bg-2:rgba(3,14,25,.95);
+  --ato-assist-line:rgba(221,181,103,.35);
+  --ato-assist-glow:rgba(221,181,103,.24);
+}
+
+.ato-assistant-launch[data-tone="categories"]{
+  --ato-assist-bg-1:rgba(8,24,39,.95);
+  --ato-assist-bg-2:rgba(5,18,31,.97);
+  --ato-assist-line:rgba(211,171,92,.33);
+  --ato-assist-glow:rgba(211,171,92,.20);
+}
+
+.ato-assistant-launch[data-tone="vip"]{
+  --ato-assist-bg-1:rgba(22,25,29,.94);
+  --ato-assist-bg-2:rgba(9,17,25,.97);
+  --ato-assist-line:rgba(232,197,128,.39);
+  --ato-assist-glow:rgba(232,197,128,.18);
+}
+
+.ato-assistant-launch[data-tone="about"]{
+  --ato-assist-bg-1:rgba(8,24,38,.95);
+  --ato-assist-bg-2:rgba(5,16,29,.97);
+  --ato-assist-line:rgba(219,177,98,.34);
+  --ato-assist-glow:rgba(219,177,98,.21);
+}
+
+.ato-assistant-launch[data-tone="contact"]{
+  --ato-assist-bg-1:rgba(9,22,35,.96);
+  --ato-assist-bg-2:rgba(5,15,26,.98);
+  --ato-assist-line:rgba(215,174,94,.34);
+  --ato-assist-glow:rgba(215,174,94,.19);
+}
+
+.ato-assistant-launch[data-tone="footer"]{
+  --ato-assist-bg-1:rgba(7,13,20,.97);
+  --ato-assist-bg-2:rgba(3,9,15,.99);
+  --ato-assist-line:rgba(225,187,112,.40);
+  --ato-assist-glow:rgba(225,187,112,.23);
+}
+
+
+/* Hover remains refined: slightly stronger line, no neon. */
+.ato-assistant-launch:hover{
+  border-color:var(--ato-assist-line-hot)!important;
+
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb,var(--ato-assist-bg-1) 91%,#d6ad5f 9%),
+      var(--ato-assist-bg-2)
+    )!important;
+
+  box-shadow:
+    0 19px 48px rgba(0,0,0,.25),
+    0 0 20px rgba(216,177,95,.055),
+    inset 0 1px rgba(255,255,255,.03)!important;
+}
+
+
+/* Simplified wording hierarchy:
+   ASK SOMETHING = micro label
+   ASSISTANT = single clean service name */
+.ato-assistant-launch__copy small{
+  font-size:7.2px!important;
+  letter-spacing:.19em!important;
+  color:#dcb568!important;
+}
+
+.ato-assistant-launch__copy strong{
+  font-size:19px!important;
+  letter-spacing:.055em!important;
+}
+
+
+/* Respect users who disable interface animation. */
+@media(prefers-reduced-motion:reduce){
+  .ato-assistant-launch::after,
+  .ato-assistant-launch__signal{
+    animation:none!important;
+  }
+
+  .ato-assistant-launch::after{
+    opacity:.08!important;
+  }
+}
+
+@media(max-width:720px){
+  .ato-assistant-launch::after{
+    border-radius:19px!important;
+  }
+
+  .ato-assistant-launch__copy strong{
+    font-size:17px!important;
+  }
+}

@@ -9,7 +9,7 @@
 
   const I18N = {
     en:{
-      ask:'ASK ANYTHING', title:'ATO ASSISTANT', status:'AI ASSISTANT · MANAGER READY',
+      ask:'ASK SOMETHING', title:'ASSISTANT', status:'AI ASSISTANT · MANAGER READY',
       intro:'Hello. I can help with tours, prices, children, transfers, schedules and booking.',
       placeholder:'Ask about tours, prices, children…', send:'Send', manager:'Talk to Manager',
       chips:['Find a tour','With children','Prices','Pickup & transfer','What do you recommend?'],
@@ -17,7 +17,7 @@
       retry:'Please try again.', close:'Close', reset:'New chat', managerLead:'Send this conversation to ATO Manager'
     },
     ru:{
-      ask:'СПРОСИТЬ', title:'ATO ASSISTANT', status:'AI-ПОМОЩНИК · МЕНЕДЖЕР НА СВЯЗИ',
+      ask:'СПРОСИТЬ', title:'АССИСТЕНТ', status:'AI-ПОМОЩНИК · МЕНЕДЖЕР НА СВЯЗИ',
       intro:'Здравствуйте. Я помогу с турами, ценами, детьми, трансфером, расписанием и бронированием.',
       placeholder:'Спросите о турах, ценах, детях…', send:'Отправить', manager:'Связаться с менеджером',
       chips:['Подобрать тур','С детьми','Цены','Трансфер','Что посоветуете?'],
@@ -25,7 +25,7 @@
       retry:'Попробуйте ещё раз.', close:'Закрыть', reset:'Новый чат', managerLead:'Передать этот диалог менеджеру ATO'
     },
     tr:{
-      ask:'SORUNUZU SORUN', title:'ATO ASSISTANT', status:'AI ASİSTAN · YÖNETİCİ HAZIR',
+      ask:'BİR ŞEY SORUN', title:'ASİSTAN', status:'AI ASİSTAN · YÖNETİCİ HAZIR',
       intro:'Merhaba. Turlar, fiyatlar, çocuklar, transfer, program ve rezervasyon konusunda yardımcı olabilirim.',
       placeholder:'Turlar, fiyatlar, çocuklar hakkında sorun…', send:'Gönder', manager:'Yöneticiye Bağlan',
       chips:['Tur bul','Çocuklarla','Fiyatlar','Transfer','Ne önerirsiniz?'],
@@ -33,7 +33,7 @@
       retry:'Lütfen tekrar deneyin.', close:'Kapat', reset:'Yeni sohbet', managerLead:'Bu konuşmayı ATO yöneticisine gönder'
     },
     de:{
-      ask:'FRAGE STELLEN', title:'ATO ASSISTANT', status:'AI-ASSISTENT · MANAGER BEREIT',
+      ask:'ETWAS FRAGEN', title:'ASSISTENT', status:'AI-ASSISTENT · MANAGER BEREIT',
       intro:'Hallo. Ich helfe bei Touren, Preisen, Kindern, Transfer, Zeitplan und Buchung.',
       placeholder:'Fragen Sie nach Touren, Preisen, Kindern…', send:'Senden', manager:'Mit Manager sprechen',
       chips:['Tour finden','Mit Kindern','Preise','Transfer','Was empfehlen Sie?'],
@@ -41,7 +41,7 @@
       retry:'Bitte versuchen Sie es erneut.', close:'Schließen', reset:'Neuer Chat', managerLead:'Diesen Chat an den ATO Manager senden'
     },
     pl:{
-      ask:'ZAPYTAJ', title:'ATO ASSISTANT', status:'ASYSTENT AI · MENEDŻER GOTOWY',
+      ask:'ZAPYTAJ', title:'ASYSTENT', status:'ASYSTENT AI · MENEDŻER GOTOWY',
       intro:'Dzień dobry. Pomogę w sprawie wycieczek, cen, dzieci, transferu, terminów i rezerwacji.',
       placeholder:'Zapytaj o wycieczki, ceny, dzieci…', send:'Wyślij', manager:'Połącz z menedżerem',
       chips:['Znajdź wycieczkę','Z dziećmi','Ceny','Transfer','Co polecacie?'],
@@ -77,6 +77,8 @@
   }
   let history=loadHistory();
   let busy=false;
+  let launchToneBound=false;
+  let launchToneRaf=0;
 
   function save(){
     try{ sessionStorage.setItem(STORAGE_KEY, JSON.stringify(history.slice(-MAX_HISTORY))); }catch(e){}
@@ -97,6 +99,46 @@
       description: meta.slice(0,600),
       visible_text: txt
     };
+  }
+
+  function launchTone(){
+    const launch=$('#atoAssistantLaunch');
+    if(!launch) return;
+
+    const r=launch.getBoundingClientRect();
+    const x=Math.max(1,Math.min(window.innerWidth-2,r.left+r.width*.52));
+    const y=Math.max(1,Math.min(window.innerHeight-2,r.top+r.height*.52));
+
+    const stack=document.elementsFromPoint(x,y)
+      .filter(el=>!el.closest?.('#atoAssistantRoot'));
+
+    const under=stack[0] || document.body;
+    let tone='default';
+
+    if(under.closest?.('#atoLivingHero')) tone='hero';
+    else if(under.closest?.('#main-categories')) tone='categories';
+    else if(under.closest?.('.vip-service-premium,.vip-service-premium-link')) tone='vip';
+    else if(under.closest?.('#about')) tone='about';
+    else if(under.closest?.('#contacts')) tone='contact';
+    else if(under.closest?.('.footer-strip')) tone='footer';
+
+    launch.dataset.tone=tone;
+  }
+
+  function scheduleLaunchTone(){
+    if(launchToneRaf) return;
+    launchToneRaf=requestAnimationFrame(()=>{
+      launchToneRaf=0;
+      launchTone();
+    });
+  }
+
+  function initLaunchTone(){
+    launchTone();
+    if(launchToneBound) return;
+    launchToneBound=true;
+    window.addEventListener('scroll',scheduleLaunchTone,{passive:true});
+    window.addEventListener('resize',scheduleLaunchTone,{passive:true});
   }
 
   function buildUI(){
@@ -144,6 +186,7 @@
         <div class="ato-assistant-fineprint">AI ASSISTANT · FINAL AVAILABILITY & BOOKING CONFIRMED BY ATO MANAGER</div>
       </section>`;
     document.body.appendChild(root);
+    initLaunchTone();
 
     renderHistory();
     renderChips();
