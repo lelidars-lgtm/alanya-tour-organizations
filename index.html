@@ -859,33 +859,33 @@ body.ato-header-search-open{overflow-x:hidden}
     <div class="promo-group">
       <span
         class="promo-text"
-        data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК"
-        data-en="🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE"
-        data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE"
-        data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN & DIE 3. GRATIS"
-        data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS">
-        🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE
+        data-ru="🔥 СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ — 2 ТУРА + 3-Й В ПОДАРОК"
+        data-en="🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE"
+        data-tr="🔥 ÖZEL TEKLİF — 2 TUR AL, 3. TUR HEDİYE"
+        data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN, DIE 3. GRATIS"
+        data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI, 3. GRATIS">
+        🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE
       </span>
       <span class="promo-dot" aria-hidden="true">◆</span>
       <span class="promo-slogan">TRAVEL WITH LOVE. TRAVEL WITH US.</span>
       <span class="promo-dot" aria-hidden="true">◆</span>
-      <span class="promo-services">VIP YACHT TOURS • FAMILY SAFARI • PRIVATE TRANSFERS</span>
+      <span class="promo-services">PRIVATE TOURS • VIP TRANSFERS • FAMILY EXPERIENCES</span>
       <span class="promo-dot" aria-hidden="true">◆</span>
     </div>
     <div class="promo-group" aria-hidden="true">
       <span
         class="promo-text"
-        data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК"
-        data-en="🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE"
-        data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE"
-        data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN & DIE 3. GRATIS"
-        data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS">
-        🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE
+        data-ru="🔥 СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ — 2 ТУРА + 3-Й В ПОДАРОК"
+        data-en="🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE"
+        data-tr="🔥 ÖZEL TEKLİF — 2 TUR AL, 3. TUR HEDİYE"
+        data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN, DIE 3. GRATIS"
+        data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI, 3. GRATIS">
+        🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE
       </span>
       <span class="promo-dot" aria-hidden="true">◆</span>
       <span class="promo-slogan">TRAVEL WITH LOVE. TRAVEL WITH US.</span>
       <span class="promo-dot" aria-hidden="true">◆</span>
-      <span class="promo-services">VIP YACHT TOURS • FAMILY SAFARI • PRIVATE TRANSFERS</span>
+      <span class="promo-services">PRIVATE TOURS • VIP TRANSFERS • FAMILY EXPERIENCES</span>
       <span class="promo-dot" aria-hidden="true">◆</span>
     </div>
   </div>
@@ -1134,22 +1134,35 @@ body.ato-header-search-open{overflow-x:hidden}
             </p>
           </a>
     
+          
           <a class="popular-tour" href="pirate-yacht.html">
             <img src="images/admiral-black-hero.jpg" alt="Pirate Yacht Tour">
-            <div><b>PIRATE YACHT TOUR</b><span>from €25</span></div>
+            <div class="popular-tour-copy">
+              <b>Pirate Yacht Tour</b>
+              <small>6 Hours · Alanya</small>
+              <span>from €25</span>
+            </div>
           </a>
-    
+
           <a class="popular-tour" href="green-canyon.html">
             <img src="images/nature-adventure/canyon-adventures.png" alt="Green Canyon">
-            <div><b>GREEN CANYON</b><span>from €35</span></div>
+            <div class="popular-tour-copy">
+              <b>Green Canyon</b>
+              <small>Full Day · Manavgat</small>
+              <span>from €35</span>
+            </div>
           </a>
-    
+
           <a class="popular-tour" href="jeep-safari.html">
             <img src="images/jeep-safari/hero.png" alt="Jeep Safari">
-            <div><b>JEEP SAFARI</b><span>from €35</span></div>
+            <div class="popular-tour-copy">
+              <b>Jeep Safari</b>
+              <small>Full Day · Alanya</small>
+              <span>from €35</span>
+            </div>
           </a>
     
-          <a class="view-all" href="popular-tours.html">VIEW ALL TOURS →</a>
+          <a class="view-all" href="popular-tours.html">VIEW ALL TOURS</a>
         </section>
 
 <div class="premium-stats vertical-stats">
@@ -1814,8 +1827,8 @@ function renderResults(){const arr=filtered(),l=L();const rn=$('#atfResultNumber
  const hc=$('#atfHomeCount');if(hc)hc.textContent=arr.length;const q1=$('#atoTourFinderSearch'),q2=$('#officialTourSearch');if(q1&&q1.value!==state.q)q1.value=state.q;if(q2&&q2.value!==state.q)q2.value=state.q;$('#atfSearchClear')?.classList.toggle('visible',!!state.q);renderActive();syncURL()}
 
 function ensureModal(){const existing=$('#atoTourFinderModal');if(existing){const compatible=existing.querySelector('#atfResultMeta')&&existing.querySelector('#atfAdvanced')&&existing.querySelector('#atfGrid')&&existing.querySelector('#atfSearchHint');if(compatible)return;existing.remove()}document.body.insertAdjacentHTML('beforeend',`<div class="ato-tour-finder-modal" id="atoTourFinderModal" aria-hidden="true"><section class="ato-tour-finder-dialog" role="dialog" aria-modal="true" aria-labelledby="atoTourFinderTitle"><div class="atf-head"><div class="atf-brand"><div class="atf-brand-mark">${svg.spark}</div><div><div class="atf-eyebrow">ALANYA TOUR ORGANIZATIONS · TOUR FINDER</div><h2 id="atoTourFinderTitle"></h2><div class="atf-subtitle" id="atfSubtitle"></div></div></div><div class="atf-head-actions"><button type="button" class="ato-tour-finder-close" id="atoTourFinderClose" aria-label="Close">×</button></div></div><div class="atf-search-zone"><div class="atf-search">${svg.spark}<input id="atoTourFinderSearch" type="search" autocomplete="off" spellcheck="false"><button class="atf-search-clear" id="atfSearchClear" type="button">×</button></div><div class="atf-search-hint"><span id="atfSearchHint"></span></div><div class="atf-active" id="atfActiveFilters"></div></div><div class="atf-body"><aside class="atf-filters"><div class="atf-filter-section"><div class="atf-filter-title"><span id="atfCategoryTitle"></span></div><div class="atf-filter-list" id="atfCategoryList"></div></div><div class="atf-filter-section"><div class="atf-filter-title"><span id="atfAudienceTitle"></span></div><div class="atf-filter-list" id="atfAudienceList"></div></div><div class="atf-filter-section"><div class="atf-filter-title"><span id="atfPriceTitle"></span></div><div class="atf-filter-list" id="atfPriceList"></div></div><div class="atf-filter-section"><div class="atf-filter-title"><span id="atfDurationTitle"></span></div><div class="atf-filter-list" id="atfDurationList"></div></div><button class="atf-more-toggle" id="atfMoreToggle" type="button"></button><div class="atf-advanced" id="atfAdvanced"><div class="atf-filter-section"><div class="atf-filter-title"><span id="atfStyleTitle"></span></div><div class="atf-filter-list" id="atfStyleList"></div></div><div class="atf-filter-section"><div class="atf-filter-title"><span id="atfActivityTitle"></span></div><div class="atf-filter-list" id="atfIntensityList"></div></div><div class="atf-filter-section"><div class="atf-filter-title"><span id="atfFormatTitle"></span></div><div class="atf-filter-list" id="atfFormatList"></div></div><div class="atf-filter-section"><div class="atf-filter-title"><span id="atfDestinationTitle"></span></div><div class="atf-destination-tools"><input id="atfDestSearch" type="search"></div><div class="atf-filter-list" id="atfDestinationList"></div><button class="atf-show-dest" id="atfShowDest" type="button"></button></div><div class="atf-filter-section"><div class="atf-filter-title"><span id="atfTimeTitle"></span></div><div class="atf-filter-list" id="atfTimeList"></div></div><div class="atf-filter-section"><div class="atf-filter-title"><span id="atfIncludedTitle"></span></div><div class="atf-filter-list" id="atfIncludedList"></div></div><div class="atf-filter-section"><div class="atf-filter-title"><span id="atfAgeTitle"></span></div><div class="atf-filter-list" id="atfAgeList"></div></div></div><button type="button" class="atf-reset-all" id="atfClearAll"></button></aside><main class="atf-results-pane"><div class="atf-toolbar"><div><div class="atf-result-count"><strong id="atfResultNumber">0</strong><span id="atfResultText"></span></div><div class="atf-result-meta" id="atfResultMeta"></div></div><div class="atf-toolbar-right"><span class="atf-view-label" id="atfSortLabel"></span><select class="atf-sort" id="atfSort"></select></div></div><div class="atf-grid" id="atfGrid"></div></main></div></section></div>`)}
-function ensureHome(){const sidebar=$('.tour-sidebar');if(!sidebar)return;const old=sidebar.querySelector('.filter-grid');if(old)old.style.display='none';if($('#atfHomeQuick'))return;const input=$('#officialTourSearch');if(!input)return;const h4=input.nextElementSibling;if(h4)h4.style.display='none';input.insertAdjacentHTML('afterend',`<div class="atf-home-quick" id="atfHomeQuick"></div><div class="atf-home-status"><span><strong id="atfHomeCount">0</strong> <span id="atfHomeFound"></span></span><button class="atf-home-reset" id="atfHomeReset" type="button"></button></div><div class="atf-home-results" id="atfHomeResults"></div><button class="atf-open-full" id="atfOpenFull" type="button"></button>`)}
-function renderHome(){const el=$('#atfHomeQuick');if(!el)return;el.innerHTML=['family','couples','kids','private','adventure','relax'].map(v=>{const group=['family','couples','kids'].includes(v)?'audience':(v==='private'?'format':'style');const set=group==='audience'?state.audience:(group==='format'?state.formats:state.styles);return optionHTML(group,v,set.has(v),countFor(group,v))}).join('');$('#atfHomeFound').textContent=L().found;$('#atfHomeReset').textContent=L().reset;$('#atfOpenFull').textContent=L().open}
+function ensureHome(){const sidebar=$('.tour-sidebar');if(!sidebar)return;const old=sidebar.querySelector('.filter-grid');if(old)old.style.display='none';if($('#atfHomeQuick'))return;const input=$('#officialTourSearch');if(!input)return;const h4=input.nextElementSibling;if(h4)h4.style.display='none';input.insertAdjacentHTML('afterend',`<div class="atf-home-quick" id="atfHomeQuick"></div><div class="atf-home-status"><span><strong id="atfHomeCount">0</strong> <span id="atfHomeFound"></span></span><button class="atf-home-reset" id="atfHomeReset" type="button"></button></div><div class="atf-home-results" id="atfHomeResults"></div>`)}
+function renderHome(){const el=$('#atfHomeQuick');if(!el)return;el.innerHTML=['family','couples','kids','private','adventure','relax'].map(v=>{const group=['family','couples','kids'].includes(v)?'audience':(v==='private'?'format':'style');const set=group==='audience'?state.audience:(group==='format'?state.formats:state.styles);return optionHTML(group,v,set.has(v),countFor(group,v))}).join('');$('#atfHomeFound').textContent=L().found;$('#atfHomeReset').textContent=L().reset}
 function renderLanguage(){const l=L();const text=(s,v)=>{const e=$(s);if(e)e.textContent=v},attr=(s,n,v)=>{const e=$(s);if(e)e.setAttribute(n,v)};text('#atoTourFinderTitle',l.title);text('#atfSubtitle',l.sub);text('#atfSearchHint',l.searchHint);text('#atfLogicNote',l.logic);attr('#atoTourFinderSearch','placeholder',l.ph);attr('#officialTourSearch','placeholder',l.ph);attr('#atfDestSearch','placeholder',l.destSearch);text('#atfCategoryTitle',l.category);text('#atfAudienceTitle',l.travellers);text('#atfPriceTitle',l.price);text('#atfDurationTitle',l.duration);text('#atfStyleTitle',l.style);text('#atfActivityTitle',l.activity);text('#atfFormatTitle',l.format);text('#atfDestinationTitle',l.destination);text('#atfTimeTitle',l.time);text('#atfIncludedTitle',l.included);text('#atfAgeTitle',l.age);text('#atfSortLabel',l.sort);text('#atfClearAll',l.clear);const s=$('#atfSort');if(s){s.innerHTML=`<option value="recommended">${esc(l.recommended)}</option><option value="low">${esc(l.low)}</option><option value="high">${esc(l.high)}</option><option value="complete">${esc(l.complete)}</option><option value="az">${esc(l.az)}</option>`;s.value=state.sort}renderFilters();renderHome();renderResults()}
 function syncChecked(){$$('[data-atf-kind]').forEach(i=>{const g=i.dataset.atfKind,v=i.value;let checked=false;if(g==='category')checked=state.categories.has(v);else if(g==='audience')checked=state.audience.has(v);else if(g==='style')checked=state.styles.has(v);else if(g==='price')checked=state.price===v;else if(g==='duration')checked=state.durations.has(v);else if(g==='intensity')checked=state.intensity.has(v);else if(g==='format')checked=state.formats.has(v);else if(g==='destination')checked=state.destinations.has(v);else if(g==='time')checked=state.times.has(v);else if(g==='included')checked=state.included.has(v);else if(g==='age')checked=state.ages.has(v);i.checked=checked;i.closest('.atf-option')?.classList.toggle('is-checked',checked)})}
 function commit(){renderFilters();renderHome();syncChecked();renderResults()}
@@ -1830,7 +1843,7 @@ function close(){const m=$('#atoTourFinderModal');if(!m)return;m.classList.remov
 function bind(){
  document.addEventListener('change',e=>{const i=e.target.closest('[data-atf-kind]');if(!i)return;const g=i.dataset.atfKind,v=i.value,c=i.checked;const map={category:state.categories,audience:state.audience,style:state.styles,duration:state.durations,intensity:state.intensity,format:state.formats,destination:state.destinations,time:state.times,included:state.included,age:state.ages};if(g==='price'){state.price=c?v:''}else toggleSet(map[g],v,c);commit()});
  let timer;document.addEventListener('input',e=>{if(e.target.matches('#atoTourFinderSearch,#officialTourSearch')){clearTimeout(timer);timer=setTimeout(()=>{state.q=e.target.value||'';renderResults();renderFilters();renderHome()},70)}if(e.target.matches('#atfDestSearch')){state.destQuery=e.target.value||'';renderDestination();syncChecked()}});
- document.addEventListener('click',e=>{const rm=e.target.closest('[data-atf-remove]');if(rm){removeFilter(rm.dataset.atfRemove,rm.dataset.value);return}if(e.target.closest('#atfClearAll,#atfHomeReset')){reset();return}if(e.target.closest('#atfOpenFull')){e.preventDefault();open();return}if(e.target.closest('#atoTourFinderClose')){close();return}if(e.target.closest('#atfSearchClear')){state.q='';renderResults();renderFilters();renderHome();$('#atoTourFinderSearch')?.focus();return}if(e.target.closest('#atfMoreToggle')){state.advanced=!state.advanced;renderFilters();return}if(e.target.closest('#atfShowDest')){state.destAll=!state.destAll;renderDestination();syncChecked();return}if(e.target.id==='atoTourFinderModal')close()});
+ document.addEventListener('click',e=>{const rm=e.target.closest('[data-atf-remove]');if(rm){removeFilter(rm.dataset.atfRemove,rm.dataset.value);return}if(e.target.closest('#atfClearAll,#atfHomeReset')){reset();return}if(e.target.closest('#atoTourFinderClose')){close();return}if(e.target.closest('#atfSearchClear')){state.q='';renderResults();renderFilters();renderHome();$('#atoTourFinderSearch')?.focus();return}if(e.target.closest('#atfMoreToggle')){state.advanced=!state.advanced;renderFilters();return}if(e.target.closest('#atfShowDest')){state.destAll=!state.destAll;renderDestination();syncChecked();return}if(e.target.id==='atoTourFinderModal')close()});
  $('#atfSort')?.addEventListener('change',e=>{state.sort=e.target.value;renderResults()});
  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();open()}})
 }
@@ -1876,7 +1889,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     contactDetails:["CONTACT / COMPANY DETAILS","КОНТАКТЫ / ДАННЫЕ КОМПАНИИ","İLETİŞİM / ŞİRKET BİLGİLERİ","KONTAKT / FIRMENDATEN","KONTAKT / DANE FIRMY"],
     searchNav:["SEARCH","ПОИСК","ARA","SUCHE","SZUKAJ"],
     slogan:["TRAVEL WITH LOVE. TRAVEL WITH US.","ПУТЕШЕСТВУЙТЕ С ЛЮБОВЬЮ. ПУТЕШЕСТВУЙТЕ С НАМИ.","SEVGİYLE SEYAHAT EDİN. BİZİMLE SEYAHAT EDİN.","REISEN SIE MIT LIEBE. REISEN SIE MIT UNS.","PODRÓŻUJ Z MIŁOŚCIĄ. PODRÓŻUJ Z NAMI."],
-    promoServices:["VIP YACHT TOURS • FAMILY SAFARI • PRIVATE TRANSFERS","VIP-ТУРЫ НА ЯХТЕ • СЕМЕЙНОЕ САФАРИ • ЧАСТНЫЕ ТРАНСФЕРЫ","VIP YAT TURLARI • AİLE SAFARİSİ • ÖZEL TRANSFERLER","VIP-YACHTTOUREN • FAMILIENSAFARI • PRIVATTRANSFERS","REJSY VIP • RODZINNE SAFARI • PRYWATNE TRANSFERY"],
+    promoServices:["PRIVATE TOURS • VIP TRANSFERS • FAMILY EXPERIENCES","ЧАСТНЫЕ ТУРЫ • VIP-ТРАНСФЕРЫ • СЕМЕЙНЫЕ ВПЕЧАТЛЕНИЯ","ÖZEL TURLAR • VIP TRANSFERLER • AİLE DENEYİMLERİ","PRIVATE TOUREN • VIP-TRANSFERS • FAMILIENERLEBNISSE","PRYWATNE WYCIECZKI • TRANSFERY VIP • RODZINNE ATRAKCJE"],
     book:["Book via WhatsApp","Забронировать через WhatsApp","WhatsApp'tan Rezervasyon Yap","Über WhatsApp buchen","Zarezerwuj przez WhatsApp"],
     mainCategories:["MAIN CATEGORIES","ОСНОВНЫЕ КАТЕГОРИИ","ANA KATEGORİLER","HAUPTKATEGORIEN","GŁÓWNE KATEGORIE"],
     discover:["Discover Your Perfect Experience","Найдите своё идеальное путешествие","Mükemmel Deneyiminizi Keşfedin","Entdecken Sie Ihr perfektes Erlebnis","Odkryj swoje idealne przeżycie"],
@@ -1896,7 +1909,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     popular:["🔥 POPULAR TOURS","🔥 ПОПУЛЯРНЫЕ ТУРЫ","🔥 POPÜLER TURLAR","🔥 BELIEBTE TOUREN","🔥 POPULARNE WYCIECZKI"],
     sale:["START YOUR ADVENTURE NOW! GREAT PRICES • UNFORGETTABLE EXPERIENCES","НАЧНИТЕ ПРИКЛЮЧЕНИЕ СЕЙЧАС! ВЫГОДНЫЕ ЦЕНЫ • ЯРКИЕ ЭМОЦИИ","MACERANIZA ŞİMDİ BAŞLAYIN! AVANTAJLI FİYATLAR • UNUTULMAZ DENEYİMLER","STARTEN SIE JETZT! TOP-PREISE • UNVERGESSLICHE ERLEBNISSE","ZACZNIJ PRZYGODĘ TERAZ! ŚWIETNE CENY • NIEZAPOMNIANE WRAŻENIA"],
     from:["from","от","başlangıç","ab","od"],
-    viewAll:["VIEW ALL TOURS →","СМОТРЕТЬ ВСЕ ТУРЫ →","TÜM TURLARI GÖR →","ALLE TOUREN ANSEHEN →","ZOBACZ WSZYSTKIE WYCIECZKI →"],
+    viewAll:["VIEW ALL TOURS","СМОТРЕТЬ ВСЕ ТУРЫ","TÜM TURLARI GÖR","ALLE TOUREN ANSEHEN","ZOBACZ WSZYSTKIE WYCIECZKI"],
     stats:["Years Experience|Destinations|Happy Guests|Premium Support","Лет опыта|Направлений|Довольных гостей|Премиальная поддержка","Yıllık Deneyim|Destinasyon|Mutlu Misafir|Premium Destek","Jahre Erfahrung|Reiseziele|Zufriedene Gäste|Premium-Support","Lat doświadczenia|Kierunków|Zadowolonych gości|Wsparcie premium"],
     vipDesc:["Helicopter Charter, Luxury Airport Transfer, Private Yacht Charter, Private Driver, Private Photographer and premium private experiences.","Чартер вертолёта, VIP-трансфер из аэропорта, частная яхта, личный водитель, фотограф и премиальные услуги.","Helikopter kiralama, lüks havalimanı transferi, özel yat, özel şoför, fotoğrafçı ve premium deneyimler.","Hubschrauber-Charter, Luxus-Flughafentransfer, Privatyacht, Privatfahrer, Fotograf und Premium-Erlebnisse.","Czarter helikoptera, luksusowy transfer, prywatny jacht, kierowca, fotograf i usługi premium."],
     discoverVip:["DISCOVER VIP","ОТКРЫТЬ VIP","VIP'Yİ KEŞFET","VIP ENTDECKEN","ODKRYJ VIP"],

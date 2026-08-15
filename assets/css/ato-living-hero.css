@@ -5854,3 +5854,550 @@ body > .promo-bar[data-tone="footer"]{
     transform:none!important;
   }
 }
+
+
+/* =========================================================
+   ATO V7.10.7 — PROMO: LIGHTER / SLOWER / CLEANER
+   + HEADER SEARCH NAV TYPOGRAPHY ALIGNMENT
+   ========================================================= */
+
+/* SEARCH must read exactly like the other all-caps navigation items. */
+.header #headerTourSearch.ato-search-trigger{
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:14px!important;
+  font-weight:800!important;
+  line-height:1!important;
+  letter-spacing:.01em!important;
+  text-transform:uppercase!important;
+
+  color:var(--ato-header-ink)!important;
+}
+
+.header #headerTourSearch .ato-search-trigger-label{
+  color:var(--ato-header-ink)!important;
+  font:inherit!important;
+  letter-spacing:inherit!important;
+  text-transform:inherit!important;
+}
+
+.header #headerTourSearch .ato-search-trigger-icon{
+  width:15px!important;
+  height:15px!important;
+  stroke-width:1.65!important;
+}
+
+
+/* Slow the full marquee substantially. */
+body > .promo-bar .promo-track{
+  --ato-promo-speed:52s!important;
+}
+
+@media(max-width:720px){
+  body > .promo-bar .promo-track{
+    --ato-promo-speed:58s!important;
+  }
+}
+
+
+/* The ribbon should feel like smoked glass over the current section,
+   not a black advertising strip. */
+body > .promo-bar{
+  border-top:1px solid rgba(224,188,116,.10)!important;
+  border-bottom:1px solid rgba(224,188,116,.14)!important;
+
+  backdrop-filter:blur(12px) saturate(.82)!important;
+  -webkit-backdrop-filter:blur(12px) saturate(.82)!important;
+
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.10),
+    inset 0 1px rgba(255,255,255,.025)!important;
+}
+
+
+/* Hero scenes — lighter and more translucent so each tone can be seen. */
+body > .promo-bar[data-tone="hero-paragliding"]{
+  --promo-bg:rgba(8,31,48,.73)!important;
+  --promo-bg-2:rgba(14,40,56,.67)!important;
+}
+body > .promo-bar[data-tone="hero-pamukkale"]{
+  --promo-bg:rgba(46,36,34,.69)!important;
+  --promo-bg-2:rgba(55,43,39,.63)!important;
+}
+body > .promo-bar[data-tone="hero-cappadocia"]{
+  --promo-bg:rgba(43,29,36,.69)!important;
+  --promo-bg-2:rgba(51,34,41,.63)!important;
+}
+body > .promo-bar[data-tone="hero-jeep"]{
+  --promo-bg:rgba(31,31,27,.72)!important;
+  --promo-bg-2:rgba(38,37,31,.66)!important;
+}
+body > .promo-bar[data-tone="hero-rafting"]{
+  --promo-bg:rgba(8,34,39,.72)!important;
+  --promo-bg-2:rgba(12,43,47,.66)!important;
+}
+body > .promo-bar[data-tone="hero-istanbul"]{
+  --promo-bg:rgba(12,27,45,.72)!important;
+  --promo-bg-2:rgba(19,37,54,.66)!important;
+}
+body > .promo-bar[data-tone="hero-tazy"]{
+  --promo-bg:rgba(9,29,29,.72)!important;
+  --promo-bg-2:rgba(15,39,37,.66)!important;
+}
+body > .promo-bar[data-tone="hero-helicopter"]{
+  --promo-bg:rgba(32,27,27,.72)!important;
+  --promo-bg-2:rgba(42,32,31,.66)!important;
+}
+
+
+/* Main page sections */
+body > .promo-bar[data-tone="categories"]{
+  --promo-bg:rgba(9,29,44,.76)!important;
+  --promo-bg-2:rgba(15,38,52,.70)!important;
+}
+body > .promo-bar[data-tone="vip"]{
+  --promo-bg:rgba(29,29,30,.75)!important;
+  --promo-bg-2:rgba(36,34,33,.69)!important;
+}
+body > .promo-bar[data-tone="about"]{
+  --promo-bg:rgba(9,29,43,.76)!important;
+  --promo-bg-2:rgba(14,38,52,.70)!important;
+}
+body > .promo-bar[data-tone="live-turkiye"]{
+  --promo-bg:rgba(37,20,27,.74)!important;
+  --promo-bg-2:rgba(48,25,31,.68)!important;
+}
+body > .promo-bar[data-tone="contact"]{
+  --promo-bg:rgba(9,28,42,.76)!important;
+  --promo-bg-2:rgba(14,37,50,.70)!important;
+}
+body > .promo-bar[data-tone="google-map"]{
+  --promo-bg:rgba(38,42,43,.70)!important;
+  --promo-bg-2:rgba(27,38,43,.65)!important;
+}
+body > .promo-bar[data-tone="footer"]{
+  --promo-bg:rgba(7,16,27,.84)!important;
+  --promo-bg-2:rgba(9,20,31,.80)!important;
+}
+
+
+/* Copy itself becomes a little less shouty. */
+body > .promo-bar .promo-group{
+  gap:34px!important;
+  padding-right:34px!important;
+}
+
+body > .promo-bar .promo-group > span{
+  font-size:12px!important;
+  font-weight:700!important;
+  letter-spacing:.055em!important;
+}
+
+body > .promo-bar .promo-slogan{
+  color:rgba(250,246,238,.92)!important;
+}
+
+body > .promo-bar .promo-services{
+  color:rgba(247,242,232,.86)!important;
+}
+
+body > .promo-bar .promo-text{
+  color:#f5eee2!important;
+}
+
+body > .promo-bar .promo-dot{
+  color:#ddb15e!important;
+  opacity:.88!important;
+}
+
+
+/* =========================================================
+   ATO V7.10.8 — FINAL SIDEBAR UNIFICATION
+   ========================================================= */
+
+/* FIND YOUR PERFECT TOUR — one line + champagne gold */
+.main-categories-section .tour-sidebar > h3{
+  display:block!important;
+  width:100%!important;
+  margin:0 0 17px!important;
+
+  color:#dcb15e!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-size:17px!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:.045em!important;
+  text-transform:uppercase!important;
+
+  white-space:nowrap!important;
+  overflow:visible!important;
+
+  -webkit-text-stroke:.16px rgba(242,205,135,.24)!important;
+  text-shadow:
+    0 2px 12px rgba(0,0,0,.24),
+    0 0 8px rgba(216,177,95,.035)!important;
+}
+
+/* Open full Tour Finder removed from JS/DOM; cached legacy version hidden too */
+.main-categories-section .tour-sidebar .atf-open-full,
+#atfOpenFull{
+  display:none!important;
+}
+
+
+/* Popular intro — BOTH sides exactly the same font size */
+.tour-sidebar .popular-feature-card .sidebar-sale{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  column-gap:26px!important;
+  min-height:104px!important;
+  padding:14px 0 15px!important;
+}
+
+.tour-sidebar .sidebar-sale__lead,
+.tour-sidebar .sidebar-sale__tail{
+  max-width:none!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-size:15px!important;
+  font-weight:400!important;
+  line-height:1.08!important;
+  letter-spacing:.045em!important;
+  text-transform:uppercase!important;
+}
+
+.tour-sidebar .sidebar-sale__lead{
+  color:#f4ecdf!important;
+  text-align:left!important;
+}
+
+.tour-sidebar .sidebar-sale__tail{
+  color:#dcb15e!important;
+  text-align:right!important;
+  justify-self:stretch!important;
+}
+
+
+/* Popular cards now match Syedra / Gazipaşa finder cards */
+.tour-sidebar .popular-feature-card .popular-tour{
+  display:grid!important;
+  grid-template-columns:92px minmax(0,1fr)!important;
+  align-items:center!important;
+  gap:14px!important;
+
+  min-height:86px!important;
+  margin:8px 0!important;
+  padding:9px!important;
+
+  border:1px solid rgba(215,176,98,.16)!important;
+  border-radius:15px!important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.018),
+      rgba(255,255,255,.008)
+    )!important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.014)!important;
+
+  text-decoration:none!important;
+
+  transition:
+    border-color .26s ease,
+    background .26s ease,
+    transform .26s ease!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-tour:first-of-type{
+  margin-top:9px!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-tour:hover{
+  border-color:rgba(216,177,95,.32)!important;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(216,177,95,.035),
+      rgba(255,255,255,.010)
+    )!important;
+  transform:translateY(-1px)!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-tour img{
+  width:92px!important;
+  height:72px!important;
+  object-fit:cover!important;
+  border-radius:11px!important;
+
+  border:1px solid rgba(216,177,95,.13)!important;
+
+  box-shadow:
+    0 7px 18px rgba(0,0,0,.13)!important;
+}
+
+.tour-sidebar .popular-tour-copy{
+  display:block!important;
+  min-width:0!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-tour b{
+  display:block!important;
+  margin:0 0 4px!important;
+
+  color:#f3ecdf!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Times New Roman",
+    serif!important;
+
+  font-size:15px!important;
+  font-weight:400!important;
+  line-height:1.02!important;
+  letter-spacing:.012em!important;
+  text-transform:none!important;
+
+  -webkit-text-stroke:.10px rgba(216,177,95,.15)!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-tour small{
+  display:block!important;
+  margin:0 0 5px!important;
+
+  color:rgba(240,234,223,.48)!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Times New Roman",
+    serif!important;
+
+  font-size:10px!important;
+  font-weight:400!important;
+  line-height:1.15!important;
+  letter-spacing:.012em!important;
+
+  white-space:nowrap!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-tour span{
+  display:block!important;
+  margin:0!important;
+
+  color:#d9ae5c!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Times New Roman",
+    serif!important;
+
+  font-size:14px!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:.018em!important;
+  text-transform:capitalize!important;
+}
+
+
+/* VIEW ALL TOURS — same visual construction as Assistant */
+.tour-sidebar .popular-feature-card .view-all{
+  position:relative!important;
+  isolation:isolate!important;
+
+  display:flex!important;
+  align-items:center!important;
+
+  width:100%!important;
+  min-height:64px!important;
+
+  margin:14px 0 0!important;
+  padding:10px 11px 10px 15px!important;
+
+  border:1px solid rgba(216,177,95,.34)!important;
+  border-radius:19px!important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(7,22,37,.94) 0%,
+      rgba(5,17,29,.96) 100%
+    )!important;
+
+  color:#f5eee2!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-size:18px!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:.032em!important;
+  text-transform:uppercase!important;
+  text-decoration:none!important;
+
+  -webkit-text-stroke:.16px rgba(215,173,97,.30)!important;
+
+  text-shadow:
+    0 2px 12px rgba(0,0,0,.30)!important;
+
+  box-shadow:
+    0 16px 42px rgba(0,0,0,.18),
+    inset 0 1px rgba(255,255,255,.025)!important;
+
+  backdrop-filter:blur(16px) saturate(.88)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(.88)!important;
+
+  transition:
+    transform .28s ease,
+    border-color .28s ease,
+    box-shadow .28s ease,
+    background .28s ease!important;
+}
+
+/* Assistant-style gold dot */
+.tour-sidebar .popular-feature-card .view-all::before{
+  content:""!important;
+
+  position:static!important;
+  display:block!important;
+
+  width:6px!important;
+  height:6px!important;
+  flex:0 0 6px!important;
+
+  margin:0 12px 0 0!important;
+
+  border-radius:50%!important;
+  background:#ddb666!important;
+
+  box-shadow:
+    0 0 0 1px rgba(255,246,222,.16),
+    0 0 10px rgba(221,182,102,.24)!important;
+
+  opacity:1!important;
+  transform:none!important;
+}
+
+/* Assistant-style circular arrow */
+.tour-sidebar .popular-feature-card .view-all::after{
+  content:"↗"!important;
+
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+
+  width:32px!important;
+  height:32px!important;
+  flex:0 0 32px!important;
+
+  margin-left:auto!important;
+
+  border:1px solid rgba(216,177,95,.24)!important;
+  border-radius:50%!important;
+
+  background:rgba(216,177,95,.018)!important;
+
+  color:#dcb56a!important;
+
+  font-family:"Times New Roman",serif!important;
+  font-size:16px!important;
+  font-weight:400!important;
+  line-height:1!important;
+
+  transition:
+    color .28s ease,
+    border-color .28s ease,
+    background .28s ease,
+    transform .28s ease!important;
+}
+
+.tour-sidebar .popular-feature-card .view-all:hover{
+  color:#fff7e9!important;
+  border-color:rgba(228,190,119,.54)!important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9,27,44,.96) 0%,
+      rgba(5,18,31,.97) 100%
+    )!important;
+
+  box-shadow:
+    0 19px 48px rgba(0,0,0,.23),
+    0 0 19px rgba(216,177,95,.045),
+    inset 0 1px rgba(255,255,255,.03)!important;
+
+  transform:translateY(-2px)!important;
+}
+
+.tour-sidebar .popular-feature-card .view-all:hover::after{
+  color:#f1ce87!important;
+  border-color:rgba(228,190,119,.46)!important;
+  background:rgba(216,177,95,.035)!important;
+  transform:translate(1px,-1px)!important;
+}
+
+.tour-sidebar .popular-feature-card .view-all:active{
+  transform:translateY(0) scale(.992)!important;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.20),
+    0 0 20px rgba(216,177,95,.11),
+    inset 0 1px rgba(255,255,255,.025)!important;
+}
+
+
+@media(max-width:720px){
+  .main-categories-section .tour-sidebar > h3{
+    font-size:15.5px!important;
+    letter-spacing:.028em!important;
+  }
+
+  .tour-sidebar .sidebar-sale__lead,
+  .tour-sidebar .sidebar-sale__tail{
+    font-size:14px!important;
+    line-height:1.08!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour{
+    grid-template-columns:88px minmax(0,1fr)!important;
+    gap:12px!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour img{
+    width:88px!important;
+    height:69px!important;
+  }
+
+  .tour-sidebar .popular-feature-card .view-all{
+    min-height:58px!important;
+    border-radius:17px!important;
+    font-size:16px!important;
+  }
+
+  .tour-sidebar .popular-feature-card .view-all::after{
+    width:29px!important;
+    height:29px!important;
+    flex-basis:29px!important;
+    font-size:15px!important;
+  }
+}
