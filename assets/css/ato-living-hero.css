@@ -4310,3 +4310,107 @@ body{
     font-size:11.5px!important;
   }
 }
+
+
+/* =========================================================
+   ATO V7.10 — AI ASSISTANT / BUSINESS CHAT
+   Universal premium customer assistant. Legacy WhatsApp card hidden.
+   ========================================================= */
+.whatsapp-popup,.ato-concierge{display:none!important}
+
+.ato-assistant{
+  --aa-bg:#06111d;
+  --aa-bg2:#0a1725;
+  --aa-ivory:#f5eee2;
+  --aa-muted:#8998a9;
+  --aa-gold:#d7ad61;
+  --aa-line:rgba(215,173,97,.25);
+  --aa-line-soft:rgba(255,255,255,.08);
+  position:fixed;right:22px;bottom:22px;z-index:2147482500;
+  font-family:Arial,Helvetica,sans-serif;color:var(--aa-ivory);
+}
+.ato-assistant *{box-sizing:border-box}
+.ato-assistant button,.ato-assistant textarea{font:inherit}
+
+.ato-assistant-launch{
+  width:238px;min-height:66px;padding:12px 14px;
+  display:grid;grid-template-columns:10px 1fr 25px;align-items:center;gap:11px;
+  border:1px solid rgba(215,173,97,.32);border-radius:18px;
+  background:linear-gradient(145deg,rgba(10,24,40,.96),rgba(5,15,27,.97));
+  color:var(--aa-ivory);cursor:pointer;
+  box-shadow:0 18px 52px rgba(0,0,0,.30),inset 0 1px rgba(255,255,255,.025);
+  backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);
+  transition:transform .3s ease,border-color .3s ease,opacity .25s ease;
+}
+.ato-assistant-launch:hover{transform:translateY(-2px);border-color:rgba(228,190,119,.55)}
+.ato-assistant-launch.is-hidden{opacity:0;pointer-events:none;transform:translateY(10px)}
+.ato-assistant-launch__signal{width:7px;height:7px;border-radius:50%;background:#dcb76e;box-shadow:0 0 0 1px rgba(255,244,214,.18),0 0 12px rgba(220,183,110,.28)}
+.ato-assistant-launch__copy{text-align:left;min-width:0}
+.ato-assistant-launch__copy small{display:block;margin-bottom:3px;color:var(--aa-gold);font-size:8px;font-weight:700;letter-spacing:.16em}
+.ato-assistant-launch__copy strong{display:block;font-family:"Bodoni MT","Didot","Times New Roman",serif;font-size:20px;font-weight:400;line-height:1;letter-spacing:.025em;-webkit-text-stroke:.16px rgba(215,173,97,.28)}
+.ato-assistant-launch__arrow{color:var(--aa-gold);font-family:"Times New Roman",serif;font-size:20px;text-align:right}
+
+.ato-assistant-panel{
+  position:absolute;right:0;bottom:0;width:min(390px,calc(100vw - 28px));height:min(650px,calc(100svh - 32px));
+  display:flex;flex-direction:column;overflow:hidden;
+  border:1px solid rgba(215,173,97,.30);border-radius:25px;
+  background:radial-gradient(circle at 20% 0,rgba(215,173,97,.06),transparent 28%),linear-gradient(180deg,rgba(9,24,39,.985),rgba(4,14,25,.99));
+  box-shadow:0 28px 95px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.025);
+  backdrop-filter:blur(20px) saturate(.9);-webkit-backdrop-filter:blur(20px) saturate(.9);
+  opacity:0;visibility:hidden;transform:translateY(14px) scale(.985);transform-origin:bottom right;
+  transition:opacity .28s ease,transform .28s ease,visibility .28s;
+}
+.ato-assistant-panel.is-open{opacity:1;visibility:visible;transform:none}
+
+.ato-assistant-head{min-height:92px;padding:18px 18px 15px;display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--aa-line-soft)}
+.ato-assistant-eyebrow{margin-bottom:5px;color:var(--aa-gold);font-size:8px;font-weight:700;letter-spacing:.17em}
+.ato-assistant-head h3{margin:0;color:var(--aa-ivory);font-family:"Bodoni MT","Didot","Times New Roman",serif;font-size:25px;font-weight:400;line-height:1;letter-spacing:.025em;-webkit-text-stroke:.18px rgba(215,173,97,.32)}
+.ato-assistant-status{display:flex;align-items:center;gap:6px;margin-top:7px;color:#8d9bab;font-size:8px;font-weight:700;letter-spacing:.10em}
+.ato-assistant-status span{width:5px;height:5px;border-radius:50%;background:#cfa95f;box-shadow:0 0 8px rgba(207,169,95,.26)}
+.ato-assistant-head__actions{display:flex;gap:6px}
+.ato-assistant-head__actions button{width:32px;height:32px;border:1px solid var(--aa-line-soft);border-radius:50%;background:rgba(255,255,255,.018);color:#aab5c1;cursor:pointer;font-size:18px;line-height:1;transition:.2s}
+.ato-assistant-head__actions button:hover{border-color:var(--aa-line);color:var(--aa-gold)}
+
+.ato-assistant-thread{flex:1;min-height:0;overflow:auto;padding:17px 16px 12px;scrollbar-width:thin;scrollbar-color:rgba(215,173,97,.22) transparent}
+.ato-assistant-msg{max-width:88%;margin-bottom:14px}
+.ato-assistant-msg--user{margin-left:auto}
+.ato-assistant-msg__label{margin:0 0 5px 2px;color:#76879a;font-size:7px;font-weight:800;letter-spacing:.13em}
+.ato-assistant-msg--user .ato-assistant-msg__label{text-align:right;margin-right:2px}
+.ato-assistant-msg__body{padding:11px 13px;border:1px solid rgba(255,255,255,.065);border-radius:14px 14px 14px 4px;background:rgba(255,255,255,.028);color:#e9e5dd;font-size:12.5px;line-height:1.48;box-shadow:0 8px 22px rgba(0,0,0,.09)}
+.ato-assistant-msg--user .ato-assistant-msg__body{border-color:rgba(215,173,97,.23);border-radius:14px 14px 4px 14px;background:rgba(215,173,97,.075);color:#f4ead8}
+.ato-assistant-msg.is-temporary .ato-assistant-msg__body{color:#9aa7b5;font-style:italic;animation:atoAssistantPulse 1.5s ease-in-out infinite}
+@keyframes atoAssistantPulse{50%{opacity:.58}}
+
+.ato-assistant-chips{display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px;scrollbar-width:none}
+.ato-assistant-chips::-webkit-scrollbar{display:none}
+.ato-assistant-chips button{flex:0 0 auto;min-height:31px;padding:0 10px;border:1px solid rgba(215,173,97,.20);border-radius:999px;background:rgba(215,173,97,.025);color:#cbbd9f;font-size:9px;cursor:pointer;transition:.2s}
+.ato-assistant-chips button:hover{border-color:rgba(215,173,97,.42);color:#f2e7d2}
+
+.ato-assistant-handoff{padding:0 16px 10px}
+.ato-assistant-handoff button{width:100%;min-height:38px;padding:0 12px;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(215,173,97,.33);border-radius:999px;background:transparent;color:#f1e8d8;cursor:pointer;font-family:"Bodoni MT","Didot","Times New Roman",serif;font-size:14px;font-weight:400;letter-spacing:.025em;transition:.25s}
+.ato-assistant-handoff button b{color:var(--aa-gold);font-weight:400;font-size:17px}
+.ato-assistant-handoff button:hover{border-color:rgba(230,196,130,.58);background:rgba(215,173,97,.035)}
+
+.ato-assistant-compose{display:grid;grid-template-columns:1fr 44px;align-items:end;gap:8px;padding:11px 12px 9px;border-top:1px solid var(--aa-line-soft);background:rgba(3,11,20,.34)}
+.ato-assistant-compose textarea{width:100%;height:42px;max-height:112px;resize:none;outline:0;border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:11px 12px;background:rgba(255,255,255,.025);color:#f2eee7;font-size:12px;line-height:1.35;transition:border-color .2s}
+.ato-assistant-compose textarea:focus{border-color:rgba(215,173,97,.38)}
+.ato-assistant-compose textarea::placeholder{color:#718194}
+.ato-assistant-compose button{width:44px;height:42px;border:1px solid rgba(215,173,97,.36);border-radius:14px;background:rgba(215,173,97,.045);color:var(--aa-gold);font-family:"Times New Roman",serif;font-size:21px;cursor:pointer;transition:.2s}
+.ato-assistant-compose button:hover{background:rgba(215,173,97,.08);border-color:rgba(215,173,97,.58)}
+.ato-assistant-compose button:disabled{opacity:.35;cursor:wait}
+.ato-assistant-fineprint{padding:0 13px 11px;color:#5f7082;font-size:6.8px;font-weight:700;letter-spacing:.08em;text-align:center;background:rgba(3,11,20,.34)}
+
+@media(max-width:720px){
+  .ato-assistant{right:12px;bottom:12px}
+  .ato-assistant-launch{width:218px;min-height:61px;border-radius:17px}
+  .ato-assistant-launch__copy strong{font-size:18px}
+  .ato-assistant-panel{position:fixed;left:10px;right:10px;bottom:10px;width:auto;height:min(78svh,660px);border-radius:22px;transform-origin:bottom center}
+  .ato-assistant-head{min-height:84px;padding:16px 15px 13px}
+  .ato-assistant-head h3{font-size:23px}
+  .ato-assistant-thread{padding:15px 13px 10px}
+  .ato-assistant-msg__body{font-size:12px}
+  .ato-assistant-chips,.ato-assistant-handoff{padding-left:13px;padding-right:13px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ato-assistant-panel,.ato-assistant-launch,.ato-assistant-msg.is-temporary .ato-assistant-msg__body{transition:none!important;animation:none!important}
+}
