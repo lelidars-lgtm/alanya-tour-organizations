@@ -1,29 +1,19 @@
-ATO HERO — EXACT FILENAME FIX
+ATO HERO V5.1 — AUDITED FINAL
 
-YOUR EXISTING IMAGE FILES ARE USED AS-IS. DO NOT RENAME THEM.
+Replace these items in the project:
+1. /index.html
+2. /assets/css/ato-living-hero.css
+3. /assets/img/hero/desktop/  (replace the 7 Hero images)
+4. /assets/img/hero/mobile/   (replace the 7 Hero images)
 
-Replace only:
-1) root index.html
-2) assets/js/ato-living-hero.js
+Do NOT reconnect assets/js/ato-living-hero.js.
+The Hero logic is intentionally embedded in index.html.
 
-The JS points exactly to these files already visible in your repo:
-
-DESKTOP
-01-RAFTING-APPROVED.png
-02-TAZY-CANYON-APPROVED.png
-03-ISTANBUL-APPROVED.png
-04-PAMUKKALE-APPROVED.jpg
-05-CAPPADOCIA-APPROVED.jpg
-06-EVENING-ALANYA-APPROVED.png
-07-HELICOPTER-FLYME-AIR-APPROVED.jpg
-
-MOBILE
-01-RAFTING-MOBILE.png
-02-TAZY-CANYON-MOBILE.png
-03-ISTANBUL-MOBILE.png
-04-PAMUKKALE-MOBILE.png
-05-CAPPADOCIA-MOBILE.png
-06-EVENING-ALANYA-MOBILE.png
-07-HELICOPTER-FLYME-AIR-MOBILE.png
-
-Do NOT delete these images. They are the correct final images.
+Important fixes in V5.1:
+- all 14 Hero image paths verified against included files;
+- desktop PNG filenames now contain real PNG data (no JPEG/PNG MIME mismatch);
+- all inline JavaScript passes node --check;
+- caption visibility restored and animated correctly;
+- first Rafting frame remains HTML-backed, so Hero does not depend on JS to show an image;
+- old Hero JS cannot override this version because it is not loaded;
+- HERO-ASSET-CHECK.html remains included for deployment diagnostics.

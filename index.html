@@ -13,9 +13,123 @@
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="assets/css/trip-planner-shared.css" />
-  <link rel="preload" as="image" href="assets/img/hero/desktop/01-RAFTING-APPROVED.png" media="(min-width:981px)" fetchpriority="high" />
-  <link rel="preload" as="image" href="assets/img/hero/mobile/01-RAFTING-MOBILE.png" media="(max-width:980px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/img/hero/desktop/01-RAFTING-APPROVED.png" media="(min-width:981px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/img/hero/mobile/01-RAFTING-MOBILE.png" media="(max-width:980px)" fetchpriority="high" />
   <link rel="stylesheet" href="assets/css/ato-living-hero.css" />
+<style id="ato-hero-self-contained-critical">
+/* ATO HERO — SELF-CONTAINED CRITICAL FALLBACK
+   Deliberately overrides any cached/old hero CSS that can hide the image. */
+#atoLivingHero{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background:#020b13!important;
+  min-height:min(860px,calc(100svh - 92px))!important;
+}
+#atoLivingHero::before,
+#atoLivingHero::after{
+  display:none!important;
+}
+#atoLivingHero .ato-living-hero__stage{
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  overflow:hidden!important;
+  background:#020b13!important;
+  pointer-events:none!important;
+}
+#atoLivingHero .ato-living-hero__scene{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  opacity:1!important;
+  visibility:visible!important;
+  overflow:hidden!important;
+  background:#020b13!important;
+  transform:none;
+  will-change:clip-path,transform,opacity;
+}
+#atoLivingHero .ato-living-hero__scene--current{z-index:1!important}
+#atoLivingHero .ato-living-hero__scene--next{
+  z-index:2!important;
+  opacity:0!important;
+  pointer-events:none!important;
+}
+#atoLivingHero .ato-living-hero__media{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  opacity:1!important;
+  visibility:visible!important;
+  filter:none!important;
+  -webkit-filter:none!important;
+  transform:scale(1.015);
+  transform-origin:center center;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+#atoLivingHero .ato-living-hero__stage::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:4!important;
+  display:block!important;
+  pointer-events:none!important;
+  background:
+    linear-gradient(180deg,rgba(1,6,12,.12) 0%,rgba(1,6,12,0) 34%,rgba(1,6,12,.12) 62%,rgba(1,6,12,.40) 100%)!important;
+}
+#atoLivingHero .ato-living-hero__edge,
+#atoLivingHero .ato-living-hero__transition{
+  display:none!important;
+}
+#atoLivingHero .ato-living-hero__ui{
+  position:absolute!important;
+  inset:0!important;
+  z-index:7!important;
+  pointer-events:none!important;
+}
+#atoLivingHero .ato-living-hero__ui a,
+#atoLivingHero .ato-living-hero__ui button{
+  pointer-events:auto!important;
+}
+#atoLivingHero .ato-living-hero__hit{
+  position:absolute!important;
+  inset:0!important;
+  z-index:5!important;
+}
+#atoLivingHero .ato-living-hero__slogan,
+#atoLivingHero .hero-content{
+  display:none!important;
+}
+@media(max-width:980px){
+  #atoLivingHero{
+    min-height:calc(100svh - 74px)!important;
+  }
+  #atoLivingHero .ato-living-hero__media{
+    object-position:center center!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #atoLivingHero .ato-living-hero__scene,
+  #atoLivingHero .ato-living-hero__media{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+</style>
+
 <style id="ato-tour-finder-premium-v4">
 /* ================= ATO TOUR FINDER PREMIUM V4 ================= */
 :root{
@@ -780,10 +894,18 @@ body.ato-header-search-open{overflow-x:hidden}
 
 <section class="hero ato-living-hero" id="atoLivingHero" aria-label="Featured experiences">
   <div class="ato-living-hero__stage" aria-hidden="true">
-    <div class="ato-living-hero__scene ato-living-hero__scene--current"></div>
-    <div class="ato-living-hero__scene ato-living-hero__scene--next"></div>
-    <div class="ato-living-hero__edge"></div>
-    <div class="ato-living-hero__transition"></div>
+    <picture class="ato-living-hero__scene ato-living-hero__scene--current" id="atoHeroCurrentPicture">
+      <source id="atoHeroCurrentMobile" media="(max-width:980px)" srcset="/assets/img/hero/mobile/01-RAFTING-MOBILE.png">
+      <img id="atoHeroCurrentImage"
+           class="ato-living-hero__media"
+           src="/assets/img/hero/desktop/01-RAFTING-APPROVED.png"
+           alt=""
+           fetchpriority="high"
+           decoding="async">
+    </picture>
+    <div class="ato-living-hero__scene ato-living-hero__scene--next" id="atoHeroNextLayer">
+      <img id="atoHeroNextImage" class="ato-living-hero__media" alt="" decoding="async">
+    </div>
   </div>
 
   <a class="ato-living-hero__hit" href="/rafting-koprulu-canyon.html" aria-label="NATURE & ADVENTURE — RAFTING — open tour"></a>
@@ -1756,8 +1878,240 @@ render();
   });
 })();
 </script>
+<!-- ATO HERO V5 SELF-CONTAINED: external living-hero JS intentionally removed -->
 
-<!-- ATO TOUR FINDER V4.5 · HEADER RESULTS LAYER FIX + LIVING HERO + POPULAR TOURS -->
-<script src="assets/js/ato-living-hero.js" defer></script>
+<script id="ato-hero-self-contained-js">
+(() => {
+  'use strict';
+
+  const root = document.getElementById('atoLivingHero');
+  if (!root) return;
+
+  const currentPicture = document.getElementById('atoHeroCurrentPicture');
+  const currentMobile = document.getElementById('atoHeroCurrentMobile');
+  const currentImg = document.getElementById('atoHeroCurrentImage');
+  const nextLayer = document.getElementById('atoHeroNextLayer');
+  const nextImg = document.getElementById('atoHeroNextImage');
+
+  const hit = root.querySelector('.ato-living-hero__hit');
+  const caption = root.querySelector('.ato-living-hero__caption');
+  const captionText = caption?.querySelector('span');
+  const currentNum = root.querySelector('.ato-living-hero__current-num');
+  const totalNum = root.querySelector('.ato-living-hero__total-num');
+  const trackFill = root.querySelector('.ato-living-hero__track i');
+  const pauseBtn = root.querySelector('.ato-living-hero__pause');
+
+  if (!currentPicture || !currentMobile || !currentImg || !nextLayer || !nextImg) return;
+
+  const scenes = [
+    {
+      d:'/assets/img/hero/desktop/01-RAFTING-APPROVED.png',
+      m:'/assets/img/hero/mobile/01-RAFTING-MOBILE.png',
+      label:'NATURE & ADVENTURE — RAFTING',
+      href:'/rafting-koprulu-canyon.html',
+      hold:5000, duration:920,
+      from:'scale(1.015)', to:'scale(1.055) translate3d(0,-.7%,0)'
+    },
+    {
+      d:'/assets/img/hero/desktop/02-TAZY-CANYON-APPROVED.png',
+      m:'/assets/img/hero/mobile/02-TAZY-CANYON-MOBILE.png',
+      label:'NATURE & ADVENTURE — TAZY CANYON',
+      href:'/nature-adventures.html',
+      hold:5300, duration:1120,
+      from:'scale(1.018)', to:'scale(1.047) translate3d(-.5%,-.4%,0)'
+    },
+    {
+      d:'/assets/img/hero/desktop/03-ISTANBUL-APPROVED.png',
+      m:'/assets/img/hero/mobile/03-ISTANBUL-MOBILE.png',
+      label:'HISTORY & CULTURE — ISTANBUL',
+      href:'/istanbul-tour.html',
+      hold:5600, duration:1080,
+      from:'scale(1.012)', to:'scale(1.030)'
+    },
+    {
+      d:'/assets/img/hero/desktop/04-PAMUKKALE-APPROVED.jpg',
+      m:'/assets/img/hero/mobile/04-PAMUKKALE-MOBILE.png',
+      label:'HISTORY & CULTURE — PAMUKKALE',
+      href:'/pamukkale-salda-lake.html',
+      hold:5600, duration:1200,
+      from:'scale(1.018)', to:'scale(1.043) translate3d(-.8%,0,0)'
+    },
+    {
+      d:'/assets/img/hero/desktop/05-CAPPADOCIA-APPROVED.jpg',
+      m:'/assets/img/hero/mobile/05-CAPPADOCIA-MOBILE.png',
+      label:'HISTORY & CULTURE — CAPPADOCIA',
+      href:'/cappadocia.html',
+      hold:5900, duration:1050,
+      from:'scale(1.018) translate3d(0,.4%,0)', to:'scale(1.048) translate3d(0,-.9%,0)'
+    },
+    {
+      d:'/assets/img/hero/desktop/06-EVENING-ALANYA-APPROVED.png',
+      m:'/assets/img/hero/mobile/06-EVENING-ALANYA-MOBILE.png',
+      label:'ALANYA — EVENING VIEW FROM ABOVE',
+      href:'/alanya-city-tour.html',
+      hold:5900, duration:1180,
+      from:'scale(1.050)', to:'scale(1.018)'
+    },
+    {
+      d:'/assets/img/hero/desktop/07-HELICOPTER-FLYME-AIR-APPROVED.jpg',
+      m:'/assets/img/hero/mobile/07-HELICOPTER-FLYME-AIR-MOBILE.png',
+      label:'VIP SERVICES — HELICOPTER FLIGHT',
+      href:'/helicopter-flight.html',
+      hold:6000, duration:1000,
+      from:'scale(1.016)', to:'scale(1.048) translate3d(-.4%,-.3%,0)'
+    }
+  ];
+
+  const mq = matchMedia('(max-width:980px)');
+  let index = 0, timer = 0, paused = false, locked = false;
+  let ambient = null, progress = null;
+
+  const chosen = s => mq.matches ? s.m : s.d;
+
+  const load = src => new Promise((resolve,reject) => {
+    const im = new Image();
+    im.onload = () => resolve(src);
+    im.onerror = () => reject(new Error('Image not found: '+src));
+    im.src = src;
+  });
+
+  function updateUI(scene, i, animateCaption=false) {
+    if (currentNum) currentNum.textContent = String(i+1).padStart(2,'0');
+    if (totalNum) totalNum.textContent = '07';
+    if (captionText) captionText.textContent = scene.label;
+    if (caption) {
+      caption.href = scene.href;
+      caption.setAttribute('aria-label', scene.label + ' — open tour');
+      if (animateCaption) {
+        caption.classList.remove('is-visible');
+        requestAnimationFrame(() => setTimeout(() => caption.classList.add('is-visible'), 180));
+      } else {
+        caption.classList.add('is-visible');
+      }
+    }
+    if (hit) {
+      hit.href = scene.href;
+      hit.setAttribute('aria-label', scene.label + ' — open tour');
+    }
+  }
+
+  function setCurrentSources(scene) {
+    currentMobile.srcset = scene.m;
+    currentImg.src = scene.d;
+  }
+
+  function startAmbient(scene) {
+    ambient?.cancel?.();
+    currentPicture.style.transform = scene.from;
+    if (currentPicture.animate) {
+      ambient = currentPicture.animate(
+        [{transform:scene.from},{transform:scene.to}],
+        {duration:scene.hold + scene.duration + 700,easing:'linear',fill:'forwards'}
+      );
+    }
+  }
+
+  function startProgress(scene) {
+    progress?.cancel?.();
+    if (!trackFill || !trackFill.animate) return;
+    trackFill.style.transformOrigin='left center';
+    progress = trackFill.animate(
+      [{transform:'scaleX(0)'},{transform:'scaleX(1)'}],
+      {duration:scene.hold,easing:'linear',fill:'forwards'}
+    );
+  }
+
+  function schedule() {
+    clearTimeout(timer);
+    if (paused) return;
+    const s = scenes[index];
+    startProgress(s);
+    timer = setTimeout(() => go((index+1)%scenes.length), s.hold);
+  }
+
+  async function go(target) {
+    if (locked || target === index) return;
+    locked = true;
+    clearTimeout(timer);
+    progress?.cancel?.();
+
+    const oldScene = scenes[index];
+    const newScene = scenes[target];
+    const src = chosen(newScene);
+
+    try {
+      await load(src);
+    } catch (err) {
+      console.error('[ATO HERO]', err);
+      locked = false;
+      schedule();
+      return;
+    }
+
+    nextImg.src = src;
+    nextLayer.style.setProperty('opacity','1','important');
+    nextLayer.style.clipPath = 'ellipse(8% 130% at 112% 50%)';
+    nextLayer.style.transform = 'scale(1.025) translate3d(1%,0,0)';
+
+    let reveal;
+    if (nextLayer.animate) {
+      reveal = nextLayer.animate([
+        {clipPath:'ellipse(8% 130% at 112% 50%)',transform:'scale(1.025) translate3d(1%,0,0)'},
+        {clipPath:'ellipse(170% 170% at 100% 50%)',transform:'scale(1) translate3d(0,0,0)'}
+      ],{
+        duration:oldScene.duration,
+        easing:'cubic-bezier(.16,1,.3,1)',
+        fill:'forwards'
+      });
+      await reveal.finished.catch(()=>{});
+    } else {
+      nextLayer.style.clipPath='none';
+      await new Promise(r=>setTimeout(r,oldScene.duration));
+    }
+
+    setCurrentSources(newScene);
+    currentPicture.style.transform = newScene.from;
+    nextLayer.style.setProperty('opacity','0','important');
+    nextLayer.style.clipPath='none';
+    nextLayer.style.transform='none';
+    nextImg.removeAttribute('src');
+
+    index=target;
+    updateUI(newScene,index,true);
+    startAmbient(newScene);
+    locked=false;
+    schedule();
+  }
+
+  pauseBtn?.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    paused=!paused;
+    pauseBtn.textContent=paused?'▶':'Ⅱ';
+    pauseBtn.setAttribute('aria-pressed',String(paused));
+    if (paused) {
+      clearTimeout(timer);
+      ambient?.pause?.();
+      progress?.pause?.();
+    } else {
+      ambient?.play?.();
+      schedule();
+    }
+  });
+
+  mq.addEventListener?.('change', () => {
+    setCurrentSources(scenes[index]);
+  });
+
+  // Static HTML already displays frame 01. JS only enriches it.
+  updateUI(scenes[0],0);
+  startAmbient(scenes[0]);
+  scenes.slice(1,3).forEach(s => load(chosen(s)).catch(()=>{}));
+  schedule();
+
+  console.info('[ATO HERO] self-contained V5.1 audited ready; first frame is HTML-backed');
+})();
+</script>
+
 </body>
 </html>
