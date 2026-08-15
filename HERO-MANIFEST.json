@@ -1,0 +1,130 @@
+[
+  {
+    "scene": 1,
+    "title": "PARAGLIDING OVER ALANYA",
+    "kind": "desktop",
+    "file": "assets/img/hero/desktop/01-PARAGLIDING-ALANYA.png",
+    "bytes": 2493190,
+    "sha256": "92b9b5426459d7d96a02571b3064417c3ae9adf7d7d0857174d8963ce4e7ddae"
+  },
+  {
+    "scene": 1,
+    "title": "PARAGLIDING OVER ALANYA",
+    "kind": "mobile",
+    "file": "assets/img/hero/mobile/01-PARAGLIDING-ALANYA-MOBILE.jpg",
+    "bytes": 433866,
+    "sha256": "578ace1e5dd9aeba228bfc2b47c0a69b4eb495f5d54a2ace65c76b63e3856b36"
+  },
+  {
+    "scene": 2,
+    "title": "PAMUKKALE",
+    "kind": "desktop",
+    "file": "assets/img/hero/desktop/02-PAMUKKALE.png",
+    "bytes": 2086854,
+    "sha256": "503b94f423a5aafd75a9a52a194b9bb060d042bf5ff1a390121f3e5053dbad09"
+  },
+  {
+    "scene": 2,
+    "title": "PAMUKKALE",
+    "kind": "mobile",
+    "file": "assets/img/hero/mobile/02-PAMUKKALE-MOBILE.jpg",
+    "bytes": 286872,
+    "sha256": "93601f301eef5ad499ca4a974c5e2502b8455576096710590fdb9274d165fe8d"
+  },
+  {
+    "scene": 3,
+    "title": "CAPPADOCIA",
+    "kind": "desktop",
+    "file": "assets/img/hero/desktop/03-CAPPADOCIA-AIR-KAPADOKYA.png",
+    "bytes": 2455847,
+    "sha256": "e0f2628518ac6db2107f90831e283d7ce2bf0706c51c2bf74406fc7d1c0f87f1"
+  },
+  {
+    "scene": 3,
+    "title": "CAPPADOCIA",
+    "kind": "mobile",
+    "file": "assets/img/hero/mobile/03-CAPPADOCIA-AIR-KAPADOKYA-MOBILE.jpg",
+    "bytes": 378579,
+    "sha256": "99f2605ad12a01a5c4cee72353f5897a736556076f9af422795d6b6dea42c617"
+  },
+  {
+    "scene": 4,
+    "title": "JEEP SAFARI",
+    "kind": "desktop",
+    "file": "assets/img/hero/desktop/04-JEEP-SAFARI.webp",
+    "bytes": 306502,
+    "sha256": "1b0036867355f292d0c72c55ac3cf81e1c4569c2d8273e54334c133ae3976eb4"
+  },
+  {
+    "scene": 4,
+    "title": "JEEP SAFARI",
+    "kind": "mobile",
+    "file": "assets/img/hero/mobile/04-JEEP-SAFARI-MOBILE.jpg",
+    "bytes": 354458,
+    "sha256": "db0abce5213dd2b59ff558ba3eab7b5f19da034c7a30a1250844865b9f3094b3"
+  },
+  {
+    "scene": 5,
+    "title": "RAFTING",
+    "kind": "desktop",
+    "file": "assets/img/hero/desktop/05-RAFTING.png",
+    "bytes": 2360053,
+    "sha256": "4213533a0c31861038d42d6203bb2d92551494dce6ed27d5938a6292cfb82b0b"
+  },
+  {
+    "scene": 5,
+    "title": "RAFTING",
+    "kind": "mobile",
+    "file": "assets/img/hero/mobile/05-RAFTING-MOBILE.jpg",
+    "bytes": 353084,
+    "sha256": "5ce6fb9edda479a2d59bc092ef18f58694da122b38e7ad96d4d1a0d94e6849ed"
+  },
+  {
+    "scene": 6,
+    "title": "ISTANBUL",
+    "kind": "desktop",
+    "file": "assets/img/hero/desktop/06-ISTANBUL.png",
+    "bytes": 2439255,
+    "sha256": "9d73fa4a641edb32040827c05deb88fc7a9ab0f97e26a3a65e7a13ac3b80f969"
+  },
+  {
+    "scene": 6,
+    "title": "ISTANBUL",
+    "kind": "mobile",
+    "file": "assets/img/hero/mobile/06-ISTANBUL-MOBILE.jpg",
+    "bytes": 422087,
+    "sha256": "d3e39c59d8c709adf669d525609bdca5b8133064bf3bfd213f2ec920d7ce0d6c"
+  },
+  {
+    "scene": 7,
+    "title": "TAZY CANYON",
+    "kind": "desktop",
+    "file": "assets/img/hero/desktop/07-TAZY-CANYON.png",
+    "bytes": 2556380,
+    "sha256": "7b7104b7a299fe9efa978a4c68713a8387f3bda423e1461b0b3f3e475bbd95b0"
+  },
+  {
+    "scene": 7,
+    "title": "TAZY CANYON",
+    "kind": "mobile",
+    "file": "assets/img/hero/mobile/07-TAZY-CANYON-MOBILE.jpg",
+    "bytes": 381506,
+    "sha256": "402aca175eb82a7155f32726ca611392bd1b9d739e623c0c871a88be5fadd126"
+  },
+  {
+    "scene": 8,
+    "title": "HELICOPTER FLIGHT",
+    "kind": "desktop",
+    "file": "assets/img/hero/desktop/08-HELICOPTER-FLIGHT.png",
+    "bytes": 1823468,
+    "sha256": "9efd5e7ea4229cca2fd95e23dd2be8ce26a9721300df80dbd34d093f9325d97f"
+  },
+  {
+    "scene": 8,
+    "title": "HELICOPTER FLIGHT",
+    "kind": "mobile",
+    "file": "assets/img/hero/mobile/08-HELICOPTER-FLIGHT-MOBILE.jpg",
+    "bytes": 273468,
+    "sha256": "d034e38bfec89fc73f37bd3f964a0e7c03ceee1c45321996e2dc4e845b4910b8"
+  }
+]

@@ -1,19 +1,15 @@
-ATO HERO V5.1 — AUDITED FINAL
+ATO HERO V5.2 — RIVIERA / NEW PAMUKKALE / CLEAN RIGHT SIDE
 
-Replace these items in the project:
-1. /index.html
-2. /assets/css/ato-living-hero.css
-3. /assets/img/hero/desktop/  (replace the 7 Hero images)
-4. /assets/img/hero/mobile/   (replace the 7 Hero images)
+1. THE TURKISH RIVIERA AWAITS restored on slide 01.
+2. Slogan hides on slides 02–07 and returns on 01.
+3. Pamukkale replaced with a clean background image without embedded interface.
+4. Existing image files are deliberately overscanned so their baked right-side 01/07–07/07 counters are outside the visible Hero.
+5. The top progress switcher remains the single navigation/progress indicator.
 
-Do NOT reconnect assets/js/ato-living-hero.js.
-The Hero logic is intentionally embedded in index.html.
+REPLACE:
+index.html
+assets/css/ato-living-hero.css
+assets/img/hero/desktop/
+assets/img/hero/mobile/
 
-Important fixes in V5.1:
-- all 14 Hero image paths verified against included files;
-- desktop PNG filenames now contain real PNG data (no JPEG/PNG MIME mismatch);
-- all inline JavaScript passes node --check;
-- caption visibility restored and animated correctly;
-- first Rafting frame remains HTML-backed, so Hero does not depend on JS to show an image;
-- old Hero JS cannot override this version because it is not loaded;
-- HERO-ASSET-CHECK.html remains included for deployment diagnostics.
+Do not restore the old external ato-living-hero.js.

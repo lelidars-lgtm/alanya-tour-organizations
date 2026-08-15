@@ -21,7 +21,7 @@
 .ato-living-hero__scene{position:absolute;inset:0;display:block;width:100%;height:100%;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-origin:center center;will-change:transform,clip-path,opacity}
 .ato-living-hero__scene--current{z-index:1;opacity:1}
 .ato-living-hero__scene--next{z-index:2;opacity:0;pointer-events:none}
-.ato-living-hero__media{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center center;max-width:none;filter:none;-webkit-filter:none;user-select:none;-webkit-user-drag:none}
+.ato-living-hero__media{position:absolute;top:0;left:-8%;width:116%;height:100%;display:block;object-fit:cover;object-position:center center;max-width:none;filter:none;-webkit-filter:none;user-select:none;-webkit-user-drag:none}
 .ato-living-hero__stage::after{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(180deg,rgba(1,6,12,.12) 0%,rgba(1,6,12,0) 34%,rgba(1,6,12,.12) 62%,rgba(1,6,12,.40) 100%)}
 .ato-living-hero__hit{position:absolute;z-index:5;inset:0}
 .ato-living-hero__ui{position:absolute;z-index:8;inset:0;pointer-events:none}
@@ -37,7 +37,7 @@
 .ato-living-hero__caption{right:38px;color:#e8c98f;opacity:0;transform:translateY(8px);transition:opacity .42s ease,transform .42s ease}
 .ato-living-hero__caption.is-visible{opacity:.96;transform:none}
 .ato-living-hero__caption::after{content:" ↗";color:#d6aa59;font-size:15px}
-.ato-living-hero__slogan,.ato-living-hero .hero-content{display:none!important}
+.ato-living-hero .hero-content{display:none!important}
 
 @media(max-width:980px){
   .ato-living-hero{min-height:calc(100svh - 118px)}
@@ -50,4 +50,325 @@
 @media(prefers-reduced-motion:reduce){
   .ato-living-hero__caption{transition:none!important}
   .ato-living-hero__scene{will-change:auto}
+}
+
+/* ATO V5.2 — restored Turkish Riviera slogan */
+.ato-living-hero__slogan{
+ position:absolute;z-index:8;left:clamp(34px,5vw,86px);top:clamp(92px,18vh,170px);
+ width:min(610px,42vw);color:#fff;pointer-events:none;opacity:1;
+ transform:translate3d(0,0,0);transition:opacity .55s ease,transform .75s cubic-bezier(.16,1,.3,1);
+ text-shadow:0 3px 24px rgba(0,0,0,.34)
+}
+.ato-living-hero__slogan.is-hidden{opacity:0;transform:translate3d(-18px,10px,0)}
+.ato-living-hero__slogan h1{
+ margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,4.7vw,82px);
+ font-weight:400;line-height:.92;letter-spacing:-.035em;text-transform:uppercase
+}
+.ato-living-hero__slogan p{
+ margin:24px 0 0;font:500 clamp(11px,.9vw,14px)/1.58 Arial,sans-serif;
+ letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.88)
+}
+.ato-living-hero__slogan p strong{display:inline-block;margin-top:3px;color:#f0c66d;font-weight:800}
+@media(max-width:980px){
+ .ato-living-hero__media{left:-10%;width:120%;object-position:center center}
+ .ato-living-hero__slogan{left:24px;top:clamp(90px,14vh,130px);width:min(78vw,440px)}
+ .ato-living-hero__slogan h1{font-size:clamp(42px,11vw,68px)}
+ .ato-living-hero__slogan p{margin-top:16px;font-size:10px;letter-spacing:.15em}
+}
+@media(max-width:560px){
+ .ato-living-hero__slogan{left:20px;top:106px;width:78vw}
+ .ato-living-hero__slogan h1{font-size:clamp(38px,10.6vw,54px)}
+}
+
+
+/* =========================================================
+   ATO HERO V5.3 — FUNCTIONAL OVERLAY CONTROLS
+   All visible typography/buttons are HTML, never baked into backgrounds.
+   ========================================================= */
+
+.ato-living-hero__media{
+  position:absolute!important;
+  inset:0!important;
+  left:0!important;
+  top:0!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+}
+
+.ato-living-hero__ui{
+  position:absolute!important;
+  inset:0!important;
+  z-index:12!important;
+  pointer-events:none!important;
+}
+
+.ato-living-hero__ui a,
+.ato-living-hero__ui button{
+  pointer-events:auto!important;
+}
+
+/* TOP RIGHT: only progress, because pause now belongs to the tour action */
+.ato-living-hero__top{
+  position:absolute!important;
+  top:38px!important;
+  right:46px!important;
+  display:block!important;
+}
+
+.ato-living-hero__progress{
+  display:flex!important;
+  align-items:center!important;
+  gap:14px!important;
+  color:rgba(255,255,255,.94)!important;
+  font:700 10px/1 Arial,sans-serif!important;
+  letter-spacing:.13em!important;
+  text-shadow:0 2px 16px rgba(0,0,0,.65)!important;
+}
+
+.ato-living-hero__track{
+  position:relative!important;
+  display:block!important;
+  width:188px!important;
+  height:1px!important;
+  overflow:hidden!important;
+  background:rgba(255,255,255,.34)!important;
+}
+
+.ato-living-hero__track i{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  background:rgba(245,224,190,.96)!important;
+  transform-origin:left center!important;
+}
+
+/* BOTTOM LEFT — real SCROLL button */
+.ato-living-hero__scroll{
+  position:absolute!important;
+  left:48px!important;
+  bottom:30px!important;
+  width:175px!important;
+  min-height:126px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  color:#fff!important;
+  text-decoration:none!important;
+  text-transform:uppercase!important;
+  font:500 10px/1.2 Arial,sans-serif!important;
+  letter-spacing:.17em!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.75)!important;
+}
+
+.ato-living-hero__scroll::before{display:none!important}
+
+.ato-living-hero__scroll > span{
+  display:block!important;
+  white-space:nowrap!important;
+  transition:color .25s ease, transform .25s ease!important;
+}
+
+.ato-living-hero__scroll-dot{
+  position:relative!important;
+  display:block!important;
+  width:34px!important;
+  height:34px!important;
+  margin-top:12px!important;
+  border:1px solid rgba(255,255,255,.88)!important;
+  border-radius:50%!important;
+  transition:transform .28s ease,border-color .28s ease!important;
+}
+
+.ato-living-hero__scroll-dot::after{
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  width:3px!important;
+  height:3px!important;
+  margin:-1.5px 0 0 -1.5px!important;
+  border-radius:50%!important;
+  background:#fff!important;
+}
+
+.ato-living-hero__scroll-line{
+  display:block!important;
+  width:1px!important;
+  height:58px!important;
+  margin-left:16px!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(218,177,91,.72))!important;
+}
+
+.ato-living-hero__scroll:hover > span{color:#e7c574!important;transform:translateX(3px)!important}
+.ato-living-hero__scroll:hover .ato-living-hero__scroll-dot{transform:translateY(3px)!important;border-color:#e7c574!important}
+
+/* BOTTOM RIGHT — category / title / arrow + pause */
+.ato-living-hero__actions{
+  position:absolute!important;
+  right:44px!important;
+  bottom:32px!important;
+  display:flex!important;
+  align-items:flex-end!important;
+  gap:24px!important;
+  pointer-events:none!important;
+}
+
+.ato-living-hero__caption{
+  position:relative!important;
+  right:auto!important;
+  bottom:auto!important;
+  min-width:330px!important;
+  max-width:min(520px,42vw)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  color:#fff!important;
+  text-decoration:none!important;
+  text-transform:uppercase!important;
+  text-align:left!important;
+  opacity:0!important;
+  transform:translateY(9px)!important;
+  transition:opacity .42s ease,transform .42s ease!important;
+  pointer-events:auto!important;
+}
+
+.ato-living-hero__caption.is-visible{
+  opacity:1!important;
+  transform:none!important;
+}
+
+.ato-living-hero__caption::after{display:none!important}
+
+.ato-living-hero__category{
+  display:block!important;
+  margin-bottom:8px!important;
+  color:#d7af61!important;
+  font:500 10px/1.2 Arial,sans-serif!important;
+  letter-spacing:.20em!important;
+  text-shadow:0 2px 18px rgba(0,0,0,.78)!important;
+}
+
+.ato-living-hero__title-row{
+  display:flex!important;
+  align-items:center!important;
+  gap:14px!important;
+}
+
+.ato-living-hero__title{
+  color:#fff!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  font-size:clamp(28px,2.75vw,48px)!important;
+  font-weight:400!important;
+  line-height:.98!important;
+  letter-spacing:.015em!important;
+  text-shadow:0 3px 22px rgba(0,0,0,.72)!important;
+  transition:color .25s ease!important;
+}
+
+.ato-living-hero__arrow{
+  color:#d7af61!important;
+  font:300 32px/1 Arial,sans-serif!important;
+  font-style:normal!important;
+  transform:translateY(-2px)!important;
+  transition:transform .25s ease!important;
+}
+
+.ato-living-hero__caption:hover .ato-living-hero__title{color:#f5f0e6!important}
+.ato-living-hero__caption:hover .ato-living-hero__arrow{transform:translate(4px,-6px)!important}
+
+.ato-living-hero__pause{
+  position:relative!important;
+  width:48px!important;
+  height:48px!important;
+  flex:0 0 48px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid rgba(229,188,104,.72)!important;
+  border-radius:50%!important;
+  background:rgba(3,10,17,.18)!important;
+  color:#fff!important;
+  backdrop-filter:blur(5px)!important;
+  -webkit-backdrop-filter:blur(5px)!important;
+  cursor:pointer!important;
+  transition:background .25s ease,border-color .25s ease,transform .25s ease!important;
+  pointer-events:auto!important;
+}
+
+.ato-living-hero__pause:hover{
+  background:rgba(214,170,89,.14)!important;
+  border-color:#e2bd72!important;
+  transform:scale(1.045)!important;
+}
+
+.ato-living-hero__pause-icon{
+  display:block!important;
+  font:600 12px/1 Arial,sans-serif!important;
+  letter-spacing:-.16em!important;
+  transform:translateX(-1px)!important;
+}
+
+@media(max-width:980px){
+  .ato-living-hero__top{
+    top:20px!important;
+    right:17px!important;
+  }
+  .ato-living-hero__track{width:88px!important}
+  .ato-living-hero__progress{gap:9px!important;font-size:8px!important}
+
+  .ato-living-hero__scroll{
+    left:20px!important;
+    bottom:17px!important;
+    width:120px!important;
+    min-height:92px!important;
+    font-size:8px!important;
+  }
+  .ato-living-hero__scroll-dot{
+    width:27px!important;
+    height:27px!important;
+    margin-top:8px!important;
+  }
+  .ato-living-hero__scroll-line{
+    height:38px!important;
+    margin-left:13px!important;
+  }
+
+  .ato-living-hero__actions{
+    right:18px!important;
+    bottom:18px!important;
+    gap:12px!important;
+    max-width:62vw!important;
+  }
+  .ato-living-hero__caption{
+    min-width:0!important;
+    max-width:calc(62vw - 48px)!important;
+  }
+  .ato-living-hero__category{
+    margin-bottom:5px!important;
+    font-size:7px!important;
+    letter-spacing:.15em!important;
+  }
+  .ato-living-hero__title-row{gap:7px!important}
+  .ato-living-hero__title{
+    font-size:clamp(20px,6vw,30px)!important;
+    line-height:1!important;
+  }
+  .ato-living-hero__arrow{font-size:22px!important}
+  .ato-living-hero__pause{
+    width:40px!important;height:40px!important;flex-basis:40px!important
+  }
+}
+
+@media(max-width:560px){
+  .ato-living-hero__scroll{bottom:12px!important}
+  .ato-living-hero__actions{bottom:14px!important;right:14px!important}
+  .ato-living-hero__title{font-size:clamp(18px,5.8vw,26px)!important}
+}
+
+/* ATO V6 — 8-scene final guard */
+#atoLivingHero .ato-living-hero__media{
+  object-fit:cover!important;
+  object-position:center center!important;
 }
