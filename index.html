@@ -854,33 +854,40 @@ body.ato-header-search-open{overflow-x:hidden}
 </header>
 <div class="ato-header-search-scrim" id="atoHeaderSearchScrim" aria-hidden="true"></div>
 
-<div class="promo-bar">
+<div class="promo-bar" id="atoPromoRibbon" aria-label="Special offers">
   <div class="promo-track">
-    <span 
-      class="promo-text"
-      data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК"
-      data-en="🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE"
-      data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE"
-      data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN & DIE 3. GRATIS"
-      data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS">
-      🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE
-    </span>
-
-    <span class="promo-dot">◆</span>
-    <span>TRAVEL WITH LOVE. TRAVEL WITH US.</span>
-    <span class="promo-dot">◆</span>
-    <span>VIP YACHT TOURS • FAMILY SAFARI • PRIVATE TRANSFERS</span>
-    <span class="promo-dot">◆</span>
-
-    <span 
-      class="promo-text"
-      data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК"
-      data-en="🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE"
-      data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE"
-      data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN & DIE 3. GRATIS"
-      data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS">
-      🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE
-    </span>
+    <div class="promo-group">
+      <span
+        class="promo-text"
+        data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК"
+        data-en="🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE"
+        data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE"
+        data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN & DIE 3. GRATIS"
+        data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS">
+        🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE
+      </span>
+      <span class="promo-dot" aria-hidden="true">◆</span>
+      <span class="promo-slogan">TRAVEL WITH LOVE. TRAVEL WITH US.</span>
+      <span class="promo-dot" aria-hidden="true">◆</span>
+      <span class="promo-services">VIP YACHT TOURS • FAMILY SAFARI • PRIVATE TRANSFERS</span>
+      <span class="promo-dot" aria-hidden="true">◆</span>
+    </div>
+    <div class="promo-group" aria-hidden="true">
+      <span
+        class="promo-text"
+        data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК"
+        data-en="🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE"
+        data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE"
+        data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN & DIE 3. GRATIS"
+        data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS">
+        🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE
+      </span>
+      <span class="promo-dot" aria-hidden="true">◆</span>
+      <span class="promo-slogan">TRAVEL WITH LOVE. TRAVEL WITH US.</span>
+      <span class="promo-dot" aria-hidden="true">◆</span>
+      <span class="promo-services">VIP YACHT TOURS • FAMILY SAFARI • PRIVATE TRANSFERS</span>
+      <span class="promo-dot" aria-hidden="true">◆</span>
+    </div>
   </div>
 </div>
 
@@ -2011,8 +2018,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     });
     renderEditorialSale(lang);
     Object.entries(ownTextKeys).forEach(([selector,key]) => setOwnText(q(selector),tr(key,lang)));
-    q(".promo-track > span:nth-child(3)").textContent=tr("slogan",lang);
-    q(".promo-track > span:nth-child(5)").textContent=tr("promoServices",lang);
+    qa(".promo-slogan").forEach(el=>el.textContent=tr("slogan",lang));
+    qa(".promo-services").forEach(el=>el.textContent=tr("promoServices",lang));
     q(".main-btn").textContent=tr("book",lang);
     q(".main-btn").href="https://wa.me/905387045999?text="+encodeURIComponent({en:"Hello! I would like to book a tour in Alanya.",ru:"Здравствуйте! Хочу забронировать экскурсию в Алании.",tr:"Merhaba! Alanya'da bir tur rezervasyonu yapmak istiyorum.",de:"Hallo! Ich möchte eine Tour in Alanya buchen.",pl:"Dzień dobry! Chcę zarezerwować wycieczkę w Alanyi."}[lang]);
     cardKeys.forEach(([title,desc],i)=>{const card=qa(".category-card")[i]; if(card){card.querySelector("h3").textContent=(i+1)+". "+tr(title,lang); card.querySelector("p").textContent=tr(desc,lang);}});
@@ -2617,6 +2624,7 @@ render();
   'use strict';
 
   const promo = document.querySelector('.promo-bar');
+  const header = document.querySelector('.header');
   const hero = document.getElementById('atoLivingHero');
   if (!promo) return;
 
@@ -2643,6 +2651,12 @@ render();
   ];
 
   let currentTone = '';
+  let raf = 0;
+
+  function syncStickyOffset() {
+    const h = header ? Math.max(0, Math.round(header.getBoundingClientRect().height)) : 0;
+    document.documentElement.style.setProperty('--ato-sticky-header-h', h + 'px');
+  }
 
   function heroTone() {
     const i = Math.max(0, Math.min(7, Number(hero?.dataset.scene || 0)));
@@ -2651,15 +2665,12 @@ render();
 
   function probeY() {
     const r = promo.getBoundingClientRect();
-    // Probe just below the sticky ribbon so we read the content it visually belongs to.
-    return Math.min(window.innerHeight - 1, Math.max(1, r.bottom + 6));
+    return Math.min(window.innerHeight - 1, Math.max(1, r.bottom + 8));
   }
 
   function zoneAtProbe() {
     const y = probeY();
 
-    // Priority zones first: VIP, live Türkiye and Google Map are embedded
-    // inside larger sections and deserve their own ribbon treatment.
     for (const z of zones) {
       const r = z.el.getBoundingClientRect();
       if (r.height > 0 && y >= r.top && y <= r.bottom) {
@@ -2667,7 +2678,6 @@ render();
       }
     }
 
-    // Fallback by nearest section top.
     let nearest = null;
     let distance = Infinity;
     for (const z of zones) {
@@ -2689,30 +2699,35 @@ render();
     document.documentElement.dataset.promoTone = tone;
   }
 
-  let raf = 0;
+  function update(force=false) {
+    syncStickyOffset();
+    applyTone(force);
+  }
+
   function queue() {
     if (raf) return;
     raf = requestAnimationFrame(() => {
       raf = 0;
-      applyTone();
+      update(false);
     });
   }
 
   window.addEventListener('scroll', queue, {passive:true});
   window.addEventListener('resize', queue, {passive:true});
-  window.addEventListener('load', () => applyTone(true), {once:true});
+  window.addEventListener('load', () => update(true), {once:true});
+  window.addEventListener('pageshow', () => update(true));
 
-  // Hero changes scenes without scrolling. Watch data-scene so the
-  // ribbon temperature changes together with the cinematic frame.
+  if (header && 'ResizeObserver' in window) {
+    const ro = new ResizeObserver(queue);
+    ro.observe(header);
+  }
+
   if (hero && 'MutationObserver' in window) {
     const mo = new MutationObserver(queue);
     mo.observe(hero, {attributes:true, attributeFilter:['data-scene']});
   }
 
-  // Handle browser back/forward restoration.
-  window.addEventListener('pageshow', () => applyTone(true));
-
-  applyTone(true);
+  update(true);
 })();
 </script>
 
