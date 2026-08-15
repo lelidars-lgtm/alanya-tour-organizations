@@ -234,7 +234,7 @@ body.ato-tour-finder-open{overflow:hidden}
 </style>
 
 <style>
-/* VIP SERVICE — Google AI style: gold + rainbow border running strictly around the perimeter */
+/* VIP SERVICE — ATO champagne / ivory premium treatment */
 .vip-service-premium-link{
   display:block;
   color:inherit;
@@ -246,32 +246,36 @@ body.ato-tour-finder-open{overflow:hidden}
   overflow:hidden;
   isolation:isolate;
   cursor:pointer;
-  border:1px solid rgba(214,162,74,.28);
+  border:1px solid rgba(211,171,94,.46);
   border-radius:30px;
   background:
-    radial-gradient(circle at 18% 50%, rgba(243,198,109,.12), transparent 30%),
-    radial-gradient(circle at 86% 50%, rgba(60,170,255,.07), transparent 26%),
-    linear-gradient(90deg, rgba(18,22,28,.98), rgba(7,14,25,.98));
+    radial-gradient(circle at 17% 50%, rgba(224,184,105,.10), transparent 30%),
+    linear-gradient(90deg, rgba(15,22,30,.985), rgba(6,17,29,.985));
   box-shadow:
-    0 0 0 1px rgba(214,162,74,.08),
-    0 24px 80px rgba(0,0,0,.42);
-  transform:translateY(26px) scale(.975);
+    0 0 0 1px rgba(220,181,103,.055),
+    0 22px 72px rgba(0,0,0,.36);
+  transform:translateY(22px) scale(.982);
   opacity:0;
-  animation:vipCardReveal .95s cubic-bezier(.16,1,.3,1) .18s forwards;
-  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  animation:vipCardReveal .9s cubic-bezier(.16,1,.3,1) .16s forwards;
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease,
+    background .35s ease;
 }
 
 .vip-service-premium.vip-ai-border:hover{
-  transform:translateY(-5px) scale(1.01);
-  border-color:rgba(243,198,109,.55);
+  transform:translateY(-4px) scale(1.006);
+  border-color:rgba(231,197,132,.70);
+  background:
+    radial-gradient(circle at 17% 50%, rgba(232,198,132,.13), transparent 31%),
+    linear-gradient(90deg, rgba(17,23,30,.99), rgba(7,18,30,.99));
   box-shadow:
-    0 0 0 1px rgba(243,198,109,.18),
-    0 0 44px rgba(243,198,109,.22),
-    0 0 70px rgba(90,120,255,.10),
-    0 30px 92px rgba(0,0,0,.52);
+    0 0 0 1px rgba(231,197,132,.10),
+    0 0 30px rgba(216,176,98,.10),
+    0 28px 82px rgba(0,0,0,.45);
 }
 
-/* soft inner premium depth, not the moving line */
 .vip-service-premium.vip-ai-border::after{
   content:"";
   position:absolute;
@@ -280,9 +284,8 @@ body.ato-tour-finder-open{overflow:hidden}
   pointer-events:none;
   z-index:1;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.055), transparent 42%),
-    radial-gradient(circle at 12% 50%, rgba(243,198,109,.10), transparent 24%),
-    radial-gradient(circle at 76% 50%, rgba(126,92,255,.08), transparent 30%);
+    linear-gradient(180deg, rgba(255,255,255,.040), transparent 42%),
+    radial-gradient(circle at 12% 50%, rgba(229,194,126,.075), transparent 26%);
 }
 
 .vip-service-premium.vip-ai-border > *:not(.vip-ai-svg){
@@ -302,66 +305,54 @@ body.ato-tour-finder-open{overflow:hidden}
 
 .vip-ai-svg .vip-base-border{
   fill:none;
-  stroke:url(#vipStaticGradient);
-  stroke-width:1.45;
+  stroke:#cfaa62;
+  stroke-width:1.35;
   opacity:.82;
 }
 
 .vip-ai-svg .vip-soft-border{
   fill:none;
-  stroke:rgba(255,205,100,.22);
+  stroke:rgba(243,222,180,.12);
   stroke-width:5;
-  opacity:.55;
+  opacity:.46;
   filter:blur(6px);
 }
 
 .vip-ai-svg .vip-running-border{
   fill:none;
   stroke:url(#vipAiGradient);
-  stroke-width:3.4;
+  stroke-width:2.15;
   stroke-linecap:round;
   stroke-linejoin:round;
-  stroke-dasharray:430 1510;
+  stroke-dasharray:105 1835;
   stroke-dashoffset:0;
+  opacity:.92;
   filter:
-    drop-shadow(0 0 6px rgba(255,212,112,.95))
-    drop-shadow(0 0 16px rgba(126,92,255,.55))
-    drop-shadow(0 0 22px rgba(44,214,255,.30));
-  animation:vipBorderRun 4.6s linear infinite;
+    drop-shadow(0 0 5px rgba(255,244,214,.72))
+    drop-shadow(0 0 12px rgba(222,181,101,.34));
+  animation:vipBorderRun 8.8s linear infinite;
 }
 
+/* no cyan / purple / pink sparks */
 .vip-ai-svg .vip-spark-border{
-  fill:none;
-  stroke:#fff3be;
-  stroke-width:6;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  stroke-dasharray:42 1898;
-  stroke-dashoffset:-70;
-  filter:
-    drop-shadow(0 0 7px rgba(255,255,255,1))
-    drop-shadow(0 0 18px rgba(255,190,60,1));
-  animation:vipBorderRun 4.6s linear infinite;
+  display:none!important;
 }
 
-.vip-ai-svg .vip-spark-border.vip-spark-2{
-  stroke:#79eaff;
-  stroke-width:4.5;
-  stroke-dasharray:28 1912;
-  stroke-dashoffset:-620;
-  filter:
-    drop-shadow(0 0 8px rgba(121,234,255,.95))
-    drop-shadow(0 0 18px rgba(126,92,255,.80));
+.vip-service-premium .vip-icon{
+  color:#d9b15f;
+  font-family:"Times New Roman",serif;
+  font-size:25px;
+  line-height:1;
+  text-shadow:0 0 12px rgba(217,177,95,.16);
 }
 
-.vip-ai-svg .vip-spark-border.vip-spark-3{
-  stroke:#ffd15f;
-  stroke-width:5.2;
-  stroke-dasharray:34 1906;
-  stroke-dashoffset:-1180;
-  filter:
-    drop-shadow(0 0 8px rgba(255,209,95,.95))
-    drop-shadow(0 0 18px rgba(255,133,37,.75));
+.vip-service-premium .vip-service-text h3{
+  color:#d9b15f!important;
+  text-shadow:none!important;
+}
+
+.vip-service-premium .vip-service-text p{
+  color:rgba(237,233,224,.72)!important;
 }
 
 .vip-service-premium .vip-discover-btn{
@@ -370,22 +361,22 @@ body.ato-tour-finder-open{overflow:hidden}
   justify-content:center;
   gap:10px;
   text-decoration:none;
-  color:#fff;
+  color:#f1eee8;
   transition:color .28s ease, transform .28s ease, text-shadow .28s ease;
 }
 
 .vip-service-premium .vip-discover-btn::after{
   content:"→";
-  color:#f3c66d;
+  color:#d9b15f;
   font-size:24px;
   line-height:1;
   transform:translateY(-1px);
 }
 
 .vip-service-premium.vip-ai-border:hover .vip-discover-btn{
-  color:#f3c66d;
+  color:#f7f0e3;
   transform:translateX(3px);
-  text-shadow:0 0 18px rgba(243,198,109,.48);
+  text-shadow:0 0 14px rgba(236,210,159,.15);
 }
 
 @keyframes vipBorderRun{
@@ -393,16 +384,15 @@ body.ato-tour-finder-open{overflow:hidden}
 }
 
 @keyframes vipCardReveal{
-  0%{opacity:0; transform:translateY(26px) scale(.975); filter:blur(8px);}
-  70%{opacity:1; transform:translateY(-3px) scale(1.006); filter:blur(0);}
-  100%{opacity:1; transform:translateY(0) scale(1); filter:blur(0);}
+  0%{opacity:0;transform:translateY(22px) scale(.982);filter:blur(7px);}
+  72%{opacity:1;transform:translateY(-2px) scale(1.004);filter:blur(0);}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0);}
 }
 
 @media (prefers-reduced-motion: reduce){
   .vip-service-premium.vip-ai-border,
-  .vip-ai-svg .vip-running-border,
-  .vip-ai-svg .vip-spark-border{
-    animation:none;
+  .vip-ai-svg .vip-running-border{
+    animation:none!important;
     opacity:1;
     transform:none;
     filter:none;
@@ -412,8 +402,10 @@ body.ato-tour-finder-open{overflow:hidden}
 @media(max-width:720px){
   .vip-service-premium.vip-ai-border{border-radius:24px;}
   .vip-service-premium.vip-ai-border::after{border-radius:23px;}
-  .vip-ai-svg .vip-running-border{stroke-width:3; stroke-dasharray:330 1610;}
-  .vip-ai-svg .vip-spark-border{stroke-width:5;}
+  .vip-ai-svg .vip-running-border{
+    stroke-width:2;
+    stroke-dasharray:92 1848;
+  }
 }
 </style>
 
@@ -1185,24 +1177,19 @@ body.ato-header-search-open{overflow-x:hidden}
       <svg class="vip-ai-svg" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true">
         <defs>
           <linearGradient id="vipStaticGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#d6a24a"/>
-            <stop offset="16%" stop-color="#fff1b8"/>
-            <stop offset="34%" stop-color="#65f2c8"/>
-            <stop offset="50%" stop-color="#3db8ff"/>
-            <stop offset="66%" stop-color="#8a63ff"/>
-            <stop offset="82%" stop-color="#ff62b8"/>
-            <stop offset="100%" stop-color="#f3c66d"/>
+            <stop offset="0%" stop-color="#b98e42"/>
+            <stop offset="34%" stop-color="#d9b15f"/>
+            <stop offset="54%" stop-color="#f4e4bc"/>
+            <stop offset="72%" stop-color="#d9b15f"/>
+            <stop offset="100%" stop-color="#b98e42"/>
           </linearGradient>
 
           <linearGradient id="vipAiGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#f3c66d"/>
-            <stop offset="14%" stop-color="#fff4c2"/>
-            <stop offset="28%" stop-color="#61ffcf"/>
-            <stop offset="44%" stop-color="#35d0ff"/>
-            <stop offset="60%" stop-color="#7c5cff"/>
-            <stop offset="76%" stop-color="#ff5ac8"/>
-            <stop offset="90%" stop-color="#f3c66d"/>
-            <stop offset="100%" stop-color="#fff1b8"/>
+            <stop offset="0%" stop-color="#c99e50"/>
+            <stop offset="28%" stop-color="#e2bd73"/>
+            <stop offset="50%" stop-color="#fff4d6"/>
+            <stop offset="72%" stop-color="#e4c17a"/>
+            <stop offset="100%" stop-color="#c99e50"/>
           </linearGradient>
         </defs>
 
@@ -1214,7 +1201,7 @@ body.ato-header-search-open{overflow-x:hidden}
         <rect class="vip-spark-border vip-spark-3" x="2" y="2" width="996" height="96" rx="29" ry="29" pathLength="1940"/>
       </svg>
 
-      <div class="vip-icon">👑</div>
+      <div class="vip-icon" aria-hidden="true">♛</div>
 
       <div class="vip-service-text">
         <h3>VIP SERVICE</h3>

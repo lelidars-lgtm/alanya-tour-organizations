@@ -2026,9 +2026,7 @@ body{
   padding-bottom:0!important;
 }
 
-body > .footer-strip{
-  display:none!important;
-}
+body > .footer-strip{display:block!important;}
 
 
 /* ---------- TABLET ---------- */
@@ -2788,4 +2786,139 @@ body > .footer-strip{
     animation:none!important;
   }
 }
-\n\n/* =========================================================\n   V7.4.1 — FOOTER RESTORED DIRECTLY AFTER CONTACT MAP\n   Map -> footer -> end of page. No blank section between.\n   ========================================================= */\n#contacts.contacts{\n  padding-bottom:0!important;\n  margin-bottom:0!important;\n}\n#contacts .map-wrapper{\n  margin-bottom:0!important;\n}\nbody > .footer-strip,\n#contacts + .footer-strip{\n  display:block!important;\n  position:relative!important;\n  width:100%!important;\n  margin:0!important;\n  padding:24px 20px 26px!important;\n  box-sizing:border-box!important;\n  background:#020812!important;\n  border-top:1px solid rgba(213,174,96,.16)!important;\n  color:#f4f3ef!important;\n  text-align:center!important;\n}\n.footer-strip .footer-main-line{\n  margin:0!important;\n  color:#f7f5ef!important;\n  font-size:15px!important;\n  font-weight:500!important;\n  line-height:1.35!important;\n  letter-spacing:.015em!important;\n}\n.footer-strip .footer-agency-line{\n  margin-top:6px!important;\n  color:rgba(244,243,239,.66)!important;\n}\n.footer-strip .footer-legal-links{\n  margin-top:8px!important;\n  color:rgba(244,243,239,.88)!important;\n}\n.footer-strip .footer-legal-links a:hover{\n  color:#e2b85f!important;\n}\n.footer-strip + .whatsapp-popup{\n  /* floating widget only; it must not create document height */\n}\n@media(max-width:720px){\n  body > .footer-strip,\n  #contacts + .footer-strip{\n    padding:20px 16px 22px!important;\n  }\n  .footer-strip .footer-main-line{\n    font-size:12px!important;\n  }\n}\n
+/* =========================================================
+   ATO V7.5 — VIP CHAMPAGNE GUARD
+   ========================================================= */
+#main-categories .vip-service-premium.vip-ai-border{
+  border-color:rgba(211,171,94,.46)!important;
+  background:
+    radial-gradient(circle at 17% 50%,rgba(224,184,105,.10),transparent 30%),
+    linear-gradient(90deg,rgba(15,22,30,.985),rgba(6,17,29,.985))!important;
+}
+
+#main-categories .vip-ai-svg .vip-base-border{stroke:#cfaa62!important;}
+#main-categories .vip-ai-svg .vip-soft-border{stroke:rgba(243,222,180,.12)!important;}
+
+#main-categories .vip-ai-svg .vip-running-border{
+  stroke:url(#vipAiGradient)!important;
+  stroke-width:2.15!important;
+  stroke-dasharray:105 1835!important;
+  animation-duration:8.8s!important;
+  filter:
+    drop-shadow(0 0 5px rgba(255,244,214,.72))
+    drop-shadow(0 0 12px rgba(222,181,101,.34))!important;
+}
+
+#main-categories .vip-ai-svg .vip-spark-border{display:none!important;}
+
+#main-categories .vip-service-premium .vip-icon,
+#main-categories .vip-service-premium .vip-service-text h3{
+  color:#d9b15f!important;
+}
+
+#main-categories .vip-service-premium .vip-service-text p{
+  color:rgba(237,233,224,.72)!important;
+}
+
+#main-categories .vip-service-premium .vip-discover-btn{color:#f1eee8!important;}
+#main-categories .vip-service-premium .vip-discover-btn::after{color:#d9b15f!important;}
+
+/* =========================================================
+   ATO V7.5.1 — FOOTER REAL FIX
+   Contact map -> footer -> end of page.
+   ========================================================= */
+
+#contacts.contacts{
+  padding-bottom:0!important;
+  margin-bottom:0!important;
+}
+
+#contacts .map-wrapper{
+  margin-bottom:0!important;
+  border-bottom-left-radius:0!important;
+  border-bottom-right-radius:0!important;
+}
+
+body > .footer-strip,
+#contacts + .footer-strip{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+
+  position:relative!important;
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+
+  margin:0!important;
+  padding:22px 20px 24px!important;
+  box-sizing:border-box!important;
+
+  background:#020812!important;
+  border-top:1px solid rgba(213,174,96,.16)!important;
+
+  color:#f4f3ef!important;
+  text-align:center!important;
+  overflow:visible!important;
+}
+
+.footer-strip .footer-main-line{
+  display:block!important;
+  margin:0!important;
+  color:#f7f5ef!important;
+  font-size:15px!important;
+  font-weight:500!important;
+  line-height:1.35!important;
+  letter-spacing:.015em!important;
+}
+
+.footer-strip .footer-agency-line{
+  display:block!important;
+  margin-top:6px!important;
+  color:rgba(244,243,239,.66)!important;
+}
+
+.footer-strip .footer-legal-links{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  justify-content:center!important;
+  align-items:center!important;
+  gap:8px!important;
+  margin-top:8px!important;
+  color:rgba(244,243,239,.88)!important;
+}
+
+.footer-strip .footer-legal-links a{
+  color:inherit!important;
+  text-decoration:none!important;
+}
+
+.footer-strip .footer-legal-links a:hover{
+  color:#e2b85f!important;
+}
+
+html,
+body{
+  margin-bottom:0!important;
+  padding-bottom:0!important;
+}
+
+@media(max-width:720px){
+  body > .footer-strip,
+  #contacts + .footer-strip{
+    padding:18px 14px 20px!important;
+  }
+
+  .footer-strip .footer-main-line{
+    font-size:12px!important;
+  }
+
+  .footer-strip .footer-agency-line{
+    font-size:8px!important;
+  }
+
+  .footer-strip .footer-legal-links{
+    font-size:11px!important;
+    gap:6px!important;
+  }
+}
