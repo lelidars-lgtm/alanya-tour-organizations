@@ -1,0 +1,63 @@
+ALANYA TOUR ORGANIZATIONS — HERO V4.1 DIRECTED MOTION
+====================================================
+
+APPROVED MOTION SYSTEM IMPLEMENTED
+
+One brand transition remains across all 7 scenes:
+- curved reveal from right to left;
+- no blur;
+- no flash;
+- no gold trace;
+- no splash/panel/canyon/dust gimmicks;
+- UI stays visually fixed.
+
+SUBTLE TRANSITION VARIATION
+---------------------------
+01 Rafting -> 02 Tazy Canyon
+- slightly faster / more energetic curved reveal (980ms)
+
+02 Tazy Canyon -> 03 Istanbul
+- broader and calmer cinematic reveal (1160ms)
+
+03 Istanbul -> 04 Pamukkale
+- soft, even reveal (1100ms)
+
+04 Pamukkale -> 05 Cappadocia
+- longest / most graceful reveal in the sequence (1200ms)
+
+05 Cappadocia -> 06 Helicopter
+- slightly denser VIP hand-off (1040ms)
+
+06 Helicopter -> 07 Evening Alanya
+- slow ceremonial reveal (1220ms)
+
+07 Evening Alanya -> 01 Rafting
+- faster restart into the loop (990ms)
+
+SCENE-SPECIFIC AMBIENT MOTION
+-----------------------------
+01 Rafting
+- light push-in toward water
+
+02 Tazy Canyon
+- slow drift into canyon depth
+
+03 Istanbul
+- almost static; micro-zoom only
+
+04 Pamukkale
+- very slow lateral drift
+
+05 Cappadocia
+- gentle upward camera feel toward balloons
+
+06 Helicopter
+- restrained push toward helicopter
+
+07 Evening Alanya
+- very slow pull-back / final exhale
+
+IMPORTANT
+---------
+Images, labels, links, promo ribbon and Hero UI structure were not redesigned.
+Only the approved motion direction was implemented.

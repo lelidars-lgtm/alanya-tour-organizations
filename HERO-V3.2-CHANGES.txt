@@ -1,0 +1,24 @@
+ATO LIVING HERO V3.2 — PREMIUM GEOMETRY
+
+CHANGED
+- Removed ALL small / cropped / upscaled Cappadocia and Istanbul sub-images.
+- Cappadocia and Istanbul now animate using their approved full-resolution composite only.
+- Restored the more premium large-panel editorial language from the original six-scene concept.
+- No transition begins as a tiny circle, tiny inset, thumbnail or floating mini-picture.
+- Replaced rotor/dust/night tiny reveals with large architectural/natural masks.
+- Cappadocia: 3 full-height editorial panels enter sequentially (left / center / right).
+- Istanbul: 3 full-height editorial panels enter sequentially with a different motion pattern.
+- Gold trace is thin, brief and secondary; no permanent decorative frames.
+- All approved main scene images, order, links, slogan behavior and UI remain intact.
+
+FINAL ORDER
+01 Rafting
+02 Cappadocia
+03 Pamukkale
+04 Istanbul
+05 Tazy Canyon
+06 The Land of Legends
+07 Jeep Safari
+08 Gazipasa Heart Rock
+09 VIP Helicopter
+10 Alanya by Night

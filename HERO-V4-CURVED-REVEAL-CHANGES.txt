@@ -1,0 +1,24 @@
+ALANYA TOUR ORGANIZATIONS — LIVING HERO V4
+ATO SIGNATURE CURVED REVEAL
+
+Implemented:
+- One unified transition for the complete Hero sequence.
+- Large curved reveal from right to left.
+- Transition duration: 1100 ms.
+- No blur, flash, gold trace, panel split, tiny thumbnail or per-scene effect.
+- Current scene makes only a restrained ~1.25% exit shift during the reveal.
+- Incoming scene settles from scale 1.034 to 1.012.
+- Caption returns 210 ms after the new image is fully revealed.
+- Promo/header/scroll/pause/progress UI remains outside the transition and does not jump.
+- Seamless 07 -> 01 loop uses exactly the same reveal.
+- Hero scene order reduced to the agreed 7-scene narrative:
+  01 Rafting
+  02 Tazy Canyon
+  03 Istanbul
+  04 Pamukkale
+  05 Cappadocia
+  06 Helicopter Flight
+  07 Evening Alanya
+
+Important:
+The existing clean source image assets in this V3.2 package were retained. This change focuses on motion/sequence and does not bake new UI screenshots into photographic backgrounds.
