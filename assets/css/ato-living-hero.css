@@ -697,3 +697,1224 @@
   #atoLivingHero[data-scene="6"] .ato-living-hero__media{object-position:52% center!important;}
   #atoLivingHero[data-scene="7"] .ato-living-hero__media{object-position:65% center!important;}
 }
+
+
+/* =========================================================
+   ATO HERO V6.4 — CLEAN RIVIERA
+   No card / no panel / no visible rounded dark block.
+   Only a soft photographic shadow field behind the text.
+   ========================================================= */
+
+#atoLivingHero .ato-living-hero__slogan{
+  left:clamp(34px,4.8vw,80px)!important;
+  top:clamp(82px,14.5vh,142px)!important;
+  width:min(570px,40vw)!important;
+  background:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+
+#atoLivingHero .ato-living-hero__slogan-panel{
+  position:relative!important;
+  display:inline-block!important;
+  width:auto!important;
+  padding:18px 20px 20px 16px!important;
+
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+
+/* Soft atmospheric vignette only — no visible rectangle edges */
+#atoLivingHero .ato-living-hero__slogan-panel::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  z-index:-1!important;
+  pointer-events:none!important;
+
+  left:-90px!important;
+  top:-90px!important;
+  width:760px!important;
+  height:520px!important;
+
+  background:
+    radial-gradient(
+      ellipse at 28% 34%,
+      rgba(2,8,15,.36) 0%,
+      rgba(2,8,15,.27) 30%,
+      rgba(2,8,15,.16) 50%,
+      rgba(2,8,15,.07) 66%,
+      rgba(2,8,15,0) 82%
+    )!important;
+
+  filter:blur(20px)!important;
+  opacity:.78!important;
+  border-radius:50%!important;
+}
+
+/* Make the typography carry readability, not a dark box */
+#atoLivingHero .ato-living-hero__slogan h1{
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.26),
+    0 3px 16px rgba(0,0,0,.42),
+    0 7px 32px rgba(0,0,0,.18)!important;
+}
+
+#atoLivingHero .ato-living-hero__slogan p{
+  text-shadow:
+    0 2px 10px rgba(0,0,0,.48),
+    0 5px 20px rgba(0,0,0,.18)!important;
+}
+
+/* Optional subtle image shade integrated into the Hero itself */
+#atoLivingHero::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:6!important;
+  pointer-events:none!important;
+
+  background:
+    radial-gradient(
+      ellipse 46% 42% at 8% 12%,
+      rgba(2,8,15,.16) 0%,
+      rgba(2,8,15,.09) 42%,
+      rgba(2,8,15,0) 76%
+    )!important;
+}
+
+/* Keep UI above the integrated photographic shade */
+#atoLivingHero .ato-living-hero__ui,
+#atoLivingHero .ato-living-hero__slogan{
+  z-index:14!important;
+}
+
+@media(max-width:980px){
+  #atoLivingHero .ato-living-hero__slogan{
+    left:18px!important;
+    top:clamp(88px,11vh,118px)!important;
+    width:min(77vw,420px)!important;
+  }
+
+  #atoLivingHero .ato-living-hero__slogan-panel{
+    padding:13px 14px 15px 10px!important;
+  }
+
+  #atoLivingHero .ato-living-hero__slogan-panel::before{
+    left:-54px!important;
+    top:-60px!important;
+    width:520px!important;
+    height:390px!important;
+    opacity:.82!important;
+  }
+
+  #atoLivingHero::after{
+    background:
+      radial-gradient(
+        ellipse 72% 42% at 4% 10%,
+        rgba(2,8,15,.18) 0%,
+        rgba(2,8,15,.08) 48%,
+        rgba(2,8,15,0) 80%
+      )!important;
+  }
+}
+
+@media(max-width:560px){
+  #atoLivingHero .ato-living-hero__slogan{
+    left:14px!important;
+    top:94px!important;
+    width:80vw!important;
+  }
+}
+
+
+/* =========================================================
+   ATO HERO V6.5 — FULL IMAGE RATIO
+   Hero height follows the actual source-image proportions.
+   Desktop sources: ~16:9
+   Mobile sources: 9:16
+   No viewport-height cap.
+   ========================================================= */
+
+@media (min-width:981px){
+  #atoLivingHero{
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+
+    /* Exact visual ratio of the desktop Hero assets */
+    aspect-ratio:1672 / 941!important;
+  }
+
+  #atoLivingHero .ato-living-hero__stage,
+  #atoLivingHero .ato-living-hero__scene{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+  }
+
+  #atoLivingHero .ato-living-hero__media{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+  }
+}
+
+@media (max-width:980px){
+  #atoLivingHero{
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+
+    /* Exact ratio of the mobile 9:16 Hero assets */
+    aspect-ratio:941 / 1672!important;
+  }
+
+  #atoLivingHero .ato-living-hero__stage,
+  #atoLivingHero .ato-living-hero__scene{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+  }
+
+  #atoLivingHero .ato-living-hero__media{
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+  }
+}
+
+/* Remove V6.3 viewport-height constraints completely */
+@media (min-width:981px){
+  #atoLivingHero{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+  }
+}
+@media (max-width:980px){
+  #atoLivingHero{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+  }
+}
+
+
+/* =========================================================
+   ATO HERO V6.6 — PREMIUM HERO → CATEGORIES BRIDGE
+   Smooth editorial handoff, floating oval label, smaller type.
+   ========================================================= */
+
+/* The categories block becomes the visual continuation of Hero. */
+#main-categories.main-categories-section{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:visible!important;
+  margin-top:0!important;
+  padding-top:86px!important;
+  background:
+    radial-gradient(ellipse 72% 155px at 50% 0%,
+      rgba(16,29,42,.64) 0%,
+      rgba(7,19,31,.88) 52%,
+      rgba(3,14,25,1) 100%)!important;
+  scroll-margin-top:110px!important;
+}
+
+/* Soft cinematic dissolve rising into the last part of Hero. */
+#main-categories.main-categories-section::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:-1!important;
+  left:0!important;
+  right:0!important;
+  top:-118px!important;
+  height:122px!important;
+  pointer-events:none!important;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3,14,25,0) 0%,
+      rgba(3,14,25,.07) 16%,
+      rgba(3,14,25,.22) 38%,
+      rgba(3,14,25,.52) 66%,
+      rgba(3,14,25,.88) 88%,
+      rgba(3,14,25,1) 100%
+    )!important;
+}
+
+/* A very thin champagne-gold horizon at the handoff. */
+#main-categories.main-categories-section::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:2!important;
+  top:0!important;
+  left:50%!important;
+  width:min(68vw,920px)!important;
+  height:1px!important;
+  transform:translateX(-50%)!important;
+  pointer-events:none!important;
+  background:linear-gradient(
+    90deg,
+    rgba(214,174,96,0),
+    rgba(214,174,96,.18) 18%,
+    rgba(231,199,136,.52) 50%,
+    rgba(214,174,96,.18) 82%,
+    rgba(214,174,96,0)
+  )!important;
+  box-shadow:0 0 18px rgba(212,169,86,.08)!important;
+}
+
+
+/* ---- Compact editorial section heading ---- */
+#main-categories .main-categories-head{
+  position:relative!important;
+  z-index:4!important;
+  width:min(760px,88vw)!important;
+  margin:-116px auto 30px!important;
+  padding:0 18px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  text-align:center!important;
+  background:transparent!important;
+}
+
+/* MAIN CATEGORIES — elegant oval, not a huge headline */
+#main-categories .main-categories-head > span{
+  position:relative!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:44px!important;
+  padding:0 34px!important;
+  margin:0 auto 18px!important;
+
+  border:1px solid rgba(220,182,109,.62)!important;
+  border-radius:999px!important;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,16,28,.70),
+      rgba(5,16,28,.48)
+    )!important;
+
+  color:#f3e5ca!important;
+  font-family:"Bodoni MT","Didot","Bodoni 72 Smallcaps","Times New Roman",serif!important;
+  font-size:12px!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:.25em!important;
+  text-transform:uppercase!important;
+  white-space:nowrap!important;
+
+  -webkit-text-stroke:.18px rgba(225,190,126,.34)!important;
+  text-shadow:0 2px 14px rgba(0,0,0,.42)!important;
+
+  box-shadow:
+    0 9px 32px rgba(0,0,0,.18),
+    inset 0 0 20px rgba(255,255,255,.014)!important;
+
+  backdrop-filter:blur(8px)!important;
+  -webkit-backdrop-filter:blur(8px)!important;
+}
+
+/* Hairlines extend from the oval without making it ornamental/heavy. */
+#main-categories .main-categories-head > span::before,
+#main-categories .main-categories-head > span::after{
+  content:""!important;
+  position:absolute!important;
+  top:50%!important;
+  width:58px!important;
+  height:1px!important;
+  transform:translateY(-50%)!important;
+}
+#main-categories .main-categories-head > span::before{
+  right:calc(100% + 14px)!important;
+  background:linear-gradient(90deg,rgba(214,174,96,0),rgba(214,174,96,.42))!important;
+}
+#main-categories .main-categories-head > span::after{
+  left:calc(100% + 14px)!important;
+  background:linear-gradient(90deg,rgba(214,174,96,.42),rgba(214,174,96,0))!important;
+}
+
+/* Supporting title: intentionally restrained. */
+#main-categories .main-categories-head h2{
+  margin:0!important;
+  padding:0!important;
+  color:#f4ead7!important;
+  font-family:"Bodoni MT","Didot","Bodoni 72 Smallcaps","Times New Roman",serif!important;
+  font-size:clamp(24px,2.15vw,36px)!important;
+  font-weight:400!important;
+  line-height:1.04!important;
+  letter-spacing:.035em!important;
+  text-transform:none!important;
+  text-shadow:0 3px 22px rgba(0,0,0,.30)!important;
+}
+
+/* Small quiet descriptor. */
+#main-categories .main-categories-head p{
+  margin:10px 0 0!important;
+  max-width:540px!important;
+  color:rgba(220,226,232,.64)!important;
+  font-family:Arial,sans-serif!important;
+  font-size:10px!important;
+  font-weight:400!important;
+  line-height:1.55!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+
+/* Give the card area enough breathing room after the lighter heading. */
+#main-categories .categories-layout{
+  position:relative!important;
+  z-index:3!important;
+  margin-top:8px!important;
+}
+
+
+/* ---- Mobile: same idea, quieter and tighter ---- */
+@media(max-width:980px){
+  #main-categories.main-categories-section{
+    padding-top:70px!important;
+  }
+
+  #main-categories.main-categories-section::before{
+    top:-86px!important;
+    height:90px!important;
+  }
+
+  #main-categories .main-categories-head{
+    width:92vw!important;
+    margin:-92px auto 24px!important;
+    padding:0 12px!important;
+  }
+
+  #main-categories .main-categories-head > span{
+    min-height:38px!important;
+    padding:0 24px!important;
+    margin-bottom:14px!important;
+    font-size:9px!important;
+    letter-spacing:.22em!important;
+  }
+
+  #main-categories .main-categories-head > span::before,
+  #main-categories .main-categories-head > span::after{
+    width:28px!important;
+  }
+
+  #main-categories .main-categories-head > span::before{
+    right:calc(100% + 8px)!important;
+  }
+  #main-categories .main-categories-head > span::after{
+    left:calc(100% + 8px)!important;
+  }
+
+  #main-categories .main-categories-head h2{
+    font-size:clamp(20px,5.6vw,28px)!important;
+  }
+
+  #main-categories .main-categories-head p{
+    margin-top:8px!important;
+    max-width:330px!important;
+    font-size:8px!important;
+    line-height:1.5!important;
+    letter-spacing:.10em!important;
+  }
+}
+
+@media(max-width:560px){
+  #main-categories .main-categories-head > span::before,
+  #main-categories .main-categories-head > span::after{
+    width:18px!important;
+  }
+
+  #main-categories .main-categories-head h2{
+    font-size:21px!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V6.8 — FIND YOUR IDEAL ADVENTURE
+   ========================================================= */
+
+#main-categories .main-categories-title{
+  margin:0!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:baseline!important;
+  justify-content:center!important;
+  gap:.28em!important;
+  font-family:"Bodoni MT","Didot","Bodoni 72 Smallcaps","Times New Roman",serif!important;
+  font-size:clamp(25px,2.2vw,37px)!important;
+  font-weight:400!important;
+  line-height:1.02!important;
+  letter-spacing:.025em!important;
+  text-transform:none!important;
+  white-space:nowrap!important;
+}
+
+#main-categories .main-categories-title__lead{
+  color:#f4ead7!important;
+  -webkit-text-stroke:.16px rgba(226,206,168,.26)!important;
+  text-shadow:0 2px 16px rgba(0,0,0,.28)!important;
+}
+
+#main-categories .main-categories-title__accent{
+  color:#dfb968!important;
+  -webkit-text-stroke:.18px rgba(244,220,169,.30)!important;
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.18),
+    0 0 12px rgba(219,176,93,.13),
+    0 3px 18px rgba(0,0,0,.22)!important;
+  transition:color .35s ease,text-shadow .35s ease!important;
+}
+
+#main-categories .main-categories-head:hover .main-categories-title__accent{
+  color:#e6c277!important;
+  text-shadow:
+    0 0 15px rgba(224,184,105,.18),
+    0 3px 18px rgba(0,0,0,.22)!important;
+}
+
+@media(max-width:980px){
+  #main-categories .main-categories-title{
+    flex-direction:column!important;
+    align-items:center!important;
+    gap:1px!important;
+    font-size:clamp(21px,5.8vw,29px)!important;
+    line-height:.98!important;
+    white-space:normal!important;
+  }
+}
+
+@media(max-width:560px){
+  #main-categories .main-categories-title{
+    font-size:22px!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V6.9 — PREMIUM CONTACT SECTION
+   Editorial / champagne gold / deep navy / restrained cards
+   ========================================================= */
+
+#contacts.contacts{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  max-width:none!important;
+  width:100%!important;
+  margin:0!important;
+  padding:
+    clamp(84px,8vw,126px)
+    clamp(28px,6.8vw,116px)
+    clamp(66px,7vw,108px)!important;
+
+  color:#e7edf2!important;
+
+  background:
+    radial-gradient(
+      ellipse 46% 360px at 10% 6%,
+      rgba(206,163,82,.055) 0%,
+      rgba(206,163,82,.018) 48%,
+      rgba(206,163,82,0) 76%
+    ),
+    linear-gradient(180deg,#071523 0%,#061321 56%,#05111d 100%)!important;
+}
+
+/* very subtle transition line from the section above */
+#contacts.contacts::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:-1!important;
+  left:50%!important;
+  top:0!important;
+  width:min(86vw,1440px)!important;
+  height:1px!important;
+  transform:translateX(-50%)!important;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(214,174,96,0),
+      rgba(214,174,96,.14) 20%,
+      rgba(231,199,136,.38) 50%,
+      rgba(214,174,96,.14) 80%,
+      rgba(214,174,96,0)
+    )!important;
+}
+
+/* ---- Section title: light editorial, not a heavy banner ---- */
+#contacts.contacts > h2{
+  position:relative!important;
+  width:min(1180px,100%)!important;
+  margin:0 auto clamp(38px,4vw,58px)!important;
+  padding:0!important;
+
+  color:#f4ead7!important;
+  font-family:"Bodoni MT","Didot","Bodoni 72 Smallcaps","Times New Roman",serif!important;
+  font-size:clamp(38px,4.1vw,66px)!important;
+  font-weight:400!important;
+  line-height:.95!important;
+  letter-spacing:.045em!important;
+  text-transform:none!important;
+  text-align:left!important;
+
+  -webkit-text-stroke:.20px rgba(226,201,151,.28)!important;
+  text-shadow:
+    0 3px 24px rgba(0,0,0,.30)!important;
+}
+
+#contacts.contacts > h2::after{
+  content:""!important;
+  display:block!important;
+  width:86px!important;
+  height:1px!important;
+  margin-top:22px!important;
+  background:
+    linear-gradient(90deg,#d9b15f,rgba(217,177,95,0))!important;
+}
+
+/* ---- Three premium contact cards ---- */
+#contacts .contact-grid{
+  position:relative!important;
+  z-index:2!important;
+
+  width:min(1440px,100%)!important;
+  margin:0 auto 38px!important;
+
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:18px!important;
+}
+
+#contacts .contact-grid > div{
+  position:relative!important;
+  min-height:190px!important;
+  box-sizing:border-box!important;
+  padding:56px 28px 28px!important;
+
+  color:rgba(233,239,244,.88)!important;
+  font-family:Arial,sans-serif!important;
+  font-size:14px!important;
+  font-weight:400!important;
+  line-height:1.72!important;
+
+  border:1px solid rgba(211,171,91,.20)!important;
+  border-radius:22px!important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.028) 0%,
+      rgba(255,255,255,.012) 48%,
+      rgba(207,166,87,.024) 100%
+    )!important;
+
+  box-shadow:
+    0 22px 56px rgba(0,0,0,.15),
+    inset 0 1px rgba(255,255,255,.024)!important;
+
+  transition:
+    transform .35s cubic-bezier(.16,1,.3,1),
+    border-color .35s ease,
+    background .35s ease,
+    box-shadow .35s ease!important;
+}
+
+#contacts .contact-grid > div:hover{
+  transform:translateY(-4px)!important;
+  border-color:rgba(219,180,102,.43)!important;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.038),
+      rgba(255,255,255,.015) 50%,
+      rgba(207,166,87,.035)
+    )!important;
+  box-shadow:
+    0 28px 62px rgba(0,0,0,.20),
+    inset 0 1px rgba(255,255,255,.032)!important;
+}
+
+/* card number */
+#contacts .contact-grid > div::before{
+  position:absolute!important;
+  top:21px!important;
+  left:28px!important;
+
+  color:rgba(218,179,100,.67)!important;
+  font-family:"Bodoni MT","Didot","Times New Roman",serif!important;
+  font-size:11px!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:.18em!important;
+}
+#contacts .contact-grid > div:nth-child(1)::before{content:"01"!important}
+#contacts .contact-grid > div:nth-child(2)::before{content:"02"!important}
+#contacts .contact-grid > div:nth-child(3)::before{content:"03"!important}
+
+/* top hairline inside each card */
+#contacts .contact-grid > div::after{
+  content:""!important;
+  position:absolute!important;
+  top:38px!important;
+  left:28px!important;
+  width:42px!important;
+  height:1px!important;
+  background:linear-gradient(90deg,rgba(221,182,103,.72),rgba(221,182,103,0))!important;
+}
+
+#contacts .contact-grid > div > b{
+  display:inline-block!important;
+  margin-bottom:10px!important;
+
+  color:#ddb768!important;
+  font-family:Arial,sans-serif!important;
+  font-size:10px!important;
+  font-weight:700!important;
+  line-height:1.15!important;
+  letter-spacing:.15em!important;
+  text-transform:uppercase!important;
+}
+
+/* Phone / WhatsApp */
+#contacts .contact-grid > div:first-child > a{
+  display:inline-block!important;
+  margin-top:1px!important;
+
+  color:#f5ebd8!important;
+  text-decoration:none!important;
+
+  font-family:"Bodoni MT","Didot","Times New Roman",serif!important;
+  font-size:clamp(20px,1.65vw,26px)!important;
+  font-weight:400!important;
+  letter-spacing:.025em!important;
+
+  transition:color .25s ease,transform .25s ease!important;
+}
+
+#contacts .contact-grid > div:first-child > a:hover{
+  color:#e4bf73!important;
+  transform:translateX(2px)!important;
+}
+
+/* Hotline is a secondary row, not a second competing heading */
+#contacts .contact-hotline{
+  display:block!important;
+  margin-top:17px!important;
+  padding-top:14px!important;
+  border-top:1px solid rgba(255,255,255,.065)!important;
+
+  color:rgba(218,226,234,.70)!important;
+  font-size:11px!important;
+  line-height:1.55!important;
+}
+
+#contacts .contact-hotline-label{
+  display:block!important;
+  margin-bottom:3px!important;
+
+  color:rgba(218,179,104,.78)!important;
+  font-size:8px!important;
+  font-weight:700!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+
+#contacts .contact-hotline a{
+  color:#ece4d5!important;
+  font-size:13px!important;
+  font-weight:600!important;
+  letter-spacing:.025em!important;
+}
+
+/* Office / opening body text */
+#contacts .contact-grid > div:nth-child(2),
+#contacts .contact-grid > div:nth-child(3){
+  color:rgba(227,234,240,.80)!important;
+}
+
+#contacts .contact-grid > div:nth-child(2) br,
+#contacts .contact-grid > div:nth-child(3) br{
+  line-height:1.9!important;
+}
+
+/* ---- Map: integrated premium frame ---- */
+#contacts .map-wrapper{
+  position:relative!important;
+  z-index:2!important;
+
+  width:min(1440px,100%)!important;
+  height:clamp(310px,33vw,470px)!important;
+  margin:0 auto!important;
+  overflow:hidden!important;
+
+  border:1px solid rgba(211,171,91,.25)!important;
+  border-radius:24px!important;
+
+  background:#0a1824!important;
+
+  box-shadow:
+    0 30px 72px rgba(0,0,0,.22),
+    inset 0 1px rgba(255,255,255,.024)!important;
+}
+
+/* soft upper veil to tie Google map into ATO palette */
+#contacts .map-wrapper::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:2!important;
+  pointer-events:none!important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4,17,29,.13) 0%,
+      rgba(4,17,29,.035) 22%,
+      rgba(4,17,29,0) 48%
+    )!important;
+}
+
+#contacts .map-wrapper iframe{
+  position:relative!important;
+  z-index:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  border:0!important;
+  filter:saturate(.84) contrast(.96) brightness(.96)!important;
+}
+
+/* ---- Footer handoff ---- */
+#contacts + .footer-strip{
+  border-top:1px solid rgba(213,174,96,.12)!important;
+}
+
+
+/* ---- Responsive ---- */
+@media(max-width:980px){
+  #contacts.contacts{
+    padding:72px 20px 66px!important;
+  }
+
+  #contacts.contacts > h2{
+    margin-bottom:34px!important;
+    font-size:clamp(34px,9vw,50px)!important;
+  }
+
+  #contacts .contact-grid{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+    margin-bottom:24px!important;
+  }
+
+  #contacts .contact-grid > div{
+    min-height:0!important;
+    padding:52px 22px 24px!important;
+    border-radius:18px!important;
+  }
+
+  #contacts .contact-grid > div::before,
+  #contacts .contact-grid > div::after{
+    left:22px!important;
+  }
+
+  #contacts .map-wrapper{
+    height:360px!important;
+    border-radius:19px!important;
+  }
+}
+
+@media(max-width:560px){
+  #contacts.contacts{
+    padding:60px 14px 54px!important;
+  }
+
+  #contacts.contacts > h2{
+    font-size:35px!important;
+    letter-spacing:.035em!important;
+  }
+
+  #contacts .contact-grid > div{
+    padding:50px 18px 22px!important;
+  }
+
+  #contacts .contact-grid > div::before,
+  #contacts .contact-grid > div::after{
+    left:18px!important;
+  }
+
+  #contacts .map-wrapper{
+    height:325px!important;
+    border-radius:16px!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.0 — PREMIUM COMPACT ABOUT
+   Same content. Less empty space. Editorial two-column copy.
+   Seamless transition in / out.
+   ========================================================= */
+
+#about.about-premium{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:
+    clamp(72px,7vw,108px)
+    clamp(28px,6.8vw,116px)
+    clamp(72px,7vw,108px)!important;
+
+  color:#e5ebf1!important;
+
+  background:
+    radial-gradient(
+      ellipse 44% 430px at 76% 42%,
+      rgba(198,151,73,.075) 0%,
+      rgba(198,151,73,.025) 46%,
+      rgba(198,151,73,0) 76%
+    ),
+    linear-gradient(
+      180deg,
+      #071522 0%,
+      #081522 46%,
+      #071421 100%
+    )!important;
+}
+
+/* Enter from the previous section without a hard horizontal cut. */
+#about.about-premium::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:-1!important;
+  left:0!important;
+  right:0!important;
+  top:0!important;
+  height:118px!important;
+  pointer-events:none!important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3,14,25,.92) 0%,
+      rgba(5,17,29,.52) 38%,
+      rgba(7,21,34,.14) 72%,
+      rgba(7,21,34,0) 100%
+    )!important;
+}
+
+/* Quiet fade toward Contact, rather than another section edge. */
+#about.about-premium::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:-1!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  height:126px!important;
+  pointer-events:none!important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6,19,31,0) 0%,
+      rgba(6,19,31,.18) 38%,
+      rgba(6,19,31,.58) 76%,
+      #061321 100%
+    )!important;
+}
+
+#about .about-container{
+  position:relative!important;
+  z-index:2!important;
+
+  width:min(1440px,100%)!important;
+  margin:0 auto!important;
+
+  display:grid!important;
+  grid-template-columns:minmax(0,1.22fr) minmax(380px,.78fr)!important;
+  gap:clamp(46px,5vw,82px)!important;
+  align-items:center!important;
+}
+
+/* ---- Text ---- */
+#about .about-text{
+  min-width:0!important;
+}
+
+#about .about-text h2{
+  margin:0 0 30px!important;
+  padding:0!important;
+
+  color:#f3e8d4!important;
+  font-family:"Bodoni MT","Didot","Bodoni 72 Smallcaps","Times New Roman",serif!important;
+  font-size:clamp(38px,3.8vw,61px)!important;
+  font-weight:400!important;
+  line-height:.96!important;
+  letter-spacing:.035em!important;
+  text-transform:none!important;
+
+  -webkit-text-stroke:.18px rgba(228,204,157,.24)!important;
+  text-shadow:0 3px 22px rgba(0,0,0,.26)!important;
+}
+
+#about .about-text h2::after{
+  content:""!important;
+  display:block!important;
+  width:72px!important;
+  height:1px!important;
+  margin-top:19px!important;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(221,181,101,.82),
+      rgba(221,181,101,0)
+    )!important;
+}
+
+/* The existing text is preserved; only the flow changes. */
+#about .about-copy{
+  column-count:2!important;
+  column-gap:clamp(28px,3vw,44px)!important;
+  column-rule:1px solid rgba(218,177,96,.09)!important;
+}
+
+#about .about-copy p{
+  margin:0 0 17px!important;
+  break-inside:avoid-column!important;
+
+  color:rgba(229,235,241,.79)!important;
+  font-family:Arial,sans-serif!important;
+  font-size:clamp(13px,.98vw,15.5px)!important;
+  font-weight:400!important;
+  line-height:1.67!important;
+  letter-spacing:.003em!important;
+  text-wrap:pretty!important;
+}
+
+#about .about-copy p b{
+  color:#f1e5ce!important;
+  font-weight:600!important;
+}
+
+/* First brand mention: restrained champagne highlight. */
+#about .about-copy p:first-child b{
+  color:#dfb765!important;
+  font-size:.92em!important;
+  font-weight:700!important;
+  letter-spacing:.045em!important;
+}
+
+/* Final existing sentence becomes one calm editorial statement. */
+#about .about-copy p:last-child{
+  column-span:all!important;
+  margin:17px 0 0!important;
+  padding:18px 0 0!important;
+  border-top:1px solid rgba(218,177,96,.20)!important;
+
+  color:#f2e8d7!important;
+  font-family:"Bodoni MT","Didot","Times New Roman",serif!important;
+  font-size:clamp(17px,1.35vw,22px)!important;
+  line-height:1.35!important;
+  letter-spacing:.012em!important;
+}
+
+#about .about-copy p:last-child b{
+  color:inherit!important;
+  font-weight:400!important;
+}
+
+/* ---- Map artwork ---- */
+#about .about-image-wrapper{
+  position:relative!important;
+  width:100%!important;
+  margin:0!important;
+  overflow:hidden!important;
+
+  aspect-ratio:1.30 / 1!important;
+  max-height:510px!important;
+
+  border:1px solid rgba(215,174,94,.20)!important;
+  border-radius:28px!important;
+  background:#091622!important;
+
+  box-shadow:
+    0 34px 76px rgba(0,0,0,.22),
+    inset 0 1px rgba(255,255,255,.025)!important;
+}
+
+#about .about-image-wrapper img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+
+  filter:
+    saturate(.76)
+    contrast(.94)
+    brightness(.80)!important;
+
+  transform:scale(1.015)!important;
+}
+
+/* Blend the bright artwork into the site rather than showing it as a poster. */
+#about .about-image-wrapper::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:2!important;
+  inset:0!important;
+  pointer-events:none!important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,17,29,.22) 0%,
+      rgba(5,17,29,.03) 34%,
+      rgba(5,17,29,0) 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(5,17,29,.06) 0%,
+      rgba(5,17,29,0) 60%,
+      rgba(5,17,29,.18) 100%
+    )!important;
+}
+
+#about .about-image-wrapper::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:3!important;
+  inset:auto 20px 18px 20px!important;
+  height:1px!important;
+  pointer-events:none!important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(219,179,98,0),
+      rgba(219,179,98,.36) 50%,
+      rgba(219,179,98,0)
+    )!important;
+}
+
+/* Contact starts in the same color field: no visible section seam. */
+#about + #contacts.contacts{
+  margin-top:0!important;
+  border-top:0!important;
+  background:
+    radial-gradient(
+      ellipse 46% 360px at 10% 6%,
+      rgba(206,163,82,.045) 0%,
+      rgba(206,163,82,.014) 48%,
+      rgba(206,163,82,0) 76%
+    ),
+    linear-gradient(180deg,#061321 0%,#061321 58%,#05111d 100%)!important;
+}
+
+#about + #contacts.contacts::before{
+  opacity:.46!important;
+}
+
+
+/* ------------------------- TABLET ------------------------- */
+@media(max-width:1100px){
+  #about .about-container{
+    grid-template-columns:minmax(0,1.12fr) minmax(330px,.88fr)!important;
+    gap:38px!important;
+  }
+
+  #about .about-copy{
+    column-gap:26px!important;
+  }
+
+  #about .about-image-wrapper{
+    aspect-ratio:1.08 / 1!important;
+  }
+}
+
+
+/* ------------------------- MOBILE ------------------------- */
+@media(max-width:820px){
+  #about.about-premium{
+    padding:68px 20px 68px!important;
+  }
+
+  #about .about-container{
+    grid-template-columns:1fr!important;
+    gap:30px!important;
+  }
+
+  #about .about-text h2{
+    margin-bottom:26px!important;
+    font-size:clamp(34px,9vw,48px)!important;
+  }
+
+  #about .about-copy{
+    column-count:1!important;
+    column-rule:0!important;
+  }
+
+  #about .about-copy p{
+    margin-bottom:15px!important;
+    font-size:14px!important;
+    line-height:1.62!important;
+  }
+
+  #about .about-copy p:last-child{
+    margin-top:12px!important;
+    padding-top:16px!important;
+    font-size:18px!important;
+  }
+
+  #about .about-image-wrapper{
+    order:-1!important;
+    width:100%!important;
+    max-height:none!important;
+    aspect-ratio:1.48 / 1!important;
+    border-radius:20px!important;
+  }
+
+  #about .about-text{
+    order:2!important;
+  }
+}
+
+@media(max-width:560px){
+  #about.about-premium{
+    padding:58px 14px 60px!important;
+  }
+
+  #about .about-container{
+    gap:25px!important;
+  }
+
+  #about .about-text h2{
+    font-size:35px!important;
+  }
+
+  #about .about-image-wrapper{
+    border-radius:16px!important;
+  }
+}
