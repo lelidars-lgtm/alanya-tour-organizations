@@ -6719,3 +6719,43 @@ body > .promo-bar::after{
     letter-spacing:.028em!important;
   }
 }
+
+
+/* =========================================================
+   ATO V7.10.13 — CONTACT HOTLINE TYPOGRAPHY
+   ========================================================= */
+
+/* HOTLINE PHONE now matches WHATSAPP / PHONE heading size/style */
+#contacts .contact-hotline-label{
+  display:block!important;
+  margin-bottom:3px!important;
+
+  color:#ddb768!important;
+
+  font-family:Arial,sans-serif!important;
+  font-size:10px!important;
+  font-weight:700!important;
+  line-height:1.15!important;
+  letter-spacing:.15em!important;
+  text-transform:uppercase!important;
+}
+
+/* Hotline number uses the same editorial serif family as the main number.
+   Requested size is intentionally NOT increased. */
+#contacts .contact-hotline a{
+  display:inline-block!important;
+
+  color:#ece4d5!important;
+
+  font-family:"Bodoni MT","Didot","Times New Roman",serif!important;
+  font-size:13px!important;
+  font-weight:400!important;
+  line-height:1.2!important;
+  letter-spacing:.025em!important;
+
+  text-decoration:none!important;
+}
+
+#contacts .contact-hotline a:hover{
+  color:#e4bf73!important;
+}
