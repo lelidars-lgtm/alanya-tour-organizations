@@ -6401,3 +6401,173 @@ body > .promo-bar .promo-dot{
     font-size:15px!important;
   }
 }
+
+
+/* =========================================================
+   ATO V7.10.9 — POPULAR INTRO: JUSTIFIED TO CELL EDGES
+   Both editorial phrases now use the full width of each cell.
+   ========================================================= */
+
+.tour-sidebar .sidebar-sale__lead,
+.tour-sidebar .sidebar-sale__tail{
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+
+  text-align:justify!important;
+  text-align-last:justify!important;
+  text-justify:inter-character!important;
+
+  white-space:normal!important;
+  word-spacing:normal!important;
+}
+
+.tour-sidebar .sidebar-sale__lead{
+  justify-self:stretch!important;
+  padding-right:3px!important;
+}
+
+.tour-sidebar .sidebar-sale__tail{
+  justify-self:stretch!important;
+  padding-left:3px!important;
+}
+
+/* Keep each cell visually balanced against the centre divider. */
+.tour-sidebar .popular-feature-card .sidebar-sale{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  column-gap:28px!important;
+}
+
+@media(max-width:720px){
+  .tour-sidebar .sidebar-sale__lead,
+  .tour-sidebar .sidebar-sale__tail{
+    text-align:justify!important;
+    text-align-last:justify!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.10.10 — VIEW ALL TYPOGRAPHY ALIGNMENT
+   Match POPULAR TOURS size + remove left gold dot.
+   ========================================================= */
+
+.tour-sidebar .popular-feature-card .view-all{
+  font-size:14px!important;
+  letter-spacing:.04em!important;
+}
+
+/* Remove the left signal dot entirely. */
+.tour-sidebar .popular-feature-card .view-all::before{
+  content:none!important;
+  display:none!important;
+}
+
+/* Keep text alignment visually balanced without the dot. */
+.tour-sidebar .popular-feature-card .view-all{
+  padding-left:15px!important;
+}
+
+@media(max-width:720px){
+  .tour-sidebar .popular-feature-card .view-all{
+    font-size:14px!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.10.11 — PROMO COMPACT HEIGHT + MODERATELY SLOWER
+   ========================================================= */
+
+/* Moderately slower, not "crawling". */
+body > .promo-bar .promo-track{
+  --ato-promo-speed:60s!important;
+}
+
+@media(max-width:720px){
+  body > .promo-bar .promo-track{
+    --ato-promo-speed:66s!important;
+  }
+}
+
+
+/* Remove the empty vertical space under the ticker text.
+   Ribbon height now follows the typography instead of a legacy fixed box. */
+body > .promo-bar{
+  height:24px!important;
+  min-height:24px!important;
+  max-height:24px!important;
+
+  padding:0!important;
+
+  display:block!important;
+
+  line-height:1!important;
+
+  overflow:hidden!important;
+}
+
+
+/* Track occupies exactly the ribbon height and centers text vertically. */
+body > .promo-bar .promo-track{
+  height:24px!important;
+  min-height:24px!important;
+
+  padding:0!important;
+  margin:0!important;
+
+  align-items:center!important;
+
+  line-height:1!important;
+}
+
+
+/* Each duplicated marquee group also matches the exact ribbon height. */
+body > .promo-bar .promo-group{
+  height:24px!important;
+  min-height:24px!important;
+
+  padding-top:0!important;
+  padding-bottom:0!important;
+
+  align-items:center!important;
+
+  line-height:1!important;
+}
+
+
+/* Text itself has no inherited top/bottom padding or tall line box. */
+body > .promo-bar .promo-group > span{
+  margin:0!important;
+  padding-top:0!important;
+  padding-bottom:0!important;
+
+  line-height:1!important;
+  vertical-align:middle!important;
+}
+
+
+/* Keep the decorative bottom line inside the new compact bar. */
+body > .promo-bar::after{
+  bottom:0!important;
+}
+
+
+/* Slightly more breathing room on very narrow phones without increasing height. */
+@media(max-width:480px){
+  body > .promo-bar{
+    height:23px!important;
+    min-height:23px!important;
+    max-height:23px!important;
+  }
+
+  body > .promo-bar .promo-track,
+  body > .promo-bar .promo-group{
+    height:23px!important;
+    min-height:23px!important;
+  }
+
+  body > .promo-bar .promo-group > span{
+    font-size:11px!important;
+  }
+}
