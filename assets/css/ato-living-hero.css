@@ -6571,3 +6571,151 @@ body > .promo-bar::after{
     font-size:11px!important;
   }
 }
+
+
+/* =========================================================
+   ATO V7.10.12 — POPULAR INTRO CELLS + SECTION DIVIDER
+   ========================================================= */
+
+/* Thin separator between Finder result cards and POPULAR TOURS */
+.tour-sidebar .popular-feature-card{
+  position:relative!important;
+  margin-top:34px!important;
+}
+
+.tour-sidebar .popular-feature-card::before{
+  content:""!important;
+  position:absolute!important;
+
+  left:0!important;
+  right:0!important;
+  top:-18px!important;
+
+  width:100%!important;
+  height:1px!important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(216,177,95,0) 0%,
+      rgba(216,177,95,.22) 6%,
+      rgba(216,177,95,.38) 50%,
+      rgba(216,177,95,.22) 94%,
+      rgba(216,177,95,0) 100%
+    )!important;
+
+  box-shadow:0 1px rgba(255,255,255,.01)!important;
+  pointer-events:none!important;
+}
+
+
+/* Equal cells, no stretched letters */
+.tour-sidebar .popular-feature-card .sidebar-sale{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  align-items:center!important;
+  column-gap:28px!important;
+
+  min-height:94px!important;
+  padding:14px 0 15px!important;
+}
+
+
+/* Both phrases: same size, same weight, CAPS */
+.tour-sidebar .sidebar-sale__lead,
+.tour-sidebar .sidebar-sale__tail{
+  display:flex!important;
+  align-items:center!important;
+
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+
+  margin:0!important;
+  padding:0!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-size:12.5px!important;
+  font-weight:400!important;
+  line-height:1.16!important;
+  letter-spacing:.035em!important;
+  word-spacing:normal!important;
+  text-transform:uppercase!important;
+
+  white-space:normal!important;
+  text-wrap:balance!important;
+
+  /* Cancel previous aggressive justify rules */
+  text-align-last:auto!important;
+  text-justify:auto!important;
+}
+
+
+/* Left cell anchors cleanly to the left edge */
+.tour-sidebar .sidebar-sale__lead{
+  justify-content:flex-start!important;
+  text-align:left!important;
+
+  color:#f4ecdf!important;
+
+  padding-right:5px!important;
+}
+
+
+/* Right cell anchors cleanly to the right edge */
+.tour-sidebar .sidebar-sale__tail{
+  justify-content:flex-end!important;
+  text-align:right!important;
+
+  color:#dcb15e!important;
+
+  padding-left:5px!important;
+}
+
+
+/* Centre divider remains delicate and exactly between equal cells */
+.tour-sidebar .popular-feature-card .sidebar-sale::after{
+  left:50%!important;
+  top:15px!important;
+  bottom:15px!important;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(216,177,95,.20) 24%,
+      rgba(216,177,95,.20) 76%,
+      transparent
+    )!important;
+}
+
+
+/* Mobile keeps the exact same equal-cell logic */
+@media(max-width:720px){
+  .tour-sidebar .popular-feature-card{
+    margin-top:30px!important;
+  }
+
+  .tour-sidebar .popular-feature-card::before{
+    top:-16px!important;
+  }
+
+  .tour-sidebar .popular-feature-card .sidebar-sale{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    column-gap:22px!important;
+    min-height:90px!important;
+  }
+
+  .tour-sidebar .sidebar-sale__lead,
+  .tour-sidebar .sidebar-sale__tail{
+    font-size:11.5px!important;
+    line-height:1.15!important;
+    letter-spacing:.028em!important;
+  }
+}
