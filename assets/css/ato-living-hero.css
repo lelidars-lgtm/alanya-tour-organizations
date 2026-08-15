@@ -6759,3 +6759,25 @@ body > .promo-bar::after{
 #contacts .contact-hotline a:hover{
   color:#e4bf73!important;
 }
+
+
+/* =========================================================
+   ATO V7.10.14 — POPULAR RIGHT CELL LEFT ALIGN
+   ========================================================= */
+
+/* Right editorial phrase now starts from the LEFT edge of its own cell. */
+.tour-sidebar .sidebar-sale__tail{
+  justify-content:flex-start!important;
+  justify-self:stretch!important;
+  text-align:left!important;
+
+  padding-left:5px!important;
+  padding-right:0!important;
+}
+
+@media(max-width:720px){
+  .tour-sidebar .sidebar-sale__tail{
+    justify-content:flex-start!important;
+    text-align:left!important;
+  }
+}
