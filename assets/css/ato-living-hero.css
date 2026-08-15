@@ -2922,3 +2922,1391 @@ body{
     gap:6px!important;
   }
 }
+
+
+/* =========================================================
+   ATO V7.6 — ADAPTIVE EDITORIAL PROMO RIBBON
+   Section-aware smoky glass. No rainbow. No hard color jumps.
+   ========================================================= */
+
+.promo-bar{
+  /* default / categories */
+  --promo-bg:rgba(4,16,28,.84);
+  --promo-bg-2:rgba(5,18,31,.74);
+  --promo-fg:#f3eee5;
+  --promo-accent:#d8b15f;
+  --promo-line:rgba(216,177,95,.28);
+  --promo-glow:rgba(216,177,95,.055);
+
+  position:relative;
+  isolation:isolate;
+
+  background:
+    linear-gradient(90deg,var(--promo-bg),var(--promo-bg-2),var(--promo-bg))!important;
+  color:var(--promo-fg)!important;
+
+  border-top:1px solid rgba(255,255,255,.018)!important;
+  border-bottom:1px solid var(--promo-line)!important;
+
+  box-shadow:
+    0 8px 26px rgba(0,0,0,.10),
+    inset 0 -1px rgba(255,255,255,.012)!important;
+
+  backdrop-filter:blur(13px) saturate(.88)!important;
+  -webkit-backdrop-filter:blur(13px) saturate(.88)!important;
+
+  transition:
+    background .82s cubic-bezier(.2,.7,.2,1),
+    color .72s ease,
+    border-color .82s ease,
+    box-shadow .82s ease!important;
+}
+
+/* ultra-thin editorial horizon; its tone follows the section */
+.promo-bar::after{
+  content:"";
+  position:absolute;
+  z-index:8;
+  left:0;
+  right:0;
+  bottom:-1px;
+  height:1px;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--promo-line) 18%,
+      var(--promo-accent) 50%,
+      var(--promo-line) 82%,
+      transparent 100%
+    );
+  opacity:.48;
+  transition:
+    background .82s ease,
+    opacity .82s ease;
+}
+
+.promo-bar .promo-track{
+  color:var(--promo-fg)!important;
+  transition:color .72s ease!important;
+}
+
+.promo-bar .promo-track > span{
+  color:inherit!important;
+  text-shadow:0 2px 13px rgba(0,0,0,.34)!important;
+  transition:
+    color .72s ease,
+    opacity .72s ease,
+    text-shadow .72s ease!important;
+}
+
+.promo-bar .promo-text{
+  color:var(--promo-fg)!important;
+}
+
+.promo-bar .promo-dot{
+  color:var(--promo-accent)!important;
+  opacity:.88!important;
+  text-shadow:0 0 11px var(--promo-glow)!important;
+}
+
+/* Keep the typography premium and slightly calmer than a standard promo ticker. */
+.promo-bar .promo-track{
+  letter-spacing:.055em!important;
+}
+
+
+/* ---------------- HERO: scene-by-scene temperature ---------------- */
+
+/* Paragliding — clean Mediterranean blue-black */
+.promo-bar[data-tone="hero-paragliding"]{
+  --promo-bg:rgba(3,17,28,.72);
+  --promo-bg-2:rgba(6,28,39,.66);
+  --promo-fg:#f5efe5;
+  --promo-accent:#d8b15f;
+  --promo-line:rgba(214,178,104,.29);
+  --promo-glow:rgba(214,178,104,.08);
+}
+
+/* Pamukkale — pale stone / warm dawn */
+.promo-bar[data-tone="hero-pamukkale"]{
+  --promo-bg:rgba(24,20,21,.66);
+  --promo-bg-2:rgba(31,24,24,.59);
+  --promo-fg:#f7eee2;
+  --promo-accent:#dfbd7b;
+  --promo-line:rgba(223,189,123,.30);
+  --promo-glow:rgba(223,189,123,.08);
+}
+
+/* Cappadocia — muted rose-charcoal, never pink */
+.promo-bar[data-tone="hero-cappadocia"]{
+  --promo-bg:rgba(29,17,24,.68);
+  --promo-bg-2:rgba(37,21,27,.62);
+  --promo-fg:#f6eadf;
+  --promo-accent:#deb67b;
+  --promo-line:rgba(205,143,116,.28);
+  --promo-glow:rgba(222,182,123,.075);
+}
+
+/* Jeep Safari — earthy graphite */
+.promo-bar[data-tone="hero-jeep"]{
+  --promo-bg:rgba(19,17,14,.70);
+  --promo-bg-2:rgba(31,24,17,.63);
+  --promo-fg:#f2eadf;
+  --promo-accent:#d7aa5e;
+  --promo-line:rgba(215,170,94,.30);
+  --promo-glow:rgba(215,170,94,.08);
+}
+
+/* Rafting — deep mineral teal */
+.promo-bar[data-tone="hero-rafting"]{
+  --promo-bg:rgba(3,22,29,.72);
+  --promo-bg-2:rgba(5,31,37,.64);
+  --promo-fg:#eef1eb;
+  --promo-accent:#d8bd7b;
+  --promo-line:rgba(169,190,166,.20);
+  --promo-glow:rgba(216,189,123,.065);
+}
+
+/* Istanbul — evening blue */
+.promo-bar[data-tone="hero-istanbul"]{
+  --promo-bg:rgba(7,15,29,.75);
+  --promo-bg-2:rgba(13,24,39,.68);
+  --promo-fg:#f2ece3;
+  --promo-accent:#d7ad62;
+  --promo-line:rgba(215,173,98,.28);
+  --promo-glow:rgba(215,173,98,.07);
+}
+
+/* Tazy Canyon — dark forest / stone */
+.promo-bar[data-tone="hero-tazy"]{
+  --promo-bg:rgba(5,18,21,.75);
+  --promo-bg-2:rgba(10,27,28,.68);
+  --promo-fg:#f1ede4;
+  --promo-accent:#d4b16d;
+  --promo-line:rgba(190,181,133,.22);
+  --promo-glow:rgba(212,177,109,.065);
+}
+
+/* Helicopter — luxury graphite */
+.promo-bar[data-tone="hero-helicopter"]{
+  --promo-bg:rgba(15,16,19,.77);
+  --promo-bg-2:rgba(24,19,19,.70);
+  --promo-fg:#f4eee7;
+  --promo-accent:#d6aa60;
+  --promo-line:rgba(214,170,96,.30);
+  --promo-glow:rgba(214,170,96,.08);
+}
+
+
+/* ---------------- PAGE SECTIONS ---------------- */
+
+.promo-bar[data-tone="categories"]{
+  --promo-bg:rgba(3,14,25,.88);
+  --promo-bg-2:rgba(6,20,33,.82);
+  --promo-fg:#f0ede7;
+  --promo-accent:#d8b15f;
+  --promo-line:rgba(216,177,95,.25);
+  --promo-glow:rgba(216,177,95,.055);
+}
+
+/* VIP — champagne / ivory only */
+.promo-bar[data-tone="vip"]{
+  --promo-bg:rgba(10,14,20,.90);
+  --promo-bg-2:rgba(16,20,26,.85);
+  --promo-fg:#f4efe7;
+  --promo-accent:#dfb867;
+  --promo-line:rgba(223,184,103,.34);
+  --promo-glow:rgba(223,184,103,.085);
+  box-shadow:
+    0 8px 28px rgba(0,0,0,.16),
+    inset 0 -1px rgba(255,246,223,.018)!important;
+}
+
+/* About — nearly disappears into the section */
+.promo-bar[data-tone="about"]{
+  --promo-bg:rgba(5,19,31,.86);
+  --promo-bg-2:rgba(7,22,35,.80);
+  --promo-fg:#eeeae2;
+  --promo-accent:#d4ae63;
+  --promo-line:rgba(202,170,109,.18);
+  --promo-glow:rgba(212,174,99,.045);
+}
+
+/* Live Türkiye — quiet burgundy undertone, not a red bar */
+.promo-bar[data-tone="live-turkiye"]{
+  --promo-bg:rgba(18,12,19,.84);
+  --promo-bg-2:rgba(25,13,20,.79);
+  --promo-fg:#f3ece5;
+  --promo-accent:#d6aa62;
+  --promo-line:rgba(143,54,68,.34);
+  --promo-glow:rgba(201,77,91,.065);
+}
+
+/* Contact — clean navy */
+.promo-bar[data-tone="contact"]{
+  --promo-bg:rgba(4,17,29,.88);
+  --promo-bg-2:rgba(6,20,32,.83);
+  --promo-fg:#f0ede7;
+  --promo-accent:#d6ae61;
+  --promo-line:rgba(214,174,97,.22);
+  --promo-glow:rgba(214,174,97,.05);
+}
+
+/* Google map — a softer graphite bridge into the light map */
+.promo-bar[data-tone="google-map"]{
+  --promo-bg:rgba(27,31,34,.78);
+  --promo-bg-2:rgba(18,28,34,.73);
+  --promo-fg:#f1eee8;
+  --promo-accent:#d5ad63;
+  --promo-line:rgba(200,183,151,.22);
+  --promo-glow:rgba(213,173,99,.045);
+}
+
+/* Footer — merge into the almost-black footer */
+.promo-bar[data-tone="footer"]{
+  --promo-bg:rgba(2,8,18,.96);
+  --promo-bg-2:rgba(2,8,18,.94);
+  --promo-fg:#eeece7;
+  --promo-accent:#cfa95e;
+  --promo-line:rgba(207,169,94,.16);
+  --promo-glow:rgba(207,169,94,.035);
+}
+
+
+/* Mobile: preserve legibility while keeping the adaptive system */
+@media(max-width:720px){
+  .promo-bar{
+    backdrop-filter:blur(10px) saturate(.90)!important;
+    -webkit-backdrop-filter:blur(10px) saturate(.90)!important;
+  }
+  .promo-bar::after{
+    opacity:.38;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .promo-bar,
+  .promo-bar::after,
+  .promo-bar .promo-track,
+  .promo-bar .promo-track > span{
+    transition:none!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.7 — VIP EDITORIAL TITLE + DIAMOND
+   Same typographic family as Hero titles.
+   ========================================================= */
+
+#main-categories .vip-service-premium .vip-diamond-icon{
+  flex:0 0 auto!important;
+  display:grid!important;
+  place-items:center!important;
+  width:48px!important;
+  height:48px!important;
+  border:1px solid rgba(215,176,98,.34)!important;
+  border-radius:50%!important;
+  background:
+    radial-gradient(circle at 42% 35%,
+      rgba(255,246,222,.055),
+      rgba(215,176,98,.025) 48%,
+      transparent 72%)!important;
+  box-shadow:
+    inset 0 0 18px rgba(255,245,220,.018),
+    0 0 20px rgba(214,174,96,.035)!important;
+  color:inherit!important;
+  text-shadow:none!important;
+}
+
+#main-categories .vip-service-premium .vip-diamond-icon svg{
+  display:block!important;
+  width:26px!important;
+  height:26px!important;
+  overflow:visible!important;
+}
+
+#main-categories .vip-service-premium .vip-diamond-outline,
+#main-categories .vip-service-premium .vip-diamond-facet{
+  fill:none!important;
+  vector-effect:non-scaling-stroke!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+
+#main-categories .vip-service-premium .vip-diamond-outline{
+  stroke:#e3bd72!important;
+  stroke-width:1.45!important;
+  filter:
+    drop-shadow(0 0 3px rgba(238,202,132,.18))
+    drop-shadow(0 0 8px rgba(221,181,101,.08))!important;
+}
+
+#main-categories .vip-service-premium .vip-diamond-facet{
+  stroke:rgba(246,235,213,.66)!important;
+  stroke-width:.82!important;
+}
+
+/* Hero-style editorial title */
+#main-categories .vip-service-premium .vip-service-text h3{
+  margin:0 0 7px!important;
+  color:#f5efe5!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-size:clamp(25px,2.15vw,36px)!important;
+  font-weight:400!important;
+  font-style:normal!important;
+  line-height:.92!important;
+  letter-spacing:.050em!important;
+  text-transform:uppercase!important;
+
+  -webkit-font-smoothing:antialiased!important;
+  text-rendering:geometricPrecision!important;
+
+  -webkit-text-stroke:.34px rgba(215,176,98,.78)!important;
+
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.22),
+    0 3px 15px rgba(0,0,0,.36),
+    0 0 10px rgba(221,181,101,.055)!important;
+}
+
+#main-categories .vip-service-premium .vip-service-text p{
+  margin:0!important;
+  color:rgba(237,233,224,.68)!important;
+  font-family:Arial,sans-serif!important;
+  font-size:clamp(11px,.82vw,13px)!important;
+  font-weight:400!important;
+  line-height:1.42!important;
+  letter-spacing:.002em!important;
+}
+
+#main-categories .vip-service-premium .vip-discover-btn{
+  color:rgba(246,241,232,.90)!important;
+  font-size:13px!important;
+  font-weight:500!important;
+  letter-spacing:.035em!important;
+}
+
+#main-categories .vip-service-premium .vip-discover-btn::after{
+  color:#d9b15f!important;
+}
+
+#main-categories .vip-service-premium.vip-ai-border:hover .vip-diamond-icon{
+  border-color:rgba(230,196,130,.52)!important;
+  box-shadow:
+    inset 0 0 19px rgba(255,247,228,.028),
+    0 0 20px rgba(219,179,99,.07)!important;
+}
+
+#main-categories .vip-service-premium.vip-ai-border:hover .vip-diamond-outline{
+  stroke:#e8c47c!important;
+}
+
+#main-categories .vip-service-premium.vip-ai-border:hover .vip-service-text h3{
+  color:#fff8eb!important;
+  -webkit-text-stroke:.36px rgba(226,188,113,.82)!important;
+}
+
+@media(min-width:721px){
+  #main-categories .vip-service-premium{
+    align-items:center!important;
+  }
+  #main-categories .vip-service-premium .vip-service-text{
+    min-width:0!important;
+  }
+}
+
+@media(max-width:720px){
+  #main-categories .vip-service-premium .vip-diamond-icon{
+    width:42px!important;
+    height:42px!important;
+  }
+
+  #main-categories .vip-service-premium .vip-diamond-icon svg{
+    width:23px!important;
+    height:23px!important;
+  }
+
+  #main-categories .vip-service-premium .vip-service-text h3{
+    font-size:clamp(22px,6.5vw,29px)!important;
+    letter-spacing:.042em!important;
+  }
+
+  #main-categories .vip-service-premium .vip-service-text p{
+    font-size:10.5px!important;
+    line-height:1.4!important;
+  }
+
+  #main-categories .vip-service-premium .vip-discover-btn{
+    font-size:11px!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.8 — COMPACT HOME TOUR FINDER
+   Heading → Search → quick selection → status → results = one unit.
+   ========================================================= */
+
+.main-categories-section .tour-sidebar{
+  padding-top:18px!important;
+  padding-bottom:18px!important;
+}
+
+/* FIND YOUR PERFECT TOUR */
+.main-categories-section .tour-sidebar > h3{
+  margin:0 0 10px!important;
+  padding:0!important;
+  line-height:1.15!important;
+}
+
+/* Search immediately follows the title */
+.main-categories-section .tour-sidebar #officialTourSearch{
+  display:block!important;
+  width:100%!important;
+  margin:0 0 7px!important;
+}
+
+/* The old FILTERS heading and legacy filter-grid are hidden by JS;
+   ensure they reserve absolutely no space before JS paints. */
+.main-categories-section .tour-sidebar > h4:first-of-type,
+.main-categories-section .tour-sidebar > .filter-grid{
+  margin:0!important;
+  padding:0!important;
+}
+
+.main-categories-section .tour-sidebar > .filter-grid[style*="display: none"],
+.main-categories-section .tour-sidebar > h4:first-of-type[style*="display: none"]{
+  height:0!important;
+  min-height:0!important;
+  border:0!important;
+}
+
+/* Quick selector: remove oversized breathing room. */
+.main-categories-section .tour-sidebar .atf-home-quick{
+  gap:5px!important;
+  margin:5px 0 6px!important;
+}
+
+.main-categories-section .tour-sidebar .atf-home-quick .atf-option{
+  min-height:32px!important;
+  padding-top:5px!important;
+  padding-bottom:5px!important;
+}
+
+/* Result count / reset belongs directly to quick selector */
+.main-categories-section .tour-sidebar .atf-home-status{
+  margin:5px 0 7px!important;
+  min-height:18px!important;
+}
+
+/* Two discovery cards should read as one compact stack */
+.main-categories-section .tour-sidebar .atf-home-results{
+  gap:6px!important;
+  margin:0!important;
+}
+
+.main-categories-section .tour-sidebar .atf-mini-card{
+  grid-template-columns:78px minmax(0,1fr)!important;
+  gap:10px!important;
+  padding:7px!important;
+  min-height:78px!important;
+  border-radius:13px!important;
+}
+
+.main-categories-section .tour-sidebar .atf-mini-img{
+  width:78px!important;
+  height:64px!important;
+  border-radius:9px!important;
+}
+
+.main-categories-section .tour-sidebar .atf-mini-card h5{
+  margin:1px 0 3px!important;
+}
+
+.main-categories-section .tour-sidebar .atf-mini-price{
+  margin-top:4px!important;
+}
+
+/* Full finder button closes the unit without an empty band above it. */
+.main-categories-section .tour-sidebar .atf-open-full{
+  margin-top:8px!important;
+  min-height:40px!important;
+}
+
+/* Dynamic filtered state: no unnecessary space before/after results */
+.main-categories-section .tour-sidebar .ato-filter-status{
+  margin:6px 0!important;
+}
+
+.main-categories-section .tour-sidebar .ato-sidebar-results{
+  margin:0!important;
+  padding:0!important;
+}
+
+.main-categories-section .tour-sidebar .ato-sidebar-results:empty{
+  margin:0!important;
+  padding:0!important;
+  height:0!important;
+  min-height:0!important;
+}
+
+/* The Popular Tours card follows the finder tightly, but not cramped. */
+.main-categories-section .tour-sidebar .popular-feature-card{
+  margin-top:14px!important;
+}
+
+
+/* Mobile: even tighter vertical rhythm */
+@media(max-width:720px){
+  .main-categories-section .tour-sidebar{
+    padding-top:14px!important;
+    padding-bottom:14px!important;
+  }
+
+  .main-categories-section .tour-sidebar > h3{
+    margin-bottom:8px!important;
+  }
+
+  .main-categories-section .tour-sidebar #officialTourSearch{
+    margin-bottom:5px!important;
+  }
+
+  .main-categories-section .tour-sidebar .atf-home-quick{
+    margin:4px 0 5px!important;
+  }
+
+  .main-categories-section .tour-sidebar .atf-home-status{
+    margin:4px 0 6px!important;
+  }
+
+  .main-categories-section .tour-sidebar .atf-open-full{
+    margin-top:7px!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.9 — WARM PEARL HEADER
+   Light stays intentional, but cold grey becomes warm luxury pearl.
+   ========================================================= */
+
+.header{
+  --ato-header-pearl-1:#f1efe9;
+  --ato-header-pearl-2:#e8e6e0;
+  --ato-header-ink:#08162a;
+  --ato-header-ink-soft:#1d2a3d;
+  --ato-header-gold:#c99e4e;
+
+  background:
+    linear-gradient(
+      105deg,
+      rgba(247,245,240,.985) 0%,
+      rgba(238,236,230,.985) 48%,
+      rgba(231,229,223,.985) 100%
+    )!important;
+
+  color:var(--ato-header-ink)!important;
+
+  border-bottom:1px solid rgba(199,157,77,.22)!important;
+
+  box-shadow:
+    0 8px 30px rgba(11,24,40,.055),
+    inset 0 -1px rgba(255,255,255,.68)!important;
+
+  backdrop-filter:blur(16px) saturate(.78)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(.78)!important;
+
+  transition:
+    background .45s ease,
+    border-color .45s ease,
+    box-shadow .45s ease!important;
+}
+
+/* Fine champagne horizon: almost invisible until you notice it. */
+.header::after{
+  content:""!important;
+  position:absolute!important;
+  z-index:1!important;
+  left:4.5%!important;
+  right:4.5%!important;
+  bottom:-1px!important;
+  height:1px!important;
+  pointer-events:none!important;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(196,153,72,.10) 12%,
+      rgba(213,175,99,.35) 50%,
+      rgba(196,153,72,.10) 88%,
+      transparent 100%
+    )!important;
+}
+
+/* Logo typography stays crisp against pearl. */
+.header .logo,
+.header .logo-title{
+  color:var(--ato-header-ink)!important;
+}
+
+.header .logo-subtitle{
+  color:#bd8c31!important;
+}
+
+/* Desktop navigation — deep navy with restrained gold interaction. */
+.header .nav,
+.header .nav-item,
+.header .ato-dropdown-trigger,
+.header .ato-search-trigger,
+.header .language{
+  color:var(--ato-header-ink)!important;
+}
+
+.header .nav-item,
+.header .ato-dropdown-trigger{
+  position:relative!important;
+}
+
+/* No pill fills: just a hairline gold cue on hover. */
+.header .nav > a,
+.header .nav > .nav-item,
+.header .ato-dropdown-trigger{
+  transition:
+    color .24s ease,
+    opacity .24s ease!important;
+}
+
+.header .nav > a:hover,
+.header .nav > .nav-item:hover,
+.header .ato-dropdown-trigger:hover,
+.header .ato-header-dropdown.open > .ato-dropdown-trigger{
+  color:#9e7227!important;
+}
+
+.header .ato-dropdown-trigger .arrow-icon,
+.header .language .arrow-icon,
+.header .language .globe-icon{
+  stroke:#bd8c31!important;
+}
+
+.header .ato-search-trigger-icon,
+.ato-mobile-search-trigger svg{
+  color:#bd8c31!important;
+  stroke:currentColor!important;
+}
+
+.header .fire{
+  filter:saturate(.78) brightness(.96)!important;
+}
+
+/* Search trigger text should not read white on the warm pearl field. */
+.header .ato-search-trigger-label{
+  color:var(--ato-header-ink-soft)!important;
+}
+
+/* Mobile controls inherit the same quiet navy/gold language. */
+.header .mobile-menu-btn span{
+  background:var(--ato-header-ink)!important;
+}
+
+.ato-mobile-search-trigger{
+  color:var(--ato-header-ink)!important;
+}
+
+/* While smart search is open, retain the pearl shell around the
+   deliberately dark search field instead of flashing to cold grey. */
+.header.ato-search-active{
+  background:
+    linear-gradient(105deg,#f3f1ec,#e9e7e1)!important;
+}
+
+
+/* =========================================================
+   ATO V7.9 — POPULAR TOURS EDITORIAL BRIDGE
+   Hero language: left / right balance, thin serif, no centred slogan.
+   ========================================================= */
+
+.tour-sidebar .popular-feature-card .sidebar-sale-link{
+  display:block!important;
+  margin:2px 0 14px!important;
+}
+
+.tour-sidebar .popular-feature-card .sidebar-sale{
+  position:relative!important;
+  max-width:none!important;
+  width:100%!important;
+
+  display:grid!important;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)!important;
+  align-items:end!important;
+  column-gap:14px!important;
+
+  margin:0!important;
+  padding:14px 0 15px!important;
+
+  text-align:initial!important;
+
+  border-top:1px solid rgba(215,176,98,.13)!important;
+  border-bottom:1px solid rgba(215,176,98,.13)!important;
+}
+
+.tour-sidebar .popular-feature-card .sidebar-sale::after{
+  content:""!important;
+  position:absolute!important;
+  left:50%!important;
+  top:14px!important;
+  bottom:14px!important;
+  width:1px!important;
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(216,177,95,.20) 24%,
+      rgba(216,177,95,.20) 76%,
+      transparent
+    )!important;
+  transform:translateX(-.5px)!important;
+}
+
+.tour-sidebar .sidebar-sale__lead,
+.tour-sidebar .sidebar-sale__tail{
+  display:block!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-weight:400!important;
+  text-transform:none!important;
+  text-wrap:balance!important;
+}
+
+.tour-sidebar .sidebar-sale__lead{
+  padding-right:4px!important;
+
+  color:#f4ead8!important;
+  font-size:clamp(15px,1.08vw,18px)!important;
+  line-height:1.02!important;
+  letter-spacing:.025em!important;
+  text-align:left!important;
+
+  -webkit-text-stroke:.14px rgba(226,195,137,.24)!important;
+
+  text-shadow:
+    0 2px 14px rgba(0,0,0,.28)!important;
+}
+
+.tour-sidebar .sidebar-sale__tail{
+  padding-left:4px!important;
+
+  color:#d9b15f!important;
+  font-size:clamp(10px,.78vw,12px)!important;
+  line-height:1.28!important;
+  letter-spacing:.075em!important;
+  text-align:right!important;
+  text-transform:uppercase!important;
+
+  text-shadow:
+    0 2px 13px rgba(0,0,0,.24),
+    0 0 9px rgba(217,177,95,.05)!important;
+}
+
+/* POPULAR TOURS itself becomes quieter so the editorial line has room. */
+.tour-sidebar .popular-feature-card .popular-heading{
+  margin-bottom:8px!important;
+  text-align:left!important;
+}
+
+.tour-sidebar .popular-feature-card .popular-heading a{
+  display:inline-block!important;
+  color:#e4bd70!important;
+  font-size:10px!important;
+  font-weight:800!important;
+  letter-spacing:.13em!important;
+  text-transform:uppercase!important;
+}
+
+
+/* Mobile: preserve left/right intent without squeezing unreadably. */
+@media(max-width:720px){
+  .header{
+    background:
+      linear-gradient(105deg,#f2f0eb,#e8e6e0)!important;
+  }
+
+  .tour-sidebar .popular-feature-card .sidebar-sale{
+    grid-template-columns:1fr!important;
+    row-gap:8px!important;
+    padding:12px 0 13px!important;
+  }
+
+  .tour-sidebar .popular-feature-card .sidebar-sale::after{
+    display:none!important;
+  }
+
+  .tour-sidebar .sidebar-sale__lead{
+    text-align:left!important;
+    font-size:16px!important;
+    padding:0!important;
+  }
+
+  .tour-sidebar .sidebar-sale__tail{
+    text-align:right!important;
+    font-size:10px!important;
+    padding:0!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.9.1 — LIVE TÜRKİYE HERO TYPOGRAPHY
+   Align Republic title with About heading + Hero-style geo CTA.
+   ========================================================= */
+
+/* Raise the right-side section label so it visually shares
+   the same upper axis as "About Our Company". */
+#about .about-live-kicker{
+  top:-26px!important;
+
+  color:#f2e9d8!important;
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-size:clamp(12px,.95vw,15px)!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+
+  -webkit-text-stroke:.18px rgba(214,175,98,.72)!important;
+
+  text-shadow:
+    0 2px 13px rgba(0,0,0,.34),
+    0 0 10px rgba(214,175,98,.05)!important;
+}
+
+/* The control stays functional, but no longer looks like a utility chip.
+   It now speaks the same thin editorial language as the Hero. */
+#about .about-live-geolocate{
+  min-height:42px!important;
+  padding:0 19px!important;
+  gap:9px!important;
+
+  border:1px solid rgba(216,177,95,.34)!important;
+  border-radius:999px!important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8,22,35,.54),
+      rgba(5,17,29,.40)
+    )!important;
+
+  color:#f4ead8!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-size:clamp(14px,1.04vw,17px)!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:.045em!important;
+  text-transform:none!important;
+
+  -webkit-text-stroke:.18px rgba(216,177,95,.54)!important;
+
+  text-shadow:
+    0 2px 12px rgba(0,0,0,.40),
+    0 0 9px rgba(216,177,95,.045)!important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.025),
+    0 8px 28px rgba(0,0,0,.10)!important;
+
+  transition:
+    color .3s ease,
+    border-color .3s ease,
+    background .3s ease,
+    box-shadow .3s ease,
+    transform .3s ease!important;
+}
+
+/* Replace the dot-like utility cue with a tiny champagne jewel. */
+#about .about-live-geolocate-dot{
+  width:5px!important;
+  height:5px!important;
+  flex:0 0 auto!important;
+
+  background:#e1b86a!important;
+  box-shadow:
+    0 0 0 1px rgba(255,244,214,.22),
+    0 0 9px rgba(225,184,106,.30)!important;
+}
+
+#about .about-live-geolocate:hover{
+  color:#fff7e8!important;
+  border-color:rgba(231,197,132,.58)!important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10,27,42,.66),
+      rgba(6,20,33,.50)
+    )!important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.035),
+    0 0 18px rgba(216,177,95,.055),
+    0 10px 30px rgba(0,0,0,.13)!important;
+
+  transform:translateX(-50%) translateY(-1px)!important;
+}
+
+/* Live location state stays in the same typography;
+   only the tiny point becomes cyan to identify the user. */
+#about .about-live-geolocate[aria-pressed="true"]{
+  color:#f4ead8!important;
+  border-color:rgba(216,177,95,.42)!important;
+}
+
+#about .about-live-geolocate[aria-pressed="true"] .about-live-geolocate-dot{
+  background:#63d9ff!important;
+  box-shadow:
+    0 0 0 1px rgba(217,247,255,.22),
+    0 0 10px rgba(99,217,255,.44)!important;
+}
+
+
+/* Tablet / mobile: keep the title lifted, but not outside the safe area. */
+@media(max-width:820px){
+  #about .about-live-kicker{
+    top:-14px!important;
+    font-size:12px!important;
+  }
+
+  #about .about-live-geolocate{
+    min-height:39px!important;
+    padding:0 16px!important;
+    font-size:14px!important;
+  }
+}
+
+@media(max-width:560px){
+  #about .about-live-kicker{
+    top:-8px!important;
+    font-size:11px!important;
+    letter-spacing:.10em!important;
+  }
+
+  #about .about-live-geolocate{
+    min-height:38px!important;
+    padding:0 15px!important;
+    font-size:13px!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.9.2 — ATO CONCIERGE / WHATSAPP
+   Premium floating helper, no large green button.
+   ========================================================= */
+
+.whatsapp-popup.ato-concierge{
+  position:fixed!important;
+  right:22px!important;
+  bottom:22px!important;
+  z-index:9999!important;
+
+  width:min(292px,calc(100vw - 28px))!important;
+  padding:17px 18px 16px!important;
+
+  border:1px solid rgba(213,174,96,.28)!important;
+  border-radius:22px!important;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10,23,38,.92),
+      rgba(6,17,29,.94)
+    )!important;
+
+  box-shadow:
+    0 20px 54px rgba(0,0,0,.28),
+    inset 0 1px rgba(255,255,255,.025)!important;
+
+  backdrop-filter:blur(16px) saturate(.9)!important;
+  -webkit-backdrop-filter:blur(16px) saturate(.9)!important;
+}
+
+.ato-concierge__eyebrow{
+  margin:0 0 7px!important;
+
+  color:#d7ad61!important;
+  font-family:Arial,sans-serif!important;
+  font-size:8px!important;
+  font-weight:700!important;
+  line-height:1!important;
+  letter-spacing:.18em!important;
+  text-transform:uppercase!important;
+}
+
+.ato-concierge__title{
+  margin:0 0 13px!important;
+
+  color:#f4ead8!important;
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-size:clamp(18px,1.35vw,22px)!important;
+  font-weight:400!important;
+  line-height:1.08!important;
+  letter-spacing:.02em!important;
+
+  -webkit-text-stroke:.16px rgba(215,176,98,.28)!important;
+
+  text-shadow:
+    0 2px 13px rgba(0,0,0,.34)!important;
+}
+
+.whatsapp-popup .ato-concierge__btn{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:9px!important;
+
+  width:100%!important;
+  min-height:42px!important;
+  padding:0 13px!important;
+
+  border:1px solid rgba(215,176,98,.34)!important;
+  border-radius:999px!important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.030),
+      rgba(255,255,255,.012)
+    )!important;
+
+  color:#f2eee6!important;
+
+  font-family:Arial,sans-serif!important;
+  font-size:12px!important;
+  font-weight:600!important;
+  line-height:1!important;
+  letter-spacing:.035em!important;
+  text-decoration:none!important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.025)!important;
+
+  transition:
+    border-color .28s ease,
+    background .28s ease,
+    color .28s ease,
+    transform .28s ease,
+    box-shadow .28s ease!important;
+}
+
+.whatsapp-popup .ato-concierge__btn:hover{
+  border-color:rgba(229,194,127,.58)!important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.044),
+      rgba(255,255,255,.018)
+    )!important;
+
+  color:#fff8ec!important;
+
+  transform:translateY(-1px)!important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.035),
+    0 0 18px rgba(216,177,95,.045)!important;
+}
+
+/* WhatsApp green is kept only as a recognition cue, not as the whole button. */
+.ato-concierge__wa-dot{
+  width:8px!important;
+  height:8px!important;
+  flex:0 0 auto!important;
+
+  border-radius:50%!important;
+  background:#25d366!important;
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.14),
+    0 0 9px rgba(37,211,102,.26)!important;
+}
+
+.ato-concierge__arrow{
+  margin-left:auto!important;
+
+  color:#d7ad61!important;
+  font-family:"Times New Roman",serif!important;
+  font-size:17px!important;
+  font-weight:400!important;
+  line-height:1!important;
+}
+
+@media(max-width:720px){
+  .whatsapp-popup.ato-concierge{
+    right:14px!important;
+    bottom:14px!important;
+    width:min(268px,calc(100vw - 28px))!important;
+    padding:15px 16px 14px!important;
+    border-radius:19px!important;
+  }
+
+  .ato-concierge__title{
+    font-size:18px!important;
+    margin-bottom:11px!important;
+  }
+
+  .whatsapp-popup .ato-concierge__btn{
+    min-height:40px!important;
+    font-size:11px!important;
+  }
+}
+
+
+/* =========================================================
+   ATO V7.9.3 — PREMIUM METRICS RAIL
+   Replace "dashboard cards" with an editorial Hero-style ledger.
+   ========================================================= */
+
+.premium-stats.vertical-stats{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:0!important;
+
+  margin:18px 0 0!important;
+  padding:4px 0!important;
+
+  border-top:1px solid rgba(214,175,98,.20)!important;
+  border-bottom:1px solid rgba(214,175,98,.16)!important;
+  border-left:0!important;
+  border-right:0!important;
+  border-radius:0!important;
+
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+}
+
+/* One continuous editorial rail — no individual rounded cards. */
+.premium-stats.vertical-stats .stat-item{
+  position:relative!important;
+
+  display:grid!important;
+  grid-template-columns:minmax(92px,.62fr) minmax(0,1fr)!important;
+  align-items:baseline!important;
+  column-gap:18px!important;
+
+  min-height:0!important;
+  margin:0!important;
+  padding:18px 4px 17px!important;
+
+  border:0!important;
+  border-radius:0!important;
+
+  background:transparent!important;
+  box-shadow:none!important;
+
+  transition:
+    background .28s ease,
+    transform .28s ease!important;
+}
+
+.premium-stats.vertical-stats .stat-item:not(:last-child)::after{
+  content:""!important;
+  position:absolute!important;
+  left:4px!important;
+  right:4px!important;
+  bottom:0!important;
+  height:1px!important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(214,175,98,.27),
+      rgba(214,175,98,.10) 58%,
+      rgba(214,175,98,0)
+    )!important;
+}
+
+.premium-stats.vertical-stats .stat-item::before{
+  content:""!important;
+  position:absolute!important;
+  left:-1px!important;
+  top:50%!important;
+  width:2px!important;
+  height:0!important;
+  transform:translateY(-50%)!important;
+
+  background:#d9b15f!important;
+  box-shadow:0 0 10px rgba(217,177,95,.18)!important;
+
+  transition:height .28s ease!important;
+}
+
+.premium-stats.vertical-stats .stat-item:hover{
+  transform:translateX(3px)!important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(216,177,95,.035),
+      rgba(216,177,95,0) 68%
+    )!important;
+}
+
+.premium-stats.vertical-stats .stat-item:hover::before{
+  height:32px!important;
+}
+
+
+/* Numbers — same thin editorial family used in Hero. */
+.premium-stats.vertical-stats .stat-item strong{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+
+  color:#f5eee2!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Bodoni 72 Smallcaps",
+    "Times New Roman",
+    serif!important;
+
+  font-size:clamp(34px,2.7vw,48px)!important;
+  font-weight:400!important;
+  font-style:normal!important;
+  line-height:.86!important;
+  letter-spacing:.015em!important;
+
+  -webkit-font-smoothing:antialiased!important;
+  text-rendering:geometricPrecision!important;
+
+  -webkit-text-stroke:.34px rgba(216,177,95,.78)!important;
+
+  text-shadow:
+    0 2px 14px rgba(0,0,0,.30),
+    0 0 10px rgba(216,177,95,.045)!important;
+}
+
+
+/* Labels — elegant, quiet, and translation-safe. */
+.premium-stats.vertical-stats .stat-item span{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+
+  color:rgba(237,233,224,.68)!important;
+
+  font-family:
+    "Bodoni MT",
+    "Didot",
+    "Times New Roman",
+    serif!important;
+
+  font-size:clamp(12px,.90vw,14px)!important;
+  font-weight:400!important;
+  line-height:1.2!important;
+  letter-spacing:.035em!important;
+  text-transform:none!important;
+
+  text-shadow:0 2px 10px rgba(0,0,0,.24)!important;
+}
+
+
+/* Subtle champagne emphasis only on interaction. */
+.premium-stats.vertical-stats .stat-item:hover strong{
+  color:#fff7e9!important;
+  -webkit-text-stroke:.38px rgba(227,190,116,.86)!important;
+}
+
+
+/* Desktop sidebar refinement */
+@media(min-width:981px){
+  .premium-stats.vertical-stats{
+    margin-top:16px!important;
+  }
+
+  .premium-stats.vertical-stats .stat-item{
+    padding-top:17px!important;
+    padding-bottom:16px!important;
+  }
+}
+
+
+/* Mobile — still editorial, but keep it compact. */
+@media(max-width:720px){
+  .premium-stats.vertical-stats{
+    margin-top:14px!important;
+    padding:2px 0!important;
+  }
+
+  .premium-stats.vertical-stats .stat-item{
+    grid-template-columns:92px minmax(0,1fr)!important;
+    column-gap:14px!important;
+    padding:15px 2px 14px!important;
+  }
+
+  .premium-stats.vertical-stats .stat-item strong{
+    font-size:36px!important;
+  }
+
+  .premium-stats.vertical-stats .stat-item span{
+    font-size:12px!important;
+    line-height:1.15!important;
+  }
+}
+
+
+/* Very narrow phones */
+@media(max-width:390px){
+  .premium-stats.vertical-stats .stat-item{
+    grid-template-columns:84px minmax(0,1fr)!important;
+    column-gap:12px!important;
+  }
+
+  .premium-stats.vertical-stats .stat-item strong{
+    font-size:33px!important;
+  }
+
+  .premium-stats.vertical-stats .stat-item span{
+    font-size:11.5px!important;
+  }
+}
