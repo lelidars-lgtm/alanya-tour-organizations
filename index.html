@@ -945,8 +945,10 @@ body.ato-header-search-open{overflow-x:hidden}
   </div>
 
   <div class="ato-living-hero__slogan" aria-hidden="false">
-    <h1>THE TURKISH<br>RIVIERA AWAITS</h1>
-    <p>EXPERIENCE MORE. OPEN YOUR MIND.<br><strong>RIGHT NOW.</strong></p>
+    <div class="ato-living-hero__slogan-panel">
+      <h1>THE TURKISH<br>RIVIERA AWAITS</h1>
+      <p>EXPERIENCE MORE. OPEN YOUR MIND.<br><strong>RIGHT NOW.</strong></p>
+    </div>
   </div>
 
   <div class="hero-content">
@@ -2004,7 +2006,7 @@ render();
   function updateUI(scene, i, animateCaption=false) {
     if (currentNum) currentNum.textContent = String(i+1).padStart(2,'0');
     if (totalNum) totalNum.textContent = '08';
-    if (slogan) slogan.classList.toggle('is-hidden', i !== 0);
+    if (slogan) slogan.classList.remove('is-hidden');
     if (categoryText) categoryText.textContent = scene.category;
     if (titleText) titleText.textContent = scene.title;
     if (caption) {

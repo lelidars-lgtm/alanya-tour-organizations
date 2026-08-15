@@ -372,3 +372,142 @@
   object-fit:cover!important;
   object-position:center center!important;
 }
+
+
+/* =========================================================
+   ATO HERO V6.1 — EDITORIAL RIVIERA SIGNATURE
+   Thin high-fashion serif, warm ivory, subtle letter outline,
+   persistent across all slides.
+   ========================================================= */
+
+#atoLivingHero .ato-living-hero__slogan{
+  position:absolute!important;
+  z-index:14!important;
+  left:clamp(34px,4.8vw,82px)!important;
+  top:clamp(88px,15.5vh,150px)!important;
+  width:min(560px,39vw)!important;
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+  pointer-events:none!important;
+  color:#f5ead5!important;
+  text-shadow:none!important;
+}
+
+#atoLivingHero .ato-living-hero__slogan.is-hidden{
+  opacity:1!important;
+  visibility:visible!important;
+  transform:none!important;
+}
+
+#atoLivingHero .ato-living-hero__slogan-panel{
+  position:relative!important;
+  display:inline-block!important;
+  padding:20px 28px 22px 24px!important;
+  isolation:isolate!important;
+}
+
+#atoLivingHero .ato-living-hero__slogan-panel::before{
+  content:""!important;
+  position:absolute!important;
+  z-index:-1!important;
+  inset:-22px -46px -24px -38px!important;
+  pointer-events:none!important;
+  background:
+    radial-gradient(ellipse at 28% 45%,
+      rgba(2,10,18,.36) 0%,
+      rgba(2,10,18,.25) 42%,
+      rgba(2,10,18,.11) 67%,
+      rgba(2,10,18,0) 84%)!important;
+  filter:blur(10px)!important;
+  opacity:.82!important;
+}
+
+#atoLivingHero .ato-living-hero__slogan h1{
+  margin:0!important;
+  color:#f6ead2!important;
+  font-family:"Bodoni MT","Didot","Bodoni 72 Smallcaps","Times New Roman",serif!important;
+  font-size:clamp(37px,3.7vw,66px)!important;
+  font-weight:400!important;
+  font-style:normal!important;
+  line-height:.90!important;
+  letter-spacing:.055em!important;
+  text-transform:uppercase!important;
+  -webkit-font-smoothing:antialiased!important;
+  text-rendering:geometricPrecision!important;
+  -webkit-text-stroke:.32px rgba(225,190,126,.58)!important;
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.28),
+    0 4px 20px rgba(0,0,0,.42)!important;
+}
+
+#atoLivingHero .ato-living-hero__slogan p{
+  margin:18px 0 0!important;
+  color:rgba(246,234,210,.92)!important;
+  font-family:"Bodoni MT","Didot","Times New Roman",serif!important;
+  font-size:clamp(10px,.78vw,13px)!important;
+  font-weight:400!important;
+  line-height:1.48!important;
+  letter-spacing:.20em!important;
+  text-transform:uppercase!important;
+  -webkit-text-stroke:.20px rgba(225,190,126,.40)!important;
+  text-shadow:0 2px 14px rgba(0,0,0,.42)!important;
+}
+
+#atoLivingHero .ato-living-hero__slogan p strong{
+  display:inline-block!important;
+  margin-top:5px!important;
+  color:#e5bd72!important;
+  font:inherit!important;
+  letter-spacing:.23em!important;
+  -webkit-text-stroke:.22px rgba(244,220,169,.42)!important;
+}
+
+@media(max-width:980px){
+  #atoLivingHero .ato-living-hero__slogan{
+    left:20px!important;
+    top:clamp(92px,12vh,126px)!important;
+    width:min(76vw,390px)!important;
+  }
+
+  #atoLivingHero .ato-living-hero__slogan-panel{
+    padding:15px 18px 17px 14px!important;
+  }
+
+  #atoLivingHero .ato-living-hero__slogan-panel::before{
+    inset:-18px -28px -20px -24px!important;
+    opacity:.86!important;
+  }
+
+  #atoLivingHero .ato-living-hero__slogan h1{
+    font-size:clamp(31px,8.8vw,50px)!important;
+    line-height:.91!important;
+    letter-spacing:.045em!important;
+  }
+
+  #atoLivingHero .ato-living-hero__slogan p{
+    margin-top:13px!important;
+    max-width:295px!important;
+    font-size:9px!important;
+    line-height:1.50!important;
+    letter-spacing:.15em!important;
+  }
+}
+
+@media(max-width:560px){
+  #atoLivingHero .ato-living-hero__slogan{
+    left:15px!important;
+    top:98px!important;
+    width:78vw!important;
+  }
+
+  #atoLivingHero .ato-living-hero__slogan h1{
+    font-size:clamp(28px,8.4vw,42px)!important;
+  }
+
+  #atoLivingHero .ato-living-hero__slogan p{
+    font-size:8px!important;
+    max-width:250px!important;
+  }
+}
