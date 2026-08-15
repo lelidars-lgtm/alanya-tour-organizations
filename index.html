@@ -891,7 +891,7 @@ body.ato-header-search-open{overflow-x:hidden}
   </div>
 </div>
 
-<section class="hero ato-living-hero" id="atoLivingHero" aria-label="Featured experiences">
+<section class="hero ato-living-hero" id="atoLivingHero" data-scene="0" aria-label="Featured experiences">
   <div class="ato-living-hero__stage" aria-hidden="true">
     <picture class="ato-living-hero__scene ato-living-hero__scene--current" id="atoHeroCurrentPicture">
       <source id="atoHeroCurrentMobile" media="(max-width:980px)" srcset="/assets/img/hero/mobile/01-PARAGLIDING-ALANYA-MOBILE.jpg">
@@ -2005,6 +2005,7 @@ render();
 
   function updateUI(scene, i, animateCaption=false) {
     if (currentNum) currentNum.textContent = String(i+1).padStart(2,'0');
+    root.dataset.scene = String(i);
     if (totalNum) totalNum.textContent = '08';
     if (slogan) slogan.classList.remove('is-hidden');
     if (categoryText) categoryText.textContent = scene.category;

@@ -511,3 +511,189 @@
     max-width:250px!important;
   }
 }
+
+
+/* =========================================================
+   ATO HERO V6.2 — EDITORIAL TOUR TITLES + RIVIERA CORNER ZONE
+   ========================================================= */
+
+/* ---- Riviera: integrated dark top-left corner zone ---- */
+#atoLivingHero .ato-living-hero__slogan{
+  left:0!important;
+  top:0!important;
+  width:min(650px,45vw)!important;
+}
+
+#atoLivingHero .ato-living-hero__slogan-panel{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  box-sizing:border-box!important;
+  padding:
+    clamp(60px,8vh,92px)
+    clamp(46px,4.8vw,78px)
+    clamp(42px,5vh,62px)
+    clamp(38px,4.4vw,70px)!important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(2,10,18,.70) 0%,
+      rgba(3,13,23,.58) 35%,
+      rgba(3,13,23,.38) 67%,
+      rgba(3,13,23,.16) 100%
+    )!important;
+
+  border-radius:0 0 68px 0!important;
+  border-right:1px solid rgba(226,196,142,.10)!important;
+  border-bottom:1px solid rgba(226,196,142,.09)!important;
+
+  box-shadow:
+    18px 22px 55px rgba(0,0,0,.10),
+    inset -30px -26px 55px rgba(255,255,255,.015)!important;
+
+  backdrop-filter:blur(3px)!important;
+  -webkit-backdrop-filter:blur(3px)!important;
+}
+
+/* Remove the old cloudy local vignette: the rounded corner zone replaces it. */
+#atoLivingHero .ato-living-hero__slogan-panel::before{
+  display:none!important;
+}
+
+/* Slightly refine Riviera typography inside the new zone. */
+#atoLivingHero .ato-living-hero__slogan h1{
+  max-width:520px!important;
+  font-family:"Bodoni MT","Didot","Bodoni 72 Smallcaps","Times New Roman",serif!important;
+  font-weight:400!important;
+  letter-spacing:.052em!important;
+}
+
+#atoLivingHero .ato-living-hero__slogan p{
+  max-width:430px!important;
+}
+
+
+/* ---- Bottom-right excursion titles: same editorial family as Riviera ---- */
+#atoLivingHero .ato-living-hero__title{
+  color:#f6ead2!important;
+  font-family:"Bodoni MT","Didot","Bodoni 72 Smallcaps","Times New Roman",serif!important;
+  font-size:clamp(29px,2.85vw,50px)!important;
+  font-weight:400!important;
+  font-style:normal!important;
+  line-height:.94!important;
+  letter-spacing:.050em!important;
+  text-transform:uppercase!important;
+  -webkit-font-smoothing:antialiased!important;
+  text-rendering:geometricPrecision!important;
+  -webkit-text-stroke:.28px rgba(225,190,126,.44)!important;
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.24),
+    0 4px 20px rgba(0,0,0,.52)!important;
+}
+
+/* Category stays restrained gold sans: clearer hierarchy, not duplicate typography. */
+#atoLivingHero .ato-living-hero__category{
+  color:#d9b56a!important;
+  font:500 10px/1.2 Arial,sans-serif!important;
+  letter-spacing:.22em!important;
+}
+
+#atoLivingHero .ato-living-hero__caption:hover .ato-living-hero__title{
+  color:#fff8e9!important;
+}
+
+#atoLivingHero .ato-living-hero__arrow{
+  color:#dfbc70!important;
+  font-weight:300!important;
+}
+
+
+/* ---- Mobile ---- */
+@media(max-width:980px){
+  #atoLivingHero .ato-living-hero__slogan{
+    left:0!important;
+    top:0!important;
+    width:min(82vw,470px)!important;
+  }
+
+  #atoLivingHero .ato-living-hero__slogan-panel{
+    padding:
+      clamp(52px,7vh,74px)
+      28px
+      34px
+      20px!important;
+    border-radius:0 0 42px 0!important;
+    background:
+      linear-gradient(
+        135deg,
+        rgba(2,10,18,.72) 0%,
+        rgba(3,13,23,.56) 46%,
+        rgba(3,13,23,.26) 78%,
+        rgba(3,13,23,.08) 100%
+      )!important;
+  }
+
+  #atoLivingHero .ato-living-hero__title{
+    font-size:clamp(20px,6vw,31px)!important;
+    letter-spacing:.040em!important;
+  }
+}
+
+@media(max-width:560px){
+  #atoLivingHero .ato-living-hero__slogan{
+    width:84vw!important;
+  }
+
+  #atoLivingHero .ato-living-hero__slogan-panel{
+    padding:52px 22px 28px 16px!important;
+    border-radius:0 0 34px 0!important;
+  }
+
+  #atoLivingHero .ato-living-hero__title{
+    font-size:clamp(18px,5.9vw,27px)!important;
+  }
+}
+
+
+/* =========================================================
+   ATO HERO V6.3 — TALLER CINEMATIC HERO
+   ========================================================= */
+
+@media (min-width:981px){
+  #atoLivingHero{
+    height:clamp(740px,82svh,900px)!important;
+    min-height:clamp(740px,82svh,900px)!important;
+    max-height:900px!important;
+  }
+  #atoLivingHero .ato-living-hero__stage,
+  #atoLivingHero .ato-living-hero__scene{
+    height:100%!important;
+    min-height:100%!important;
+  }
+}
+
+@media (max-width:980px){
+  #atoLivingHero{
+    height:calc(100svh - 74px)!important;
+    min-height:calc(100svh - 74px)!important;
+    max-height:none!important;
+  }
+  #atoLivingHero .ato-living-hero__stage,
+  #atoLivingHero .ato-living-hero__scene{
+    height:100%!important;
+    min-height:100%!important;
+  }
+}
+
+/* Taller-crop focal points, synchronized to the current scene */
+@media (min-width:981px){
+  #atoLivingHero[data-scene="0"] .ato-living-hero__media{object-position:38% center!important;}
+  #atoLivingHero[data-scene="1"] .ato-living-hero__media{object-position:52% center!important;}
+  #atoLivingHero[data-scene="2"] .ato-living-hero__media{object-position:64% center!important;}
+  #atoLivingHero[data-scene="3"] .ato-living-hero__media{object-position:68% center!important;}
+  #atoLivingHero[data-scene="4"] .ato-living-hero__media{object-position:48% center!important;}
+  #atoLivingHero[data-scene="5"] .ato-living-hero__media{object-position:45% center!important;}
+  #atoLivingHero[data-scene="6"] .ato-living-hero__media{object-position:52% center!important;}
+  #atoLivingHero[data-scene="7"] .ato-living-hero__media{object-position:65% center!important;}
+}
