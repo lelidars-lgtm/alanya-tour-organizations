@@ -1356,7 +1356,7 @@ if (canvas && globeShell && globeZone3D) {
       globeZone3D.dataset.globeTextures='local-ready-cpu';
     };
     img.onerror=()=>{ globeZone3D.dataset.globeTextures='procedural-cpu'; };
-    img.src='assets/globe/earth_day_real_dark_v2.jpg';
+    img.src='assets/globe/earth_day_original_v6.jpg';
 
     const nightImg=new Image();
     nightImg.decoding='async';
@@ -1367,7 +1367,7 @@ if (canvas && globeShell && globeZone3D) {
       o.drawImage(nightImg,0,0,768,384);
       nightTexturePixels=o.getImageData(0,0,768,384).data;
     };
-    nightImg.src='assets/globe/earth_lights_real_v2.png';
+    nightImg.src='assets/globe/earth_lights_original_v6.png';
 
     function rotatePoint(v, ay, ax){
       const cy=Math.cos(ay), sy=Math.sin(ay), cx=Math.cos(ax), sx=Math.sin(ax);
@@ -1379,7 +1379,7 @@ if (canvas && globeShell && globeZone3D) {
     function sampleTexture(ox,oy,oz){
       if(!texturePixels){
         const land=(Math.sin(Math.atan2(oz,ox)*6.5)+Math.sin(Math.asin(Math.max(-1,Math.min(1,oy)))*9.0))>0.55;
-        return land?[26,105,116]:[7,42,91];
+        return land?[13,14,16]:[4,7,12];
       }
       let u=0.5-Math.atan2(oz,ox)/TAU;
       u=u-Math.floor(u);
@@ -1425,12 +1425,13 @@ if (canvas && globeShell && globeZone3D) {
           const duskBand=1-Math.max(0,Math.min(1,(softLight-0.10)/0.52));
           const rim=Math.pow(1-z,2.4);
           const idx=(py*N+px)*4;
-          const nr=Math.pow(nightRgb[0]/255,0.88)*255;
-          const ng=Math.pow(nightRgb[1]/255,0.88)*255;
-          const nb=Math.pow(nightRgb[2]/255,0.88)*255;
-          pixels[idx]=Math.min(255,rgb[0]*shade + nr*nightSide*2.85 + nr*duskBand*0.72 + 8*rim);
-          pixels[idx+1]=Math.min(255,rgb[1]*shade + ng*nightSide*2.35 + ng*duskBand*0.58 + 58*rim);
-          pixels[idx+2]=Math.min(255,rgb[2]*shade + nb*nightSide*1.28 + nb*duskBand*0.30 + 128*rim);
+          const nr=Math.pow(nightRgb[0]/255,0.64)*255;
+          const ng=Math.pow(nightRgb[1]/255,0.64)*255;
+          const nb=Math.pow(nightRgb[2]/255,0.64)*255;
+          const emissive=.34+nightSide*3.65+duskBand*.92;
+          pixels[idx]=Math.min(255,rgb[0]*.075 + nr*emissive*1.46 + 3*rim);
+          pixels[idx+1]=Math.min(255,rgb[1]*.075 + ng*emissive*1.20 + 6*rim);
+          pixels[idx+2]=Math.min(255,rgb[2]*.080 + nb*emissive*.64 + 12*rim);
           pixels[idx+3]=255;
         }
       }
@@ -1443,8 +1444,8 @@ if (canvas && globeShell && globeZone3D) {
       const shellAngle=angleY*1.24+t*0.24;
       const tilt2=-0.10+Math.sin(t*.36)*.055;
       ctx.lineWidth=Math.max(0.8,N/340);
-      ctx.strokeStyle='rgba(42,170,235,.46)';
-      ctx.shadowColor='rgba(0,150,235,.38)';
+      ctx.strokeStyle='rgba(130,145,160,.18)';
+      ctx.shadowColor='rgba(80,95,115,.12)';
       ctx.shadowBlur=Math.max(1.5,N/140);
       for(const [a,b] of geo.edges){
         const A=rotatePoint(geo.verts[a],shellAngle,tilt2), B=rotatePoint(geo.verts[b],shellAngle,tilt2);
@@ -1538,31 +1539,43 @@ if (canvas && globeShell && globeZone3D) {
 
         vec3 dayTex = texture2D(uDayMap, vUV).rgb;
         vec3 nightTex = texture2D(uNightMap, vUV).rgb;
+        vec2 nightTexel = vec2(1.0 / 2048.0, 1.0 / 1024.0);
+        vec3 nightHalo = max(
+          max(texture2D(uNightMap, vUV + vec2(nightTexel.x * 3.0, 0.0)).rgb,
+              texture2D(uNightMap, vUV - vec2(nightTexel.x * 3.0, 0.0)).rgb),
+          max(texture2D(uNightMap, vUV + vec2(0.0, nightTexel.y * 3.0)).rgb,
+              texture2D(uNightMap, vUV - vec2(0.0, nightTexel.y * 3.0)).rgb)
+        );
 
-        vec3 proceduralOcean = vec3(0.015, 0.105, 0.245);
-        vec3 proceduralLand = vec3(0.10, 0.33, 0.39);
+        vec3 proceduralOcean = vec3(0.006, 0.010, 0.018);
+        vec3 proceduralLand = vec3(0.026, 0.025, 0.021);
         float landMask = smoothstep(-0.10, 0.55, sin(vUV.x * 31.0) * sin(vUV.y * 21.0));
         vec3 procedural = mix(proceduralOcean, proceduralLand, landMask * 0.35);
 
         // V8: darker continents and much more visible earth_lights_2048.
         /* The photographic map is intentionally very dark. The second map
            supplies the visible city lights directly over the same UVs. */
-        vec3 mappedDay = dayTex * vec3(0.17, 0.19, 0.23);
+        /* Exact supplied satellite map, only darkened here. No replacement
+           material and no cyan recolouring. */
+        vec3 mappedDay = dayTex * vec3(0.14, 0.14, 0.14);
         vec3 surface = mix(procedural * 0.74, mappedDay, uTextureMix);
-        surface *= 0.09 + diffuse * 0.56;
+        surface *= 0.28 + diffuse * 0.30;
 
         /* Brighter night lights with stronger coastline/city clusters.
            Using an exponent below 1.0 lifts mid-level light values so
            earth_lights_2048 becomes visibly richer on the night side. */
         float nightSide = pow(1.0 - softLight, 1.42);
         float duskBand = 1.0 - smoothstep(0.10, 0.62, softLight);
-        vec3 concentratedLights = pow(max(nightTex, vec3(0.0)), vec3(0.88));
-        vec3 nightGold = concentratedLights * vec3(2.55, 2.12, 1.22);
-        vec3 cityGlow = nightGold * nightSide * 2.85 * uTextureMix;
-        vec3 cityBlend = nightGold * duskBand * 0.72 * uTextureMix;
+        vec3 concentratedLights = pow(max(nightTex, vec3(0.0)), vec3(0.62));
+        vec3 haloLights = pow(max(nightHalo, vec3(0.0)), vec3(0.72));
+        vec3 nightGold = concentratedLights * vec3(4.40, 3.50, 1.72);
+        vec3 nightBloom = haloLights * vec3(1.82, 1.32, 0.54);
+        float emissiveVisibility = 0.34 + nightSide * 3.65 + duskBand * 0.92;
+        vec3 cityGlow = nightGold * emissiveVisibility * uTextureMix;
+        vec3 cityBlend = nightBloom * (0.32 + nightSide * 1.18 + duskBand * 0.54) * uTextureMix;
 
-        vec3 cyanRim = vec3(0.08, 0.12, 0.18) * fresnel * 0.34;
-        vec3 blueAtmosphere = vec3(0.02, 0.04, 0.08) * limb * 0.22;
+        vec3 cyanRim = vec3(0.06, 0.055, 0.045) * fresnel * 0.16;
+        vec3 blueAtmosphere = vec3(0.018, 0.020, 0.024) * limb * 0.10;
         float shimmer = 0.985 + 0.015 * sin(uTime * 1.7 + vUV.y * 10.0);
 
         vec3 h = normalize(l + v);
@@ -1844,13 +1857,13 @@ if (canvas && globeShell && globeZone3D) {
       color: gl.getUniformLocation(lineProgram, 'uColor')
     };
 
-    const dayTexture = createSolidTexture(20, 76, 128, 255);
+    const dayTexture = createSolidTexture(4, 7, 12, 255);
     const nightTexture = createSolidTexture(0, 8, 20, 255);
     let textureMix = 0;
 
     Promise.all([
-      loadImageIntoTexture('assets/globe/earth_day_real_dark_v2.jpg', dayTexture),
-      loadImageIntoTexture('assets/globe/earth_lights_real_v2.png', nightTexture)
+      loadImageIntoTexture('assets/globe/earth_day_original_v6.jpg', dayTexture),
+      loadImageIntoTexture('assets/globe/earth_lights_original_v6.png', nightTexture)
     ]).then(() => {
       textureMix = 1;
       globeZone3D.dataset.globeTextures = 'local-ready';
@@ -1946,7 +1959,7 @@ if (canvas && globeShell && globeZone3D) {
       gl.uniformMatrix4fv(lineLoc.projection, false, projection);
       gl.uniformMatrix4fv(lineLoc.view, false, view);
       gl.uniformMatrix4fv(lineLoc.model, false, model);
-      gl.uniform4f(lineLoc.color, 0.13, 0.62, 0.90, opacity);
+      gl.uniform4f(lineLoc.color, 0.54, 0.47, 0.32, opacity * 0.58);
       gl.enable(gl.BLEND);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
       gl.enable(gl.DEPTH_TEST);

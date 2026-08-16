@@ -3897,11 +3897,11 @@ body{
 .live-globe-canvas{
   opacity:.92!important;
   filter:
-    saturate(.96)
-    contrast(1.12)
-    brightness(.72)
-    drop-shadow(0 0 10px rgba(0,188,255,.25))
-    drop-shadow(0 0 28px rgba(0,130,235,.18))!important;
+    saturate(.62)
+    contrast(1.20)
+    brightness(.58)
+    drop-shadow(0 0 10px rgba(243,198,109,.10))
+    drop-shadow(0 0 28px rgba(3,10,22,.58))!important;
 }
 .globe-aura-ring{
   opacity:.48!important;
@@ -8714,7 +8714,7 @@ body.so-premium-body #journey #journeyDockCard.visual-only #requestPersonalOffer
   background:
     radial-gradient(circle at 34% 26%, rgba(255,255,255,.20), rgba(255,255,255,0) 22%),
     radial-gradient(circle at 68% 72%, rgba(0,48,104,.08), rgba(0,13,38,.42) 72%),
-    url('assets/globe/earth_day_real_dark_v2.jpg') center / cover no-repeat;
+    url('assets/globe/earth_day_original_v6.jpg') center / cover no-repeat;
   box-shadow:
     inset -44px -24px 68px rgba(0,10,30,.66),
     inset 22px 12px 38px rgba(116,206,255,.12),
@@ -9573,4 +9573,49 @@ body.so-premium-body .promo-bar:hover .promo-track{animation-play-state:paused!i
   body.so-premium-body .header .ato-dropdown-trigger,
   body.so-premium-body .header .language{color:#fff!important}
   body.so-premium-body .promo-bar{top:84px!important}
+}
+
+/* =========================================================
+   GLOBE V3 FINAL — DESKTOP + MOBILE
+   This block must remain LAST. It neutralizes legacy V2/V3 cyan filters
+   that previously overrode the real dark Earth material.
+   ========================================================= */
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas,
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas.canvas2d-spherical-fallback,
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas.webgl-unavailable{
+  opacity:1!important;
+  filter:
+    saturate(.58)
+    contrast(1.24)
+    brightness(.78)
+    drop-shadow(0 0 10px rgba(243,198,109,.10))
+    drop-shadow(0 0 34px rgba(2,7,16,.72))!important;
+}
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-aura-ring{
+  opacity:.34!important;
+  filter:blur(25px) saturate(.40)!important;
+  background:radial-gradient(circle,rgba(243,198,109,.07),rgba(3,9,20,.18) 58%,transparent 74%)!important;
+}
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .reference-depth-haze{
+  opacity:.18!important;
+  background:radial-gradient(circle at 50% 50%,rgba(0,3,10,.48) 0 48%,transparent 69%)!important;
+}
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-bokeh-layer .bokeh-dot{
+  background:rgba(190,175,145,.48)!important;
+  box-shadow:0 0 12px rgba(243,198,109,.10)!important;
+}
+body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-bokeh-layer .bokeh-dot.gold{
+  background:rgba(243,198,109,.74)!important;
+}
+@media(max-width:900px){
+  body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas,
+  body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas.canvas2d-spherical-fallback,
+  body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas.webgl-unavailable{
+    filter:
+      saturate(.56)
+      contrast(1.22)
+      brightness(.76)
+      drop-shadow(0 0 8px rgba(243,198,109,.09))
+      drop-shadow(0 0 26px rgba(2,7,16,.76))!important;
+  }
 }
