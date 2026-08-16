@@ -1356,7 +1356,7 @@ if (canvas && globeShell && globeZone3D) {
       globeZone3D.dataset.globeTextures='local-ready-cpu';
     };
     img.onerror=()=>{ globeZone3D.dataset.globeTextures='procedural-cpu'; };
-    img.src='assets/globe/earth_day_original_v6.jpg';
+    img.src='/earth-day-original-v8.jpg';
 
     const nightImg=new Image();
     nightImg.decoding='async';
@@ -1367,7 +1367,7 @@ if (canvas && globeShell && globeZone3D) {
       o.drawImage(nightImg,0,0,768,384);
       nightTexturePixels=o.getImageData(0,0,768,384).data;
     };
-    nightImg.src='assets/globe/earth_lights_original_v6.png';
+    nightImg.src='/earth-lights-original-v8.png';
 
     function rotatePoint(v, ay, ax){
       const cy=Math.cos(ay), sy=Math.sin(ay), cx=Math.cos(ax), sx=Math.sin(ax);
@@ -1862,8 +1862,8 @@ if (canvas && globeShell && globeZone3D) {
     let textureMix = 0;
 
     Promise.all([
-      loadImageIntoTexture('assets/globe/earth_day_original_v6.jpg', dayTexture),
-      loadImageIntoTexture('assets/globe/earth_lights_original_v6.png', nightTexture)
+      loadImageIntoTexture('/earth-day-original-v8.jpg', dayTexture),
+      loadImageIntoTexture('/earth-lights-original-v8.png', nightTexture)
     ]).then(() => {
       textureMix = 1;
       globeZone3D.dataset.globeTextures = 'local-ready';
