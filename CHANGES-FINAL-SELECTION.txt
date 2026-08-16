@@ -1,0 +1,20 @@
+ALANYA TOUR ORGANIZATIONS — TRIP PLANNER
+FINAL REQUEST TOUR SELECTION
+
+Changed:
+1. Added checked checkbox for every tour in the final request modal.
+2. Unchecking a tour does NOT remove it from Compare / Trip Planner.
+3. Its preferred date stays visible and is preserved.
+4. Only checked tours are included in ATO Booking Manager payload.
+5. Only checked tours are included in WhatsApp request.
+6. At least one tour is required to send.
+7. Desktop and mobile request layouts updated.
+
+Files changed:
+- assets/js/trip-planner.js
+- assets/css/trip-planner.css
+
+Included unchanged for deployment consistency:
+- trip-planner.html
+- assets/js/trip-planner-shared.js
+- assets/css/trip-planner-shared.css

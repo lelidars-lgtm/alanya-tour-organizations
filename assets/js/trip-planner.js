@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const POOL_KEY='atoTripPlannerPool', DETAIL_KEY='atoTripPlannerDetail', PREF_KEY='atoTripPlannerPrefs', SCHEDULE_KEY='atoTripPlannerSchedule', GUIDE_KEY='atoTripPlannerGuideStep';
+const POOL_KEY='atoTripPlannerPool', DETAIL_KEY='atoTripPlannerDetail', PREF_KEY='atoTripPlannerPrefs', SCHEDULE_KEY='atoTripPlannerSchedule', GUIDE_KEY='atoTripPlannerGuideStep', FINAL_SELECTION_KEY='atoTripPlannerFinalSelection';
 const MAX_POOL=4, MAX_DETAIL=4, MIN_DETAIL=2;
 const WHATSAPP='905387045999';
 const CATEGORY_SOURCES=[
@@ -71,7 +71,7 @@ function ensureResetDialog(){
 }
 function openResetDialog(){const overlay=ensureResetDialog();overlay.classList.add('open');overlay.setAttribute('aria-hidden','false')}
 function resetPlannerState(){
-  [POOL_KEY,DETAIL_KEY,PREF_KEY,SCHEDULE_KEY,GUIDE_KEY].forEach(key=>{try{localStorage.removeItem(key)}catch(_){}});
+  [POOL_KEY,DETAIL_KEY,PREF_KEY,SCHEDULE_KEY,GUIDE_KEY,FINAL_SELECTION_KEY].forEach(key=>{try{localStorage.removeItem(key)}catch(_){}});
   try{sessionStorage.removeItem('atoTPGuideIntroShown')}catch(_){}
   pool=[];detail=[];recommendations=[];detailsCache=new Map();
   const form=$('#prefsForm');if(form)form.reset();
@@ -216,7 +216,24 @@ function applyQuickStart(mode){
   showStatus('Travel style added. You can change every preference below.');
   $('#tripPreferences')?.scrollIntoView({behavior:'smooth',block:'start'});
 }
-function syncComparison(){detail=[...pool].slice(0,MAX_DETAIL);writeJSON(DETAIL_KEY,detail)}
+function syncComparison(){detail=[...pool].slice(0,MAX_DETAIL);writeJSON(DETAIL_KEY,detail);syncFinalSelectionState()}
+function readFinalSelectionState(){
+  const raw=readJSON(FINAL_SELECTION_KEY,{});
+  return raw&&typeof raw==='object'&&!Array.isArray(raw)?raw:{};
+}
+function syncFinalSelectionState(){
+  const current=readFinalSelectionState(),next={};
+  detail.forEach(h=>{next[h]=current[h]!==false});
+  writeJSON(FINAL_SELECTION_KEY,next);
+  return next;
+}
+function updateRequestSelectionUI(){
+  const host=$('#requestTours'),form=$('#requestForm');if(!host||!form)return;
+  const checks=$$('[data-request-tour-check]',host),selected=checks.filter(c=>c.checked).length;
+  const count=host.querySelector('.tp-request-selection-count');if(count)count.textContent=`${selected} of ${checks.length} included`;
+  const hint=host.querySelector('.tp-request-selection-hint');if(hint)hint.textContent=selected?`${selected} tour${selected===1?'':'s'} will be sent to the manager.`:'Select at least one tour to continue.';
+  const submit=form.querySelector('button[type="submit"]');if(submit&&!submit.dataset.sending)submit.disabled=selected<1;
+}
 function removeFromPool(h){pool=pool.filter(x=>x!==h);writeJSON(POOL_KEY,pool);syncComparison();renderAll()}
 function readPrefs(){
   const form=$('#prefsForm');if(!form)return{};const fd=new FormData(form);return {travelStart:fd.get('travelStart')||'',travelEnd:fd.get('travelEnd')||'',adults:Number(fd.get('adults')||2),children:fd.get('children')||'',pregnant:fd.get('pregnant')==='yes',elderly:fd.get('elderly')==='yes',mobility:fd.get('mobility')==='yes',stroller:fd.get('stroller')==='yes',pace:fd.get('pace')||'balanced',road:fd.get('road')||'medium',startPref:fd.get('startPref')||'any',restDays:fd.get('restDays')==='yes',interests:fd.getAll('interests')};
@@ -335,14 +352,40 @@ function openRequest(){
   updateRequestTours();$('#requestModal').classList.add('open');$('#requestModal').setAttribute('aria-hidden','false')
 }
 function closeRequest(){$('#requestModal').classList.remove('open');$('#requestModal').setAttribute('aria-hidden','true')}
-async function updateRequestTours(){const host=$('#requestTours');if(!host)return;const p=readPrefs(),schedule=readJSON(SCHEDULE_KEY,{});const data=await Promise.all(detail.map(loadDetails));host.innerHTML=data.map(t=>`<div class="tp-request-tour"><strong>${escapeHTML(t.title)}</strong><input class="tp-input" type="date" name="tourDate__${escapeHTML(t.href)}" min="${escapeHTML(p.travelStart||'')}" max="${escapeHTML(p.travelEnd||'')}" value="${escapeHTML(schedule[t.href]||'')}"></div>`).join('')}
+async function updateRequestTours(){
+  const host=$('#requestTours');if(!host)return;
+  const p=readPrefs(),schedule=readJSON(SCHEDULE_KEY,{}),selection=syncFinalSelectionState();
+  const data=await Promise.all(detail.map(loadDetails));
+  host.innerHTML=`<div class="tp-request-selection-head"><div><span>FINAL TOUR SELECTION</span><strong class="tp-request-selection-count"></strong></div><small class="tp-request-selection-hint">Choose which tours you want to include in this request.</small></div>`+data.map(t=>{
+    const checked=selection[t.href]!==false;
+    return `<div class="tp-request-tour${checked?'':' is-excluded'}" data-request-tour-row="${escapeHTML(t.href)}"><label class="tp-request-tour-toggle"><input class="tp-request-tour-check" type="checkbox" name="includeTour__${escapeHTML(t.href)}" value="1" data-request-tour-check="${escapeHTML(t.href)}" aria-label="Include ${escapeHTML(t.title)} in request" ${checked?'checked':''}><span aria-hidden="true"></span></label><div class="tp-request-tour-copy"><strong>${escapeHTML(t.title)}</strong><small>${checked?'Included in request':'Not included in request'}</small></div><label class="tp-request-tour-date"><span>Preferred date</span><input class="tp-input" type="date" name="tourDate__${escapeHTML(t.href)}" data-request-tour-date="${escapeHTML(t.href)}" min="${escapeHTML(p.travelStart||'')}" max="${escapeHTML(p.travelEnd||'')}" value="${escapeHTML(schedule[t.href]||'')}"></label></div>`;
+  }).join('');
+  $$('[data-request-tour-check]',host).forEach(check=>check.addEventListener('change',()=>{
+    const state=readFinalSelectionState(),href=check.dataset.requestTourCheck;
+    state[href]=check.checked;writeJSON(FINAL_SELECTION_KEY,state);
+    const row=check.closest('.tp-request-tour');if(row){row.classList.toggle('is-excluded',!check.checked);const status=row.querySelector('.tp-request-tour-copy small');if(status)status.textContent=check.checked?'Included in request':'Not included in request'}
+    updateRequestSelectionUI();
+  }));
+  $$('[data-request-tour-date]',host).forEach(input=>input.addEventListener('change',()=>{
+    const dates=readJSON(SCHEDULE_KEY,{});dates[input.dataset.requestTourDate]=input.value;writeJSON(SCHEDULE_KEY,dates);
+  }));
+  updateRequestSelectionUI();
+}
 async function sendRequest(e){
   e.preventDefault();
   const form=e.currentTarget,submit=form.querySelector('button[type="submit"]');
-  if(submit){submit.disabled=true;submit.dataset.oldText=submit.textContent;submit.textContent='PREPARING REQUEST…'}
+  if(submit){submit.dataset.sending='1';submit.disabled=true;submit.dataset.oldText=submit.textContent;submit.textContent='PREPARING REQUEST…'}
   try{
     const fd=new FormData(form),p=readPrefs(),data=await Promise.all(detail.map(loadDetails));
-    const tours=data.map(t=>({
+    const selectedData=data.filter(t=>fd.get('includeTour__'+t.href)==='1');
+    if(!selectedData.length){
+      let notice=form.querySelector('.tp-request-success');
+      if(!notice){notice=document.createElement('div');notice.className='tp-request-success';form.appendChild(notice)}
+      notice.innerHTML='<strong>SELECT AT LEAST ONE TOUR.</strong><br>Unchecked tours stay in your Trip Planner and keep their dates, but they are not sent in this request.';
+      notice.style.borderColor='rgba(243,198,109,.45)';notice.style.color='#f5d88d';
+      updateRequestSelectionUI();return;
+    }
+    const tours=selectedData.map(t=>({
       href:t.href,title:t.title,category:t.category||'Tour',image:t.image||'',
       requested_date:fd.get('tourDate__'+t.href)||'',confirmed_date:'',pickup:'',time:'',confirmed_price:'',
       price_display:t.price||'See tour page',duration:t.duration||'See tour page',
@@ -386,7 +429,7 @@ async function sendRequest(e){
     notice.innerHTML=requestNo?`<strong>Request ${escapeHTML(requestNo)} saved.</strong><br>The same request will become the source for manager confirmation, e-ticket, weather and What to Bring.`:`<strong>Request prepared.</strong><br>WhatsApp will open now. Connect Supabase to save it automatically for the manager.`;
     const wa=window.ATO_CONFIG?.managerWhatsApp||WHATSAPP;
     window.open(`https://wa.me/${wa}?text=${encodeURIComponent(msg)}`,'_blank','noopener');
-  }finally{if(submit){submit.disabled=false;submit.textContent=submit.dataset.oldText||'Send request to manager via WhatsApp'}}
+  }finally{if(submit){delete submit.dataset.sending;submit.disabled=false;submit.textContent=submit.dataset.oldText||'Send request to manager via WhatsApp';updateRequestSelectionUI()}}
 }
 
 function initProgressNav(){

@@ -21,3 +21,11 @@ Weather:
 
 Important deployment note:
 Upload the whole folder preserving relative paths. The dynamic parsing uses same-origin fetch() and is intended to run on the deployed website (e.g. Vercel), not directly as file://.
+
+Final request selection (2026-08-16):
+- final request modal now shows a checked checkbox next to every planned tour and its date
+- all planned tours are checked by default
+- client may uncheck any tour before sending (for example keep 2 of 4)
+- unchecked tours remain in Trip Planner and keep their planned dates
+- only checked tours are sent to ATO Booking Manager and WhatsApp
+- at least 1 tour must remain checked before the request can be sent

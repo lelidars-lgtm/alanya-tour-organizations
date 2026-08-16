@@ -1455,6 +1455,9 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 }
 @media(max-height:600px) and (orientation:landscape){.tour-hover-card{top:8px!important}.tour-hover-card .popup-cover{height:84px!important;min-height:84px!important}.tour-hover-card .popup-desc,.tour-hover-card .popup-meta,.tour-hover-card .popup-price{display:none!important}.mobile-filter-toggle{top:54px}}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="booking-config.js"></script>
+<script src="/booking-system.js"></script>
 </head>
 <body>
 <div id="atoOriginalHeaderHost" aria-label="ALANYA TOUR ORGANIZATIONS original site header"></div>
@@ -3189,5 +3192,6 @@ document.addEventListener('keydown',e=>{
   new MutationObserver(purge).observe(document.body,{childList:true,subtree:true});
 })();
 </script>
+<script src="map-booking-bridge.js"></script>
 </body>
 </html>

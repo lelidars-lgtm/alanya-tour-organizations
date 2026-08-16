@@ -1,4 +1,4 @@
-const WHATSAPP='905352072768';
+const WHATSAPP='905387045999';
 
 
 // Three-path gateway: preserve visible context when returning from a branch
@@ -796,7 +796,10 @@ window.addEventListener('resize',()=>{
 requestPersonalOffer?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();openHeartClaimModal();});
 
 // ===== HEART OFFER COMMERCIAL FLOW =====
+const heartEligibilityModal=document.getElementById('heartEligibilityModal');
 const heartClaimModal=document.getElementById('heartClaimModal');
+const heartEligibilityForm=document.getElementById('heartEligibilityForm');
+const heartEligibilityStatus=document.getElementById('heartEligibilityStatus');
 const heartClaimForm=document.getElementById('heartClaimForm');
 const heartClaimStatus=document.getElementById('heartClaimStatus');
 const viewHeartTour=document.getElementById('viewHeartTour');
@@ -907,6 +910,45 @@ function showHeartRedeemedState(){
   status.innerHTML='<strong>YOUR HEART OFFER HAS ALREADY BEEN USED.</strong><span>THANK YOU FOR TRAVELLING WITH US.</span>';
 }
 
+async function verifyHeartEligibility(phone){
+  const normalized=normalizeHeartPhoneClient(phone);
+  if(normalized.length<10||normalized.length>15) throw new Error('Please enter a valid WhatsApp number with country code.');
+  const data=await heartRpc('heart_offer_check',{p_phone:normalized});
+  heartClientPhone=data.phone||normalized;
+  sessionStorage.setItem('atoHeartPhone',heartClientPhone);
+  if(data.redeemed){showHeartRedeemedState();return false}
+  heartOfferRedeemed=false;heartVisualOnly=false;return true;
+}
+
+async function beginHeartOfferJourney(){
+  if(heartOfferRedeemed){heartVisualOnly=true;runJourney(false);return}
+  const stored=heartClientPhone||sessionStorage.getItem('atoHeartPhone')||'';
+  if(stored){
+    try{
+      status.innerHTML='<strong>CHECKING YOUR HEART OFFER.</strong><span>ONE MOMENT…</span>';
+      if(await verifyHeartEligibility(stored)){runJourney(false)}
+    }catch(err){
+      sessionStorage.removeItem('atoHeartPhone');heartClientPhone='';
+      const phoneInput=document.getElementById('heartPhone');if(phoneInput)phoneInput.value=stored;
+      setHeartStatus(heartEligibilityStatus,err.message,'error');openHeartModal(heartEligibilityModal);
+    }
+    return;
+  }
+  setHeartStatus(heartEligibilityStatus,'');openHeartModal(heartEligibilityModal);setTimeout(()=>document.getElementById('heartPhone')?.focus(),80);
+}
+
+heartEligibilityForm?.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const btn=document.getElementById('heartEligibilitySubmit');
+  const phone=document.getElementById('heartPhone').value;
+  btn.disabled=true;setHeartStatus(heartEligibilityStatus,'Checking with ATO Booking Manager…');
+  try{
+    const ok=await verifyHeartEligibility(phone);
+    closeHeartModal(heartEligibilityModal);
+    if(ok)runJourney(false);
+  }catch(err){setHeartStatus(heartEligibilityStatus,err.message,'error')}
+  finally{btn.disabled=false}
+});
 
 viewHeartTour?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(activeRandomTour?.url)window.location.href=activeRandomTour.url});
 chooseAnotherHeartTour?.addEventListener('click',e=>{
@@ -1012,241 +1054,31 @@ if(window.matchMedia('(pointer:fine)').matches){
   card.addEventListener('pointerleave',()=>card.style.transform='rotateY(0deg) rotateX(0deg)');
 }
 
-// Gift Certificate Builder — interactive modes, live preview, calendar validation and WhatsApp handoff.
-const giftOptions=[...document.querySelectorAll('.gift-option[data-gift-mode]')];
-const giftBuilder=document.getElementById('giftBuilder');
-const giftForm=document.getElementById('giftCertificateForm');
-const giftFreedomFields=document.getElementById('giftFreedomFields');
-const giftSignatureFields=document.getElementById('giftSignatureFields');
-const giftAmount=document.getElementById('giftAmount');
-const giftExperience=document.getElementById('giftExperience');
-const giftRecipientName=document.getElementById('giftRecipientName');
-const giftSenderName=document.getElementById('giftSenderName');
-const giftBuyerPhone=document.getElementById('giftBuyerPhone');
-const giftPreferredDate=document.getElementById('giftPreferredDate');
-const giftPreferredDateBtn=document.getElementById('giftPreferredDateBtn');
-const giftFlexibleDate=document.getElementById('giftFlexibleDate');
-const giftDeliveryDate=document.getElementById('giftDeliveryDate');
-const giftDeliveryDateBtn=document.getElementById('giftDeliveryDateBtn');
-const giftMessage=document.getElementById('giftMessage');
-const giftMessageCount=document.getElementById('giftMessageCount');
-const giftFormStatus=document.getElementById('giftFormStatus');
-const giftFormModeLabel=document.getElementById('giftFormModeLabel');
-const giftFormModeText=document.getElementById('giftFormModeText');
-const certificateLiveLayer=document.getElementById('certificateLiveLayer');
-const giftMiniCertificateLayer=document.getElementById('giftMiniCertificateLayer');
-const giftPreviewImage=document.getElementById('giftPreviewImage');
-const giftPreviewType=document.getElementById('giftPreviewType');
-const giftPreviewValue=document.getElementById('giftPreviewValue');
-const giftPreviewDate=document.getElementById('giftPreviewDate');
+// Gift builder/live preview removed from page by design.
 
-const giftState={mode:'',type:'',flexible:true,requestNo:'',publicToken:''};
-const todayISO=localISODate();
-if(giftDeliveryDate) giftDeliveryDate.min=todayISO;
-if(giftPreferredDate) giftPreferredDate.min=todayISO;
-
-function giftSetStatus(message='',type=''){
-  if(!giftFormStatus) return;
-  giftFormStatus.textContent=message;
-  giftFormStatus.className=`gift-form-status${type?` ${type}`:''}`;
-}
-function giftParseDate(value){
-  if(!value) return null;
-  const d=new Date(`${value}T12:00:00`);
-  return Number.isNaN(d.getTime())?null:d;
-}
-function giftFormatDate(value){
-  const d=giftParseDate(value);
-  if(!d) return 'Flexible';
-  try{return new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric'}).format(d).toUpperCase();}
-  catch(_e){return value;}
-}
-function giftValidityText(){
-  // Keep the approved certificate wording. The manager confirms the actual issue/validity dates.
-  return 'VALID FOR 12 MONTHS';
-}
-function giftLayerValues(){
-  const recipient=(giftRecipientName?.value||'YOUR RECIPIENT').trim().toUpperCase()||'YOUR RECIPIENT';
-  if(giftState.mode==='signature'){
-    const experience=(giftExperience?.value||'CHOSEN EXPERIENCE').trim().toUpperCase()||'CHOSEN EXPERIENCE';
-    return {fieldLabel:'EXPERIENCE',mainValue:experience,recipient,validUntil:giftValidityText(),number:giftState.requestNo||'ATO-GIFT-PREVIEW',description:'A specific experience chosen for the recipient. The exact excursion date can stay flexible until confirmed with our team.'};
-  }
-  const amount=Number(giftAmount?.value||0);
-  return {fieldLabel:'AMOUNT',mainValue:amount>0?`€${amount}`:'CHOOSE VALUE',recipient,validUntil:giftValidityText(),number:giftState.requestNo||'ATO-GIFT-PREVIEW',description:'The recipient chooses the eligible experience and suitable date later with our team.'};
-}
-function giftApplyLayer(layer,values){
-  if(!layer) return;
-  Object.entries(values).forEach(([key,value])=>{
-    const el=layer.querySelector(`[data-cert-field="${key}"]`);
-    if(el) el.textContent=value;
-  });
-  layer.classList.toggle('signature',giftState.mode==='signature');
-  layer.classList.remove('is-updating');
-  void layer.offsetWidth;
-  layer.classList.add('is-updating');
-}
-function giftUpdatePreview(){
-  const values=giftLayerValues();
-  giftApplyLayer(certificateLiveLayer,values);
-  giftApplyLayer(giftMiniCertificateLayer,values);
-  if(giftPreviewType) giftPreviewType.textContent=giftState.mode==='signature'?'Signature Gift · Specific Experience':giftState.mode==='freedom'?'Freedom Gift · Chosen Amount':'Choose a gift type';
-  if(giftPreviewValue){
-    if(giftState.mode==='signature') giftPreviewValue.textContent=(giftExperience?.value||'Choose experience').trim()||'Choose experience';
-    else if(giftState.mode==='freedom') giftPreviewValue.textContent=Number(giftAmount?.value||0)>0?`€${Number(giftAmount.value)}`:'Choose value';
-    else giftPreviewValue.textContent='—';
-  }
-  if(giftPreviewDate){
-    if(giftState.mode==='signature') giftPreviewDate.textContent=giftFlexibleDate?.checked?'Experience date flexible':giftFormatDate(giftPreferredDate?.value);
-    else giftPreviewDate.textContent=giftDeliveryDate?.value?`Give on ${giftFormatDate(giftDeliveryDate.value)}`:'Give date flexible';
-  }
-}
-function giftSyncDateRules(){
-  if(!giftPreferredDate) return;
-  const minimum=giftDeliveryDate?.value && giftDeliveryDate.value>todayISO?giftDeliveryDate.value:todayISO;
-  giftPreferredDate.min=minimum;
-  if(giftPreferredDate.value && giftPreferredDate.value<minimum){
-    giftPreferredDate.value='';
-    if(giftFlexibleDate) giftFlexibleDate.checked=true;
-    giftState.flexible=true;
-    giftSetStatus('The experience date was cleared because it cannot be earlier than the certificate date.','info');
-  }
-  giftPreferredDate.required=giftState.mode==='signature' && !(giftFlexibleDate?.checked);
-}
-function giftSelectMode(option,shouldScroll=true){
-  giftState.mode=option?.dataset.giftMode||'';
-  giftState.type=option?.dataset.giftType||'';
-  giftOptions.forEach(btn=>{
-    const selected=btn===option;
-    btn.classList.toggle('selected',selected);
-    btn.setAttribute('aria-pressed',selected?'true':'false');
-  });
-  if(giftBuilder) giftBuilder.hidden=false;
-  if(giftFreedomFields) giftFreedomFields.hidden=giftState.mode!=='freedom';
-  if(giftSignatureFields) giftSignatureFields.hidden=giftState.mode!=='signature';
-  if(giftAmount) giftAmount.required=giftState.mode==='freedom';
-  if(giftExperience) giftExperience.required=giftState.mode==='signature';
-  giftSyncDateRules();
-  if(giftFormModeLabel) giftFormModeLabel.textContent=giftState.mode==='freedom'?'FREEDOM GIFT · VALUE CERTIFICATE':'SIGNATURE GIFT · EXPERIENCE CERTIFICATE';
-  if(giftFormModeText) giftFormModeText.textContent=giftState.mode==='freedom'?'Choose the value, recipient and presentation date. The recipient chooses the experience later.':'Choose the experience and recipient. Add a preferred date or keep the exact excursion date flexible.';
-  giftSetStatus('');
-  giftUpdatePreview();
-  if(shouldScroll && giftBuilder) setTimeout(()=>{
-    const top=Math.max(0,window.scrollY+giftBuilder.getBoundingClientRect().top-110);
-    window.scrollTo({top,left:0,behavior:'smooth'});
-  },120);
-}
-
-giftOptions.forEach(option=>{
-  option.setAttribute('aria-pressed','false');
-  option.addEventListener('click',()=>giftSelectMode(option,true));
-});
-
-document.querySelectorAll('#giftQuickValues [data-gift-value]').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    if(giftAmount){giftAmount.value=btn.dataset.giftValue||'';giftAmount.dispatchEvent(new Event('input',{bubbles:true}));}
-    document.querySelectorAll('#giftQuickValues [data-gift-value]').forEach(x=>x.classList.toggle('selected',x===btn));
-  });
-});
-
-giftAmount?.addEventListener('input',()=>{
-  const val=String(giftAmount.value||'');
-  document.querySelectorAll('#giftQuickValues [data-gift-value]').forEach(x=>x.classList.toggle('selected',x.dataset.giftValue===val));
-  giftUpdatePreview();
-});
-giftExperience?.addEventListener('input',giftUpdatePreview);
-giftRecipientName?.addEventListener('input',giftUpdatePreview);
-giftDeliveryDate?.addEventListener('input',()=>{giftSyncDateRules();giftUpdatePreview();});
-giftDeliveryDate?.addEventListener('change',()=>{giftSyncDateRules();giftUpdatePreview();});
-giftPreferredDate?.addEventListener('input',()=>{
-  if(giftPreferredDate.value && giftFlexibleDate){giftFlexibleDate.checked=false;giftState.flexible=false;}
-  giftSyncDateRules();
-  giftUpdatePreview();
-});
-giftPreferredDate?.addEventListener('change',()=>{
-  if(giftPreferredDate.value && giftFlexibleDate){giftFlexibleDate.checked=false;giftState.flexible=false;}
-  giftSyncDateRules();
-  giftUpdatePreview();
-});
-giftFlexibleDate?.addEventListener('change',()=>{
-  giftState.flexible=giftFlexibleDate.checked;
-  if(giftFlexibleDate.checked && giftPreferredDate) giftPreferredDate.value='';
-  giftSyncDateRules();
-  giftUpdatePreview();
-});
-giftPreferredDateBtn?.addEventListener('click',()=>openNativeDatePicker(giftPreferredDate));
-giftDeliveryDateBtn?.addEventListener('click',()=>openNativeDatePicker(giftDeliveryDate));
-giftMessage?.addEventListener('input',()=>{if(giftMessageCount) giftMessageCount.textContent=`${giftMessage.value.length} / 280`;});
-
-if(giftPreviewImage){
-  const originalCertificateImage=document.querySelector('#certificateCard > img');
-  if(originalCertificateImage) giftPreviewImage.src=originalCertificateImage.currentSrc||originalCertificateImage.src;
-}
-
-giftForm?.addEventListener('submit',async e=>{
-  e.preventDefault();
-  giftSetStatus('');
-  if(!giftState.mode){giftSetStatus('Choose Freedom Gift or Signature Gift first.','error');return;}
-  giftSyncDateRules();
-  if(!giftForm.checkValidity()){giftForm.reportValidity();giftSetStatus('Complete the required fields before sending the request.','error');return;}
-  const recipient=(giftRecipientName?.value||'').trim();
-  const sender=(giftSenderName?.value||'').trim();
-  const phone=(giftBuyerPhone?.value||'').trim();
-  const normalized=normalizeHeartPhoneClient(phone);
-  if(recipient.length<2){giftSetStatus('Enter the recipient name.','error');giftRecipientName?.focus();return;}
-  if(sender.length<2){giftSetStatus('Enter your name.','error');giftSenderName?.focus();return;}
-  if(normalized.length<10 || normalized.length>15){giftSetStatus('Enter a valid WhatsApp number including the country code.','error');giftBuyerPhone?.focus();return;}
-  if(giftState.mode==='freedom' && Number(giftAmount?.value||0)<=0){giftSetStatus('Enter the gift value.','error');giftAmount?.focus();return;}
-  if(giftState.mode==='signature' && !(giftExperience?.value||'').trim()){giftSetStatus('Enter or choose the experience.','error');giftExperience?.focus();return;}
-  if(giftState.mode==='signature' && !giftFlexibleDate?.checked && !giftPreferredDate?.value){giftSetStatus('Choose an experience date or keep the date flexible.','error');giftPreferredDate?.focus();return;}
-
-  const submit=document.getElementById('giftSubmit');
-  if(submit) submit.disabled=true;
-  giftSetStatus('Saving the Gift Certificate request in ATO Booking Manager…','info');
-
-  try{
-    const result=await heartRpc('gift_certificate_request',{
-      p_mode:giftState.mode,
-      p_buyer_name:sender,
-      p_buyer_phone:normalized,
-      p_recipient_name:recipient,
-      p_amount_eur:giftState.mode==='freedom'?Number(giftAmount?.value||0):null,
-      p_experience:giftState.mode==='signature'?(giftExperience?.value||'').trim():null,
-      p_preferred_date:giftState.mode==='signature' && !giftFlexibleDate?.checked && giftPreferredDate?.value?giftPreferredDate.value:null,
-      p_delivery_date:giftDeliveryDate?.value||null,
-      p_personal_message:(giftMessage?.value||'').trim()
+const allowedLangs = ["ru", "en", "tr", "de", "pl"];
+  const savedLang = localStorage.getItem("atoLanguage");
+  const currentLang = allowedLangs.includes(savedLang) ? savedLang : "en";
+  function updateLang(lang) {
+    document.querySelectorAll("[data-" + lang + "]").forEach(el => {
+      el.textContent = el.getAttribute("data-" + lang);
     });
-
-    giftState.requestNo=result.requestNo||'';
-    giftState.publicToken=result.publicToken||'';
-    giftUpdatePreview();
-
-    const certificateUrl=giftState.publicToken?`${location.origin}/gift-certificate.html?token=${encodeURIComponent(giftState.publicToken)}`:'';
-    const lines=['🎁 GIFT CERTIFICATE REQUEST','',`Request: ${giftState.requestNo||'GIFT REQUEST'}`,'Status: REQUESTED · awaiting manager confirmation',`Type: ${giftState.mode==='freedom'?'Freedom Gift — Chosen Amount':'Signature Gift — Specific Experience'}`];
-    if(giftState.mode==='freedom') lines.push(`Gift value: €${Number(giftAmount.value)}`);
-    else lines.push(`Experience: ${(giftExperience.value||'').trim()}`);
-    lines.push(`Recipient: ${recipient}`);
-    lines.push(`From: ${sender}`);
-    lines.push(`Client WhatsApp: +${result.buyerPhone||normalized}`);
-    lines.push(`Give certificate on: ${giftDeliveryDate?.value?giftFormatDate(giftDeliveryDate.value):'Flexible / to confirm'}`);
-    if(giftState.mode==='signature') lines.push(`Preferred experience date: ${giftFlexibleDate?.checked?'Flexible':giftFormatDate(giftPreferredDate?.value)}`);
-    lines.push(`Personal message: ${(giftMessage?.value||'').trim()||'—'}`,'');
-    if(certificateUrl) lines.push(`Electronic certificate: ${certificateUrl}`);
-    lines.push('','The link is NOT VALID yet. Confirm this GIFT request in ATO Booking Manager after payment/issue approval. The same link will then become ACTIVE and receive its unique ATO-GIFT code.');
-
-    giftSetStatus(`Request ${giftState.requestNo} saved in ATO Booking Manager. The electronic certificate will activate only after manager confirmation. Opening WhatsApp…`,'success');
-    const url=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lines.join('\n'))}`;
-    const opened=window.open(url,'_blank','noopener');
-    if(!opened){setTimeout(()=>{location.href=url},50);}
-  }catch(err){
-    giftSetStatus(err?.message||'Could not save the Gift Certificate request.','error');
-  }finally{
-    if(submit) submit.disabled=false;
+    const langLabel = document.querySelector(".language-dropdown > span");
+    if (langLabel) langLabel.textContent = lang.toUpperCase();
+    document.documentElement.lang = lang;
+    localStorage.setItem("atoLanguage", lang);
+    window.dispatchEvent(new CustomEvent("ato-language-changed",{detail:{lang}}));
   }
-});
+  updateLang(currentLang);
+  document.querySelectorAll(".language-menu a").forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      const lang = this.getAttribute("data-lang");
+      if (allowedLangs.includes(lang)) updateLang(lang);
+    });
+  });
 
-giftUpdatePreview();
-
-// Header, dropdown and language behavior is owned by index-header-loader.js.
+  // Header/menu behavior is owned by the canonical ATO header script in special-offers.html.
 
 /* === AUTONOMOUS WEBGL 3D GLOBE ===
  * No Three.js CDN dependency. The sphere geometry, lighting, rotation and
@@ -1542,7 +1374,6 @@ if (canvas && globeShell && globeZone3D) {
     startCpuGlobeFallback();
   } else {
     globeZone3D.dataset.globeMode = 'webgl-3d-geodesic';
-
 
     const vertexShaderSource = `
       attribute vec3 aPosition;
