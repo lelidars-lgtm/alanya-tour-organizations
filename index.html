@@ -13,10 +13,12 @@
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="assets/css/trip-planner-shared.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css" />
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=fsJZSPclVpymxD5zmsHXwjmxGBZzLwglPNdRzehGP-2kpgeWLcy0J0ba4FvPj79tNIeZk-Uh7DULRktG_K_vBy33BGSermEdfaC1EbhBkc9dKc42BNUQtS6DMXcZc5w85EM3Rnbt-pJEvjrfzOxvDsKleymObEpx4DbSoWjODKDrgv0K8MqoDKerAkEY0rDUCjClkMRfm2go30SnpmRshRLiOz1FVCgjHc9bvgts0aAd_vpbRt0CdD51iwk8t3sZnUA1XqgKDdpeSNr92WBF5w" charset="UTF-8"></script><script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js" defer></script>
   <link rel="preload" as="image" href="/assets/img/hero/desktop/01-PARAGLIDING-ALANYA.png" media="(min-width:981px)" fetchpriority="high" />
   <link rel="preload" as="image" href="/assets/img/hero/mobile/01-PARAGLIDING-ALANYA-MOBILE.jpg" media="(max-width:980px)" fetchpriority="high" />
   <link rel="stylesheet" href="assets/css/ato-living-hero.css" />
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=tMK7zaAsVU22pcbPIyPrreFTrifiTm4ymFjlSl1-ipGcUPqu-67m59UGmI-UEr_8a6RsdM8QJ-2CJX2BPgelD0GByjdQrdtEIIyP-iur8-6zdgo9onnT-Lz3XW43S4JJESW-rr7vl1SUY34sfDP8rh4kXZwK1yV4SGUYNNuMiYC4DKsXQ7kzPccmJMjxNUWBcaPreObrJqQuJR17G0xd9eDZEtYxIhSDPp88dp6b84thdThVlZAn-OzuNW2UcvnFu6zY7Ifd9IRQgMoB3ZXmPA" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=V2-6TFV0Bpzh8Z1w8VgJnz1LVGxa12cV5HwZbe3JMP0nML18RMabc5ZsLuqAalDiTww69l9_xIuvRywQSwpvu1tassOC-oSODuIj0G6QPkhf_L6FmHZO2Xh8rXjA3wMxVK2_8o3gzlIaEHi8t6N_A5usrNbeht_evWDmyzI_hoK51nxCQ415Kqw14zFWqCT1aeZg_fOn1FeBO1xbMAjK7rBH-oz6Xggfi8dHodCIGXtNsAaNk49fE3xO5rIZoTGPAu3XkCyoYtkKlNLMDkV1Dg" charset="UTF-8"></script><style id="ato-categories-about-seam-fix">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=V2-6TFV0Bpzh8Z1w8VgJnz1LVGxa12cV5HwZbe3JMP0nML18RMabc5ZsLuqAalDiTww69l9_xIuvRywQSwpvu1tassOC-oSODuIj0G6QPkhf_L6FmHZO2Xh8rXjA3wMxVK2_8o3gzlIaEHi8t6N_A5usrNbeht_evWDmyzI_hoK51nxCQ415Kqw14zFWqCT1aeZg_fOn1FeBO1xbMAjK7rBH-oz6Xggfi8dHodCIGXtNsAaNk49fE3xO5rIZoTGPAu3XkCyoYtkKlNLMDkV1Dg" charset="UTF-8"></script><style id="ato-categories-about-seam-fix">
 /* Seamless background transition: Main Categories → About Our Company */
 #main-categories.main-categories-section{
   position:relative;
@@ -59,7 +61,7 @@
 }
 </style>
 <style id="ato-contact-map-premium">
-/* Premium contact map: restrained Google palette and an ATO-owned location card. */
+/* Premium office map with an exact, interactive ATO marker. */
 #contacts .map-wrapper{
   position:relative;
   overflow:hidden;
@@ -69,88 +71,56 @@
   box-shadow:0 24px 58px rgba(0,0,0,.26);
   isolation:isolate;
 }
-#contacts .map-wrapper iframe{
-  display:block;
-  width:100%;
-  filter:saturate(.64) brightness(.92) contrast(1.04) sepia(.07);
-  transition:filter .35s ease;
-}
-#contacts .map-wrapper:hover iframe,
-#contacts .map-wrapper:focus-within iframe{
-  filter:saturate(.88) brightness(.97) contrast(1.02) sepia(.03);
-}
-.ato-map-brand-card{
-  position:absolute;
-  z-index:3;
-  top:12px;
-  left:12px;
-  width:min(360px,calc(100% - 24px));
-  padding:14px 15px 13px;
-  border:1px solid rgba(215,168,62,.36);
-  border-radius:14px;
-  background:rgba(248,247,243,.97);
-  box-shadow:0 12px 32px rgba(3,17,30,.24);
-  color:#07182c;
-}
-.ato-map-brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none;
-  color:#07182c;
-}
-.ato-map-brand img{
-  width:56px;
-  height:45px;
-  object-fit:contain;
-  flex:0 0 auto;
-}
-.ato-map-brand-copy{display:block;line-height:1}
-.ato-map-brand-copy strong{
-  display:block;
-  font:900 20px/1 Arial,sans-serif;
-  letter-spacing:.2px;
-  white-space:nowrap;
-}
-.ato-map-brand-copy small{
-  display:block;
-  margin-top:6px;
-  color:#c58a18;
-  font:800 12px/1 Arial,sans-serif;
-  letter-spacing:2.6px;
-}
-.ato-map-address{
-  margin:11px 0 10px;
-  color:#46515c;
-  font:500 12px/1.45 Arial,sans-serif;
-}
-.ato-map-directions{
+#atoOfficeMap{width:100%;height:538px;background:#dbe4e9}
+#atoOfficeMap .maplibregl-canvas{filter:saturate(.68) brightness(.94) contrast(1.03) sepia(.05)}
+.ato-office-marker{display:flex;align-items:center;gap:7px;cursor:pointer;filter:drop-shadow(0 7px 12px rgba(0,0,0,.30));outline:0}
+.ato-office-pin{position:relative;width:38px;height:38px;display:grid;place-items:center;flex:0 0 auto;border:2px solid #fff2b7;border-radius:50% 50% 50% 12px;background:linear-gradient(145deg,#f3ca61,#9c6509);transform:rotate(-45deg);box-shadow:0 0 0 5px rgba(215,168,62,.18)}
+.ato-office-pin::after{content:"";width:10px;height:10px;border:2px solid #fff6ce;border-radius:50%;transform:rotate(45deg)}
+.ato-office-label{padding:9px 13px;border:1px solid rgba(215,168,62,.75);border-radius:999px;background:rgba(3,17,30,.94);color:#fff;font:800 11px/1 Arial,sans-serif;letter-spacing:.85px;white-space:nowrap;box-shadow:0 10px 28px rgba(0,0,0,.28);backdrop-filter:blur(9px);transition:background .2s ease,color .2s ease,transform .2s ease}
+.ato-office-marker:hover .ato-office-label,.ato-office-marker:focus .ato-office-label{background:#c18a1b;color:#06111b;transform:translateX(2px)}
+#atoOfficeMap .maplibregl-popup{max-width:330px!important;z-index:8}
+#atoOfficeMap .maplibregl-popup-content{padding:0;border:1px solid rgba(215,168,62,.55);border-radius:18px;background:#061726;color:#fff;box-shadow:0 22px 58px rgba(0,0,0,.46);overflow:hidden}
+#atoOfficeMap .maplibregl-popup-tip{border-top-color:#061726!important;border-bottom-color:#061726!important}
+#atoOfficeMap .maplibregl-popup-close-button{top:8px;right:8px;width:28px;height:28px;border:1px solid rgba(241,202,104,.42);border-radius:50%;background:#0b2236;color:#f1ca68;font-size:20px;line-height:24px;z-index:2}
+.ato-office-card{padding:17px 18px 16px}
+.ato-office-brand{display:flex;align-items:center;gap:10px;padding-right:28px}
+.ato-office-brand img{width:48px;height:42px;object-fit:contain;flex:0 0 auto}
+.ato-office-brand-copy strong{display:block;color:#fff;font:900 16px/1 Arial,sans-serif;letter-spacing:.25px;white-space:nowrap}
+.ato-office-brand-copy small{display:block;margin-top:5px;color:#e5b64b;font:800 9px/1 Arial,sans-serif;letter-spacing:2px}
+.ato-office-kicker{margin:15px 0 5px;color:#e4b54b;font:800 9px/1 Arial,sans-serif;letter-spacing:1.7px}
+.ato-office-address{margin:0;color:#d8e0e6;font:500 12px/1.55 Arial,sans-serif}
+.ato-office-directions{
   display:inline-flex;
   align-items:center;
   gap:7px;
-  min-height:34px;
-  padding:0 13px;
-  border:1px solid rgba(172,117,14,.58);
+  min-height:38px;
+  margin-top:14px;
+  padding:0 15px;
+  border:1px solid rgba(241,202,104,.62);
   border-radius:999px;
-  color:#8d5d08;
+  color:#f1ca68;
   font:800 10px/1 Arial,sans-serif;
   letter-spacing:1.1px;
   text-decoration:none;
   transition:background .2s ease,color .2s ease,transform .2s ease;
 }
-.ato-map-directions:hover{
-  background:#b97f13;
-  color:#fff;
+.ato-office-directions:hover{
+  background:#d2a238;
+  color:#06111b;
   transform:translateY(-1px);
 }
+#atoOfficeMap .maplibregl-ctrl-group{overflow:hidden;border:1px solid rgba(215,168,62,.42);border-radius:10px;background:#071b2d;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+#atoOfficeMap .maplibregl-ctrl button{background:#071b2d}
+#atoOfficeMap .maplibregl-ctrl button .maplibregl-ctrl-icon{filter:invert(1) sepia(.12)}
 @media(max-width:640px){
   #contacts .map-wrapper{border-radius:18px}
-  .ato-map-brand-card{top:8px;left:8px;width:min(292px,calc(100% - 16px));padding:10px 11px}
-  .ato-map-brand img{width:43px;height:36px}
-  .ato-map-brand-copy strong{font-size:15px}
-  .ato-map-brand-copy small{margin-top:4px;font-size:9px;letter-spacing:1.8px}
-  .ato-map-address{margin:8px 0;font-size:10px}
-  .ato-map-directions{min-height:30px;padding:0 11px;font-size:9px}
+  #atoOfficeMap{height:430px}
+  .ato-office-pin{width:33px;height:33px}
+  .ato-office-label{max-width:190px;padding:8px 10px;font-size:9px;letter-spacing:.55px;overflow:hidden;text-overflow:ellipsis}
+  #atoOfficeMap .maplibregl-popup{max-width:min(306px,calc(100vw - 32px))!important}
+  .ato-office-card{padding:14px 15px}
+  .ato-office-brand img{width:42px;height:36px}
+  .ato-office-brand-copy strong{font-size:14px}
 }
 </style>
 <style id="ato-hero-self-contained-critical">
@@ -1742,24 +1712,55 @@ html body .header #headerTourSearch .ato-search-trigger-label{
   </div>
 
   <div class="map-wrapper">
-    <div class="ato-map-brand-card" aria-label="ALANYA TOUR ORGANIZATIONS office">
-      <a class="ato-map-brand" href="index.html" aria-label="ALANYA TOUR ORGANIZATIONS">
-        <img src="logo.png" alt="" aria-hidden="true">
-        <span class="ato-map-brand-copy">
-          <strong>ALANYA TOUR</strong>
-          <small>ORGANIZATIONS</small>
-        </span>
-      </a>
-      <p class="ato-map-address">Sarıtaş Hotel Yanı, Tosmur, Ahmet Tokuş Blv. No:13, 07400 Alanya / Antalya</p>
-      <a class="ato-map-directions" href="https://www.google.com/maps/dir/?api=1&amp;destination=Sarıtaş%20Hotel%20Yanı%2C%20Tosmur%2C%20Ahmet%20Tokuş%20Blv.%20No%3A13%2C%2007400%20Alanya%2FAntalya" target="_blank" rel="noopener">GET DIRECTIONS <span aria-hidden="true">→</span></a>
-    </div>
-    <iframe
-      title="Alanya Tour Organizations location"
-      src="https://maps.google.com/maps?q=Sarıtaş%20Hotel%20Yanı%2C%20Tosmur%2C%20Ahmet%20Tokuş%20Blv.%20No%3A13%2C%2007400%20Alanya%2FAntalya&t=&z=16&ie=UTF8&iwloc=&output=embed"
-      loading="lazy">
-    </iframe>
+    <div id="atoOfficeMap" role="application" aria-label="Interactive map showing ALANYA TOUR ORGANIZATIONS office"></div>
   </div>
 </section>
+
+<script id="ato-office-map-js">
+(function(){
+  'use strict';
+  const OFFICE=[32.038899,36.532392];
+  const DIRECTIONS='https://www.google.com/maps/dir/?api=1&destination=36.532392%2C32.038899';
+  function initOfficeMap(){
+    const host=document.getElementById('atoOfficeMap');
+    if(!host||!window.maplibregl||host.dataset.ready)return;
+    host.dataset.ready='1';
+    const map=new maplibregl.Map({
+      container:host,
+      style:'https://tiles.openfreemap.org/styles/liberty',
+      center:OFFICE,
+      zoom:15.7,
+      pitch:0,
+      bearing:0,
+      attributionControl:true
+    });
+    map.addControl(new maplibregl.NavigationControl({showCompass:false}),'bottom-right');
+
+    const card=`<article class="ato-office-card">
+      <div class="ato-office-brand"><img src="logo.png" alt=""><span class="ato-office-brand-copy"><strong>ALANYA TOUR</strong><small>ORGANIZATIONS</small></span></div>
+      <div class="ato-office-kicker">OFFICE · TOSMUR</div>
+      <p class="ato-office-address">Sarıtaş Hotel Yanı, Tosmur, Ahmet Tokuş Blv. No:13,<br>07400 Alanya / Antalya</p>
+      <a class="ato-office-directions" href="${DIRECTIONS}" target="_blank" rel="noopener">GET DIRECTIONS <span aria-hidden="true">→</span></a>
+    </article>`;
+    const popup=new maplibregl.Popup({offset:[0,-28],closeButton:true,closeOnClick:false,focusAfterOpen:false}).setLngLat(OFFICE).setHTML(card);
+    const marker=document.createElement('button');
+    marker.type='button';
+    marker.className='ato-office-marker';
+    marker.setAttribute('aria-label','Open ALANYA TOUR ORGANIZATIONS office details');
+    marker.innerHTML='<span class="ato-office-pin" aria-hidden="true"></span><span class="ato-office-label">ALANYA TOUR ORGANIZATIONS</span>';
+    new maplibregl.Marker({element:marker,anchor:'left',offset:[-18,0]}).setLngLat(OFFICE).addTo(map);
+    marker.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(popup.isOpen())popup.remove();else popup.addTo(map);
+    });
+    marker.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();marker.click();}});
+    map.on('load',function(){map.resize();});
+    window.addEventListener('resize',function(){map.resize();},{passive:true});
+  }
+  if(document.readyState==='complete')initOfficeMap();
+  else window.addEventListener('load',initOfficeMap,{once:true});
+})();
+</script>
 
 
 <footer class="footer-strip" aria-label="Site footer">
