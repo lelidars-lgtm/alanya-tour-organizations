@@ -1356,7 +1356,7 @@ if (canvas && globeShell && globeZone3D) {
       globeZone3D.dataset.globeTextures='local-ready-cpu';
     };
     img.onerror=()=>{ globeZone3D.dataset.globeTextures='procedural-cpu'; };
-    img.src='assets/globe/earth_atmos_2048.jpg';
+    img.src='assets/globe/earth_day_real_dark_v2.jpg';
 
     const nightImg=new Image();
     nightImg.decoding='async';
@@ -1367,7 +1367,7 @@ if (canvas && globeShell && globeZone3D) {
       o.drawImage(nightImg,0,0,768,384);
       nightTexturePixels=o.getImageData(0,0,768,384).data;
     };
-    nightImg.src='assets/globe/earth_lights_2048.png';
+    nightImg.src='assets/globe/earth_lights_real_v2.png';
 
     function rotatePoint(v, ay, ax){
       const cy=Math.cos(ay), sy=Math.sin(ay), cx=Math.cos(ax), sx=Math.sin(ax);
@@ -1561,8 +1561,8 @@ if (canvas && globeShell && globeZone3D) {
         vec3 cityGlow = nightGold * nightSide * 2.85 * uTextureMix;
         vec3 cityBlend = nightGold * duskBand * 0.72 * uTextureMix;
 
-        vec3 cyanRim = vec3(0.03, 0.62, 1.0) * fresnel * 1.48;
-        vec3 blueAtmosphere = vec3(0.02, 0.30, 0.72) * limb * 0.55;
+        vec3 cyanRim = vec3(0.08, 0.12, 0.18) * fresnel * 0.34;
+        vec3 blueAtmosphere = vec3(0.02, 0.04, 0.08) * limb * 0.22;
         float shimmer = 0.985 + 0.015 * sin(uTime * 1.7 + vUV.y * 10.0);
 
         vec3 h = normalize(l + v);
@@ -1849,8 +1849,8 @@ if (canvas && globeShell && globeZone3D) {
     let textureMix = 0;
 
     Promise.all([
-      loadImageIntoTexture('assets/globe/earth_atmos_2048.jpg', dayTexture),
-      loadImageIntoTexture('assets/globe/earth_lights_2048.png', nightTexture)
+      loadImageIntoTexture('assets/globe/earth_day_real_dark_v2.jpg', dayTexture),
+      loadImageIntoTexture('assets/globe/earth_lights_real_v2.png', nightTexture)
     ]).then(() => {
       textureMix = 1;
       globeZone3D.dataset.globeTextures = 'local-ready';
