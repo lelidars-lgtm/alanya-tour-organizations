@@ -8,7 +8,8 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css">
-<style id="map-functional-styles">
+<link rel="stylesheet" href="/styles.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=sbhdsSHYX7vpZyblXcF2ZJiMdPUiILZcCUlcV_Ze1fHwSL5XxJSx0lp-LG2kN-wxNDP9ocktBPQNO7xT1K1cGI05Dbvh2nC0Mtrlh6MsWOG5I_Ep_d3-sc5ou2pJAAV2_Y34fjbDC6LAQju8tXdKsseXqfLCw4-cGeKOz7L9hPDb3_sFpKKE6mJ0oDJlRd4z1ck2GPvUNMwdUJJ-i96pQ8fkkOLhM-B6W-HaY9C3b3xTeVcSK3_iSfB29Xqd2z3nYM_XlX4sI7yYj4L7uLBqxA" charset="UTF-8"></script><style id="map-functional-styles">
     :root{
       --navy:#03111e;--navy2:#071c2e;--panel:rgba(3,17,30,.94);--panel2:rgba(7,28,46,.92);
       --gold:#d7a83e;--gold2:#f1ca68;--text:#f7f3e8;--muted:#a9b6c2;--line:rgba(214,168,62,.24);
@@ -1416,6 +1417,14 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 @keyframes mapFooterGoldShimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 @media(prefers-reduced-motion:reduce){.map-footer-trust{animation:none;background-position:50% 50%}}
 @media(max-width:760px){#atoOriginalHeaderHost,#atoOriginalHeaderFrame{height:70px}#atoOriginalFooterHost{height:68px}.map-footer-trust{height:24px;min-height:24px;font-size:9px;letter-spacing:.75px}#atoOriginalFooterFrame{height:44px}}
+#atoOriginalHeaderHost{overflow:visible!important}
+#atoOriginalHeaderHost>.header{width:100%;height:86px;box-sizing:border-box}
+#atoOriginalHeaderHost .ato-header-dropdown.open>.dropdown-menu{display:flex!important;opacity:1!important;visibility:visible!important;transform:translateY(0)!important;pointer-events:auto!important}
+#atoOriginalHeaderHost .language-dropdown.open .language-menu{display:block!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important}
+#atoOriginalHeaderHost .ato-map-search-result{width:100%;padding:15px 18px;border:1px solid rgba(215,168,62,.42);border-radius:10px;background:#071c2e;color:#f1ca68;text-align:left;font-weight:800;cursor:pointer}
+.ato-header-load-error{height:86px;display:flex;align-items:center;padding:0 42px;background:#fff}
+.ato-header-load-error a{color:#07182c;text-decoration:none;font-weight:900;letter-spacing:.5px}
+@media(max-width:760px){#atoOriginalHeaderHost>.header{height:70px}.ato-header-load-error{height:70px;padding:0 18px}}
 .mobile-filter-toggle,.mobile-filter-close{display:none}
 /* The JavaScript uses the `on` state; keep the knob and track in sync. */
 .toggle.on{background:linear-gradient(90deg,#c58a15,#f4c83f)!important;box-shadow:0 0 13px rgba(222,171,48,.25)!important}
@@ -1461,7 +1470,7 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 </head>
 <body>
 <div id="atoOriginalHeaderHost" aria-label="ALANYA TOUR ORGANIZATIONS original site header"></div>
-<script id="ato-original-header-loader">
+<script id="ato-original-header-loader" type="text/plain">
 (function(){
   const host=document.getElementById('atoOriginalHeaderHost');
   if(!host)return;
@@ -1598,6 +1607,102 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
       frame.style.opacity='1';
     }catch(e){ frame.style.opacity='1'; }
   });
+})();
+</script>
+<script id="ato-live-header-loader">
+(async function(){
+  const host=document.getElementById('atoOriginalHeaderHost');
+  if(!host)return;
+  try{
+    const response=await fetch('/index.html?mapLiveHeader=1',{cache:'no-store'});
+    if(!response.ok)throw new Error('Header source unavailable');
+    const source=new DOMParser().parseFromString(await response.text(),'text/html');
+    const header=source.querySelector('header.header');
+    if(!header)throw new Error('Header not found');
+    host.replaceChildren(document.importNode(header,true));
+    const live=host.querySelector('header.header');
+    live.style.position='relative';
+    live.style.top='0';
+
+    /* The map lives in /interactive-map/, while the header links belong to the site root. */
+    live.querySelectorAll('a[href]').forEach(link=>{
+      const href=link.getAttribute('href');
+      if(!href||href.startsWith('#')||href.startsWith('/')||/^(https?:|mailto:|tel:|javascript:)/i.test(href))return;
+      link.setAttribute('href','/'+href.replace(/^\.\//,''));
+    });
+
+    const mobileBtn=live.querySelector('#mobileMenuBtn');
+    const nav=live.querySelector('.nav');
+    const overlay=live.querySelector('#mobileOverlay');
+    const closeMobile=()=>{
+      mobileBtn?.classList.remove('active');nav?.classList.remove('active');overlay?.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    };
+    mobileBtn?.addEventListener('click',()=>{
+      const open=!nav?.classList.contains('active');closeMobile();
+      if(open){mobileBtn.classList.add('active');nav?.classList.add('active');overlay?.classList.add('active');document.body.classList.add('menu-open');}
+    });
+    overlay?.addEventListener('click',closeMobile);
+    nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+
+    live.querySelectorAll('.ato-header-dropdown').forEach(dropdown=>{
+      const trigger=dropdown.querySelector('.ato-dropdown-trigger');
+      trigger?.addEventListener('click',event=>{
+        event.preventDefault();event.stopPropagation();
+        const open=!dropdown.classList.contains('open');
+        live.querySelectorAll('.ato-header-dropdown.open').forEach(item=>{item.classList.remove('open');item.querySelector('.ato-dropdown-trigger')?.setAttribute('aria-expanded','false');});
+        dropdown.classList.toggle('open',open);trigger.setAttribute('aria-expanded',String(open));
+      });
+    });
+
+    const language=live.querySelector('.language-dropdown');
+    const languageMenu=language?.querySelector('.language-menu');
+    language?.addEventListener('click',event=>{
+      if(event.target.closest('a,.language-close'))return;
+      event.stopPropagation();language.classList.toggle('open');
+    });
+    language?.querySelector('.language-close')?.addEventListener('click',event=>{event.stopPropagation();language.classList.remove('open');});
+    languageMenu?.querySelectorAll('a[data-lang]').forEach(option=>option.addEventListener('click',event=>{
+      event.preventDefault();
+      const lang=option.dataset.lang||'en';
+      const labels={en:'EN',ru:'RU',tr:'TR',de:'DE',pl:'PL'};
+      const label=language.querySelector(':scope > span');if(label)label.textContent=labels[lang]||lang.toUpperCase();
+      document.documentElement.lang=lang;localStorage.setItem('atoLanguage',lang);language.classList.remove('open');
+    }));
+
+    const searchTrigger=live.querySelector('#headerTourSearch');
+    const mobileSearch=live.querySelector('#atoMobileSearchTrigger');
+    const shell=live.querySelector('#atoHeaderSearchShell');
+    const input=live.querySelector('#atoHeaderSmartSearch');
+    const closeSearch=live.querySelector('#atoHeaderSearchClose');
+    const panel=live.querySelector('#atoHeaderSearchPanel');
+    const setSearch=open=>{
+      live.classList.toggle('ato-search-active',open);shell?.setAttribute('aria-hidden',String(!open));
+      searchTrigger?.setAttribute('aria-expanded',String(open));mobileSearch?.setAttribute('aria-expanded',String(open));
+      if(open)setTimeout(()=>input?.focus(),20);
+    };
+    searchTrigger?.addEventListener('click',()=>setSearch(!live.classList.contains('ato-search-active')));
+    mobileSearch?.addEventListener('click',()=>setSearch(!live.classList.contains('ato-search-active')));
+    closeSearch?.addEventListener('click',()=>setSearch(false));
+    input?.addEventListener('input',()=>{
+      const query=input.value.trim();
+      if(panel)panel.innerHTML=query?'<button type="button" class="ato-map-search-result">SHOW “'+query.replace(/[&<>"']/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]))+'” ON THE MAP →</button>':'';
+    });
+    panel?.addEventListener('click',event=>{
+      if(!event.target.closest('.ato-map-search-result'))return;
+      const mapSearch=document.getElementById('mapTourSearch');
+      if(mapSearch){mapSearch.value=input?.value||'';mapSearch.dispatchEvent(new Event('input',{bubbles:true}));}
+      setSearch(false);
+    });
+    document.addEventListener('click',event=>{
+      if(!live.contains(event.target)){
+        live.querySelectorAll('.ato-header-dropdown.open').forEach(item=>item.classList.remove('open'));
+        language?.classList.remove('open');
+      }
+    });
+  }catch(error){
+    host.innerHTML='<div class="ato-header-load-error"><a href="/index.html">ALANYA TOUR ORGANIZATIONS</a></div>';
+  }
 })();
 </script>
 

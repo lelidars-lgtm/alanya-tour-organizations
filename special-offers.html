@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="special-offers.css"/>
 
-<style id="ato-working-header-patch">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=NvHDYkA2XsfxW2t6_3razOXVJsGi9TlQ-VLEPpLRoalsE1B0P-jBZ9tLM7BuRvMGJDp-LIrm9tFY0CA902s-bDJoRWBoM2hY6zDjV7mKfPAEG-X6FwHCUuU6252-ANaP6bgpVdSk3GyCL9UmzRrCmBKWpU2nK4M_gsDhZZn1gY52udQ5kD--4H7NaocuDJoThUDCxxi-29yt3zq8PMHOHfJLRwbQpjXtUKkaP1mh1GQdsRz8VglEy2OBZRPUFd9_E-Illmgd3x5X14K5uXqnsQ" charset="UTF-8"></script><style id="ato-working-header-patch">
 /* ===== ATO WORKING HEADER PATCH ===== */
 .header .logo{ text-decoration:none; }
 .header .ato-header-dropdown{ position:relative; }
@@ -204,10 +204,6 @@ body.ato-header-search-open{overflow-x:hidden}
 }
 </style>
 
-<style id="ato-secondary-header-active">
-.header .nav-item.active{color:#c99a3d;}
-@media(max-width:980px){.header .nav-item.active{color:#f3c66d!important;}}
-</style>
 </head>
 <body class="so-premium-body">
 
@@ -268,7 +264,7 @@ body.ato-header-search-open{overflow-x:hidden}
       <span>COMBO DEALS</span>
     </a>
 
-    <a href="special-offers.html" class="nav-item special active">
+    <a href="special-offers.html" class="nav-item special">
       <span class="fire">🔥</span>
       <span>SPECIAL OFFERS</span>
     </a>
@@ -345,15 +341,24 @@ body.ato-header-search-open{overflow-x:hidden}
   </div>
 </header>
 <div class="ato-header-search-scrim" id="atoHeaderSearchScrim" aria-hidden="true"></div>
-<div class="promo-bar">
+<div class="promo-bar" id="atoPromoRibbon" aria-label="Special offers">
   <div class="promo-track">
-    <span class="promo-text" data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК" data-en="🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE" data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE" data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN & DIE 3. GRATIS" data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS">🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE</span>
-    <span class="promo-dot">◆</span>
-    <span>TRAVEL WITH LOVE. TRAVEL WITH US.</span>
-    <span class="promo-dot">◆</span>
-    <span>VIP YACHT TOURS • FAMILY SAFARI • PRIVATE TRANSFERS</span>
-    <span class="promo-dot">◆</span>
-    <span class="promo-text" data-ru="🔥 АКЦИЯ — ПРИ ПОКУПКЕ ДВУХ ЭКСКУРСИЙ ТРЕТЬЯ В ПОДАРОК" data-en="🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE" data-tr="🔥 KAMPANYA — 2 TUR SATIN AL, 3. TUR HEDİYE" data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN & DIE 3. GRATIS" data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI I OTRZYMAJ 3. GRATIS">🔥 SPECIAL OFFER — BUY 2 TOURS & GET THE 3RD FREE</span>
+    <div class="promo-group">
+      <span class="promo-text" data-ru="🔥 СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ — 2 ТУРА + 3-Й В ПОДАРОК" data-en="🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE" data-tr="🔥 ÖZEL TEKLİF — 2 TUR AL, 3. TUR HEDİYE" data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN, DIE 3. GRATIS" data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI, 3. GRATIS">🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE</span>
+      <span class="promo-dot" aria-hidden="true">◆</span>
+      <span class="promo-slogan">TRAVEL WITH LOVE. TRAVEL WITH US.</span>
+      <span class="promo-dot" aria-hidden="true">◆</span>
+      <span class="promo-services">PRIVATE TOURS • VIP TRANSFERS • FAMILY EXPERIENCES</span>
+      <span class="promo-dot" aria-hidden="true">◆</span>
+    </div>
+    <div class="promo-group" aria-hidden="true">
+      <span class="promo-text" data-ru="🔥 СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ — 2 ТУРА + 3-Й В ПОДАРОК" data-en="🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE" data-tr="🔥 ÖZEL TEKLİF — 2 TUR AL, 3. TUR HEDİYE" data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN, DIE 3. GRATIS" data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI, 3. GRATIS">🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE</span>
+      <span class="promo-dot" aria-hidden="true">◆</span>
+      <span class="promo-slogan">TRAVEL WITH LOVE. TRAVEL WITH US.</span>
+      <span class="promo-dot" aria-hidden="true">◆</span>
+      <span class="promo-services">PRIVATE TOURS • VIP TRANSFERS • FAMILY EXPERIENCES</span>
+      <span class="promo-dot" aria-hidden="true">◆</span>
+    </div>
   </div>
 </div>
 <main class="tp-shell so-tp-shell so-premium-main">
