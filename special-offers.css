@@ -8586,6 +8586,9 @@ body.so-premium-body .gift-ending .heart-line span{
 .heart-price-strip b{font:800 8px/1 Arial,sans-serif;color:#8397a7;letter-spacing:.10em}
 .heart-price-strip em{margin-top:5px;font:800 14px/1 Arial,sans-serif;color:#fff}
 .heart-price-strip span:last-child em{color:#f3c66d}
+.heart-claim-trigger{cursor:pointer;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+.heart-claim-trigger:hover,.heart-claim-trigger:focus-visible{border-color:rgba(243,198,109,.72)!important;box-shadow:0 0 0 1px rgba(243,198,109,.18),0 8px 26px rgba(0,0,0,.24);outline:none;transform:translateY(-1px)}
+.heart-price-strip .heart-claim-trigger{background:linear-gradient(135deg,rgba(6,104,80,.42),rgba(3,38,39,.70))!important}
 .heart-offer-actions{display:grid!important;grid-template-columns:1fr 1fr;gap:8px!important}
 .heart-offer-actions .heart-claim-main{grid-column:1/-1;min-height:46px}
 .heart-offer-actions .btn{min-width:0!important;padding:11px 12px!important;font-size:9px!important}

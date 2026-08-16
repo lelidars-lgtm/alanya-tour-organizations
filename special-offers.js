@@ -261,6 +261,10 @@ function buildJourneyCard(){
   const offerPrice=activeRandomTour.price?activeRandomTour.price*(1-discount/100):null;
   dockCardTitle.textContent=title; dockCardText.textContent=text;
   flyCardTitle.textContent=title; flyCardText.textContent=text;
+  if(dockCard){
+    dockCard.setAttribute('href',activeRandomTour.url);
+    dockCard.setAttribute('aria-label',`Open ${activeRandomTour.title}`);
+  }
   const bg=`url("${activeRandomTour.image}")`;
   if(flyCardThumb) flyCardThumb.style.backgroundImage=bg;
   if(dockCardThumb) dockCardThumb.style.backgroundImage=bg;
@@ -794,6 +798,17 @@ window.addEventListener('resize',()=>{
 });
 
 requestPersonalOffer?.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation();openHeartClaimModal();});
+document.querySelectorAll('#heartOfferTrigger,#heartPriceTrigger').forEach(trigger=>{
+  const claim=e=>{
+    e.preventDefault();
+    e.stopPropagation();
+    openHeartClaimModal();
+  };
+  trigger.addEventListener('click',claim);
+  trigger.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){claim(e)}
+  });
+});
 
 // ===== HEART OFFER COMMERCIAL FLOW =====
 const heartEligibilityModal=document.getElementById('heartEligibilityModal');
