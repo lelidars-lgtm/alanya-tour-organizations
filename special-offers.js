@@ -1431,9 +1431,9 @@ if (canvas && globeShell && globeZone3D) {
           const ng=Math.pow(Math.max(0,nightRgb[1]/255-.10),0.82)*255*cityMask;
           const nb=Math.pow(Math.max(0,nightRgb[2]/255-.10),0.82)*255*cityMask;
           const emissive=.10+nightSide*1.52+duskBand*.34;
-          pixels[idx]=Math.min(255,rgb[0]*.075 + nr*emissive*1.18 + 3*rim);
-          pixels[idx+1]=Math.min(255,rgb[1]*.075 + ng*emissive*.96 + 6*rim);
-          pixels[idx+2]=Math.min(255,rgb[2]*.080 + nb*emissive*.52 + 12*rim);
+          pixels[idx]=Math.min(255,rgb[0]*.245 + nr*emissive*1.18 + 3*rim);
+          pixels[idx+1]=Math.min(255,rgb[1]*.240 + ng*emissive*.96 + 6*rim);
+          pixels[idx+2]=Math.min(255,rgb[2]*.250 + nb*emissive*.52 + 12*rim);
           pixels[idx+3]=255;
         }
       }
@@ -1559,9 +1559,9 @@ if (canvas && globeShell && globeZone3D) {
            supplies the visible city lights directly over the same UVs. */
         /* Exact supplied satellite map, only darkened here. No replacement
            material and no cyan recolouring. */
-        vec3 mappedDay = dayTex * vec3(0.14, 0.14, 0.14);
+        vec3 mappedDay = pow(dayTex, vec3(1.08)) * vec3(0.43, 0.41, 0.40);
         vec3 surface = mix(procedural * 0.74, mappedDay, uTextureMix);
-        surface *= 0.28 + diffuse * 0.30;
+        surface *= 0.46 + diffuse * 0.34;
 
         /* Brighter night lights with stronger coastline/city clusters.
            Using an exponent below 1.0 lifts mid-level light values so
