@@ -1425,13 +1425,15 @@ if (canvas && globeShell && globeZone3D) {
           const duskBand=1-Math.max(0,Math.min(1,(softLight-0.10)/0.52));
           const rim=Math.pow(1-z,2.4);
           const idx=(py*N+px)*4;
-          const nr=Math.pow(nightRgb[0]/255,0.64)*255;
-          const ng=Math.pow(nightRgb[1]/255,0.64)*255;
-          const nb=Math.pow(nightRgb[2]/255,0.64)*255;
-          const emissive=.34+nightSide*3.65+duskBand*.92;
-          pixels[idx]=Math.min(255,rgb[0]*.075 + nr*emissive*1.46 + 3*rim);
-          pixels[idx+1]=Math.min(255,rgb[1]*.075 + ng*emissive*1.20 + 6*rim);
-          pixels[idx+2]=Math.min(255,rgb[2]*.080 + nb*emissive*.64 + 12*rim);
+          const nightLuma=(nightRgb[0]*.2126+nightRgb[1]*.7152+nightRgb[2]*.0722)/255;
+          const cityMask=Math.max(0,Math.min(1,(nightLuma-.15)/.38));
+          const nr=Math.pow(Math.max(0,nightRgb[0]/255-.10),0.82)*255*cityMask;
+          const ng=Math.pow(Math.max(0,nightRgb[1]/255-.10),0.82)*255*cityMask;
+          const nb=Math.pow(Math.max(0,nightRgb[2]/255-.10),0.82)*255*cityMask;
+          const emissive=.10+nightSide*1.52+duskBand*.34;
+          pixels[idx]=Math.min(255,rgb[0]*.075 + nr*emissive*1.18 + 3*rim);
+          pixels[idx+1]=Math.min(255,rgb[1]*.075 + ng*emissive*.96 + 6*rim);
+          pixels[idx+2]=Math.min(255,rgb[2]*.080 + nb*emissive*.52 + 12*rim);
           pixels[idx+3]=255;
         }
       }
@@ -1566,13 +1568,17 @@ if (canvas && globeShell && globeZone3D) {
            earth_lights_2048 becomes visibly richer on the night side. */
         float nightSide = pow(1.0 - softLight, 1.42);
         float duskBand = 1.0 - smoothstep(0.10, 0.62, softLight);
-        vec3 concentratedLights = pow(max(nightTex, vec3(0.0)), vec3(0.62));
-        vec3 haloLights = pow(max(nightHalo, vec3(0.0)), vec3(0.72));
-        vec3 nightGold = concentratedLights * vec3(4.40, 3.50, 1.72);
-        vec3 nightBloom = haloLights * vec3(1.82, 1.32, 0.54);
-        float emissiveVisibility = 0.34 + nightSide * 3.65 + duskBand * 0.92;
+        float nightLuma = dot(nightTex, vec3(0.2126, 0.7152, 0.0722));
+        float haloLuma = dot(nightHalo, vec3(0.2126, 0.7152, 0.0722));
+        float cityMask = smoothstep(0.15, 0.53, nightLuma);
+        float haloMask = smoothstep(0.18, 0.62, haloLuma);
+        vec3 concentratedLights = pow(max(nightTex - vec3(0.10), vec3(0.0)), vec3(0.82)) * cityMask;
+        vec3 haloLights = pow(max(nightHalo - vec3(0.12), vec3(0.0)), vec3(0.92)) * haloMask;
+        vec3 nightGold = concentratedLights * vec3(2.35, 1.88, 0.92);
+        vec3 nightBloom = haloLights * vec3(0.72, 0.50, 0.20);
+        float emissiveVisibility = 0.10 + nightSide * 1.52 + duskBand * 0.34;
         vec3 cityGlow = nightGold * emissiveVisibility * uTextureMix;
-        vec3 cityBlend = nightBloom * (0.32 + nightSide * 1.18 + duskBand * 0.54) * uTextureMix;
+        vec3 cityBlend = nightBloom * (0.08 + nightSide * 0.54 + duskBand * 0.18) * uTextureMix;
 
         vec3 cyanRim = vec3(0.06, 0.055, 0.045) * fresnel * 0.16;
         vec3 blueAtmosphere = vec3(0.018, 0.020, 0.024) * limb * 0.10;
