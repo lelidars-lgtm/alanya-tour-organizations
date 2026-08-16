@@ -1419,7 +1419,7 @@ if (canvas && globeShell && globeZone3D) {
           const nightRgb=sampleNightTexture(ox,oy,oz);
           const lightDot=nx*lx+ny*ly+z*lz;
           const diffuse=Math.max(0,lightDot);
-          const shade=0.10+0.54*diffuse;
+          const shade=0.035+0.24*diffuse;
           const softLight=Math.max(0,Math.min(1,(lightDot+0.20)/0.98));
           const nightSide=Math.pow(1-softLight,1.42);
           const duskBand=1-Math.max(0,Math.min(1,(softLight-0.10)/0.52));
@@ -1428,9 +1428,9 @@ if (canvas && globeShell && globeZone3D) {
           const nr=Math.pow(nightRgb[0]/255,0.88)*255;
           const ng=Math.pow(nightRgb[1]/255,0.88)*255;
           const nb=Math.pow(nightRgb[2]/255,0.88)*255;
-          pixels[idx]=Math.min(255,rgb[0]*shade + nr*nightSide*2.42 + nr*duskBand*0.34 + 10*rim);
-          pixels[idx+1]=Math.min(255,rgb[1]*shade + ng*nightSide*1.92 + ng*duskBand*0.28 + 120*rim);
-          pixels[idx+2]=Math.min(255,rgb[2]*shade + nb*nightSide*1.08 + nb*duskBand*0.16 + 255*rim);
+          pixels[idx]=Math.min(255,rgb[0]*shade + nr*nightSide*2.85 + nr*duskBand*0.72 + 8*rim);
+          pixels[idx+1]=Math.min(255,rgb[1]*shade + ng*nightSide*2.35 + ng*duskBand*0.58 + 58*rim);
+          pixels[idx+2]=Math.min(255,rgb[2]*shade + nb*nightSide*1.28 + nb*duskBand*0.30 + 128*rim);
           pixels[idx+3]=255;
         }
       }
@@ -1518,7 +1518,6 @@ if (canvas && globeShell && globeZone3D) {
       precision mediump float;
       uniform sampler2D uDayMap;
       uniform sampler2D uNightMap;
-      uniform sampler2D uNormalMap;
       uniform vec3 uLightDir;
       uniform vec3 uCameraPos;
       uniform float uTextureMix;
@@ -1528,12 +1527,6 @@ if (canvas && globeShell && globeZone3D) {
       varying vec2 vUV;
       void main(){
         vec3 n = normalize(vNormal);
-        vec3 referenceAxis = abs(n.y) < 0.94 ? vec3(0.0, 1.0, 0.0) : vec3(1.0, 0.0, 0.0);
-        vec3 tangent = normalize(cross(referenceAxis, n));
-        vec3 bitangent = normalize(cross(n, tangent));
-        vec3 sampledNormal = texture2D(uNormalMap, vUV).xyz * 2.0 - 1.0;
-        sampledNormal.xy *= 0.10 * uTextureMix;
-        n = normalize(tangent * sampledNormal.x + bitangent * sampledNormal.y + n * max(sampledNormal.z, 0.28));
 
         vec3 l = normalize(uLightDir);
         vec3 v = normalize(uCameraPos - vWorldPos);
@@ -1552,7 +1545,9 @@ if (canvas && globeShell && globeZone3D) {
         vec3 procedural = mix(proceduralOcean, proceduralLand, landMask * 0.35);
 
         // V8: darker continents and much more visible earth_lights_2048.
-        vec3 mappedDay = dayTex * vec3(0.45, 0.53, 0.64);
+        /* The photographic map is intentionally very dark. The second map
+           supplies the visible city lights directly over the same UVs. */
+        vec3 mappedDay = dayTex * vec3(0.17, 0.19, 0.23);
         vec3 surface = mix(procedural * 0.74, mappedDay, uTextureMix);
         surface *= 0.09 + diffuse * 0.56;
 
@@ -1562,9 +1557,9 @@ if (canvas && globeShell && globeZone3D) {
         float nightSide = pow(1.0 - softLight, 1.42);
         float duskBand = 1.0 - smoothstep(0.10, 0.62, softLight);
         vec3 concentratedLights = pow(max(nightTex, vec3(0.0)), vec3(0.88));
-        vec3 nightGold = concentratedLights * vec3(2.10, 1.68, 0.98);
-        vec3 cityGlow = nightGold * nightSide * 2.45 * uTextureMix;
-        vec3 cityBlend = nightGold * duskBand * 0.46 * uTextureMix;
+        vec3 nightGold = concentratedLights * vec3(2.55, 2.12, 1.22);
+        vec3 cityGlow = nightGold * nightSide * 2.85 * uTextureMix;
+        vec3 cityBlend = nightGold * duskBand * 0.72 * uTextureMix;
 
         vec3 cyanRim = vec3(0.03, 0.62, 1.0) * fresnel * 1.48;
         vec3 blueAtmosphere = vec3(0.02, 0.30, 0.72) * limb * 0.55;
@@ -1639,8 +1634,9 @@ if (canvas && globeShell && globeZone3D) {
           const z = sinTheta * sinPhi;
           positions.push(radius * x, radius * y, radius * z);
           normals.push(x, y, z);
-          // Reverse U so the Earth texture orientation matches the original Three.js globe.
-          uvs.push(1 - lon / lonBands, 1 - lat / latBands);
+          // North must sample the TOP of the equirectangular map. The previous
+          // `1 - lat` value flipped the entire globe vertically.
+          uvs.push(1 - lon / lonBands, lat / latBands);
         }
       }
 
@@ -1834,7 +1830,6 @@ if (canvas && globeShell && globeZone3D) {
       model: gl.getUniformLocation(sphereProgram, 'uModel'),
       dayMap: gl.getUniformLocation(sphereProgram, 'uDayMap'),
       nightMap: gl.getUniformLocation(sphereProgram, 'uNightMap'),
-      normalMap: gl.getUniformLocation(sphereProgram, 'uNormalMap'),
       lightDir: gl.getUniformLocation(sphereProgram, 'uLightDir'),
       cameraPos: gl.getUniformLocation(sphereProgram, 'uCameraPos'),
       textureMix: gl.getUniformLocation(sphereProgram, 'uTextureMix'),
@@ -1851,13 +1846,11 @@ if (canvas && globeShell && globeZone3D) {
 
     const dayTexture = createSolidTexture(20, 76, 128, 255);
     const nightTexture = createSolidTexture(0, 8, 20, 255);
-    const normalTexture = createSolidTexture(128, 128, 255, 255);
     let textureMix = 0;
 
     Promise.all([
       loadImageIntoTexture('assets/globe/earth_atmos_2048.jpg', dayTexture),
-      loadImageIntoTexture('assets/globe/earth_lights_2048.png', nightTexture),
-      loadImageIntoTexture('assets/globe/earth_normal_2048.jpg', normalTexture)
+      loadImageIntoTexture('assets/globe/earth_lights_2048.png', nightTexture)
     ]).then(() => {
       textureMix = 1;
       globeZone3D.dataset.globeTextures = 'local-ready';
@@ -1940,9 +1933,6 @@ if (canvas && globeShell && globeZone3D) {
       gl.activeTexture(gl.TEXTURE1);
       gl.bindTexture(gl.TEXTURE_2D, nightTexture);
       gl.uniform1i(sphereLoc.nightMap, 1);
-      gl.activeTexture(gl.TEXTURE2);
-      gl.bindTexture(gl.TEXTURE_2D, normalTexture);
-      gl.uniform1i(sphereLoc.normalMap, 2);
 
       gl.disable(gl.BLEND);
       gl.enable(gl.DEPTH_TEST);
