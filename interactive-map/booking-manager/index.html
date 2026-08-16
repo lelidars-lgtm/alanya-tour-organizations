@@ -65,19 +65,8 @@ function guestName(r){return r.__kind==='trip'?r.guest_name:r.client_name}
 function phone(r){return r.__kind==='trip'?r.phone:r.client_whatsapp}
 function toursOf(r){return r.__kind==='trip'?(Array.isArray(r.tours)?r.tours:[]):(Array.isArray(r.selected_tours)?r.selected_tours:[])}
 function statusText(r){return r.__kind==='trip'?String(r.status||'new').toUpperCase():String(r.status||'PENDING').toUpperCase()}
-function sourceText(r){if(r.__kind!=='trip')return 'LEGACY REQUEST';return String(r.source||'trip-planner').toLowerCase()==='interactive-map'?'INTERACTIVE MAP':'TRIP PLANNER'}
+function sourceText(r){if(r.__kind!=='trip')return 'LEGACY REQUEST';const s=String(r.source||'trip-planner').toLowerCase();return s==='interactive-map'?'INTERACTIVE MAP':'TRIP PLANNER'}
 function ticketUrl(r,i){if(r.__kind!=='trip'||!r.public_token)return '#';return `${cfg.siteBaseUrl}/e-ticket.html?token=${encodeURIComponent(r.public_token)}&tour=${Number(i)||0}`}
-function legacyTicketUrl(r,t,i){
-  const params=new URLSearchParams({
-    ticketNo:r.ticket_number||r.request_number||`TKT-${i+1}`,
-    name:r.client_name||'',hotel:r.hotel||'',room:r.room||'',
-    guests:`${r.adults||0} Adults${Number(r.children||0)?` / ${r.children} Children${r.child_ages?` — ages ${r.child_ages}`:''}`:''}`,
-    tour:t.title||'Tour',date:t.confirmed_date||t.preferred_date||'To be confirmed',
-    pickup:t.pickup||r.pickup||'Hotel Lobby',time:t.time||'To be confirmed',
-    total:t.confirmed_price||t.price||r.final_price||'To be confirmed'
-  });
-  return `${cfg.siteBaseUrl}/e-ticket.html?${params.toString()}`;
-}
 
 function showLogin(message=''){$('loginView').classList.remove('hidden');$('managerView').classList.add('hidden');if(message)$('loginStatus').textContent=message}
 function showManager(email){$('loginView').classList.add('hidden');$('managerView').classList.remove('hidden');$('ownerLabel').textContent=email}
@@ -117,7 +106,7 @@ async function load(){
   const activeId=current?.id||null,activeKind=current?.__kind||null;
   const [tripResult,legacyResult]=await Promise.allSettled([fetchTripBookings(),fetchLegacyBookings()]);
   const all=[];
-  if(tripResult.status==='fulfilled')all.push(...tripResult.value);else loadWarnings.push('Новые заявки TRIP PLANNER: '+(tripResult.reason?.message||tripResult.reason));
+  if(tripResult.status==='fulfilled')all.push(...tripResult.value);else loadWarnings.push('Новые заявки Trip Planner / Interactive Map: '+(tripResult.reason?.message||tripResult.reason));
   if(legacyResult.status==='fulfilled')all.push(...legacyResult.value);else loadWarnings.push('Старые заявки: '+(legacyResult.reason?.message||legacyResult.reason));
   rows=all.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
   const refreshed=activeId?rows.find(x=>x.__kind===activeKind&&x.id===activeId)||null:null;
@@ -153,11 +142,11 @@ function tripDetail(x){
   const tours=toursOf(x);
   const kids=String(x.children||'').trim()||'Нет';
   const confirmed=String(x.status).toLowerCase()==='confirmed';
-  return `<div class="manager-only"><span class="status ${cssStatus(x)}">${esc(statusText(x))}</span><h2>${esc(x.request_no)}</h2><div class="sub">${niceDate(x.created_at)} · ${sourceText(x)}</div><div class="facts"><div class="fact"><b>КЛИЕНТ</b>${esc(x.guest_name)}</div><div class="fact"><b>WHATSAPP</b>${esc(x.phone)}</div><div class="fact"><b>ОТЕЛЬ / КОМНАТА</b>${esc(x.hotel||'—')} · ${esc(x.room||'—')}</div><div class="fact"><b>ОТДЫХ</b>${esc(x.travel_start||'—')} — ${esc(x.travel_end||'—')}</div><div class="fact"><b>ГОСТИ</b>${esc(x.adults)} взрослых · дети/возраст: ${esc(kids)}</div><div class="fact"><b>ЯЗЫК</b>${esc(x.language||'—')}</div><div class="fact"><b>ВАЖНО</b>Беременность: ${x.pregnancy?'Да':'Нет'} · Пожилые: ${x.elderly?'Да':'Нет'}</div><div class="fact"><b>КОЛЯСКА / МОБИЛЬНОСТЬ</b>${esc(x.mobility||'Нет')}</div></div><h3>Экскурсии из конструктора</h3><div class="tours">${tours.map((t,i)=>tripTourView(t,i,true)).join('')}</div><div class="field"><label>ЗАМЕТКА МЕНЕДЖЕРА</label><textarea id="managerNotes">${esc(x.manager_notes||'')}</textarea></div><div class="actions"><button class="btn blue" id="saveBtn">СОХРАНИТЬ ИЗМЕНЕНИЯ</button><button class="btn green" id="confirmBtn">ПОДТВЕРДИТЬ И СОЗДАТЬ БИЛЕТ</button><button class="btn red" id="cancelBtn">ОТМЕНИТЬ</button></div></div>${confirmed?ticketZone(x):'<div class="notice" style="margin-top:16px">Электронный билет появится здесь сразу после подтверждения заявки.</div>'}`;
+  return `<div class="manager-only"><span class="status ${cssStatus(x)}">${esc(statusText(x))}</span><h2>${esc(x.request_no)}</h2><div class="sub">${niceDate(x.created_at)} · ${esc(sourceText(x))}</div><div class="facts"><div class="fact"><b>КЛИЕНТ</b>${esc(x.guest_name)}</div><div class="fact"><b>WHATSAPP</b>${esc(x.phone)}</div><div class="fact"><b>ОТЕЛЬ / КОМНАТА</b>${esc(x.hotel||'—')} · ${esc(x.room||'—')}</div><div class="fact"><b>ОТДЫХ</b>${esc(x.travel_start||'—')} — ${esc(x.travel_end||'—')}</div><div class="fact"><b>ГОСТИ</b>${esc(x.adults)} взрослых · дети/возраст: ${esc(kids)}</div><div class="fact"><b>ЯЗЫК</b>${esc(x.language||'—')}</div><div class="fact"><b>ВАЖНО</b>Беременность: ${x.pregnancy?'Да':'Нет'} · Пожилые: ${x.elderly?'Да':'Нет'}</div><div class="fact"><b>КОЛЯСКА / МОБИЛЬНОСТЬ</b>${esc(x.mobility||'Нет')}</div></div><h3>Экскурсии из конструктора</h3><div class="tours">${tours.map((t,i)=>tripTourView(t,i,true)).join('')}</div><div class="field"><label>ЗАМЕТКА МЕНЕДЖЕРА</label><textarea id="managerNotes">${esc(x.manager_notes||'')}</textarea></div><div class="actions"><button class="btn blue" id="saveBtn">СОХРАНИТЬ ИЗМЕНЕНИЯ</button><button class="btn green" id="confirmBtn">ПОДТВЕРДИТЬ И СОЗДАТЬ БИЛЕТ</button><button class="btn red" id="cancelBtn">ОТМЕНИТЬ</button></div></div>${confirmed?ticketZone(x):'<div class="notice" style="margin-top:16px">Электронный билет появится здесь сразу после подтверждения заявки.</div>'}`;
 }
 function ticketZone(x){
   const tours=toursOf(x);
-  return `<section class="ticket-zone"><h3>Электронные билеты</h3><div class="sub">Это тот же e-ticket, который получает клиент. Источник заявки: ${sourceText(x)}.</div>${tours.map((t,i)=>{const url=ticketUrl(x,i);return `<article class="ticket-card"><div class="ticket-card-head"><strong>${i+1}. ${esc(t.title||'Tour')}</strong><div class="ticket-card-actions"><a class="btn secondary" href="${esc(url)}" target="_blank" rel="noopener">ОТКРЫТЬ БИЛЕТ</a></div></div><iframe class="ticket-frame" loading="lazy" src="${esc(url)}" title="E-ticket ${i+1}"></iframe></article>`}).join('')}<div class="actions"><button class="btn green" id="sendTicketBtn">ОТПРАВИТЬ БИЛЕТЫ В WHATSAPP</button></div></section>`;
+  return `<section class="ticket-zone"><h3>Электронные билеты</h3><div class="sub">Это тот же e-ticket, который получает клиент. Данные берутся из подтверждённой заявки ${esc(sourceText(x))}.</div>${tours.map((t,i)=>{const url=ticketUrl(x,i);return `<article class="ticket-card"><div class="ticket-card-head"><strong>${i+1}. ${esc(t.title||'Tour')}</strong><div class="ticket-card-actions"><a class="btn secondary" href="${esc(url)}" target="_blank" rel="noopener">ОТКРЫТЬ БИЛЕТ</a></div></div><iframe class="ticket-frame" loading="lazy" src="${esc(url)}" title="E-ticket ${i+1}"></iframe></article>`}).join('')}<div class="actions"><button class="btn green" id="sendTicketBtn">ОТПРАВИТЬ БИЛЕТЫ В WHATSAPP</button></div></section>`;
 }
 function legacyTourHtml(t,i){return `<div class="tour"><strong>${i+1}. ${esc(t.title||'Tour')}</strong><div class="tour-meta">${t.price==null?'Цена по запросу':'€'+esc(t.price)} · ${esc(t.preferred_date||'дата гибкая')}</div></div>`}
 function legacyDetail(x){
@@ -167,18 +156,7 @@ function legacyDetail(x){
 function renderDetail(){
   if(!current){$('detail').innerHTML='<div class="empty">Выберите заявку</div>';return}
   $('detail').innerHTML=current.__kind==='trip'?tripDetail(current):legacyDetail(current);
-  if(current.__kind==='legacy'&&String(current.status).toUpperCase()==='CONFIRMED')replaceLegacyTicketPreview();
   bindDetail();
-}
-function replaceLegacyTicketPreview(){
-  const old=$('detail').querySelector('.legacy-ticket');
-  if(!old)return;
-  const oldActions=old.nextElementSibling?.classList.contains('actions')?old.nextElementSibling:null;
-  const list=toursOf(current);
-  const section=document.createElement('section');
-  section.className='ticket-zone';
-  section.innerHTML=`<h3>Электронные билеты</h3><div class="sub">Утверждённый электронный билет ALANYA TOUR ORGANIZATIONS. Для каждой экскурсии создаётся отдельный билет.</div>${list.map((t,i)=>{const url=legacyTicketUrl(current,t,i);return `<article class="ticket-card"><div class="ticket-card-head"><strong>${i+1}. ${esc(t.title||'Tour')}</strong><div class="ticket-card-actions"><a class="btn secondary" href="${esc(url)}" target="_blank" rel="noopener">ОТКРЫТЬ БИЛЕТ</a></div></div><iframe class="ticket-frame" loading="lazy" src="${esc(url)}" title="E-ticket ${i+1}"></iframe></article>`}).join('')}<div class="actions"><button class="btn green" id="sendLegacyBtn">ОТПРАВИТЬ БИЛЕТЫ В WHATSAPP</button></div>`;
-  old.replaceWith(section);oldActions?.remove();
 }
 function collectTripTours(){
   return toursOf(current).map((t,i)=>{
@@ -203,7 +181,7 @@ async function cancelTrip(){if(!confirm('Отменить заявку?'))return
 async function confirmLegacy(){const number=current.ticket_number||newTicketNo(),price=$('finalPrice')?.value||null,notes=$('managerNotes')?.value||'';const {error}=await db.from('bookings').update({status:'CONFIRMED',final_price:price,manager_notes:notes,confirmed_at:new Date().toISOString(),ticket_number:number,ticket_payload:{issued_at:new Date().toISOString()}}).eq('id',current.id);if(error)return alert(error.message);await load()}
 async function cancelLegacy(){if(!confirm('Отменить заявку?'))return;const {error}=await db.from('bookings').update({status:'CANCELLED'}).eq('id',current.id);if(error)return alert(error.message);await load()}
 function sendTripTickets(){const p=cleanPhone(current.phone);if(!p)return alert('В заявке нет номера WhatsApp клиента.');const links=toursOf(current).map((t,i)=>`${i+1}. ${t.title}\n${ticketUrl(current,i)}`);const msg=[`ALANYA TOUR ORGANIZATIONS — BOOKING CONFIRMED`,`Booking: ${current.request_no}`,`Ticket: ${current.ticket_no||''}`,``,...links,``,`Open each e-ticket to see confirmed pickup details, Weather & What to Bring.`].join('\n');window.open(`https://wa.me/${p}?text=${encodeURIComponent(msg)}`,'_blank','noopener')}
-function sendLegacy(){const links=toursOf(current).map((t,i)=>`${i+1}. ${t.title}\n${legacyTicketUrl(current,t,i)}`).join('\n\n');const msg=`ALANYA TOUR ORGANIZATIONS — BOOKING CONFIRMED\nBooking: ${current.request_number}\nTicket: ${current.ticket_number||''}\n\n${links}\n\nOpen each link to view the electronic ticket.`;window.open(`https://wa.me/${cleanPhone(current.client_whatsapp)}?text=${encodeURIComponent(msg)}`,'_blank','noopener')}
+function sendLegacy(){const tours=toursOf(current).map((t,i)=>`${i+1}. ${t.title} — ${t.preferred_date||'Flexible date'}`).join('\n');const msg=`ELECTRONIC TICKET — ALANYA TOUR ORGANIZATIONS\nTicket: ${current.ticket_number}\nClient: ${current.client_name}\nHotel: ${current.hotel}\nGuests: ${current.adults} adult(s), ${current.children} child(ren)\n\nTOURS\n${tours}\n\nTotal: ${current.final_price==null?'Confirmed by manager':'€'+current.final_price}\n${current.manager_notes||''}`;window.open(`https://wa.me/${cleanPhone(current.client_whatsapp)}?text=${encodeURIComponent(msg)}`,'_blank','noopener')}
 function bindDetail(){
   if(current?.__kind==='trip'){
     // Любое изменение в форме блокирует её перерисовку автообновлением до SAVE/CONFIRM.
