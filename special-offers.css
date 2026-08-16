@@ -9592,9 +9592,9 @@ body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas
     drop-shadow(0 0 34px rgba(2,7,16,.72))!important;
 }
 body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-aura-ring{
-  opacity:.34!important;
-  filter:blur(25px) saturate(.40)!important;
-  background:radial-gradient(circle,rgba(243,198,109,.07),rgba(3,9,20,.18) 58%,transparent 74%)!important;
+  opacity:.16!important;
+  filter:blur(28px) saturate(.34)!important;
+  background:radial-gradient(circle,transparent 0 54%,rgba(243,198,109,.055) 63%,transparent 75%)!important;
 }
 body.so-premium-body #journey .globe-zone:not(.final-turkiye) .reference-depth-haze{
   opacity:.18!important;

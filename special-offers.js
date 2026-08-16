@@ -1431,9 +1431,9 @@ if (canvas && globeShell && globeZone3D) {
           const ng=Math.pow(Math.max(0,nightRgb[1]/255-.10),0.82)*255*cityMask;
           const nb=Math.pow(Math.max(0,nightRgb[2]/255-.10),0.82)*255*cityMask;
           const emissive=.10+nightSide*1.52+duskBand*.34;
-          pixels[idx]=Math.min(255,rgb[0]*.245 + nr*emissive*1.18 + 3*rim);
-          pixels[idx+1]=Math.min(255,rgb[1]*.240 + ng*emissive*.96 + 6*rim);
-          pixels[idx+2]=Math.min(255,rgb[2]*.250 + nb*emissive*.52 + 12*rim);
+          pixels[idx]=Math.min(255,rgb[0]*.34 + nr*emissive*1.08 + 3*rim);
+          pixels[idx+1]=Math.min(255,rgb[1]*.35 + ng*emissive*.98 + 6*rim);
+          pixels[idx+2]=Math.min(255,rgb[2]*.38 + nb*emissive*.76 + 12*rim);
           pixels[idx+3]=255;
         }
       }
@@ -1559,9 +1559,9 @@ if (canvas && globeShell && globeZone3D) {
            supplies the visible city lights directly over the same UVs. */
         /* Exact supplied satellite map, only darkened here. No replacement
            material and no cyan recolouring. */
-        vec3 mappedDay = pow(dayTex, vec3(1.08)) * vec3(0.43, 0.41, 0.40);
+        vec3 mappedDay = pow(dayTex, vec3(1.04)) * vec3(0.58, 0.59, 0.63);
         vec3 surface = mix(procedural * 0.74, mappedDay, uTextureMix);
-        surface *= 0.46 + diffuse * 0.34;
+        surface *= 0.54 + diffuse * 0.36;
 
         /* Brighter night lights with stronger coastline/city clusters.
            Using an exponent below 1.0 lifts mid-level light values so
@@ -1574,8 +1574,8 @@ if (canvas && globeShell && globeZone3D) {
         float haloMask = smoothstep(0.18, 0.62, haloLuma);
         vec3 concentratedLights = pow(max(nightTex - vec3(0.10), vec3(0.0)), vec3(0.82)) * cityMask;
         vec3 haloLights = pow(max(nightHalo - vec3(0.12), vec3(0.0)), vec3(0.92)) * haloMask;
-        vec3 nightGold = concentratedLights * vec3(2.35, 1.88, 0.92);
-        vec3 nightBloom = haloLights * vec3(0.72, 0.50, 0.20);
+        vec3 nightGold = concentratedLights * vec3(2.15, 1.94, 1.46);
+        vec3 nightBloom = haloLights * vec3(0.68, 0.55, 0.34);
         float emissiveVisibility = 0.10 + nightSide * 1.52 + duskBand * 0.34;
         vec3 cityGlow = nightGold * emissiveVisibility * uTextureMix;
         vec3 cityBlend = nightBloom * (0.08 + nightSide * 0.54 + duskBand * 0.18) * uTextureMix;
