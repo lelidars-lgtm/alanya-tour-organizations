@@ -1054,7 +1054,112 @@ if(window.matchMedia('(pointer:fine)').matches){
   card.addEventListener('pointerleave',()=>card.style.transform='rotateY(0deg) rotateX(0deg)');
 }
 
-// Gift builder/live preview removed from page by design.
+// ===== GIFT CERTIFICATE -> EXISTING ATO BOOKING MANAGER =====
+const giftOptions=[...document.querySelectorAll('[data-gift-mode]')];
+const giftBuilder=document.getElementById('giftBuilder');
+const giftForm=document.getElementById('giftForm');
+const giftModeInput=document.getElementById('giftMode');
+const giftFreedomFields=document.getElementById('giftFreedomFields');
+const giftSignatureFields=document.getElementById('giftSignatureFields');
+const giftAmount=document.getElementById('giftAmount');
+const giftExperience=document.getElementById('giftExperience');
+const giftPreferredDate=document.getElementById('giftPreferredDate');
+const giftFlexibleDate=document.getElementById('giftFlexibleDate');
+const giftDeliveryDate=document.getElementById('giftDeliveryDate');
+const giftStatus=document.getElementById('giftStatus');
+const giftSubmit=document.getElementById('giftSubmit');
+let activeGiftMode='';
+
+function setGiftStatus(message,type=''){
+  if(!giftStatus)return;
+  giftStatus.textContent=message||'';
+  giftStatus.classList.remove('is-error','is-success');
+  if(type)giftStatus.classList.add(`is-${type}`);
+}
+function giftDateText(value){
+  if(!value)return 'Manager confirmation';
+  try{return new Intl.DateTimeFormat(document.documentElement.lang||'en',{dateStyle:'medium'}).format(new Date(`${value}T12:00:00`))}catch(_){return value}
+}
+function updateGiftPreview(){
+  const recipient=document.getElementById('giftRecipientName')?.value.trim()||'YOUR RECIPIENT';
+  const amount=Number(giftAmount?.value||0);
+  const experience=giftExperience?.value.trim()||'YOUR CHOSEN EXPERIENCE';
+  const main=activeGiftMode==='signature'?experience:(amount>0?`€${amount.toLocaleString()}`:'CHOOSE VALUE');
+  const fieldLabel=activeGiftMode==='signature'?'EXPERIENCE':'AMOUNT';
+  document.querySelectorAll('[data-cert-field="fieldLabel"]').forEach(el=>el.textContent=fieldLabel);
+  document.querySelectorAll('[data-cert-field="mainValue"]').forEach(el=>el.textContent=main);
+  document.querySelectorAll('[data-cert-field="recipient"]').forEach(el=>el.textContent=recipient.toUpperCase());
+  document.querySelectorAll('[data-cert-field="validUntil"]').forEach(el=>el.textContent='VALID FOR 12 MONTHS AFTER ISSUE');
+  document.querySelectorAll('[data-cert-field="number"]').forEach(el=>el.textContent='ISSUED AFTER MANAGER CONFIRMATION');
+  document.querySelectorAll('[data-cert-field="description"]').forEach(el=>el.textContent=activeGiftMode==='signature'?'A selected travel experience. The final date is confirmed with our team.':'The recipient chooses the experience and suitable date later with our team.');
+  document.querySelectorAll('.certificate-live-layer').forEach(el=>el.classList.toggle('signature',activeGiftMode==='signature'));
+  const mode=document.getElementById('giftPreviewMode');if(mode)mode.textContent=activeGiftMode==='signature'?'Signature Gift':'Freedom Gift';
+  const rec=document.getElementById('giftPreviewRecipient');if(rec)rec.textContent=recipient;
+  const delivery=document.getElementById('giftPreviewDelivery');if(delivery)delivery.textContent=giftDateText(giftDeliveryDate?.value);
+}
+function selectGiftMode(mode){
+  activeGiftMode=mode;
+  giftModeInput.value=mode;
+  giftOptions.forEach(btn=>btn.classList.toggle('selected',btn.dataset.giftMode===mode));
+  giftBuilder.hidden=false;
+  giftFreedomFields.hidden=mode!=='freedom';
+  giftSignatureFields.hidden=mode!=='signature';
+  giftAmount.required=mode==='freedom';
+  giftExperience.required=mode==='signature';
+  updateGiftPreview();
+  giftBuilder.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+const giftMini=document.getElementById('giftLiveCertificateMini');
+if(giftMini&&card){
+  const clone=card.cloneNode(true);clone.removeAttribute('id');
+  clone.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));
+  giftMini.appendChild(clone);
+}
+giftOptions.forEach(btn=>btn.addEventListener('click',()=>selectGiftMode(btn.dataset.giftMode)));
+document.querySelectorAll('[data-gift-amount]').forEach(btn=>btn.addEventListener('click',()=>{
+  giftAmount.value=btn.dataset.giftAmount;
+  document.querySelectorAll('[data-gift-amount]').forEach(x=>x.classList.toggle('selected',x===btn));
+  updateGiftPreview();
+}));
+giftFlexibleDate?.addEventListener('change',()=>{
+  giftPreferredDate.disabled=giftFlexibleDate.checked;
+  if(giftFlexibleDate.checked)giftPreferredDate.value='';
+  updateGiftPreview();
+});
+giftForm?.querySelectorAll('input,textarea').forEach(el=>el.addEventListener('input',updateGiftPreview));
+if(giftDeliveryDate)giftDeliveryDate.min=new Date().toISOString().slice(0,10);
+if(giftPreferredDate)giftPreferredDate.min=new Date().toISOString().slice(0,10);
+
+giftForm?.addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(!activeGiftMode){setGiftStatus('Choose Freedom Gift or Signature Gift.','error');return}
+  const fd=new FormData(giftForm);
+  const buyerPhone=String(fd.get('buyerPhone')||'');
+  const normalized=normalizeHeartPhoneClient(buyerPhone);
+  if(normalized.length<10||normalized.length>15){setGiftStatus('Enter a valid WhatsApp number including country code.','error');return}
+  giftSubmit.disabled=true;
+  setGiftStatus('Saving the Gift Certificate request in ATO Booking Manager…');
+  try{
+    const result=await heartRpc('gift_certificate_request_v2',{
+      p_mode:activeGiftMode,
+      p_buyer_name:String(fd.get('buyerName')||'').trim(),
+      p_buyer_phone:normalized,
+      p_recipient_name:String(fd.get('recipientName')||'').trim(),
+      p_recipient_contact:String(fd.get('recipientContact')||'').trim(),
+      p_amount_eur:activeGiftMode==='freedom'?Number(fd.get('amountEur')||0):null,
+      p_experience:activeGiftMode==='signature'?String(fd.get('experience')||'').trim():'',
+      p_preferred_date:activeGiftMode==='signature'&&!giftFlexibleDate.checked?(fd.get('preferredDate')||null):null,
+      p_delivery_date:fd.get('deliveryDate')||null,
+      p_personal_message:String(fd.get('personalMessage')||'').trim()
+    });
+    const certificateUrl=`${location.origin}/gift-certificate.html?token=${encodeURIComponent(result.publicToken)}`;
+    setGiftStatus(`Request ${result.requestNo} is PENDING in ATO Booking Manager. The certificate activates after manager confirmation.`,'success');
+    const lines=['🎁 GIFT CERTIFICATE REQUEST','',`Request: ${result.requestNo}`,'Status: PENDING — manager confirmation required',`Type: ${activeGiftMode==='freedom'?'Freedom Gift':'Signature Gift'}`,`Gift: ${result.gift}`,`Recipient: ${result.recipientName}`,`Send certificate to: ${result.recipientContact}`,`From: ${result.buyerName}`,'',`Electronic certificate: ${certificateUrl}`,'','The certificate becomes ACTIVE and receives its ATO-GIFT code only after manager confirmation.'];
+    setTimeout(()=>window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(lines.join('\n'))}`,'_blank','noopener'),250);
+  }catch(err){setGiftStatus(err.message||'Could not save the Gift Certificate request.','error')}
+  finally{giftSubmit.disabled=false}
+});
 
 const allowedLangs = ["ru", "en", "tr", "de", "pl"];
   const savedLang = localStorage.getItem("atoLanguage");

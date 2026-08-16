@@ -1,0 +1,33 @@
+ALANYA TOUR ORGANIZATIONS — восстановление Special Offers + ATO Manager
+
+ЧТО ВОССТАНОВЛЕНО
+1. Journey: расчет скидки, проверка телефона, персональное предложение и запись HEART-... в действующий ATO Booking Manager.
+2. Gift: два выбора — Freedom Gift и Signature Gift, форма получателя, дата отправления и контакт получателя.
+3. Электронный сертификат: отдельная страница /gift-certificate.html?token=..., статус REQUESTED до подтверждения и ACTIVE после подтверждения менеджером.
+4. ATO Manager: панель Gift Certificates, контакт получателя, ссылка на сертификат и погашение ACTIVE-сертификата.
+
+ПУБЛИКАЦИЯ ФАЙЛОВ
+- special-offers.html
+- special-offers.js
+- special-offers.css
+- special-offers-bootstrap.js
+- gift-certificate.html
+- booking-manager-gifts-addon.js
+- assets/gift-certificate-template.png
+
+В существующем booking-manager/index.html перед </body> добавить:
+<script src="/booking-manager-gifts-addon.js"></script>
+
+SUPABASE — ВЫПОЛНИТЬ В SQL EDITOR ПО ПОРЯДКУ
+1. HEART-OFFER-ATO-BOOKING-MANAGER.sql
+2. GIFT-CERTIFICATE-ATO-BOOKING-MANAGER.sql
+3. SPECIAL-OFFERS-ATO-MANAGER-UPGRADE.sql
+
+Все три SQL относятся к тому же Supabase и той же таблице public.bookings, которые уже использует ATO Booking Manager. Второй кабинет не создается.
+
+БЫСТРАЯ ПРОВЕРКА ПОСЛЕ ПУБЛИКАЦИИ
+1. Journey: пройти выбор до телефона — в менеджере должна появиться заявка HEART-... со статусом PENDING.
+2. Gift: выбрать один из двух типов, заполнить получателя — появляется GIFT-... PENDING.
+3. Открыть ссылку сертификата: до подтверждения виден REQUESTED.
+4. Подтвердить GIFT-заявку в существующем менеджере: сертификат получает код ATO-GIFT-... и статус ACTIVE.
+5. В панели GIFT CERTIFICATES проверить контакт получателя, COPY LINK и MARK REDEEMED.
