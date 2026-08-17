@@ -28,7 +28,7 @@
 
 
 
-<link rel="stylesheet" href="special-offers.css?v=ato-confetti-visible-v16"/>
+<link rel="stylesheet" href="special-offers.css"/>
 
 <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=NvHDYkA2XsfxW2t6_3razOXVJsGi9TlQ-VLEPpLRoalsE1B0P-jBZ9tLM7BuRvMGJDp-LIrm9tFY0CA902s-bDJoRWBoM2hY6zDjV7mKfPAEG-X6FwHCUuU6252-ANaP6bgpVdSk3GyCL9UmzRrCmBKWpU2nK4M_gsDhZZn1gY52udQ5kD--4H7NaocuDJoThUDCxxi-29yt3zq8PMHOHfJLRwbQpjXtUKkaP1mh1GQdsRz8VglEy2OBZRPUFd9_E-Illmgd3x5X14K5uXqnsQ" charset="UTF-8"></script><style id="ato-working-header-patch">
 /* ===== ATO WORKING HEADER PATCH ===== */
@@ -206,6 +206,8 @@ body.ato-header-search-open{overflow-x:hidden}
 
 </head>
 <body class="so-premium-body">
+<script src="/assets/js/ato-global-header.js" data-ato-global-header></script>
+
 
 <div class="ato-flight-overlay" id="atoFlightOverlay" aria-hidden="true">
   <svg class="ato-flight-svg" id="atoFlightSvg">
@@ -216,151 +218,9 @@ body.ato-header-search-open{overflow-x:hidden}
     <svg viewBox="0 0 32 32" role="presentation"><path d="M30 15.2 18.8 11 14.8 2.7c-.6-1.2-1.7-2-3-2.1-1-.1-1.8.8-1.4 1.8l2.3 7L5.3 7.9 2.4 5 1 5.8l2.6 6.1L1 18l1.4.8 2.9-2.9 7.4-1.6-2.3 7c-.4 1 .4 1.9 1.4 1.8 1.3-.1 2.4-.9 3-2.1l4-8.3L30 18.5c1.5-.5 1.5-2.8 0-3.3Z"/></svg>
   </div>
 </div>
-<header class="header">
-  <a href="index.html" class="logo" aria-label="ALANYA TOUR ORGANIZATIONS — Home">
-    <img src="logo.png" alt="ALANYA TOUR ORGANIZATIONS">
 
-    <div class="logo-text">
-      <div class="logo-title">ALANYA TOUR</div>
-      <div class="logo-subtitle">ORGANIZATIONS</div>
-    </div>
-  </a>
 
-  <div class="mobile-menu-btn" id="mobileMenuBtn">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
 
-  <div class="mobile-overlay" id="mobileOverlay"></div>
-
-  <nav class="nav" aria-label="Main navigation">
-    <div class="nav-item nav-dropdown ato-header-dropdown" data-header-dropdown="tours">
-      <button class="ato-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
-        <span>TOURS</span>
-        <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10L12 15L17 10"/></svg>
-      </button>
-      <div class="dropdown-menu ato-tours-menu" role="menu">
-        <a href="sea-experiences.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18c2.2 0 2.2 1.5 4.4 1.5S9.6 18 11.8 18s2.2 1.5 4.4 1.5S18.4 18 20.6 18"/><path d="M12 4v10"/><path d="M12 5 6.5 12H12"/><path d="M12 6.5 17.5 12H12"/></svg></span>SEA EXPERIENCES</a>
-        <a href="extreme-adventure.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 2 5.5 13h5.2L9.8 22 18.5 9.7h-5.3z"/></svg></span>EXTREME &amp; ADVENTURE</a>
-        <a href="nature-adventures.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20c4.5-1 8-4.5 10-9"/><path d="M7 14c-2.2-3.5.4-7.7 8.8-9-1 8-4.7 11.3-8.8 9Z"/><path d="M13 9c1.7.1 3.7.8 5.8 2.1-2 4.8-5.2 6.4-8.2 5"/></svg></span>NATURE &amp; ADVENTURE</a>
-        <a href="history-culture.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 9 8-5 8 5"/><path d="M5 10h14"/><path d="M7 10v8M11 10v8M15 10v8M19 10v8"/><path d="M4 19h16M3 21h18"/></svg></span>HISTORY &amp; CULTURE</a>
-        <a href="family-experiences.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="2.3"/><circle cx="16" cy="8" r="2.3"/><circle cx="12" cy="13" r="1.8"/><path d="M3.5 19c.5-3.5 2.2-5.3 4.5-5.3 1.2 0 2.2.4 3 1.1M20.5 19c-.5-3.5-2.2-5.3-4.5-5.3-1.2 0-2.2.4-3 1.1"/><path d="M8.5 20c.4-2.6 1.6-4 3.5-4s3.1 1.4 3.5 4"/></svg></span>FAMILY EXPERIENCES</a>
-        <a href="water-sports.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8c2.2 0 2.2 1.5 4.4 1.5S9.6 8 11.8 8s2.2 1.5 4.4 1.5S18.4 8 20.6 8"/><path d="M3 13c2.2 0 2.2 1.5 4.4 1.5s2.2-1.5 4.4-1.5 2.2 1.5 4.4 1.5 2.2-1.5 4.4-1.5"/><path d="M3 18c2.2 0 2.2 1.5 4.4 1.5s2.2-1.5 4.4-1.5 2.2 1.5 4.4 1.5 2.2-1.5 4.4-1.5"/></svg></span>WATER SPORTS</a>
-        <a href="air-experiences.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9c2-4 5-6 8-6s6 2 8 6"/><path d="M4 9h16"/><path d="M4 9 10 16M20 9l-6 7"/><path d="M10 16h4l1 4h-6z"/></svg></span>AIR EXPERIENCES</a>
-        <a href="wellness-relax.html" role="menuitem"><span class="dropdown-icon ato-dropdown-svg-icon"><svg class="ato-cat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20c-4-2.5-6.5-5.8-6.5-9.2 2.9.2 5.1 1.4 6.5 3.5 1.4-2.1 3.6-3.3 6.5-3.5 0 3.4-2.5 6.7-6.5 9.2Z"/><path d="M12 14.3C9.8 11.7 9.8 8.8 12 5c2.2 3.8 2.2 6.7 0 9.3Z"/></svg></span>WELLNESS &amp; RELAX</a>
-      </div>
-    </div>
-
-    <a href="interactive-map/" class="nav-item">
-      <span>EXPLORE MAP</span>
-    </a>
-
-    <a href="trip-planner.html" class="nav-item" title="Compare tours and build your itinerary">
-      <span>TRIP PLANNER</span>
-    </a>
-
-    <a href="combo-deals.html" class="nav-item" title="Ready-made tour combinations">
-      <span>COMBO DEALS</span>
-    </a>
-
-    <a href="special-offers.html" class="nav-item special">
-      <span class="fire">🔥</span>
-      <span>SPECIAL OFFERS</span>
-    </a>
-
-    <a href="vip-service.html" class="nav-item">
-      <span>VIP SERVICE</span>
-    </a>
-
-    <div class="nav-item nav-dropdown ato-header-dropdown" data-header-dropdown="about">
-      <button class="ato-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">
-        <span>ABOUT US</span>
-        <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10L12 15L17 10"/></svg>
-      </button>
-
-      <div class="dropdown-menu ato-about-menu" role="menu">
-        <a href="index.html#about" role="menuitem">
-          <span class="dropdown-icon">◆</span>OUR COMPANY
-        </a>
-
-        <div class="ato-menu-group" aria-label="Licenses and certifications">
-          <div class="ato-menu-group-label"><span class="dropdown-icon">◇</span>LICENSES &amp; CERTIFICATIONS</div>
-          <a class="ato-subitem" href="legal-information.html" role="menuitem">Legal Information</a>
-          <a class="ato-subitem" href="https://www.tursab.org.tr/acenta-arama" target="_blank" rel="noopener" role="menuitem" title="Official TÜRSAB agency search — verify Belge No 2156">TÜRSAB Verification ↗</a>
-        </div>
-
-        <a href="contact.html" role="menuitem">
-          <span class="dropdown-icon">◎</span>CONTACT / COMPANY DETAILS
-        </a>
-      </div>
-    </div>
-
-    <button type="button" class="nav-item header-tour-search ato-search-trigger" id="headerTourSearch" aria-expanded="false" aria-controls="atoHeaderSearchShell">
-      <span class="ato-search-trigger-label">SEARCH</span>
-      <svg class="ato-search-trigger-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
-    </button>
-  </nav>
-
-  <button type="button" class="ato-mobile-search-trigger" id="atoMobileSearchTrigger" aria-label="Search tours" aria-expanded="false" aria-controls="atoHeaderSearchShell">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
-  </button>
-
-  <div class="ato-header-search-shell" id="atoHeaderSearchShell" aria-hidden="true">
-    <div class="ato-hs-bar">
-      <span class="ato-hs-search-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></span>
-      <input id="atoHeaderSmartSearch" type="search" autocomplete="off" spellcheck="false" placeholder="Search tours, places or experiences..." aria-label="Search tours, places or experiences">
-      <button type="button" class="ato-hs-filters" id="atoHeaderFilters"><span class="ato-hs-filters-label">FILTERS</span><b id="atoHeaderFilterCount">0</b></button>
-      <button type="button" class="ato-hs-close" id="atoHeaderSearchClose" aria-label="Close search">×</button>
-    </div>
-    <div class="ato-hs-panel" id="atoHeaderSearchPanel" role="region" aria-live="polite"></div>
-  </div>
-  <div class="language language-dropdown">
-    <svg class="globe-icon" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M3 12H21" />
-      <path d="M12 3C15 6 16.5 9 16.5 12C16.5 15 15 18 12 21" />
-      <path d="M12 3C9 6 7.5 9 7.5 12C7.5 15 9 18 12 21" />
-    </svg>
-
-    <span>EN</span>
-
-    <svg class="arrow-icon" viewBox="0 0 24 24">
-      <path d="M7 10L12 15L17 10" />
-    </svg>
-
-    <div class="language-menu">
-      <button class="language-close">×</button>
-
-      <a href="#" data-lang="ru">🇷🇺 Russian</a>
-      <a href="#" data-lang="en">🇬🇧 English</a>
-      <a href="#" data-lang="tr">🇹🇷 Turkish</a>
-      <a href="#" data-lang="de">🇩🇪 German</a>
-      <a href="#" data-lang="pl">🇵🇱 Polish</a>
-    </div>
-  </div>
-</header>
-<div class="ato-header-search-scrim" id="atoHeaderSearchScrim" aria-hidden="true"></div>
-<div class="promo-bar" id="atoPromoRibbon" aria-label="Special offers">
-  <div class="promo-track">
-    <div class="promo-group">
-      <span class="promo-text" data-ru="🔥 СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ — 2 ТУРА + 3-Й В ПОДАРОК" data-en="🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE" data-tr="🔥 ÖZEL TEKLİF — 2 TUR AL, 3. TUR HEDİYE" data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN, DIE 3. GRATIS" data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI, 3. GRATIS">🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE</span>
-      <span class="promo-dot" aria-hidden="true">◆</span>
-      <span class="promo-slogan">TRAVEL WITH LOVE. TRAVEL WITH US.</span>
-      <span class="promo-dot" aria-hidden="true">◆</span>
-      <span class="promo-services">PRIVATE TOURS • VIP TRANSFERS • FAMILY EXPERIENCES</span>
-      <span class="promo-dot" aria-hidden="true">◆</span>
-    </div>
-    <div class="promo-group" aria-hidden="true">
-      <span class="promo-text" data-ru="🔥 СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ — 2 ТУРА + 3-Й В ПОДАРОК" data-en="🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE" data-tr="🔥 ÖZEL TEKLİF — 2 TUR AL, 3. TUR HEDİYE" data-de="🔥 SONDERANGEBOT — 2 TOUREN BUCHEN, DIE 3. GRATIS" data-pl="🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI, 3. GRATIS">🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE</span>
-      <span class="promo-dot" aria-hidden="true">◆</span>
-      <span class="promo-slogan">TRAVEL WITH LOVE. TRAVEL WITH US.</span>
-      <span class="promo-dot" aria-hidden="true">◆</span>
-      <span class="promo-services">PRIVATE TOURS • VIP TRANSFERS • FAMILY EXPERIENCES</span>
-      <span class="promo-dot" aria-hidden="true">◆</span>
-    </div>
-  </div>
-</div>
 <main class="tp-shell so-tp-shell so-premium-main">
   <div class="so-page-orbits" aria-hidden="true">
     <span class="so-page-orbit so-page-orbit-1"></span>
@@ -1185,182 +1045,9 @@ body.ato-header-search-open{overflow-x:hidden}
 
 
 
-<script src="special-offers.js?v=ato-confetti-visible-v16"></script>
+<script src="special-offers.js"></script>
 
-<script id="ato-header-smart-search-js">
-(function(){
-'use strict';
-const header=document.querySelector('.header'), shell=document.getElementById('atoHeaderSearchShell'), panel=document.getElementById('atoHeaderSearchPanel'), input=document.getElementById('atoHeaderSmartSearch'), trigger=document.getElementById('headerTourSearch'), mobileTrigger=document.getElementById('atoMobileSearchTrigger'), closeBtn=document.getElementById('atoHeaderSearchClose'), scrim=document.getElementById('atoHeaderSearchScrim'), filtersBtn=document.getElementById('atoHeaderFilters'), filterCount=document.getElementById('atoHeaderFilterCount');
-if(!header||!shell||!panel||!input)return;
-let openState=false, category='', timer=0;
-const norm=s=>String(s||'').toLocaleLowerCase('en').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[ıİ]/g,'i').replace(/[^a-zа-яёçğıöşüäöüßąćęłńóśźż0-9€+&]+/gi,' ').replace(/\s+/g,' ').trim();
-const I18N={
- en:{ph:'Search tours, places or experiences...',trending:'Trending',explore:'Explore by',tours:'Tours',destinations:'Destinations',categories:'Categories',filters:'Filters',all:'All tours',viewAll:'View all results',compare:'＋ Compare',added:'✓ Added',no:'No exact matches',noText:'Try another word or open Filters for a wider selection.',safety:'This request needs tour-specific confirmation. We do not automatically label an experience as suitable without verified data.',verified:'Safety-sensitive search',popular:['Cappadocia','Rafting','Boat Trips','Land of Legends','Paragliding','With Children','From Alanya']},
- ru:{ph:'Поиск туров, мест или впечатлений...',trending:'Популярные запросы',explore:'Выбрать по категории',tours:'Туры',destinations:'Направления',categories:'Категории',filters:'Фильтры',all:'Все туры',viewAll:'Все результаты',compare:'＋ Сравнить',added:'✓ Добавлено',no:'Точного совпадения нет',noText:'Попробуйте другой запрос или откройте фильтры для более широкой выборки.',safety:'Для этого запроса требуется подтверждение по конкретному туру. Мы не отмечаем тур как подходящий без проверенных данных.',verified:'Запрос, связанный с безопасностью',popular:['Каппадокия','Рафтинг','Морские туры','Land of Legends','Параглайдинг','С детьми','Из Алании']},
- tr:{ph:'Tur, yer veya deneyim ara...',trending:'Popüler aramalar',explore:'Kategoriye göre keşfet',tours:'Turlar',destinations:'Destinasyonlar',categories:'Kategoriler',filters:'Filtreler',all:'Tüm turlar',viewAll:'Tüm sonuçları gör',compare:'＋ Karşılaştır',added:'✓ Eklendi',no:'Tam eşleşme yok',noText:'Başka bir kelime deneyin veya daha geniş seçim için Filtreler’i açın.',safety:'Bu arama tur bazında doğrulama gerektirir. Doğrulanmış veri olmadan bir deneyimi otomatik olarak uygun göstermiyoruz.',verified:'Güvenlik hassasiyeti olan arama',popular:['Kapadokya','Rafting','Tekne Turları','Land of Legends','Yamaç Paraşütü','Çocuklarla','Alanya’dan']},
- de:{ph:'Touren, Orte oder Erlebnisse suchen...',trending:'Beliebte Suchen',explore:'Nach Kategorie',tours:'Touren',destinations:'Reiseziele',categories:'Kategorien',filters:'Filter',all:'Alle Touren',viewAll:'Alle Ergebnisse',compare:'＋ Vergleichen',added:'✓ Hinzugefügt',no:'Keine exakte Übereinstimmung',noText:'Versuchen Sie einen anderen Begriff oder öffnen Sie Filter für eine größere Auswahl.',safety:'Diese Suche erfordert eine tourbezogene Bestätigung. Ohne verifizierte Daten markieren wir keine Tour automatisch als geeignet.',verified:'Sicherheitsrelevante Suche',popular:['Kappadokien','Rafting','Bootstouren','Land of Legends','Paragliding','Mit Kindern','Ab Alanya']},
- pl:{ph:'Szukaj wycieczek, miejsc lub atrakcji...',trending:'Popularne wyszukiwania',explore:'Odkrywaj według kategorii',tours:'Wycieczki',destinations:'Kierunki',categories:'Kategorie',filters:'Filtry',all:'Wszystkie wycieczki',viewAll:'Zobacz wszystkie wyniki',compare:'＋ Porównaj',added:'✓ Dodano',no:'Brak dokładnych wyników',noText:'Spróbuj innego hasła lub otwórz Filtry, aby poszerzyć wybór.',safety:'To wyszukiwanie wymaga potwierdzenia dla konkretnej wycieczki. Bez zweryfikowanych danych nie oznaczamy atrakcji automatycznie jako odpowiedniej.',verified:'Wyszukiwanie dotyczące bezpieczeństwa',popular:['Kapadocja','Rafting','Rejsy','Land of Legends','Paralotnia','Z dziećmi','Z Alanyi']}
-};
-const CAT=[
- ['Sea Experiences','sea'],['Extreme & Adventure','adventure'],['Family Experiences','family'],['History & Culture','history'],['Air Experiences','air'],['Wellness & Relax','wellness'],['VIP Service','vip']
-];
-const CAT_LABEL={
- en:{'Sea Experiences':'Sea','Extreme & Adventure':'Adventure','Family Experiences':'Family','History & Culture':'History','Air Experiences':'Air','Wellness & Relax':'Wellness','VIP Service':'VIP'},
- ru:{'Sea Experiences':'Море','Extreme & Adventure':'Приключения','Family Experiences':'Семья','History & Culture':'История','Air Experiences':'Воздух','Wellness & Relax':'Wellness','VIP Service':'VIP'},
- tr:{'Sea Experiences':'Deniz','Extreme & Adventure':'Macera','Family Experiences':'Aile','History & Culture':'Tarih','Air Experiences':'Hava','Wellness & Relax':'Wellness','VIP Service':'VIP'},
- de:{'Sea Experiences':'Meer','Extreme & Adventure':'Abenteuer','Family Experiences':'Familie','History & Culture':'Kultur','Air Experiences':'Luft','Wellness & Relax':'Wellness','VIP Service':'VIP'},
- pl:{'Sea Experiences':'Morze','Extreme & Adventure':'Przygoda','Family Experiences':'Rodzina','History & Culture':'Historia','Air Experiences':'Powietrze','Wellness & Relax':'Wellness','VIP Service':'VIP'}
-};
-function lang(){const x=localStorage.getItem('atoLanguage')||document.documentElement.lang||'en';return I18N[x]?x:'en'}
-function L(){return I18N[lang()]}
-function catSvg(kind){const p={
- sea:'<path d="M3 18c2.2 0 2.2 1.5 4.4 1.5S9.6 18 11.8 18s2.2 1.5 4.4 1.5S18.4 18 20.6 18"/><path d="M12 4v10M12 5 6.5 12H12M12 6.5 17.5 12H12"/>',
- adventure:'<path d="M13.2 2 5.5 13h5.2L9.8 22 18.5 9.7h-5.3z"/>',
- family:'<circle cx="8" cy="8" r="2.3"/><circle cx="16" cy="8" r="2.3"/><path d="M3.5 19c.5-3.5 2.2-5.3 4.5-5.3M20.5 19c-.5-3.5-2.2-5.3-4.5-5.3"/>',
- history:'<path d="m4 9 8-5 8 5M5 10h14M7 10v8M12 10v8M17 10v8M4 19h16"/>',
- air:'<path d="M4 9c2-4 5-6 8-6s6 2 8 6M4 9h16M4 9l6 7M20 9l-6 7M10 16h4l1 4H9z"/>',
- wellness:'<path d="M12 20c-4-2.5-6.5-5.8-6.5-9.2 2.9.2 5.1 1.4 6.5 3.5 1.4-2.1 3.6-3.3 6.5-3.5 0 3.4-2.5 6.7-6.5 9.2Z"/><path d="M12 14.3C9.8 11.7 9.8 8.8 12 5c2.2 3.8 2.2 6.7 0 9.3Z"/>',
- vip:'<path d="m3 7 4 10h10l4-10-5 4-4-6-4 6-5-4ZM7 20h10"/>'};return `<svg viewBox="0 0 24 24" aria-hidden="true">${p[kind]||p.adventure}</svg>`}
-function data(){return window.AlanyaTourFinder?.data||[]}
-function activeFilters(){return window.AlanyaTourFinder?.activeFilterCount?.()||0}
-function updateFilterCount(){const n=activeFilters();filterCount.textContent=n;filterCount.style.display=n?'inline-flex':'none'}
-function position(){if(innerWidth<=980)return;const r=header.getBoundingClientRect(),logo=header.querySelector('.logo')?.getBoundingClientRect(),lg=header.querySelector('.language')?.getBoundingClientRect();const left=Math.max(r.left+170,(logo?.right||r.left+180)+20);const right=Math.max(innerWidth-r.right+12,innerWidth-(lg?.left||r.right-100)+14);shell.style.setProperty('--ato-hs-left',left+'px');shell.style.setProperty('--ato-hs-right',right+'px');shell.style.setProperty('--ato-hs-top',(r.top+Math.max(6,(r.height-52)/2))+'px');document.documentElement.style.setProperty('--ato-hs-scrim-top',(r.bottom+1)+'px')}
-function selectedPool(){try{return window.ATOTripPlannerPool?.get?.()||JSON.parse(localStorage.getItem('atoTripPlannerPool')||'[]')}catch(e){return[]}}
-function normalizeHref(href){try{return new URL(href,location.href).pathname.split('/').filter(Boolean).pop()||''}catch(e){return String(href||'').split('/').pop()}}
-function isAdded(url){return selectedPool().includes(normalizeHref(url))}
-function toggleCompare(url){if(window.ATOTripPlannerPool?.toggle){window.ATOTripPlannerPool.toggle(url)}else{try{let a=JSON.parse(localStorage.getItem('atoTripPlannerPool')||'[]');const h=normalizeHref(url),i=a.indexOf(h);if(i>=0)a.splice(i,1);else if(a.length<8)a.push(h);localStorage.setItem('atoTripPlannerPool',JSON.stringify(a))}catch(e){}}render()}
-const special={cheap:/\b(cheap|budget|low price|дешев|недорог|ucuz|gunstig|günstig|tani)\b/i,full:/\b(full day|all day|весь день|целый день|tam gun|tam gün|ganztag|caly dzien|cały dzień)\b/i,sunset:/\b(sunset|закат|gun bat|gün bat|sonnenuntergang|zachod)\b/i,children:/\b(children|child|kids|with children|ребен|дети|с детьми|cocuk|çocuk|kinder|dzieci)\b/i,fromAlanya:/\b(from alanya|из алании|alanya dan|alanya'dan|ab alanya|z alanyi)\b/i,toddler:/\b(2 year old|2-year-old|toddler|2 года|2 лет|2 yas|2 yaş|2 jahr|2 lata)\b/i};
-function safetyIntent(q){return /pregnan|pregnancy|беремен|hamile|schwanger|ciaz|ciąż|no swimming|без плаван|без купан|yuzme yok|yüzme yok|ohne schwimmen|bez plywania|bez pływania/i.test(q)}
-function smartMatch(t,q){let n=norm(q);if(!n)return true;if(special.cheap.test(q)){if(!(t.price!=null&&t.price<=35))return false;n=n.replace(/cheap|budget|low price|дешев\w*|недорог\w*|ucuz|gunstig|günstig|tani/g,' ')}if(special.full.test(q)){if(t.durationType!=='full')return false;n=n.replace(/full day|all day|весь день|целый день|tam gun|tam gün|ganztag|caly dzien|cały dzień/g,' ')}if(special.sunset.test(q)){if(!(t._time==='sunset'||t._search?.includes('sunset')))return false;n=n.replace(/sunset|закат|gun bat|gün bat|sonnenuntergang|zachod/g,' ')}if(special.children.test(q)){if(!((t.tags||[]).some(x=>['kids','family'].includes(x))||t._allAges))return false;n=n.replace(/children|child|kids|with children|ребен\w*|дети|с детьми|cocuk|çocuk|kinder|dzieci/g,' ')}if(special.fromAlanya.test(q)){if(!norm(t.destination).includes('alanya')&&!t._search?.includes('alanya'))return false;n=n.replace(/from alanya|из алании|alanya dan|alanya d an|ab alanya|z alanyi/g,' ')}if(special.toddler.test(q)){if(!t._allAges)return false;n=n.replace(/2 year old|2 year old|toddler|2 года|2 лет|2 yas|2 yaş|2 jahr|2 lata/g,' ')}const words=n.split(/\s+/).filter(Boolean);return words.every(w=>{const aliases={cappadocia:['cappadocia','kapadokya','каппадокия','kappadokien','kapadocja'],boat:['boat','yacht','tekne','yat','лодка','яхта','boot','rejs'],spa:['spa','wellness','hammam','hamam','massage','хамам','массаж','masaj'],dolphin:['dolphin','дельфин','yunus','delfin'],canyon:['canyon','каньон','kanyon','kanion'],istanbul:['istanbul','стамбул','stambul']};const a=aliases[w]||[w];return a.some(x=>(t._search||'').includes(norm(x)))})}
-function score(t,q){const n=norm(q);let s=100-(t.rank||100);if(n&&norm(t.name).startsWith(n))s+=90;else if(n&&norm(t.name).includes(n))s+=55;if(n&&norm(t.destination).includes(n))s+=30;if(t.price!=null)s+=3;if(t.image)s+=2;return s}
-function currentResults(){const q=input.value.trim();let arr;if(window.AlanyaTourFinder?.preview){const opts={q:''};if(category)opts.category=category;arr=window.AlanyaTourFinder.preview(opts)}else arr=data();arr=arr.filter(t=>smartMatch(t,q));return arr.sort((a,b)=>score(b,q)-score(a,q))}
-function tourRow(t){const l=L(),added=isAdded(t.url);const fallback={'Sea Experiences':'sea.jpg','Extreme & Adventure':'extreme.jpg','Nature & Adventure':'nature.jpg','History & Culture':'history.jpg','Family Experiences':'family.jpg','Air Experiences':'air.jpg','Water Sports':'watersports.jpg','Wellness & Relax':'wellness.jpg','VIP Service':'sea.jpg','Combo Deals':'family.jpg'}[t.category]||'sea.jpg';return `<div class="ato-hs-result"><a class="ato-hs-thumb" href="${t.url}"><img src="${t.image||fallback}" alt="${String(t.name).replace(/"/g,'&quot;')}" loading="lazy" onerror="this.onerror=null;this.src='${fallback}'"></a><div class="ato-hs-result-copy"><a class="ato-hs-result-name" href="${t.url}">${t.name}</a><div class="ato-hs-result-meta">${t.category} · ${t.duration||''} · <b>${t.priceLabel||'On request'}</b></div></div><div class="ato-hs-result-actions"><button class="ato-hs-compare${added?' is-added':''}" type="button" data-ato-hs-compare="${t.url}" aria-pressed="${added?'true':'false'}">${added?l.added:l.compare}</button><a class="ato-hs-view" href="${t.url}" aria-label="View ${String(t.name).replace(/"/g,'&quot;')}">→</a></div></div>`}
-function landing(){const l=L();return `<section class="ato-hs-section"><div class="ato-hs-heading"><span>${l.trending}</span></div><div class="ato-hs-chips">${l.popular.map(x=>`<button class="ato-hs-chip" type="button" data-ato-hs-query="${x.replace(/"/g,'&quot;')}">${x}</button>`).join('')}</div></section><section class="ato-hs-section"><div class="ato-hs-heading"><span>${l.explore}</span></div><div class="ato-hs-chips">${CAT.map(([c,k])=>`<button class="ato-hs-chip${category===c?' is-active':''}" type="button" data-ato-hs-category="${c}">${catSvg(k)}${CAT_LABEL[lang()][c]}</button>`).join('')}</div></section><div class="ato-hs-quick-actions"><button class="ato-hs-all" type="button" data-ato-hs-all>${l.all}</button><button class="ato-hs-open-filters" type="button" data-ato-hs-filters>${l.filters}${activeFilters()?` · ${activeFilters()}`:''}</button></div>`}
-function results(){const l=L(),q=input.value.trim(),arr=currentResults(),top=arr.slice(0,5),dests=[...new Set(arr.map(t=>t.destination).filter(Boolean))].slice(0,5),cats=[...new Set(arr.map(t=>t.category).filter(Boolean))].slice(0,5);const safe=safetyIntent(q)?`<div class="ato-hs-safety"><b>${l.verified}.</b> ${l.safety}</div>`:'';if(!top.length)return safe+`<div class="ato-hs-empty"><strong>${l.no}</strong><span>${l.noText}</span></div><div class="ato-hs-quick-actions"><button class="ato-hs-open-filters" type="button" data-ato-hs-filters>${l.filters}</button></div>`;return safe+`<section class="ato-hs-section"><div class="ato-hs-heading"><span>${l.tours}</span><strong>${arr.length}</strong></div><div class="ato-hs-results">${top.map(tourRow).join('')}</div></section><div class="ato-hs-groups"><section class="ato-hs-group"><div class="ato-hs-heading"><span>${l.destinations}</span></div><div class="ato-hs-group-links">${dests.map(x=>`<button class="ato-hs-group-link" type="button" data-ato-hs-query="${x}">${x}</button>`).join('')}</div></section><section class="ato-hs-group"><div class="ato-hs-heading"><span>${l.categories}</span></div><div class="ato-hs-group-links">${cats.map(x=>`<button class="ato-hs-group-link" type="button" data-ato-hs-category="${x}">${x}</button>`).join('')}</div></section></div><div class="ato-hs-quick-actions"><button class="ato-hs-all" type="button" data-ato-hs-all>${l.all}</button><button class="ato-hs-open-filters" type="button" data-ato-hs-filters>${l.filters}${activeFilters()?` · ${activeFilters()}`:''}</button><button class="ato-hs-view-all" type="button" data-ato-hs-view-all>${l.viewAll} →</button></div>`}
-function render(){input.placeholder=L().ph;filtersBtn.querySelector('.ato-hs-filters-label').textContent=L().filters;updateFilterCount();panel.innerHTML=(input.value.trim()||category)?results():landing()}
-function open(){if(openState)return;openState=true;position();header.classList.add('ato-search-active');document.body.classList.add('ato-header-search-open');shell.setAttribute('aria-hidden','false');trigger?.setAttribute('aria-expanded','true');mobileTrigger?.setAttribute('aria-expanded','true');scrim?.classList.add('open');setTimeout(()=>input.focus(),90);render()}
-function close(){if(!openState)return;openState=false;header.classList.remove('ato-search-active');document.body.classList.remove('ato-header-search-open');shell.setAttribute('aria-hidden','true');trigger?.setAttribute('aria-expanded','false');mobileTrigger?.setAttribute('aria-expanded','false');scrim?.classList.remove('open');category=''}
-function openFull(clearCategory=false){const q=input.value.trim(),cat=clearCategory?'':category,opts={q};if(clearCategory||category)opts.category=cat;close();if(window.AlanyaTourFinder?.openWith)window.AlanyaTourFinder.openWith(opts);else location.href=`/?finder=1&q=${encodeURIComponent(q)}${cat?`&cat=${encodeURIComponent(cat)}`:''}`} 
-trigger?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open()});mobileTrigger?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();document.querySelector('.nav')?.classList.remove('active');document.getElementById('mobileMenuBtn')?.classList.remove('active');document.getElementById('mobileOverlay')?.classList.remove('active');open()});closeBtn?.addEventListener('click',close);scrim?.addEventListener('click',close);filtersBtn?.addEventListener('click',()=>openFull(false));
-input.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(render,55)});input.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();close()}if(e.key==='Enter'){e.preventDefault();openFull(false)}});
-panel.addEventListener('click',e=>{const q=e.target.closest('[data-ato-hs-query]');if(q){input.value=q.dataset.atoHsQuery||'';category='';render();input.focus();return}const c=e.target.closest('[data-ato-hs-category]');if(c){category=c.dataset.atoHsCategory||'';input.value='';render();return}const cmp=e.target.closest('[data-ato-hs-compare]');if(cmp){e.preventDefault();e.stopPropagation();toggleCompare(cmp.dataset.atoHsCompare);return}if(e.target.closest('[data-ato-hs-filters],[data-ato-hs-view-all]')){openFull(false);return}if(e.target.closest('[data-ato-hs-all]')){category='';openFull(true);return}});
-window.addEventListener('resize',position,{passive:true});window.addEventListener('scroll',()=>{if(openState)position()},{passive:true});window.addEventListener('ato-language-changed',()=>{render()});window.addEventListener('storage',e=>{if(e.key==='atoTripPlannerPool')render()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&openState)close();if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();open()}});
-window.ATOHeaderSearch={open,close,render};
-render();
-})();
-</script>
-<script id="ato-working-header-script">
-(function(){
-  const mobileBtn = document.getElementById('mobileMenuBtn');
-  const nav = document.querySelector('.nav');
-  const overlay = document.getElementById('mobileOverlay');
-  const dropdowns = [...document.querySelectorAll('.ato-header-dropdown')];
-  const languageDropdown = document.querySelector('.language-dropdown');
-  const languageClose = document.querySelector('.language-close');
-  const headerTourSearch = document.getElementById('headerTourSearch');
-  const officialTourSearch = document.getElementById('officialTourSearch');
 
-  function isMobile(){ return window.innerWidth <= 980; }
 
-  function setDropdown(dropdown, open){
-    if(!dropdown) return;
-    dropdown.classList.toggle('open', open);
-    const trigger = dropdown.querySelector('.ato-dropdown-trigger');
-    if(trigger) trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-
-  function closeDropdowns(except=null){
-    dropdowns.forEach(dd => { if(dd !== except) setDropdown(dd, false); });
-  }
-
-  function setMenu(open){
-    if(!mobileBtn || !nav || !overlay) return;
-    nav.classList.toggle('active', open);
-    mobileBtn.classList.toggle('active', open);
-    overlay.classList.toggle('active', open);
-    mobileBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if(!open){
-      closeDropdowns();
-      languageDropdown?.classList.remove('open');
-    }
-  }
-
-  if(mobileBtn && nav && overlay){
-    mobileBtn.setAttribute('role','button');
-    mobileBtn.setAttribute('tabindex','0');
-    mobileBtn.setAttribute('aria-label','Open navigation');
-    mobileBtn.setAttribute('aria-expanded','false');
-    mobileBtn.addEventListener('click', () => setMenu(!nav.classList.contains('active')));
-    mobileBtn.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); setMenu(!nav.classList.contains('active')); }
-    });
-    overlay.addEventListener('click', () => setMenu(false));
-  }
-
-  dropdowns.forEach(dropdown => {
-    const trigger = dropdown.querySelector('.ato-dropdown-trigger');
-    if(!trigger) return;
-    trigger.addEventListener('click', e => {
-      e.preventDefault();
-      e.stopPropagation();
-      const willOpen = !dropdown.classList.contains('open');
-      closeDropdowns(dropdown);
-      setDropdown(dropdown, willOpen);
-    });
-  });
-
-  if(languageDropdown){
-    languageDropdown.addEventListener('click', function(e){
-      if(isMobile()){
-        e.stopPropagation();
-        closeDropdowns();
-        this.classList.toggle('open');
-      }
-    });
-  }
-
-  if(languageClose && languageDropdown){
-    languageClose.addEventListener('click', function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      languageDropdown.classList.remove('open');
-    });
-  }
-
-  if(headerTourSearch){
-    headerTourSearch.addEventListener('click', function(){
-      if(isMobile()) setMenu(false);
-    });
-  }
-
-  nav?.querySelectorAll('a[href]').forEach(link => {
-    link.addEventListener('click', () => {
-      closeDropdowns();
-      if(isMobile()) setMenu(false);
-    });
-  });
-
-  document.addEventListener('click', e => {
-    if(!e.target.closest('.ato-header-dropdown')) closeDropdowns();
-  });
-
-  document.addEventListener('keydown', e => {
-    if(e.key === 'Escape'){
-      closeDropdowns();
-      languageDropdown?.classList.remove('open');
-      if(isMobile()) setMenu(false);
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    if(!isMobile()){
-      nav?.classList.remove('active');
-      mobileBtn?.classList.remove('active');
-      overlay?.classList.remove('active');
-    }
-    closeDropdowns();
-  });
-})();
-</script>
 </body>
 </html>

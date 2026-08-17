@@ -1,0 +1,4 @@
+index: global=1, private_site_header=0, old_loader=0, live_loader=0
+legal: global=1, private_site_header=0, old_loader=0, live_loader=0
+special: global=1, private_site_header=0, old_loader=0, live_loader=0
+map: global=1, private_site_header=0, old_loader=0, live_loader=0
