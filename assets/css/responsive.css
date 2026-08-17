@@ -1,0 +1,1091 @@
+/* ======================================================================
+   ALANYA TOUR ORGANIZATIONS — GLOBAL RESPONSIVE SYSTEM
+   File: /assets/css/responsive.css
+   Version: 1.0 — 2026-08-17
+
+   PURPOSE
+   - One responsive layer for the whole static site.
+   - Load LAST, after page/base/component styles.
+   - Keep page-specific visual styling in its own CSS; keep layout adaptation here.
+
+   RECOMMENDED LOAD ORDER
+   <link rel="stylesheet" href="/styles.css">
+   <link rel="stylesheet" href="/assets/css/trip-planner-shared.css">
+   <link rel="stylesheet" href="/assets/css/responsive.css?v=20260817">
+
+   BREAKPOINTS
+   1600+  wide desktop
+   1280   compact desktop
+   1100   tablet landscape / small laptop
+   980    tablet / mobile navigation switch
+   760    mobile
+   560    compact mobile
+   430    narrow mobile
+   ====================================================================== */
+
+:root{
+  --ato-rwd-page-max:1440px;
+  --ato-rwd-gutter:clamp(16px,3vw,48px);
+  --ato-rwd-section-y:clamp(56px,7vw,112px);
+  --ato-rwd-gap:clamp(14px,2vw,28px);
+  --ato-rwd-touch:44px;
+  --ato-rwd-safe-left:max(14px,env(safe-area-inset-left));
+  --ato-rwd-safe-right:max(14px,env(safe-area-inset-right));
+  --ato-rwd-safe-bottom:max(14px,env(safe-area-inset-bottom));
+}
+
+/* ----------------------------------------------------------------------
+   01. GLOBAL SAFETY / FLUID MEDIA
+   ---------------------------------------------------------------------- */
+html{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:clip;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+img,svg,video,canvas,picture{
+  max-width:100%;
+}
+
+img,video{
+  height:auto;
+}
+
+iframe{
+  max-width:100%;
+}
+
+input,select,textarea,button{
+  max-width:100%;
+  font:inherit;
+}
+
+button,a,[role="button"]{
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* Do not let long labels, translated strings, URLs or prices force overflow. */
+.logo-text,
+.logo-title,
+.logo-subtitle,
+.tour-body,
+.tour-description,
+.category-body,
+.about-copy,
+.about-text,
+.booking-left,
+.tp-section,
+.tp-card-body,
+.tp-rec-copy,
+.atf-card-body,
+.ato-hs-result-copy,
+.request-field{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+
+/* Shared horizontal rails: scroll instead of breaking the viewport. */
+.top-categories,
+.mobile-categories,
+.tp-progress,
+.tp-category-grid,
+.ato-hs-chips,
+.tour-tags{
+  overscroll-behavior-inline:contain;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* ----------------------------------------------------------------------
+   02. FLUID TYPOGRAPHY — ONLY SHARED HIGH-LEVEL TITLES
+   ---------------------------------------------------------------------- */
+.main-categories-head h2,
+.main-categories-title,
+.section-title,
+.tp-hero h1{
+  font-size:clamp(30px,4.2vw,64px);
+}
+
+.hero-subtitle,
+.main-categories-head p,
+.tp-hero p{
+  font-size:clamp(14px,1.35vw,19px);
+}
+
+/* ----------------------------------------------------------------------
+   03. WIDE DESKTOP 1600+
+   ---------------------------------------------------------------------- */
+@media (min-width:1600px){
+  .category-shell,
+  .popular-shell,
+  .tp-shell,
+  .about-container{
+    max-width:var(--ato-rwd-page-max);
+    margin-inline:auto;
+  }
+
+  .tour-grid.popular-grid{
+    gap:28px;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   04. COMPACT DESKTOP <= 1280
+   ---------------------------------------------------------------------- */
+@media (max-width:1280px){
+  .header{
+    padding-inline:18px;
+  }
+
+  .nav{
+    gap:clamp(8px,1vw,12px);
+  }
+
+  .nav-item,
+  .contact-link{
+    font-size:12px;
+  }
+
+  .categories-layout{
+    grid-template-columns:1fr;
+  }
+
+  .tour-sidebar{
+    width:100%;
+    max-width:720px;
+    margin-inline:auto;
+  }
+
+  .tour-grid.popular-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  #atoTourFinderModal .atf-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+/* ----------------------------------------------------------------------
+   05. SMALL LAPTOP / TABLET LANDSCAPE <= 1100
+   ---------------------------------------------------------------------- */
+@media (max-width:1100px){
+  .main-categories-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .tour-grid.popular-grid,
+  .tour-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .contact-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .tp-pool{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .tp-form-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .tp-field.wide{
+    grid-column:span 2;
+  }
+
+  /* Map: preserve map canvas width; filters may move to mobile drawer at 900px. */
+  .map-shell,
+  main.app{
+    min-width:0;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   06. TABLET / MOBILE NAVIGATION <= 980
+   ---------------------------------------------------------------------- */
+@media (max-width:980px){
+  :root{
+    --ato-rwd-gutter:clamp(14px,3.5vw,28px);
+    --ato-rwd-section-y:clamp(48px,8vw,78px);
+  }
+
+  /* ---------- Header ---------- */
+  .header{
+    width:100%;
+    padding-left:var(--ato-rwd-safe-left);
+    padding-right:var(--ato-rwd-safe-right);
+  }
+
+  .header .nav{
+    display:none!important;
+  }
+
+  .mobile-menu-btn{
+    display:flex!important;
+    min-width:var(--ato-rwd-touch);
+    min-height:var(--ato-rwd-touch);
+    align-items:center;
+    justify-content:center;
+  }
+
+  .logo{
+    min-width:0;
+  }
+
+  .logo img{
+    flex:0 0 auto;
+  }
+
+  .logo-text{
+    min-width:0;
+  }
+
+  .language-dropdown,
+  .ato-mobile-search-trigger,
+  .header-tour-search,
+  .ato-search-trigger{
+    min-height:var(--ato-rwd-touch);
+  }
+
+  .mobile-overlay,
+  .language-menu,
+  .ato-header-search-shell,
+  .ato-header-search-scrim{
+    max-width:100vw;
+  }
+
+  .ato-hs-panel{
+    max-height:calc(100dvh - 84px);
+    overflow:auto;
+    overscroll-behavior:contain;
+  }
+
+  /* ---------- Promo strip ---------- */
+  .promo-bar{
+    max-width:100vw;
+    overflow:hidden;
+  }
+
+  .promo-track{
+    width:max-content;
+    min-width:100%;
+  }
+
+  .promo-text,
+  .promo-slogan,
+  .promo-services{
+    white-space:nowrap;
+  }
+
+  /* ---------- Living Hero ---------- */
+  #atoLivingHero,
+  .ato-living-hero,
+  .hero{
+    max-width:100vw;
+  }
+
+  #atoLivingHero{
+    min-height:calc(100svh - 74px);
+  }
+
+  #atoLivingHero .ato-living-hero__stage,
+  #atoLivingHero .ato-living-hero__scene,
+  #atoLivingHero .ato-living-hero__media{
+    width:100%;
+    max-width:100%;
+  }
+
+  #atoLivingHero .ato-living-hero__media{
+    object-fit:cover;
+  }
+
+  .ato-living-hero__ui{
+    padding-left:var(--ato-rwd-gutter);
+    padding-right:var(--ato-rwd-gutter);
+  }
+
+  .ato-living-hero__caption{
+    max-width:min(88vw,620px);
+  }
+
+  /* ---------- Index ---------- */
+  .categories-layout,
+  .about-container,
+  .contact-grid{
+    grid-template-columns:1fr!important;
+  }
+
+  .main-categories-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:var(--ato-rwd-gap);
+  }
+
+  .category-card,
+  .category-img,
+  .category-body{
+    min-width:0;
+  }
+
+  .about-image-wrapper,
+  #contacts .map-wrapper{
+    width:100%;
+  }
+
+  .premium-stats{
+    display:none;
+  }
+
+  /* ---------- Generic category / Popular Tours ---------- */
+  .category-shell,
+  .popular-shell,
+  .sea-hero-inner{
+    width:min(100% - (var(--ato-rwd-gutter) * 2),var(--ato-rwd-page-max));
+    margin-inline:auto;
+  }
+
+  .tour-grid,
+  .tour-grid.popular-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+  }
+
+  .tour-card{
+    min-width:0;
+  }
+
+  .tour-image{
+    width:100%;
+    object-fit:cover;
+  }
+
+  .tour-bottom{
+    min-width:0;
+    gap:8px;
+  }
+
+  .tour-bottom .meta{
+    min-width:0;
+  }
+
+  .tour-bottom .card-actions,
+  .tour-bottom .ato-card-actions{
+    flex:0 0 auto;
+  }
+
+  /* ---------- Trip Planner ---------- */
+  .tp-shell{
+    width:min(100% - 20px,1260px);
+  }
+
+  .tp-category-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .tp-quick-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .tp-progress{
+    width:100%;
+    justify-content:flex-start;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+
+  .tp-progress::-webkit-scrollbar{display:none}
+
+  /* ---------- Tour Finder ---------- */
+  .ato-tour-finder-dialog{
+    width:100vw;
+    max-width:100vw;
+    height:100dvh;
+    max-height:100dvh;
+    border-radius:0;
+  }
+
+  #atoTourFinderModal .atf-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  /* ---------- Footer ---------- */
+  .footer-strip,
+  .original-site-footer,
+  footer{
+    max-width:100vw;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   07. MAP MOBILE MODE <= 900 / COARSE POINTER
+   Keep map as a full interactive canvas; move desktop sidebar out of the way.
+   ---------------------------------------------------------------------- */
+@media (max-width:900px), (hover:none) and (pointer:coarse){
+  .map-shell,
+  main.app{
+    position:relative;
+    width:100%;
+    max-width:100vw;
+  }
+
+  main.app .sidebar{
+    display:none;
+  }
+
+  .mobile-filter-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:var(--ato-rwd-touch);
+    max-width:calc(100vw - 24px);
+  }
+
+  .sidebar.open,
+  .sidebar.is-open,
+  .sidebar.mobile-open{
+    display:block!important;
+    position:fixed;
+    inset:0 auto 0 0;
+    width:min(88vw,390px);
+    max-width:390px;
+    height:100dvh;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    padding-bottom:var(--ato-rwd-safe-bottom);
+    z-index:2147483000;
+  }
+
+  .mobile-filter-close{
+    min-width:var(--ato-rwd-touch);
+    min-height:var(--ato-rwd-touch);
+  }
+
+  .map,
+  #map,
+  .maplibregl-map{
+    width:100%!important;
+    max-width:100vw!important;
+  }
+
+  .top-categories{
+    overflow-x:auto;
+    scrollbar-width:none;
+    white-space:nowrap;
+  }
+
+  .top-categories::-webkit-scrollbar{display:none}
+
+  .category-tour-panel,
+  .nearby-panel,
+  .geo-offer,
+  .tour-hover-card,
+  .compare-dialog,
+  .request-modal{
+    max-width:calc(100vw - 20px);
+  }
+
+  .compare-table-wrap{
+    max-width:100%;
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   08. MOBILE <= 760
+   ---------------------------------------------------------------------- */
+@media (max-width:760px){
+  :root{
+    --ato-rwd-gutter:16px;
+    --ato-rwd-section-y:52px;
+    --ato-rwd-gap:14px;
+  }
+
+  /* ---------- Header ---------- */
+  .header{
+    padding-left:var(--ato-rwd-safe-left);
+    padding-right:var(--ato-rwd-safe-right);
+  }
+
+  .logo img{
+    width:clamp(42px,12vw,48px);
+    height:clamp(42px,12vw,48px);
+  }
+
+  .logo-title{
+    font-size:clamp(11px,3vw,15px);
+    line-height:1.05;
+  }
+
+  .logo-subtitle{
+    font-size:clamp(6px,1.8vw,8px);
+  }
+
+  .ato-header-search-shell{
+    left:0!important;
+    right:0!important;
+    width:100vw!important;
+    max-width:100vw!important;
+  }
+
+  .ato-hs-bar{
+    width:calc(100% - 20px);
+    margin-inline:auto;
+  }
+
+  /* ---------- Hero ---------- */
+  #atoLivingHero{
+    min-height:calc(100svh - 70px);
+  }
+
+  .ato-living-hero__top,
+  .ato-living-hero__actions{
+    max-width:100%;
+  }
+
+  .ato-living-hero__caption{
+    max-width:92vw;
+  }
+
+  .hero-features,
+  .trust-bar{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    scroll-snap-type:x proximity;
+    scrollbar-width:none;
+  }
+
+  .hero-features::-webkit-scrollbar,
+  .trust-bar::-webkit-scrollbar{display:none}
+
+  .hero-feature,
+  .trust-item{
+    flex:0 0 auto;
+    scroll-snap-align:start;
+  }
+
+  /* ---------- Index ---------- */
+  .main-categories-section,
+  .about,
+  #contacts{
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .main-categories-head,
+  .categories-layout,
+  .about-container,
+  .contact-grid{
+    width:calc(100% - 32px);
+    margin-inline:auto;
+  }
+
+  .main-categories-grid{
+    grid-template-columns:1fr;
+  }
+
+  .category-img{
+    width:100%;
+    height:clamp(210px,58vw,300px);
+    object-fit:cover;
+  }
+
+  .filter-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  #contacts .map-wrapper{
+    width:100%;
+    height:clamp(360px,105vw,450px);
+    border-radius:18px;
+  }
+
+  .about-map-office-popover{
+    left:16px;
+    right:16px;
+    width:auto;
+    max-width:none;
+  }
+
+  /* ---------- Category pages / Popular ---------- */
+  .sea-hero,
+  .popular-hero{
+    min-height:auto;
+  }
+
+  .sea-hero-inner,
+  .category-shell,
+  .popular-shell{
+    width:calc(100% - 28px);
+  }
+
+  .breadcrumbs{
+    overflow-x:auto;
+    white-space:nowrap;
+    scrollbar-width:none;
+  }
+
+  .breadcrumbs::-webkit-scrollbar{display:none}
+
+  .tour-grid,
+  .tour-grid.popular-grid{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .tour-card{
+    width:100%;
+  }
+
+  .tour-image{
+    min-height:220px;
+    max-height:320px;
+    object-fit:cover;
+  }
+
+  .tour-body{
+    padding-left:clamp(14px,4vw,20px);
+    padding-right:clamp(14px,4vw,20px);
+  }
+
+  .tour-bottom{
+    align-items:flex-end;
+  }
+
+  .tour-bottom .card-actions,
+  .tour-bottom .ato-card-actions{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:7px;
+  }
+
+  .tour-bottom .ato-compare-control,
+  .tour-bottom .compare-btn{
+    position:static!important;
+    inset:auto!important;
+    transform:none!important;
+    flex:0 0 auto;
+    white-space:nowrap;
+  }
+
+  .booking-cta{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .gold-btn{
+    width:100%;
+    min-height:var(--ato-rwd-touch);
+  }
+
+  /* ---------- Trip Planner ---------- */
+  .tp-shell{
+    width:calc(100% - 16px);
+  }
+
+  .tp-hero{
+    min-height:0;
+    padding:clamp(36px,10vw,50px) 16px 28px;
+  }
+
+  .tp-steps{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .tp-pool{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+
+  .tp-form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .tp-field.wide{
+    grid-column:auto;
+  }
+
+  .tp-category-grid{
+    display:flex;
+    grid-template-columns:none;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    gap:11px;
+    padding-bottom:8px;
+    scrollbar-width:none;
+  }
+
+  .tp-category-grid::-webkit-scrollbar{display:none}
+
+  .tp-category-card,
+  .tp-category-card.tp-category-wide{
+    flex:0 0 84%;
+    scroll-snap-align:start;
+  }
+
+  .tp-quick-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .tp-rec{
+    min-width:0;
+  }
+
+  .tp-request-selection-head{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .tp-request-tour{
+    grid-template-columns:38px minmax(0,1fr)!important;
+  }
+
+  .tp-request-tour-date{
+    grid-column:1/-1;
+  }
+
+  .tp-actions{
+    flex-wrap:wrap;
+  }
+
+  .tp-actions .tp-btn{
+    flex:1 1 160px;
+    min-height:var(--ato-rwd-touch);
+  }
+
+  /* ---------- Tour Finder ---------- */
+  .atf-head{
+    padding-inline:14px;
+  }
+
+  #atoTourFinderModal .atf-grid{
+    grid-template-columns:1fr;
+  }
+
+  #atoTourFinderModal .atf-card{
+    min-height:0!important;
+  }
+
+  .atf-filter-list{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  /* ---------- Map ---------- */
+  .top-categories{
+    padding-left:43px!important;
+    padding-right:43px!important;
+  }
+
+  .category-scroll-btn{
+    width:30px;
+    height:30px;
+  }
+
+  .nearby-panel,
+  .geo-offer,
+  .tour-hover-card,
+  .category-tour-panel{
+    left:10px!important;
+    right:10px!important;
+    width:auto!important;
+  }
+
+  .compare-dialog,
+  .request-modal{
+    width:calc(100vw - 20px)!important;
+    max-height:calc(100dvh - 20px);
+    overflow:auto;
+  }
+
+  /* ---------- Shared Compare dock ---------- */
+  .ato-planner-dock{
+    width:calc(100% - 20px);
+    max-width:none;
+    min-width:0;
+    left:50%;
+    bottom:calc(70px + env(safe-area-inset-bottom));
+  }
+
+  .ato-planner-dock-copy{
+    min-width:0;
+  }
+
+  .ato-planner-open{
+    flex:0 0 auto;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer-copy,
+  .footer-trust{
+    text-align:center;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   09. COMPACT MOBILE <= 560
+   ---------------------------------------------------------------------- */
+@media (max-width:560px){
+  :root{
+    --ato-rwd-gutter:14px;
+  }
+
+  .logo-text{
+    max-width:150px;
+  }
+
+  .logo-title{
+    letter-spacing:.03em;
+  }
+
+  .main-categories-head h2,
+  .main-categories-title,
+  .section-title,
+  .tp-hero h1{
+    font-size:clamp(28px,9vw,42px);
+  }
+
+  .filter-grid,
+  .atf-filter-list{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .tour-image{
+    min-height:205px;
+  }
+
+  .tour-bottom{
+    gap:7px;
+  }
+
+  .tour-bottom .meta{
+    font-size:clamp(9px,2.6vw,11px);
+  }
+
+  .tour-bottom .ato-compare-control,
+  .tour-bottom .compare-btn{
+    min-height:30px;
+    padding:7px 9px;
+    font-size:9px;
+  }
+
+  .circle-arrow{
+    flex:0 0 auto;
+  }
+
+  .tp-pool{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .tp-category-card,
+  .tp-category-card.tp-category-wide{
+    flex-basis:91%;
+  }
+
+  .tp-quick-grid{
+    grid-template-columns:1fr;
+  }
+
+  .tp-bring-grid{
+    grid-template-columns:1fr;
+  }
+
+  .tp-bring-card{
+    grid-template-columns:1fr;
+  }
+
+  .tp-bring-image{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+  }
+
+  .ato-hs-results,
+  .ato-hs-groups{
+    max-width:100%;
+  }
+
+  .ato-hs-result{
+    grid-template-columns:minmax(0,1fr) auto;
+  }
+
+  .ato-hs-thumb{
+    display:none;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   10. NARROW MOBILE <= 430
+   ---------------------------------------------------------------------- */
+@media (max-width:430px){
+  :root{
+    --ato-rwd-gutter:12px;
+  }
+
+  .logo-text{
+    max-width:128px;
+  }
+
+  .logo-title{
+    font-size:11px;
+  }
+
+  .logo-subtitle{
+    font-size:6px;
+  }
+
+  .main-categories-head,
+  .categories-layout,
+  .about-container,
+  .contact-grid{
+    width:calc(100% - 24px);
+  }
+
+  .filter-grid{
+    grid-template-columns:1fr;
+  }
+
+  .tour-bottom{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:end;
+  }
+
+  .tour-bottom .card-actions,
+  .tour-bottom .ato-card-actions{
+    grid-column:2;
+  }
+
+  .tp-steps{
+    grid-template-columns:1fr;
+  }
+
+  .tp-pool{
+    grid-template-columns:1fr;
+  }
+
+  .tp-card-img{
+    height:175px;
+  }
+
+  .tp-actions .tp-btn{
+    flex-basis:100%;
+    width:100%;
+  }
+
+  .ato-planner-dock{
+    gap:6px;
+    padding-left:10px;
+    padding-right:8px;
+  }
+
+  .ato-planner-dock small{
+    display:none;
+  }
+
+  .ato-planner-open{
+    padding-inline:9px;
+    font-size:9px;
+  }
+
+  .map-native-mobile-menu{
+    width:min(88vw,350px);
+  }
+}
+
+/* ----------------------------------------------------------------------
+   11. SHORT LANDSCAPE PHONES
+   ---------------------------------------------------------------------- */
+@media (max-height:600px) and (orientation:landscape){
+  #atoLivingHero{
+    min-height:100dvh;
+  }
+
+  .ato-living-hero__scroll{
+    display:none;
+  }
+
+  .tour-hover-card{
+    top:8px!important;
+    max-height:calc(100dvh - 16px);
+    overflow:auto;
+  }
+
+  .mobile-filter-toggle{
+    top:54px;
+  }
+
+  .ato-header-search-shell,
+  .ato-hs-panel{
+    max-height:100dvh;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   12. TOUCH DEVICES
+   ---------------------------------------------------------------------- */
+@media (hover:none) and (pointer:coarse){
+  button,
+  .gold-btn,
+  .tp-btn,
+  .radius-btn,
+  .category-scroll-btn,
+  .mobile-filter-toggle,
+  .mobile-filter-close,
+  .ato-hs-close,
+  .language-close{
+    min-height:var(--ato-rwd-touch);
+  }
+
+  /* Hover-only reveals must not be required for essential actions. */
+  .card-actions,
+  .tour-bottom .card-actions,
+  .tour-bottom .ato-card-actions{
+    opacity:1;
+    visibility:visible;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   13. REDUCED MOTION
+   ---------------------------------------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  html:focus-within{scroll-behavior:auto}
+
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   14. SAFE AREA — iPhone HOME INDICATOR / NOTCH
+   ---------------------------------------------------------------------- */
+@supports (padding:max(0px)){
+  .mobile-overlay,
+  .map-native-mobile-menu,
+  .map-native-language-panel,
+  .sidebar.open,
+  .sidebar.is-open,
+  .sidebar.mobile-open{
+    padding-bottom:max(16px,env(safe-area-inset-bottom));
+  }
+
+  .ato-planner-dock{
+    margin-bottom:env(safe-area-inset-bottom);
+  }
+}
