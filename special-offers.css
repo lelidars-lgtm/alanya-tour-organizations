@@ -9585,9 +9585,9 @@ body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas
 body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas.webgl-unavailable{
   opacity:1!important;
   filter:
-    saturate(.58)
-    contrast(1.24)
-    brightness(.78)
+    saturate(.72)
+    contrast(1.14)
+    brightness(.94)
     drop-shadow(0 0 10px rgba(243,198,109,.10))
     drop-shadow(0 0 34px rgba(2,7,16,.72))!important;
 }
@@ -9612,9 +9612,9 @@ body.so-premium-body #journey .globe-zone:not(.final-turkiye) .globe-bokeh-layer
   body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas.canvas2d-spherical-fallback,
   body.so-premium-body #journey .globe-zone:not(.final-turkiye) .live-globe-canvas.webgl-unavailable{
     filter:
-      saturate(.56)
-      contrast(1.22)
-      brightness(.76)
+      saturate(.70)
+      contrast(1.13)
+      brightness(.92)
       drop-shadow(0 0 8px rgba(243,198,109,.09))
       drop-shadow(0 0 26px rgba(2,7,16,.76))!important;
   }

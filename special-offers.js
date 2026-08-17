@@ -1381,7 +1381,7 @@ if (canvas && globeShell && globeZone3D) {
         const land=(Math.sin(Math.atan2(oz,ox)*6.5)+Math.sin(Math.asin(Math.max(-1,Math.min(1,oy)))*9.0))>0.55;
         return land?[13,14,16]:[4,7,12];
       }
-      let u=0.5-Math.atan2(oz,ox)/TAU;
+      let u=0.5+Math.atan2(oz,ox)/TAU;
       u=u-Math.floor(u);
       const v=Math.max(0,Math.min(0.999999,0.5-Math.asin(Math.max(-1,Math.min(1,oy)))/Math.PI));
       const tx=Math.min(texW-1,Math.floor(u*texW)), ty=Math.min(texH-1,Math.floor(v*texH));
@@ -1391,7 +1391,7 @@ if (canvas && globeShell && globeZone3D) {
 
     function sampleNightTexture(ox,oy,oz){
       if(!nightTexturePixels || !texW || !texH) return [0,0,0];
-      let u=0.5-Math.atan2(oz,ox)/TAU;
+      let u=0.5+Math.atan2(oz,ox)/TAU;
       u=u-Math.floor(u);
       const v=Math.max(0,Math.min(0.999999,0.5-Math.asin(Math.max(-1,Math.min(1,oy)))/Math.PI));
       const tx=Math.min(texW-1,Math.floor(u*texW)), ty=Math.min(texH-1,Math.floor(v*texH));
@@ -1419,7 +1419,7 @@ if (canvas && globeShell && globeZone3D) {
           const nightRgb=sampleNightTexture(ox,oy,oz);
           const lightDot=nx*lx+ny*ly+z*lz;
           const diffuse=Math.max(0,lightDot);
-          const shade=0.035+0.24*diffuse;
+          const shade=0.46+0.22*diffuse;
           const softLight=Math.max(0,Math.min(1,(lightDot+0.20)/0.98));
           const nightSide=Math.pow(1-softLight,1.42);
           const duskBand=1-Math.max(0,Math.min(1,(softLight-0.10)/0.52));
@@ -1431,9 +1431,9 @@ if (canvas && globeShell && globeZone3D) {
           const ng=Math.pow(Math.max(0,nightRgb[1]/255-.10),0.82)*255*cityMask;
           const nb=Math.pow(Math.max(0,nightRgb[2]/255-.10),0.82)*255*cityMask;
           const emissive=.10+nightSide*1.52+duskBand*.34;
-          pixels[idx]=Math.min(255,rgb[0]*.34 + nr*emissive*1.08 + 3*rim);
-          pixels[idx+1]=Math.min(255,rgb[1]*.35 + ng*emissive*.98 + 6*rim);
-          pixels[idx+2]=Math.min(255,rgb[2]*.38 + nb*emissive*.76 + 12*rim);
+          pixels[idx]=Math.min(255,rgb[0]*shade*.94 + nr*emissive*1.08 + 3*rim);
+          pixels[idx+1]=Math.min(255,rgb[1]*shade*.96 + ng*emissive*.98 + 6*rim);
+          pixels[idx+2]=Math.min(255,rgb[2]*shade + nb*emissive*.76 + 12*rim);
           pixels[idx+3]=255;
         }
       }
@@ -1559,9 +1559,10 @@ if (canvas && globeShell && globeZone3D) {
            supplies the visible city lights directly over the same UVs. */
         /* Exact supplied satellite map, only darkened here. No replacement
            material and no cyan recolouring. */
-        vec3 mappedDay = pow(dayTex, vec3(1.04)) * vec3(0.58, 0.59, 0.63);
+        vec3 dayCompressed = dayTex / (dayTex + vec3(0.64));
+        vec3 mappedDay = pow(dayCompressed, vec3(1.04)) * vec3(0.68, 0.69, 0.73);
         vec3 surface = mix(procedural * 0.74, mappedDay, uTextureMix);
-        surface *= 0.54 + diffuse * 0.36;
+        surface *= 0.66 + diffuse * 0.30;
 
         /* Brighter night lights with stronger coastline/city clusters.
            Using an exponent below 1.0 lifts mid-level light values so
@@ -1653,9 +1654,9 @@ if (canvas && globeShell && globeZone3D) {
           const z = sinTheta * sinPhi;
           positions.push(radius * x, radius * y, radius * z);
           normals.push(x, y, z);
-          // North must sample the TOP of the equirectangular map. The previous
-          // `1 - lat` value flipped the entire globe vertically.
-          uvs.push(1 - lon / lonBands, lat / latBands);
+          // North samples the top of the map; longitude stays unmirrored.
+          // The previous reversed U placed America on the right of Europe.
+          uvs.push(lon / lonBands, lat / latBands);
         }
       }
 
