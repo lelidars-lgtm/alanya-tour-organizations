@@ -204,6 +204,45 @@ body.ato-header-search-open{overflow-x:hidden}
 }
 </style>
 
+
+<style id="ato-original-index-footer-css">
+/* Original footer identity copied from the current INDEX */
+.footer-strip .footer-main-line{margin:0;}
+.footer-strip .footer-agency-line{
+  margin-top:5px;
+  font-size:9px;
+  font-weight:600;
+  line-height:1.45;
+  letter-spacing:.11em;
+  opacity:.66;
+}
+.footer-strip .footer-legal-links{
+  margin-top:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  font-size:13px;
+  font-weight:500;
+  line-height:1.4;
+}
+.footer-strip .footer-legal-links a{
+  color:inherit;
+  text-decoration:none;
+  opacity:.92;
+  transition:color .2s ease,opacity .2s ease;
+}
+.footer-strip .footer-legal-links a:hover{
+  color:#d4a64a;
+  opacity:1;
+}
+.footer-strip .footer-legal-links span{opacity:.48;}
+@media(max-width:720px){
+  .footer-strip .footer-agency-line{font-size:8px;letter-spacing:.08em;}
+  .footer-strip .footer-legal-links{font-size:12px;gap:7px;}
+}
+</style>
 </head>
 <body class="so-premium-body">
 <script src="/assets/js/ato-global-header.js" data-ato-global-header></script>
@@ -1011,9 +1050,14 @@ body.ato-header-search-open{overflow-x:hidden}
 </div>
 </section>
 </main>
-<footer class="footer-strip original-site-footer" aria-label="Trust and copyright">
-  <p class="footer-trust">Trusted since 2010 · 35,000+ Happy Guests · Google Verified 5★</p>
-  <p class="footer-copy">© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.</p>
+<footer class="footer-strip" aria-label="Site footer">
+  <p class="footer-main-line">© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.</p>
+  <div class="footer-agency-line">UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156</div>
+  <div class="footer-legal-links">
+    <a href="legal-information.html">Company &amp; Legal Information</a>
+    <span aria-hidden="true">·</span>
+    <a href="privacy-cookies.html">Privacy &amp; Cookies</a>
+  </div>
 </footer>
 <div class="heart-modal" id="heartClaimModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="heartClaimTitle">
   <div class="heart-modal-backdrop" data-heart-close="claim"></div>
