@@ -25,13 +25,29 @@ const GUIDE_STEPS={
 };
 function guideRead(){try{return Number(localStorage.getItem(GUIDE_KEY)||1)||1}catch(_){return 1}}
 function guideWrite(step){try{localStorage.setItem(GUIDE_KEY,String(step))}catch(_){} }
+let guideFocusTarget=null,guideProgressTarget=null,guideFocusTimer=0;
+function clearGuideFocus(delay=0){
+  window.clearTimeout(guideFocusTimer);
+  const run=()=>{
+    if(guideFocusTarget)guideFocusTarget.classList.remove('tp-guide-section-focus');
+    if(guideProgressTarget)guideProgressTarget.classList.remove('tp-progress-guide-active');
+    guideFocusTarget=null;guideProgressTarget=null;
+  };
+  if(delay>0)guideFocusTimer=window.setTimeout(run,delay);else run();
+}
+function setGuideFocus(data,target){
+  clearGuideFocus();
+  if(target){target.classList.add('tp-guide-section-focus');guideFocusTarget=target;}
+  const navLink=document.querySelector(`.tp-progress a[href="${data.target}"]`);
+  if(navLink){navLink.classList.add('tp-progress-guide-active');guideProgressTarget=navLink;}
+}
 function ensureGuide(){
   let overlay=$('#tpGuideOverlay');
   if(overlay)return overlay;
   overlay=document.createElement('div');overlay.className='tp-guide-overlay';overlay.id='tpGuideOverlay';overlay.setAttribute('aria-hidden','true');
   overlay.innerHTML=`<div class="tp-guide-card" role="dialog" aria-modal="true" aria-labelledby="tpGuideTitle"><button class="tp-guide-close" type="button" aria-label="Close">×</button><div class="tp-guide-orbit"><span></span></div><div class="tp-guide-eyebrow"></div><h2 id="tpGuideTitle"></h2><p class="tp-guide-text"></p><button class="tp-guide-ok" type="button">GOT IT</button></div>`;
   document.body.appendChild(overlay);
-  const close=()=>{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true')};
+  const close=()=>{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');clearGuideFocus(1200)};
   overlay.querySelector('.tp-guide-close').addEventListener('click',close);
   overlay.querySelector('.tp-guide-ok').addEventListener('click',close);
   overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
@@ -43,6 +59,7 @@ function showGuide(step,{delay=0,scroll=true,force=false}={}){
   if(!force&&guideRead()>step)return;
   window.setTimeout(()=>{
     const target=$(data.target);
+    setGuideFocus(data,target);
     if(scroll&&target)target.scrollIntoView({behavior:'smooth',block:'start'});
     window.setTimeout(()=>{
       const overlay=ensureGuide();
@@ -51,7 +68,7 @@ function showGuide(step,{delay=0,scroll=true,force=false}={}){
       overlay.querySelector('.tp-guide-text').textContent=data.text;
       overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');
       guideWrite(Math.max(guideRead(),step));
-    },scroll?620:0);
+    },scroll?760:120);
   },delay);
 }
 function guideAdvance(step){guideWrite(step);showGuide(step,{force:true,scroll:true})}
@@ -72,7 +89,7 @@ function ensureResetDialog(){
 function openResetDialog(){const overlay=ensureResetDialog();overlay.classList.add('open');overlay.setAttribute('aria-hidden','false')}
 function resetPlannerState(){
   [POOL_KEY,DETAIL_KEY,PREF_KEY,SCHEDULE_KEY,GUIDE_KEY,FINAL_SELECTION_KEY].forEach(key=>{try{localStorage.removeItem(key)}catch(_){}});
-  try{sessionStorage.removeItem('atoTPGuideIntroShown')}catch(_){}
+  try{sessionStorage.removeItem('atoTPGuideIntroShownV2');sessionStorage.removeItem('atoTPYourIntroSeenFullGuidedGlow20260817')}catch(_){}
   pool=[];detail=[];recommendations=[];detailsCache=new Map();
   const form=$('#prefsForm');if(form)form.reset();
   const requestTours=$('#requestTours');if(requestTours)requestTours.innerHTML='';
@@ -105,11 +122,21 @@ function updateGuideNextButtons(){
   const bring=$('#bringChecklist .tp-guide-next');if(bring)bring.disabled=!detail.length;
 }
 function startGuidedJourney(){
-  let introShown=false;try{introShown=sessionStorage.getItem('atoTPGuideIntroShown')==='1'}catch(_){}
-  if(pool.length===MAX_POOL){window.setTimeout(()=>showGuide(2,{force:true,scroll:true}),700);return}
-  if(!introShown&&pool.length<MAX_POOL){
-    try{sessionStorage.setItem('atoTPGuideIntroShown','1')}catch(_){}
-    const launch=()=>window.setTimeout(()=>showGuide(1,{force:true,scroll:true}),10000);
+  const INTRO_GUIDE_KEY='atoTPGuideIntroShownV2';
+  let introShown=false;try{introShown=sessionStorage.getItem(INTRO_GUIDE_KEY)==='1'}catch(_){}
+
+  // Returning from a category with one or more selected tours means STEP 1 is complete.
+  // Continue the guided journey immediately with the holiday/preferences step.
+  if(pool.length>0){
+    window.setTimeout(()=>showGuide(2,{force:true,scroll:true}),650);
+    return;
+  }
+
+  // On a fresh Planner visit, YOUR finishes first and STEP 1 follows almost immediately.
+  // This restores the original concierge-style flow instead of leaving the user alone for 10 seconds.
+  if(!introShown){
+    try{sessionStorage.setItem(INTRO_GUIDE_KEY,'1')}catch(_){}
+    const launch=()=>window.setTimeout(()=>showGuide(1,{force:true,scroll:true}),450);
     const intro=document.getElementById('tpYourIntro');
     if(intro){window.addEventListener('ato:your-intro-complete',launch,{once:true})}
     else{launch()}
