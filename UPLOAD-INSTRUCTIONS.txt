@@ -1,0 +1,20 @@
+ATO LEGAL — GLOBAL HEADER FIX · 2026-08-17
+
+Replace these 5 root files:
+- legal-information.html
+- booking-cancellation.html
+- kvkk-privacy.html
+- cookie-policy.html
+- contact.html
+
+And upload/replace:
+- assets/js/ato-global-header.js
+
+What changed:
+- Removed the duplicated per-page site header from all five Legal pages.
+- Removed the duplicated per-page promo/Auction bar from all five Legal pages.
+- Removed obsolete local header/iframe/search/menu handlers.
+- Added exactly one /assets/js/ato-global-header.js loader to every Legal page.
+- Legal document content and each <header class="card-head"> were preserved.
+
+Important: all six files must be deployed in the same commit.

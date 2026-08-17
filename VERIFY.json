@@ -1,0 +1,47 @@
+{
+  "legal-information.html": {
+    "title": "Legal Information — ALANYA TOUR ORGANIZATIONS",
+    "global_header_loader_count": 1,
+    "local_site_header_markup_count": 0,
+    "local_promo_markup_count": 0,
+    "document_card_header_count": 1,
+    "obsolete_iframe_loader_script_present": false,
+    "legal_document_article_byte_identical_to_source": true
+  },
+  "booking-cancellation.html": {
+    "title": "Booking & Cancellation — ALANYA TOUR ORGANIZATIONS",
+    "global_header_loader_count": 1,
+    "local_site_header_markup_count": 0,
+    "local_promo_markup_count": 0,
+    "document_card_header_count": 1,
+    "obsolete_iframe_loader_script_present": false,
+    "legal_document_article_byte_identical_to_source": true
+  },
+  "kvkk-privacy.html": {
+    "title": "KVKK & Privacy — ALANYA TOUR ORGANIZATIONS",
+    "global_header_loader_count": 1,
+    "local_site_header_markup_count": 0,
+    "local_promo_markup_count": 0,
+    "document_card_header_count": 1,
+    "obsolete_iframe_loader_script_present": false,
+    "legal_document_article_byte_identical_to_source": true
+  },
+  "cookie-policy.html": {
+    "title": "Cookie Policy — ALANYA TOUR ORGANIZATIONS",
+    "global_header_loader_count": 1,
+    "local_site_header_markup_count": 0,
+    "local_promo_markup_count": 0,
+    "document_card_header_count": 1,
+    "obsolete_iframe_loader_script_present": false,
+    "legal_document_article_byte_identical_to_source": true
+  },
+  "contact.html": {
+    "title": "Contact — ALANYA TOUR ORGANIZATIONS",
+    "global_header_loader_count": 1,
+    "local_site_header_markup_count": 0,
+    "local_promo_markup_count": 0,
+    "document_card_header_count": 1,
+    "obsolete_iframe_loader_script_present": false,
+    "legal_document_article_byte_identical_to_source": true
+  }
+}
