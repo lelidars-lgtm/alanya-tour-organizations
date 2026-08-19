@@ -2532,13 +2532,13 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 
 <!-- =====================================================================
-     ATO DESKTOP ASSISTANT — TRUE TOP-LAYER MODAL V5
+     ATO DESKTOP ASSISTANT — PREMIUM DEPTH + AIR V6
      DESKTOP ONLY (>=981px).
      Full backdrop is below Assistant; Assistant is temporarily portaled to
      document.body while open, then restored to its exact original DOM place.
      Mobile, header, promo ribbon and Assistant content are untouched.
      ===================================================================== -->
-<style id="ato-desktop-language-name-hover-v5">
+<style id="ato-desktop-language-name-hover-v6">
 @media (min-width:981px){
   /* Only full language names turn gold on hover. Short En/Ru/Tr/De/Pl stay ivory. */
   #atoGlobalHeaderRoot .language-menu a .ato-lang-name,
@@ -2556,13 +2556,26 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     text-shadow:none!important;
   }
 
+  /* Premium Assistant surface: deep navy with restrained blue/gold depth. */
+  .ato-desktop-assistant-v6-surface{
+    background:
+      radial-gradient(circle at 58% 24%,rgba(38,118,255,.085) 0,rgba(38,118,255,.045) 18%,transparent 42%),
+      radial-gradient(circle at 8% 96%,rgba(203,158,72,.040) 0,transparent 34%),
+      linear-gradient(145deg,#06111c 0%,#081a2a 52%,#071421 100%)!important;
+    box-shadow:
+      0 34px 90px rgba(0,0,0,.52),
+      0 0 0 1px rgba(203,158,72,.30),
+      inset 0 1px 0 rgba(255,255,255,.025),
+      inset 0 0 48px rgba(34,92,160,.035)!important;
+  }
+
   #atoDesktopAssistantBackdropV5{
     position:fixed!important;
     inset:0!important;
     z-index:2147483000!important;
-    background:rgba(2,8,16,.50)!important;
-    -webkit-backdrop-filter:blur(4px)!important;
-    backdrop-filter:blur(4px)!important;
+    background:rgba(2,8,16,.62)!important;
+    -webkit-backdrop-filter:blur(5px)!important;
+    backdrop-filter:blur(5px)!important;
     opacity:0!important;
     visibility:hidden!important;
     pointer-events:none!important;
@@ -2575,7 +2588,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   }
 }
 </style>
-<script id="ato-desktop-assistant-modal-v5-js">
+<script id="ato-desktop-assistant-modal-v6-js">
 (function(){
   'use strict';
   const desktop=window.matchMedia('(min-width:981px)');
@@ -2732,10 +2745,12 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     if(!frame||frame.ownerDocument!==document)return;
     remember(frame);
     if(frame.parentNode!==document.body)document.body.appendChild(frame);
+    frame.classList.add('ato-desktop-assistant-v6-surface');
   }
 
   function restore(frame){
     if(!frame)return;
+    frame.classList.remove('ato-desktop-assistant-v6-surface');
     if(savedStyle.has(frame)){
       const original=savedStyle.get(frame);
       if(original===null)frame.removeAttribute('style');
@@ -2756,16 +2771,16 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
   function sizeAndCenter(frame,nativeRect){
     if(!frame)return;
-    const safeX=90;
-    const safeY=76;
+    const safeX=120;
+    const safeY=96;
     const maxW=Math.max(480,innerWidth-safeX*2);
     const maxH=Math.max(500,innerHeight-safeY*2);
 
     /* Desktop target: wider, calmer proportions; keep enough air on every side. */
     const nativeW=Math.max(360,nativeRect?.width||frame.getBoundingClientRect().width||520);
     const nativeH=Math.max(460,nativeRect?.height||frame.getBoundingClientRect().height||620);
-    const targetW=Math.min(Math.max(nativeW,600),Math.min(660,maxW));
-    const targetH=Math.min(Math.max(nativeH,560),Math.min(680,maxH));
+    const targetW=Math.min(Math.max(nativeW,620),Math.min(650,maxW));
+    const targetH=Math.min(Math.max(nativeH,570),Math.min(630,maxH));
     const left=Math.max(safeX,(innerWidth-targetW)/2);
     const top=Math.max(safeY,(innerHeight-targetH)/2);
     const st=frame.style;
