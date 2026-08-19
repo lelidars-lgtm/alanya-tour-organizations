@@ -2532,14 +2532,15 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 
 <!-- =====================================================================
-     ATO DESKTOP ASSISTANT — CLEAN CENTER MODAL V4
-     Rewritten from scratch after removing the conflicting V1/V2/V3
-     positioning overrides. DESKTOP ONLY (>=981px).
+     ATO DESKTOP ASSISTANT — TRUE TOP-LAYER MODAL V5
+     DESKTOP ONLY (>=981px).
+     Full backdrop is below Assistant; Assistant is temporarily portaled to
+     document.body while open, then restored to its exact original DOM place.
      Mobile, header, promo ribbon and Assistant content are untouched.
      ===================================================================== -->
-<style id="ato-desktop-language-name-hover-v4">
+<style id="ato-desktop-language-name-hover-v5">
 @media (min-width:981px){
-  /* Only the full language name turns gold on hover. Short En/Ru/Tr/De/Pl stays ivory. */
+  /* Only full language names turn gold on hover. Short En/Ru/Tr/De/Pl stay ivory. */
   #atoGlobalHeaderRoot .language-menu a .ato-lang-name,
   #atoGlobalHeaderRoot .language-menu a .ato-v8-lang-name{
     transition:color .18s ease,text-shadow .18s ease!important;
@@ -2555,11 +2556,11 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     text-shadow:none!important;
   }
 
-  #atoDesktopAssistantCleanBackdropV4{
+  #atoDesktopAssistantBackdropV5{
     position:fixed!important;
     inset:0!important;
-    z-index:2147483450!important;
-    background:rgba(2,8,16,.48)!important;
+    z-index:2147483000!important;
+    background:rgba(2,8,16,.50)!important;
     -webkit-backdrop-filter:blur(4px)!important;
     backdrop-filter:blur(4px)!important;
     opacity:0!important;
@@ -2567,19 +2568,20 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     pointer-events:none!important;
     transition:opacity .16s ease,visibility .16s ease!important;
   }
-  #atoDesktopAssistantCleanBackdropV4.is-open{
+  #atoDesktopAssistantBackdropV5.is-open{
     opacity:1!important;
     visibility:visible!important;
     pointer-events:auto!important;
   }
 }
 </style>
-<script id="ato-desktop-assistant-clean-v4-js">
+<script id="ato-desktop-assistant-modal-v5-js">
 (function(){
   'use strict';
   const desktop=window.matchMedia('(min-width:981px)');
-  const BACKDROP_ID='atoDesktopAssistantCleanBackdropV4';
+  const BACKDROP_ID='atoDesktopAssistantBackdropV5';
   const savedStyle=new WeakMap();
+  const savedPlace=new WeakMap();
   const roots=new Set([document]);
   let active=null;
   let raf=0;
@@ -2595,11 +2597,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   function textOf(el){
     try{return (el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}catch(_){return ''}
   }
-
   function metaOf(el){
     try{return `${el.id||''} ${typeof el.className==='string'?el.className:''} ${el.getAttribute?.('aria-label')||''} ${el.getAttribute?.('role')||''}`.toUpperCase()}catch(_){return ''}
   }
-
   function assistantTextScore(el){
     const t=textOf(el),m=metaOf(el);
     let s=0;
@@ -2643,7 +2643,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       if(el.closest?.('#atoGlobalHeaderRoot'))return -1e9;
       if(el.id===BACKDROP_ID)return -1e9;
       const r=el.getBoundingClientRect(),cs=getComputedStyle(el),m=metaOf(el);
-      if(r.width>innerWidth*.94&&r.height>innerHeight*.90)return -1e9; // never select a scrim/page shell
+      if(r.width>innerWidth*.94&&r.height>innerHeight*.90)return -1e9;
       if(r.width<280||r.height<300)return -1e9;
       let s=assistantTextScore(el);
       if(cs.position==='fixed')s+=120;
@@ -2677,8 +2677,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       }catch(_){ }
     });
     if(!candidates.length)return null;
-    /* Prefer the smallest complete Assistant panel, not a huge parent container. */
-    candidates.sort((a,b)=> (b.s-a.s) || (a.area-b.area));
+    candidates.sort((a,b)=>(b.s-a.s)||(a.area-b.area));
     const bestScore=candidates[0].s;
     const near=candidates.filter(x=>x.s>=bestScore-40).sort((a,b)=>a.area-b.area);
     return (near[0]||candidates[0]).el;
@@ -2706,30 +2705,69 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     return best;
   }
 
-  function remember(el){
-    if(!savedStyle.has(el))savedStyle.set(el,el.getAttribute('style'));
+  function topPortalFrame(frame){
+    if(!frame)return frame;
+    try{
+      /* If the chosen panel lives inside Shadow DOM, move the host instead so its styles stay intact. */
+      let root=frame.getRootNode?.();
+      while(root&&root.host){
+        frame=root.host;
+        root=frame.getRootNode?.();
+      }
+      /* If Assistant content lives in a same-origin iframe, portal the iframe itself. */
+      if(frame.ownerDocument&&frame.ownerDocument!==document){
+        const iframe=frame.ownerDocument.defaultView?.frameElement;
+        if(iframe)frame=iframe;
+      }
+    }catch(_){ }
+    return frame;
   }
 
-  function restore(el){
-    if(!el||!savedStyle.has(el))return;
-    const original=savedStyle.get(el);
-    if(original===null)el.removeAttribute('style');
-    else el.setAttribute('style',original);
-    savedStyle.delete(el);
+  function remember(frame){
+    if(!savedStyle.has(frame))savedStyle.set(frame,frame.getAttribute('style'));
+    if(!savedPlace.has(frame))savedPlace.set(frame,{parent:frame.parentNode,next:frame.nextSibling});
   }
 
-  function centerFrame(frame){
-    if(!frame)return;
+  function portalToBody(frame){
+    if(!frame||frame.ownerDocument!==document)return;
     remember(frame);
+    if(frame.parentNode!==document.body)document.body.appendChild(frame);
+  }
 
-    /* Measure the native OPEN panel first, then freeze that exact footprint in the viewport center. */
-    const r=frame.getBoundingClientRect();
-    const maxW=Math.max(360,innerWidth-72);
-    const maxH=Math.max(420,innerHeight-72);
-    const w=Math.min(r.width,maxW);
-    const h=Math.min(r.height,maxH);
-    const left=Math.max(36,(innerWidth-w)/2);
-    const top=Math.max(36,(innerHeight-h)/2);
+  function restore(frame){
+    if(!frame)return;
+    if(savedStyle.has(frame)){
+      const original=savedStyle.get(frame);
+      if(original===null)frame.removeAttribute('style');
+      else frame.setAttribute('style',original);
+      savedStyle.delete(frame);
+    }
+    if(savedPlace.has(frame)){
+      const place=savedPlace.get(frame);
+      savedPlace.delete(frame);
+      try{
+        if(place.parent?.isConnected){
+          if(place.next&&place.next.parentNode===place.parent)place.parent.insertBefore(frame,place.next);
+          else place.parent.appendChild(frame);
+        }
+      }catch(_){ }
+    }
+  }
+
+  function sizeAndCenter(frame,nativeRect){
+    if(!frame)return;
+    const safeX=90;
+    const safeY=76;
+    const maxW=Math.max(480,innerWidth-safeX*2);
+    const maxH=Math.max(500,innerHeight-safeY*2);
+
+    /* Desktop target: wider, calmer proportions; keep enough air on every side. */
+    const nativeW=Math.max(360,nativeRect?.width||frame.getBoundingClientRect().width||520);
+    const nativeH=Math.max(460,nativeRect?.height||frame.getBoundingClientRect().height||620);
+    const targetW=Math.min(Math.max(nativeW,600),Math.min(660,maxW));
+    const targetH=Math.min(Math.max(nativeH,560),Math.min(680,maxH));
+    const left=Math.max(safeX,(innerWidth-targetW)/2);
+    const top=Math.max(safeY,(innerHeight-targetH)/2);
     const st=frame.style;
 
     st.setProperty('position','fixed','important');
@@ -2738,9 +2776,11 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     st.setProperty('top',top.toFixed(1)+'px','important');
     st.setProperty('right','auto','important');
     st.setProperty('bottom','auto','important');
-    st.setProperty('width',w.toFixed(1)+'px','important');
+    st.setProperty('width',targetW.toFixed(1)+'px','important');
+    st.setProperty('min-width','0','important');
     st.setProperty('max-width',maxW.toFixed(1)+'px','important');
-    st.setProperty('height',h.toFixed(1)+'px','important');
+    st.setProperty('height',targetH.toFixed(1)+'px','important');
+    st.setProperty('min-height','0','important');
     st.setProperty('max-height',maxH.toFixed(1)+'px','important');
     st.setProperty('margin','0','important');
     st.setProperty('translate','none','important');
@@ -2760,13 +2800,11 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     }
     return b;
   }
-
   function showBackdrop(){
     const b=backdrop();
     b.classList.add('is-open');
     b.setAttribute('aria-hidden','false');
   }
-
   function hideBackdrop(){
     const b=document.getElementById(BACKDROP_ID);
     b?.classList.remove('is-open');
@@ -2776,13 +2814,10 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   function deepControls(root,out=[]){
     try{
       root.querySelectorAll?.('button,[role="button"],a').forEach(el=>out.push(el));
-      root.querySelectorAll?.('*').forEach(el=>{
-        if(el.shadowRoot)deepControls(el.shadowRoot,out);
-      });
+      root.querySelectorAll?.('*').forEach(el=>{if(el.shadowRoot)deepControls(el.shadowRoot,out)});
     }catch(_){ }
     return out;
   }
-
   function isCloseControl(el){
     if(!el)return false;
     const aria=(el.getAttribute?.('aria-label')||'').toLowerCase();
@@ -2798,7 +2833,6 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     const frame=active;
     const controls=deepControls(frame,[]);
     const close=controls.find(isCloseControl);
-    /* Restore native drawer CSS BEFORE firing its own close handler. */
     restore(frame);
     active=null;
     hideBackdrop();
@@ -2816,11 +2850,17 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     if(!desktop.matches){clear();return}
     const content=findAssistantContent();
     if(!content){clear();return}
-    const frame=chooseFrame(content);
+    let frame=chooseFrame(content);
+    frame=topPortalFrame(frame);
     if(!frame||!isVisible(frame)){clear();return}
+
     if(active&&active!==frame)restore(active);
     active=frame;
-    centerFrame(frame);
+
+    /* Measure BEFORE portaling so we preserve the native Assistant height. */
+    const nativeRect=frame.getBoundingClientRect();
+    portalToBody(frame);
+    sizeAndCenter(frame,nativeRect);
     showBackdrop();
   }
 
@@ -2829,13 +2869,15 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     raf=requestAnimationFrame(sync);
   }
 
-  /* Let native close buttons work: remove our centering before their native click listener executes. */
+  /* Restore native placement immediately before its own close handler runs. */
   document.addEventListener('click',function(e){
     if(!desktop.matches)return;
-    if(active&&isCloseControl(e.target?.closest?.('button,[role="button"],a'))){
-      restore(active);
+    const target=e.target?.closest?.('button,[role="button"],a');
+    if(active&&isCloseControl(target)){
+      const frame=active;
       active=null;
       hideBackdrop();
+      restore(frame);
       return;
     }
     setTimeout(queue,30);
@@ -2844,9 +2886,10 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape'&&active){
-      restore(active);
+      const frame=active;
       active=null;
       hideBackdrop();
+      restore(frame);
     }
     setTimeout(queue,35);
   },true);
@@ -2864,3 +2907,4 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   else init();
 })();
 </script>
+
