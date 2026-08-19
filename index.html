@@ -2520,6 +2520,203 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 
 
+
+
+<!-- =====================================================================
+     ATO DESKTOP ASSISTANT POSITION V3 — OUTER RIGHT RAIL CENTERING
+     Desktop only. Preserves native Assistant transform/open-close behavior.
+     Does not touch mobile, header layout, promo bar, Hero or Assistant content.
+     ===================================================================== -->
+<style id="ato-desktop-assistant-position-v3-css">
+@media (min-width:981px){
+  .ato-desktop-assistant-right-rail-v3{
+    position:fixed!important;
+    left:auto!important;
+    right:max(36px,calc(50vw - 360px))!important;
+    top:auto!important;
+    bottom:max(36px,calc(50vh - 380px))!important;
+    width:min(720px,calc(100vw - 72px))!important;
+    max-width:720px!important;
+    min-width:0!important;
+    height:min(760px,calc(100vh - 72px))!important;
+    max-height:760px!important;
+    min-height:0!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+    z-index:2147483602!important;
+  }
+}
+</style>
+<script id="ato-desktop-assistant-position-v3-js">
+(function(){
+  'use strict';
+  const mq=window.matchMedia('(min-width:981px)');
+  const CLASS='ato-desktop-assistant-right-rail-v3';
+  let target=null,raf=0;
+  const roots=new Set([document]);
+
+  function visible(el){
+    try{
+      const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
+      if(el.hidden||cs.display==='none'||cs.visibility==='hidden'||parseFloat(cs.opacity||'1')<.03)return false;
+      if(r.width<2||r.height<2)return false;
+      return r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight;
+    }catch(_){return false}
+  }
+  function deepRoots(root=document){
+    try{
+      root.querySelectorAll?.('*').forEach(el=>{
+        if(el.shadowRoot&&!roots.has(el.shadowRoot)){roots.add(el.shadowRoot);deepRoots(el.shadowRoot)}
+        if(el.tagName==='IFRAME'){
+          try{const d=el.contentDocument;if(d&&!roots.has(d)){roots.add(d);deepRoots(d)}}catch(_){ }
+        }
+      });
+    }catch(_){ }
+  }
+  function txt(el){
+    try{return (el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}catch(_){return ''}
+  }
+  function idClass(el){
+    try{return `${el.id||''} ${typeof el.className==='string'?el.className:''} ${el.getAttribute?.('aria-label')||''} ${el.getAttribute?.('role')||''}`.toUpperCase()}catch(_){return ''}
+  }
+  function zValue(el){
+    try{const z=parseInt(getComputedStyle(el).zIndex,10);return Number.isFinite(z)?z:0}catch(_){return 0}
+  }
+  function darkBg(el){
+    try{
+      const c=getComputedStyle(el).backgroundColor.match(/[\d.]+/g);
+      if(!c||c.length<3)return false;
+      const [r,g,b,a=1]=c.map(Number);
+      return a>.08 && (r+g+b)<210;
+    }catch(_){return false}
+  }
+  function assistantSignal(el){
+    const meta=idClass(el),t=txt(el);
+    let s=0;
+    if(/ASSISTANT|CHAT|ATO.?AI/.test(meta))s+=45;
+    if(t.includes('TALK TO MANAGER'))s+=55;
+    if(t.includes('AI ASSISTANT'))s+=45;
+    if(t.includes('ASK ABOUT TOURS'))s+=45;
+    if(t.includes('FIND A TOUR'))s+=25;
+    if(t.includes('WITH CHILDREN'))s+=20;
+    if(t.includes('PICKUP & TRANSFER'))s+=20;
+    try{
+      if(el.querySelector?.('input[placeholder*="tour" i],textarea[placeholder*="tour" i]'))s+=35;
+    }catch(_){ }
+    return s;
+  }
+  function geometryScore(el){
+    try{
+      if(!visible(el)||el.closest?.('#atoGlobalHeaderRoot'))return -9999;
+      if(el.id==='atoDesktopAssistantBackdrop'||el.id==='atoDesktopAssistantBackdropV2')return -9999;
+      if(el.closest?.('#atoTourFinderModal'))return -9999;
+      const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
+      if(r.width<360||r.width>900||r.height<320||r.height>innerHeight*1.12)return -9999;
+      if(r.left<innerWidth*.34)return -9999;
+      if(r.right<innerWidth-150)return -9999;
+      let s=0;
+      const gap=Math.abs(innerWidth-r.right);
+      if(gap<=18)s+=30; else if(gap<=70)s+=20; else s+=8;
+      if(cs.position==='fixed')s+=28; else if(cs.position==='absolute')s+=15;
+      if(zValue(el)>1000)s+=16; else if(zValue(el)>50)s+=8;
+      if(darkBg(el))s+=10;
+      if(r.width>=520&&r.width<=780)s+=12;
+      if(r.height>=500)s+=8;
+      s+=assistantSignal(el);
+      return s;
+    }catch(_){return -9999}
+  }
+  function composedParent(el){
+    if(!el)return null;
+    if(el.parentElement)return el.parentElement;
+    try{const rn=el.getRootNode?.();return rn?.host||null}catch(_){return null}
+  }
+  function outerRail(el){
+    let best=el,bestScore=geometryScore(el),cur=el;
+    for(let i=0;i<10;i++){
+      cur=composedParent(cur);
+      if(!cur||cur===document.body||cur===document.documentElement||cur.id==='atoGlobalHeaderRoot')break;
+      const sc=geometryScore(cur);
+      if(sc>-9999){
+        const br=best.getBoundingClientRect(),cr=cur.getBoundingClientRect();
+        /* Prefer the outermost right rail when it is roughly the same panel footprint. */
+        const similarWidth=cr.width<=900&&cr.width>=Math.max(360,br.width*.78);
+        const similarRight=Math.abs(cr.right-innerWidth)<=Math.abs(br.right-innerWidth)+40;
+        if(similarWidth&&similarRight&&sc>=bestScore-28){best=cur;bestScore=Math.max(bestScore,sc)}
+      }
+    }
+    try{
+      const frame=el.ownerDocument?.defaultView?.frameElement;
+      if(frame&&geometryScore(frame)>-9999)best=frame;
+    }catch(_){ }
+    return best;
+  }
+  function pointCandidates(out){
+    const pts=[[.97,.55],[.92,.68],[.82,.55],[.72,.68]];
+    for(const [xf,yf] of pts){
+      try{document.elementsFromPoint(innerWidth*xf,innerHeight*yf).forEach(el=>out.add(el))}catch(_){ }
+    }
+  }
+  function findRail(){
+    if(!mq.matches)return null;
+    deepRoots();
+    const pool=new Set();
+    pointCandidates(pool);
+    roots.forEach(root=>{
+      try{root.querySelectorAll?.('*').forEach(el=>{
+        const meta=idClass(el);
+        if(/ASSISTANT|CHAT|DIALOG|MODAL/.test(meta))pool.add(el);
+        const r=el.getBoundingClientRect?.();
+        if(r&&r.width>=360&&r.width<=900&&r.height>=320&&r.left>=innerWidth*.34&&r.right>=innerWidth-150)pool.add(el);
+      })}catch(_){ }
+    });
+    let best=null,bestScore=-9999;
+    pool.forEach(el=>{
+      const sc=geometryScore(el);
+      if(sc>bestScore){best=el;bestScore=sc}
+    });
+    if(!best||bestScore<55)return null;
+    return outerRail(best);
+  }
+  function applyDirect(el){
+    if(!el)return;
+    el.classList.add(CLASS);
+    /* Inline !important is deliberate: it wins against the Assistant's native right-drawer CSS,
+       while transform is NOT changed so the native close/open animation still works. */
+    const st=el.style;
+    st.setProperty('position','fixed','important');
+    st.setProperty('left','auto','important');
+    st.setProperty('right','max(36px, calc(50vw - 360px))','important');
+    st.setProperty('top','auto','important');
+    st.setProperty('bottom','max(36px, calc(50vh - 380px))','important');
+    st.setProperty('width','min(720px, calc(100vw - 72px))','important');
+    st.setProperty('max-width','720px','important');
+    st.setProperty('height','min(760px, calc(100vh - 72px))','important');
+    st.setProperty('max-height','760px','important');
+    st.setProperty('margin','0','important');
+    st.setProperty('box-sizing','border-box','important');
+    st.setProperty('z-index','2147483602','important');
+  }
+  function sync(){
+    raf=0;
+    if(!mq.matches){if(target)target.classList.remove(CLASS);target=null;return}
+    const rail=findRail();
+    if(!rail)return;
+    if(target&&target!==rail)target.classList.remove(CLASS);
+    target=rail;
+    applyDirect(rail);
+  }
+  function queue(){if(raf)return;raf=requestAnimationFrame(sync)}
+  function kick(){queue();setTimeout(queue,40);setTimeout(queue,120);setTimeout(queue,260);setTimeout(queue,520)}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',kick,{once:true});else kick();
+  document.addEventListener('click',kick,true);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')setTimeout(queue,50)},true);
+  window.addEventListener('resize',queue,{passive:true});
+  mq.addEventListener?.('change',queue);
+  new MutationObserver(queue).observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-hidden','open']});
+})();
+</script>
+
 </body>
 </html>
 
