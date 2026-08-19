@@ -2670,3 +2670,307 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 })();
 </script>
 
+
+
+<!-- =====================================================================
+     ATO DESKTOP PATCH V2 — ASSISTANT TRUE CENTER + LANGUAGE NAME HOVER
+     2026-08-19. DESKTOP ONLY (>=981px).
+     Does NOT change mobile. Does NOT restructure header/promo/Hero.
+     Previous code is kept intact; this is a narrow override.
+     ===================================================================== -->
+<style id="ato-desktop-patch-v2-style">
+@media (min-width:981px){
+  /* Language hover: ONLY the full language name turns gold.
+     En / Ru / Tr / De / Pl stay in their normal ivory color. */
+  #atoGlobalHeaderRoot .language-menu a:hover .ato-lang-name,
+  #atoGlobalHeaderRoot .language-menu a:hover .ato-v8-lang-name{
+    color:#e1b65b!important;
+    text-shadow:0 0 12px rgba(225,182,91,.18)!important;
+    transition:color .18s ease,text-shadow .18s ease!important;
+  }
+  #atoGlobalHeaderRoot .language-menu a:hover .ato-lang-code,
+  #atoGlobalHeaderRoot .language-menu a:hover .ato-v8-lang-code{
+    color:#fff8ec!important;
+    text-shadow:none!important;
+  }
+
+  #atoDesktopAssistantBackdropV2{
+    position:fixed!important;
+    inset:0!important;
+    z-index:2147483400!important;
+    background:rgba(2,8,16,.58)!important;
+    backdrop-filter:blur(7px)!important;
+    -webkit-backdrop-filter:blur(7px)!important;
+    opacity:0!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+    transition:opacity .18s ease,visibility .18s ease!important;
+  }
+  #atoDesktopAssistantBackdropV2.is-open{
+    opacity:1!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+  }
+
+  /* This class is also injected into an open ShadowRoot when needed. */
+  .ato-desktop-assistant-modalized-v2{
+    position:fixed!important;
+    left:50%!important;
+    top:50%!important;
+    right:auto!important;
+    bottom:auto!important;
+    inset:auto!important;
+    width:min(720px,calc(100vw - 72px))!important;
+    max-width:720px!important;
+    min-width:min(520px,calc(100vw - 72px))!important;
+    height:min(760px,calc(100vh - 72px))!important;
+    max-height:760px!important;
+    min-height:min(560px,calc(100vh - 72px))!important;
+    margin:0!important;
+    translate:none!important;
+    transform:translate(-50%,-50%)!important;
+    z-index:2147483600!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+  .ato-desktop-assistant-host-z-v2{
+    z-index:2147483600!important;
+  }
+}
+</style>
+<script id="ato-desktop-assistant-modal-v2-js">
+(function(){
+  'use strict';
+  const mq=window.matchMedia('(min-width:981px)');
+  const MODAL='ato-desktop-assistant-modalized-v2';
+  const HOSTZ='ato-desktop-assistant-host-z-v2';
+  const roots=new Set();
+  const patchedRoots=new WeakSet();
+  let active=null,activeHosts=[],raf=0;
+
+  /* ato-assistant.js is deferred. Capture ShadowRoots before it mounts. */
+  roots.add(document);
+  const nativeAttach=Element.prototype.attachShadow;
+  if(nativeAttach && !Element.prototype.__atoAssistantShadowCaptureV2){
+    try{
+      Object.defineProperty(Element.prototype,'__atoAssistantShadowCaptureV2',{value:true,configurable:true});
+      Element.prototype.attachShadow=function(init){
+        const root=nativeAttach.call(this,init);
+        roots.add(root);
+        queue();
+        return root;
+      };
+    }catch(_){/* no-op */}
+  }
+
+  function rootContainer(root){
+    if(root===document)return document.head||document.documentElement;
+    return root;
+  }
+  function ensureModalStyle(root){
+    if(!root||patchedRoots.has(root))return;
+    patchedRoots.add(root);
+    const st=document.createElement('style');
+    st.textContent=`@media (min-width:981px){
+      .${MODAL}{position:fixed!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;inset:auto!important;width:min(720px,calc(100vw - 72px))!important;max-width:720px!important;min-width:min(520px,calc(100vw - 72px))!important;height:min(760px,calc(100vh - 72px))!important;max-height:760px!important;min-height:min(560px,calc(100vh - 72px))!important;margin:0!important;translate:none!important;transform:translate(-50%,-50%)!important;z-index:2147483600!important;overflow:hidden!important;box-sizing:border-box!important}
+      .${HOSTZ}{z-index:2147483600!important}
+    }`;
+    try{rootContainer(root).appendChild(st)}catch(_){/* no-op */}
+  }
+
+  function discoverRoots(root=document){
+    try{
+      const all=root.querySelectorAll?root.querySelectorAll('*'):[];
+      all.forEach(el=>{
+        if(el.shadowRoot){roots.add(el.shadowRoot);discoverRoots(el.shadowRoot)}
+        if(el.tagName==='IFRAME'){
+          try{
+            const d=el.contentDocument;
+            if(d){roots.add(d);discoverRoots(d)}
+          }catch(_){/* cross-origin iframe: leave untouched */}
+        }
+      });
+    }catch(_){/* no-op */}
+  }
+
+  function text(el){
+    try{return (el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}catch(_){return ''}
+  }
+  function isAssistantText(t){
+    if(!t.includes('TALK TO MANAGER'))return false;
+    const quick=t.includes('FIND A TOUR')||t.includes('WITH CHILDREN')||t.includes('PICKUP & TRANSFER');
+    const identity=t.includes('AI ASSISTANT')||t.includes('ASK ABOUT TOURS')||t.includes('WHAT DO YOU NEED');
+    return quick&&identity;
+  }
+  function rectVisible(el){
+    try{
+      const cs=getComputedStyle(el),r=el.getBoundingClientRect();
+      if(cs.display==='none'||cs.visibility==='hidden'||parseFloat(cs.opacity||'1')<.04||el.hidden)return false;
+      if(r.width<300||r.height<320)return false;
+      return r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight;
+    }catch(_){return false}
+  }
+  function composedParent(el){
+    if(!el)return null;
+    if(el.parentElement)return el.parentElement;
+    try{
+      const rn=el.getRootNode?.();
+      if(rn&&rn.host)return rn.host;
+    }catch(_){/* no-op */}
+    return null;
+  }
+  function scoreFrame(el){
+    try{
+      const cs=getComputedStyle(el),r=el.getBoundingClientRect();
+      let s=0;
+      if(cs.position==='fixed')s+=8;
+      else if(cs.position==='absolute')s+=4;
+      if(r.width>=340&&r.width<=980)s+=3;
+      if(r.height>=380&&r.height<=innerHeight*1.35)s+=3;
+      if(parseFloat(cs.borderRadius||'0')>=12)s+=1;
+      if(isAssistantText(text(el)))s+=2;
+      return s;
+    }catch(_){return -1}
+  }
+  function chooseFrame(node){
+    let best=node,bestScore=scoreFrame(node),cur=node;
+    for(let i=0;i<9;i++){
+      cur=composedParent(cur);
+      if(!cur||cur===document.body||cur===document.documentElement||cur.id==='atoGlobalHeaderRoot')break;
+      const r=cur.getBoundingClientRect?.();
+      if(!r||r.width<280||r.height<300)continue;
+      const sc=scoreFrame(cur);
+      if(sc>bestScore){best=cur;bestScore=sc}
+    }
+    /* If the assistant lives inside a same-origin iframe, center the iframe itself. */
+    try{
+      const win=node.ownerDocument?.defaultView;
+      const frame=win?.frameElement;
+      if(frame){
+        const fr=frame.getBoundingClientRect();
+        if(fr.width>=280&&fr.height>=320)best=frame;
+      }
+    }catch(_){/* no-op */}
+    return best;
+  }
+  function findPanel(){
+    if(!mq.matches)return null;
+    discoverRoots();
+    const candidates=[];
+    roots.forEach(root=>{
+      try{
+        ensureModalStyle(root);
+        const els=root.querySelectorAll?root.querySelectorAll('aside,dialog,section,article,div,form'):[];
+        els.forEach(el=>{
+          if(el.id==='atoDesktopAssistantBackdrop'||el.id==='atoDesktopAssistantBackdropV2')return;
+          if(el.closest?.('#atoGlobalHeaderRoot'))return;
+          const t=text(el);
+          if(isAssistantText(t)&&rectVisible(el))candidates.push(el);
+        });
+      }catch(_){/* no-op */}
+    });
+    if(!candidates.length)return null;
+    candidates.sort((a,b)=>{
+      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+      return (ar.width*ar.height)-(br.width*br.height);
+    });
+    return chooseFrame(candidates[0]);
+  }
+
+  function ensureBackdrop(){
+    let b=document.getElementById('atoDesktopAssistantBackdropV2');
+    if(!b){
+      b=document.createElement('div');
+      b.id='atoDesktopAssistantBackdropV2';
+      b.setAttribute('aria-hidden','true');
+      document.body.appendChild(b);
+      b.addEventListener('click',closeAssistant);
+    }
+    return b;
+  }
+  function descendantsDeep(node,out=[]){
+    if(!node)return out;
+    try{
+      node.querySelectorAll?.('*').forEach(el=>{
+        out.push(el);
+        if(el.shadowRoot)descendantsDeep(el.shadowRoot,out);
+        if(el.tagName==='IFRAME'){
+          try{if(el.contentDocument)descendantsDeep(el.contentDocument,out)}catch(_){/* no-op */}
+        }
+      });
+    }catch(_){/* no-op */}
+    return out;
+  }
+  function closeAssistant(){
+    if(!mq.matches)return;
+    const panel=active||findPanel();
+    if(!panel)return;
+    const controls=descendantsDeep(panel,[]).filter(el=>el.matches?.('button,[role="button"],a'));
+    const btn=controls.find(el=>{
+      const a=(el.getAttribute('aria-label')||'').toLowerCase();
+      const t=(el.getAttribute('title')||'').toLowerCase();
+      const tx=(el.textContent||'').trim().toLowerCase();
+      return a.includes('close')||a.includes('dismiss')||t.includes('close')||tx==='×'||tx==='✕'||tx==='close';
+    });
+    if(btn){btn.click();setTimeout(queue,40);return}
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',code:'Escape',bubbles:true}));
+    setTimeout(queue,40);
+  }
+  function clear(){
+    if(active)active.classList.remove(MODAL);
+    active=null;
+    activeHosts.forEach(h=>h.classList.remove(HOSTZ));
+    activeHosts=[];
+    const b=document.getElementById('atoDesktopAssistantBackdropV2');
+    b?.classList.remove('is-open');
+    b?.setAttribute('aria-hidden','true');
+  }
+  function applyHosts(frame){
+    const hosts=[];
+    let cur=frame;
+    for(let i=0;i<8;i++){
+      try{
+        const rn=cur.getRootNode?.();
+        if(rn&&rn.host){
+          rn.host.classList.add(HOSTZ);
+          ensureModalStyle(rn.host.getRootNode?.()||document);
+          hosts.push(rn.host);
+          cur=rn.host;
+        }else break;
+      }catch(_){break}
+    }
+    activeHosts=hosts;
+  }
+  function sync(){
+    raf=0;
+    /* Temporarily remove our own class so visibility is judged by the Assistant's native open/closed state. */
+    if(active)active.classList.remove(MODAL);
+    activeHosts.forEach(h=>h.classList.remove(HOSTZ));
+    activeHosts=[];
+    if(!mq.matches){clear();return}
+    const panel=findPanel();
+    if(!panel){clear();return}
+    if(!rectVisible(panel)){clear();return}
+    ensureModalStyle(panel.getRootNode?.()||document);
+    panel.classList.add(MODAL);
+    active=panel;
+    applyHosts(panel);
+    const b=ensureBackdrop();
+    b.classList.add('is-open');
+    b.setAttribute('aria-hidden','false');
+  }
+  function queue(){if(raf)return;raf=requestAnimationFrame(sync)}
+
+  function init(){
+    discoverRoots();
+    const obs=new MutationObserver(queue);
+    try{obs.observe(document.documentElement,{subtree:true,childList:true})}catch(_){/* no-op */}
+    document.addEventListener('click',()=>{queue();setTimeout(queue,50);setTimeout(queue,180);setTimeout(queue,420)},true);
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')setTimeout(queue,35)},true);
+    window.addEventListener('resize',queue,{passive:true});
+    mq.addEventListener?.('change',queue);
+    setTimeout(queue,0);setTimeout(queue,250);setTimeout(queue,900);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
