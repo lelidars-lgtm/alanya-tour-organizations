@@ -3330,21 +3330,47 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 })();
 </script>
 
+
 <!-- =====================================================================
-     ATO DESKTOP ASSISTANT LAUNCHER V16 — APPROVED 360° DATA-PROCESSING GIF + NATIVE CLICK BRIDGE
+     ATO DESKTOP ASSISTANT LAUNCHER V17 — NATIVE SKIN / ZERO CLICK BRIDGE
      DESKTOP ONLY (>=981px). Header/mobile untouched.
-     The native Assistant launcher remains in DOM and keeps all native logic.
-     On desktop it is made visually transparent while this approved launcher is active.
+
+     IMPORTANT:
+     The real native Assistant launcher is NOT hidden, disabled, moved or replaced.
+     We place the approved visual skin INSIDE the native launcher.
+     The skin has pointer-events:none, therefore the browser delivers the user's
+     REAL click directly to the original Assistant launcher / original controls.
+     No synthetic .click(), no forwarding bridge, no pointer-events:none on native.
      ===================================================================== -->
-<style id="ato-desktop-assistant-launcher-v13">
+<style id="ato-desktop-assistant-launcher-v17">
 @media (min-width:981px){
-  #atoAssistantLauncherV13{
-    position:fixed!important;
-    right:24px!important;
-    bottom:24px!important;
-    width:430px!important;
-    height:92px!important;
-    max-width:calc(100vw - 48px)!important;
+  .ato-v17-native-assistant-host{
+    position:relative!important;
+    isolation:isolate!important;
+  }
+
+  /* Hide ONLY the old artwork, never the real clickable controls. 
+     Opacity does not disable hit-testing, so original native click logic remains alive. */
+  .ato-v17-native-assistant-host > .ato-v17-native-original{
+    opacity:0!important;
+  }
+
+  /* Prevent old host decoration from peeking around the approved skin. */
+  .ato-v17-native-assistant-host{
+    background:transparent!important;
+    border-color:transparent!important;
+    box-shadow:none!important;
+  }
+  .ato-v17-native-assistant-host::before,
+  .ato-v17-native-assistant-host::after{
+    opacity:0!important;
+  }
+
+  .ato-v17-launcher-skin{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
     display:grid!important;
     grid-template-columns:28px minmax(0,1fr) 72px!important;
     align-items:center!important;
@@ -3355,69 +3381,59 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     border:1px solid rgba(210,166,79,.82)!important;
     border-radius:999px!important;
     background:
-      radial-gradient(circle at 77% 50%,rgba(37,110,220,.10),transparent 30%),
-      linear-gradient(108deg,#071421 0%,#071a2a 58%,#061522 100%)!important;
+      radial-gradient(circle at 78% 49%,rgba(52,201,211,.09),transparent 29%),
+      radial-gradient(circle at 91% 52%,rgba(21,116,103,.10),transparent 27%),
+      linear-gradient(108deg,#071421 0%,#08243a 42%,#073b3b 76%,#05291f 100%)!important;
     box-shadow:
       0 18px 44px rgba(0,0,0,.32),
       inset 0 0 0 1px rgba(255,255,255,.015),
-      0 0 24px rgba(24,88,180,.08)!important;
+      0 0 26px rgba(28,133,174,.08)!important;
     color:#f4efe6!important;
-    cursor:pointer!important;
-    z-index:2147483500!important;
     overflow:hidden!important;
-    isolation:isolate!important;
-    appearance:none!important;
-    -webkit-appearance:none!important;
-    outline:0!important;
-    opacity:1!important;
-    visibility:visible!important;
-    pointer-events:auto!important;
+    pointer-events:none!important; /* CRITICAL: native launcher receives the REAL click */
+    z-index:2147483600!important;
     transform:translateZ(0)!important;
-    transition:transform .22s ease,box-shadow .22s ease,filter .22s ease,opacity .16s ease!important;
-    -webkit-tap-highlight-color:transparent!important;
+    transition:filter .22s ease,box-shadow .22s ease!important;
   }
-  #atoAssistantLauncherV13::before{
+
+  .ato-v17-launcher-skin::before{
     content:"";
     position:absolute;
     inset:0;
     pointer-events:none;
     border-radius:inherit;
-    background:linear-gradient(180deg,rgba(255,255,255,.028),transparent 38%,rgba(0,0,0,.05));
-    z-index:-1;
+    background:linear-gradient(180deg,rgba(255,255,255,.030),transparent 39%,rgba(0,0,0,.055));
   }
-  #atoAssistantLauncherV13:hover{
-    transform:translateY(-2px)!important;
-    filter:brightness(1.045) saturate(1.04)!important;
+
+  .ato-v17-native-assistant-host:hover .ato-v17-launcher-skin{
+    filter:brightness(1.045) saturate(1.035)!important;
     box-shadow:
       0 22px 52px rgba(0,0,0,.36),
       inset 0 0 0 1px rgba(255,255,255,.02),
       0 0 0 1px rgba(226,185,83,.10),
-      0 0 30px rgba(43,113,230,.12)!important;
+      0 0 32px rgba(43,170,184,.12)!important;
   }
-  #atoAssistantLauncherV13:focus-visible{
-    outline:1px solid rgba(238,202,126,.94)!important;
-    outline-offset:4px!important;
-  }
-  #atoAssistantLauncherV13.is-open,
-  #atoAssistantLauncherV13.is-opening{
-    opacity:0!important;
-    visibility:hidden!important;
-    pointer-events:none!important;
-  }
-  #atoAssistantLauncherV13 .ato-v13-dot{
+
+  .ato-v17-dot{
     width:15px;
     height:15px;
     border-radius:50%;
     background:linear-gradient(145deg,#f2cc77,#c88f2e);
     box-shadow:0 0 14px rgba(226,181,83,.36);
     justify-self:start;
+    position:relative;
+    z-index:2;
   }
-  #atoAssistantLauncherV13 .ato-v13-copy{
+
+  .ato-v17-copy{
     min-width:0;
     text-align:left;
     line-height:1;
+    position:relative;
+    z-index:2;
   }
-  #atoAssistantLauncherV13 .ato-v13-kicker{
+
+  .ato-v17-kicker{
     display:block;
     margin:0 0 5px 0;
     color:#d9ad55;
@@ -3426,7 +3442,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     text-transform:uppercase;
     white-space:nowrap;
   }
-  #atoAssistantLauncherV13 .ato-v13-title{
+
+  .ato-v17-title{
     display:block;
     margin:0;
     color:#f5f0e8;
@@ -3434,9 +3451,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     letter-spacing:.045em;
     text-transform:uppercase;
     white-space:nowrap;
-    text-shadow:0 1px 0 rgba(255,255,255,.03);
   }
-  #atoAssistantLauncherV13 .ato-v13-core{
+
+  .ato-v17-core{
     width:66px;
     height:66px;
     border-radius:50%;
@@ -3444,13 +3461,16 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     display:grid;
     place-items:center;
     justify-self:end;
+    position:relative;
+    z-index:2;
     background:#05142c;
     border:1px solid rgba(210,166,79,.74);
     box-shadow:
-      inset 0 0 18px rgba(20,98,220,.08),
-      0 0 18px rgba(20,98,220,.08);
+      inset 0 0 18px rgba(42,183,197,.08),
+      0 0 18px rgba(42,183,197,.08);
   }
-  #atoAssistantLauncherV13 .ato-v13-core img{
+
+  .ato-v17-core img{
     display:block;
     width:74px;
     height:74px;
@@ -3462,197 +3482,186 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     -webkit-user-drag:none;
   }
 }
-@media (max-width:980px){
-  #atoAssistantLauncherV13{display:none!important;}
-}
 </style>
-<script id="ato-desktop-assistant-launcher-v16-js">
+
+<script id="ato-desktop-assistant-launcher-v17-js">
 (function(){
   'use strict';
-  const MQ=window.matchMedia('(min-width:981px)');
-  const ID='atoAssistantLauncherV13';
+
+  const DESKTOP=window.matchMedia('(min-width:981px)');
+  const SKIN_CLASS='ato-v17-launcher-skin';
+  const HOST_CLASS='ato-v17-native-assistant-host';
+  const ORIGINAL_CLASS='ato-v17-native-original';
   const GIF='assets/img/ato-ai-processing-360-blue.gif';
-  const MODAL='.ato-desktop-assistant-v7-surface';
-  const BACKDROP='#atoDesktopAssistantBackdropV7';
-  const hidden=new Map();
-  let raf=0,release=0;
-  let cachedNativeHost=null;
-  let cachedNativeTarget=null;
+
+  let raf=0;
+  let activeHost=null;
 
   function visible(el){
     try{
       const cs=getComputedStyle(el),r=el.getBoundingClientRect();
-      return !el.hidden&&cs.display!=='none'&&cs.visibility!=='hidden'&&parseFloat(cs.opacity||'1')>.02&&
-        r.width>0&&r.height>0&&r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight;
-    }catch(_){return false}
+      return !el.hidden &&
+        cs.display!=='none' &&
+        cs.visibility!=='hidden' &&
+        parseFloat(cs.opacity||'1')>.02 &&
+        r.width>0 && r.height>0 &&
+        r.right>0 && r.bottom>0 &&
+        r.left<innerWidth && r.top<innerHeight;
+    }catch(_){ return false; }
   }
 
   function deep(root=document,out=[]){
     try{
       root.querySelectorAll?.('*').forEach(el=>{
         out.push(el);
-        if(el.shadowRoot)deep(el.shadowRoot,out);
+        if(el.shadowRoot) deep(el.shadowRoot,out);
       });
-    }catch(_){ }
+    }catch(_){}
     return out;
   }
 
-  function launcherHost(){
-    if(!MQ.matches)return null;
-    const all=deep();
+  /* Find the REAL existing launcher only. Never create or replace it. */
+  function findNativeHost(){
+    if(!DESKTOP.matches) return null;
+
     const candidates=[];
-    all.forEach(el=>{
-      if(!(el instanceof HTMLElement)||el.id===ID||el.closest?.('#'+ID))return;
-      if(!visible(el))return;
+    deep().forEach(el=>{
+      if(!(el instanceof HTMLElement)) return;
+      if(el.classList?.contains(SKIN_CLASS) || el.closest?.('.'+SKIN_CLASS)) return;
+      if(el.closest?.('#atoGlobalHeaderRoot')) return;
+      if(!visible(el)) return;
+
       const r=el.getBoundingClientRect();
-      if(r.width<180||r.width>680||r.height<42||r.height>220)return;
-      if(r.right<innerWidth*.55||r.bottom<innerHeight*.50)return;
-      let text='';
-      try{text=(el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}catch(_){ }
-      const meta=((el.id||'')+' '+(typeof el.className==='string'?el.className:'')+' '+(el.getAttribute?.('aria-label')||'')).toUpperCase();
+      if(r.width<180 || r.width>700 || r.height<42 || r.height>230) return;
+      if(r.right<innerWidth*.55 || r.bottom<innerHeight*.48) return;
+
+      let text='',meta='';
+      try{
+        text=(el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase();
+        meta=((el.id||'')+' '+(typeof el.className==='string'?el.className:'')+' '+(el.getAttribute?.('aria-label')||'')).toUpperCase();
+      }catch(_){}
+
       let score=0;
-      if(text.includes('ASK SOMETHING'))score+=120;
-      if(text.includes('ASSISTANT'))score+=80;
-      if(meta.includes('ASSISTANT'))score+=55;
-      if(el.classList?.contains('ato-assistant-ai-host'))score+=120;
-      if(el.querySelector?.('.ato-assistant-ai-control'))score+=80;
-      if(score<80)return;
+      if(text.includes('ASK SOMETHING')) score+=150;
+      if(text.includes('ASSISTANT')) score+=100;
+      if(meta.includes('ASSISTANT')) score+=75;
+      if(el.classList?.contains('ato-assistant-ai-host')) score+=160;
+      if(el.querySelector?.('.ato-assistant-ai-control')) score+=110;
+      if(score<90) return;
+
       let host=el,cur=el;
       for(let i=0;i<7;i++){
-        const p=cur.parentElement||cur.getRootNode?.()?.host;
-        if(!p||p===document.body||p===document.documentElement)break;
-        const pr=p.getBoundingClientRect(),pcs=getComputedStyle(p);
-        if(pr.width>=180&&pr.width<=700&&pr.height>=42&&pr.height<=230&&pr.right>innerWidth*.55&&pr.bottom>innerHeight*.50){
+        const p=cur.parentElement || cur.getRootNode?.()?.host;
+        if(!p || p===document.body || p===document.documentElement) break;
+        const pr=p.getBoundingClientRect();
+        let pcs;
+        try{ pcs=getComputedStyle(p); }catch(_){ break; }
+
+        if(pr.width>=180 && pr.width<=720 && pr.height>=42 && pr.height<=240 &&
+           pr.right>innerWidth*.55 && pr.bottom>innerHeight*.48){
           host=p;
-          if(pcs.position==='fixed')break;
-        }else if(pr.width>720||pr.height>260){break;}
+          if(pcs.position==='fixed') break;
+        }else if(pr.width>760 || pr.height>280){
+          break;
+        }
         cur=p;
       }
+
       const hr=host.getBoundingClientRect();
       const dist=Math.hypot(innerWidth-hr.right,innerHeight-hr.bottom);
       candidates.push({host,score:score-dist*.02,area:hr.width*hr.height});
     });
-    if(!candidates.length)return null;
+
+    if(!candidates.length) return null;
     candidates.sort((a,b)=>(b.score-a.score)||(b.area-a.area));
     return candidates[0].host;
   }
 
-  function controlInside(host){
-    if(!host||!host.isConnected)return null;
-    const exact=[...deep(host,[])].filter(el=>el instanceof HTMLElement&&el.classList?.contains('ato-assistant-ai-control'));
-    if(exact.length){
-      const x=exact[0];
-      return x.matches('button,a,[role="button"]')?x:(x.closest('button,a,[role="button"]')||x);
+  function removeSkin(){
+    if(activeHost){
+      activeHost.querySelector?.(':scope > .'+SKIN_CLASS)?.remove();
+      [...activeHost.children].forEach(ch=>ch.classList?.remove(ORIGINAL_CLASS));
+      activeHost.classList?.remove(HOST_CLASS);
     }
-    const controls=[...host.querySelectorAll('button,a,[role="button"]')];
-    if(controls.length)return controls[controls.length-1];
-    return host;
+    activeHost=null;
   }
 
-  function cacheNative(host){
-    if(!host||!host.isConnected)return null;
-    const target=controlInside(host);
-    if(target){
-      cachedNativeHost=host;
-      cachedNativeTarget=target;
-    }
-    return target;
-  }
+  function skin(host){
+    if(!host || !host.isConnected) return;
 
-  function nativeControl(){
-    if(cachedNativeTarget?.isConnected)return cachedNativeTarget;
-    if(cachedNativeHost?.isConnected){
-      const target=controlInside(cachedNativeHost);
-      if(target){cachedNativeTarget=target;return target;}
-    }
-    const host=launcherHost();
-    return host?cacheNative(host):null;
-  }
+    if(activeHost && activeHost!==host) removeSkin();
+    activeHost=host;
 
-  function conceal(host){
-    if(!host||host.id===ID)return;
-    if(!hidden.has(host)){
-      hidden.set(host,{
-        opacity:[host.style.getPropertyValue('opacity'),host.style.getPropertyPriority('opacity')],
-        pointer:[host.style.getPropertyValue('pointer-events'),host.style.getPropertyPriority('pointer-events')]
-      });
-    }
-    host.style.setProperty('opacity','0','important');
-    host.style.setProperty('pointer-events','none','important');
-  }
+    host.classList.add(HOST_CLASS);
 
-  function restoreAll(){
-    hidden.forEach((saved,host)=>{
-      if(!host?.style)return;
-      if(saved.opacity[0])host.style.setProperty('opacity',saved.opacity[0],saved.opacity[1]); else host.style.removeProperty('opacity');
-      if(saved.pointer[0])host.style.setProperty('pointer-events',saved.pointer[0],saved.pointer[1]); else host.style.removeProperty('pointer-events');
+    /* The native elements stay exactly where they are and keep ALL real event listeners.
+       We only make their artwork transparent on desktop. */
+    [...host.children].forEach(ch=>{
+      if(!ch.classList?.contains(SKIN_CLASS)) ch.classList?.add(ORIGINAL_CLASS);
     });
-    hidden.clear();
-  }
 
-  function modalOpen(){
-    if(!MQ.matches)return false;
-    const frame=document.querySelector(MODAL);
-    if(frame&&visible(frame))return true;
-    const back=document.querySelector(BACKDROP);
-    return !!(back&&back.classList.contains('is-open'));
-  }
-
-  function ensure(){
-    if(!MQ.matches)return null;
-    let btn=document.getElementById(ID);
-    if(btn)return btn;
-    btn=document.createElement('button');
-    btn.id=ID;
-    btn.type='button';
-    btn.setAttribute('aria-label','Open ATO Assistant');
-    btn.innerHTML='<span class="ato-v13-dot" aria-hidden="true"></span><span class="ato-v13-copy"><span class="ato-v13-kicker">ASK SOMETHING</span><span class="ato-v13-title">ASSISTANT</span></span><span class="ato-v13-core" aria-hidden="true"><img src="'+GIF+'" alt="" draggable="false"></span>';
-    btn.addEventListener('click',()=>{
-      btn.classList.add('is-opening');
-      clearTimeout(release);
-      const target=nativeControl();
-      if(target){
-        try{target.click();}catch(_){try{target.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window}));}catch(__){}}
-      }
-      release=setTimeout(()=>{if(!modalOpen())btn.classList.remove('is-opening')},900);
-      queue();
-    });
-    document.body.appendChild(btn);
-    return btn;
+    let skin=host.querySelector(':scope > .'+SKIN_CLASS);
+    if(!skin){
+      skin=document.createElement('div');
+      skin.className=SKIN_CLASS;
+      skin.setAttribute('aria-hidden','true');
+      skin.innerHTML=
+        '<span class="ato-v17-dot"></span>'+
+        '<span class="ato-v17-copy">'+
+          '<span class="ato-v17-kicker">ASK SOMETHING</span>'+
+          '<span class="ato-v17-title">ASSISTANT</span>'+
+        '</span>'+
+        '<span class="ato-v17-core">'+
+          '<img src="'+GIF+'" alt="" draggable="false">'+
+        '</span>';
+      host.appendChild(skin);
+    }
   }
 
   function sync(){
     raf=0;
-    if(!MQ.matches){
-      document.getElementById(ID)?.remove();
-      restoreAll();
+
+    if(!DESKTOP.matches){
+      removeSkin();
       return;
     }
-    const btn=ensure();
-    const host=launcherHost();
-    if(host){
-      cacheNative(host);
-      conceal(host);
-    }
-    const open=modalOpen();
-    btn?.classList.toggle('is-open',open);
-    if(open)btn?.classList.remove('is-opening');
+
+    const host=(activeHost && activeHost.isConnected && visible(activeHost))
+      ? activeHost
+      : findNativeHost();
+
+    if(host) skin(host);
   }
-  function queue(){if(!raf)raf=requestAnimationFrame(sync)}
+
+  function queue(){
+    if(!raf) raf=requestAnimationFrame(sync);
+  }
 
   function init(){
-    ensure();
     queue();
+
     const mo=new MutationObserver(queue);
-    mo.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-hidden','hidden','open']});
+    mo.observe(document.documentElement,{
+      subtree:true,
+      childList:true,
+      attributes:true,
+      attributeFilter:['class','style','aria-hidden','hidden','open']
+    });
+
     addEventListener('resize',queue,{passive:true});
     addEventListener('scroll',queue,{passive:true});
-    document.addEventListener('click',()=>{setTimeout(queue,30);setTimeout(queue,180)},true);
-    MQ.addEventListener?.('change',queue);
-    setTimeout(queue,120);
-    setTimeout(queue,700);
+    DESKTOP.addEventListener?.('change',queue);
+
+    setTimeout(queue,100);
+    setTimeout(queue,500);
+    setTimeout(queue,1200);
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
-  else init();
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',init,{once:true});
+  }else{
+    init();
+  }
 })();
 </script>
+
