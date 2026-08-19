@@ -2632,65 +2632,84 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }
 </style>
 
+</body>
+</html>
 
 
+
+
+
+
+<!-- =================
 <!-- =====================================================================
-     ATO DESKTOP ASSISTANT — APPROVED LAUNCHER V11 SAFE
+     ATO DESKTOP ASSISTANT — APPROVED BUTTON V12 CLEAN COVER
      DESKTOP ONLY (>=981px).
-     IMPORTANT: this block DOES NOT hide, move, restyle or rewrite the native
-     Assistant launcher. It only places the approved visual button above it and
-     forwards a click to the existing Assistant control. The approved V9 modal,
-     header, promo ribbon and all mobile behavior remain untouched.
+     Covers the existing native launcher visually without deleting, moving,
+     rewriting or restyling it. Clicks are forwarded to the native control.
+     The approved V9 Assistant modal, header, promo ribbon and mobile remain untouched.
      ===================================================================== -->
-<style id="ato-desktop-assistant-approved-launcher-v11-safe">
+<style id="ato-desktop-assistant-approved-launcher-v12-clean">
 @media (min-width:981px){
-  #atoApprovedAssistantLauncherV11{
+  #atoApprovedAssistantLauncherV12{
+    --ato-launcher-left:auto;
+    --ato-launcher-top:auto;
+    --ato-launcher-width:430px;
+    --ato-launcher-height:94px;
     position:fixed!important;
-    right:26px!important;
+    left:var(--ato-launcher-left)!important;
+    top:var(--ato-launcher-top)!important;
+    right:22px!important;
     bottom:22px!important;
-    width:min(372px,calc(100vw - 64px))!important;
-    aspect-ratio:1200 / 261!important;
-    height:auto!important;
+    width:var(--ato-launcher-width)!important;
+    height:var(--ato-launcher-height)!important;
+    min-width:0!important;
+    min-height:0!important;
+    max-width:calc(100vw - 44px)!important;
     display:block!important;
     margin:0!important;
     padding:0!important;
     border:0!important;
     outline:0!important;
+    appearance:none!important;
+    -webkit-appearance:none!important;
     border-radius:999px!important;
     overflow:hidden!important;
     background:#071421!important;
     box-shadow:
-      0 14px 34px rgba(0,0,0,.24),
-      0 0 0 1px rgba(210,170,92,.18)!important;
+      0 15px 38px rgba(0,0,0,.30),
+      0 0 0 1px rgba(216,176,95,.18)!important;
     cursor:pointer!important;
-    z-index:12040!important;
+    z-index:2147483646!important;
     opacity:1!important;
     visibility:visible!important;
     pointer-events:auto!important;
     isolation:isolate!important;
     -webkit-tap-highlight-color:transparent!important;
-    transition:transform .22s cubic-bezier(.2,.7,.2,1),filter .22s ease,box-shadow .22s ease!important;
+    transition:filter .22s ease,box-shadow .22s ease,opacity .16s ease!important;
   }
-  #atoApprovedAssistantLauncherV11:hover{
-    transform:translateY(-2px)!important;
-    filter:brightness(1.035)!important;
+  #atoApprovedAssistantLauncherV12:hover{
+    filter:brightness(1.045) saturate(1.035)!important;
     box-shadow:
-      0 18px 42px rgba(0,0,0,.30),
-      0 0 0 1px rgba(226,185,83,.28),
-      0 0 24px rgba(34,102,205,.10)!important;
+      0 18px 44px rgba(0,0,0,.34),
+      0 0 0 1px rgba(226,185,83,.30),
+      0 0 26px rgba(36,106,220,.11)!important;
   }
-  #atoApprovedAssistantLauncherV11:active{
-    transform:translateY(0)!important;
-  }
-  #atoApprovedAssistantLauncherV11:focus-visible{
-    outline:1px solid rgba(231,194,111,.90)!important;
+  #atoApprovedAssistantLauncherV12:focus-visible{
+    outline:1px solid rgba(235,198,117,.94)!important;
     outline-offset:4px!important;
   }
-  #atoApprovedAssistantLauncherV11 img{
+  #atoApprovedAssistantLauncherV12.is-assistant-open,
+  #atoApprovedAssistantLauncherV12.is-opening{
+    opacity:0!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+  }
+  #atoApprovedAssistantLauncherV12 img{
     display:block!important;
     width:100%!important;
     height:100%!important;
-    object-fit:cover!important;
+    object-fit:fill!important;
+    object-position:center!important;
     border-radius:inherit!important;
     pointer-events:none!important;
     user-select:none!important;
@@ -2698,21 +2717,100 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   }
 }
 @media (max-width:980px){
-  #atoApprovedAssistantLauncherV11{display:none!important;}
+  #atoApprovedAssistantLauncherV12{display:none!important;}
 }
 </style>
-<script id="ato-desktop-assistant-approved-launcher-v11-safe-js">
+<script id="ato-desktop-assistant-approved-launcher-v12-clean-js">
 (function(){
   'use strict';
   const MQ=window.matchMedia('(min-width:981px)');
-  const ID='atoApprovedAssistantLauncherV11';
+  const ID='atoApprovedAssistantLauncherV12';
   const SRC='assets/img/ato-assistant-approved-blue-button.gif';
+  const MODAL_SURFACE='.ato-desktop-assistant-v7-surface';
+  const BACKDROP='#atoDesktopAssistantBackdropV7';
+  let raf=0,releaseTimer=0;
 
-  function isVisible(el){
+  function visible(el){
     try{
       const cs=getComputedStyle(el),r=el.getBoundingClientRect();
-      return !el.hidden&&cs.display!=='none'&&cs.visibility!=='hidden'&&parseFloat(cs.opacity||'1')>.02&&r.width>0&&r.height>0;
+      return !el.hidden&&cs.display!=='none'&&cs.visibility!=='hidden'&&parseFloat(cs.opacity||'1')>.02&&
+        r.width>0&&r.height>0&&r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight;
     }catch(_){return false}
+  }
+
+  function deepElements(root=document,out=[]){
+    try{
+      root.querySelectorAll?.('*').forEach(el=>{
+        out.push(el);
+        if(el.shadowRoot)deepElements(el.shadowRoot,out);
+      });
+    }catch(_){ }
+    return out;
+  }
+
+  function nativeLauncherHost(){
+    if(!MQ.matches)return null;
+    const all=deepElements();
+    const candidates=[];
+    all.forEach(el=>{
+      if(!(el instanceof HTMLElement)||el.id===ID||el.closest?.('#'+ID))return;
+      let txt='';
+      try{txt=(el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}catch(_){return}
+      if(!txt.includes('ASK SOMETHING')||!txt.includes('ASSISTANT'))return;
+      if(!visible(el))return;
+      const r=el.getBoundingClientRect();
+      if(r.width<220||r.width>620||r.height<44||r.height>200)return;
+      if(r.right<innerWidth*.55||r.bottom<innerHeight*.45)return;
+      let host=el;
+      let cur=el;
+      for(let i=0;i<7;i++){
+        const p=cur.parentElement||cur.getRootNode?.()?.host;
+        if(!p||p===document.body||p===document.documentElement)break;
+        const pr=p.getBoundingClientRect(),pcs=getComputedStyle(p);
+        if(pr.width>=220&&pr.width<=640&&pr.height>=44&&pr.height<=210&&
+           pr.right>innerWidth*.55&&pr.bottom>innerHeight*.45){
+          host=p;
+          if(pcs.position==='fixed')break;
+        }else if(pr.width>680||pr.height>240){break;}
+        cur=p;
+      }
+      const hr=host.getBoundingClientRect();
+      const dist=Math.hypot(innerWidth-hr.right,innerHeight-hr.bottom);
+      const fixed=getComputedStyle(host).position==='fixed'?0:80;
+      candidates.push({host,dist:dist+fixed,area:hr.width*hr.height});
+    });
+    if(!candidates.length)return null;
+    candidates.sort((a,b)=>(a.dist-b.dist)||(b.area-a.area));
+    return candidates[0].host;
+  }
+
+  function preferredNativeControl(){
+    const all=deepElements();
+    const exact=all.filter(el=>el instanceof HTMLElement&&el.id!==ID&&el.classList?.contains('ato-assistant-ai-control')&&visible(el));
+    if(exact.length){
+      exact.sort((a,b)=>{
+        const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+        return Math.hypot(innerWidth-ar.right,innerHeight-ar.bottom)-Math.hypot(innerWidth-br.right,innerHeight-br.bottom);
+      });
+      const x=exact[0];
+      return x.matches('button,a,[role="button"]')?x:(x.closest('button,a,[role="button"]')||x);
+    }
+    const host=nativeLauncherHost();
+    if(!host)return null;
+    const controls=[...host.querySelectorAll('button,a,[role="button"]')].filter(visible);
+    controls.sort((a,b)=>{
+      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+      return (br.right-ar.right)||((ar.width*ar.height)-(br.width*br.height));
+    });
+    return controls[0]||host;
+  }
+
+  function modalOpen(){
+    if(!MQ.matches)return false;
+    const frame=document.querySelector(MODAL_SURFACE);
+    if(frame&&visible(frame))return true;
+    const back=document.querySelector(BACKDROP);
+    return !!(back&&back.classList.contains('is-open'));
   }
 
   function ensureButton(){
@@ -2724,84 +2822,63 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     btn.type='button';
     btn.setAttribute('aria-label','Open ATO Assistant');
     btn.innerHTML='<img src="'+SRC+'" alt="" aria-hidden="true" draggable="false">';
-    btn.addEventListener('click',openAssistant);
+    btn.addEventListener('click',function(){
+      btn.classList.add('is-opening');
+      clearTimeout(releaseTimer);
+      const target=preferredNativeControl();
+      if(target){
+        try{target.click();}
+        catch(_){try{target.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window}));}catch(__){}}
+      }
+      releaseTimer=setTimeout(()=>{if(!modalOpen())btn.classList.remove('is-opening')},900);
+      queue();
+    });
     document.body.appendChild(btn);
     return btn;
   }
 
-  function clickableFrom(control){
-    if(!control)return null;
-    if(control.matches?.('button,a,[role="button"]'))return control;
-    return control.closest?.('button,a,[role="button"]')||control;
-  }
-
-  function preferredControl(){
-    /* Exact class created by the existing ATO Assistant visual control. */
-    const exact=[...document.querySelectorAll('.ato-assistant-ai-control')].filter(isVisible);
-    if(exact.length){
-      exact.sort((a,b)=>{
-        const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
-        const ad=Math.hypot(innerWidth-ar.right,innerHeight-ar.bottom);
-        const bd=Math.hypot(innerWidth-br.right,innerHeight-br.bottom);
-        return ad-bd;
-      });
-      return clickableFrom(exact[0]);
-    }
-
-    /* Conservative fallback: clickable control explicitly labelled Assistant/Chat. */
-    const candidates=[...document.querySelectorAll('button,a,[role="button"]')].filter(el=>{
-      if(el.id===ID||!isVisible(el))return false;
-      const label=((el.getAttribute('aria-label')||'')+' '+(el.getAttribute('title')||'')+' '+(el.textContent||''))
-        .replace(/\s+/g,' ').trim().toUpperCase();
-      const r=el.getBoundingClientRect();
-      const assistant=/ASSISTANT|ASK SOMETHING|ATO AI|CHAT/.test(label);
-      const nearRight=r.right>innerWidth*.60;
-      const lowerHalf=r.bottom>innerHeight*.45;
-      return assistant&&nearRight&&lowerHalf&&r.width<620&&r.height<220;
-    });
-    candidates.sort((a,b)=>{
-      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
-      return Math.hypot(innerWidth-ar.right,innerHeight-ar.bottom)-Math.hypot(innerWidth-br.right,innerHeight-br.bottom);
-    });
-    return candidates[0]||null;
-  }
-
-  function openAssistant(){
-    if(!MQ.matches)return;
-    const target=preferredControl();
-    if(!target){
-      console.warn('ATO Assistant launcher: native control not found; no page elements were changed.');
-      return;
-    }
-    try{target.click();}
-    catch(_){
-      try{target.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window}));}catch(__){}
-    }
+  function alignToNative(btn){
+    const host=nativeLauncherHost();
+    if(!host)return;
+    const r=host.getBoundingClientRect();
+    if(r.width<220||r.width>640||r.height<44||r.height>210)return;
+    btn.style.setProperty('--ato-launcher-left',Math.max(10,r.left).toFixed(1)+'px');
+    btn.style.setProperty('--ato-launcher-top',Math.max(10,r.top).toFixed(1)+'px');
+    btn.style.setProperty('--ato-launcher-width',r.width.toFixed(1)+'px');
+    btn.style.setProperty('--ato-launcher-height',r.height.toFixed(1)+'px');
+    btn.style.setProperty('right','auto','important');
+    btn.style.setProperty('bottom','auto','important');
   }
 
   function sync(){
-    if(MQ.matches)ensureButton();
-    else document.getElementById(ID)?.remove();
+    raf=0;
+    if(!MQ.matches){document.getElementById(ID)?.remove();return;}
+    const btn=ensureButton();
+    if(!btn)return;
+    alignToNative(btn);
+    const open=modalOpen();
+    btn.classList.toggle('is-assistant-open',open);
+    if(open)btn.classList.remove('is-opening');
   }
+  function queue(){if(raf)return;raf=requestAnimationFrame(sync)}
 
   function init(){
-    sync();
-    MQ.addEventListener?.('change',sync);
+    ensureButton();
+    queue();
+    const mo=new MutationObserver(queue);
+    mo.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-hidden','hidden','open']});
+    window.addEventListener('resize',queue,{passive:true});
+    window.addEventListener('scroll',queue,{passive:true});
+    MQ.addEventListener?.('change',queue);
+    setTimeout(queue,120);
+    setTimeout(queue,700);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
   else init();
 })();
 </script>
 
-</body>
-</html>
-
-
-
-
-
-
-<!-- =====================================================================
+====================================================
      ATO DESKTOP ASSISTANT — BLUE → EMERALD LUXURY V7
      DESKTOP ONLY (>=981px).
      Full backdrop remains below Assistant. The Assistant keeps its proven V6 geometry,
