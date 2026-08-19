@@ -1,0 +1,2151 @@
+/* ======================================================================
+   ALANYA TOUR ORGANIZATIONS — GLOBAL RESPONSIVE SYSTEM
+   File: /assets/css/responsive.css
+   Version: 1.0 — 2026-08-17
+
+   PURPOSE
+   - One responsive layer for the whole static site.
+   - Load LAST, after page/base/component styles.
+   - Keep page-specific visual styling in its own CSS; keep layout adaptation here.
+
+   RECOMMENDED LOAD ORDER
+   <link rel="stylesheet" href="/styles.css">
+   <link rel="stylesheet" href="/assets/css/trip-planner-shared.css">
+   <link rel="stylesheet" href="/assets/css/responsive.css?v=20260817">
+
+   BREAKPOINTS
+   1600+  wide desktop
+   1280   compact desktop
+   1100   tablet landscape / small laptop
+   980    tablet / mobile navigation switch
+   760    mobile
+   560    compact mobile
+   430    narrow mobile
+   ====================================================================== */
+
+:root{
+  --ato-rwd-page-max:1440px;
+  --ato-rwd-gutter:clamp(16px,3vw,48px);
+  --ato-rwd-section-y:clamp(56px,7vw,112px);
+  --ato-rwd-gap:clamp(14px,2vw,28px);
+  --ato-rwd-touch:44px;
+  --ato-rwd-safe-left:max(14px,env(safe-area-inset-left));
+  --ato-rwd-safe-right:max(14px,env(safe-area-inset-right));
+  --ato-rwd-safe-bottom:max(14px,env(safe-area-inset-bottom));
+}
+
+/* ----------------------------------------------------------------------
+   01. GLOBAL SAFETY / FLUID MEDIA
+   ---------------------------------------------------------------------- */
+html{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:clip;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+img,svg,video,canvas,picture{
+  max-width:100%;
+}
+
+img,video{
+  height:auto;
+}
+
+iframe{
+  max-width:100%;
+}
+
+input,select,textarea,button{
+  max-width:100%;
+  font:inherit;
+}
+
+button,a,[role="button"]{
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* Do not let long labels, translated strings, URLs or prices force overflow. */
+.logo-text,
+.logo-title,
+.logo-subtitle,
+.tour-body,
+.tour-description,
+.category-body,
+.about-copy,
+.about-text,
+.booking-left,
+.tp-section,
+.tp-card-body,
+.tp-rec-copy,
+.atf-card-body,
+.ato-hs-result-copy,
+.request-field{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+
+/* Shared horizontal rails: scroll instead of breaking the viewport. */
+.top-categories,
+.mobile-categories,
+.tp-progress,
+.tp-category-grid,
+.ato-hs-chips,
+.tour-tags{
+  overscroll-behavior-inline:contain;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* ----------------------------------------------------------------------
+   02. FLUID TYPOGRAPHY — ONLY SHARED HIGH-LEVEL TITLES
+   ---------------------------------------------------------------------- */
+.main-categories-head h2,
+.main-categories-title,
+.section-title,
+.tp-hero h1{
+  font-size:clamp(30px,4.2vw,64px);
+}
+
+.hero-subtitle,
+.main-categories-head p,
+.tp-hero p{
+  font-size:clamp(14px,1.35vw,19px);
+}
+
+/* ----------------------------------------------------------------------
+   03. WIDE DESKTOP 1600+
+   ---------------------------------------------------------------------- */
+@media (min-width:1600px){
+  .category-shell,
+  .popular-shell,
+  .tp-shell,
+  .about-container{
+    max-width:var(--ato-rwd-page-max);
+    margin-inline:auto;
+  }
+
+  .tour-grid.popular-grid{
+    gap:28px;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   04. COMPACT DESKTOP <= 1280
+   ---------------------------------------------------------------------- */
+@media (max-width:1280px){
+  .header{
+    padding-inline:18px;
+  }
+
+  .nav{
+    gap:clamp(8px,1vw,12px);
+  }
+
+  .nav-item,
+  .contact-link{
+    font-size:12px;
+  }
+
+  .categories-layout{
+    grid-template-columns:1fr;
+  }
+
+  .tour-sidebar{
+    width:100%;
+    max-width:720px;
+    margin-inline:auto;
+  }
+
+  .tour-grid.popular-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  #atoTourFinderModal .atf-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+/* ----------------------------------------------------------------------
+   05. SMALL LAPTOP / TABLET LANDSCAPE <= 1100
+   ---------------------------------------------------------------------- */
+@media (max-width:1100px){
+  .main-categories-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .tour-grid.popular-grid,
+  .tour-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .contact-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .tp-pool{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .tp-form-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .tp-field.wide{
+    grid-column:span 2;
+  }
+
+  /* Map: preserve map canvas width; filters may move to mobile drawer at 900px. */
+  .map-shell,
+  main.app{
+    min-width:0;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   06. TABLET / MOBILE NAVIGATION <= 980
+   ---------------------------------------------------------------------- */
+@media (max-width:980px){
+  :root{
+    --ato-rwd-gutter:clamp(14px,3.5vw,28px);
+    --ato-rwd-section-y:clamp(48px,8vw,78px);
+  }
+
+  /* ---------- Header ---------- */
+  .header{
+    width:100%;
+    padding-left:var(--ato-rwd-safe-left);
+    padding-right:var(--ato-rwd-safe-right);
+  }
+
+  .header .nav{
+    display:none!important;
+  }
+
+  .mobile-menu-btn{
+    display:flex!important;
+    min-width:var(--ato-rwd-touch);
+    min-height:var(--ato-rwd-touch);
+    align-items:center;
+    justify-content:center;
+  }
+
+  .logo{
+    min-width:0;
+  }
+
+  .logo img{
+    flex:0 0 auto;
+  }
+
+  .logo-text{
+    min-width:0;
+  }
+
+  .language-dropdown,
+  .ato-mobile-search-trigger,
+  .header-tour-search,
+  .ato-search-trigger{
+    min-height:var(--ato-rwd-touch);
+  }
+
+  .mobile-overlay,
+  .language-menu,
+  .ato-header-search-shell,
+  .ato-header-search-scrim{
+    max-width:100vw;
+  }
+
+  .ato-hs-panel{
+    max-height:calc(100dvh - 84px);
+    overflow:auto;
+    overscroll-behavior:contain;
+  }
+
+  /* ---------- Promo strip ---------- */
+  .promo-bar{
+    max-width:100vw;
+    overflow:hidden;
+  }
+
+  .promo-track{
+    width:max-content;
+    min-width:100%;
+  }
+
+  .promo-text,
+  .promo-slogan,
+  .promo-services{
+    white-space:nowrap;
+  }
+
+  /* ---------- Living Hero ---------- */
+  #atoLivingHero,
+  .ato-living-hero,
+  .hero{
+    max-width:100vw;
+  }
+
+  #atoLivingHero{
+    min-height:calc(100svh - 74px);
+  }
+
+  #atoLivingHero .ato-living-hero__stage,
+  #atoLivingHero .ato-living-hero__scene,
+  #atoLivingHero .ato-living-hero__media{
+    width:100%;
+    max-width:100%;
+  }
+
+  #atoLivingHero .ato-living-hero__media{
+    object-fit:cover;
+  }
+
+  .ato-living-hero__ui{
+    padding-left:var(--ato-rwd-gutter);
+    padding-right:var(--ato-rwd-gutter);
+  }
+
+  .ato-living-hero__caption{
+    max-width:min(88vw,620px);
+  }
+
+  /* ---------- Index ---------- */
+  .categories-layout,
+  .about-container,
+  .contact-grid{
+    grid-template-columns:1fr!important;
+  }
+
+  .main-categories-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:var(--ato-rwd-gap);
+  }
+
+  .category-card,
+  .category-img,
+  .category-body{
+    min-width:0;
+  }
+
+  .about-image-wrapper,
+  #contacts .map-wrapper{
+    width:100%;
+  }
+
+  .premium-stats{
+    display:none;
+  }
+
+  /* ---------- Generic category / Popular Tours ---------- */
+  .category-shell,
+  .popular-shell,
+  .sea-hero-inner{
+    width:min(100% - (var(--ato-rwd-gutter) * 2),var(--ato-rwd-page-max));
+    margin-inline:auto;
+  }
+
+  .tour-grid,
+  .tour-grid.popular-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px;
+  }
+
+  .tour-card{
+    min-width:0;
+  }
+
+  .tour-image{
+    width:100%;
+    object-fit:cover;
+  }
+
+  .tour-bottom{
+    min-width:0;
+    gap:8px;
+  }
+
+  .tour-bottom .meta{
+    min-width:0;
+  }
+
+  .tour-bottom .card-actions,
+  .tour-bottom .ato-card-actions{
+    flex:0 0 auto;
+  }
+
+  /* ---------- Trip Planner ---------- */
+  .tp-shell{
+    width:min(100% - 20px,1260px);
+  }
+
+  .tp-category-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .tp-quick-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .tp-progress{
+    width:100%;
+    justify-content:flex-start;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+
+  .tp-progress::-webkit-scrollbar{display:none}
+
+  /* ---------- Tour Finder ---------- */
+  .ato-tour-finder-dialog{
+    width:100vw;
+    max-width:100vw;
+    height:100dvh;
+    max-height:100dvh;
+    border-radius:0;
+  }
+
+  #atoTourFinderModal .atf-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  /* ---------- Footer ---------- */
+  .footer-strip,
+  .original-site-footer,
+  footer{
+    max-width:100vw;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   07. MAP MOBILE MODE <= 900 / COARSE POINTER
+   Keep map as a full interactive canvas; move desktop sidebar out of the way.
+   ---------------------------------------------------------------------- */
+@media (max-width:900px), (hover:none) and (pointer:coarse){
+  .map-shell,
+  main.app{
+    position:relative;
+    width:100%;
+    max-width:100vw;
+  }
+
+  main.app .sidebar{
+    display:none;
+  }
+
+  .mobile-filter-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:var(--ato-rwd-touch);
+    max-width:calc(100vw - 24px);
+  }
+
+  .sidebar.open,
+  .sidebar.is-open,
+  .sidebar.mobile-open{
+    display:block!important;
+    position:fixed;
+    inset:0 auto 0 0;
+    width:min(88vw,390px);
+    max-width:390px;
+    height:100dvh;
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    padding-bottom:var(--ato-rwd-safe-bottom);
+    z-index:2147483000;
+  }
+
+  .mobile-filter-close{
+    min-width:var(--ato-rwd-touch);
+    min-height:var(--ato-rwd-touch);
+  }
+
+  .map,
+  #map,
+  .maplibregl-map{
+    width:100%!important;
+    max-width:100vw!important;
+  }
+
+  .top-categories{
+    overflow-x:auto;
+    scrollbar-width:none;
+    white-space:nowrap;
+  }
+
+  .top-categories::-webkit-scrollbar{display:none}
+
+  .category-tour-panel,
+  .nearby-panel,
+  .geo-offer,
+  .tour-hover-card,
+  .compare-dialog,
+  .request-modal{
+    max-width:calc(100vw - 20px);
+  }
+
+  .compare-table-wrap{
+    max-width:100%;
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   08. MOBILE <= 760
+   ---------------------------------------------------------------------- */
+@media (max-width:760px){
+  :root{
+    --ato-rwd-gutter:16px;
+    --ato-rwd-section-y:52px;
+    --ato-rwd-gap:14px;
+  }
+
+  /* ---------- Header ---------- */
+  .header{
+    padding-left:var(--ato-rwd-safe-left);
+    padding-right:var(--ato-rwd-safe-right);
+  }
+
+  .logo img{
+    width:clamp(42px,12vw,48px);
+    height:clamp(42px,12vw,48px);
+  }
+
+  .logo-title{
+    font-size:clamp(11px,3vw,15px);
+    line-height:1.05;
+  }
+
+  .logo-subtitle{
+    font-size:clamp(6px,1.8vw,8px);
+  }
+
+  .ato-header-search-shell{
+    left:0!important;
+    right:0!important;
+    width:100vw!important;
+    max-width:100vw!important;
+  }
+
+  .ato-hs-bar{
+    width:calc(100% - 20px);
+    margin-inline:auto;
+  }
+
+  /* ---------- Hero ---------- */
+  #atoLivingHero{
+    min-height:calc(100svh - 70px);
+  }
+
+  .ato-living-hero__top,
+  .ato-living-hero__actions{
+    max-width:100%;
+  }
+
+  .ato-living-hero__caption{
+    max-width:92vw;
+  }
+
+  .hero-features,
+  .trust-bar{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    scroll-snap-type:x proximity;
+    scrollbar-width:none;
+  }
+
+  .hero-features::-webkit-scrollbar,
+  .trust-bar::-webkit-scrollbar{display:none}
+
+  .hero-feature,
+  .trust-item{
+    flex:0 0 auto;
+    scroll-snap-align:start;
+  }
+
+  /* ---------- Index ---------- */
+  .main-categories-section,
+  .about,
+  #contacts{
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .main-categories-head,
+  .categories-layout,
+  .about-container,
+  .contact-grid{
+    width:calc(100% - 32px);
+    margin-inline:auto;
+  }
+
+  .main-categories-grid{
+    grid-template-columns:1fr;
+  }
+
+  .category-img{
+    width:100%;
+    height:clamp(210px,58vw,300px);
+    object-fit:cover;
+  }
+
+  .filter-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  #contacts .map-wrapper{
+    width:100%;
+    height:clamp(360px,105vw,450px);
+    border-radius:18px;
+  }
+
+  .about-map-office-popover{
+    left:16px;
+    right:16px;
+    width:auto;
+    max-width:none;
+  }
+
+  /* ---------- Category pages / Popular ---------- */
+  .sea-hero,
+  .popular-hero{
+    min-height:auto;
+  }
+
+  .sea-hero-inner,
+  .category-shell,
+  .popular-shell{
+    width:calc(100% - 28px);
+  }
+
+  .breadcrumbs{
+    overflow-x:auto;
+    white-space:nowrap;
+    scrollbar-width:none;
+  }
+
+  .breadcrumbs::-webkit-scrollbar{display:none}
+
+  .tour-grid,
+  .tour-grid.popular-grid{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .tour-card{
+    width:100%;
+  }
+
+  .tour-image{
+    min-height:220px;
+    max-height:320px;
+    object-fit:cover;
+  }
+
+  .tour-body{
+    padding-left:clamp(14px,4vw,20px);
+    padding-right:clamp(14px,4vw,20px);
+  }
+
+  .tour-bottom{
+    align-items:flex-end;
+  }
+
+  .tour-bottom .card-actions,
+  .tour-bottom .ato-card-actions{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:7px;
+  }
+
+  .tour-bottom .ato-compare-control,
+  .tour-bottom .compare-btn{
+    position:static!important;
+    inset:auto!important;
+    transform:none!important;
+    flex:0 0 auto;
+    white-space:nowrap;
+  }
+
+  .booking-cta{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+
+  .gold-btn{
+    width:100%;
+    min-height:var(--ato-rwd-touch);
+  }
+
+  /* ---------- Trip Planner ---------- */
+  .tp-shell{
+    width:calc(100% - 16px);
+  }
+
+  .tp-hero{
+    min-height:0;
+    padding:clamp(36px,10vw,50px) 16px 28px;
+  }
+
+  .tp-steps{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .tp-pool{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+
+  .tp-form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .tp-field.wide{
+    grid-column:auto;
+  }
+
+  .tp-category-grid{
+    display:flex;
+    grid-template-columns:none;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    gap:11px;
+    padding-bottom:8px;
+    scrollbar-width:none;
+  }
+
+  .tp-category-grid::-webkit-scrollbar{display:none}
+
+  .tp-category-card,
+  .tp-category-card.tp-category-wide{
+    flex:0 0 84%;
+    scroll-snap-align:start;
+  }
+
+  .tp-quick-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .tp-rec{
+    min-width:0;
+  }
+
+  .tp-request-selection-head{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .tp-request-tour{
+    grid-template-columns:38px minmax(0,1fr)!important;
+  }
+
+  .tp-request-tour-date{
+    grid-column:1/-1;
+  }
+
+  .tp-actions{
+    flex-wrap:wrap;
+  }
+
+  .tp-actions .tp-btn{
+    flex:1 1 160px;
+    min-height:var(--ato-rwd-touch);
+  }
+
+  /* ---------- Tour Finder ---------- */
+  .atf-head{
+    padding-inline:14px;
+  }
+
+  #atoTourFinderModal .atf-grid{
+    grid-template-columns:1fr;
+  }
+
+  #atoTourFinderModal .atf-card{
+    min-height:0!important;
+  }
+
+  .atf-filter-list{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  /* ---------- Map ---------- */
+  .top-categories{
+    padding-left:43px!important;
+    padding-right:43px!important;
+  }
+
+  .category-scroll-btn{
+    width:30px;
+    height:30px;
+  }
+
+  .nearby-panel,
+  .geo-offer,
+  .tour-hover-card,
+  .category-tour-panel{
+    left:10px!important;
+    right:10px!important;
+    width:auto!important;
+  }
+
+  .compare-dialog,
+  .request-modal{
+    width:calc(100vw - 20px)!important;
+    max-height:calc(100dvh - 20px);
+    overflow:auto;
+  }
+
+  /* ---------- Shared Compare dock ---------- */
+  .ato-planner-dock{
+    width:calc(100% - 20px);
+    max-width:none;
+    min-width:0;
+    left:50%;
+    bottom:calc(70px + env(safe-area-inset-bottom));
+  }
+
+  .ato-planner-dock-copy{
+    min-width:0;
+  }
+
+  .ato-planner-open{
+    flex:0 0 auto;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer-copy,
+  .footer-trust{
+    text-align:center;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   09. COMPACT MOBILE <= 560
+   ---------------------------------------------------------------------- */
+@media (max-width:560px){
+  :root{
+    --ato-rwd-gutter:14px;
+  }
+
+  .logo-text{
+    max-width:150px;
+  }
+
+  .logo-title{
+    letter-spacing:.03em;
+  }
+
+  .main-categories-head h2,
+  .main-categories-title,
+  .section-title,
+  .tp-hero h1{
+    font-size:clamp(28px,9vw,42px);
+  }
+
+  .filter-grid,
+  .atf-filter-list{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .tour-image{
+    min-height:205px;
+  }
+
+  .tour-bottom{
+    gap:7px;
+  }
+
+  .tour-bottom .meta{
+    font-size:clamp(9px,2.6vw,11px);
+  }
+
+  .tour-bottom .ato-compare-control,
+  .tour-bottom .compare-btn{
+    min-height:30px;
+    padding:7px 9px;
+    font-size:9px;
+  }
+
+  .circle-arrow{
+    flex:0 0 auto;
+  }
+
+  .tp-pool{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .tp-category-card,
+  .tp-category-card.tp-category-wide{
+    flex-basis:91%;
+  }
+
+  .tp-quick-grid{
+    grid-template-columns:1fr;
+  }
+
+  .tp-bring-grid{
+    grid-template-columns:1fr;
+  }
+
+  .tp-bring-card{
+    grid-template-columns:1fr;
+  }
+
+  .tp-bring-image{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+  }
+
+  .ato-hs-results,
+  .ato-hs-groups{
+    max-width:100%;
+  }
+
+  .ato-hs-result{
+    grid-template-columns:minmax(0,1fr) auto;
+  }
+
+  .ato-hs-thumb{
+    display:none;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   10. NARROW MOBILE <= 430
+   ---------------------------------------------------------------------- */
+@media (max-width:430px){
+  :root{
+    --ato-rwd-gutter:12px;
+  }
+
+  .logo-text{
+    max-width:128px;
+  }
+
+  .logo-title{
+    font-size:11px;
+  }
+
+  .logo-subtitle{
+    font-size:6px;
+  }
+
+  .main-categories-head,
+  .categories-layout,
+  .about-container,
+  .contact-grid{
+    width:calc(100% - 24px);
+  }
+
+  .filter-grid{
+    grid-template-columns:1fr;
+  }
+
+  .tour-bottom{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:end;
+  }
+
+  .tour-bottom .card-actions,
+  .tour-bottom .ato-card-actions{
+    grid-column:2;
+  }
+
+  .tp-steps{
+    grid-template-columns:1fr;
+  }
+
+  .tp-pool{
+    grid-template-columns:1fr;
+  }
+
+  .tp-card-img{
+    height:175px;
+  }
+
+  .tp-actions .tp-btn{
+    flex-basis:100%;
+    width:100%;
+  }
+
+  .ato-planner-dock{
+    gap:6px;
+    padding-left:10px;
+    padding-right:8px;
+  }
+
+  .ato-planner-dock small{
+    display:none;
+  }
+
+  .ato-planner-open{
+    padding-inline:9px;
+    font-size:9px;
+  }
+
+  .map-native-mobile-menu{
+    width:min(88vw,350px);
+  }
+}
+
+/* ----------------------------------------------------------------------
+   11. SHORT LANDSCAPE PHONES
+   ---------------------------------------------------------------------- */
+@media (max-height:600px) and (orientation:landscape){
+  #atoLivingHero{
+    min-height:100dvh;
+  }
+
+  .ato-living-hero__scroll{
+    display:none;
+  }
+
+  .tour-hover-card{
+    top:8px!important;
+    max-height:calc(100dvh - 16px);
+    overflow:auto;
+  }
+
+  .mobile-filter-toggle{
+    top:54px;
+  }
+
+  .ato-header-search-shell,
+  .ato-hs-panel{
+    max-height:100dvh;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   12. TOUCH DEVICES
+   ---------------------------------------------------------------------- */
+@media (hover:none) and (pointer:coarse){
+  button,
+  .gold-btn,
+  .tp-btn,
+  .radius-btn,
+  .category-scroll-btn,
+  .mobile-filter-toggle,
+  .mobile-filter-close,
+  .ato-hs-close,
+  .language-close{
+    min-height:var(--ato-rwd-touch);
+  }
+
+  /* Hover-only reveals must not be required for essential actions. */
+  .card-actions,
+  .tour-bottom .card-actions,
+  .tour-bottom .ato-card-actions{
+    opacity:1;
+    visibility:visible;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   13. REDUCED MOTION
+   ---------------------------------------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  html:focus-within{scroll-behavior:auto}
+
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   14. SAFE AREA — iPhone HOME INDICATOR / NOTCH
+   ---------------------------------------------------------------------- */
+@supports (padding:max(0px)){
+  .mobile-overlay,
+  .map-native-mobile-menu,
+  .map-native-language-panel,
+  .sidebar.open,
+  .sidebar.is-open,
+  .sidebar.mobile-open{
+    padding-bottom:max(16px,env(safe-area-inset-bottom));
+  }
+
+  .ato-planner-dock{
+    margin-bottom:env(safe-area-inset-bottom);
+  }
+}
+
+/* ======================================================================
+   ATO MOBILE SCREENSHOT FIX PACK — 2026-08-17
+   MOBILE ONLY. Desktop is intentionally untouched.
+   ====================================================================== */
+@media (max-width:760px){
+
+  /* Prevent any page component from creating horizontal page overflow. */
+  html,body{
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  /* MAIN CATEGORIES — card and its inner content must stay inside viewport. */
+  .main-categories-grid,
+  .category-card,
+  .category-card .category-img,
+  .category-card .category-body{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+  }
+  .category-card{
+    overflow:hidden!important;
+  }
+  .category-card .category-body{
+    position:relative!important;
+    padding-left:clamp(18px,5vw,24px)!important;
+    padding-right:clamp(18px,5vw,24px)!important;
+  }
+  .category-card .category-body h3,
+  .category-card .category-body p{
+    max-width:100%!important;
+    overflow-wrap:anywhere!important;
+  }
+  .category-card .category-arrow{
+    right:18px!important;
+    max-width:44px!important;
+  }
+
+  /* VIP SERVICE — no cropped DISCOVER or horizontal escape. */
+  .vip-service-premium-link{
+    display:block!important;
+    width:calc(100% - 28px)!important;
+    max-width:calc(100% - 28px)!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    overflow:visible!important;
+  }
+  .vip-service-premium{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    overflow:hidden!important;
+    display:grid!important;
+    grid-template-columns:44px minmax(0,1fr)!important;
+    grid-template-areas:
+      "icon copy"
+      "action action"!important;
+    align-items:center!important;
+    gap:10px 14px!important;
+    padding:22px 20px 18px!important;
+    box-sizing:border-box!important;
+  }
+  .vip-service-premium .vip-icon{
+    grid-area:icon!important;
+    min-width:0!important;
+  }
+  .vip-service-premium .vip-service-text{
+    grid-area:copy!important;
+    min-width:0!important;
+  }
+  .vip-service-premium .vip-service-text h3{
+    margin:0!important;
+    font-size:clamp(28px,8vw,38px)!important;
+    line-height:.98!important;
+    white-space:normal!important;
+  }
+  .vip-service-premium .vip-service-text p{
+    max-width:100%!important;
+    overflow-wrap:anywhere!important;
+  }
+  .vip-service-premium .vip-discover-btn{
+    grid-area:action!important;
+    justify-self:start!important;
+    width:auto!important;
+    max-width:100%!important;
+    margin:4px 0 0!important;
+    padding:7px 0!important;
+    white-space:nowrap!important;
+  }
+
+  /* RED TÜRKİYE / WE ARE HERE MAP — force it into the mobile column. */
+  #atoAboutLiveMap,
+  .about-live-turkiye,
+  .about-live-map-inner{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  #atoAboutLiveMap .final-turkiye-map,
+  .about-live-map-inner .final-turkiye-map{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    height:auto!important;
+    min-width:0!important;
+    margin:0!important;
+    transform:none!important;
+    transform-origin:center!important;
+  }
+  #atoAboutLiveMap .about-live-geolocate{
+    max-width:calc(100% - 28px)!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  /* Hero controls: leave a clean gap before Main Categories. */
+  #atoLivingHero .ato-living-hero__actions,
+  #atoLivingHero .ato-living-hero__scroll{
+    bottom:max(22px,env(safe-area-inset-bottom))!important;
+  }
+}
+
+@media (max-width:430px){
+  .vip-service-premium-link{
+    width:calc(100% - 20px)!important;
+    max-width:calc(100% - 20px)!important;
+  }
+  .vip-service-premium{
+    grid-template-columns:38px minmax(0,1fr)!important;
+    padding:19px 16px 16px!important;
+    gap:9px 12px!important;
+  }
+  .vip-service-premium .vip-service-text h3{
+    font-size:clamp(25px,7.7vw,34px)!important;
+  }
+}
+
+/* GOOGLE CONTACT MAP — MOBILE: real interactive map, not a screenshot */
+@media (max-width:760px){
+  #contacts .map-wrapper{
+    touch-action:auto!important;
+  }
+  #contacts .map-wrapper iframe{
+    pointer-events:auto!important;
+    user-select:auto!important;
+    -webkit-user-select:auto!important;
+    touch-action:auto!important;
+  }
+}
+
+/* HERO TOUR ARROW — MOBILE ONLY: thin premium gold arrow, no iOS emoji tile */
+@media (max-width:980px){
+  #atoLivingHero .ato-living-hero__arrow{
+    position:relative!important;
+    display:inline-block!important;
+    flex:0 0 24px!important;
+    width:24px!important;
+    height:24px!important;
+    margin-left:8px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:none!important;
+    box-shadow:none!important;
+    color:transparent!important;
+    font-size:0!important;
+    line-height:0!important;
+    font-style:normal!important;
+    vertical-align:middle!important;
+    overflow:visible!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow::before{
+    content:""!important;
+    position:absolute!important;
+    left:4px!important;
+    bottom:5px!important;
+    width:17px!important;
+    height:1px!important;
+    background:#e0b653!important;
+    border-radius:999px!important;
+    transform:rotate(-45deg)!important;
+    transform-origin:center!important;
+    box-shadow:0 0 5px rgba(224,182,83,.16)!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow::after{
+    content:""!important;
+    position:absolute!important;
+    top:3px!important;
+    right:2px!important;
+    width:8px!important;
+    height:8px!important;
+    border-top:1px solid #e0b653!important;
+    border-right:1px solid #e0b653!important;
+    box-sizing:border-box!important;
+  }
+}
+@media (max-width:560px){
+  #atoLivingHero .ato-living-hero__arrow{
+    flex-basis:22px!important;
+    width:22px!important;
+    height:22px!important;
+    margin-left:7px!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow::before{
+    left:4px!important;
+    bottom:5px!important;
+    width:15px!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow::after{
+    top:3px!important;
+    right:2px!important;
+    width:7px!important;
+    height:7px!important;
+  }
+}
+
+
+/* ========================================================================
+   ATO MOBILE V6 — ALL 7 SCREENSHOT FIXES
+   MOBILE ONLY — desktop untouched.
+   ======================================================================== */
+@media (max-width:980px){
+
+  /* 1. TÜRKİYE / WE ARE HERE MAP — completely inside the phone viewport. */
+  #about #atoAboutLiveMap,
+  #atoAboutLiveMap{
+    display:block!important;
+    width:calc(100vw - 28px)!important;
+    max-width:calc(100vw - 28px)!important;
+    min-width:0!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    padding-left:0!important;
+    padding-right:0!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+    transform:none!important;
+  }
+  #atoAboutLiveMap .about-live-map-inner{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0 auto!important;
+    padding:0!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+  #atoAboutLiveMap .final-turkiye-map{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    height:auto!important;
+    aspect-ratio:2 / 1!important;
+    margin:0 auto!important;
+    padding:0!important;
+    object-fit:contain!important;
+    transform:none!important;
+    transform-origin:center center!important;
+    overflow:visible!important;
+  }
+  #atoAboutLiveMap .about-live-geolocate{
+    left:50%!important;
+    right:auto!important;
+    width:auto!important;
+    max-width:calc(100% - 32px)!important;
+    transform:translateX(-50%)!important;
+  }
+
+  /* Blue iPhone live-location dot: never let generic SVG rules hide it. */
+  #atoAboutLiveMap #aboutUserMapPin[aria-hidden="false"]{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    pointer-events:none!important;
+  }
+  #atoAboutLiveMap #aboutUserMapPin .about-user-pulse{
+    fill:rgba(74,190,255,.10)!important;
+    stroke:#58cfff!important;
+    stroke-width:3!important;
+    opacity:.85!important;
+  }
+  #atoAboutLiveMap #aboutUserMapPin .about-user-dot{
+    fill:#42bdf5!important;
+    stroke:#e6f9ff!important;
+    stroke-width:3!important;
+    filter:drop-shadow(0 0 8px rgba(66,189,245,.95))!important;
+  }
+  #atoAboutLiveMap #aboutUserMapPin .about-user-core{
+    fill:#ffffff!important;
+    stroke:#1784bc!important;
+    stroke-width:1!important;
+  }
+
+  /* 2. Popular Tours — kill the blue emoji square and use one thin gold SVG arrow. */
+  .popular-feature-card .view-all.ato-mobile-viewall-fixed{
+    position:relative!important;
+    padding-right:58px!important;
+    overflow:hidden!important;
+  }
+  .popular-feature-card .view-all.ato-mobile-viewall-fixed::before,
+  .popular-feature-card .view-all.ato-mobile-viewall-fixed::after{
+    content:none!important;
+    display:none!important;
+  }
+  .popular-feature-card .ato-mobile-viewall-arrow{
+    position:absolute!important;
+    right:18px!important;
+    top:50%!important;
+    width:28px!important;
+    height:28px!important;
+    transform:translateY(-50%)!important;
+    display:grid!important;
+    place-items:center!important;
+    background:transparent!important;
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    color:#e0b653!important;
+    pointer-events:none!important;
+  }
+  .popular-feature-card .ato-mobile-viewall-arrow svg{
+    width:23px!important;
+    height:23px!important;
+    display:block!important;
+    fill:none!important;
+    stroke:#e0b653!important;
+    stroke-width:1.35!important;
+    stroke-linecap:round!important;
+    stroke-linejoin:round!important;
+  }
+
+  /* 3. HERO — exactly one arrow. Remove the V3 broken pseudo construction. */
+  #atoLivingHero .ato-living-hero__arrow.ato-mobile-hero-arrow-fixed{
+    display:inline-block!important;
+    position:static!important;
+    flex:0 0 auto!important;
+    width:auto!important;
+    height:auto!important;
+    min-width:0!important;
+    margin-left:8px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    color:#e0b653!important;
+    font:300 27px/1 Arial,sans-serif!important;
+    line-height:1!important;
+    font-style:normal!important;
+    transform:translateY(-2px)!important;
+    overflow:visible!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow.ato-mobile-hero-arrow-fixed::before,
+  #atoLivingHero .ato-living-hero__arrow.ato-mobile-hero-arrow-fixed::after{
+    content:none!important;
+    display:none!important;
+  }
+  /* Assistant intentionally untouched here. */
+
+  /* 4. Header Search — the empty FILTERS oval must not be visible on mobile. */
+  #atoGlobalHeaderRoot #atoHeaderFilters,
+  #atoGlobalHeaderRoot .ato-hs-filters{
+    display:none!important;
+    visibility:hidden!important;
+    width:0!important;
+    min-width:0!important;
+    max-width:0!important;
+    padding:0!important;
+    margin:0!important;
+    border:0!important;
+    overflow:hidden!important;
+  }
+  #atoGlobalHeaderRoot .ato-header-search-shell .ato-hs-bar{
+    grid-template-columns:22px minmax(0,1fr) 42px!important;
+    gap:10px!important;
+  }
+
+  /* 5. FULL Tour Finder — Compare next to VIEW TOUR. */
+  .atf-card .atf-card-actions{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    gap:8px!important;
+    min-width:0!important;
+  }
+  .atf-card .atf-category-link{
+    margin-right:auto!important;
+    min-width:0!important;
+    max-width:31%!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    white-space:nowrap!important;
+  }
+  .atf-card .ato-mobile-atf-compare{
+    appearance:none!important;
+    -webkit-appearance:none!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    flex:0 0 auto!important;
+    min-width:91px!important;
+    min-height:38px!important;
+    height:38px!important;
+    padding:0 11px!important;
+    margin:0!important;
+    border:1px solid rgba(224,182,83,.48)!important;
+    border-radius:10px!important;
+    background:rgba(224,182,83,.06)!important;
+    color:#f0cf7a!important;
+    font:800 8.5px/1 Arial,sans-serif!important;
+    letter-spacing:.055em!important;
+    text-transform:uppercase!important;
+    white-space:nowrap!important;
+    cursor:pointer!important;
+    box-sizing:border-box!important;
+  }
+  .atf-card .ato-mobile-atf-compare.is-added{
+    border-color:rgba(89,218,174,.55)!important;
+    background:rgba(14,114,91,.33)!important;
+    color:#e4faef!important;
+  }
+  .atf-card .atf-card-link{
+    flex:0 0 auto!important;
+    margin:0!important;
+  }
+
+  /* 6. Languages — one real white × close button, never an arrow. */
+  #atoGlobalHeaderRoot .language-menu .language-close.ato-mobile-language-x{
+    display:grid!important;
+    place-items:center!important;
+    position:absolute!important;
+    top:7px!important;
+    right:8px!important;
+    width:38px!important;
+    height:38px!important;
+    padding:0!important;
+    margin:0!important;
+    border:0!important;
+    border-radius:50%!important;
+    background:rgba(255,255,255,.025)!important;
+    background-image:none!important;
+    box-shadow:none!important;
+    color:#fff!important;
+    font:300 30px/1 Arial,sans-serif!important;
+    letter-spacing:0!important;
+    text-indent:0!important;
+    transform:none!important;
+    opacity:1!important;
+    visibility:visible!important;
+    z-index:100010!important;
+  }
+  #atoGlobalHeaderRoot .language-menu .language-close.ato-mobile-language-x::before,
+  #atoGlobalHeaderRoot .language-menu .language-close.ato-mobile-language-x::after{
+    content:none!important;
+    display:none!important;
+  }
+  #atoGlobalHeaderRoot .language-menu .language-close.ato-mobile-language-x svg,
+  #atoGlobalHeaderRoot .language-menu .language-close.ato-mobile-language-x .arrow-icon{
+    display:none!important;
+  }
+
+  /* 7. Menu links — always sit above the scrim and receive the tap. */
+  #atoGlobalHeaderRoot .nav{
+    pointer-events:auto!important;
+  }
+  #atoGlobalHeaderRoot .nav a[href],
+  #atoGlobalHeaderRoot .nav .dropdown-menu a[href]{
+    pointer-events:auto!important;
+    touch-action:manipulation!important;
+    -webkit-tap-highlight-color:transparent!important;
+    position:relative!important;
+    z-index:100020!important;
+  }
+}
+
+@media (max-width:520px){
+  #atoGlobalHeaderRoot .ato-header-search-shell .ato-hs-bar{
+    grid-template-columns:20px minmax(0,1fr) 40px!important;
+    gap:8px!important;
+    padding-left:12px!important;
+  }
+  .atf-card .ato-mobile-atf-compare{
+    min-width:86px!important;
+    padding:0 9px!important;
+    font-size:8px!important;
+  }
+  .atf-card .atf-category-link{
+    max-width:27%!important;
+  }
+}
+
+@media (max-width:390px){
+  .atf-card .atf-category-link{
+    display:none!important;
+  }
+  .atf-card .atf-card-actions{
+    justify-content:flex-end!important;
+  }
+}
+
+
+/* ========================================================================
+   ATO MOBILE V8 — screenshot corrections
+   MOBILE ONLY. Desktop intentionally untouched.
+   ======================================================================== */
+@media (max-width:980px){
+
+  /* 1 — TURKEY MAP: smaller, strongly right, slightly lower, still inside viewport. */
+  #atoAboutLiveMap.ato-v8-map{
+    width:100%!important;
+    max-width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+  }
+  #atoAboutLiveMap .ato-v8-map-inner{
+    width:100%!important;
+    max-width:100%!important;
+    overflow:hidden!important;
+    padding:18px 0 0!important;
+    margin:0!important;
+  }
+  #atoAboutLiveMap .ato-v8-map-svg{
+    display:block!important;
+    width:86vw!important;
+    max-width:86vw!important;
+    height:auto!important;
+    margin:0!important;
+    transform:translateX(9vw) translateY(14px)!important;
+    transform-origin:center center!important;
+    overflow:visible!important;
+  }
+  #atoAboutLiveMap .about-live-geolocate{
+    margin-top:34px!important;
+  }
+
+  /* 2 — HERO arrow: true SVG, no emoji, no blue iOS square, no duplicate pseudos. */
+  #atoLivingHero .ato-living-hero__arrow.ato-v8-hero-arrow{
+    display:inline-grid!important;
+    place-items:center!important;
+    position:static!important;
+    width:28px!important;
+    min-width:28px!important;
+    height:28px!important;
+    min-height:28px!important;
+    margin-left:8px!important;
+    padding:0!important;
+    background:transparent!important;
+    background-image:none!important;
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    color:transparent!important;
+    font-size:0!important;
+    line-height:0!important;
+    transform:none!important;
+    overflow:visible!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow.ato-v8-hero-arrow::before,
+  #atoLivingHero .ato-living-hero__arrow.ato-v8-hero-arrow::after{
+    content:none!important;
+    display:none!important;
+  }
+  #atoLivingHero .ato-v8-gold-arrow-svg{
+    display:block!important;
+    width:24px!important;
+    height:24px!important;
+    fill:none!important;
+    stroke:#e2b953!important;
+    stroke-width:1.25!important;
+    stroke-linecap:round!important;
+    stroke-linejoin:round!important;
+    filter:drop-shadow(0 0 4px rgba(226,185,83,.18))!important;
+  }
+
+  /* 3 — LANGUAGE PANEL: compact, letter codes like desktop, gold X. */
+  #atoGlobalHeaderRoot .language-menu.ato-v8-language-menu{
+    position:fixed!important;
+    top:84px!important;
+    right:14px!important;
+    left:auto!important;
+    width:min(76vw,300px)!important;
+    max-width:300px!important;
+    padding:54px 16px 16px!important;
+    border-radius:0 0 24px 24px!important;
+    background:rgba(5,13,25,.985)!important;
+    border:1px solid rgba(215,168,62,.22)!important;
+    box-shadow:0 26px 70px rgba(0,0,0,.50)!important;
+    overflow:hidden!important;
+  }
+  #atoGlobalHeaderRoot .language-menu .ato-v8-language-close{
+    display:grid!important;
+    place-items:center!important;
+    position:absolute!important;
+    top:8px!important;
+    right:9px!important;
+    width:38px!important;
+    height:38px!important;
+    padding:0!important;
+    margin:0!important;
+    border:1px solid rgba(226,185,83,.26)!important;
+    border-radius:50%!important;
+    background:rgba(226,185,83,.035)!important;
+    background-image:none!important;
+    box-shadow:none!important;
+    color:#e2b953!important;
+    font:300 30px/1 Arial,sans-serif!important;
+    text-indent:0!important;
+    transform:none!important;
+    opacity:1!important;
+    visibility:visible!important;
+    z-index:100020!important;
+  }
+  #atoGlobalHeaderRoot .language-menu .ato-v8-language-close::before,
+  #atoGlobalHeaderRoot .language-menu .ato-v8-language-close::after{
+    content:none!important;
+    display:none!important;
+  }
+  #atoGlobalHeaderRoot .language-menu .ato-v8-lang-row{
+    display:grid!important;
+    grid-template-columns:42px minmax(0,1fr)!important;
+    align-items:center!important;
+    gap:12px!important;
+    min-height:52px!important;
+    padding:10px 12px!important;
+    color:#fff!important;
+    text-decoration:none!important;
+    border-radius:12px!important;
+  }
+  #atoGlobalHeaderRoot .ato-v8-lang-code{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    color:#e2b953!important;
+    font:700 13px/1 Arial,sans-serif!important;
+    letter-spacing:.12em!important;
+  }
+  #atoGlobalHeaderRoot .ato-v8-lang-name{
+    color:#fff!important;
+    font:600 15px/1.2 Arial,sans-serif!important;
+  }
+
+  /* 4/5 — MOBILE NAV: dropdowns stay INSIDE the drawer, not floating right. */
+  #atoGlobalHeaderRoot .nav.ato-v8-mobile-nav{
+    overflow-y:auto!important;
+    overflow-x:hidden!important;
+    -webkit-overflow-scrolling:touch!important;
+    padding-bottom:calc(42px + env(safe-area-inset-bottom))!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-v8-mobile-dropdown{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    position:relative!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-v8-mobile-dropdown > .ato-dropdown-trigger{
+    width:100%!important;
+    max-width:100%!important;
+    min-height:48px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    padding:0!important;
+    color:#fff!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-v8-mobile-submenu{
+    position:static!important;
+    top:auto!important;
+    right:auto!important;
+    bottom:auto!important;
+    left:auto!important;
+    transform:none!important;
+    translate:none!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    margin:12px 0 2px!important;
+    padding:12px!important;
+    border-radius:20px!important;
+    background:rgba(13,25,43,.92)!important;
+    border:1px solid rgba(215,168,62,.14)!important;
+    box-shadow:none!important;
+    overflow:visible!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-v8-mobile-dropdown:not(.open) > .ato-v8-mobile-submenu{
+    display:none!important;
+    opacity:0!important;
+    visibility:hidden!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-v8-mobile-dropdown.open > .ato-v8-mobile-submenu{
+    display:block!important;
+    opacity:1!important;
+    visibility:visible!important;
+  }
+
+  /* TOURS: first item must start at top and be visible. */
+  #atoGlobalHeaderRoot .nav .ato-tours-menu.ato-v8-mobile-submenu{
+    max-height:none!important;
+    padding-top:10px!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-tours-menu.ato-v8-mobile-submenu > a{
+    display:grid!important;
+    grid-template-columns:34px minmax(0,1fr)!important;
+    align-items:center!important;
+    min-height:48px!important;
+    padding:9px 10px!important;
+    margin:0!important;
+    color:#fff!important;
+    border-radius:11px!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-tours-menu.ato-v8-mobile-submenu > a:first-child{
+    margin-top:0!important;
+  }
+
+  /* ABOUT US: clean full-width accordion below About Us. */
+  #atoGlobalHeaderRoot .nav .ato-about-menu.ato-v8-mobile-submenu{
+    padding:10px!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-about-menu.ato-v8-mobile-submenu > a,
+  #atoGlobalHeaderRoot .nav .ato-about-menu.ato-v8-mobile-submenu .ato-subitem{
+    display:flex!important;
+    align-items:center!important;
+    gap:10px!important;
+    width:100%!important;
+    min-height:46px!important;
+    padding:10px 12px!important;
+    margin:0!important;
+    border-radius:11px!important;
+    color:#fff!important;
+    box-sizing:border-box!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-about-menu .ato-menu-group{
+    width:100%!important;
+    margin:7px 0!important;
+    padding:10px!important;
+    border-radius:14px!important;
+    background:rgba(255,255,255,.025)!important;
+    border:1px solid rgba(215,168,62,.10)!important;
+    box-sizing:border-box!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-about-menu .ato-menu-group-label{
+    padding:4px 2px 8px!important;
+    color:#e2b953!important;
+    font-size:11px!important;
+    line-height:1.35!important;
+    letter-spacing:.06em!important;
+  }
+
+  /* 6 — Search X gold from the first frame. */
+  #atoGlobalHeaderRoot #atoHeaderSearchClose.ato-v8-search-close,
+  #atoGlobalHeaderRoot .ato-hs-close{
+    color:#e2b953!important;
+    border-color:rgba(226,185,83,.24)!important;
+    background:rgba(226,185,83,.035)!important;
+    background-image:none!important;
+    box-shadow:none!important;
+  }
+  #atoGlobalHeaderRoot #atoHeaderSearchClose.ato-v8-search-close::before,
+  #atoGlobalHeaderRoot #atoHeaderSearchClose.ato-v8-search-close::after{
+    content:none!important;
+    display:none!important;
+  }
+}
+
+@media (max-width:560px){
+  #atoAboutLiveMap .ato-v8-map-svg{
+    width:84vw!important;
+    max-width:84vw!important;
+    transform:translateX(11vw) translateY(16px)!important;
+  }
+  #atoGlobalHeaderRoot .language-menu.ato-v8-language-menu{
+    width:min(78vw,286px)!important;
+    right:10px!important;
+  }
+}
+
+
+/* ATO MOBILE V9 — hotline number matches the primary phone exactly */
+@media (max-width:980px){
+  #contacts .contact-hotline{
+    margin-top:14px!important;
+    line-height:1.35!important;
+  }
+  #contacts .contact-hotline .contact-hotline-label{
+    display:block!important;
+    margin-bottom:5px!important;
+  }
+  #contacts .contact-hotline a.ato-v9-hotline-synced{
+    display:inline-block!important;
+    text-decoration:none!important;
+  }
+}
+
+
+/* ATO MOBILE V10 — live Google map with geographically fixed office marker */
+@media (max-width:980px){
+  #contacts .map-wrapper.ato-v10-live-google-map{
+    position:relative!important;
+    overflow:hidden!important;
+  }
+
+  #contacts .map-wrapper.ato-v10-live-google-map iframe{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    pointer-events:auto!important;
+    touch-action:auto!important;
+    border:0!important;
+  }
+
+  #contacts .map-wrapper.ato-v10-live-google-map .ato-contact-map-pin{
+    display:none!important;
+    visibility:hidden!important;
+    opacity:0!important;
+    pointer-events:none!important;
+  }
+}
+
+
+/* ========================================================================
+   ATO MOBILE V11 — DEFINITIVE SOURCE OVERRIDES
+   2026-08-19 06:53 — MOBILE ONLY
+   ======================================================================== */
+@media (max-width:980px){
+
+  /* 1. RED TÜRKİYE MAP — full viewport width + Republic title restored. */
+  #about #atoAboutLiveMap,
+  #atoAboutLiveMap,
+  #atoAboutLiveMap.ato-v8-map{
+    position:relative!important;
+    left:50%!important;
+    right:auto!important;
+    width:100vw!important;
+    max-width:100vw!important;
+    min-width:100vw!important;
+    margin:0!important;
+    padding:0!important;
+    transform:translateX(-50%)!important;
+    overflow:visible!important;
+    box-sizing:border-box!important;
+  }
+
+  #atoAboutLiveMap .about-live-kicker{
+    display:block!important;
+    position:relative!important;
+    z-index:30!important;
+    width:100vw!important;
+    max-width:100vw!important;
+    margin:0 0 12px!important;
+    padding:0 16px!important;
+    color:#ead6aa!important;
+    opacity:1!important;
+    visibility:visible!important;
+    transform:none!important;
+    text-align:center!important;
+    white-space:nowrap!important;
+  }
+
+  #atoAboutLiveMap .about-live-map-inner,
+  #atoAboutLiveMap .ato-v8-map-inner{
+    position:relative!important;
+    display:block!important;
+    width:100vw!important;
+    max-width:100vw!important;
+    min-width:100vw!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+    transform:none!important;
+  }
+
+  #atoAboutLiveMap .final-turkiye-map,
+  #atoAboutLiveMap .ato-v8-map-svg{
+    display:block!important;
+    width:100vw!important;
+    max-width:none!important;
+    min-width:100vw!important;
+    height:auto!important;
+    aspect-ratio:2 / 1!important;
+    margin:0!important;
+    padding:0!important;
+    transform:none!important;
+    transform-origin:center center!important;
+    overflow:visible!important;
+  }
+
+  #atoAboutLiveMap .about-live-geolocate{
+    position:relative!important;
+    left:50%!important;
+    right:auto!important;
+    width:max-content!important;
+    max-width:calc(100vw - 32px)!important;
+    margin:30px 0 0!important;
+    transform:translateX(-50%)!important;
+  }
+
+  /* 2. CONTACT PHONES — absolutely identical mobile number size. */
+  #contacts .contact-grid > div:first-child > a[href*="wa.me"],
+  #contacts .contact-hotline a[href^="tel:"]{
+    font-size:clamp(30px,8.2vw,38px)!important;
+    line-height:1.08!important;
+  }
+  #contacts .contact-hotline{
+    margin-top:18px!important;
+  }
+  #contacts .contact-hotline .contact-hotline-label{
+    display:block!important;
+    margin-bottom:8px!important;
+  }
+
+  /* 3. HERO — only one thin gold SVG arrow; no emoji / blue square. */
+  #atoLivingHero .ato-living-hero__arrow,
+  #atoLivingHero .ato-living-hero__arrow.ato-mobile-hero-arrow-fixed,
+  #atoLivingHero .ato-living-hero__arrow.ato-v8-hero-arrow{
+    display:inline-grid!important;
+    place-items:center!important;
+    position:static!important;
+    width:28px!important;
+    min-width:28px!important;
+    height:28px!important;
+    min-height:28px!important;
+    margin-left:8px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    background-image:none!important;
+    box-shadow:none!important;
+    color:transparent!important;
+    font-size:0!important;
+    line-height:0!important;
+    transform:none!important;
+    overflow:visible!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow::before,
+  #atoLivingHero .ato-living-hero__arrow::after{
+    content:none!important;
+    display:none!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow svg,
+  #atoLivingHero .ato-hero-gold-arrow-svg,
+  #atoLivingHero .ato-v8-gold-arrow-svg{
+    display:block!important;
+    width:24px!important;
+    height:24px!important;
+    max-width:none!important;
+    fill:none!important;
+    stroke:#e2b953!important;
+    stroke-width:1.25!important;
+    stroke-linecap:round!important;
+    stroke-linejoin:round!important;
+    filter:drop-shadow(0 0 4px rgba(226,185,83,.18))!important;
+  }
+
+  /* 4. ABOUT menu — continuous premium gold line right of Legal + TÜRSAB. */
+  #atoGlobalHeaderRoot .nav .ato-about-menu .ato-menu-group{
+    position:relative!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-about-menu .ato-menu-group::after{
+    content:""!important;
+    display:block!important;
+    position:absolute!important;
+    top:48px!important;
+    right:10px!important;
+    bottom:10px!important;
+    width:1px!important;
+    background:linear-gradient(180deg,
+      rgba(226,185,83,.08),
+      rgba(226,185,83,.72) 18%,
+      rgba(226,185,83,.72) 82%,
+      rgba(226,185,83,.08)
+    )!important;
+    box-shadow:0 0 5px rgba(226,185,83,.10)!important;
+    pointer-events:none!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-about-menu .ato-subitem{
+    padding-right:25px!important;
+  }
+
+  /* 5. LANGUAGES — RU / EN / TR / DE / PL, no flags + gold working X. */
+  #atoGlobalHeaderRoot .language-menu{
+    padding-top:52px!important;
+  }
+  #atoGlobalHeaderRoot .language-menu a[data-lang]{
+    display:grid!important;
+    grid-template-columns:42px minmax(0,1fr)!important;
+    align-items:center!important;
+    gap:12px!important;
+  }
+  #atoGlobalHeaderRoot .ato-lang-code,
+  #atoGlobalHeaderRoot .ato-v8-lang-code{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    color:#e2b953!important;
+    font:800 13px/1 Arial,sans-serif!important;
+    letter-spacing:.12em!important;
+  }
+  #atoGlobalHeaderRoot .ato-lang-name,
+  #atoGlobalHeaderRoot .ato-v8-lang-name{
+    color:#fff!important;
+    font:700 15px/1.2 Arial,sans-serif!important;
+  }
+
+  #atoGlobalHeaderRoot .language-menu .language-close,
+  #atoGlobalHeaderRoot .language-menu .language-close.ato-mobile-language-x,
+  #atoGlobalHeaderRoot .language-menu .language-close.ato-v8-language-close{
+    display:grid!important;
+    place-items:center!important;
+    position:absolute!important;
+    top:8px!important;
+    right:9px!important;
+    width:38px!important;
+    min-width:38px!important;
+    height:38px!important;
+    min-height:38px!important;
+    padding:0!important;
+    margin:0!important;
+    border:1px solid rgba(226,185,83,.34)!important;
+    border-radius:50%!important;
+    background:rgba(226,185,83,.04)!important;
+    background-image:none!important;
+    box-shadow:none!important;
+    color:#e2b953!important;
+    font:300 30px/1 Arial,sans-serif!important;
+    text-indent:0!important;
+    opacity:1!important;
+    visibility:visible!important;
+    transform:none!important;
+    z-index:100050!important;
+  }
+  #atoGlobalHeaderRoot .language-menu .language-close::before,
+  #atoGlobalHeaderRoot .language-menu .language-close::after{
+    content:none!important;
+    display:none!important;
+  }
+}
+
+@media (max-width:560px){
+  #atoAboutLiveMap .about-live-kicker{
+    font-size:clamp(11px,3.2vw,14px)!important;
+    letter-spacing:.15em!important;
+  }
+  #contacts .contact-grid > div:first-child > a[href*="wa.me"],
+  #contacts .contact-hotline a[href^="tel:"]{
+    font-size:clamp(30px,8.4vw,36px)!important;
+  }
+}
+
