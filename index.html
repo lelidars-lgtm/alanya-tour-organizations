@@ -2632,6 +2632,167 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }
 </style>
 
+
+
+<!-- =====================================================================
+     ATO DESKTOP ASSISTANT — APPROVED LAUNCHER V11 SAFE
+     DESKTOP ONLY (>=981px).
+     IMPORTANT: this block DOES NOT hide, move, restyle or rewrite the native
+     Assistant launcher. It only places the approved visual button above it and
+     forwards a click to the existing Assistant control. The approved V9 modal,
+     header, promo ribbon and all mobile behavior remain untouched.
+     ===================================================================== -->
+<style id="ato-desktop-assistant-approved-launcher-v11-safe">
+@media (min-width:981px){
+  #atoApprovedAssistantLauncherV11{
+    position:fixed!important;
+    right:26px!important;
+    bottom:22px!important;
+    width:min(372px,calc(100vw - 64px))!important;
+    aspect-ratio:1200 / 261!important;
+    height:auto!important;
+    display:block!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    outline:0!important;
+    border-radius:999px!important;
+    overflow:hidden!important;
+    background:#071421!important;
+    box-shadow:
+      0 14px 34px rgba(0,0,0,.24),
+      0 0 0 1px rgba(210,170,92,.18)!important;
+    cursor:pointer!important;
+    z-index:12040!important;
+    opacity:1!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+    isolation:isolate!important;
+    -webkit-tap-highlight-color:transparent!important;
+    transition:transform .22s cubic-bezier(.2,.7,.2,1),filter .22s ease,box-shadow .22s ease!important;
+  }
+  #atoApprovedAssistantLauncherV11:hover{
+    transform:translateY(-2px)!important;
+    filter:brightness(1.035)!important;
+    box-shadow:
+      0 18px 42px rgba(0,0,0,.30),
+      0 0 0 1px rgba(226,185,83,.28),
+      0 0 24px rgba(34,102,205,.10)!important;
+  }
+  #atoApprovedAssistantLauncherV11:active{
+    transform:translateY(0)!important;
+  }
+  #atoApprovedAssistantLauncherV11:focus-visible{
+    outline:1px solid rgba(231,194,111,.90)!important;
+    outline-offset:4px!important;
+  }
+  #atoApprovedAssistantLauncherV11 img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:cover!important;
+    border-radius:inherit!important;
+    pointer-events:none!important;
+    user-select:none!important;
+    -webkit-user-drag:none!important;
+  }
+}
+@media (max-width:980px){
+  #atoApprovedAssistantLauncherV11{display:none!important;}
+}
+</style>
+<script id="ato-desktop-assistant-approved-launcher-v11-safe-js">
+(function(){
+  'use strict';
+  const MQ=window.matchMedia('(min-width:981px)');
+  const ID='atoApprovedAssistantLauncherV11';
+  const SRC='assets/img/ato-assistant-approved-blue-button.gif';
+
+  function isVisible(el){
+    try{
+      const cs=getComputedStyle(el),r=el.getBoundingClientRect();
+      return !el.hidden&&cs.display!=='none'&&cs.visibility!=='hidden'&&parseFloat(cs.opacity||'1')>.02&&r.width>0&&r.height>0;
+    }catch(_){return false}
+  }
+
+  function ensureButton(){
+    if(!MQ.matches)return null;
+    let btn=document.getElementById(ID);
+    if(btn)return btn;
+    btn=document.createElement('button');
+    btn.id=ID;
+    btn.type='button';
+    btn.setAttribute('aria-label','Open ATO Assistant');
+    btn.innerHTML='<img src="'+SRC+'" alt="" aria-hidden="true" draggable="false">';
+    btn.addEventListener('click',openAssistant);
+    document.body.appendChild(btn);
+    return btn;
+  }
+
+  function clickableFrom(control){
+    if(!control)return null;
+    if(control.matches?.('button,a,[role="button"]'))return control;
+    return control.closest?.('button,a,[role="button"]')||control;
+  }
+
+  function preferredControl(){
+    /* Exact class created by the existing ATO Assistant visual control. */
+    const exact=[...document.querySelectorAll('.ato-assistant-ai-control')].filter(isVisible);
+    if(exact.length){
+      exact.sort((a,b)=>{
+        const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+        const ad=Math.hypot(innerWidth-ar.right,innerHeight-ar.bottom);
+        const bd=Math.hypot(innerWidth-br.right,innerHeight-br.bottom);
+        return ad-bd;
+      });
+      return clickableFrom(exact[0]);
+    }
+
+    /* Conservative fallback: clickable control explicitly labelled Assistant/Chat. */
+    const candidates=[...document.querySelectorAll('button,a,[role="button"]')].filter(el=>{
+      if(el.id===ID||!isVisible(el))return false;
+      const label=((el.getAttribute('aria-label')||'')+' '+(el.getAttribute('title')||'')+' '+(el.textContent||''))
+        .replace(/\s+/g,' ').trim().toUpperCase();
+      const r=el.getBoundingClientRect();
+      const assistant=/ASSISTANT|ASK SOMETHING|ATO AI|CHAT/.test(label);
+      const nearRight=r.right>innerWidth*.60;
+      const lowerHalf=r.bottom>innerHeight*.45;
+      return assistant&&nearRight&&lowerHalf&&r.width<620&&r.height<220;
+    });
+    candidates.sort((a,b)=>{
+      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+      return Math.hypot(innerWidth-ar.right,innerHeight-ar.bottom)-Math.hypot(innerWidth-br.right,innerHeight-br.bottom);
+    });
+    return candidates[0]||null;
+  }
+
+  function openAssistant(){
+    if(!MQ.matches)return;
+    const target=preferredControl();
+    if(!target){
+      console.warn('ATO Assistant launcher: native control not found; no page elements were changed.');
+      return;
+    }
+    try{target.click();}
+    catch(_){
+      try{target.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window}));}catch(__){}
+    }
+  }
+
+  function sync(){
+    if(MQ.matches)ensureButton();
+    else document.getElementById(ID)?.remove();
+  }
+
+  function init(){
+    sync();
+    MQ.addEventListener?.('change',sync);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
+})();
+</script>
+
 </body>
 </html>
 
@@ -3324,251 +3485,6 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     desktop.addEventListener?.('change',queue);
     document.addEventListener('click',()=>{setTimeout(queue,35);setTimeout(queue,180)},true);
     queue();
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
-  else init();
-})();
-</script>
-
-
-<!-- =====================================================================
-     ATO DESKTOP ASSISTANT — APPROVED LAUNCHER BUTTON V10
-     DESKTOP ONLY (>=981px).
-     Uses the exact approved raster animation as the visible launcher.
-     The native Assistant launcher remains in the DOM and keeps all original
-     behavior; on desktop it is only visually hidden and proxied by this button.
-     Mobile, header, promo ribbon and Assistant modal are untouched.
-     ===================================================================== -->
-<style id="ato-desktop-assistant-approved-launcher-v10">
-@media (min-width:981px){
-  #atoApprovedAssistantLauncherV10{
-    position:fixed!important;
-    right:var(--ato-v10-launcher-right,28px)!important;
-    bottom:var(--ato-v10-launcher-bottom,24px)!important;
-    width:min(360px,calc(100vw - 56px))!important;
-    aspect-ratio:1200 / 261!important;
-    height:auto!important;
-    margin:0!important;
-    padding:0!important;
-    border:0!important;
-    outline:0!important;
-    border-radius:999px!important;
-    overflow:hidden!important;
-    background:transparent!important;
-    box-shadow:none!important;
-    cursor:pointer!important;
-    z-index:12050!important;
-    opacity:1!important;
-    visibility:visible!important;
-    pointer-events:auto!important;
-    transition:opacity .18s ease,visibility .18s ease!important;
-    -webkit-tap-highlight-color:transparent!important;
-  }
-  #atoApprovedAssistantLauncherV10 > img{
-    display:block!important;
-    width:100%!important;
-    height:100%!important;
-    object-fit:cover!important;
-    border-radius:inherit!important;
-    pointer-events:none!important;
-    user-select:none!important;
-    -webkit-user-drag:none!important;
-  }
-  #atoApprovedAssistantLauncherV10.ato-v10-assistant-open{
-    opacity:0!important;
-    visibility:hidden!important;
-    pointer-events:none!important;
-  }
-  #atoApprovedAssistantLauncherV10:focus-visible{
-    outline:1px solid rgba(231,194,111,.86)!important;
-    outline-offset:4px!important;
-  }
-}
-@media (max-width:980px){
-  #atoApprovedAssistantLauncherV10{display:none!important;}
-}
-</style>
-<script id="ato-desktop-assistant-approved-launcher-v10-js">
-(function(){
-  'use strict';
-  const desktop=window.matchMedia('(min-width:981px)');
-  const ID='atoApprovedAssistantLauncherV10';
-  const SRC='assets/img/ato-assistant-approved-blue-button.gif';
-  const hiddenNative=new Map();
-  let nativeLauncher=null;
-  let raf=0;
-
-  function clean(s){return String(s||'').replace(/\s+/g,' ').trim()}
-  function meta(el){
-    try{return clean(`${el.id||''} ${typeof el.className==='string'?el.className:''} ${el.getAttribute?.('aria-label')||''} ${el.getAttribute?.('title')||''}`).toUpperCase()}
-    catch(_){return ''}
-  }
-  function visible(el){
-    try{
-      const cs=getComputedStyle(el),r=el.getBoundingClientRect();
-      return !el.hidden&&cs.display!=='none'&&cs.visibility!=='hidden'&&parseFloat(cs.opacity||'1')>.02&&r.width>0&&r.height>0;
-    }catch(_){return false}
-  }
-  function roots(){
-    const out=[document],seen=new Set(out);
-    for(let i=0;i<out.length;i++){
-      const root=out[i];
-      try{
-        root.querySelectorAll?.('*').forEach(el=>{
-          if(el.shadowRoot&&!seen.has(el.shadowRoot)){seen.add(el.shadowRoot);out.push(el.shadowRoot)}
-          if(el.tagName==='IFRAME'){
-            try{const d=el.contentDocument;if(d&&!seen.has(d)){seen.add(d);out.push(d)}}catch(_){ }
-          }
-        });
-      }catch(_){ }
-    }
-    return out;
-  }
-
-  function scoreLauncher(el){
-    if(!el||el.id===ID)return -1e9;
-    try{
-      if(el.closest?.('.ato-desktop-assistant-v7-surface'))return -1e9;
-      if(el.closest?.('#atoGlobalHeaderRoot'))return -1e9;
-      const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
-      if(!visible(el)||r.width<28||r.height<28||r.width>720||r.height>220)return -1e9;
-      const t=clean(el.innerText||el.textContent).toUpperCase();
-      const m=meta(el);
-      let s=0;
-      if(t.includes('ASK SOMETHING')&&t.includes('ASSISTANT'))s+=260;
-      else if(t.includes('ASK SOMETHING'))s+=170;
-      if(/ASSISTANT|ATO.?AI|CHAT/.test(m))s+=95;
-      if(/OPEN/.test(m)&&/ASSISTANT|CHAT/.test(m))s+=70;
-      if(cs.position==='fixed')s+=65;
-      if(cs.position==='absolute')s+=18;
-      if(r.right>innerWidth*.62)s+=30;
-      if(r.bottom>innerHeight*.48)s+=20;
-      if(['BUTTON','A'].includes(el.tagName))s+=20;
-      if(el.getAttribute?.('role')==='button')s+=15;
-      return s;
-    }catch(_){return -1e9}
-  }
-
-  function findNativeLauncher(){
-    if(!desktop.matches)return null;
-    const candidates=[];
-    roots().forEach(root=>{
-      try{
-        root.querySelectorAll?.('button,a,[role="button"],div').forEach(el=>{
-          const s=scoreLauncher(el);
-          if(s<120)return;
-          const r=el.getBoundingClientRect();
-          candidates.push({el,s,area:r.width*r.height});
-        });
-      }catch(_){ }
-    });
-    candidates.sort((a,b)=>(b.s-a.s)||(a.area-b.area));
-    return candidates[0]?.el||null;
-  }
-
-  function rememberAndHide(el){
-    if(!el)return;
-    if(!hiddenNative.has(el)){
-      hiddenNative.set(el,{
-        opacity:el.style.getPropertyValue('opacity'),opacityPriority:el.style.getPropertyPriority('opacity'),
-        visibility:el.style.getPropertyValue('visibility'),visibilityPriority:el.style.getPropertyPriority('visibility'),
-        pointerEvents:el.style.getPropertyValue('pointer-events'),pointerPriority:el.style.getPropertyPriority('pointer-events')
-      });
-    }
-    if(el.style.getPropertyValue('opacity')!=='0'||el.style.getPropertyPriority('opacity')!=='important')el.style.setProperty('opacity','0','important');
-    if(el.style.getPropertyValue('visibility')!=='hidden'||el.style.getPropertyPriority('visibility')!=='important')el.style.setProperty('visibility','hidden','important');
-    if(el.style.getPropertyValue('pointer-events')!=='none'||el.style.getPropertyPriority('pointer-events')!=='important')el.style.setProperty('pointer-events','none','important');
-  }
-  function restoreOne(el,data){
-    if(!el||!data)return;
-    const restore=(prop,value,priority)=>{if(value)el.style.setProperty(prop,value,priority||'');else el.style.removeProperty(prop)};
-    restore('opacity',data.opacity,data.opacityPriority);
-    restore('visibility',data.visibility,data.visibilityPriority);
-    restore('pointer-events',data.pointerEvents,data.pointerPriority);
-  }
-  function restoreAll(){
-    hiddenNative.forEach((data,el)=>restoreOne(el,data));
-    hiddenNative.clear();
-    nativeLauncher=null;
-  }
-
-  function ensureCustom(){
-    let btn=document.getElementById(ID);
-    if(btn)return btn;
-    btn=document.createElement('button');
-    btn.id=ID;
-    btn.type='button';
-    btn.setAttribute('aria-label','Open ATO Assistant');
-    btn.innerHTML=`<img src="${SRC}" alt="" aria-hidden="true" draggable="false">`;
-    btn.addEventListener('click',function(){
-      const target=(nativeLauncher&&nativeLauncher.isConnected)?nativeLauncher:findNativeLauncher();
-      if(!target)return;
-      /* Native launcher remains the single source of Assistant behavior. */
-      let action=target;
-      if(!['BUTTON','A'].includes(target.tagName)&&target.getAttribute?.('role')!=='button'){
-        try{action=target.querySelector('button,a,[role="button"]')||target}catch(_){action=target}
-      }
-      try{action.click()}catch(_){
-        try{action.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true,view:window}))}catch(__){ }
-      }
-      setTimeout(queue,30);
-      setTimeout(queue,160);
-      setTimeout(queue,420);
-    });
-    document.body.appendChild(btn);
-    return btn;
-  }
-
-  function anchorToNative(btn,el){
-    if(!btn||!el)return;
-    try{
-      const r=el.getBoundingClientRect();
-      if(r.width<=0||r.height<=0)return;
-      const right=Math.max(18,innerWidth-r.right);
-      const bottom=Math.max(18,innerHeight-r.bottom);
-      btn.style.setProperty('--ato-v10-launcher-right',Math.min(right,80).toFixed(1)+'px');
-      btn.style.setProperty('--ato-v10-launcher-bottom',Math.min(bottom,80).toFixed(1)+'px');
-    }catch(_){ }
-  }
-
-  function assistantIsOpen(){
-    try{
-      const panel=document.querySelector('.ato-desktop-assistant-v7-surface');
-      if(panel&&visible(panel))return true;
-      const backdrop=document.getElementById('atoDesktopAssistantBackdropV7');
-      return !!(backdrop&&backdrop.classList.contains('is-open'));
-    }catch(_){return false}
-  }
-
-  function sync(){
-    raf=0;
-    const btn=document.getElementById(ID);
-    if(!desktop.matches){
-      restoreAll();
-      btn?.classList.remove('ato-v10-assistant-open');
-      return;
-    }
-    const custom=ensureCustom();
-    const found=findNativeLauncher();
-    if(found){
-      if(nativeLauncher&&nativeLauncher!==found&&hiddenNative.has(nativeLauncher)){
-        const data=hiddenNative.get(nativeLauncher);restoreOne(nativeLauncher,data);hiddenNative.delete(nativeLauncher);
-      }
-      nativeLauncher=found;
-      anchorToNative(custom,found);
-      rememberAndHide(found);
-    }
-    custom.classList.toggle('ato-v10-assistant-open',assistantIsOpen());
-  }
-
-  function queue(){if(!raf)raf=requestAnimationFrame(sync)}
-  const mo=new MutationObserver(queue);
-  function init(){
-    mo.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-hidden','hidden','open']});
-    window.addEventListener('resize',queue,{passive:true});
-    desktop.addEventListener?.('change',queue);
-    document.addEventListener('click',()=>{setTimeout(queue,40);setTimeout(queue,180)},true);
-    queue();setTimeout(queue,250);setTimeout(queue,1000);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
   else init();
