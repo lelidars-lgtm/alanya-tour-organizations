@@ -1312,3 +1312,325 @@ button,a,[role="button"]{
   }
 }
 
+
+/* ========================================================================
+   ATO MOBILE V6 — ALL 7 SCREENSHOT FIXES
+   MOBILE ONLY — desktop untouched.
+   ======================================================================== */
+@media (max-width:980px){
+
+  /* 1. TÜRKİYE / WE ARE HERE MAP — completely inside the phone viewport. */
+  #about #atoAboutLiveMap,
+  #atoAboutLiveMap{
+    display:block!important;
+    width:calc(100vw - 28px)!important;
+    max-width:calc(100vw - 28px)!important;
+    min-width:0!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    padding-left:0!important;
+    padding-right:0!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+    transform:none!important;
+  }
+  #atoAboutLiveMap .about-live-map-inner{
+    position:relative!important;
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0 auto!important;
+    padding:0!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+  }
+  #atoAboutLiveMap .final-turkiye-map{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    height:auto!important;
+    aspect-ratio:2 / 1!important;
+    margin:0 auto!important;
+    padding:0!important;
+    object-fit:contain!important;
+    transform:none!important;
+    transform-origin:center center!important;
+    overflow:visible!important;
+  }
+  #atoAboutLiveMap .about-live-geolocate{
+    left:50%!important;
+    right:auto!important;
+    width:auto!important;
+    max-width:calc(100% - 32px)!important;
+    transform:translateX(-50%)!important;
+  }
+
+  /* Blue iPhone live-location dot: never let generic SVG rules hide it. */
+  #atoAboutLiveMap #aboutUserMapPin[aria-hidden="false"]{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    pointer-events:none!important;
+  }
+  #atoAboutLiveMap #aboutUserMapPin .about-user-pulse{
+    fill:rgba(74,190,255,.10)!important;
+    stroke:#58cfff!important;
+    stroke-width:3!important;
+    opacity:.85!important;
+  }
+  #atoAboutLiveMap #aboutUserMapPin .about-user-dot{
+    fill:#42bdf5!important;
+    stroke:#e6f9ff!important;
+    stroke-width:3!important;
+    filter:drop-shadow(0 0 8px rgba(66,189,245,.95))!important;
+  }
+  #atoAboutLiveMap #aboutUserMapPin .about-user-core{
+    fill:#ffffff!important;
+    stroke:#1784bc!important;
+    stroke-width:1!important;
+  }
+
+  /* 2. Popular Tours — kill the blue emoji square and use one thin gold SVG arrow. */
+  .popular-feature-card .view-all.ato-mobile-viewall-fixed{
+    position:relative!important;
+    padding-right:58px!important;
+    overflow:hidden!important;
+  }
+  .popular-feature-card .view-all.ato-mobile-viewall-fixed::before,
+  .popular-feature-card .view-all.ato-mobile-viewall-fixed::after{
+    content:none!important;
+    display:none!important;
+  }
+  .popular-feature-card .ato-mobile-viewall-arrow{
+    position:absolute!important;
+    right:18px!important;
+    top:50%!important;
+    width:28px!important;
+    height:28px!important;
+    transform:translateY(-50%)!important;
+    display:grid!important;
+    place-items:center!important;
+    background:transparent!important;
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    color:#e0b653!important;
+    pointer-events:none!important;
+  }
+  .popular-feature-card .ato-mobile-viewall-arrow svg{
+    width:23px!important;
+    height:23px!important;
+    display:block!important;
+    fill:none!important;
+    stroke:#e0b653!important;
+    stroke-width:1.35!important;
+    stroke-linecap:round!important;
+    stroke-linejoin:round!important;
+  }
+
+  /* 3. HERO — exactly one arrow. Remove the V3 broken pseudo construction. */
+  #atoLivingHero .ato-living-hero__arrow.ato-mobile-hero-arrow-fixed{
+    display:inline-block!important;
+    position:static!important;
+    flex:0 0 auto!important;
+    width:auto!important;
+    height:auto!important;
+    min-width:0!important;
+    margin-left:8px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    color:#e0b653!important;
+    font:300 27px/1 Arial,sans-serif!important;
+    line-height:1!important;
+    font-style:normal!important;
+    transform:translateY(-2px)!important;
+    overflow:visible!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow.ato-mobile-hero-arrow-fixed::before,
+  #atoLivingHero .ato-living-hero__arrow.ato-mobile-hero-arrow-fixed::after{
+    content:none!important;
+    display:none!important;
+  }
+
+  /* Assistant — remove blue square/button treatment; keep thin gold arrow only. */
+  .ato-mobile-assistant-host .ato-mobile-assistant-arrow{
+    display:grid!important;
+    place-items:center!important;
+    width:44px!important;
+    min-width:44px!important;
+    height:44px!important;
+    min-height:44px!important;
+    padding:0!important;
+    margin:0!important;
+    border:0!important;
+    outline:0!important;
+    border-radius:50%!important;
+    background:transparent!important;
+    background-image:none!important;
+    box-shadow:none!important;
+    filter:none!important;
+    color:#e0b653!important;
+  }
+  .ato-mobile-assistant-host .ato-mobile-assistant-arrow::before,
+  .ato-mobile-assistant-host .ato-mobile-assistant-arrow::after{
+    content:none!important;
+    display:none!important;
+  }
+  .ato-mobile-assistant-host .ato-mobile-assistant-arrow svg{
+    display:block!important;
+    width:25px!important;
+    height:25px!important;
+    fill:none!important;
+    stroke:#e0b653!important;
+    stroke-width:1.25!important;
+    stroke-linecap:round!important;
+    stroke-linejoin:round!important;
+    filter:drop-shadow(0 0 4px rgba(224,182,83,.16))!important;
+  }
+
+  /* 4. Header Search — the empty FILTERS oval must not be visible on mobile. */
+  #atoGlobalHeaderRoot #atoHeaderFilters,
+  #atoGlobalHeaderRoot .ato-hs-filters{
+    display:none!important;
+    visibility:hidden!important;
+    width:0!important;
+    min-width:0!important;
+    max-width:0!important;
+    padding:0!important;
+    margin:0!important;
+    border:0!important;
+    overflow:hidden!important;
+  }
+  #atoGlobalHeaderRoot .ato-header-search-shell .ato-hs-bar{
+    grid-template-columns:22px minmax(0,1fr) 42px!important;
+    gap:10px!important;
+  }
+
+  /* 5. FULL Tour Finder — Compare next to VIEW TOUR. */
+  .atf-card .atf-card-actions{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    gap:8px!important;
+    min-width:0!important;
+  }
+  .atf-card .atf-category-link{
+    margin-right:auto!important;
+    min-width:0!important;
+    max-width:31%!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    white-space:nowrap!important;
+  }
+  .atf-card .ato-mobile-atf-compare{
+    appearance:none!important;
+    -webkit-appearance:none!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    flex:0 0 auto!important;
+    min-width:91px!important;
+    min-height:38px!important;
+    height:38px!important;
+    padding:0 11px!important;
+    margin:0!important;
+    border:1px solid rgba(224,182,83,.48)!important;
+    border-radius:10px!important;
+    background:rgba(224,182,83,.06)!important;
+    color:#f0cf7a!important;
+    font:800 8.5px/1 Arial,sans-serif!important;
+    letter-spacing:.055em!important;
+    text-transform:uppercase!important;
+    white-space:nowrap!important;
+    cursor:pointer!important;
+    box-sizing:border-box!important;
+  }
+  .atf-card .ato-mobile-atf-compare.is-added{
+    border-color:rgba(89,218,174,.55)!important;
+    background:rgba(14,114,91,.33)!important;
+    color:#e4faef!important;
+  }
+  .atf-card .atf-card-link{
+    flex:0 0 auto!important;
+    margin:0!important;
+  }
+
+  /* 6. Languages — one real white × close button, never an arrow. */
+  #atoGlobalHeaderRoot .language-menu .language-close.ato-mobile-language-x{
+    display:grid!important;
+    place-items:center!important;
+    position:absolute!important;
+    top:7px!important;
+    right:8px!important;
+    width:38px!important;
+    height:38px!important;
+    padding:0!important;
+    margin:0!important;
+    border:0!important;
+    border-radius:50%!important;
+    background:rgba(255,255,255,.025)!important;
+    background-image:none!important;
+    box-shadow:none!important;
+    color:#fff!important;
+    font:300 30px/1 Arial,sans-serif!important;
+    letter-spacing:0!important;
+    text-indent:0!important;
+    transform:none!important;
+    opacity:1!important;
+    visibility:visible!important;
+    z-index:100010!important;
+  }
+  #atoGlobalHeaderRoot .language-menu .language-close.ato-mobile-language-x::before,
+  #atoGlobalHeaderRoot .language-menu .language-close.ato-mobile-language-x::after{
+    content:none!important;
+    display:none!important;
+  }
+  #atoGlobalHeaderRoot .language-menu .language-close.ato-mobile-language-x svg,
+  #atoGlobalHeaderRoot .language-menu .language-close.ato-mobile-language-x .arrow-icon{
+    display:none!important;
+  }
+
+  /* 7. Menu links — always sit above the scrim and receive the tap. */
+  #atoGlobalHeaderRoot .nav{
+    pointer-events:auto!important;
+  }
+  #atoGlobalHeaderRoot .nav a[href],
+  #atoGlobalHeaderRoot .nav .dropdown-menu a[href]{
+    pointer-events:auto!important;
+    touch-action:manipulation!important;
+    -webkit-tap-highlight-color:transparent!important;
+    position:relative!important;
+    z-index:100020!important;
+  }
+}
+
+@media (max-width:520px){
+  #atoGlobalHeaderRoot .ato-header-search-shell .ato-hs-bar{
+    grid-template-columns:20px minmax(0,1fr) 40px!important;
+    gap:8px!important;
+    padding-left:12px!important;
+  }
+  .atf-card .ato-mobile-atf-compare{
+    min-width:86px!important;
+    padding:0 9px!important;
+    font-size:8px!important;
+  }
+  .atf-card .atf-category-link{
+    max-width:27%!important;
+  }
+}
+
+@media (max-width:390px){
+  .atf-card .atf-category-link{
+    display:none!important;
+  }
+  .atf-card .atf-card-actions{
+    justify-content:flex-end!important;
+  }
+}
+

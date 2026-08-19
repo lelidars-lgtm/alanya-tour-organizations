@@ -241,7 +241,7 @@ function atoInitMobileAssistantPolish(){
 
 atoInitGlobalHeader();
 atoInitPromoTone();
-atoInitMobileAssistantPolish();
+/* V6: replaced by atoInitMobileV6Fixes() */
 // Approved INDEX smart search:
 
 (function(){
@@ -306,3 +306,368 @@ render();
 })();
 
 })();
+
+
+/* ========================================================================
+   ATO MOBILE V6 — 2026-08-19
+   Runtime fixes requested from real iPhone screenshots.
+   MOBILE ONLY. Desktop behavior is intentionally left untouched.
+   ======================================================================== */
+(function atoInitMobileV6Fixes(){
+  'use strict';
+
+  const MOBILE_MAX = 980;
+  const POOL_KEY = 'atoTripPlannerPool';
+  const MAX_POOL = 8;
+  const isMobile = () => window.innerWidth <= MOBILE_MAX;
+  const thinArrowSVG =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+
+      '<path d="M6.5 17.5 17.5 6.5"></path>'+
+      '<path d="M10.5 6.5h7v7"></path>'+
+    '</svg>';
+
+  const normalizeHref = (href) => {
+    try {
+      return new URL(href, location.href).pathname.split('/').filter(Boolean).pop() || '';
+    } catch (_) {
+      return String(href || '').split('?')[0].split('#')[0].split('/').pop() || '';
+    }
+  };
+
+  const readPool = () => {
+    try {
+      const raw = JSON.parse(localStorage.getItem(POOL_KEY) || '[]');
+      return [...new Set((Array.isArray(raw) ? raw : []).map(normalizeHref).filter(Boolean))].slice(0, MAX_POOL);
+    } catch (_) {
+      return [];
+    }
+  };
+
+  const writePool = (pool) => {
+    const clean = [...new Set(pool.map(normalizeHref).filter(Boolean))].slice(0, MAX_POOL);
+    const value = JSON.stringify(clean);
+    try { localStorage.setItem(POOL_KEY, value); } catch (_) {}
+    try {
+      window.dispatchEvent(new StorageEvent('storage', {
+        key: POOL_KEY,
+        newValue: value,
+        storageArea: localStorage,
+        url: location.href
+      }));
+    } catch (_) {
+      try { window.dispatchEvent(new Event('storage')); } catch (_) {}
+    }
+    try {
+      window.dispatchEvent(new CustomEvent('ato-trip-planner-pool-changed', {detail:{pool:clean}}));
+      document.dispatchEvent(new CustomEvent('ato:trip-planner-change', {detail:{pool:clean}}));
+    } catch (_) {}
+    return clean;
+  };
+
+  /* 7 — Mobile drawer links: capture the tap before any overlay/bubble handler can eat it. */
+  document.addEventListener('click', (e) => {
+    if (!isMobile()) return;
+    const target = e.target instanceof Element ? e.target : null;
+    const a = target?.closest('#atoGlobalHeaderRoot .nav a[href]');
+    if (!a) return;
+    const href = a.getAttribute('href');
+    if (!href || href === '#') return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    e.stopImmediatePropagation();
+
+    const url = new URL(href, location.href).href;
+    if (a.getAttribute('target') === '_blank') {
+      window.open(url, '_blank', 'noopener');
+    } else {
+      window.location.assign(url);
+    }
+  }, true);
+
+  /* 6 — Language close is always a real ×, never an inherited arrow/icon. */
+  const fixLanguageClose = () => {
+    if (!isMobile()) return;
+    const close = document.querySelector('#atoGlobalHeaderRoot .language-close');
+    if (!close) return;
+    close.textContent = '×';
+    close.setAttribute('aria-label', 'Close languages');
+    close.classList.add('ato-mobile-language-x');
+  };
+
+  /* 3 — Hero: remove the broken custom pseudo-arrow and keep exactly one clean gold arrow. */
+  const fixHeroArrow = () => {
+    const arrow = document.querySelector('#atoLivingHero .ato-living-hero__arrow');
+    if (!arrow) return;
+    if (isMobile()) {
+      if (!arrow.dataset.atoOriginalHtml) arrow.dataset.atoOriginalHtml = arrow.innerHTML || '↗';
+      arrow.textContent = '↗';
+      arrow.classList.add('ato-mobile-hero-arrow-fixed');
+    } else if (arrow.classList.contains('ato-mobile-hero-arrow-fixed')) {
+      arrow.innerHTML = arrow.dataset.atoOriginalHtml || '↗';
+      arrow.classList.remove('ato-mobile-hero-arrow-fixed');
+    }
+  };
+
+  /* 2 — Popular Tours: replace any emoji/blue-square arrow with a thin SVG gold arrow.
+         Also make the link itself deterministic on iPhone. */
+  const fixPopularViewAll = () => {
+    if (!isMobile()) return;
+    document.querySelectorAll('.popular-feature-card .view-all[href]').forEach(link => {
+      link.classList.add('ato-mobile-viewall-fixed');
+      if (!link.querySelector('.ato-mobile-viewall-arrow')) {
+        const icon = document.createElement('span');
+        icon.className = 'ato-mobile-viewall-arrow';
+        icon.setAttribute('aria-hidden', 'true');
+        icon.innerHTML = thinArrowSVG;
+        link.appendChild(icon);
+      }
+      if (!link.dataset.atoMobileNavBound) {
+        link.dataset.atoMobileNavBound = '1';
+        link.addEventListener('click', e => {
+          if (!isMobile()) return;
+          const href = link.getAttribute('href');
+          if (!href) return;
+          e.preventDefault();
+          e.stopPropagation();
+          window.location.assign(new URL(href, location.href).href);
+        }, true);
+      }
+    });
+  };
+
+  /* 5 — FULL Tour Finder results: add Compare next to VIEW TOUR.
+         This is intentionally separate from header live-search Compare. */
+  const syncFinderCompareButtons = () => {
+    if (!isMobile()) return;
+    const pool = readPool();
+
+    document.querySelectorAll('.atf-card').forEach(card => {
+      const actions = card.querySelector('.atf-card-actions');
+      const view = actions?.querySelector('.atf-card-link[href]');
+      if (!actions || !view) return;
+
+      const href = view.getAttribute('href') || '';
+      const key = normalizeHref(href);
+      if (!key) return;
+
+      let btn = actions.querySelector('.ato-mobile-atf-compare');
+      if (!btn) {
+        btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'ato-mobile-atf-compare';
+        btn.dataset.tourHref = href;
+        btn.setAttribute('aria-label', 'Compare this tour');
+        actions.insertBefore(btn, view);
+
+        btn.addEventListener('click', e => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const tourKey = normalizeHref(btn.dataset.tourHref);
+          let next = readPool();
+          const idx = next.indexOf(tourKey);
+
+          if (idx >= 0) {
+            next.splice(idx, 1);
+          } else {
+            if (next.length >= MAX_POOL) {
+              btn.textContent = 'MAX 8';
+              setTimeout(syncFinderCompareButtons, 750);
+              return;
+            }
+            next.push(tourKey);
+          }
+
+          writePool(next);
+          syncFinderCompareButtons();
+          try { window.ATOHeaderSearch?.render?.(); } catch (_) {}
+        });
+      }
+
+      const added = pool.includes(key);
+      btn.classList.toggle('is-added', added);
+      btn.setAttribute('aria-pressed', added ? 'true' : 'false');
+      btn.textContent = added ? '✓ ADDED' : '＋ COMPARE';
+    });
+  };
+
+  /* 1 — Türkiye map: preserve the exact map aspect ratio and provide a visible
+         blue live-location point if iOS returns a position. */
+  const applyUserLocation = (position) => {
+    if (!isMobile() || !position?.coords) return;
+
+    const root = document.getElementById('atoAboutLiveMap');
+    const pin = document.getElementById('aboutUserMapPin');
+    const label = document.getElementById('aboutUserLocationLabel');
+    const coords = document.getElementById('aboutUserCoordinates');
+    if (!root || !pin) return;
+
+    const lat = Number(position.coords.latitude);
+    const lon = Number(position.coords.longitude);
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+
+    const GEO = {
+      minLon: 26.031096644168,
+      maxLon: 44.82,
+      maxLat: 42.11,
+      minLat: 35.81,
+      minX: 35,
+      maxX: 965,
+      minY: 93,
+      maxY: 407
+    };
+
+    if (lon < GEO.minLon || lon > GEO.maxLon || lat < GEO.minLat || lat > GEO.maxLat) return;
+
+    const x = GEO.minX + ((lon - GEO.minLon) / (GEO.maxLon - GEO.minLon)) * (GEO.maxX - GEO.minX);
+    const y = GEO.minY + ((GEO.maxLat - lat) / (GEO.maxLat - GEO.minLat)) * (GEO.maxY - GEO.minY);
+
+    pin.setAttribute('transform', `translate(${x.toFixed(2)} ${y.toFixed(2)})`);
+    pin.setAttribute('aria-hidden', 'false');
+    pin.style.setProperty('display', 'block', 'important');
+    pin.style.setProperty('visibility', 'visible', 'important');
+    pin.style.setProperty('opacity', '1', 'important');
+
+    const pulse = pin.querySelector('.about-user-pulse');
+    const dot = pin.querySelector('.about-user-dot');
+    const core = pin.querySelector('.about-user-core');
+    pulse?.setAttribute('r', '17');
+    dot?.setAttribute('r', '10');
+    core?.setAttribute('r', '3.5');
+
+    if (label) {
+      label.style.left = `${(x / 1000) * 100}%`;
+      label.style.top = `${(y / 500) * 100}%`;
+      label.classList.add('is-visible');
+    }
+    if (coords) coords.textContent = `${lat.toFixed(5)}° N · ${lon.toFixed(5)}° E`;
+    root.classList.add('geo-active', 'ato-mobile-geo-visible');
+  };
+
+  const fixMapAndGeo = () => {
+    if (!isMobile()) return;
+    const root = document.getElementById('atoAboutLiveMap');
+    const svg = root?.querySelector('.final-turkiye-map');
+    const button = document.getElementById('aboutGeoButton');
+    if (!root || !svg) return;
+
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+
+    if (button && !button.dataset.atoV6GeoBound) {
+      button.dataset.atoV6GeoBound = '1';
+      button.addEventListener('click', () => {
+        setTimeout(() => {
+          if (!isMobile()) return;
+          if (button.getAttribute('aria-pressed') !== 'true') return;
+          if (!navigator.geolocation) return;
+          navigator.geolocation.getCurrentPosition(
+            applyUserLocation,
+            () => {},
+            {enableHighAccuracy:true, maximumAge:3000, timeout:12000}
+          );
+        }, 80);
+      }, true);
+    }
+  };
+
+  /* 3b — Assistant: find the actual right-side launcher control (button OR div/span)
+          and replace the blue square icon with a thin gold SVG arrow. */
+  const fixAssistantArrow = () => {
+    if (!isMobile()) return;
+
+    const nodes = [...document.querySelectorAll('body *')].filter(el => {
+      if (!(el instanceof HTMLElement)) return false;
+      const txt = (el.innerText || '').replace(/\s+/g, ' ').trim().toUpperCase();
+      if (!txt.includes('ASK SOMETHING') || !txt.includes('ASSISTANT')) return false;
+      const r = el.getBoundingClientRect();
+      return r.width >= 180 && r.width <= Math.min(620, innerWidth) &&
+             r.height >= 48 && r.height <= 190 &&
+             r.bottom > 0 && r.top < innerHeight;
+    });
+
+    if (!nodes.length) return;
+
+    nodes.sort((a,b) => {
+      const ar=a.getBoundingClientRect(), br=b.getBoundingClientRect();
+      return (ar.width*ar.height) - (br.width*br.height);
+    });
+
+    let host = nodes[0];
+    for (let i=0; i<5 && host.parentElement; i++) {
+      const p = host.parentElement;
+      const r = p.getBoundingClientRect();
+      const pos = getComputedStyle(p).position;
+      if ((pos === 'fixed' || pos === 'sticky') && r.width >= 180 && r.width <= 620 && r.height <= 200) {
+        host = p;
+        break;
+      }
+      if (r.width > Math.min(650, innerWidth + 40) || r.height > 230) break;
+    }
+    host.classList.add('ato-mobile-assistant-host');
+
+    const hr = host.getBoundingClientRect();
+    const all = [...host.querySelectorAll('button,a,[role="button"],div,span')].filter(el => {
+      if (el === host || !(el instanceof HTMLElement)) return false;
+      const r = el.getBoundingClientRect();
+      const txt = (el.innerText || '').replace(/\s+/g,' ').trim().toUpperCase();
+      if (txt.includes('ASK SOMETHING') || txt === 'ASSISTANT') return false;
+      return r.width >= 28 && r.width <= 96 &&
+             r.height >= 28 && r.height <= 96 &&
+             r.left >= hr.left + hr.width * .62 &&
+             r.right <= hr.right + 6;
+    });
+
+    all.sort((a,b) => {
+      const ar=a.getBoundingClientRect(), br=b.getBoundingClientRect();
+      if (Math.abs(br.right-ar.right) > 2) return br.right-ar.right;
+      return (ar.width*ar.height) - (br.width*br.height);
+    });
+
+    let control = all[0];
+    if (!control) return;
+
+    // Prefer the interactive parent if a small span/icon was selected.
+    const interactive = control.closest('button,a,[role="button"]');
+    if (interactive && host.contains(interactive)) control = interactive;
+
+    if (!control.classList.contains('ato-mobile-assistant-arrow')) {
+      if (!control.dataset.atoOriginalHtml) control.dataset.atoOriginalHtml = control.innerHTML;
+      control.innerHTML = thinArrowSVG;
+      control.classList.add('ato-mobile-assistant-arrow');
+      control.setAttribute('aria-label', control.getAttribute('aria-label') || 'Open assistant');
+    }
+  };
+
+  const applyAll = () => {
+    if (!isMobile()) return;
+    fixLanguageClose();
+    fixHeroArrow();
+    fixPopularViewAll();
+    syncFinderCompareButtons();
+    fixMapAndGeo();
+    fixAssistantArrow();
+  };
+
+  let raf = 0;
+  const queue = () => {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(applyAll);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', queue, {once:true});
+  } else {
+    queue();
+  }
+
+  const mo = new MutationObserver(queue);
+  mo.observe(document.documentElement, {childList:true, subtree:true});
+
+  window.addEventListener('resize', queue, {passive:true});
+  window.addEventListener('orientationchange', () => setTimeout(queue, 120), {passive:true});
+  window.addEventListener('storage', e => {
+    if (e.key === POOL_KEY) queue();
+  });
+})();
+
