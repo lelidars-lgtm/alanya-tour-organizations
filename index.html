@@ -2522,368 +2522,32 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 
 
-<!-- =====================================================================
-     ATO DESKTOP ASSISTANT POSITION V3 — OUTER RIGHT RAIL CENTERING
-     Desktop only. Preserves native Assistant transform/open-close behavior.
-     Does not touch mobile, header layout, promo bar, Hero or Assistant content.
-     ===================================================================== -->
-<style id="ato-desktop-assistant-position-v3-css">
-@media (min-width:981px){
-  .ato-desktop-assistant-right-rail-v3{
-    position:fixed!important;
-    left:auto!important;
-    right:max(36px,calc(50vw - 360px))!important;
-    top:auto!important;
-    bottom:max(36px,calc(50vh - 380px))!important;
-    width:min(720px,calc(100vw - 72px))!important;
-    max-width:720px!important;
-    min-width:0!important;
-    height:min(760px,calc(100vh - 72px))!important;
-    max-height:760px!important;
-    min-height:0!important;
-    margin:0!important;
-    box-sizing:border-box!important;
-    z-index:2147483602!important;
-  }
-}
-</style>
-<script id="ato-desktop-assistant-position-v3-js">
-(function(){
-  'use strict';
-  const mq=window.matchMedia('(min-width:981px)');
-  const CLASS='ato-desktop-assistant-right-rail-v3';
-  let target=null,raf=0;
-  const roots=new Set([document]);
-
-  function visible(el){
-    try{
-      const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
-      if(el.hidden||cs.display==='none'||cs.visibility==='hidden'||parseFloat(cs.opacity||'1')<.03)return false;
-      if(r.width<2||r.height<2)return false;
-      return r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight;
-    }catch(_){return false}
-  }
-  function deepRoots(root=document){
-    try{
-      root.querySelectorAll?.('*').forEach(el=>{
-        if(el.shadowRoot&&!roots.has(el.shadowRoot)){roots.add(el.shadowRoot);deepRoots(el.shadowRoot)}
-        if(el.tagName==='IFRAME'){
-          try{const d=el.contentDocument;if(d&&!roots.has(d)){roots.add(d);deepRoots(d)}}catch(_){ }
-        }
-      });
-    }catch(_){ }
-  }
-  function txt(el){
-    try{return (el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}catch(_){return ''}
-  }
-  function idClass(el){
-    try{return `${el.id||''} ${typeof el.className==='string'?el.className:''} ${el.getAttribute?.('aria-label')||''} ${el.getAttribute?.('role')||''}`.toUpperCase()}catch(_){return ''}
-  }
-  function zValue(el){
-    try{const z=parseInt(getComputedStyle(el).zIndex,10);return Number.isFinite(z)?z:0}catch(_){return 0}
-  }
-  function darkBg(el){
-    try{
-      const c=getComputedStyle(el).backgroundColor.match(/[\d.]+/g);
-      if(!c||c.length<3)return false;
-      const [r,g,b,a=1]=c.map(Number);
-      return a>.08 && (r+g+b)<210;
-    }catch(_){return false}
-  }
-  function assistantSignal(el){
-    const meta=idClass(el),t=txt(el);
-    let s=0;
-    if(/ASSISTANT|CHAT|ATO.?AI/.test(meta))s+=45;
-    if(t.includes('TALK TO MANAGER'))s+=55;
-    if(t.includes('AI ASSISTANT'))s+=45;
-    if(t.includes('ASK ABOUT TOURS'))s+=45;
-    if(t.includes('FIND A TOUR'))s+=25;
-    if(t.includes('WITH CHILDREN'))s+=20;
-    if(t.includes('PICKUP & TRANSFER'))s+=20;
-    try{
-      if(el.querySelector?.('input[placeholder*="tour" i],textarea[placeholder*="tour" i]'))s+=35;
-    }catch(_){ }
-    return s;
-  }
-  function geometryScore(el){
-    try{
-      if(!visible(el)||el.closest?.('#atoGlobalHeaderRoot'))return -9999;
-      if(el.id==='atoDesktopAssistantBackdrop'||el.id==='atoDesktopAssistantBackdropV2')return -9999;
-      if(el.closest?.('#atoTourFinderModal'))return -9999;
-      const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
-      if(r.width<360||r.width>900||r.height<320||r.height>innerHeight*1.12)return -9999;
-      if(r.left<innerWidth*.34)return -9999;
-      if(r.right<innerWidth-150)return -9999;
-      let s=0;
-      const gap=Math.abs(innerWidth-r.right);
-      if(gap<=18)s+=30; else if(gap<=70)s+=20; else s+=8;
-      if(cs.position==='fixed')s+=28; else if(cs.position==='absolute')s+=15;
-      if(zValue(el)>1000)s+=16; else if(zValue(el)>50)s+=8;
-      if(darkBg(el))s+=10;
-      if(r.width>=520&&r.width<=780)s+=12;
-      if(r.height>=500)s+=8;
-      s+=assistantSignal(el);
-      return s;
-    }catch(_){return -9999}
-  }
-  function composedParent(el){
-    if(!el)return null;
-    if(el.parentElement)return el.parentElement;
-    try{const rn=el.getRootNode?.();return rn?.host||null}catch(_){return null}
-  }
-  function outerRail(el){
-    let best=el,bestScore=geometryScore(el),cur=el;
-    for(let i=0;i<10;i++){
-      cur=composedParent(cur);
-      if(!cur||cur===document.body||cur===document.documentElement||cur.id==='atoGlobalHeaderRoot')break;
-      const sc=geometryScore(cur);
-      if(sc>-9999){
-        const br=best.getBoundingClientRect(),cr=cur.getBoundingClientRect();
-        /* Prefer the outermost right rail when it is roughly the same panel footprint. */
-        const similarWidth=cr.width<=900&&cr.width>=Math.max(360,br.width*.78);
-        const similarRight=Math.abs(cr.right-innerWidth)<=Math.abs(br.right-innerWidth)+40;
-        if(similarWidth&&similarRight&&sc>=bestScore-28){best=cur;bestScore=Math.max(bestScore,sc)}
-      }
-    }
-    try{
-      const frame=el.ownerDocument?.defaultView?.frameElement;
-      if(frame&&geometryScore(frame)>-9999)best=frame;
-    }catch(_){ }
-    return best;
-  }
-  function pointCandidates(out){
-    const pts=[[.97,.55],[.92,.68],[.82,.55],[.72,.68]];
-    for(const [xf,yf] of pts){
-      try{document.elementsFromPoint(innerWidth*xf,innerHeight*yf).forEach(el=>out.add(el))}catch(_){ }
-    }
-  }
-  function findRail(){
-    if(!mq.matches)return null;
-    deepRoots();
-    const pool=new Set();
-    pointCandidates(pool);
-    roots.forEach(root=>{
-      try{root.querySelectorAll?.('*').forEach(el=>{
-        const meta=idClass(el);
-        if(/ASSISTANT|CHAT|DIALOG|MODAL/.test(meta))pool.add(el);
-        const r=el.getBoundingClientRect?.();
-        if(r&&r.width>=360&&r.width<=900&&r.height>=320&&r.left>=innerWidth*.34&&r.right>=innerWidth-150)pool.add(el);
-      })}catch(_){ }
-    });
-    let best=null,bestScore=-9999;
-    pool.forEach(el=>{
-      const sc=geometryScore(el);
-      if(sc>bestScore){best=el;bestScore=sc}
-    });
-    if(!best||bestScore<55)return null;
-    return outerRail(best);
-  }
-  function applyDirect(el){
-    if(!el)return;
-    el.classList.add(CLASS);
-    /* Inline !important is deliberate: it wins against the Assistant's native right-drawer CSS,
-       while transform is NOT changed so the native close/open animation still works. */
-    const st=el.style;
-    st.setProperty('position','fixed','important');
-    st.setProperty('left','auto','important');
-    st.setProperty('right','max(36px, calc(50vw - 360px))','important');
-    st.setProperty('top','auto','important');
-    st.setProperty('bottom','max(36px, calc(50vh - 380px))','important');
-    st.setProperty('width','min(720px, calc(100vw - 72px))','important');
-    st.setProperty('max-width','720px','important');
-    st.setProperty('height','min(760px, calc(100vh - 72px))','important');
-    st.setProperty('max-height','760px','important');
-    st.setProperty('margin','0','important');
-    st.setProperty('box-sizing','border-box','important');
-    st.setProperty('z-index','2147483602','important');
-  }
-  function sync(){
-    raf=0;
-    if(!mq.matches){if(target)target.classList.remove(CLASS);target=null;return}
-    const rail=findRail();
-    if(!rail)return;
-    if(target&&target!==rail)target.classList.remove(CLASS);
-    target=rail;
-    applyDirect(rail);
-  }
-  function queue(){if(raf)return;raf=requestAnimationFrame(sync)}
-  function kick(){queue();setTimeout(queue,40);setTimeout(queue,120);setTimeout(queue,260);setTimeout(queue,520)}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',kick,{once:true});else kick();
-  document.addEventListener('click',kick,true);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')setTimeout(queue,50)},true);
-  window.addEventListener('resize',queue,{passive:true});
-  mq.addEventListener?.('change',queue);
-  new MutationObserver(queue).observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-hidden','open']});
-})();
-</script>
 
 </body>
 </html>
 
 
-<!-- =====================================================================
-     ATO DESKTOP ASSISTANT MODAL FIX — 2026-08-19
-     Desktop only. Does not alter mobile, header, promo bar, Hero or Assistant content.
-     ===================================================================== -->
-<style id="ato-desktop-assistant-modal-fix">
-@media (min-width:981px){
-  #atoDesktopAssistantBackdrop{
-    position:fixed;
-    inset:0;
-    z-index:2147482100;
-    background:rgba(2,8,16,.58);
-    backdrop-filter:blur(7px);
-    -webkit-backdrop-filter:blur(7px);
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-    transition:opacity .22s ease,visibility .22s ease;
-  }
-  #atoDesktopAssistantBackdrop.is-open{
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
-  }
-  .ato-desktop-assistant-modalized{
-    position:fixed!important;
-    left:50%!important;
-    top:50%!important;
-    right:auto!important;
-    bottom:auto!important;
-    width:min(720px,calc(100vw - 72px))!important;
-    max-width:720px!important;
-    height:min(760px,calc(100vh - 72px))!important;
-    max-height:760px!important;
-    margin:0!important;
-    transform:translate(-50%,-50%)!important;
-    z-index:2147482200!important;
-    overflow:hidden!important;
-  }
-}
-</style>
-<script id="ato-desktop-assistant-modal-fix-js">
-(function(){
-  'use strict';
-  const mq=window.matchMedia('(min-width:981px)');
-  const CLASS='ato-desktop-assistant-modalized';
-  let activePanel=null,raf=0;
 
-  function ensureBackdrop(){
-    let el=document.getElementById('atoDesktopAssistantBackdrop');
-    if(!el){
-      el=document.createElement('div');
-      el.id='atoDesktopAssistantBackdrop';
-      el.setAttribute('aria-hidden','true');
-      document.body.appendChild(el);
-      el.addEventListener('click',()=>closeExistingAssistant());
-    }
-    return el;
-  }
-  function candidateText(el){return (el.innerText||'').replace(/\s+/g,' ').trim().toUpperCase()}
-  function findAssistantPanel(){
-    if(!mq.matches)return null;
-    const nodes=[...document.querySelectorAll('aside,dialog,section,div')].filter(el=>{
-      if(el.id==='atoDesktopAssistantBackdrop'||el.closest('#atoGlobalHeaderRoot'))return false;
-      const txt=candidateText(el);
-      if(!txt.includes('TALK TO MANAGER'))return false;
-      if(!txt.includes('AI ASSISTANT')&&!txt.includes('FIND A TOUR'))return false;
-      return !!el.querySelector('input,textarea');
-    });
-    if(!nodes.length)return null;
-    nodes.sort((a,b)=>{
-      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
-      return (ar.width*ar.height)-(br.width*br.height);
-    });
-    let panel=nodes[0];
-    for(let i=0;i<4&&panel.parentElement&&panel.parentElement!==document.body;i++){
-      const p=panel.parentElement,cs=getComputedStyle(p),r=p.getBoundingClientRect();
-      if((cs.position==='fixed'||cs.position==='absolute')&&r.width>=320&&r.width<=1100&&r.height>=360&&r.height<=innerHeight*1.2){panel=p;break}
-      if(r.width>innerWidth*.92||r.height>innerHeight*1.15)break;
-      panel=p;
-    }
-    return panel;
-  }
-  function naturallyOpen(panel){
-    if(!panel)return false;
-    const had=panel.classList.contains(CLASS);
-    if(had)panel.classList.remove(CLASS);
-    const cs=getComputedStyle(panel),r=panel.getBoundingClientRect();
-    const opacity=parseFloat(cs.opacity||'1');
-    const open=cs.display!=='none'&&cs.visibility!=='hidden'&&!panel.hidden&&opacity>.05&&r.width>280&&r.height>280&&r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight;
-    if(had&&open)panel.classList.add(CLASS);
-    return open;
-  }
-  function closeExistingAssistant(){
-    const panel=activePanel||findAssistantPanel();
-    if(!panel)return;
-    const controls=[...panel.querySelectorAll('button,[role="button"],a')];
-    const close=controls.find(el=>{
-      const aria=(el.getAttribute('aria-label')||'').toLowerCase();
-      const title=(el.getAttribute('title')||'').toLowerCase();
-      const txt=(el.textContent||'').trim().toLowerCase();
-      return aria.includes('close')||aria.includes('dismiss')||title.includes('close')||txt==='×'||txt==='✕'||txt==='close';
-    });
-    if(close){close.click();return}
-    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',code:'Escape',bubbles:true}));
-  }
-  function clear(){
-    document.querySelectorAll('.'+CLASS).forEach(el=>el.classList.remove(CLASS));
-    activePanel=null;
-    const back=document.getElementById('atoDesktopAssistantBackdrop');
-    back?.classList.remove('is-open');
-    back?.setAttribute('aria-hidden','true');
-  }
-  function sync(){
-    raf=0;
-    if(!mq.matches){clear();return}
-    const panel=findAssistantPanel();
-    if(!panel){clear();return}
-    if(activePanel&&activePanel!==panel)activePanel.classList.remove(CLASS);
-    if(naturallyOpen(panel)){
-      panel.classList.add(CLASS);
-      activePanel=panel;
-      const back=ensureBackdrop();
-      back.classList.add('is-open');
-      back.setAttribute('aria-hidden','false');
-    }else{
-      panel.classList.remove(CLASS);
-      if(activePanel===panel)activePanel=null;
-      const back=document.getElementById('atoDesktopAssistantBackdrop');
-      back?.classList.remove('is-open');
-      back?.setAttribute('aria-hidden','true');
-    }
-  }
-  function queue(){if(raf)return;raf=requestAnimationFrame(sync)}
-  const mo=new MutationObserver(queue);
-  function init(){
-    mo.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-hidden','hidden']});
-    document.addEventListener('click',()=>{queue();setTimeout(queue,90);setTimeout(queue,260)},true);
-    window.addEventListener('resize',queue,{passive:true});
-    mq.addEventListener?.('change',queue);
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')setTimeout(queue,40)},true);
-    queue();
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
-})();
-</script>
 
 
 
 <!-- =====================================================================
-     ATO DESKTOP PATCH V2 — ASSISTANT TRUE CENTER + LANGUAGE NAME HOVER
-     2026-08-19. DESKTOP ONLY (>=981px).
-     Does NOT change mobile. Does NOT restructure header/promo/Hero.
-     Previous code is kept intact; this is a narrow override.
+     ATO DESKTOP ASSISTANT — CLEAN CENTER MODAL V4
+     Rewritten from scratch after removing the conflicting V1/V2/V3
+     positioning overrides. DESKTOP ONLY (>=981px).
+     Mobile, header, promo ribbon and Assistant content are untouched.
      ===================================================================== -->
-<style id="ato-desktop-patch-v2-style">
+<style id="ato-desktop-language-name-hover-v4">
 @media (min-width:981px){
-  /* Language hover: ONLY the full language name turns gold.
-     En / Ru / Tr / De / Pl stay in their normal ivory color. */
+  /* Only the full language name turns gold on hover. Short En/Ru/Tr/De/Pl stays ivory. */
+  #atoGlobalHeaderRoot .language-menu a .ato-lang-name,
+  #atoGlobalHeaderRoot .language-menu a .ato-v8-lang-name{
+    transition:color .18s ease,text-shadow .18s ease!important;
+  }
   #atoGlobalHeaderRoot .language-menu a:hover .ato-lang-name,
   #atoGlobalHeaderRoot .language-menu a:hover .ato-v8-lang-name{
     color:#e1b65b!important;
-    text-shadow:0 0 12px rgba(225,182,91,.18)!important;
-    transition:color .18s ease,text-shadow .18s ease!important;
+    text-shadow:0 0 12px rgba(225,182,91,.16)!important;
   }
   #atoGlobalHeaderRoot .language-menu a:hover .ato-lang-code,
   #atoGlobalHeaderRoot .language-menu a:hover .ato-v8-lang-code{
@@ -2891,283 +2555,312 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     text-shadow:none!important;
   }
 
-  #atoDesktopAssistantBackdropV2{
+  #atoDesktopAssistantCleanBackdropV4{
     position:fixed!important;
     inset:0!important;
-    z-index:2147483400!important;
-    background:rgba(2,8,16,.58)!important;
-    backdrop-filter:blur(7px)!important;
-    -webkit-backdrop-filter:blur(7px)!important;
+    z-index:2147483450!important;
+    background:rgba(2,8,16,.48)!important;
+    -webkit-backdrop-filter:blur(4px)!important;
+    backdrop-filter:blur(4px)!important;
     opacity:0!important;
     visibility:hidden!important;
     pointer-events:none!important;
-    transition:opacity .18s ease,visibility .18s ease!important;
+    transition:opacity .16s ease,visibility .16s ease!important;
   }
-  #atoDesktopAssistantBackdropV2.is-open{
+  #atoDesktopAssistantCleanBackdropV4.is-open{
     opacity:1!important;
     visibility:visible!important;
     pointer-events:auto!important;
   }
-
-  /* This class is also injected into an open ShadowRoot when needed. */
-  .ato-desktop-assistant-modalized-v2{
-    position:fixed!important;
-    left:50%!important;
-    top:50%!important;
-    right:auto!important;
-    bottom:auto!important;
-    inset:auto!important;
-    width:min(720px,calc(100vw - 72px))!important;
-    max-width:720px!important;
-    min-width:min(520px,calc(100vw - 72px))!important;
-    height:min(760px,calc(100vh - 72px))!important;
-    max-height:760px!important;
-    min-height:min(560px,calc(100vh - 72px))!important;
-    margin:0!important;
-    translate:none!important;
-    transform:translate(-50%,-50%)!important;
-    z-index:2147483600!important;
-    overflow:hidden!important;
-    box-sizing:border-box!important;
-  }
-  .ato-desktop-assistant-host-z-v2{
-    z-index:2147483600!important;
-  }
 }
 </style>
-<script id="ato-desktop-assistant-modal-v2-js">
+<script id="ato-desktop-assistant-clean-v4-js">
 (function(){
   'use strict';
-  const mq=window.matchMedia('(min-width:981px)');
-  const MODAL='ato-desktop-assistant-modalized-v2';
-  const HOSTZ='ato-desktop-assistant-host-z-v2';
-  const roots=new Set();
-  const patchedRoots=new WeakSet();
-  let active=null,activeHosts=[],raf=0;
+  const desktop=window.matchMedia('(min-width:981px)');
+  const BACKDROP_ID='atoDesktopAssistantCleanBackdropV4';
+  const savedStyle=new WeakMap();
+  const roots=new Set([document]);
+  let active=null;
+  let raf=0;
 
-  /* ato-assistant.js is deferred. Capture ShadowRoots before it mounts. */
-  roots.add(document);
-  const nativeAttach=Element.prototype.attachShadow;
-  if(nativeAttach && !Element.prototype.__atoAssistantShadowCaptureV2){
+  function isVisible(el){
     try{
-      Object.defineProperty(Element.prototype,'__atoAssistantShadowCaptureV2',{value:true,configurable:true});
-      Element.prototype.attachShadow=function(init){
-        const root=nativeAttach.call(this,init);
-        roots.add(root);
-        queue();
-        return root;
-      };
-    }catch(_){/* no-op */}
+      const cs=getComputedStyle(el),r=el.getBoundingClientRect();
+      if(el.hidden||cs.display==='none'||cs.visibility==='hidden'||parseFloat(cs.opacity||'1')<.03)return false;
+      return r.width>260&&r.height>260&&r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight;
+    }catch(_){return false}
   }
 
-  function rootContainer(root){
-    if(root===document)return document.head||document.documentElement;
-    return root;
-  }
-  function ensureModalStyle(root){
-    if(!root||patchedRoots.has(root))return;
-    patchedRoots.add(root);
-    const st=document.createElement('style');
-    st.textContent=`@media (min-width:981px){
-      .${MODAL}{position:fixed!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;inset:auto!important;width:min(720px,calc(100vw - 72px))!important;max-width:720px!important;min-width:min(520px,calc(100vw - 72px))!important;height:min(760px,calc(100vh - 72px))!important;max-height:760px!important;min-height:min(560px,calc(100vh - 72px))!important;margin:0!important;translate:none!important;transform:translate(-50%,-50%)!important;z-index:2147483600!important;overflow:hidden!important;box-sizing:border-box!important}
-      .${HOSTZ}{z-index:2147483600!important}
-    }`;
-    try{rootContainer(root).appendChild(st)}catch(_){/* no-op */}
+  function textOf(el){
+    try{return (el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}catch(_){return ''}
   }
 
-  function discoverRoots(root=document){
+  function metaOf(el){
+    try{return `${el.id||''} ${typeof el.className==='string'?el.className:''} ${el.getAttribute?.('aria-label')||''} ${el.getAttribute?.('role')||''}`.toUpperCase()}catch(_){return ''}
+  }
+
+  function assistantTextScore(el){
+    const t=textOf(el),m=metaOf(el);
+    let s=0;
+    if(t.includes('TALK TO MANAGER'))s+=90;
+    if(t.includes('ASK ABOUT TOURS'))s+=70;
+    if(t.includes('AI ASSISTANT'))s+=55;
+    if(t.includes('FIND A TOUR'))s+=35;
+    if(t.includes('WITH CHILDREN'))s+=25;
+    if(t.includes('PICKUP & TRANSFER'))s+=25;
+    if(/ASSISTANT|ATO.?AI|CHAT/.test(m))s+=45;
+    try{if(el.querySelector?.('input,textarea'))s+=12}catch(_){ }
+    return s;
+  }
+
+  function discover(root=document){
     try{
-      const all=root.querySelectorAll?root.querySelectorAll('*'):[];
-      all.forEach(el=>{
-        if(el.shadowRoot){roots.add(el.shadowRoot);discoverRoots(el.shadowRoot)}
+      root.querySelectorAll?.('*').forEach(el=>{
+        if(el.shadowRoot&&!roots.has(el.shadowRoot)){
+          roots.add(el.shadowRoot);
+          discover(el.shadowRoot);
+        }
         if(el.tagName==='IFRAME'){
           try{
             const d=el.contentDocument;
-            if(d){roots.add(d);discoverRoots(d)}
-          }catch(_){/* cross-origin iframe: leave untouched */}
+            if(d&&!roots.has(d)){roots.add(d);discover(d)}
+          }catch(_){ }
         }
       });
-    }catch(_){/* no-op */}
+    }catch(_){ }
   }
 
-  function text(el){
-    try{return (el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}catch(_){return ''}
-  }
-  function isAssistantText(t){
-    if(!t.includes('TALK TO MANAGER'))return false;
-    const quick=t.includes('FIND A TOUR')||t.includes('WITH CHILDREN')||t.includes('PICKUP & TRANSFER');
-    const identity=t.includes('AI ASSISTANT')||t.includes('ASK ABOUT TOURS')||t.includes('WHAT DO YOU NEED');
-    return quick&&identity;
-  }
-  function rectVisible(el){
-    try{
-      const cs=getComputedStyle(el),r=el.getBoundingClientRect();
-      if(cs.display==='none'||cs.visibility==='hidden'||parseFloat(cs.opacity||'1')<.04||el.hidden)return false;
-      if(r.width<300||r.height<320)return false;
-      return r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight;
-    }catch(_){return false}
-  }
   function composedParent(el){
     if(!el)return null;
     if(el.parentElement)return el.parentElement;
-    try{
-      const rn=el.getRootNode?.();
-      if(rn&&rn.host)return rn.host;
-    }catch(_){/* no-op */}
-    return null;
+    try{return el.getRootNode?.()?.host||null}catch(_){return null}
   }
-  function scoreFrame(el){
+
+  function frameScore(el,baseRect){
     try{
-      const cs=getComputedStyle(el),r=el.getBoundingClientRect();
-      let s=0;
-      if(cs.position==='fixed')s+=8;
-      else if(cs.position==='absolute')s+=4;
-      if(r.width>=340&&r.width<=980)s+=3;
-      if(r.height>=380&&r.height<=innerHeight*1.35)s+=3;
-      if(parseFloat(cs.borderRadius||'0')>=12)s+=1;
-      if(isAssistantText(text(el)))s+=2;
-      return s;
-    }catch(_){return -1}
-  }
-  function chooseFrame(node){
-    let best=node,bestScore=scoreFrame(node),cur=node;
-    for(let i=0;i<9;i++){
-      cur=composedParent(cur);
-      if(!cur||cur===document.body||cur===document.documentElement||cur.id==='atoGlobalHeaderRoot')break;
-      const r=cur.getBoundingClientRect?.();
-      if(!r||r.width<280||r.height<300)continue;
-      const sc=scoreFrame(cur);
-      if(sc>bestScore){best=cur;bestScore=sc}
-    }
-    /* If the assistant lives inside a same-origin iframe, center the iframe itself. */
-    try{
-      const win=node.ownerDocument?.defaultView;
-      const frame=win?.frameElement;
-      if(frame){
-        const fr=frame.getBoundingClientRect();
-        if(fr.width>=280&&fr.height>=320)best=frame;
+      if(!isVisible(el))return -1e9;
+      if(el.closest?.('#atoGlobalHeaderRoot'))return -1e9;
+      if(el.id===BACKDROP_ID)return -1e9;
+      const r=el.getBoundingClientRect(),cs=getComputedStyle(el),m=metaOf(el);
+      if(r.width>innerWidth*.94&&r.height>innerHeight*.90)return -1e9; // never select a scrim/page shell
+      if(r.width<280||r.height<300)return -1e9;
+      let s=assistantTextScore(el);
+      if(cs.position==='fixed')s+=120;
+      else if(cs.position==='absolute')s+=45;
+      if(/ASSISTANT|CHAT|WIDGET|PANEL|DRAWER|MODAL/.test(m))s+=65;
+      if(baseRect){
+        const wr=Math.abs(r.width-baseRect.width)/Math.max(baseRect.width,1);
+        const hr=Math.abs(r.height-baseRect.height)/Math.max(baseRect.height,1);
+        s+=Math.max(0,50-(wr+hr)*55);
       }
-    }catch(_){/* no-op */}
-    return best;
+      const z=parseInt(cs.zIndex,10);
+      if(Number.isFinite(z)&&z>1000)s+=18;
+      return s;
+    }catch(_){return -1e9}
   }
-  function findPanel(){
-    if(!mq.matches)return null;
-    discoverRoots();
+
+  function findAssistantContent(){
+    if(!desktop.matches)return null;
+    discover();
     const candidates=[];
     roots.forEach(root=>{
       try{
-        ensureModalStyle(root);
-        const els=root.querySelectorAll?root.querySelectorAll('aside,dialog,section,article,div,form'):[];
-        els.forEach(el=>{
-          if(el.id==='atoDesktopAssistantBackdrop'||el.id==='atoDesktopAssistantBackdropV2')return;
-          if(el.closest?.('#atoGlobalHeaderRoot'))return;
-          const t=text(el);
-          if(isAssistantText(t)&&rectVisible(el))candidates.push(el);
+        root.querySelectorAll?.('dialog,aside,section,article,form,div').forEach(el=>{
+          if(!isVisible(el))return;
+          const s=assistantTextScore(el);
+          if(s<180)return;
+          const r=el.getBoundingClientRect();
+          if(r.width<300||r.width>980||r.height<320||r.height>innerHeight*1.15)return;
+          candidates.push({el,s,area:r.width*r.height});
         });
-      }catch(_){/* no-op */}
+      }catch(_){ }
     });
     if(!candidates.length)return null;
-    candidates.sort((a,b)=>{
-      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
-      return (ar.width*ar.height)-(br.width*br.height);
-    });
-    return chooseFrame(candidates[0]);
+    /* Prefer the smallest complete Assistant panel, not a huge parent container. */
+    candidates.sort((a,b)=> (b.s-a.s) || (a.area-b.area));
+    const bestScore=candidates[0].s;
+    const near=candidates.filter(x=>x.s>=bestScore-40).sort((a,b)=>a.area-b.area);
+    return (near[0]||candidates[0]).el;
   }
 
-  function ensureBackdrop(){
-    let b=document.getElementById('atoDesktopAssistantBackdropV2');
+  function chooseFrame(content){
+    if(!content)return null;
+    let best=content;
+    const base=content.getBoundingClientRect();
+    let bestScore=frameScore(content,base);
+    let cur=content;
+    for(let i=0;i<10;i++){
+      cur=composedParent(cur);
+      if(!cur||cur===document.body||cur===document.documentElement||cur.id==='atoGlobalHeaderRoot')break;
+      const sc=frameScore(cur,base);
+      if(sc>bestScore){best=cur;bestScore=sc}
+    }
+    try{
+      const frame=content.ownerDocument?.defaultView?.frameElement;
+      if(frame){
+        const sc=frameScore(frame,base)+80;
+        if(sc>bestScore)best=frame;
+      }
+    }catch(_){ }
+    return best;
+  }
+
+  function remember(el){
+    if(!savedStyle.has(el))savedStyle.set(el,el.getAttribute('style'));
+  }
+
+  function restore(el){
+    if(!el||!savedStyle.has(el))return;
+    const original=savedStyle.get(el);
+    if(original===null)el.removeAttribute('style');
+    else el.setAttribute('style',original);
+    savedStyle.delete(el);
+  }
+
+  function centerFrame(frame){
+    if(!frame)return;
+    remember(frame);
+
+    /* Measure the native OPEN panel first, then freeze that exact footprint in the viewport center. */
+    const r=frame.getBoundingClientRect();
+    const maxW=Math.max(360,innerWidth-72);
+    const maxH=Math.max(420,innerHeight-72);
+    const w=Math.min(r.width,maxW);
+    const h=Math.min(r.height,maxH);
+    const left=Math.max(36,(innerWidth-w)/2);
+    const top=Math.max(36,(innerHeight-h)/2);
+    const st=frame.style;
+
+    st.setProperty('position','fixed','important');
+    st.setProperty('inset','auto','important');
+    st.setProperty('left',left.toFixed(1)+'px','important');
+    st.setProperty('top',top.toFixed(1)+'px','important');
+    st.setProperty('right','auto','important');
+    st.setProperty('bottom','auto','important');
+    st.setProperty('width',w.toFixed(1)+'px','important');
+    st.setProperty('max-width',maxW.toFixed(1)+'px','important');
+    st.setProperty('height',h.toFixed(1)+'px','important');
+    st.setProperty('max-height',maxH.toFixed(1)+'px','important');
+    st.setProperty('margin','0','important');
+    st.setProperty('translate','none','important');
+    st.setProperty('transform','none','important');
+    st.setProperty('box-sizing','border-box','important');
+    st.setProperty('z-index','2147483600','important');
+  }
+
+  function backdrop(){
+    let b=document.getElementById(BACKDROP_ID);
     if(!b){
       b=document.createElement('div');
-      b.id='atoDesktopAssistantBackdropV2';
+      b.id=BACKDROP_ID;
       b.setAttribute('aria-hidden','true');
       document.body.appendChild(b);
-      b.addEventListener('click',closeAssistant);
+      b.addEventListener('click',closeThroughNative);
     }
     return b;
   }
-  function descendantsDeep(node,out=[]){
-    if(!node)return out;
-    try{
-      node.querySelectorAll?.('*').forEach(el=>{
-        out.push(el);
-        if(el.shadowRoot)descendantsDeep(el.shadowRoot,out);
-        if(el.tagName==='IFRAME'){
-          try{if(el.contentDocument)descendantsDeep(el.contentDocument,out)}catch(_){/* no-op */}
-        }
-      });
-    }catch(_){/* no-op */}
-    return out;
-  }
-  function closeAssistant(){
-    if(!mq.matches)return;
-    const panel=active||findPanel();
-    if(!panel)return;
-    const controls=descendantsDeep(panel,[]).filter(el=>el.matches?.('button,[role="button"],a'));
-    const btn=controls.find(el=>{
-      const a=(el.getAttribute('aria-label')||'').toLowerCase();
-      const t=(el.getAttribute('title')||'').toLowerCase();
-      const tx=(el.textContent||'').trim().toLowerCase();
-      return a.includes('close')||a.includes('dismiss')||t.includes('close')||tx==='×'||tx==='✕'||tx==='close';
-    });
-    if(btn){btn.click();setTimeout(queue,40);return}
-    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',code:'Escape',bubbles:true}));
-    setTimeout(queue,40);
-  }
-  function clear(){
-    if(active)active.classList.remove(MODAL);
-    active=null;
-    activeHosts.forEach(h=>h.classList.remove(HOSTZ));
-    activeHosts=[];
-    const b=document.getElementById('atoDesktopAssistantBackdropV2');
-    b?.classList.remove('is-open');
-    b?.setAttribute('aria-hidden','true');
-  }
-  function applyHosts(frame){
-    const hosts=[];
-    let cur=frame;
-    for(let i=0;i<8;i++){
-      try{
-        const rn=cur.getRootNode?.();
-        if(rn&&rn.host){
-          rn.host.classList.add(HOSTZ);
-          ensureModalStyle(rn.host.getRootNode?.()||document);
-          hosts.push(rn.host);
-          cur=rn.host;
-        }else break;
-      }catch(_){break}
-    }
-    activeHosts=hosts;
-  }
-  function sync(){
-    raf=0;
-    /* Temporarily remove our own class so visibility is judged by the Assistant's native open/closed state. */
-    if(active)active.classList.remove(MODAL);
-    activeHosts.forEach(h=>h.classList.remove(HOSTZ));
-    activeHosts=[];
-    if(!mq.matches){clear();return}
-    const panel=findPanel();
-    if(!panel){clear();return}
-    if(!rectVisible(panel)){clear();return}
-    ensureModalStyle(panel.getRootNode?.()||document);
-    panel.classList.add(MODAL);
-    active=panel;
-    applyHosts(panel);
-    const b=ensureBackdrop();
+
+  function showBackdrop(){
+    const b=backdrop();
     b.classList.add('is-open');
     b.setAttribute('aria-hidden','false');
   }
-  function queue(){if(raf)return;raf=requestAnimationFrame(sync)}
 
-  function init(){
-    discoverRoots();
-    const obs=new MutationObserver(queue);
-    try{obs.observe(document.documentElement,{subtree:true,childList:true})}catch(_){/* no-op */}
-    document.addEventListener('click',()=>{queue();setTimeout(queue,50);setTimeout(queue,180);setTimeout(queue,420)},true);
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')setTimeout(queue,35)},true);
-    window.addEventListener('resize',queue,{passive:true});
-    mq.addEventListener?.('change',queue);
-    setTimeout(queue,0);setTimeout(queue,250);setTimeout(queue,900);
+  function hideBackdrop(){
+    const b=document.getElementById(BACKDROP_ID);
+    b?.classList.remove('is-open');
+    b?.setAttribute('aria-hidden','true');
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+
+  function deepControls(root,out=[]){
+    try{
+      root.querySelectorAll?.('button,[role="button"],a').forEach(el=>out.push(el));
+      root.querySelectorAll?.('*').forEach(el=>{
+        if(el.shadowRoot)deepControls(el.shadowRoot,out);
+      });
+    }catch(_){ }
+    return out;
+  }
+
+  function isCloseControl(el){
+    if(!el)return false;
+    const aria=(el.getAttribute?.('aria-label')||'').toLowerCase();
+    const title=(el.getAttribute?.('title')||'').toLowerCase();
+    const tx=(el.textContent||'').trim().toLowerCase();
+    const cls=metaOf(el).toLowerCase();
+    return aria.includes('close')||aria.includes('dismiss')||title.includes('close')||
+      tx==='×'||tx==='✕'||tx==='close'||/close|dismiss/.test(cls);
+  }
+
+  function closeThroughNative(){
+    if(!desktop.matches||!active)return;
+    const frame=active;
+    const controls=deepControls(frame,[]);
+    const close=controls.find(isCloseControl);
+    /* Restore native drawer CSS BEFORE firing its own close handler. */
+    restore(frame);
+    active=null;
+    hideBackdrop();
+    if(close){close.click();return}
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',code:'Escape',bubbles:true}));
+  }
+
+  function clear(){
+    if(active){restore(active);active=null}
+    hideBackdrop();
+  }
+
+  function sync(){
+    raf=0;
+    if(!desktop.matches){clear();return}
+    const content=findAssistantContent();
+    if(!content){clear();return}
+    const frame=chooseFrame(content);
+    if(!frame||!isVisible(frame)){clear();return}
+    if(active&&active!==frame)restore(active);
+    active=frame;
+    centerFrame(frame);
+    showBackdrop();
+  }
+
+  function queue(){
+    if(raf)return;
+    raf=requestAnimationFrame(sync);
+  }
+
+  /* Let native close buttons work: remove our centering before their native click listener executes. */
+  document.addEventListener('click',function(e){
+    if(!desktop.matches)return;
+    if(active&&isCloseControl(e.target?.closest?.('button,[role="button"],a'))){
+      restore(active);
+      active=null;
+      hideBackdrop();
+      return;
+    }
+    setTimeout(queue,30);
+    setTimeout(queue,140);
+  },true);
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&active){
+      restore(active);
+      active=null;
+      hideBackdrop();
+    }
+    setTimeout(queue,35);
+  },true);
+
+  const observer=new MutationObserver(queue);
+  function init(){
+    observer.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-hidden','hidden','open']});
+    window.addEventListener('resize',queue,{passive:true});
+    desktop.addEventListener?.('change',queue);
+    setTimeout(queue,0);
+    setTimeout(queue,250);
+    setTimeout(queue,900);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
 })();
 </script>
