@@ -141,7 +141,377 @@
     window.addEventListener('resize',scheduleLaunchTone,{passive:true});
   }
 
+
+  const ORB_HINT_KEY='ato_ai_orb_hint_v1';
+
+  function injectOrbStyles(){
+    if(document.getElementById('atoAssistantOrbStyles')) return;
+
+    const style=document.createElement('style');
+    style.id='atoAssistantOrbStyles';
+    style.textContent=`
+      :root{
+        --ato-orb-blue-deep:#0b2948;
+        --ato-orb-blue:#1f5f95;
+        --ato-orb-blue-soft:#5d87ac;
+        --ato-orb-gold:#d7a83e;
+        --ato-orb-gold-bright:#e8b64f;
+        --ato-orb-champagne:#f0cf89;
+        --ato-orb-ivory:#fff9ef;
+        --ato-orb-ease:cubic-bezier(.22,.61,.36,1);
+      }
+
+      /* The existing REAL launch button becomes the orb.
+         No proxy element. No click forwarding. */
+      html body #atoAssistantRoot #atoAssistantLaunch.ato-ai-orb-launch{
+        position:fixed!important;
+        right:24px!important;
+        bottom:22px!important;
+        width:52px!important;
+        min-width:52px!important;
+        max-width:52px!important;
+        height:52px!important;
+        min-height:52px!important;
+        max-height:52px!important;
+        margin:0!important;
+        padding:0!important;
+        display:flex!important;
+        align-items:center!important;
+        justify-content:flex-start!important;
+        gap:10px!important;
+        overflow:hidden!important;
+        border-radius:999px!important;
+        border:1px solid rgba(215,168,62,.28)!important;
+        background:
+          radial-gradient(circle at 25px 50%,rgba(49,112,164,.22),transparent 46%),
+          linear-gradient(135deg,rgba(8,27,44,.58),rgba(12,52,84,.42))!important;
+        -webkit-backdrop-filter:blur(13px) saturate(118%)!important;
+        backdrop-filter:blur(13px) saturate(118%)!important;
+        box-shadow:
+          0 8px 24px rgba(2,9,17,.18),
+          inset 0 1px 0 rgba(255,249,239,.05),
+          0 0 16px rgba(31,95,149,.08)!important;
+        color:var(--ato-orb-ivory)!important;
+        cursor:pointer!important;
+        z-index:900!important;
+        opacity:1!important;
+        visibility:visible!important;
+        pointer-events:auto!important;
+        transform:translateZ(0)!important;
+        transition:
+          width 280ms var(--ato-orb-ease),
+          max-width 280ms var(--ato-orb-ease),
+          min-width 280ms var(--ato-orb-ease),
+          border-color 230ms ease,
+          box-shadow 230ms ease,
+          background 230ms ease,
+          opacity 180ms ease,
+          transform 180ms var(--ato-orb-ease)!important;
+        -webkit-tap-highlight-color:transparent!important;
+      }
+
+      html body #atoAssistantRoot #atoAssistantLaunch.ato-ai-orb-launch[data-tone="hero"],
+      html body #atoAssistantRoot #atoAssistantLaunch.ato-ai-orb-launch[data-tone="vip"],
+      html body #atoAssistantRoot #atoAssistantLaunch.ato-ai-orb-launch[data-tone="footer"]{
+        background:
+          radial-gradient(circle at 25px 50%,rgba(56,126,180,.25),transparent 46%),
+          linear-gradient(135deg,rgba(11,42,68,.62),rgba(16,71,112,.46))!important;
+        border-color:rgba(232,182,79,.31)!important;
+      }
+
+      html body #atoAssistantRoot #atoAssistantLaunch.ato-ai-orb-launch[data-tone="categories"],
+      html body #atoAssistantRoot #atoAssistantLaunch.ato-ai-orb-launch[data-tone="about"],
+      html body #atoAssistantRoot #atoAssistantLaunch.ato-ai-orb-launch[data-tone="contact"]{
+        background:
+          radial-gradient(circle at 25px 50%,rgba(39,92,139,.23),transparent 46%),
+          linear-gradient(135deg,rgba(7,26,44,.67),rgba(11,48,79,.56))!important;
+      }
+
+      @media (hover:hover) and (pointer:fine){
+        html body #atoAssistantRoot #atoAssistantLaunch.ato-ai-orb-launch:hover,
+        html body #atoAssistantRoot #atoAssistantLaunch.ato-ai-orb-launch:focus-visible,
+        html body #atoAssistantRoot #atoAssistantLaunch.ato-ai-orb-launch.ato-ai-orb-hint{
+          width:164px!important;
+          min-width:164px!important;
+          max-width:164px!important;
+          border-color:rgba(232,182,79,.43)!important;
+          box-shadow:
+            0 10px 28px rgba(2,9,17,.20),
+            inset 0 1px 0 rgba(255,249,239,.06),
+            0 0 19px rgba(31,95,149,.11)!important;
+        }
+      }
+
+      html body #atoAssistantRoot #atoAssistantLaunch.ato-ai-orb-launch.is-hidden{
+        opacity:0!important;
+        visibility:hidden!important;
+        pointer-events:none!important;
+        transform:scale(.96)!important;
+      }
+
+      .ato-ai-orb-shell{
+        position:relative!important;
+        width:52px!important;
+        min-width:52px!important;
+        height:52px!important;
+        flex:0 0 52px!important;
+        display:grid!important;
+        place-items:center!important;
+        pointer-events:none!important;
+      }
+
+      .ato-ai-orb-symbol{
+        width:36px!important;
+        height:36px!important;
+        display:block!important;
+        overflow:visible!important;
+        pointer-events:none!important;
+        filter:drop-shadow(0 0 5px rgba(232,182,79,.10))!important;
+      }
+
+      .ato-ai-orbit{
+        fill:none!important;
+        stroke-linecap:round!important;
+        transform-box:view-box!important;
+        transform-origin:32px 32px!important;
+        vector-effect:non-scaling-stroke!important;
+      }
+      .ato-ai-orbit--a{
+        stroke:rgba(240,207,137,.96)!important;
+        stroke-width:1.10!important;
+        animation:atoOrbA 13.2s linear infinite!important;
+      }
+      .ato-ai-orbit--b{
+        stroke:rgba(75,140,193,.96)!important;
+        stroke-width:1.05!important;
+        animation:atoOrbB 10.8s linear infinite!important;
+      }
+      .ato-ai-orbit--c{
+        stroke:rgba(232,182,79,.92)!important;
+        stroke-width:.98!important;
+        animation:atoOrbC 8.7s linear infinite!important;
+      }
+      .ato-ai-orbit--d{
+        stroke:rgba(31,95,149,.98)!important;
+        stroke-width:.92!important;
+        animation:atoOrbD 12.0s linear infinite!important;
+      }
+
+      @keyframes atoOrbA{
+        0%{transform:rotate(10deg) scaleY(.70)}
+        50%{transform:rotate(190deg) scaleY(.50)}
+        100%{transform:rotate(370deg) scaleY(.70)}
+      }
+      @keyframes atoOrbB{
+        0%{transform:rotate(122deg) scaleY(.54)}
+        50%{transform:rotate(-58deg) scaleY(.88)}
+        100%{transform:rotate(-238deg) scaleY(.54)}
+      }
+      @keyframes atoOrbC{
+        0%{transform:rotate(-38deg) scaleY(.82)}
+        50%{transform:rotate(142deg) scaleY(.56)}
+        100%{transform:rotate(322deg) scaleY(.82)}
+      }
+      @keyframes atoOrbD{
+        0%{transform:rotate(82deg) scaleY(.44)}
+        50%{transform:rotate(-98deg) scaleY(.76)}
+        100%{transform:rotate(-278deg) scaleY(.44)}
+      }
+
+      .ato-ai-orb-particle{
+        transform-box:view-box!important;
+        transform-origin:32px 32px!important;
+      }
+      .ato-ai-orb-particle--1{animation:atoOrbCW 12.4s linear infinite!important}
+      .ato-ai-orb-particle--2{animation:atoOrbCCW 9.7s linear infinite!important}
+      .ato-ai-orb-particle--3{animation:atoOrbCW 8.0s linear infinite!important}
+      .ato-ai-orb-particle--4{animation:atoOrbCCW 13.8s linear infinite!important}
+      .ato-ai-orb-particle--5{animation:atoOrbCW 10.3s linear infinite!important}
+      .ato-ai-orb-particle--6{animation:atoOrbCCW 11.5s linear infinite!important}
+      @keyframes atoOrbCW{to{transform:rotate(360deg)}}
+      @keyframes atoOrbCCW{to{transform:rotate(-360deg)}}
+
+      .ato-ai-orb-core{
+        transform-box:view-box!important;
+        transform-origin:32px 32px!important;
+        animation:atoOrbBreathe 5.3s ease-in-out infinite!important;
+      }
+      @keyframes atoOrbBreathe{
+        0%,100%{opacity:.88;transform:scale(.986)}
+        50%{opacity:.98;transform:scale(1.03)}
+      }
+
+      .ato-ai-orb-pass{
+        fill:none!important;
+        stroke:rgba(240,207,137,.72)!important;
+        stroke-width:1.18!important;
+        stroke-linecap:round!important;
+        stroke-dasharray:2 54!important;
+        opacity:0!important;
+        animation:atoOrbPass 10.8s ease-in-out infinite!important;
+      }
+      @keyframes atoOrbPass{
+        0%,74%,100%{opacity:0;stroke-dashoffset:0}
+        79%{opacity:.32}
+        89%{opacity:.05;stroke-dashoffset:-56}
+        91%{opacity:0}
+      }
+
+      .ato-ai-orb-label{
+        flex:0 0 auto!important;
+        margin-left:-1px!important;
+        padding-right:14px!important;
+        color:rgba(255,249,239,.95)!important;
+        font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif!important;
+        font-size:14px!important;
+        font-weight:500!important;
+        letter-spacing:.018em!important;
+        line-height:1!important;
+        white-space:nowrap!important;
+        opacity:0!important;
+        transform:translateX(-5px)!important;
+        pointer-events:none!important;
+        text-shadow:0 1px 8px rgba(0,0,0,.14)!important;
+        transition:
+          opacity 210ms ease,
+          transform 270ms var(--ato-orb-ease)!important;
+      }
+
+      @media (hover:hover) and (pointer:fine){
+        #atoAssistantLaunch.ato-ai-orb-launch:hover .ato-ai-orb-label,
+        #atoAssistantLaunch.ato-ai-orb-launch:focus-visible .ato-ai-orb-label,
+        #atoAssistantLaunch.ato-ai-orb-launch.ato-ai-orb-hint .ato-ai-orb-label{
+          opacity:1!important;
+          transform:translateX(0)!important;
+        }
+        #atoAssistantLaunch.ato-ai-orb-launch:hover .ato-ai-orb-symbol{
+          filter:
+            brightness(1.08)
+            drop-shadow(0 0 6px rgba(232,182,79,.12))!important;
+        }
+      }
+
+      #atoAssistantLaunch.ato-ai-orb-press .ato-ai-orb-shell{
+        transform:scale(.96)!important;
+      }
+
+      #atoAssistantLaunch.ato-ai-orb-launch:focus-visible{
+        outline:1px solid rgba(240,207,137,.56)!important;
+        outline-offset:3px!important;
+      }
+
+      @media (max-width:980px){
+        html body #atoAssistantRoot #atoAssistantLaunch.ato-ai-orb-launch{
+          right:calc(14px + env(safe-area-inset-right,0px))!important;
+          bottom:calc(14px + env(safe-area-inset-bottom,0px))!important;
+          width:50px!important;
+          min-width:50px!important;
+          max-width:50px!important;
+          height:50px!important;
+          min-height:50px!important;
+          max-height:50px!important;
+        }
+        .ato-ai-orb-shell{
+          width:50px!important;
+          min-width:50px!important;
+          height:50px!important;
+          flex-basis:50px!important;
+        }
+        .ato-ai-orb-symbol{
+          width:34px!important;
+          height:34px!important;
+        }
+        .ato-ai-orb-label{
+          display:none!important;
+        }
+      }
+
+      @media (prefers-reduced-motion:reduce){
+        .ato-ai-orbit,
+        .ato-ai-orb-particle,
+        .ato-ai-orb-core,
+        .ato-ai-orb-pass{
+          animation:none!important;
+        }
+        #atoAssistantLaunch.ato-ai-orb-launch,
+        .ato-ai-orb-label{
+          transition-duration:120ms!important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function orbMarkup(){
+    return `
+      <span class="ato-ai-orb-shell" aria-hidden="true">
+        <svg class="ato-ai-orb-symbol" viewBox="0 0 64 64" focusable="false" aria-hidden="true">
+          <defs>
+            <radialGradient id="atoNativeOrbHalo" cx="50%" cy="50%" r="62%">
+              <stop offset="0" stop-color="#fff9ef" stop-opacity=".95"/>
+              <stop offset=".18" stop-color="#f0cf89" stop-opacity=".82"/>
+              <stop offset=".46" stop-color="#1f5f95" stop-opacity=".48"/>
+              <stop offset="1" stop-color="#0b2948" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="atoNativeOrbCore" cx="40%" cy="36%" r="74%">
+              <stop offset="0" stop-color="#fff9ef"/>
+              <stop offset=".24" stop-color="#f6d58f"/>
+              <stop offset=".58" stop-color="#e8b64f"/>
+              <stop offset="1" stop-color="#b97818"/>
+            </radialGradient>
+            <linearGradient id="atoNativeOrbRing" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fff9ef" stop-opacity=".96"/>
+              <stop offset=".36" stop-color="#f0cf89" stop-opacity=".88"/>
+              <stop offset="1" stop-color="#1f5f95" stop-opacity=".66"/>
+            </linearGradient>
+          </defs>
+
+          <ellipse class="ato-ai-orbit ato-ai-orbit--a" cx="32" cy="32" rx="24.6" ry="8.0"/>
+          <ellipse class="ato-ai-orbit ato-ai-orbit--b" cx="31.4" cy="31.8" rx="21.5" ry="10.8"/>
+          <ellipse class="ato-ai-orbit ato-ai-orbit--c" cx="32.8" cy="31.4" rx="17.6" ry="6.0"/>
+          <ellipse class="ato-ai-orbit ato-ai-orbit--d" cx="31.8" cy="32.6" rx="25.8" ry="9.2"/>
+          <ellipse class="ato-ai-orb-pass" cx="32" cy="32" rx="24.6" ry="8.0"/>
+
+          <g class="ato-ai-orb-particle ato-ai-orb-particle--1"><circle cx="32" cy="8" r="1.12" fill="#e8b64f"/></g>
+          <g class="ato-ai-orb-particle ato-ai-orb-particle--2"><circle cx="53.2" cy="25.6" r=".96" fill="#5d87ac"/></g>
+          <g class="ato-ai-orb-particle ato-ai-orb-particle--3"><circle cx="17.4" cy="13.9" r=".80" fill="#fff9ef"/></g>
+          <g class="ato-ai-orb-particle ato-ai-orb-particle--4"><circle cx="12.4" cy="42.2" r=".86" fill="#d7a83e"/></g>
+          <g class="ato-ai-orb-particle ato-ai-orb-particle--5"><circle cx="44.6" cy="51.6" r=".92" fill="#1f5f95"/></g>
+          <g class="ato-ai-orb-particle ato-ai-orb-particle--6"><circle cx="47.6" cy="16" r=".78" fill="#f0cf89"/></g>
+
+          <g class="ato-ai-orb-core">
+            <circle cx="32" cy="32" r="13.8" fill="url(#atoNativeOrbHalo)" opacity=".94"/>
+            <circle cx="32" cy="32" r="8.9" fill="url(#atoNativeOrbHalo)" opacity=".38"/>
+            <circle cx="32" cy="32" r="6.4" fill="none" stroke="url(#atoNativeOrbRing)" stroke-width=".88" stroke-opacity=".74"/>
+            <circle cx="32" cy="32" r="5.6" fill="url(#atoNativeOrbCore)"/>
+            <circle cx="32" cy="32" r="2.7" fill="#fff9ef" opacity=".24"/>
+            <circle cx="31.15" cy="31.0" r=".78" fill="#fff9ef" opacity=".95"/>
+          </g>
+        </svg>
+      </span>
+      <span class="ato-ai-orb-label" aria-hidden="true">AI Assistant</span>
+    `;
+  }
+
+  function initOrbHint(){
+    const launch=$('#atoAssistantLaunch');
+    if(!launch || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+
+    let seen=false;
+    try{ seen=sessionStorage.getItem(ORB_HINT_KEY)==='1'; }catch(e){}
+    if(seen) return;
+
+    setTimeout(()=>{
+      const b=$('#atoAssistantLaunch');
+      if(!b || b.getAttribute('aria-expanded')==='true') return;
+      b.classList.add('ato-ai-orb-hint');
+      setTimeout(()=>b?.classList.remove('ato-ai-orb-hint'),2400);
+      try{ sessionStorage.setItem(ORB_HINT_KEY,'1'); }catch(e){}
+    },5600);
+  }
+
   function buildUI(){
+    injectOrbStyles();
     // Remove the old generic WhatsApp/Concierge popup without editing legacy markup.
     document.querySelectorAll('.whatsapp-popup, .ato-concierge').forEach(el=>el.remove());
     if($('#atoAssistantRoot')) return;
@@ -151,10 +521,9 @@
     root.id='atoAssistantRoot';
     root.className='ato-assistant';
     root.innerHTML=`
-      <button class="ato-assistant-launch" id="atoAssistantLaunch" type="button" aria-expanded="false">
-        <span class="ato-assistant-launch__signal" aria-hidden="true"></span>
-        <span class="ato-assistant-launch__copy"><small>${esc(t.ask)}</small><strong>${esc(t.title)}</strong></span>
-        <span class="ato-assistant-launch__arrow" aria-hidden="true">↗</span>
+      <button class="ato-assistant-launch ato-ai-orb-launch" id="atoAssistantLaunch" type="button"
+              aria-label="Open AI Assistant" aria-expanded="false">
+        ${orbMarkup()}
       </button>
 
       <section class="ato-assistant-panel" id="atoAssistantPanel" aria-hidden="true" aria-label="${esc(t.title)}">
@@ -191,6 +560,7 @@
     renderHistory();
     renderChips();
     bind();
+    initOrbHint();
   }
 
   function bubble(role,text, temporary=false){
@@ -224,14 +594,42 @@
 
   function openPanel(){
     const p=$('#atoAssistantPanel'), b=$('#atoAssistantLaunch');
-    p.classList.add('is-open'); p.setAttribute('aria-hidden','false');
-    b.classList.add('is-hidden'); b.setAttribute('aria-expanded','true');
-    setTimeout(()=>$('#atoAssistantInput')?.focus(),180);
+    if(!p || !b) return;
+
+    p.classList.add('is-open');
+    p.setAttribute('aria-hidden','false');
+    b.setAttribute('aria-expanded','true');
+
+    requestAnimationFrame(()=>{
+      const cs=getComputedStyle(p);
+      const r=p.getBoundingClientRect();
+      const rendered=
+        cs.display!=='none' &&
+        cs.visibility!=='hidden' &&
+        r.width>0 &&
+        r.height>0;
+
+      if(rendered){
+        b.classList.add('is-hidden');
+        setTimeout(()=>$('#atoAssistantInput')?.focus(),180);
+      }else{
+        /* Safety: never leave the user with a vanished trigger. */
+        p.classList.remove('is-open');
+        p.setAttribute('aria-hidden','true');
+        b.classList.remove('is-hidden');
+        b.setAttribute('aria-expanded','false');
+      }
+    });
   }
+
   function closePanel(){
     const p=$('#atoAssistantPanel'), b=$('#atoAssistantLaunch');
-    p.classList.remove('is-open'); p.setAttribute('aria-hidden','true');
-    b.classList.remove('is-hidden'); b.setAttribute('aria-expanded','false');
+    if(!p || !b) return;
+
+    p.classList.remove('is-open');
+    p.setAttribute('aria-hidden','true');
+    b.classList.remove('is-hidden');
+    b.setAttribute('aria-expanded','false');
   }
 
   function autoresize(el){
@@ -298,7 +696,12 @@
   }
 
   function bind(){
-    $('#atoAssistantLaunch').addEventListener('click',openPanel);
+    const launch=$('#atoAssistantLaunch');
+    launch.addEventListener('pointerdown',()=>{
+      launch.classList.add('ato-ai-orb-press');
+      setTimeout(()=>launch.classList.remove('ato-ai-orb-press'),170);
+    });
+    launch.addEventListener('click',openPanel);
     $('#atoAssistantClose').addEventListener('click',closePanel);
     $('#atoAssistantReset').addEventListener('click',resetChat);
     $('#atoAssistantManager').addEventListener('click',managerHandoff);
