@@ -925,7 +925,7 @@ html body .header #headerTourSearch .ato-search-trigger-label{
 </head>
 
 <body>
-<script src="/assets/js/ato-global-header.js?v=20260819-0653" data-ato-global-header></script>
+<script src="/assets/js/ato-global-header.js?v=20260819-1705" data-ato-global-header></script>
 
 
 
@@ -2520,173 +2520,888 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 
 
-</body>
-</html>
+
+
+
 
 
 <!-- =====================================================================
-     ATO DESKTOP ASSISTANT MODAL FIX — 2026-08-19
-     Desktop only. Does not alter mobile, header, promo bar, Hero or Assistant content.
+     ATO DESKTOP ASSISTANT — COMPARE GOLD HOVER BRIDGE V9
+     DESKTOP ONLY (>=981px).
+     Keeps the blue→emerald Assistant identity at rest and borrows the
+     approved Compare language only for hover / focus / active interaction.
+     Header and mobile are untouched.
      ===================================================================== -->
-<style id="ato-desktop-assistant-modal-fix">
+<style id="ato-desktop-assistant-compare-gold-v9">
 @media (min-width:981px){
-  #atoDesktopAssistantBackdrop{
-    position:fixed;
-    inset:0;
-    z-index:2147482100;
-    background:rgba(2,8,16,.58);
-    backdrop-filter:blur(7px);
-    -webkit-backdrop-filter:blur(7px);
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-    transition:opacity .22s ease,visibility .22s ease;
+  .ato-desktop-assistant-v7-surface{
+    --ato-v9-gold:#ddb45d;
+    --ato-v9-gold-soft:rgba(221,180,93,.16);
+    --ato-v9-gold-line:rgba(226,187,103,.72);
+    --ato-v9-ivory:#fff8ec;
   }
-  #atoDesktopAssistantBackdrop.is-open{
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
+
+  /* QUICK ACTIONS — emerald/blue at rest, Compare-style matte gold glass on interaction. */
+  .ato-desktop-assistant-v7-surface .ato-v7-quick-chip:hover,
+  .ato-desktop-assistant-v7-surface .ato-v7-quick-chip:focus-visible,
+  .ato-desktop-assistant-v7-surface .ato-v7-quick-chip[aria-pressed="true"],
+  .ato-desktop-assistant-v7-surface .ato-v7-quick-chip.is-active,
+  .ato-desktop-assistant-v7-surface .ato-v7-quick-chip.active{
+    color:var(--ato-v9-ivory)!important;
+    border-color:var(--ato-v9-gold-line)!important;
+    background:
+      linear-gradient(135deg,rgba(225,186,102,.205) 0%,rgba(204,159,72,.105) 44%,rgba(8,76,67,.38) 100%)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,248,226,.105),
+      inset 0 0 0 1px rgba(225,184,96,.055),
+      0 7px 24px rgba(0,0,0,.16),
+      0 0 19px rgba(219,174,81,.10)!important;
+    text-shadow:0 0 11px rgba(229,189,103,.10)!important;
+    outline:none!important;
   }
-  .ato-desktop-assistant-modalized{
-    position:fixed!important;
-    left:50%!important;
-    top:50%!important;
-    right:auto!important;
-    bottom:auto!important;
-    width:min(720px,calc(100vw - 72px))!important;
-    max-width:720px!important;
-    height:min(760px,calc(100vh - 72px))!important;
-    max-height:760px!important;
-    margin:0!important;
-    transform:translate(-50%,-50%)!important;
-    z-index:2147482200!important;
-    overflow:hidden!important;
+  .ato-desktop-assistant-v7-surface .ato-v7-quick-chip:active{
+    transform:translateY(0) scale(.985)!important;
+    background:
+      linear-gradient(135deg,rgba(231,193,109,.235),rgba(190,143,57,.115) 48%,rgba(7,65,59,.42))!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,248,226,.09),
+      0 3px 13px rgba(0,0,0,.16),
+      0 0 13px rgba(219,174,81,.075)!important;
+  }
+
+  /* TALK TO MANAGER — same restrained gold glass language as Compare. */
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row:hover,
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row:focus-visible{
+    color:var(--ato-v9-ivory)!important;
+    border-color:rgba(226,187,103,.76)!important;
+    background:
+      linear-gradient(90deg,rgba(220,177,89,.135) 0%,rgba(11,58,61,.47) 58%,rgba(7,72,63,.44) 100%)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,248,226,.072),
+      0 9px 28px rgba(0,0,0,.15),
+      0 0 22px rgba(219,174,81,.075)!important;
+    outline:none!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row:hover svg,
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row:hover [aria-hidden="true"],
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row:hover .arrow,
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row:focus-visible svg,
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row:focus-visible [aria-hidden="true"],
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row:focus-visible .arrow{
+    color:#f0c96f!important;
+    stroke:#f0c96f!important;
+    filter:drop-shadow(0 0 7px rgba(225,181,86,.16))!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row:active{
+    transform:scale(.995)!important;
+  }
+
+  /* SEND — blue/emerald idle; gold halo only when the user is about to act. */
+  .ato-desktop-assistant-v7-surface .ato-v7-send:hover,
+  .ato-desktop-assistant-v7-surface .ato-v7-send:focus-visible{
+    color:#f3cf7b!important;
+    border-color:rgba(232,194,108,.84)!important;
+    background:
+      radial-gradient(circle at 38% 28%,rgba(240,205,128,.16),transparent 47%),
+      linear-gradient(145deg,rgba(184,137,52,.16),rgba(8,74,66,.72))!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,248,226,.09),
+      0 8px 26px rgba(0,0,0,.18),
+      0 0 0 2px rgba(220,174,80,.055),
+      0 0 24px rgba(224,180,87,.12)!important;
+    outline:none!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-send:active{
+    transform:translateY(0) scale(.97)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,248,226,.07),
+      0 3px 13px rgba(0,0,0,.16),
+      0 0 15px rgba(224,180,87,.09)!important;
+  }
+
+  /* Keep the input itself AI-coded: emerald/blue focus, with only a hairline gold bridge. */
+  .ato-desktop-assistant-v7-surface .ato-v7-input:focus{
+    border-color:rgba(104,195,203,.80)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.035),
+      0 0 0 1px rgba(222,179,88,.095),
+      0 0 0 3px rgba(64,164,198,.07),
+      0 0 24px rgba(53,150,203,.13),
+      0 0 38px rgba(22,137,105,.09)!important;
   }
 }
 </style>
-<script id="ato-desktop-assistant-modal-fix-js">
-(function(){
-  'use strict';
-  const mq=window.matchMedia('(min-width:981px)');
-  const CLASS='ato-desktop-assistant-modalized';
-  let activePanel=null,raf=0;
-
-  function ensureBackdrop(){
-    let el=document.getElementById('atoDesktopAssistantBackdrop');
-    if(!el){
-      el=document.createElement('div');
-      el.id='atoDesktopAssistantBackdrop';
-      el.setAttribute('aria-hidden','true');
-      document.body.appendChild(el);
-      el.addEventListener('click',()=>closeExistingAssistant());
-    }
-    return el;
-  }
-  function candidateText(el){return (el.innerText||'').replace(/\s+/g,' ').trim().toUpperCase()}
-  function findAssistantPanel(){
-    if(!mq.matches)return null;
-    const nodes=[...document.querySelectorAll('aside,dialog,section,div')].filter(el=>{
-      if(el.id==='atoDesktopAssistantBackdrop'||el.closest('#atoGlobalHeaderRoot'))return false;
-      const txt=candidateText(el);
-      if(!txt.includes('TALK TO MANAGER'))return false;
-      if(!txt.includes('AI ASSISTANT')&&!txt.includes('FIND A TOUR'))return false;
-      return !!el.querySelector('input,textarea');
-    });
-    if(!nodes.length)return null;
-    nodes.sort((a,b)=>{
-      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
-      return (ar.width*ar.height)-(br.width*br.height);
-    });
-    let panel=nodes[0];
-    for(let i=0;i<4&&panel.parentElement&&panel.parentElement!==document.body;i++){
-      const p=panel.parentElement,cs=getComputedStyle(p),r=p.getBoundingClientRect();
-      if((cs.position==='fixed'||cs.position==='absolute')&&r.width>=320&&r.width<=1100&&r.height>=360&&r.height<=innerHeight*1.2){panel=p;break}
-      if(r.width>innerWidth*.92||r.height>innerHeight*1.15)break;
-      panel=p;
-    }
-    return panel;
-  }
-  function naturallyOpen(panel){
-    if(!panel)return false;
-    const had=panel.classList.contains(CLASS);
-    if(had)panel.classList.remove(CLASS);
-    const cs=getComputedStyle(panel),r=panel.getBoundingClientRect();
-    const opacity=parseFloat(cs.opacity||'1');
-    const open=cs.display!=='none'&&cs.visibility!=='hidden'&&!panel.hidden&&opacity>.05&&r.width>280&&r.height>280&&r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight;
-    if(had&&open)panel.classList.add(CLASS);
-    return open;
-  }
-  function closeExistingAssistant(){
-    const panel=activePanel||findAssistantPanel();
-    if(!panel)return;
-    const controls=[...panel.querySelectorAll('button,[role="button"],a')];
-    const close=controls.find(el=>{
-      const aria=(el.getAttribute('aria-label')||'').toLowerCase();
-      const title=(el.getAttribute('title')||'').toLowerCase();
-      const txt=(el.textContent||'').trim().toLowerCase();
-      return aria.includes('close')||aria.includes('dismiss')||title.includes('close')||txt==='×'||txt==='✕'||txt==='close';
-    });
-    if(close){close.click();return}
-    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',code:'Escape',bubbles:true}));
-  }
-  function clear(){
-    document.querySelectorAll('.'+CLASS).forEach(el=>el.classList.remove(CLASS));
-    activePanel=null;
-    const back=document.getElementById('atoDesktopAssistantBackdrop');
-    back?.classList.remove('is-open');
-    back?.setAttribute('aria-hidden','true');
-  }
-  function sync(){
-    raf=0;
-    if(!mq.matches){clear();return}
-    const panel=findAssistantPanel();
-    if(!panel){clear();return}
-    if(activePanel&&activePanel!==panel)activePanel.classList.remove(CLASS);
-    if(naturallyOpen(panel)){
-      panel.classList.add(CLASS);
-      activePanel=panel;
-      const back=ensureBackdrop();
-      back.classList.add('is-open');
-      back.setAttribute('aria-hidden','false');
-    }else{
-      panel.classList.remove(CLASS);
-      if(activePanel===panel)activePanel=null;
-      const back=document.getElementById('atoDesktopAssistantBackdrop');
-      back?.classList.remove('is-open');
-      back?.setAttribute('aria-hidden','true');
-    }
-  }
-  function queue(){if(raf)return;raf=requestAnimationFrame(sync)}
-  const mo=new MutationObserver(queue);
-  function init(){
-    mo.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-hidden','hidden']});
-    document.addEventListener('click',()=>{queue();setTimeout(queue,90);setTimeout(queue,260)},true);
-    window.addEventListener('resize',queue,{passive:true});
-    mq.addEventListener?.('change',queue);
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')setTimeout(queue,40)},true);
-    queue();
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
-})();
-</script>
-
 
 
 <!-- =====================================================================
-     ATO DESKTOP PATCH V2 — ASSISTANT TRUE CENTER + LANGUAGE NAME HOVER
-     2026-08-19. DESKTOP ONLY (>=981px).
-     Does NOT change mobile. Does NOT restructure header/promo/Hero.
-     Previous code is kept intact; this is a narrow override.
+     ATO AI ASSISTANT — FLOATING ORB V3 PRODUCTION
+     Brand palette sampled from the embedded ALANYA TOUR ORGANIZATIONS mark.
+     Compact, adaptive glass launcher. Existing Assistant logic is preserved.
+     Heavy DOM discovery is startup-only; bound state uses lightweight sync.
      ===================================================================== -->
-<style id="ato-desktop-patch-v2-style">
+<style id="ato-ai-orb-v2-inline-style">
+:root{
+  /* Exact visual family from the embedded ATO company mark: deep blue + warm gold. */
+  --ato-brand-blue:#1a3253;
+  --ato-brand-blue-deep:#0a2243;
+  --ato-brand-blue-soft:#42556f;
+  --ato-brand-gold:#d9a443;
+  --ato-brand-gold-deep:#bf8630;
+  --ato-brand-gold-light:#ead076;
+  --ato-brand-ivory:#fff8ec;
+
+  --ato-orb-size:52px;
+  --ato-orb-symbol:34px;
+  --ato-orb-expanded:158px;
+  --ato-orb-ease:cubic-bezier(.22,.61,.36,1);
+}
+
+.ato-orb-v2-host{
+  position:fixed!important;
+  right:24px!important;
+  bottom:calc(22px + var(--ato-orb-lift,0px))!important;
+  width:var(--ato-orb-size)!important;
+  min-width:var(--ato-orb-size)!important;
+  max-width:var(--ato-orb-size)!important;
+  height:var(--ato-orb-size)!important;
+  min-height:var(--ato-orb-size)!important;
+  max-height:var(--ato-orb-size)!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  z-index:900!important;
+  isolation:isolate!important;
+  cursor:pointer!important;
+  transition:
+    width 280ms var(--ato-orb-ease),
+    min-width 280ms var(--ato-orb-ease),
+    max-width 280ms var(--ato-orb-ease),
+    bottom 220ms var(--ato-orb-ease),
+    opacity 180ms ease,
+    transform 180ms var(--ato-orb-ease)!important;
+  -webkit-tap-highlight-color:transparent!important;
+}
+
+.ato-orb-v2-host::before,
+.ato-orb-v2-host::after{
+  opacity:0!important;
+  pointer-events:none!important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .ato-orb-v2-host:hover,
+  .ato-orb-v2-host:focus-within{
+    width:var(--ato-orb-expanded)!important;
+    min-width:var(--ato-orb-expanded)!important;
+    max-width:var(--ato-orb-expanded)!important;
+  }
+}
+
+.ato-orb-v2-host.ato-orb-v2-hint{
+  width:var(--ato-orb-expanded)!important;
+  min-width:var(--ato-orb-expanded)!important;
+  max-width:var(--ato-orb-expanded)!important;
+}
+
+/* Keep the proven native Assistant launcher alive; only silence its old heavy pill visually. */
+.ato-orb-v2-host > *:not(.ato-orb-v2-visual){
+  opacity:0!important;
+  color:transparent!important;
+  text-shadow:none!important;
+}
+
+/* The existing Assistant control remains the real hit area: no duplicate click bridge. */
+.ato-orb-v2-host .ato-orb-v2-native-surface{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  min-width:100%!important;
+  max-width:none!important;
+  height:100%!important;
+  min-height:100%!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  opacity:0!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  cursor:pointer!important;
+  z-index:30!important;
+}
+
+.ato-orb-v2-host > *:not(.ato-orb-v2-visual):not(.ato-orb-v2-native-surface){
+  pointer-events:none!important;
+}
+
+.ato-orb-v2-visual{
+  position:absolute!important;
+  inset:0!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:9px!important;
+  padding:0 9px!important;
+  border-radius:999px!important;
+  overflow:hidden!important;
+  pointer-events:none!important;
+  z-index:10!important;
+
+  /* Universal low-contrast glass: quiet on dark/photo surfaces, still readable on light sections. */
+  background:
+    radial-gradient(circle at 26px 50%,rgba(217,164,67,.075),transparent 46%),
+    linear-gradient(135deg,rgba(26,50,83,.27),rgba(10,34,67,.18))!important;
+  -webkit-backdrop-filter:blur(13px) saturate(110%)!important;
+  backdrop-filter:blur(13px) saturate(110%)!important;
+  border:1px solid rgba(217,164,67,.18)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,248,236,.035),
+    0 8px 24px rgba(2,10,18,.14)!important;
+  transition:
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    background 240ms ease,
+    filter 240ms ease!important;
+}
+
+/* Solid light surfaces receive slightly stronger brand-blue glass. */
+.ato-orb-v2-host.ato-orb-v2-light .ato-orb-v2-visual{
+  background:
+    radial-gradient(circle at 26px 50%,rgba(217,164,67,.085),transparent 47%),
+    linear-gradient(135deg,rgba(10,34,67,.50),rgba(26,50,83,.38))!important;
+  border-color:rgba(191,134,48,.24)!important;
+}
+
+/* Dark blocks remain nearly transparent. */
+.ato-orb-v2-host.ato-orb-v2-dark .ato-orb-v2-visual{
+  background:
+    radial-gradient(circle at 26px 50%,rgba(234,208,118,.07),transparent 47%),
+    linear-gradient(135deg,rgba(66,85,111,.22),rgba(10,34,67,.14))!important;
+}
+
+/* Images, video, canvas, maps and CSS background imagery: stable universal contrast, no false luminance guess. */
+.ato-orb-v2-host.ato-orb-v2-media .ato-orb-v2-visual{
+  background:
+    radial-gradient(circle at 26px 50%,rgba(217,164,67,.085),transparent 46%),
+    linear-gradient(135deg,rgba(10,34,67,.36),rgba(26,50,83,.23))!important;
+  border-color:rgba(217,164,67,.20)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,248,236,.04),
+    0 8px 24px rgba(1,8,14,.17)!important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .ato-orb-v2-host:hover .ato-orb-v2-visual,
+  .ato-orb-v2-host:focus-within .ato-orb-v2-visual{
+    border-color:rgba(234,208,118,.31)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,248,236,.045),
+      0 10px 28px rgba(2,10,18,.16),
+      0 0 14px rgba(217,164,67,.045)!important;
+  }
+}
+
+.ato-orb-v2-symbol{
+  flex:0 0 var(--ato-orb-symbol)!important;
+  width:var(--ato-orb-symbol)!important;
+  height:var(--ato-orb-symbol)!important;
+  display:grid!important;
+  place-items:center!important;
+  transform:translateZ(0)!important;
+  transition:transform 160ms var(--ato-orb-ease),filter 240ms ease!important;
+}
+
+.ato-orb-v2-symbol svg{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  overflow:visible!important;
+}
+
+.ato-orb-v2-orbit{
+  fill:none;
+  transform-box:view-box;
+  transform-origin:32px 32px;
+  vector-effect:non-scaling-stroke;
+  stroke-linecap:round;
+}
+
+.ato-orb-v2-a{
+  stroke:rgba(234,208,118,.80);
+  stroke-width:1.02;
+  animation:atoOrb2A 12.8s linear infinite;
+}
+.ato-orb-v2-b{
+  stroke:rgba(66,85,111,.82);
+  stroke-width:.98;
+  animation:atoOrb2B 10.6s linear infinite;
+}
+.ato-orb-v2-c{
+  stroke:rgba(191,134,48,.58);
+  stroke-width:.84;
+  animation:atoOrb2C 8.8s linear infinite;
+}
+.ato-orb-v2-d{
+  stroke:rgba(26,50,83,.70);
+  stroke-width:.78;
+  animation:atoOrb2D 7.4s linear infinite;
+}
+
+@keyframes atoOrb2A{
+  0%{transform:rotate(12deg) scaleY(.72)}
+  50%{transform:rotate(192deg) scaleY(.48)}
+  100%{transform:rotate(372deg) scaleY(.72)}
+}
+@keyframes atoOrb2B{
+  0%{transform:rotate(120deg) scaleY(.50)}
+  50%{transform:rotate(-60deg) scaleY(.84)}
+  100%{transform:rotate(-240deg) scaleY(.50)}
+}
+@keyframes atoOrb2C{
+  0%{transform:rotate(-42deg) scaleY(.80)}
+  50%{transform:rotate(138deg) scaleY(.55)}
+  100%{transform:rotate(318deg) scaleY(.80)}
+}
+@keyframes atoOrb2D{
+  0%{transform:rotate(80deg) scaleY(.42)}
+  50%{transform:rotate(-100deg) scaleY(.70)}
+  100%{transform:rotate(-280deg) scaleY(.42)}
+}
+
+.ato-orb-v2-track{
+  transform-box:view-box;
+  transform-origin:32px 32px;
+}
+.ato-orb-v2-p1{animation:atoOrb2CW 11.9s linear infinite}
+.ato-orb-v2-p2{animation:atoOrb2CCW 9.6s linear infinite}
+.ato-orb-v2-p3{animation:atoOrb2CW 8.1s linear infinite}
+.ato-orb-v2-p4{animation:atoOrb2CCW 13.0s linear infinite}
+.ato-orb-v2-p5{animation:atoOrb2CW 10.2s linear infinite}
+@keyframes atoOrb2CW{to{transform:rotate(360deg)}}
+@keyframes atoOrb2CCW{to{transform:rotate(-360deg)}}
+
+.ato-orb-v2-core{
+  transform-box:view-box;
+  transform-origin:32px 32px;
+  animation:atoOrb2Breathe 5.2s ease-in-out infinite;
+}
+@keyframes atoOrb2Breathe{
+  0%,100%{opacity:.81;transform:scale(.988)}
+  50%{opacity:.90;transform:scale(1.015)}
+}
+
+.ato-orb-v2-pass{
+  fill:none;
+  stroke:rgba(234,208,118,.62);
+  stroke-width:1.18;
+  stroke-linecap:round;
+  stroke-dasharray:2 54;
+  opacity:0;
+  animation:atoOrb2Pass 10s ease-in-out infinite;
+}
+@keyframes atoOrb2Pass{
+  0%,72%,100%{opacity:0;stroke-dashoffset:0}
+  78%{opacity:.24}
+  88%{opacity:.04;stroke-dashoffset:-54}
+  90%{opacity:0}
+}
+
+.ato-orb-v2-label{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+  color:rgba(255,248,236,.90)!important;
+  font-family:"Segoe UI",Arial,sans-serif!important;
+  font-size:12px!important;
+  font-weight:500!important;
+  letter-spacing:.035em!important;
+  line-height:1!important;
+  opacity:0!important;
+  transform:translateX(-5px)!important;
+  transition:opacity 210ms ease,transform 270ms var(--ato-orb-ease)!important;
+  text-shadow:0 1px 9px rgba(0,0,0,.13)!important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .ato-orb-v2-host:hover .ato-orb-v2-label,
+  .ato-orb-v2-host:focus-within .ato-orb-v2-label{
+    opacity:1!important;
+    transform:translateX(0)!important;
+  }
+  .ato-orb-v2-host:hover .ato-orb-v2-symbol{
+    filter:brightness(1.07)!important;
+  }
+}
+
+.ato-orb-v2-host.ato-orb-v2-hint .ato-orb-v2-label{
+  opacity:1!important;
+  transform:translateX(0)!important;
+}
+
+.ato-orb-v2-host.ato-orb-v2-click .ato-orb-v2-symbol{
+  transform:scale(.96)!important;
+  filter:brightness(1.08)!important;
+}
+
+.ato-orb-v2-host.ato-orb-v2-open{
+  opacity:0!important;
+  pointer-events:none!important;
+  transform:scale(.96)!important;
+}
+
+@media (max-width:980px){
+  :root{
+    --ato-orb-size:50px;
+    --ato-orb-symbol:32px;
+    --ato-orb-expanded:150px;
+  }
+  .ato-orb-v2-host{
+    right:calc(14px + env(safe-area-inset-right))!important;
+    bottom:calc(14px + env(safe-area-inset-bottom) + var(--ato-orb-lift,0px))!important;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ato-orb-v2-host,
+  .ato-orb-v2-visual,
+  .ato-orb-v2-symbol,
+  .ato-orb-v2-label{
+    transition-duration:.01ms!important;
+  }
+  .ato-orb-v2-orbit,
+  .ato-orb-v2-track,
+  .ato-orb-v2-core,
+  .ato-orb-v2-pass{
+    animation:none!important;
+  }
+}
+</style>
+
+<script id="ato-ai-orb-v2-inline-script">
+(function(){
+  'use strict';
+
+  const H='ato-orb-v2-host';
+  const V='ato-orb-v2-visual';
+  const N='ato-orb-v2-native-surface';
+  const SESSION='ato-orb-v2-hint-seen';
+  const PREFERRED=[
+    '[data-ato-assistant-launcher]',
+    '.ato-assistant-ai-host',
+    '.ato-assistant-launcher',
+    '.ato-assistant-trigger',
+    '#atoAssistantLauncher',
+    '[aria-label*="assistant" i][aria-expanded]'
+  ];
+
+  let host=null,native=null,raf=0,open=false,lastTone=0;
+  let discoverObserver=null,discoverQueued=false,stateTimer=0,healthTimer=0;
+
+  const SVG=`
+  <span class="ato-orb-v2-symbol" aria-hidden="true">
+    <svg viewBox="0 0 64 64" focusable="false" aria-hidden="true">
+      <defs>
+        <radialGradient id="atoOrb2Glow" cx="50%" cy="50%" r="60%">
+          <stop offset="0" stop-color="#fff8ec" stop-opacity=".92"/>
+          <stop offset=".18" stop-color="#ead076" stop-opacity=".72"/>
+          <stop offset=".46" stop-color="#42556f" stop-opacity=".32"/>
+          <stop offset="1" stop-color="#0a2243" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="atoOrb2Dot" cx="42%" cy="38%" r="72%">
+          <stop offset="0" stop-color="#fff8ec"/>
+          <stop offset=".36" stop-color="#d9a443"/>
+          <stop offset="1" stop-color="#1a3253"/>
+        </radialGradient>
+      </defs>
+      <ellipse class="ato-orb-v2-orbit ato-orb-v2-a" cx="32" cy="32" rx="24.8" ry="8.4"/>
+      <ellipse class="ato-orb-v2-orbit ato-orb-v2-b" cx="31.2" cy="31.8" rx="22.2" ry="10.2"/>
+      <ellipse class="ato-orb-v2-orbit ato-orb-v2-c" cx="32.7" cy="31.4" rx="19.2" ry="6.4"/>
+      <ellipse class="ato-orb-v2-orbit ato-orb-v2-d" cx="31.7" cy="32.4" rx="26.4" ry="7.2"/>
+      <ellipse class="ato-orb-v2-pass" cx="32" cy="32" rx="24.8" ry="8.4"/>
+
+      <g class="ato-orb-v2-track ato-orb-v2-p1"><circle cx="32" cy="7.8" r="1.2" fill="#d9a443"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p2"><circle cx="53.4" cy="25.4" r="1.0" fill="#42556f"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p3"><circle cx="17" cy="14" r=".85" fill="#fff8ec"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p4"><circle cx="12" cy="42.5" r=".9" fill="#bf8630"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p5"><circle cx="44.8" cy="51.8" r="1.0" fill="#1a3253"/></g>
+
+      <g class="ato-orb-v2-core">
+        <circle cx="32" cy="32" r="10.5" fill="url(#atoOrb2Glow)" opacity=".72"/>
+        <circle cx="32" cy="32" r="4.4" fill="none" stroke="#d9a443" stroke-opacity=".28" stroke-width=".7"/>
+        <circle cx="32" cy="32" r="2.2" fill="url(#atoOrb2Dot)"/>
+        <circle cx="31.3" cy="31.3" r=".55" fill="#fff8ec" opacity=".86"/>
+      </g>
+    </svg>
+  </span>`;
+
+  function vis(el){
+    try{
+      if(!el)return false;
+      const cs=getComputedStyle(el),r=el.getBoundingClientRect();
+      return !el.hidden && cs.display!=='none' && cs.visibility!=='hidden' &&
+             parseFloat(cs.opacity||'1')>.02 && r.width>0 && r.height>0 &&
+             r.right>0 && r.bottom>0 && r.left<innerWidth && r.top<innerHeight;
+    }catch(_){return false}
+  }
+
+  function text(el){
+    try{return (el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}
+    catch(_){return ''}
+  }
+
+  function preferredHost(){
+    for(const sel of PREFERRED){
+      let nodes=[];
+      try{nodes=[...document.querySelectorAll(sel)]}catch(_){continue}
+      for(const el of nodes){
+        if(!(el instanceof HTMLElement)||!vis(el)||el.closest?.('#atoGlobalHeaderRoot'))continue;
+        const r=el.getBoundingClientRect();
+        if(r.right<innerWidth*.50||r.bottom<innerHeight*.35)continue;
+        const t=text(el);
+        if(t.includes('ASSISTANT')||/assistant/i.test(el.getAttribute('aria-label')||'')||el.matches('[data-ato-assistant-launcher]'))return el;
+      }
+    }
+    return null;
+  }
+
+  /* Expensive deep fallback is used only while binding/rebinding, never on every mutation/scroll. */
+  function fallbackHost(){
+    const candidates=[];
+    const roots=[document];
+    for(let ri=0;ri<roots.length;ri++){
+      const root=roots[ri];
+      let nodes=[];
+      try{nodes=[...root.querySelectorAll('*')]}catch(_){continue}
+      for(const el of nodes){
+        try{if(el.shadowRoot)roots.push(el.shadowRoot)}catch(_){ }
+        if(!(el instanceof HTMLElement)||!vis(el)||el.closest?.('#atoGlobalHeaderRoot'))continue;
+        const t=text(el);
+        if(!t.includes('ASK SOMETHING')||!t.includes('ASSISTANT'))continue;
+        const r=el.getBoundingClientRect();
+        if(r.width<180||r.width>720||r.height<44||r.height>240)continue;
+        if(r.right<innerWidth*.52||r.bottom<innerHeight*.42)continue;
+
+        let h=el,cur=el;
+        for(let i=0;i<6;i++){
+          const p=cur.parentElement||cur.getRootNode?.()?.host;
+          if(!p||p===document.body||p===document.documentElement)break;
+          const pr=p.getBoundingClientRect(),pt=text(p);
+          if(pt.includes('ASK SOMETHING')&&pt.includes('ASSISTANT')&&
+             pr.width>=180&&pr.width<=720&&pr.height>=44&&pr.height<=240){
+            h=p;
+            const pos=getComputedStyle(p).position;
+            if(pos==='fixed'||pos==='sticky')break;
+          }else break;
+          cur=p;
+        }
+        const hr=h.getBoundingClientRect();
+        candidates.push({h,score:Math.hypot(innerWidth-hr.right,innerHeight-hr.bottom),area:hr.width*hr.height});
+      }
+    }
+    candidates.sort((a,b)=>a.score-b.score||a.area-b.area);
+    return candidates[0]?.h||null;
+  }
+
+  function findHost(){
+    return preferredHost()||fallbackHost();
+  }
+
+  function findNative(h){
+    if(!h)return null;
+    const hr=h.getBoundingClientRect();
+    const controls=[...h.querySelectorAll('button,a,[role="button"],div,span')]
+      .filter(el=>el!==h&&el instanceof HTMLElement&&vis(el))
+      .filter(el=>{
+        const r=el.getBoundingClientRect(),t=text(el);
+        if(t.includes('ASK SOMETHING')||t==='ASSISTANT')return false;
+        return r.width>=28&&r.width<=110&&r.height>=28&&r.height<=110&&
+               r.left>=hr.left+hr.width*.58&&r.right<=hr.right+8;
+      });
+
+    controls.sort((a,b)=>{
+      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+      if(Math.abs(br.right-ar.right)>2)return br.right-ar.right;
+      return (ar.width*ar.height)-(br.width*br.height);
+    });
+
+    let c=controls[0]||null;
+    if(!c)return null;
+    const interactive=c.closest('button,a,[role="button"]');
+    if(interactive&&h.contains(interactive))c=interactive;
+    return c;
+  }
+
+  function visual(h){
+    let v=h.querySelector(':scope > .'+V);
+    if(v)return v;
+    v=document.createElement('span');
+    v.className=V;
+    v.setAttribute('aria-hidden','true');
+    v.innerHTML=SVG+'<span class="ato-orb-v2-label">AI Assistant</span>';
+    h.appendChild(v);
+    return v;
+  }
+
+  function panelOpen(){
+    const known=document.querySelector('.ato-desktop-assistant-v7-surface');
+    if(known&&vis(known))return true;
+    const back=document.getElementById('atoDesktopAssistantBackdropV7');
+    if(back?.classList.contains('is-open'))return true;
+    return native?.getAttribute?.('aria-expanded')==='true';
+  }
+
+  function isMediaSurface(el){
+    for(let i=0;i<8&&el;i++,el=el.parentElement){
+      if(el===host||host?.contains(el))continue;
+      const tag=el.tagName;
+      if(tag==='IMG'||tag==='VIDEO'||tag==='CANVAS'||tag==='IFRAME')return true;
+      try{
+        const cs=getComputedStyle(el);
+        if(cs.backgroundImage&&cs.backgroundImage!=='none')return true;
+      }catch(_){ }
+    }
+    return false;
+  }
+
+  function tone(){
+    if(!host)return;
+    const now=performance.now();
+    if(now-lastTone<140)return;
+    lastTone=now;
+
+    const r=host.getBoundingClientRect();
+    const x=Math.max(3,Math.min(innerWidth-3,r.left-7));
+    const y=Math.max(3,Math.min(innerHeight-3,r.top+r.height/2));
+    const stack=document.elementsFromPoint?.(x,y)||[];
+
+    let media=false,rgb=null;
+    for(const el of stack){
+      if(el===host||host.contains(el))continue;
+      if(isMediaSurface(el)){media=true;break}
+      let cur=el;
+      for(let i=0;i<7&&cur;i++,cur=cur.parentElement){
+        if(cur===host||host.contains(cur))continue;
+        try{
+          const cs=getComputedStyle(cur);
+          if(cs.backgroundImage&&cs.backgroundImage!=='none'){media=true;break}
+          const m=cs.backgroundColor?.match(/rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/i);
+          const a=cs.backgroundColor?.match(/rgba\([^/]*[,\s]([\d.]+)\s*\)$/i);
+          if(m && (!a||+a[1]>.10)){
+            rgb=[+m[1],+m[2],+m[3]];
+            if(rgb.some(v=>v>0))break;
+          }
+        }catch(_){ }
+      }
+      if(media||rgb)break;
+    }
+
+    let light=false;
+    if(rgb&&!media){
+      const [rr,g,b]=rgb;
+      light=(.2126*rr+.7152*g+.0722*b)>170;
+    }
+    host.classList.toggle('ato-orb-v2-media',media);
+    host.classList.toggle('ato-orb-v2-light',!media&&light);
+    host.classList.toggle('ato-orb-v2-dark',media||!light);
+  }
+
+  function fixedAncestor(el){
+    for(let i=0;i<8&&el&&el!==document.body;i++,el=el.parentElement){
+      if(el===host||host?.contains(el))continue;
+      try{
+        const p=getComputedStyle(el).position;
+        if(p==='fixed'||p==='sticky')return el;
+      }catch(_){ }
+    }
+    return null;
+  }
+
+  function lift(){
+    if(!host)return;
+    const hr=host.getBoundingClientRect();
+    const points=[
+      [hr.left+hr.width*.50,hr.top+hr.height*.50],
+      [hr.left+6,hr.top+hr.height*.50],
+      [hr.right-6,hr.top+hr.height*.50],
+      [hr.left+hr.width*.50,hr.bottom-5]
+    ];
+    const seen=new Set();
+    let amount=0;
+
+    for(const [px,py] of points){
+      const stack=document.elementsFromPoint?.(Math.max(1,Math.min(innerWidth-1,px)),Math.max(1,Math.min(innerHeight-1,py)))||[];
+      for(const el of stack){
+        if(el===host||host.contains(el))continue;
+        const fixed=fixedAncestor(el);
+        if(!fixed||seen.has(fixed))continue;
+        seen.add(fixed);
+        const r=fixed.getBoundingClientRect();
+        if(r.width<24||r.height<24)continue;
+        const overlapsX=r.right>hr.left-8&&r.left<hr.right+8;
+        const overlapsY=r.bottom>hr.top-8&&r.top<hr.bottom+8;
+        if(overlapsX&&overlapsY&&r.top>innerHeight*.45){
+          amount=Math.max(amount,Math.min(220,innerHeight-r.top+12));
+        }
+      }
+    }
+
+    /* Bottom bars can sit directly beneath the orb but expose child gaps; inspect top-level bars as a cheap fallback. */
+    for(const el of [...document.body.children]){
+      if(el===host||!vis(el))continue;
+      let cs; try{cs=getComputedStyle(el)}catch(_){continue}
+      if(cs.position!=='fixed'&&cs.position!=='sticky')continue;
+      const r=el.getBoundingClientRect();
+      if(r.width>innerWidth*.55&&r.bottom>innerHeight-8&&r.top>innerHeight-240){
+        amount=Math.max(amount,Math.min(220,innerHeight-r.top+12));
+      }
+    }
+
+    host.style.setProperty('--ato-orb-lift',Math.round(amount)+'px');
+  }
+
+  function syncOpen(){
+    if(!host)return;
+    const next=panelOpen();
+    open=next;
+    host.classList.toggle('ato-orb-v2-open',next);
+    if(native)native.setAttribute('aria-expanded',next?'true':'false');
+  }
+
+  function cleanupOldBinding(){
+    if(!host)return;
+    host.classList.remove(H,'ato-orb-v2-light','ato-orb-v2-dark','ato-orb-v2-media','ato-orb-v2-open','ato-orb-v2-hint','ato-orb-v2-click');
+    host.querySelector(':scope > .'+V)?.remove();
+    native?.classList.remove(N);
+    host=null;native=null;open=false;
+  }
+
+  function bind(h){
+    if(!h)return false;
+    const n=findNative(h);
+    if(!n)return false; // fail-safe: original launcher stays untouched.
+
+    if(host&&host!==h)cleanupOldBinding();
+    host=h;native=n;
+    host.classList.add(H);
+    native.classList.add(N);
+    native.setAttribute('aria-label','Open AI Assistant');
+    visual(host);
+    tone();
+    lift();
+    syncOpen();
+
+    if(discoverObserver){discoverObserver.disconnect();discoverObserver=null}
+    if(!stateTimer)stateTimer=setInterval(syncOpen,420);
+    if(!healthTimer)healthTimer=setInterval(()=>{
+      if(host?.isConnected&&native?.isConnected)return;
+      cleanupOldBinding();
+      startDiscovery();
+    },2400);
+    return true;
+  }
+
+  function tryBind(){
+    discoverQueued=false;
+    if(host?.isConnected&&native?.isConnected)return true;
+    return bind(findHost());
+  }
+
+  function queueBind(){
+    if(discoverQueued)return;
+    discoverQueued=true;
+    requestAnimationFrame(tryBind);
+  }
+
+  function startDiscovery(){
+    if(tryBind())return;
+    if(discoverObserver)return;
+    discoverObserver=new MutationObserver(queueBind);
+    discoverObserver.observe(document.documentElement,{subtree:true,childList:true});
+    setTimeout(queueBind,120);
+    setTimeout(queueBind,480);
+    setTimeout(queueBind,1200);
+    setTimeout(queueBind,2600);
+  }
+
+  function hint(){
+    let seen=false;
+    try{seen=sessionStorage.getItem(SESSION)==='1'}catch(_){ }
+    if(seen||!host||open)return;
+    setTimeout(()=>{
+      if(!host||open)return;
+      host.classList.add('ato-orb-v2-hint');
+      setTimeout(()=>host?.classList.remove('ato-orb-v2-hint'),2400);
+      try{sessionStorage.setItem(SESSION,'1')}catch(_){ }
+    },5200);
+  }
+
+  let motionRAF=0;
+  function queueSurfaceSync(){
+    if(motionRAF)return;
+    motionRAF=requestAnimationFrame(()=>{
+      motionRAF=0;
+      tone();
+      lift();
+    });
+  }
+
+  function init(){
+    startDiscovery();
+
+    document.addEventListener('pointerdown',e=>{
+      if(!host||!host.contains(e.target))return;
+      host.classList.add('ato-orb-v2-click');
+      setTimeout(()=>host?.classList.remove('ato-orb-v2-click'),170);
+    },true);
+
+    document.addEventListener('click',e=>{
+      if(host&&host.contains(e.target)){
+        setTimeout(syncOpen,40);
+        setTimeout(syncOpen,180);
+        setTimeout(syncOpen,420);
+      }else if(open){
+        setTimeout(syncOpen,80);
+        setTimeout(syncOpen,260);
+      }
+    },true);
+
+    addEventListener('scroll',queueSurfaceSync,{passive:true});
+    addEventListener('resize',queueSurfaceSync,{passive:true});
+    addEventListener('orientationchange',()=>setTimeout(queueSurfaceSync,120),{passive:true});
+
+    setTimeout(()=>{if(host)hint();else setTimeout(hint,1600)},1200);
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
+})();
+</script>
+<!-- =====================================================================
+     ATO DESKTOP ASSISTANT — BLUE → EMERALD LUXURY V7
+     DESKTOP ONLY (>=981px).
+     Full backdrop remains below Assistant. The Assistant keeps its proven V6 geometry,
+     while only its desktop visual surface and interaction palette are refined.
+     Mobile, header, promo ribbon and Assistant content/logic are untouched.
+     ===================================================================== -->
+<style id="ato-desktop-language-name-hover-v7">
 @media (min-width:981px){
-  /* Language hover: ONLY the full language name turns gold.
-     En / Ru / Tr / De / Pl stay in their normal ivory color. */
+  /* Only full language names turn gold on hover. Short En/Ru/Tr/De/Pl stay ivory. */
+  #atoGlobalHeaderRoot .language-menu a .ato-lang-name,
+  #atoGlobalHeaderRoot .language-menu a .ato-v8-lang-name{
+    transition:color .18s ease,text-shadow .18s ease!important;
+  }
   #atoGlobalHeaderRoot .language-menu a:hover .ato-lang-name,
   #atoGlobalHeaderRoot .language-menu a:hover .ato-v8-lang-name{
     color:#e1b65b!important;
-    text-shadow:0 0 12px rgba(225,182,91,.18)!important;
-    transition:color .18s ease,text-shadow .18s ease!important;
+    text-shadow:0 0 12px rgba(225,182,91,.16)!important;
   }
   #atoGlobalHeaderRoot .language-menu a:hover .ato-lang-code,
   #atoGlobalHeaderRoot .language-menu a:hover .ato-v8-lang-code{
@@ -2694,283 +3409,670 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     text-shadow:none!important;
   }
 
-  #atoDesktopAssistantBackdropV2{
+  /* V7 — controlled blue → teal → dark emerald depth. No neon, no hard bands. */
+  .ato-desktop-assistant-v7-surface{
+    background:
+      radial-gradient(105% 82% at 14% 3%,rgba(105,184,255,.205) 0%,rgba(71,153,236,.105) 22%,rgba(38,111,176,.035) 42%,transparent 58%),
+      radial-gradient(90% 78% at 92% 92%,rgba(24,151,119,.185) 0%,rgba(16,112,91,.095) 30%,rgba(6,65,57,.025) 53%,transparent 70%),
+      radial-gradient(65% 55% at 50% 48%,rgba(16,87,105,.080) 0%,transparent 72%),
+      linear-gradient(136deg,#102a49 0%,#0d2d45 20%,#0b3342 38%,#0a3b3f 57%,#073832 75%,#052a27 88%,#041d1e 100%)!important;
+    border-color:rgba(207,166,84,.62)!important;
+    box-shadow:
+      0 36px 100px rgba(0,0,0,.54),
+      0 0 0 1px rgba(210,171,92,.18),
+      0 0 56px rgba(25,110,142,.10),
+      inset 0 1px 0 rgba(255,255,255,.042),
+      inset 0 -48px 72px rgba(0,25,24,.13),
+      inset 34px 0 90px rgba(53,133,201,.028)!important;
+    color:#f5f2e9!important;
+  }
+
+  /* Keep the native Assistant structure; only refine its desktop visual rhythm. */
+  .ato-desktop-assistant-v7-surface .ato-v7-message-bubble{
+    background:linear-gradient(105deg,rgba(18,48,70,.68),rgba(11,55,61,.42))!important;
+    border-color:rgba(126,178,202,.16)!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.025)!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-quick-chip{
+    color:rgba(247,244,235,.90)!important;
+    border-color:rgba(207,166,84,.34)!important;
+    background:linear-gradient(110deg,rgba(12,37,55,.52),rgba(7,55,52,.38))!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.018)!important;
+    transition:color .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease,transform .22s ease!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-quick-chip:hover{
+    color:#f4d58a!important;
+    border-color:rgba(224,186,100,.66)!important;
+    background:linear-gradient(110deg,rgba(20,67,91,.68),rgba(8,79,68,.56))!important;
+    box-shadow:0 8px 24px rgba(3,27,31,.18),inset 0 1px 0 rgba(255,255,255,.035)!important;
+    transform:translateY(-1px)!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row{
+    border-color:rgba(212,172,90,.48)!important;
+    background:linear-gradient(90deg,rgba(10,34,49,.52),rgba(6,52,48,.34))!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.02)!important;
+    transition:border-color .22s ease,background .22s ease,box-shadow .22s ease!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row:hover{
+    border-color:rgba(227,190,106,.72)!important;
+    background:linear-gradient(90deg,rgba(14,46,63,.62),rgba(7,66,58,.46))!important;
+    box-shadow:0 10px 30px rgba(1,25,26,.14),inset 0 1px 0 rgba(255,255,255,.025)!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row svg,
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row [aria-hidden="true"],
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row .arrow{
+    color:#ddb75e!important;
+    stroke:#ddb75e!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-input{
+    background:linear-gradient(100deg,rgba(7,29,43,.68),rgba(5,45,43,.50))!important;
+    border-color:rgba(211,170,86,.42)!important;
+    color:#f5f2e9!important;
+    caret-color:#e0b85d!important;
+    transition:border-color .22s ease,box-shadow .22s ease,background .22s ease!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-input:focus{
+    border-color:rgba(225,187,100,.72)!important;
+    box-shadow:0 0 0 3px rgba(40,130,142,.10),0 0 26px rgba(18,109,111,.08)!important;
+    outline:none!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-send{
+    border-color:rgba(213,173,89,.50)!important;
+    background:linear-gradient(145deg,rgba(15,49,64,.70),rgba(6,60,53,.55))!important;
+    color:#f4d58a!important;
+    transition:border-color .22s ease,background .22s ease,box-shadow .22s ease,transform .22s ease!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-send:hover{
+    border-color:rgba(229,191,104,.80)!important;
+    background:linear-gradient(145deg,rgba(23,74,90,.78),rgba(8,82,68,.68))!important;
+    box-shadow:0 8px 28px rgba(2,35,35,.18)!important;
+    transform:translateY(-1px)!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-footnote{
+    color:rgba(205,219,220,.70)!important;
+    letter-spacing:.095em!important;
+    text-shadow:0 1px 10px rgba(0,0,0,.20)!important;
+  }
+
+  #atoDesktopAssistantBackdropV7{
     position:fixed!important;
     inset:0!important;
-    z-index:2147483400!important;
-    background:rgba(2,8,16,.58)!important;
-    backdrop-filter:blur(7px)!important;
-    -webkit-backdrop-filter:blur(7px)!important;
+    z-index:2147483000!important;
+    background:rgba(2,10,17,.60)!important;
+    -webkit-backdrop-filter:blur(4.5px) saturate(.92)!important;
+    backdrop-filter:blur(4.5px) saturate(.92)!important;
     opacity:0!important;
     visibility:hidden!important;
     pointer-events:none!important;
-    transition:opacity .18s ease,visibility .18s ease!important;
+    transition:opacity .16s ease,visibility .16s ease!important;
   }
-  #atoDesktopAssistantBackdropV2.is-open{
+  #atoDesktopAssistantBackdropV7.is-open{
     opacity:1!important;
     visibility:visible!important;
     pointer-events:auto!important;
   }
-
-  /* This class is also injected into an open ShadowRoot when needed. */
-  .ato-desktop-assistant-modalized-v2{
-    position:fixed!important;
-    left:50%!important;
-    top:50%!important;
-    right:auto!important;
-    bottom:auto!important;
-    inset:auto!important;
-    width:min(720px,calc(100vw - 72px))!important;
-    max-width:720px!important;
-    min-width:min(520px,calc(100vw - 72px))!important;
-    height:min(760px,calc(100vh - 72px))!important;
-    max-height:760px!important;
-    min-height:min(560px,calc(100vh - 72px))!important;
-    margin:0!important;
-    translate:none!important;
-    transform:translate(-50%,-50%)!important;
-    z-index:2147483600!important;
-    overflow:hidden!important;
-    box-sizing:border-box!important;
-  }
-  .ato-desktop-assistant-host-z-v2{
-    z-index:2147483600!important;
-  }
 }
 </style>
-<script id="ato-desktop-assistant-modal-v2-js">
+<script id="ato-desktop-assistant-modal-v7-js">
 (function(){
   'use strict';
-  const mq=window.matchMedia('(min-width:981px)');
-  const MODAL='ato-desktop-assistant-modalized-v2';
-  const HOSTZ='ato-desktop-assistant-host-z-v2';
-  const roots=new Set();
-  const patchedRoots=new WeakSet();
-  let active=null,activeHosts=[],raf=0;
+  const desktop=window.matchMedia('(min-width:981px)');
+  const BACKDROP_ID='atoDesktopAssistantBackdropV7';
+  const savedStyle=new WeakMap();
+  const savedPlace=new WeakMap();
+  const roots=new Set([document]);
+  let active=null;
+  let raf=0;
 
-  /* ato-assistant.js is deferred. Capture ShadowRoots before it mounts. */
-  roots.add(document);
-  const nativeAttach=Element.prototype.attachShadow;
-  if(nativeAttach && !Element.prototype.__atoAssistantShadowCaptureV2){
+  function isVisible(el){
     try{
-      Object.defineProperty(Element.prototype,'__atoAssistantShadowCaptureV2',{value:true,configurable:true});
-      Element.prototype.attachShadow=function(init){
-        const root=nativeAttach.call(this,init);
-        roots.add(root);
-        queue();
-        return root;
-      };
-    }catch(_){/* no-op */}
+      const cs=getComputedStyle(el),r=el.getBoundingClientRect();
+      if(el.hidden||cs.display==='none'||cs.visibility==='hidden'||parseFloat(cs.opacity||'1')<.03)return false;
+      return r.width>260&&r.height>260&&r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight;
+    }catch(_){return false}
   }
 
-  function rootContainer(root){
-    if(root===document)return document.head||document.documentElement;
-    return root;
+  function textOf(el){
+    try{return (el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}catch(_){return ''}
   }
-  function ensureModalStyle(root){
-    if(!root||patchedRoots.has(root))return;
-    patchedRoots.add(root);
-    const st=document.createElement('style');
-    st.textContent=`@media (min-width:981px){
-      .${MODAL}{position:fixed!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;inset:auto!important;width:min(720px,calc(100vw - 72px))!important;max-width:720px!important;min-width:min(520px,calc(100vw - 72px))!important;height:min(760px,calc(100vh - 72px))!important;max-height:760px!important;min-height:min(560px,calc(100vh - 72px))!important;margin:0!important;translate:none!important;transform:translate(-50%,-50%)!important;z-index:2147483600!important;overflow:hidden!important;box-sizing:border-box!important}
-      .${HOSTZ}{z-index:2147483600!important}
-    }`;
-    try{rootContainer(root).appendChild(st)}catch(_){/* no-op */}
+  function metaOf(el){
+    try{return `${el.id||''} ${typeof el.className==='string'?el.className:''} ${el.getAttribute?.('aria-label')||''} ${el.getAttribute?.('role')||''}`.toUpperCase()}catch(_){return ''}
+  }
+  function assistantTextScore(el){
+    const t=textOf(el),m=metaOf(el);
+    let s=0;
+    if(t.includes('TALK TO MANAGER'))s+=90;
+    if(t.includes('ASK ABOUT TOURS'))s+=70;
+    if(t.includes('AI ASSISTANT'))s+=55;
+    if(t.includes('FIND A TOUR'))s+=35;
+    if(t.includes('WITH CHILDREN'))s+=25;
+    if(t.includes('PICKUP & TRANSFER'))s+=25;
+    if(/ASSISTANT|ATO.?AI|CHAT/.test(m))s+=45;
+    try{if(el.querySelector?.('input,textarea'))s+=12}catch(_){ }
+    return s;
   }
 
-  function discoverRoots(root=document){
+  function discover(root=document){
     try{
-      const all=root.querySelectorAll?root.querySelectorAll('*'):[];
-      all.forEach(el=>{
-        if(el.shadowRoot){roots.add(el.shadowRoot);discoverRoots(el.shadowRoot)}
+      root.querySelectorAll?.('*').forEach(el=>{
+        if(el.shadowRoot&&!roots.has(el.shadowRoot)){
+          roots.add(el.shadowRoot);
+          discover(el.shadowRoot);
+        }
         if(el.tagName==='IFRAME'){
           try{
             const d=el.contentDocument;
-            if(d){roots.add(d);discoverRoots(d)}
-          }catch(_){/* cross-origin iframe: leave untouched */}
+            if(d&&!roots.has(d)){roots.add(d);discover(d)}
+          }catch(_){ }
         }
       });
-    }catch(_){/* no-op */}
+    }catch(_){ }
   }
 
-  function text(el){
-    try{return (el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}catch(_){return ''}
-  }
-  function isAssistantText(t){
-    if(!t.includes('TALK TO MANAGER'))return false;
-    const quick=t.includes('FIND A TOUR')||t.includes('WITH CHILDREN')||t.includes('PICKUP & TRANSFER');
-    const identity=t.includes('AI ASSISTANT')||t.includes('ASK ABOUT TOURS')||t.includes('WHAT DO YOU NEED');
-    return quick&&identity;
-  }
-  function rectVisible(el){
-    try{
-      const cs=getComputedStyle(el),r=el.getBoundingClientRect();
-      if(cs.display==='none'||cs.visibility==='hidden'||parseFloat(cs.opacity||'1')<.04||el.hidden)return false;
-      if(r.width<300||r.height<320)return false;
-      return r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight;
-    }catch(_){return false}
-  }
   function composedParent(el){
     if(!el)return null;
     if(el.parentElement)return el.parentElement;
-    try{
-      const rn=el.getRootNode?.();
-      if(rn&&rn.host)return rn.host;
-    }catch(_){/* no-op */}
-    return null;
+    try{return el.getRootNode?.()?.host||null}catch(_){return null}
   }
-  function scoreFrame(el){
+
+  function frameScore(el,baseRect){
     try{
-      const cs=getComputedStyle(el),r=el.getBoundingClientRect();
-      let s=0;
-      if(cs.position==='fixed')s+=8;
-      else if(cs.position==='absolute')s+=4;
-      if(r.width>=340&&r.width<=980)s+=3;
-      if(r.height>=380&&r.height<=innerHeight*1.35)s+=3;
-      if(parseFloat(cs.borderRadius||'0')>=12)s+=1;
-      if(isAssistantText(text(el)))s+=2;
-      return s;
-    }catch(_){return -1}
-  }
-  function chooseFrame(node){
-    let best=node,bestScore=scoreFrame(node),cur=node;
-    for(let i=0;i<9;i++){
-      cur=composedParent(cur);
-      if(!cur||cur===document.body||cur===document.documentElement||cur.id==='atoGlobalHeaderRoot')break;
-      const r=cur.getBoundingClientRect?.();
-      if(!r||r.width<280||r.height<300)continue;
-      const sc=scoreFrame(cur);
-      if(sc>bestScore){best=cur;bestScore=sc}
-    }
-    /* If the assistant lives inside a same-origin iframe, center the iframe itself. */
-    try{
-      const win=node.ownerDocument?.defaultView;
-      const frame=win?.frameElement;
-      if(frame){
-        const fr=frame.getBoundingClientRect();
-        if(fr.width>=280&&fr.height>=320)best=frame;
+      if(!isVisible(el))return -1e9;
+      if(el.closest?.('#atoGlobalHeaderRoot'))return -1e9;
+      if(el.id===BACKDROP_ID)return -1e9;
+      const r=el.getBoundingClientRect(),cs=getComputedStyle(el),m=metaOf(el);
+      if(r.width>innerWidth*.94&&r.height>innerHeight*.90)return -1e9;
+      if(r.width<280||r.height<300)return -1e9;
+      let s=assistantTextScore(el);
+      if(cs.position==='fixed')s+=120;
+      else if(cs.position==='absolute')s+=45;
+      if(/ASSISTANT|CHAT|WIDGET|PANEL|DRAWER|MODAL/.test(m))s+=65;
+      if(baseRect){
+        const wr=Math.abs(r.width-baseRect.width)/Math.max(baseRect.width,1);
+        const hr=Math.abs(r.height-baseRect.height)/Math.max(baseRect.height,1);
+        s+=Math.max(0,50-(wr+hr)*55);
       }
-    }catch(_){/* no-op */}
-    return best;
+      const z=parseInt(cs.zIndex,10);
+      if(Number.isFinite(z)&&z>1000)s+=18;
+      return s;
+    }catch(_){return -1e9}
   }
-  function findPanel(){
-    if(!mq.matches)return null;
-    discoverRoots();
+
+  function findAssistantContent(){
+    if(!desktop.matches)return null;
+    discover();
     const candidates=[];
     roots.forEach(root=>{
       try{
-        ensureModalStyle(root);
-        const els=root.querySelectorAll?root.querySelectorAll('aside,dialog,section,article,div,form'):[];
-        els.forEach(el=>{
-          if(el.id==='atoDesktopAssistantBackdrop'||el.id==='atoDesktopAssistantBackdropV2')return;
-          if(el.closest?.('#atoGlobalHeaderRoot'))return;
-          const t=text(el);
-          if(isAssistantText(t)&&rectVisible(el))candidates.push(el);
+        root.querySelectorAll?.('dialog,aside,section,article,form,div').forEach(el=>{
+          if(!isVisible(el))return;
+          const s=assistantTextScore(el);
+          if(s<180)return;
+          const r=el.getBoundingClientRect();
+          if(r.width<300||r.width>980||r.height<320||r.height>innerHeight*1.15)return;
+          candidates.push({el,s,area:r.width*r.height});
         });
-      }catch(_){/* no-op */}
+      }catch(_){ }
     });
     if(!candidates.length)return null;
-    candidates.sort((a,b)=>{
-      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
-      return (ar.width*ar.height)-(br.width*br.height);
-    });
-    return chooseFrame(candidates[0]);
+    candidates.sort((a,b)=>(b.s-a.s)||(a.area-b.area));
+    const bestScore=candidates[0].s;
+    const near=candidates.filter(x=>x.s>=bestScore-40).sort((a,b)=>a.area-b.area);
+    return (near[0]||candidates[0]).el;
   }
 
-  function ensureBackdrop(){
-    let b=document.getElementById('atoDesktopAssistantBackdropV2');
+  function chooseFrame(content){
+    if(!content)return null;
+    let best=content;
+    const base=content.getBoundingClientRect();
+    let bestScore=frameScore(content,base);
+    let cur=content;
+    for(let i=0;i<10;i++){
+      cur=composedParent(cur);
+      if(!cur||cur===document.body||cur===document.documentElement||cur.id==='atoGlobalHeaderRoot')break;
+      const sc=frameScore(cur,base);
+      if(sc>bestScore){best=cur;bestScore=sc}
+    }
+    try{
+      const frame=content.ownerDocument?.defaultView?.frameElement;
+      if(frame){
+        const sc=frameScore(frame,base)+80;
+        if(sc>bestScore)best=frame;
+      }
+    }catch(_){ }
+    return best;
+  }
+
+  function topPortalFrame(frame){
+    if(!frame)return frame;
+    try{
+      /* If the chosen panel lives inside Shadow DOM, move the host instead so its styles stay intact. */
+      let root=frame.getRootNode?.();
+      while(root&&root.host){
+        frame=root.host;
+        root=frame.getRootNode?.();
+      }
+      /* If Assistant content lives in a same-origin iframe, portal the iframe itself. */
+      if(frame.ownerDocument&&frame.ownerDocument!==document){
+        const iframe=frame.ownerDocument.defaultView?.frameElement;
+        if(iframe)frame=iframe;
+      }
+    }catch(_){ }
+    return frame;
+  }
+
+  function remember(frame){
+    if(!savedStyle.has(frame))savedStyle.set(frame,frame.getAttribute('style'));
+    if(!savedPlace.has(frame))savedPlace.set(frame,{parent:frame.parentNode,next:frame.nextSibling});
+  }
+
+  function portalToBody(frame){
+    if(!frame||frame.ownerDocument!==document)return;
+    remember(frame);
+    if(frame.parentNode!==document.body)document.body.appendChild(frame);
+    frame.classList.add('ato-desktop-assistant-v7-surface');
+  }
+
+  function restore(frame){
+    if(!frame)return;
+    frame.classList.remove('ato-desktop-assistant-v7-surface');
+    if(savedStyle.has(frame)){
+      const original=savedStyle.get(frame);
+      if(original===null)frame.removeAttribute('style');
+      else frame.setAttribute('style',original);
+      savedStyle.delete(frame);
+    }
+    if(savedPlace.has(frame)){
+      const place=savedPlace.get(frame);
+      savedPlace.delete(frame);
+      try{
+        if(place.parent?.isConnected){
+          if(place.next&&place.next.parentNode===place.parent)place.parent.insertBefore(frame,place.next);
+          else place.parent.appendChild(frame);
+        }
+      }catch(_){ }
+    }
+  }
+
+  function sizeAndCenter(frame,nativeRect){
+    if(!frame)return;
+    const safeX=120;
+    const safeY=96;
+    const maxW=Math.max(480,innerWidth-safeX*2);
+    const maxH=Math.max(500,innerHeight-safeY*2);
+
+    /* Desktop target: wider, calmer proportions; keep enough air on every side. */
+    const nativeW=Math.max(360,nativeRect?.width||frame.getBoundingClientRect().width||520);
+    const nativeH=Math.max(460,nativeRect?.height||frame.getBoundingClientRect().height||620);
+    const targetW=Math.min(Math.max(nativeW,620),Math.min(650,maxW));
+    const targetH=Math.min(Math.max(nativeH,570),Math.min(630,maxH));
+    const left=Math.max(safeX,(innerWidth-targetW)/2);
+    const top=Math.max(safeY,(innerHeight-targetH)/2);
+    const st=frame.style;
+
+    st.setProperty('position','fixed','important');
+    st.setProperty('inset','auto','important');
+    st.setProperty('left',left.toFixed(1)+'px','important');
+    st.setProperty('top',top.toFixed(1)+'px','important');
+    st.setProperty('right','auto','important');
+    st.setProperty('bottom','auto','important');
+    st.setProperty('width',targetW.toFixed(1)+'px','important');
+    st.setProperty('min-width','0','important');
+    st.setProperty('max-width',maxW.toFixed(1)+'px','important');
+    st.setProperty('height',targetH.toFixed(1)+'px','important');
+    st.setProperty('min-height','0','important');
+    st.setProperty('max-height',maxH.toFixed(1)+'px','important');
+    st.setProperty('margin','0','important');
+    st.setProperty('translate','none','important');
+    st.setProperty('transform','none','important');
+    st.setProperty('box-sizing','border-box','important');
+    st.setProperty('z-index','2147483600','important');
+  }
+
+  function decorateAssistant(frame){
+    if(!frame)return;
+    try{
+      const controls=deepControls(frame,[]);
+      controls.forEach(el=>{
+        const t=(el.textContent||'').replace(/\s+/g,' ').trim().toLowerCase();
+        if(['find a tour','with children','prices','pickup & transfer','what do you recommend?'].includes(t))el.classList.add('ato-v7-quick-chip');
+        if(t.includes('talk to manager'))el.classList.add('ato-v7-manager-row');
+      });
+
+      const fields=[...frame.querySelectorAll?.('input,textarea')||[]];
+      fields.forEach(el=>el.classList.add('ato-v7-input'));
+      fields.forEach(field=>{
+        const fr=field.getBoundingClientRect();
+        controls.forEach(btn=>{
+          const r=btn.getBoundingClientRect();
+          if(r.width>=34&&r.width<=90&&r.height>=34&&r.height<=90&&Math.abs(r.top-fr.top)<40&&r.left>=fr.right-12)btn.classList.add('ato-v7-send');
+        });
+      });
+
+      [...frame.querySelectorAll?.('div,p,span,small')||[]].forEach(el=>{
+        const t=(el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase();
+        if(t.startsWith('AI ASSISTANT')&&t.includes('ATO MANAGER'))el.classList.add('ato-v7-footnote');
+      });
+
+      /* Decorate the compact greeting bubble, but never the whole chat body. */
+      [...frame.querySelectorAll?.('div,p')||[]].forEach(el=>{
+        const t=(el.textContent||'').replace(/\s+/g,' ').trim();
+        if(t.startsWith('Hello. I can help with tours')&&t.length<180){
+          let bubble=el;
+          for(let i=0;i<3&&bubble.parentElement;i++){
+            const r=bubble.getBoundingClientRect(),pr=bubble.parentElement.getBoundingClientRect();
+            if(pr.width>r.width*1.45||pr.height>r.height*2.5)break;
+            bubble=bubble.parentElement;
+          }
+          bubble.classList.add('ato-v7-message-bubble');
+        }
+      });
+    }catch(_){ }
+  }
+
+  function backdrop(){
+    let b=document.getElementById(BACKDROP_ID);
     if(!b){
       b=document.createElement('div');
-      b.id='atoDesktopAssistantBackdropV2';
+      b.id=BACKDROP_ID;
       b.setAttribute('aria-hidden','true');
       document.body.appendChild(b);
-      b.addEventListener('click',closeAssistant);
+      b.addEventListener('click',closeThroughNative);
     }
     return b;
   }
-  function descendantsDeep(node,out=[]){
-    if(!node)return out;
-    try{
-      node.querySelectorAll?.('*').forEach(el=>{
-        out.push(el);
-        if(el.shadowRoot)descendantsDeep(el.shadowRoot,out);
-        if(el.tagName==='IFRAME'){
-          try{if(el.contentDocument)descendantsDeep(el.contentDocument,out)}catch(_){/* no-op */}
-        }
-      });
-    }catch(_){/* no-op */}
-    return out;
-  }
-  function closeAssistant(){
-    if(!mq.matches)return;
-    const panel=active||findPanel();
-    if(!panel)return;
-    const controls=descendantsDeep(panel,[]).filter(el=>el.matches?.('button,[role="button"],a'));
-    const btn=controls.find(el=>{
-      const a=(el.getAttribute('aria-label')||'').toLowerCase();
-      const t=(el.getAttribute('title')||'').toLowerCase();
-      const tx=(el.textContent||'').trim().toLowerCase();
-      return a.includes('close')||a.includes('dismiss')||t.includes('close')||tx==='×'||tx==='✕'||tx==='close';
-    });
-    if(btn){btn.click();setTimeout(queue,40);return}
-    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',code:'Escape',bubbles:true}));
-    setTimeout(queue,40);
-  }
-  function clear(){
-    if(active)active.classList.remove(MODAL);
-    active=null;
-    activeHosts.forEach(h=>h.classList.remove(HOSTZ));
-    activeHosts=[];
-    const b=document.getElementById('atoDesktopAssistantBackdropV2');
-    b?.classList.remove('is-open');
-    b?.setAttribute('aria-hidden','true');
-  }
-  function applyHosts(frame){
-    const hosts=[];
-    let cur=frame;
-    for(let i=0;i<8;i++){
-      try{
-        const rn=cur.getRootNode?.();
-        if(rn&&rn.host){
-          rn.host.classList.add(HOSTZ);
-          ensureModalStyle(rn.host.getRootNode?.()||document);
-          hosts.push(rn.host);
-          cur=rn.host;
-        }else break;
-      }catch(_){break}
-    }
-    activeHosts=hosts;
-  }
-  function sync(){
-    raf=0;
-    /* Temporarily remove our own class so visibility is judged by the Assistant's native open/closed state. */
-    if(active)active.classList.remove(MODAL);
-    activeHosts.forEach(h=>h.classList.remove(HOSTZ));
-    activeHosts=[];
-    if(!mq.matches){clear();return}
-    const panel=findPanel();
-    if(!panel){clear();return}
-    if(!rectVisible(panel)){clear();return}
-    ensureModalStyle(panel.getRootNode?.()||document);
-    panel.classList.add(MODAL);
-    active=panel;
-    applyHosts(panel);
-    const b=ensureBackdrop();
+  function showBackdrop(){
+    const b=backdrop();
     b.classList.add('is-open');
     b.setAttribute('aria-hidden','false');
   }
-  function queue(){if(raf)return;raf=requestAnimationFrame(sync)}
-
-  function init(){
-    discoverRoots();
-    const obs=new MutationObserver(queue);
-    try{obs.observe(document.documentElement,{subtree:true,childList:true})}catch(_){/* no-op */}
-    document.addEventListener('click',()=>{queue();setTimeout(queue,50);setTimeout(queue,180);setTimeout(queue,420)},true);
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')setTimeout(queue,35)},true);
-    window.addEventListener('resize',queue,{passive:true});
-    mq.addEventListener?.('change',queue);
-    setTimeout(queue,0);setTimeout(queue,250);setTimeout(queue,900);
+  function hideBackdrop(){
+    const b=document.getElementById(BACKDROP_ID);
+    b?.classList.remove('is-open');
+    b?.setAttribute('aria-hidden','true');
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+
+  function deepControls(root,out=[]){
+    try{
+      root.querySelectorAll?.('button,[role="button"],a').forEach(el=>out.push(el));
+      root.querySelectorAll?.('*').forEach(el=>{if(el.shadowRoot)deepControls(el.shadowRoot,out)});
+    }catch(_){ }
+    return out;
+  }
+  function isCloseControl(el){
+    if(!el)return false;
+    const aria=(el.getAttribute?.('aria-label')||'').toLowerCase();
+    const title=(el.getAttribute?.('title')||'').toLowerCase();
+    const tx=(el.textContent||'').trim().toLowerCase();
+    const cls=metaOf(el).toLowerCase();
+    return aria.includes('close')||aria.includes('dismiss')||title.includes('close')||
+      tx==='×'||tx==='✕'||tx==='close'||/close|dismiss/.test(cls);
+  }
+
+  function closeThroughNative(){
+    if(!desktop.matches||!active)return;
+    const frame=active;
+    const controls=deepControls(frame,[]);
+    const close=controls.find(isCloseControl);
+    restore(frame);
+    active=null;
+    hideBackdrop();
+    if(close){close.click();return}
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',code:'Escape',bubbles:true}));
+  }
+
+  function clear(){
+    if(active){restore(active);active=null}
+    hideBackdrop();
+  }
+
+  function sync(){
+    raf=0;
+    if(!desktop.matches){clear();return}
+    const content=findAssistantContent();
+    if(!content){clear();return}
+    let frame=chooseFrame(content);
+    frame=topPortalFrame(frame);
+    if(!frame||!isVisible(frame)){clear();return}
+
+    if(active&&active!==frame)restore(active);
+    active=frame;
+
+    /* Measure BEFORE portaling so we preserve the native Assistant height. */
+    const nativeRect=frame.getBoundingClientRect();
+    portalToBody(frame);
+    sizeAndCenter(frame,nativeRect);
+    decorateAssistant(frame);
+    showBackdrop();
+  }
+
+  function queue(){
+    if(raf)return;
+    raf=requestAnimationFrame(sync);
+  }
+
+  /* Restore native placement immediately before its own close handler runs. */
+  document.addEventListener('click',function(e){
+    if(!desktop.matches)return;
+    const target=e.target?.closest?.('button,[role="button"],a');
+    if(active&&isCloseControl(target)){
+      const frame=active;
+      active=null;
+      hideBackdrop();
+      restore(frame);
+      return;
+    }
+    setTimeout(queue,30);
+    setTimeout(queue,140);
+  },true);
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&active){
+      const frame=active;
+      active=null;
+      hideBackdrop();
+      restore(frame);
+    }
+    setTimeout(queue,35);
+  },true);
+
+  const observer=new MutationObserver(queue);
+  function init(){
+    observer.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-hidden','hidden','open']});
+    window.addEventListener('resize',queue,{passive:true});
+    desktop.addEventListener?.('change',queue);
+    setTimeout(queue,0);
+    setTimeout(queue,250);
+    setTimeout(queue,900);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
 })();
 </script>
+
+
+
+<!-- =====================================================================
+     ATO DESKTOP ASSISTANT — BRAND MARK + INPUT ATTENTION V8
+     DESKTOP ONLY (>=981px).
+     Adds only the approved ATO gold brand symbol inside Assistant and a single
+     blue→emerald input-awakening pulse on each desktop open. Mobile/header untouched.
+     ===================================================================== -->
+<style id="ato-desktop-assistant-brand-input-v8">
+@media (min-width:981px){
+  .ato-v8-brand-line{
+    display:flex!important;
+    align-items:center!important;
+    gap:8px!important;
+  }
+  .ato-v8-brand-mark{
+    display:block!important;
+    width:24px!important;
+    height:auto!important;
+    flex:0 0 auto!important;
+    object-fit:contain!important;
+    opacity:.98!important;
+    filter:
+      drop-shadow(0 0 5px rgba(225,177,75,.14))
+      drop-shadow(0 0 10px rgba(40,108,174,.07))!important;
+    transform:translateY(-.5px)!important;
+    pointer-events:none!important;
+    user-select:none!important;
+  }
+
+  /* The input remains calm at rest; attention is called only once per opening. */
+  .ato-desktop-assistant-v7-surface .ato-v7-input{
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.018),
+      0 0 0 1px rgba(42,112,128,.015)!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-input::placeholder{
+    color:rgba(205,220,226,.56)!important;
+    opacity:1!important;
+    transition:color .24s ease,opacity .24s ease!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-input.ato-v8-input-awaken{
+    animation:atoV8InputAwaken 1.34s cubic-bezier(.22,.72,.24,1) 1 both!important;
+  }
+  @keyframes atoV8InputAwaken{
+    0%{
+      border-color:rgba(211,170,86,.42);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.018),
+        0 0 0 0 rgba(71,164,238,0),
+        0 0 0 rgba(20,151,116,0);
+    }
+    28%{
+      border-color:rgba(104,194,236,.78);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.035),
+        0 0 0 3px rgba(77,168,231,.075),
+        0 0 24px rgba(62,158,226,.17),
+        0 0 42px rgba(24,151,119,.10);
+    }
+    58%{
+      border-color:rgba(75,176,173,.66);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.030),
+        0 0 0 2px rgba(45,157,168,.055),
+        0 0 19px rgba(45,151,192,.12),
+        0 0 32px rgba(18,137,104,.085);
+    }
+    100%{
+      border-color:rgba(211,170,86,.42);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.018),
+        0 0 0 1px rgba(42,112,128,.015);
+    }
+  }
+
+  /* Focus is richer than idle, but never flashes or keeps pulsing. */
+  .ato-desktop-assistant-v7-surface .ato-v7-input:focus{
+    border-color:rgba(112,197,208,.76)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.035),
+      0 0 0 3px rgba(64,164,198,.075),
+      0 0 24px rgba(53,150,203,.135),
+      0 0 38px rgba(22,137,105,.095)!important;
+    background:
+      linear-gradient(100deg,rgba(8,35,53,.76),rgba(5,55,49,.61))!important;
+    outline:none!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-input:focus::placeholder{
+    color:rgba(225,237,239,.70)!important;
+  }
+
+  /* A quiet echo on the send control guides the eye from field to action. */
+  .ato-desktop-assistant-v7-surface .ato-v7-send{
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.025),
+      0 0 18px rgba(20,126,115,.055)!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-send:hover{
+    box-shadow:
+      0 8px 28px rgba(2,35,35,.18),
+      0 0 24px rgba(44,151,136,.10)!important;
+  }
+}
+@media (max-width:980px){
+  .ato-v8-brand-mark{display:none!important;}
+}
+</style>
+<script id="ato-desktop-assistant-brand-input-v8-js">
+(function(){
+  'use strict';
+  const desktop=window.matchMedia('(min-width:981px)');
+  const BRAND_SRC="data:image/png;base64,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";
+  let armed=true;
+  let raf=0;
+
+  function smallestExact(root,text){
+    const wanted=text.toUpperCase();
+    const matches=[];
+    try{
+      root.querySelectorAll('span,p,small,div,strong').forEach(el=>{
+        if(el.classList?.contains('ato-v8-brand-mark'))return;
+        const own=(el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase();
+        if(own!==wanted)return;
+        const r=el.getBoundingClientRect();
+        if(r.width>0&&r.height>0)matches.push({el,area:r.width*r.height});
+      });
+    }catch(_){}
+    matches.sort((a,b)=>a.area-b.area);
+    return matches[0]?.el||null;
+  }
+
+  function addBrand(frame){
+    if(!frame||frame.querySelector('.ato-v8-brand-mark'))return;
+    const line=smallestExact(frame,'ALANYA TOUR ORGANIZATIONS');
+    if(!line)return;
+    const img=document.createElement('img');
+    img.className='ato-v8-brand-mark';
+    img.src=BRAND_SRC;
+    img.alt='';
+    img.setAttribute('aria-hidden','true');
+    line.classList.add('ato-v8-brand-line');
+    line.prepend(img);
+  }
+
+  function pulseField(frame){
+    if(!frame)return;
+    const field=frame.querySelector('.ato-v7-input, textarea, input[type="text"], input:not([type])');
+    if(!field)return;
+    field.classList.remove('ato-v8-input-awaken');
+    void field.offsetWidth;
+    field.classList.add('ato-v8-input-awaken');
+    window.setTimeout(()=>field.classList.remove('ato-v8-input-awaken'),1450);
+  }
+
+  function sync(){
+    raf=0;
+    if(!desktop.matches){armed=true;return}
+    const frame=document.querySelector('.ato-desktop-assistant-v7-surface');
+    if(!frame){armed=true;return}
+    addBrand(frame);
+    if(armed){
+      armed=false;
+      window.setTimeout(()=>pulseField(frame),180);
+    }
+  }
+
+  function queue(){
+    if(raf)return;
+    raf=requestAnimationFrame(sync);
+  }
+
+  const mo=new MutationObserver(queue);
+  function init(){
+    mo.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-hidden','hidden','open']});
+    desktop.addEventListener?.('change',queue);
+    document.addEventListener('click',()=>{setTimeout(queue,35);setTimeout(queue,180)},true);
+    queue();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
+})();
+</script>
+
+</body>
+</html>
