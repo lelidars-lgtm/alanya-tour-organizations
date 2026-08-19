@@ -2641,18 +2641,17 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
      ===================================================================== -->
 <style id="ato-ai-orb-v2-inline-style">
 :root{
-  /* Exact visual family from the embedded ATO company mark: deep blue + warm gold. */
-  --ato-brand-blue:#1a3253;
-  --ato-brand-blue-deep:#0a2243;
-  --ato-brand-blue-soft:#42556f;
-  --ato-brand-gold:#d9a443;
-  --ato-brand-gold-deep:#bf8630;
-  --ato-brand-gold-light:#ead076;
-  --ato-brand-ivory:#fff8ec;
+  --ato-brand-blue:#173456;
+  --ato-brand-blue-deep:#091e35;
+  --ato-brand-blue-soft:#49637f;
+  --ato-brand-gold:#d8a243;
+  --ato-brand-gold-deep:#b78335;
+  --ato-brand-gold-light:#ead29a;
+  --ato-brand-ivory:#fff9ef;
 
   --ato-orb-size:52px;
-  --ato-orb-symbol:34px;
-  --ato-orb-expanded:158px;
+  --ato-orb-symbol:36px;
+  --ato-orb-expanded:162px;
   --ato-orb-ease:cubic-bezier(.22,.61,.36,1);
 }
 
@@ -2701,20 +2700,24 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   }
 }
 
-.ato-orb-v2-host.ato-orb-v2-hint{
-  width:var(--ato-orb-expanded)!important;
-  min-width:var(--ato-orb-expanded)!important;
-  max-width:var(--ato-orb-expanded)!important;
+.ato-orb-v2-host *,
+.ato-orb-v2-host *::before,
+.ato-orb-v2-host *::after{
+  box-sizing:border-box!important;
 }
 
-/* Keep the proven native Assistant launcher alive; only silence its old heavy pill visually. */
-.ato-orb-v2-host > *:not(.ato-orb-v2-visual){
+.ato-orb-v2-host :is(img,svg,picture,video,canvas){
+  opacity:1!important;
+  visibility:visible!important;
+}
+
+.ato-orb-v2-host .ato-orb-v2-native-surface,
+.ato-orb-v2-host > :not(.ato-orb-v2-visual):not(.ato-orb-v2-native-surface){
   opacity:0!important;
   color:transparent!important;
   text-shadow:none!important;
 }
 
-/* The existing Assistant control remains the real hit area: no duplicate click bridge. */
 .ato-orb-v2-host .ato-orb-v2-native-surface{
   position:absolute!important;
   inset:0!important;
@@ -2749,85 +2752,68 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   display:flex!important;
   align-items:center!important;
   justify-content:flex-start!important;
-  gap:9px!important;
-  padding:0 9px!important;
+  gap:10px!important;
+  padding:0 8px 0 8px!important;
   border-radius:999px!important;
+  background:
+    radial-gradient(circle at 24% 48%, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 34%),
+    linear-gradient(135deg, rgba(11,31,49,.24) 0%, rgba(15,42,67,.26) 42%, rgba(12,34,56,.18) 100%)!important;
+  border:1px solid rgba(216,162,67,.18)!important;
+  backdrop-filter:blur(14px) saturate(118%)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(118%)!important;
+  box-shadow:
+    0 8px 22px rgba(3,11,20,.12),
+    inset 0 1px 0 rgba(255,249,239,.04),
+    inset 0 -1px 0 rgba(13,36,58,.08)!important;
   overflow:hidden!important;
   pointer-events:none!important;
-  z-index:10!important;
-
-  /* Universal low-contrast glass: quiet on dark/photo surfaces, still readable on light sections. */
-  background:
-    radial-gradient(circle at 26px 50%,rgba(217,164,67,.075),transparent 46%),
-    linear-gradient(135deg,rgba(26,50,83,.27),rgba(10,34,67,.18))!important;
-  -webkit-backdrop-filter:blur(13px) saturate(110%)!important;
-  backdrop-filter:blur(13px) saturate(110%)!important;
-  border:1px solid rgba(217,164,67,.18)!important;
-  box-shadow:
-    inset 0 1px 0 rgba(255,248,236,.035),
-    0 8px 24px rgba(2,10,18,.14)!important;
-  transition:
-    border-color 240ms ease,
-    box-shadow 240ms ease,
-    background 240ms ease,
-    filter 240ms ease!important;
-}
-
-/* Solid light surfaces receive slightly stronger brand-blue glass. */
-.ato-orb-v2-host.ato-orb-v2-light .ato-orb-v2-visual{
-  background:
-    radial-gradient(circle at 26px 50%,rgba(217,164,67,.085),transparent 47%),
-    linear-gradient(135deg,rgba(10,34,67,.50),rgba(26,50,83,.38))!important;
-  border-color:rgba(191,134,48,.24)!important;
-}
-
-/* Dark blocks remain nearly transparent. */
-.ato-orb-v2-host.ato-orb-v2-dark .ato-orb-v2-visual{
-  background:
-    radial-gradient(circle at 26px 50%,rgba(234,208,118,.07),transparent 47%),
-    linear-gradient(135deg,rgba(66,85,111,.22),rgba(10,34,67,.14))!important;
-}
-
-/* Images, video, canvas, maps and CSS background imagery: stable universal contrast, no false luminance guess. */
-.ato-orb-v2-host.ato-orb-v2-media .ato-orb-v2-visual{
-  background:
-    radial-gradient(circle at 26px 50%,rgba(217,164,67,.085),transparent 46%),
-    linear-gradient(135deg,rgba(10,34,67,.36),rgba(26,50,83,.23))!important;
-  border-color:rgba(217,164,67,.20)!important;
-  box-shadow:
-    inset 0 1px 0 rgba(255,248,236,.04),
-    0 8px 24px rgba(1,8,14,.17)!important;
 }
 
 @media (hover:hover) and (pointer:fine){
   .ato-orb-v2-host:hover .ato-orb-v2-visual,
   .ato-orb-v2-host:focus-within .ato-orb-v2-visual{
-    border-color:rgba(234,208,118,.31)!important;
+    background:
+      radial-gradient(circle at 22% 50%, rgba(255,255,255,.11) 0%, rgba(255,255,255,0) 34%),
+      linear-gradient(135deg, rgba(12,33,51,.28) 0%, rgba(17,46,73,.31) 42%, rgba(13,38,62,.22) 100%)!important;
+    border-color:rgba(216,162,67,.30)!important;
     box-shadow:
-      inset 0 1px 0 rgba(255,248,236,.045),
-      0 10px 28px rgba(2,10,18,.16),
-      0 0 14px rgba(217,164,67,.045)!important;
+      0 10px 26px rgba(3,11,20,.15),
+      inset 0 1px 0 rgba(255,249,239,.05),
+      0 0 0 1px rgba(216,162,67,.05)!important;
   }
 }
 
 .ato-orb-v2-symbol{
+  position:relative!important;
   flex:0 0 var(--ato-orb-symbol)!important;
   width:var(--ato-orb-symbol)!important;
   height:var(--ato-orb-symbol)!important;
   display:grid!important;
   place-items:center!important;
   transform:translateZ(0)!important;
-  transition:transform 160ms var(--ato-orb-ease),filter 240ms ease!important;
+  transition:transform 180ms var(--ato-orb-ease),filter 240ms ease!important;
+}
+
+.ato-orb-v2-symbol::before{
+  content:""!important;
+  position:absolute!important;
+  inset:-6px!important;
+  border-radius:50%!important;
+  background:radial-gradient(circle, rgba(234,210,154,.12) 0%, rgba(23,52,86,.08) 42%, rgba(9,30,53,0) 74%)!important;
+  opacity:.55!important;
+  filter:blur(4px)!important;
 }
 
 .ato-orb-v2-symbol svg{
+  position:relative!important;
   display:block!important;
   width:100%!important;
   height:100%!important;
   overflow:visible!important;
 }
 
-.ato-orb-v2-orbit{
+.ato-orb-v2-orbit,
+.ato-orb-v2-pass{
   fill:none;
   transform-box:view-box;
   transform-origin:32px 32px;
@@ -2835,99 +2821,102 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   stroke-linecap:round;
 }
 
+.ato-orb-v2-orbit{
+  filter:drop-shadow(0 0 3px rgba(216,162,67,.08));
+}
+
 .ato-orb-v2-a{
-  stroke:rgba(234,208,118,.80);
-  stroke-width:1.02;
-  animation:atoOrb2A 12.8s linear infinite;
+  stroke:rgba(234,210,154,.86);
+  stroke-width:1.08;
+  animation:atoOrb2A 13.4s linear infinite;
 }
 .ato-orb-v2-b{
-  stroke:rgba(66,85,111,.82);
-  stroke-width:.98;
-  animation:atoOrb2B 10.6s linear infinite;
+  stroke:rgba(93,123,156,.76);
+  stroke-width:1.00;
+  animation:atoOrb2B 10.9s linear infinite;
 }
 .ato-orb-v2-c{
-  stroke:rgba(191,134,48,.58);
-  stroke-width:.84;
-  animation:atoOrb2C 8.8s linear infinite;
+  stroke:rgba(183,131,53,.70);
+  stroke-width:.92;
+  animation:atoOrb2C 8.6s linear infinite;
 }
 .ato-orb-v2-d{
-  stroke:rgba(26,50,83,.70);
-  stroke-width:.78;
-  animation:atoOrb2D 7.4s linear infinite;
+  stroke:rgba(28,66,102,.76);
+  stroke-width:.86;
+  animation:atoOrb2D 12.2s linear infinite;
 }
 
 @keyframes atoOrb2A{
-  0%{transform:rotate(12deg) scaleY(.72)}
-  50%{transform:rotate(192deg) scaleY(.48)}
-  100%{transform:rotate(372deg) scaleY(.72)}
+  0%{transform:rotate(10deg) scaleY(.70)}
+  50%{transform:rotate(190deg) scaleY(.50)}
+  100%{transform:rotate(370deg) scaleY(.70)}
 }
 @keyframes atoOrb2B{
-  0%{transform:rotate(120deg) scaleY(.50)}
-  50%{transform:rotate(-60deg) scaleY(.84)}
-  100%{transform:rotate(-240deg) scaleY(.50)}
+  0%{transform:rotate(122deg) scaleY(.54)}
+  50%{transform:rotate(-58deg) scaleY(.88)}
+  100%{transform:rotate(-238deg) scaleY(.54)}
 }
 @keyframes atoOrb2C{
-  0%{transform:rotate(-42deg) scaleY(.80)}
-  50%{transform:rotate(138deg) scaleY(.55)}
-  100%{transform:rotate(318deg) scaleY(.80)}
+  0%{transform:rotate(-38deg) scaleY(.82)}
+  50%{transform:rotate(142deg) scaleY(.56)}
+  100%{transform:rotate(322deg) scaleY(.82)}
 }
 @keyframes atoOrb2D{
-  0%{transform:rotate(80deg) scaleY(.42)}
-  50%{transform:rotate(-100deg) scaleY(.70)}
-  100%{transform:rotate(-280deg) scaleY(.42)}
+  0%{transform:rotate(82deg) scaleY(.44)}
+  50%{transform:rotate(-98deg) scaleY(.76)}
+  100%{transform:rotate(-278deg) scaleY(.44)}
 }
 
 .ato-orb-v2-track{
   transform-box:view-box;
   transform-origin:32px 32px;
 }
-.ato-orb-v2-p1{animation:atoOrb2CW 11.9s linear infinite}
-.ato-orb-v2-p2{animation:atoOrb2CCW 9.6s linear infinite}
-.ato-orb-v2-p3{animation:atoOrb2CW 8.1s linear infinite}
-.ato-orb-v2-p4{animation:atoOrb2CCW 13.0s linear infinite}
-.ato-orb-v2-p5{animation:atoOrb2CW 10.2s linear infinite}
+.ato-orb-v2-p1{animation:atoOrb2CW 12.6s linear infinite}
+.ato-orb-v2-p2{animation:atoOrb2CCW 9.8s linear infinite}
+.ato-orb-v2-p3{animation:atoOrb2CW 7.9s linear infinite}
+.ato-orb-v2-p4{animation:atoOrb2CCW 14.1s linear infinite}
+.ato-orb-v2-p5{animation:atoOrb2CW 10.4s linear infinite}
+.ato-orb-v2-p6{animation:atoOrb2CCW 11.6s linear infinite}
 @keyframes atoOrb2CW{to{transform:rotate(360deg)}}
 @keyframes atoOrb2CCW{to{transform:rotate(-360deg)}}
 
 .ato-orb-v2-core{
   transform-box:view-box;
   transform-origin:32px 32px;
-  animation:atoOrb2Breathe 5.2s ease-in-out infinite;
+  animation:atoOrb2Breathe 5.4s ease-in-out infinite;
 }
 @keyframes atoOrb2Breathe{
-  0%,100%{opacity:.81;transform:scale(.988)}
-  50%{opacity:.90;transform:scale(1.015)}
+  0%,100%{opacity:.84;transform:scale(.986)}
+  50%{opacity:.94;transform:scale(1.028)}
 }
 
 .ato-orb-v2-pass{
-  fill:none;
-  stroke:rgba(234,208,118,.62);
+  stroke:rgba(234,210,154,.62);
   stroke-width:1.18;
-  stroke-linecap:round;
   stroke-dasharray:2 54;
   opacity:0;
-  animation:atoOrb2Pass 10s ease-in-out infinite;
+  animation:atoOrb2Pass 10.8s ease-in-out infinite;
 }
 @keyframes atoOrb2Pass{
-  0%,72%,100%{opacity:0;stroke-dashoffset:0}
-  78%{opacity:.24}
-  88%{opacity:.04;stroke-dashoffset:-54}
-  90%{opacity:0}
+  0%,74%,100%{opacity:0;stroke-dashoffset:0}
+  79%{opacity:.28}
+  89%{opacity:.05;stroke-dashoffset:-56}
+  91%{opacity:0}
 }
 
 .ato-orb-v2-label{
   flex:0 0 auto!important;
   white-space:nowrap!important;
-  color:rgba(255,248,236,.90)!important;
-  font-family:"Segoe UI",Arial,sans-serif!important;
-  font-size:12px!important;
+  color:rgba(255,249,239,.92)!important;
+  font-family:"Cormorant Garamond", Georgia, "Times New Roman", serif!important;
+  font-size:14px!important;
   font-weight:500!important;
-  letter-spacing:.035em!important;
+  letter-spacing:.02em!important;
   line-height:1!important;
   opacity:0!important;
   transform:translateX(-5px)!important;
   transition:opacity 210ms ease,transform 270ms var(--ato-orb-ease)!important;
-  text-shadow:0 1px 9px rgba(0,0,0,.13)!important;
+  text-shadow:0 1px 9px rgba(0,0,0,.12)!important;
 }
 
 @media (hover:hover) and (pointer:fine){
@@ -2936,11 +2925,17 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     opacity:1!important;
     transform:translateX(0)!important;
   }
-  .ato-orb-v2-host:hover .ato-orb-v2-symbol{
+  .ato-orb-v2-host:hover .ato-orb-v2-symbol,
+  .ato-orb-v2-host:focus-within .ato-orb-v2-symbol{
     filter:brightness(1.07)!important;
   }
 }
 
+.ato-orb-v2-host.ato-orb-v2-hint{
+  width:var(--ato-orb-expanded)!important;
+  min-width:var(--ato-orb-expanded)!important;
+  max-width:var(--ato-orb-expanded)!important;
+}
 .ato-orb-v2-host.ato-orb-v2-hint .ato-orb-v2-label{
   opacity:1!important;
   transform:translateX(0)!important;
@@ -2948,7 +2943,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 .ato-orb-v2-host.ato-orb-v2-click .ato-orb-v2-symbol{
   transform:scale(.96)!important;
-  filter:brightness(1.08)!important;
+  filter:brightness(1.09)!important;
 }
 
 .ato-orb-v2-host.ato-orb-v2-open{
@@ -2960,27 +2955,27 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 @media (max-width:980px){
   :root{
     --ato-orb-size:50px;
-    --ato-orb-symbol:32px;
-    --ato-orb-expanded:150px;
+    --ato-orb-symbol:34px;
+    --ato-orb-expanded:50px;
   }
   .ato-orb-v2-host{
-    right:calc(14px + env(safe-area-inset-right))!important;
-    bottom:calc(14px + env(safe-area-inset-bottom) + var(--ato-orb-lift,0px))!important;
+    right:14px!important;
+    bottom:calc(14px + env(safe-area-inset-bottom,0px) + var(--ato-orb-lift,0px))!important;
   }
+  .ato-orb-v2-visual{
+    padding:0 8px!important;
+  }
+  .ato-orb-v2-label{display:none!important}
 }
 
 @media (prefers-reduced-motion:reduce){
-  .ato-orb-v2-host,
-  .ato-orb-v2-visual,
-  .ato-orb-v2-symbol,
-  .ato-orb-v2-label{
-    transition-duration:.01ms!important;
-  }
-  .ato-orb-v2-orbit,
-  .ato-orb-v2-track,
-  .ato-orb-v2-core,
-  .ato-orb-v2-pass{
+  .ato-orb-v2-a,.ato-orb-v2-b,.ato-orb-v2-c,.ato-orb-v2-d,
+  .ato-orb-v2-p1,.ato-orb-v2-p2,.ato-orb-v2-p3,.ato-orb-v2-p4,.ato-orb-v2-p5,.ato-orb-v2-p6,
+  .ato-orb-v2-core,.ato-orb-v2-pass{
     animation:none!important;
+  }
+  .ato-orb-v2-symbol,.ato-orb-v2-label,.ato-orb-v2-host,.ato-orb-v2-visual{
+    transition:none!important;
   }
 }
 </style>
@@ -3009,35 +3004,45 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   <span class="ato-orb-v2-symbol" aria-hidden="true">
     <svg viewBox="0 0 64 64" focusable="false" aria-hidden="true">
       <defs>
-        <radialGradient id="atoOrb2Glow" cx="50%" cy="50%" r="60%">
-          <stop offset="0" stop-color="#fff8ec" stop-opacity=".92"/>
-          <stop offset=".18" stop-color="#ead076" stop-opacity=".72"/>
-          <stop offset=".46" stop-color="#42556f" stop-opacity=".32"/>
-          <stop offset="1" stop-color="#0a2243" stop-opacity="0"/>
+        <radialGradient id="atoOrb2Halo" cx="50%" cy="50%" r="60%">
+          <stop offset="0" stop-color="#fff9ef" stop-opacity=".88"/>
+          <stop offset=".18" stop-color="#ead29a" stop-opacity=".65"/>
+          <stop offset=".46" stop-color="#49637f" stop-opacity=".28"/>
+          <stop offset="1" stop-color="#091e35" stop-opacity="0"/>
         </radialGradient>
-        <radialGradient id="atoOrb2Dot" cx="42%" cy="38%" r="72%">
-          <stop offset="0" stop-color="#fff8ec"/>
-          <stop offset=".36" stop-color="#d9a443"/>
-          <stop offset="1" stop-color="#1a3253"/>
+        <radialGradient id="atoOrb2Core" cx="40%" cy="36%" r="74%">
+          <stop offset="0" stop-color="#fff9ef"/>
+          <stop offset=".25" stop-color="#f1d28b"/>
+          <stop offset=".58" stop-color="#d8a243"/>
+          <stop offset="1" stop-color="#b78335"/>
         </radialGradient>
+        <linearGradient id="atoOrb2Ring" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff9ef" stop-opacity=".85"/>
+          <stop offset=".36" stop-color="#ead29a" stop-opacity=".76"/>
+          <stop offset="1" stop-color="#49637f" stop-opacity=".42"/>
+        </linearGradient>
       </defs>
-      <ellipse class="ato-orb-v2-orbit ato-orb-v2-a" cx="32" cy="32" rx="24.8" ry="8.4"/>
-      <ellipse class="ato-orb-v2-orbit ato-orb-v2-b" cx="31.2" cy="31.8" rx="22.2" ry="10.2"/>
-      <ellipse class="ato-orb-v2-orbit ato-orb-v2-c" cx="32.7" cy="31.4" rx="19.2" ry="6.4"/>
-      <ellipse class="ato-orb-v2-orbit ato-orb-v2-d" cx="31.7" cy="32.4" rx="26.4" ry="7.2"/>
-      <ellipse class="ato-orb-v2-pass" cx="32" cy="32" rx="24.8" ry="8.4"/>
 
-      <g class="ato-orb-v2-track ato-orb-v2-p1"><circle cx="32" cy="7.8" r="1.2" fill="#d9a443"/></g>
-      <g class="ato-orb-v2-track ato-orb-v2-p2"><circle cx="53.4" cy="25.4" r="1.0" fill="#42556f"/></g>
-      <g class="ato-orb-v2-track ato-orb-v2-p3"><circle cx="17" cy="14" r=".85" fill="#fff8ec"/></g>
-      <g class="ato-orb-v2-track ato-orb-v2-p4"><circle cx="12" cy="42.5" r=".9" fill="#bf8630"/></g>
-      <g class="ato-orb-v2-track ato-orb-v2-p5"><circle cx="44.8" cy="51.8" r="1.0" fill="#1a3253"/></g>
+      <ellipse class="ato-orb-v2-orbit ato-orb-v2-a" cx="32" cy="32" rx="24.6" ry="8.0"/>
+      <ellipse class="ato-orb-v2-orbit ato-orb-v2-b" cx="31.4" cy="31.8" rx="21.5" ry="10.8"/>
+      <ellipse class="ato-orb-v2-orbit ato-orb-v2-c" cx="32.8" cy="31.4" rx="17.6" ry="6.0"/>
+      <ellipse class="ato-orb-v2-orbit ato-orb-v2-d" cx="31.8" cy="32.6" rx="25.8" ry="9.2"/>
+      <ellipse class="ato-orb-v2-pass" cx="32" cy="32" rx="24.6" ry="8.0"/>
+
+      <g class="ato-orb-v2-track ato-orb-v2-p1"><circle cx="32.0" cy="8.0" r="1.08" fill="#d8a243"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p2"><circle cx="53.2" cy="25.6" r=".92" fill="#5d7b9c"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p3"><circle cx="17.4" cy="13.9" r=".78" fill="#fff9ef"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p4"><circle cx="12.4" cy="42.2" r=".82" fill="#b78335"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p5"><circle cx="44.6" cy="51.6" r=".88" fill="#1c4266"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p6"><circle cx="47.6" cy="16.0" r=".74" fill="#ead29a"/></g>
 
       <g class="ato-orb-v2-core">
-        <circle cx="32" cy="32" r="10.5" fill="url(#atoOrb2Glow)" opacity=".72"/>
-        <circle cx="32" cy="32" r="4.4" fill="none" stroke="#d9a443" stroke-opacity=".28" stroke-width=".7"/>
-        <circle cx="32" cy="32" r="2.2" fill="url(#atoOrb2Dot)"/>
-        <circle cx="31.3" cy="31.3" r=".55" fill="#fff8ec" opacity=".86"/>
+        <circle cx="32" cy="32" r="13.3" fill="url(#atoOrb2Halo)" opacity=".84"/>
+        <circle cx="32" cy="32" r="8.8" fill="url(#atoOrb2Halo)" opacity=".30"/>
+        <circle cx="32" cy="32" r="6.2" fill="none" stroke="url(#atoOrb2Ring)" stroke-width=".82" stroke-opacity=".55"/>
+        <circle cx="32" cy="32" r="5.3" fill="url(#atoOrb2Core)"/>
+        <circle cx="32" cy="32" r="2.55" fill="#fff9ef" opacity=".20"/>
+        <circle cx="31.25" cy="31.1" r=".72" fill="#fff9ef" opacity=".90"/>
       </g>
     </svg>
   </span>`;
