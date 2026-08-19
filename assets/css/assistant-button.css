@@ -1,0 +1,374 @@
+
+/* ==========================================================================
+   ALANYA TOUR ORGANIZATIONS — AI ASSISTANT FLOATING ORB V1
+   Production trigger skin. No GIF. Pure SVG + CSS motion.
+   The existing native Assistant launcher remains the functional trigger.
+   ========================================================================== */
+
+:root{
+  --ato-ai-navy:#08182a;
+  --ato-ai-navy-2:#0a2239;
+  --ato-ai-blue:#2f628e;
+  --ato-ai-blue-soft:#4b7ea8;
+  --ato-ai-gold:var(--ato-v9-gold,#ddb45d);
+  --ato-ai-gold-2:#c9912e;
+  --ato-ai-champagne:#e1bb69;
+  --ato-ai-ivory:var(--ato-v9-ivory,#fff8ec);
+  --ato-ai-glass-dark:rgba(8,27,44,.24);
+  --ato-ai-glass-light:rgba(7,23,38,.40);
+  --ato-ai-line:rgba(221,180,93,.20);
+  --ato-ai-shadow:0 8px 26px rgba(2,10,18,.16);
+  --ato-ai-expand:158px;
+  --ato-ai-size:52px;
+  --ato-ai-orb:34px;
+  --ato-ai-ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* We skin the REAL existing native launcher host.
+   Do not set top/left. Position is globally fixed here, as requested. */
+.ato-assistant-ai-host.ato-ai-floating-ready{
+  position:fixed!important;
+  right:24px!important;
+  bottom:calc(22px + var(--ato-ai-lift,0px))!important;
+  width:var(--ato-ai-size)!important;
+  min-width:var(--ato-ai-size)!important;
+  max-width:var(--ato-ai-size)!important;
+  height:var(--ato-ai-size)!important;
+  min-height:var(--ato-ai-size)!important;
+  max-height:var(--ato-ai-size)!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  color:transparent!important;
+  text-shadow:none!important;
+  cursor:pointer!important;
+  z-index:900!important;
+  isolation:isolate!important;
+  transition:
+    width 280ms var(--ato-ai-ease),
+    min-width 280ms var(--ato-ai-ease),
+    max-width 280ms var(--ato-ai-ease),
+    opacity 180ms ease,
+    transform 180ms var(--ato-ai-ease)!important;
+  -webkit-tap-highlight-color:transparent!important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .ato-assistant-ai-host.ato-ai-floating-ready:hover,
+  .ato-assistant-ai-host.ato-ai-floating-ready:focus-within{
+    width:var(--ato-ai-expand)!important;
+    min-width:var(--ato-ai-expand)!important;
+    max-width:var(--ato-ai-expand)!important;
+  }
+}
+
+.ato-assistant-ai-host.ato-ai-floating-ready.ato-ai-onboarding{
+  width:var(--ato-ai-expand)!important;
+  min-width:var(--ato-ai-expand)!important;
+  max-width:var(--ato-ai-expand)!important;
+}
+
+/* Original heavy pill stays in DOM for function/state but disappears visually. */
+.ato-assistant-ai-host.ato-ai-floating-ready > *:not(.ato-ai-floating-visual){
+  opacity:0!important;
+  color:transparent!important;
+  text-shadow:none!important;
+}
+
+/* The original clickable control remains real and receives the physical click. */
+.ato-assistant-ai-host.ato-ai-floating-ready .ato-ai-native-click-surface{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  min-width:100%!important;
+  max-width:none!important;
+  height:100%!important;
+  min-height:100%!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  opacity:0!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  cursor:pointer!important;
+  z-index:30!important;
+}
+
+/* Non-click children must not steal hit testing from the native click surface. */
+.ato-assistant-ai-host.ato-ai-floating-ready > *:not(.ato-ai-floating-visual):not(.ato-ai-native-click-surface){
+  pointer-events:none!important;
+}
+
+.ato-ai-floating-visual{
+  position:absolute!important;
+  inset:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:9px!important;
+  box-sizing:border-box!important;
+  padding:0 8px 0 9px!important;
+  border-radius:999px!important;
+  overflow:hidden!important;
+  pointer-events:none!important;
+  background:
+    radial-gradient(circle at 26px 50%,rgba(57,102,143,.12),transparent 48%),
+    linear-gradient(135deg,rgba(8,27,44,.22),rgba(8,31,49,.16))!important;
+  -webkit-backdrop-filter:blur(12px) saturate(115%)!important;
+  backdrop-filter:blur(12px) saturate(115%)!important;
+  border:1px solid var(--ato-ai-line)!important;
+  box-shadow:var(--ato-ai-shadow)!important;
+  transition:
+    background-color 220ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    filter 240ms ease!important;
+  z-index:10!important;
+}
+
+.ato-assistant-ai-host.ato-ai-context-light .ato-ai-floating-visual{
+  background:
+    radial-gradient(circle at 26px 50%,rgba(46,92,132,.12),transparent 48%),
+    linear-gradient(135deg,rgba(6,22,37,.43),rgba(8,31,49,.32))!important;
+  border-color:rgba(199,151,62,.22)!important;
+  box-shadow:0 8px 28px rgba(1,8,14,.18)!important;
+}
+
+.ato-assistant-ai-host.ato-ai-context-dark .ato-ai-floating-visual{
+  background:
+    radial-gradient(circle at 26px 50%,rgba(63,112,153,.13),transparent 48%),
+    linear-gradient(135deg,rgba(19,42,61,.28),rgba(9,31,48,.17))!important;
+  border-color:rgba(221,180,93,.18)!important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .ato-assistant-ai-host.ato-ai-floating-ready:hover .ato-ai-floating-visual,
+  .ato-assistant-ai-host.ato-ai-floating-ready:focus-within .ato-ai-floating-visual{
+    border-color:rgba(221,180,93,.32)!important;
+    box-shadow:
+      0 10px 30px rgba(2,10,18,.17),
+      0 0 18px rgba(48,98,142,.08)!important;
+  }
+}
+
+.ato-ai-orb{
+  position:relative!important;
+  flex:0 0 var(--ato-ai-orb)!important;
+  width:var(--ato-ai-orb)!important;
+  height:var(--ato-ai-orb)!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:50%!important;
+  overflow:visible!important;
+  transform:translateZ(0)!important;
+  transition:
+    transform 160ms var(--ato-ai-ease),
+    filter 240ms ease!important;
+}
+
+.ato-ai-orb svg{
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  overflow:visible!important;
+  pointer-events:none!important;
+}
+
+.ato-ai-orbit{
+  transform-box:view-box;
+  transform-origin:32px 32px;
+  fill:none;
+  vector-effect:non-scaling-stroke;
+  stroke-linecap:round;
+}
+
+.ato-ai-orbit-a{
+  stroke:rgba(225,185,105,.82);
+  stroke-width:1.15;
+  animation:ato-ai-orbit-a 12.5s linear infinite;
+}
+.ato-ai-orbit-b{
+  stroke:rgba(53,105,151,.90);
+  stroke-width:1.05;
+  animation:ato-ai-orbit-b 10.8s linear infinite;
+}
+.ato-ai-orbit-c{
+  stroke:rgba(214,163,69,.60);
+  stroke-width:.88;
+  animation:ato-ai-orbit-c 8.9s linear infinite;
+}
+.ato-ai-orbit-d{
+  stroke:rgba(73,123,163,.58);
+  stroke-width:.82;
+  animation:ato-ai-orbit-d 7.6s linear infinite;
+}
+
+@keyframes ato-ai-orbit-a{
+  0%{transform:rotate(14deg) scaleY(.74)}
+  48%{transform:rotate(187deg) scaleY(.46)}
+  100%{transform:rotate(374deg) scaleY(.74)}
+}
+@keyframes ato-ai-orbit-b{
+  0%{transform:rotate(122deg) scaleY(.52)}
+  52%{transform:rotate(-71deg) scaleY(.86)}
+  100%{transform:rotate(-238deg) scaleY(.52)}
+}
+@keyframes ato-ai-orbit-c{
+  0%{transform:rotate(-38deg) scaleY(.82)}
+  50%{transform:rotate(143deg) scaleY(.56)}
+  100%{transform:rotate(322deg) scaleY(.82)}
+}
+@keyframes ato-ai-orbit-d{
+  0%{transform:rotate(78deg) scaleY(.43)}
+  50%{transform:rotate(-105deg) scaleY(.72)}
+  100%{transform:rotate(-282deg) scaleY(.43)}
+}
+
+.ato-ai-particle-track{
+  transform-box:view-box;
+  transform-origin:32px 32px;
+}
+.ato-ai-particle-track.p1{animation:ato-ai-particle-cw 11.8s linear infinite}
+.ato-ai-particle-track.p2{animation:ato-ai-particle-ccw 9.7s linear infinite}
+.ato-ai-particle-track.p3{animation:ato-ai-particle-cw 7.9s linear infinite}
+.ato-ai-particle-track.p4{animation:ato-ai-particle-ccw 13.2s linear infinite}
+.ato-ai-particle-track.p5{animation:ato-ai-particle-cw 10.4s linear infinite}
+
+@keyframes ato-ai-particle-cw{to{transform:rotate(360deg)}}
+@keyframes ato-ai-particle-ccw{to{transform:rotate(-360deg)}}
+
+.ato-ai-particle-gold{fill:#d8aa50}
+.ato-ai-particle-blue{fill:#4779a1}
+.ato-ai-particle-ivory{fill:#f4eee2}
+
+.ato-ai-core-halo{
+  transform-box:view-box;
+  transform-origin:32px 32px;
+  animation:ato-ai-core-breathe 5.2s ease-in-out infinite;
+}
+
+@keyframes ato-ai-core-breathe{
+  0%,100%{opacity:.78;transform:scale(.98)}
+  50%{opacity:.88;transform:scale(1.015)}
+}
+
+.ato-ai-data-pass{
+  stroke:rgba(238,205,136,.66);
+  stroke-width:1.3;
+  fill:none;
+  stroke-linecap:round;
+  stroke-dasharray:2 54;
+  stroke-dashoffset:0;
+  opacity:.0;
+  animation:ato-ai-data-pass 10s ease-in-out infinite;
+}
+
+@keyframes ato-ai-data-pass{
+  0%,72%,100%{opacity:0;stroke-dashoffset:0}
+  78%{opacity:.30}
+  88%{opacity:.06;stroke-dashoffset:-54}
+  90%{opacity:0}
+}
+
+.ato-ai-floating-label{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+  color:rgba(255,248,236,.90)!important;
+  font-family:"Segoe UI",Arial,sans-serif!important;
+  font-size:12px!important;
+  font-weight:500!important;
+  letter-spacing:.035em!important;
+  line-height:1!important;
+  opacity:0!important;
+  transform:translateX(-5px)!important;
+  transition:
+    opacity 210ms ease,
+    transform 270ms var(--ato-ai-ease)!important;
+  text-shadow:0 1px 10px rgba(0,0,0,.14)!important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .ato-assistant-ai-host.ato-ai-floating-ready:hover .ato-ai-floating-label,
+  .ato-assistant-ai-host.ato-ai-floating-ready:focus-within .ato-ai-floating-label{
+    opacity:1!important;
+    transform:translateX(0)!important;
+  }
+  .ato-assistant-ai-host.ato-ai-floating-ready:hover .ato-ai-orb{
+    filter:brightness(1.10)!important;
+  }
+}
+
+.ato-assistant-ai-host.ato-ai-onboarding .ato-ai-floating-label{
+  opacity:1!important;
+  transform:translateX(0)!important;
+}
+
+.ato-assistant-ai-host.ato-ai-clicking .ato-ai-orb{
+  transform:scale(.96)!important;
+  filter:brightness(1.10)!important;
+}
+
+.ato-assistant-ai-host.ato-ai-floating-ready:focus-within .ato-ai-floating-visual{
+  outline:1px solid rgba(225,185,105,.48)!important;
+  outline-offset:3px!important;
+}
+
+/* Hide the floating trigger when the Assistant panel is open. */
+.ato-assistant-ai-host.ato-ai-floating-ready.ato-ai-assistant-open{
+  opacity:0!important;
+  pointer-events:none!important;
+  transform:scale(.96)!important;
+}
+
+/* Tablet */
+@media (min-width:561px) and (max-width:980px){
+  :root{
+    --ato-ai-size:50px;
+    --ato-ai-orb:33px;
+    --ato-ai-expand:154px;
+  }
+  .ato-assistant-ai-host.ato-ai-floating-ready{
+    right:18px!important;
+    bottom:calc(18px + env(safe-area-inset-bottom) + var(--ato-ai-lift,0px))!important;
+  }
+}
+
+/* Mobile */
+@media (max-width:560px){
+  :root{
+    --ato-ai-size:50px;
+    --ato-ai-orb:32px;
+    --ato-ai-expand:150px;
+  }
+  .ato-assistant-ai-host.ato-ai-floating-ready{
+    right:calc(14px + env(safe-area-inset-right))!important;
+    bottom:calc(14px + env(safe-area-inset-bottom) + var(--ato-ai-lift,0px))!important;
+  }
+  .ato-ai-floating-label{
+    font-size:11px!important;
+  }
+}
+
+/* Reduced motion: function remains, ornamental motion stops. */
+@media (prefers-reduced-motion:reduce){
+  .ato-ai-orbit,
+  .ato-ai-particle-track,
+  .ato-ai-core-halo,
+  .ato-ai-data-pass{
+    animation:none!important;
+  }
+  .ato-assistant-ai-host.ato-ai-floating-ready,
+  .ato-ai-floating-label,
+  .ato-ai-floating-visual,
+  .ato-ai-orb{
+    transition-duration:160ms!important;
+  }
+}
