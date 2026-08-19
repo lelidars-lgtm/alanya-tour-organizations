@@ -671,3 +671,219 @@ render();
   });
 })();
 
+
+/* ========================================================================
+   ATO MOBILE V8 — screenshot corrections
+   MOBILE ONLY. Desktop is untouched.
+   ======================================================================== */
+(function atoMobileV8(){
+  'use strict';
+
+  const isMobile = () => window.innerWidth <= 980;
+  const goldArrowSVG = `
+    <svg class="ato-v8-gold-arrow-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M6.5 17.5 17.5 6.5"></path>
+      <path d="M10.5 6.5h7v7"></path>
+    </svg>`;
+
+  /* 1. HERO — force SVG instead of Unicode/emoji, so iOS can never draw blue square. */
+  function fixHeroArrow(){
+    if(!isMobile()) return;
+    const arrow = document.querySelector('#atoLivingHero .ato-living-hero__arrow');
+    if(!arrow) return;
+    arrow.classList.add('ato-v8-hero-arrow');
+    if(!arrow.querySelector('.ato-v8-gold-arrow-svg')){
+      arrow.innerHTML = goldArrowSVG;
+    }
+  }
+
+  /* 2. LANGUAGES — desktop-like letter codes instead of flags + gold working close X. */
+  const langCodes = {ru:'RU', en:'EN', tr:'TR', de:'DE', pl:'PL'};
+  const langNames = {ru:'Russian', en:'English', tr:'Turkish', de:'German', pl:'Polish'};
+
+  function closeLanguageMenu(){
+    const dd=document.querySelector('#atoGlobalHeaderRoot .language-dropdown');
+    const overlay=document.getElementById('mobileOverlay');
+    dd?.classList.remove('open');
+    overlay?.classList.remove('active');
+    document.body.classList.remove('ato-mobile-header-modal-open');
+  }
+
+  function fixLanguages(){
+    if(!isMobile()) return;
+    const menu=document.querySelector('#atoGlobalHeaderRoot .language-menu');
+    if(!menu) return;
+    menu.classList.add('ato-v8-language-menu');
+
+    const close=menu.querySelector('.language-close');
+    if(close){
+      close.textContent='×';
+      close.classList.add('ato-v8-language-close');
+      if(!close.dataset.v8Bound){
+        close.dataset.v8Bound='1';
+        close.addEventListener('click',e=>{
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          closeLanguageMenu();
+        },true);
+      }
+    }
+
+    menu.querySelectorAll('a[data-lang]').forEach(a=>{
+      const lang=a.dataset.lang;
+      if(!langCodes[lang]) return;
+      a.classList.add('ato-v8-lang-row');
+      a.innerHTML=`<span class="ato-v8-lang-code">${langCodes[lang]}</span><span class="ato-v8-lang-name">${langNames[lang]}</span>`;
+    });
+  }
+
+  /* 3. Mobile drawer dropdowns — inline, readable, scrollable; never float to the right. */
+  function fixMobileDrawer(){
+    if(!isMobile()) return;
+    const root=document.getElementById('atoGlobalHeaderRoot');
+    if(!root) return;
+
+    const nav=root.querySelector('.nav');
+    nav?.classList.add('ato-v8-mobile-nav');
+
+    root.querySelectorAll('.ato-header-dropdown').forEach(dd=>{
+      dd.classList.add('ato-v8-mobile-dropdown');
+      const menu=dd.querySelector('.dropdown-menu');
+      if(menu) menu.classList.add('ato-v8-mobile-submenu');
+    });
+
+    /* Make opening trigger deterministic. */
+    root.querySelectorAll('.ato-header-dropdown > .ato-dropdown-trigger').forEach(btn=>{
+      if(btn.dataset.v8Bound) return;
+      btn.dataset.v8Bound='1';
+      btn.addEventListener('click',()=>{
+        setTimeout(()=>{
+          if(!isMobile()) return;
+          const dd=btn.closest('.ato-header-dropdown');
+          if(dd?.classList.contains('open')){
+            dd.scrollIntoView({block:'nearest',behavior:'smooth'});
+          }
+        },40);
+      });
+    });
+  }
+
+  /* 4. Search X — gold from the start and guaranteed to close. */
+  function fixSearchClose(){
+    if(!isMobile()) return;
+    const close=document.getElementById('atoHeaderSearchClose');
+    if(!close) return;
+    close.classList.add('ato-v8-search-close');
+    close.textContent='×';
+  }
+
+  /* 5. Türkiye map — move strongly right, a little down, but keep inside phone. */
+  function fixTurkeyMap(){
+    if(!isMobile()) return;
+    const root=document.getElementById('atoAboutLiveMap');
+    const inner=root?.querySelector('.about-live-map-inner');
+    const svg=root?.querySelector('.final-turkiye-map');
+    if(!root || !inner || !svg) return;
+    root.classList.add('ato-v8-map');
+    inner.classList.add('ato-v8-map-inner');
+    svg.classList.add('ato-v8-map-svg');
+    svg.setAttribute('preserveAspectRatio','xMidYMid meet');
+  }
+
+
+  function syncHotlinePhone(){
+    if(!isMobile()) return;
+    const primary = document.querySelector('#contacts .contact-grid > div:first-child > a[href*="wa.me"]');
+    const hotline = document.querySelector('#contacts .contact-hotline a[href^="tel:"]');
+    if(!primary || !hotline) return;
+
+    const s = getComputedStyle(primary);
+    hotline.style.setProperty('font-size', s.fontSize, 'important');
+    hotline.style.setProperty('font-family', s.fontFamily, 'important');
+    hotline.style.setProperty('font-weight', s.fontWeight, 'important');
+    hotline.style.setProperty('line-height', s.lineHeight, 'important');
+    hotline.style.setProperty('letter-spacing', s.letterSpacing, 'important');
+    hotline.style.setProperty('color', s.color, 'important');
+    hotline.classList.add('ato-v9-hotline-synced');
+  }
+
+  function apply(){
+    if(!isMobile()) return;
+    fixHeroArrow();
+    fixLanguages();
+    fixMobileDrawer();
+    fixSearchClose();
+    fixTurkeyMap();
+    syncHotlinePhone();
+  }
+
+  let raf=0;
+  const queue=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(apply)};
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',queue,{once:true});
+  else queue();
+
+  const mo=new MutationObserver(queue);
+  mo.observe(document.documentElement,{childList:true,subtree:true});
+  window.addEventListener('resize',queue,{passive:true});
+  window.addEventListener('orientationchange',()=>setTimeout(queue,120),{passive:true});
+})();
+
+
+/* ========================================================================
+   ATO MOBILE V10 — bottom Google map office marker fixed to real coordinates
+   MOBILE ONLY.
+   ======================================================================== */
+(function atoMobileV10GoogleMapFix(){
+  'use strict';
+
+  const isMobile = () => window.innerWidth <= 980;
+
+  function fixBottomGoogleMap(){
+    if(!isMobile()) return;
+
+    const wrapper = document.querySelector('#contacts .map-wrapper');
+    const iframe = wrapper?.querySelector('iframe');
+    if(!wrapper || !iframe) return;
+
+    wrapper.classList.add('ato-v10-live-google-map');
+
+    /* The office point belongs to the map itself, not to a screen overlay. */
+    const officeLat = '36.529064';
+    const officeLng = '32.044613';
+    const desiredSrc =
+      `https://maps.google.com/maps?q=${officeLat},${officeLng}&z=17&t=m&output=embed`;
+
+    if(iframe.dataset.atoV10OfficeMap !== '1'){
+      iframe.dataset.atoV10OfficeMap = '1';
+      iframe.src = desiredSrc;
+    }
+
+    iframe.style.setProperty('pointer-events','auto','important');
+    iframe.style.setProperty('touch-action','auto','important');
+
+    /* Old overlay pin is visually misleading when the user pans the map. */
+    const overlayPin = wrapper.querySelector('.ato-contact-map-pin');
+    if(overlayPin){
+      overlayPin.setAttribute('aria-hidden','true');
+      overlayPin.style.setProperty('display','none','important');
+    }
+  }
+
+  const run = () => {
+    if(!isMobile()) return;
+    fixBottomGoogleMap();
+  };
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', run, {once:true});
+  }else{
+    run();
+  }
+
+  const mo = new MutationObserver(run);
+  mo.observe(document.documentElement,{childList:true,subtree:true});
+  window.addEventListener('resize',run,{passive:true});
+  window.addEventListener('orientationchange',()=>setTimeout(run,120),{passive:true});
+})();
+
