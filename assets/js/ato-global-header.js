@@ -571,205 +571,82 @@ render();
     }
   };
 
-  /* 3b — Assistant AI symbol — APPROVED ATO DATA PROCESSING 360°.
-     IMPORTANT: the launcher/card itself is not redesigned here. We replace only the
-     existing right-side icon with the approved blue four-orbit data-processing core. */
-  const ATO_AI_NS = 'http://www.w3.org/2000/svg';
-  const atoAssistantCores = new Set();
-  let atoAssistantCoreRAF = 0;
-  let atoAssistantCoreT0 = 0;
+  /* 3b — Assistant: find the actual right-side launcher control (button OR div/span)
+          and replace the blue square icon with a thin gold SVG arrow. */
+  const fixAssistantArrow = () => {
+    if (!isMobile()) return;
 
-  const atoCoreRotX = (v,a) => { const c=Math.cos(a),s=Math.sin(a); return [v[0],v[1]*c-v[2]*s,v[1]*s+v[2]*c]; };
-  const atoCoreRotY = (v,a) => { const c=Math.cos(a),s=Math.sin(a); return [v[0]*c+v[2]*s,v[1],-v[0]*s+v[2]*c]; };
-  const atoCoreRotZ = (v,a) => { const c=Math.cos(a),s=Math.sin(a); return [v[0]*c-v[1]*s,v[0]*s+v[1]*c,v[2]]; };
-  const atoCoreTransform = (v,rx,ry,rz) => atoCoreRotZ(atoCoreRotY(atoCoreRotX(v,rx),ry),rz);
-  const atoCoreProject = v => { const k=140/(140-v[2]); return [50+v[0]*k,50+v[1]*k,v[2]]; };
-  const atoCoreSphere = (lat,lon,r) => [r*Math.cos(lat)*Math.cos(lon),r*Math.sin(lat),r*Math.cos(lat)*Math.sin(lon)];
-  const atoCoreSplitPath = (pts,wantFront) => {
-    let d='', open=false;
-    for (const p of pts) {
-      const ok=(p[2]>=0)===wantFront;
-      if(ok){ d+=(open?' L ':' M ')+p[0].toFixed(2)+' '+p[1].toFixed(2); open=true; }
-      else open=false;
-    }
-    return d;
-  };
-
-  const atoBuildAssistantCore = control => {
-    if (!control || control.querySelector('.ato-assistant-data-core')) return;
-    if (!control.dataset.atoOriginalHtml) control.dataset.atoOriginalHtml = control.innerHTML;
-
-    const uid='atoAi'+Math.random().toString(36).slice(2,9);
-    const svg=document.createElementNS(ATO_AI_NS,'svg');
-    svg.setAttribute('viewBox','0 0 100 100');
-    svg.setAttribute('aria-hidden','true');
-    svg.setAttribute('focusable','false');
-    svg.classList.add('ato-assistant-data-core');
-    svg.innerHTML = `
-      <defs>
-        <radialGradient id="${uid}core" cx="50%" cy="50%" r="55%">
-          <stop offset="0" stop-color="#eef7ff" stop-opacity="1"/>
-          <stop offset=".16" stop-color="#73b6ff" stop-opacity=".92"/>
-          <stop offset=".48" stop-color="#1d74f4" stop-opacity=".30"/>
-          <stop offset="1" stop-color="#07182d" stop-opacity="0"/>
-        </radialGradient>
-        <filter id="${uid}glow" x="-80%" y="-80%" width="260%" height="260%">
-          <feGaussianBlur stdDeviation="1.8" result="b"/>
-          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-      <g class="ato-ai-back-particles"></g>
-      <g class="ato-ai-back-arcs"></g>
-      <circle cx="50" cy="50" r="18" fill="url(#${uid}core)" opacity=".48"/>
-      <circle class="ato-ai-core-ring ato-ai-core-ring-b" cx="50" cy="50" r="10.6" fill="none" stroke="#2d82ff" stroke-opacity=".24" stroke-width=".65"/>
-      <circle class="ato-ai-core-ring ato-ai-core-ring-a" cx="50" cy="50" r="6.8" fill="none" stroke="#5da5ff" stroke-opacity=".46" stroke-width=".70"/>
-      <circle class="ato-ai-core-dot" cx="50" cy="50" r="1.65" fill="#eef7ff" filter="url(#${uid}glow)"/>
-      <g class="ato-ai-front-arcs"></g>
-      <g class="ato-ai-front-particles"></g>`;
-
-    control.innerHTML='';
-    control.appendChild(svg);
-    control.classList.remove('ato-mobile-assistant-arrow');
-    control.classList.add('ato-assistant-ai-control');
-    control.setAttribute('aria-label', control.getAttribute('aria-label') || 'Open assistant');
-
-    const backArcs=svg.querySelector('.ato-ai-back-arcs');
-    const frontArcs=svg.querySelector('.ato-ai-front-arcs');
-    const backParticles=svg.querySelector('.ato-ai-back-particles');
-    const frontParticles=svg.querySelector('.ato-ai-front-particles');
-    const ringA=svg.querySelector('.ato-ai-core-ring-a');
-    const ringB=svg.querySelector('.ato-ai-core-ring-b');
-    const dot=svg.querySelector('.ato-ai-core-dot');
-
-    const arcDefs=[
-      {rx:.10,ry:0,rz:.08,sx:.46,sy:.22,sz:.16},
-      {rx:1.03,ry:.43,rz:.58,sx:-.34,sy:.33,sz:.24},
-      {rx:.72,ry:1.02,rz:-.46,sx:.28,sy:-.42,sz:.35},
-      {rx:1.42,ry:-.82,rz:.92,sx:-.31,sy:-.23,sz:.43}
-    ];
-    const arcEls=arcDefs.map((_,i)=>{
-      const back=document.createElementNS(ATO_AI_NS,'path');
-      const front=document.createElementNS(ATO_AI_NS,'path');
-      back.setAttribute('fill','none'); front.setAttribute('fill','none');
-      back.setAttribute('stroke','#1a5fca'); front.setAttribute('stroke',i===0?'#338dff':'#287df2');
-      back.setAttribute('stroke-opacity','.25'); front.setAttribute('stroke-opacity',i===0?'.98':'.84');
-      back.setAttribute('stroke-width',i===0?'1.10':'.86'); front.setAttribute('stroke-width',i===0?'1.18':'.95');
-      back.setAttribute('stroke-linecap','round'); front.setAttribute('stroke-linecap','round');
-      back.setAttribute('vector-effect','non-scaling-stroke'); front.setAttribute('vector-effect','non-scaling-stroke');
-      backArcs.appendChild(back); frontArcs.appendChild(front);
-      return {back,front};
-    });
-
-    const particleDefs=[];
-    const particleEls=[];
-    for(let i=0;i<38;i++){
-      particleDefs.push({
-        mode:i%3,
-        lat:-1.12+((i*.47)%2.24),
-        lon:(i/38)*Math.PI*2,
-        speed:(.17+(i%8)*.019)*(i%2?1:-1),
-        phase:i*.69,
-        size:.48+(i%4)*.12
-      });
-      const c=document.createElementNS(ATO_AI_NS,'circle');
-      c.setAttribute('fill',i%5===0?'#a9d4ff':'#3c8eff');
-      c.setAttribute('filter',i%7===0?`url(#${uid}glow)`:'none');
-      particleEls.push(c);
-    }
-
-    atoAssistantCores.add({svg,arcDefs,arcEls,backParticles,frontParticles,particleDefs,particleEls,ringA,ringB,dot});
-    if(!atoAssistantCoreRAF){ atoAssistantCoreT0=performance.now(); atoAssistantCoreRAF=requestAnimationFrame(atoAnimateAssistantCores); }
-  };
-
-  function atoAnimateAssistantCores(now){
-    const t=(now-atoAssistantCoreT0)/1000;
-    for(const state of [...atoAssistantCores]){
-      if(!state.svg.isConnected){ atoAssistantCores.delete(state); continue; }
-      state.arcDefs.forEach((a,i)=>{
-        const pts=[];
-        const gap=.16+i*.012;
-        for(let j=0;j<=150;j++){
-          const u=j/150;
-          const q=gap*Math.PI+u*(Math.PI*2-gap*Math.PI*2);
-          let v=[30*Math.cos(q),30*Math.sin(q),0];
-          v=atoCoreTransform(v,a.rx+t*a.sx,a.ry+t*a.sy,a.rz+t*a.sz);
-          pts.push(atoCoreProject(v));
-        }
-        state.arcEls[i].back.setAttribute('d',atoCoreSplitPath(pts,false));
-        state.arcEls[i].front.setAttribute('d',atoCoreSplitPath(pts,true));
-      });
-
-      while(state.backParticles.firstChild)state.backParticles.removeChild(state.backParticles.firstChild);
-      while(state.frontParticles.firstChild)state.frontParticles.removeChild(state.frontParticles.firstChild);
-      const grx=.24+.16*Math.sin(t*.50), gry=t*.33, grz=-.12+.08*Math.sin(t*.30);
-      state.particleDefs.forEach((p,i)=>{
-        let lat=p.lat,lon=p.lon;
-        if(p.mode===0){ lon+=t*p.speed*2.8; lat+=.10*Math.sin(t*.9+p.phase); }
-        else if(p.mode===1){ lat+=t*p.speed*1.8; lon+=.28*Math.sin(t*.72+p.phase); }
-        else { lon-=t*p.speed*2.2; lat+=.38*Math.sin(t*1.15+p.phase); }
-        let v=atoCoreSphere(lat,lon,30+2.2*Math.sin(t*.6+p.phase));
-        v=atoCoreTransform(v,grx,gry,grz);
-        const pr=atoCoreProject(v);
-        const el=state.particleEls[i];
-        const depth=Math.max(0,Math.min(1,(pr[2]+32)/64));
-        el.setAttribute('cx',pr[0].toFixed(2));
-        el.setAttribute('cy',pr[1].toFixed(2));
-        el.setAttribute('r',(p.size*(.75+depth*.62)).toFixed(2));
-        el.setAttribute('opacity',(.26+depth*.74).toFixed(2));
-        (pr[2]<0?state.backParticles:state.frontParticles).appendChild(el);
-      });
-
-      const pulse=.5+.5*Math.sin(t*2.45);
-      state.ringA.setAttribute('r',(6.7+pulse*.42).toFixed(2));
-      state.ringB.setAttribute('r',(10.7-pulse*.30).toFixed(2));
-      state.dot.setAttribute('r',(1.48+pulse*.34).toFixed(2));
-    }
-    atoAssistantCoreRAF=requestAnimationFrame(atoAnimateAssistantCores);
-  }
-
-  const fixAssistantCore = () => {
     const nodes = [...document.querySelectorAll('body *')].filter(el => {
       if (!(el instanceof HTMLElement)) return false;
-      const txt=(el.innerText||'').replace(/\s+/g,' ').trim().toUpperCase();
-      if(!txt.includes('ASK SOMETHING')||!txt.includes('ASSISTANT'))return false;
-      const r=el.getBoundingClientRect();
-      return r.width>=180&&r.width<=Math.min(680,innerWidth+40)&&r.height>=48&&r.height<=210&&r.bottom>0&&r.top<innerHeight;
+      const txt = (el.innerText || '').replace(/\s+/g, ' ').trim().toUpperCase();
+      if (!txt.includes('ASK SOMETHING') || !txt.includes('ASSISTANT')) return false;
+      const r = el.getBoundingClientRect();
+      return r.width >= 180 && r.width <= Math.min(620, innerWidth) &&
+             r.height >= 48 && r.height <= 190 &&
+             r.bottom > 0 && r.top < innerHeight;
     });
-    if(!nodes.length)return;
-    nodes.sort((a,b)=>{const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();return (ar.width*ar.height)-(br.width*br.height)});
 
-    let host=nodes[0];
-    for(let i=0;i<6&&host.parentElement;i++){
-      const p=host.parentElement,r=p.getBoundingClientRect(),pos=getComputedStyle(p).position;
-      if((pos==='fixed'||pos==='sticky')&&r.width>=180&&r.width<=680&&r.height<=220){host=p;break;}
-      if(r.width>720||r.height>250)break;
+    if (!nodes.length) return;
+
+    nodes.sort((a,b) => {
+      const ar=a.getBoundingClientRect(), br=b.getBoundingClientRect();
+      return (ar.width*ar.height) - (br.width*br.height);
+    });
+
+    let host = nodes[0];
+    for (let i=0; i<5 && host.parentElement; i++) {
+      const p = host.parentElement;
+      const r = p.getBoundingClientRect();
+      const pos = getComputedStyle(p).position;
+      if ((pos === 'fixed' || pos === 'sticky') && r.width >= 180 && r.width <= 620 && r.height <= 200) {
+        host = p;
+        break;
+      }
+      if (r.width > Math.min(650, innerWidth + 40) || r.height > 230) break;
     }
-    host.classList.add('ato-mobile-assistant-host','ato-assistant-ai-host');
+    host.classList.add('ato-mobile-assistant-host');
 
-    const hr=host.getBoundingClientRect();
-    const all=[...host.querySelectorAll('button,a,[role="button"],div,span')].filter(el=>{
-      if(el===host||!(el instanceof HTMLElement))return false;
-      const r=el.getBoundingClientRect();
-      const txt=(el.innerText||'').replace(/\s+/g,' ').trim().toUpperCase();
-      if(txt.includes('ASK SOMETHING')||txt==='ASSISTANT')return false;
-      return r.width>=28&&r.width<=110&&r.height>=28&&r.height<=110&&r.left>=hr.left+hr.width*.60&&r.right<=hr.right+8;
+    const hr = host.getBoundingClientRect();
+    const all = [...host.querySelectorAll('button,a,[role="button"],div,span')].filter(el => {
+      if (el === host || !(el instanceof HTMLElement)) return false;
+      const r = el.getBoundingClientRect();
+      const txt = (el.innerText || '').replace(/\s+/g,' ').trim().toUpperCase();
+      if (txt.includes('ASK SOMETHING') || txt === 'ASSISTANT') return false;
+      return r.width >= 28 && r.width <= 96 &&
+             r.height >= 28 && r.height <= 96 &&
+             r.left >= hr.left + hr.width * .62 &&
+             r.right <= hr.right + 6;
     });
-    all.sort((a,b)=>{const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();if(Math.abs(br.right-ar.right)>2)return br.right-ar.right;return (ar.width*ar.height)-(br.width*br.height)});
-    let control=all[0]; if(!control)return;
-    const interactive=control.closest('button,a,[role="button"]');
-    if(interactive&&host.contains(interactive))control=interactive;
-    atoBuildAssistantCore(control);
+
+    all.sort((a,b) => {
+      const ar=a.getBoundingClientRect(), br=b.getBoundingClientRect();
+      if (Math.abs(br.right-ar.right) > 2) return br.right-ar.right;
+      return (ar.width*ar.height) - (br.width*br.height);
+    });
+
+    let control = all[0];
+    if (!control) return;
+
+    // Prefer the interactive parent if a small span/icon was selected.
+    const interactive = control.closest('button,a,[role="button"]');
+    if (interactive && host.contains(interactive)) control = interactive;
+
+    if (!control.classList.contains('ato-mobile-assistant-arrow')) {
+      if (!control.dataset.atoOriginalHtml) control.dataset.atoOriginalHtml = control.innerHTML;
+      control.innerHTML = thinArrowSVG;
+      control.classList.add('ato-mobile-assistant-arrow');
+      control.setAttribute('aria-label', control.getAttribute('aria-label') || 'Open assistant');
+    }
   };
 
   const applyAll = () => {
-    /* Assistant core is global: the approved symbol must be identical on desktop and mobile. */
-    fixAssistantCore();
     if (!isMobile()) return;
     fixLanguageClose();
     fixHeroArrow();
     fixPopularViewAll();
     syncFinderCompareButtons();
     fixMapAndGeo();
+    fixAssistantArrow();
   };
 
   let raf = 0;
