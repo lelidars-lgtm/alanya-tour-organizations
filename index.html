@@ -2951,16 +2951,16 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
   function sizeAndCenter(frame,nativeRect){
     if(!frame)return;
-    const safeX=120;
-    const safeY=96;
-    const maxW=Math.max(480,innerWidth-safeX*2);
+    const safeX=88;
+    const safeY=82;
+    const maxW=Math.max(560,innerWidth-safeX*2);
     const maxH=Math.max(500,innerHeight-safeY*2);
 
-    /* Desktop target: wider, calmer proportions; keep enough air on every side. */
-    const nativeW=Math.max(360,nativeRect?.width||frame.getBoundingClientRect().width||520);
-    const nativeH=Math.max(460,nativeRect?.height||frame.getBoundingClientRect().height||620);
-    const targetW=Math.min(Math.max(nativeW,620),Math.min(650,maxW));
-    const targetH=Math.min(Math.max(nativeH,570),Math.min(630,maxH));
+    /* RESTORED ELEGANT DESKTOP PROPORTION:
+       visibly wider and calmer, matching the approved pre-change silhouette.
+       Height stays restrained so the panel does not become square/heavy. */
+    const targetW=Math.min(760,maxW);
+    const targetH=Math.min(570,maxH);
     const left=Math.max(safeX,(innerWidth-targetW)/2);
     const top=Math.max(safeY,(innerHeight-targetH)/2);
     const st=frame.style;
@@ -3372,6 +3372,30 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     font-family:"Segoe UI",Arial,sans-serif!important;
     font-size:16px!important;
     font-weight:500!important;
+  }
+}
+</style>
+
+
+<!-- =====================================================================
+     ATO ASSISTANT V10 — APPROVED WIDE / ELEGANT DESKTOP SILHOUETTE
+     Geometry only. No color, header, promo, orb, GPT or content changes.
+     ===================================================================== -->
+<style id="ato-assistant-v10-wide-elegant">
+@media (min-width:981px){
+  .ato-desktop-assistant-v7-surface{
+    width:760px!important;
+    max-width:calc(100vw - 176px)!important;
+    height:570px!important;
+    max-height:calc(100vh - 164px)!important;
+  }
+
+  /* Keep the manager action visually quiet at rest; existing V9 hover stays active. */
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row,
+  .ato-desktop-assistant-v7-surface #atoAssistantManager{
+    font-size:12px!important;
+    font-weight:500!important;
+    letter-spacing:.018em!important;
   }
 }
 </style>
