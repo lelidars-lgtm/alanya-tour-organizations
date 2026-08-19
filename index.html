@@ -916,19 +916,16 @@ html body .header #headerTourSearch .ato-search-trigger-label{
 </style>
 
   <script src="assets/js/ato-assistant.js" defer></script>
-  <script src="/assistant/assistant-button.js?v=20260819-orb-v1" defer></script>
-
 <style id="ato-about-heart-location-label">
 .final-alanya-location-link{stroke:#d7a83e;stroke-width:.8;stroke-linecap:round;opacity:.48}
 .final-alanya-location-title{fill:#fff8e8;font-family:"Times New Roman",Times,Georgia,serif;font-size:38px;font-weight:700;letter-spacing:.15px;text-anchor:start}
 .final-alanya-location-coordinates{fill:#d7a83e;font-family:Arial,"Helvetica Neue",sans-serif;font-size:18px;font-weight:900;letter-spacing:.65px;text-anchor:start}
 </style>
   <link rel="stylesheet" href="assets/css/responsive.css?v=20260819-0653" />
-  <link rel="stylesheet" href="/assistant/assistant-button.css?v=20260819-orb-v1" />
 </head>
 
 <body>
-<script src="/assets/js/ato-global-header.js?v=20260819-0653" data-ato-global-header></script>
+<script src="/assets/js/ato-global-header.js?v=20260819-1629" data-ato-global-header></script>
 
 
 
@@ -2635,14 +2632,758 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }
 </style>
 
-</body>
-</html>
 
+<!-- =====================================================================
+     ATO AI ASSISTANT — FLOATING ORB V3 PRODUCTION
+     Brand palette sampled from the embedded ALANYA TOUR ORGANIZATIONS mark.
+     Compact, adaptive glass launcher. Existing Assistant logic is preserved.
+     Heavy DOM discovery is startup-only; bound state uses lightweight sync.
+     ===================================================================== -->
+<style id="ato-ai-orb-v2-inline-style">
+:root{
+  /* Exact visual family from the embedded ATO company mark: deep blue + warm gold. */
+  --ato-brand-blue:#1a3253;
+  --ato-brand-blue-deep:#0a2243;
+  --ato-brand-blue-soft:#42556f;
+  --ato-brand-gold:#d9a443;
+  --ato-brand-gold-deep:#bf8630;
+  --ato-brand-gold-light:#ead076;
+  --ato-brand-ivory:#fff8ec;
 
+  --ato-orb-size:52px;
+  --ato-orb-symbol:34px;
+  --ato-orb-expanded:158px;
+  --ato-orb-ease:cubic-bezier(.22,.61,.36,1);
+}
 
+.ato-orb-v2-host{
+  position:fixed!important;
+  right:24px!important;
+  bottom:calc(22px + var(--ato-orb-lift,0px))!important;
+  width:var(--ato-orb-size)!important;
+  min-width:var(--ato-orb-size)!important;
+  max-width:var(--ato-orb-size)!important;
+  height:var(--ato-orb-size)!important;
+  min-height:var(--ato-orb-size)!important;
+  max-height:var(--ato-orb-size)!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  z-index:900!important;
+  isolation:isolate!important;
+  cursor:pointer!important;
+  transition:
+    width 280ms var(--ato-orb-ease),
+    min-width 280ms var(--ato-orb-ease),
+    max-width 280ms var(--ato-orb-ease),
+    bottom 220ms var(--ato-orb-ease),
+    opacity 180ms ease,
+    transform 180ms var(--ato-orb-ease)!important;
+  -webkit-tap-highlight-color:transparent!important;
+}
 
+.ato-orb-v2-host::before,
+.ato-orb-v2-host::after{
+  opacity:0!important;
+  pointer-events:none!important;
+}
 
+@media (hover:hover) and (pointer:fine){
+  .ato-orb-v2-host:hover,
+  .ato-orb-v2-host:focus-within{
+    width:var(--ato-orb-expanded)!important;
+    min-width:var(--ato-orb-expanded)!important;
+    max-width:var(--ato-orb-expanded)!important;
+  }
+}
 
+.ato-orb-v2-host.ato-orb-v2-hint{
+  width:var(--ato-orb-expanded)!important;
+  min-width:var(--ato-orb-expanded)!important;
+  max-width:var(--ato-orb-expanded)!important;
+}
+
+/* Keep the proven native Assistant launcher alive; only silence its old heavy pill visually. */
+.ato-orb-v2-host > *:not(.ato-orb-v2-visual){
+  opacity:0!important;
+  color:transparent!important;
+  text-shadow:none!important;
+}
+
+/* The existing Assistant control remains the real hit area: no duplicate click bridge. */
+.ato-orb-v2-host .ato-orb-v2-native-surface{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  min-width:100%!important;
+  max-width:none!important;
+  height:100%!important;
+  min-height:100%!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  opacity:0!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  cursor:pointer!important;
+  z-index:30!important;
+}
+
+.ato-orb-v2-host > *:not(.ato-orb-v2-visual):not(.ato-orb-v2-native-surface){
+  pointer-events:none!important;
+}
+
+.ato-orb-v2-visual{
+  position:absolute!important;
+  inset:0!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:9px!important;
+  padding:0 9px!important;
+  border-radius:999px!important;
+  overflow:hidden!important;
+  pointer-events:none!important;
+  z-index:10!important;
+
+  /* Universal low-contrast glass: quiet on dark/photo surfaces, still readable on light sections. */
+  background:
+    radial-gradient(circle at 26px 50%,rgba(217,164,67,.075),transparent 46%),
+    linear-gradient(135deg,rgba(26,50,83,.27),rgba(10,34,67,.18))!important;
+  -webkit-backdrop-filter:blur(13px) saturate(110%)!important;
+  backdrop-filter:blur(13px) saturate(110%)!important;
+  border:1px solid rgba(217,164,67,.18)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,248,236,.035),
+    0 8px 24px rgba(2,10,18,.14)!important;
+  transition:
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    background 240ms ease,
+    filter 240ms ease!important;
+}
+
+/* Solid light surfaces receive slightly stronger brand-blue glass. */
+.ato-orb-v2-host.ato-orb-v2-light .ato-orb-v2-visual{
+  background:
+    radial-gradient(circle at 26px 50%,rgba(217,164,67,.085),transparent 47%),
+    linear-gradient(135deg,rgba(10,34,67,.50),rgba(26,50,83,.38))!important;
+  border-color:rgba(191,134,48,.24)!important;
+}
+
+/* Dark blocks remain nearly transparent. */
+.ato-orb-v2-host.ato-orb-v2-dark .ato-orb-v2-visual{
+  background:
+    radial-gradient(circle at 26px 50%,rgba(234,208,118,.07),transparent 47%),
+    linear-gradient(135deg,rgba(66,85,111,.22),rgba(10,34,67,.14))!important;
+}
+
+/* Images, video, canvas, maps and CSS background imagery: stable universal contrast, no false luminance guess. */
+.ato-orb-v2-host.ato-orb-v2-media .ato-orb-v2-visual{
+  background:
+    radial-gradient(circle at 26px 50%,rgba(217,164,67,.085),transparent 46%),
+    linear-gradient(135deg,rgba(10,34,67,.36),rgba(26,50,83,.23))!important;
+  border-color:rgba(217,164,67,.20)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,248,236,.04),
+    0 8px 24px rgba(1,8,14,.17)!important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .ato-orb-v2-host:hover .ato-orb-v2-visual,
+  .ato-orb-v2-host:focus-within .ato-orb-v2-visual{
+    border-color:rgba(234,208,118,.31)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,248,236,.045),
+      0 10px 28px rgba(2,10,18,.16),
+      0 0 14px rgba(217,164,67,.045)!important;
+  }
+}
+
+.ato-orb-v2-symbol{
+  flex:0 0 var(--ato-orb-symbol)!important;
+  width:var(--ato-orb-symbol)!important;
+  height:var(--ato-orb-symbol)!important;
+  display:grid!important;
+  place-items:center!important;
+  transform:translateZ(0)!important;
+  transition:transform 160ms var(--ato-orb-ease),filter 240ms ease!important;
+}
+
+.ato-orb-v2-symbol svg{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  overflow:visible!important;
+}
+
+.ato-orb-v2-orbit{
+  fill:none;
+  transform-box:view-box;
+  transform-origin:32px 32px;
+  vector-effect:non-scaling-stroke;
+  stroke-linecap:round;
+}
+
+.ato-orb-v2-a{
+  stroke:rgba(234,208,118,.80);
+  stroke-width:1.02;
+  animation:atoOrb2A 12.8s linear infinite;
+}
+.ato-orb-v2-b{
+  stroke:rgba(66,85,111,.82);
+  stroke-width:.98;
+  animation:atoOrb2B 10.6s linear infinite;
+}
+.ato-orb-v2-c{
+  stroke:rgba(191,134,48,.58);
+  stroke-width:.84;
+  animation:atoOrb2C 8.8s linear infinite;
+}
+.ato-orb-v2-d{
+  stroke:rgba(26,50,83,.70);
+  stroke-width:.78;
+  animation:atoOrb2D 7.4s linear infinite;
+}
+
+@keyframes atoOrb2A{
+  0%{transform:rotate(12deg) scaleY(.72)}
+  50%{transform:rotate(192deg) scaleY(.48)}
+  100%{transform:rotate(372deg) scaleY(.72)}
+}
+@keyframes atoOrb2B{
+  0%{transform:rotate(120deg) scaleY(.50)}
+  50%{transform:rotate(-60deg) scaleY(.84)}
+  100%{transform:rotate(-240deg) scaleY(.50)}
+}
+@keyframes atoOrb2C{
+  0%{transform:rotate(-42deg) scaleY(.80)}
+  50%{transform:rotate(138deg) scaleY(.55)}
+  100%{transform:rotate(318deg) scaleY(.80)}
+}
+@keyframes atoOrb2D{
+  0%{transform:rotate(80deg) scaleY(.42)}
+  50%{transform:rotate(-100deg) scaleY(.70)}
+  100%{transform:rotate(-280deg) scaleY(.42)}
+}
+
+.ato-orb-v2-track{
+  transform-box:view-box;
+  transform-origin:32px 32px;
+}
+.ato-orb-v2-p1{animation:atoOrb2CW 11.9s linear infinite}
+.ato-orb-v2-p2{animation:atoOrb2CCW 9.6s linear infinite}
+.ato-orb-v2-p3{animation:atoOrb2CW 8.1s linear infinite}
+.ato-orb-v2-p4{animation:atoOrb2CCW 13.0s linear infinite}
+.ato-orb-v2-p5{animation:atoOrb2CW 10.2s linear infinite}
+@keyframes atoOrb2CW{to{transform:rotate(360deg)}}
+@keyframes atoOrb2CCW{to{transform:rotate(-360deg)}}
+
+.ato-orb-v2-core{
+  transform-box:view-box;
+  transform-origin:32px 32px;
+  animation:atoOrb2Breathe 5.2s ease-in-out infinite;
+}
+@keyframes atoOrb2Breathe{
+  0%,100%{opacity:.81;transform:scale(.988)}
+  50%{opacity:.90;transform:scale(1.015)}
+}
+
+.ato-orb-v2-pass{
+  fill:none;
+  stroke:rgba(234,208,118,.62);
+  stroke-width:1.18;
+  stroke-linecap:round;
+  stroke-dasharray:2 54;
+  opacity:0;
+  animation:atoOrb2Pass 10s ease-in-out infinite;
+}
+@keyframes atoOrb2Pass{
+  0%,72%,100%{opacity:0;stroke-dashoffset:0}
+  78%{opacity:.24}
+  88%{opacity:.04;stroke-dashoffset:-54}
+  90%{opacity:0}
+}
+
+.ato-orb-v2-label{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+  color:rgba(255,248,236,.90)!important;
+  font-family:"Segoe UI",Arial,sans-serif!important;
+  font-size:12px!important;
+  font-weight:500!important;
+  letter-spacing:.035em!important;
+  line-height:1!important;
+  opacity:0!important;
+  transform:translateX(-5px)!important;
+  transition:opacity 210ms ease,transform 270ms var(--ato-orb-ease)!important;
+  text-shadow:0 1px 9px rgba(0,0,0,.13)!important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  .ato-orb-v2-host:hover .ato-orb-v2-label,
+  .ato-orb-v2-host:focus-within .ato-orb-v2-label{
+    opacity:1!important;
+    transform:translateX(0)!important;
+  }
+  .ato-orb-v2-host:hover .ato-orb-v2-symbol{
+    filter:brightness(1.07)!important;
+  }
+}
+
+.ato-orb-v2-host.ato-orb-v2-hint .ato-orb-v2-label{
+  opacity:1!important;
+  transform:translateX(0)!important;
+}
+
+.ato-orb-v2-host.ato-orb-v2-click .ato-orb-v2-symbol{
+  transform:scale(.96)!important;
+  filter:brightness(1.08)!important;
+}
+
+.ato-orb-v2-host.ato-orb-v2-open{
+  opacity:0!important;
+  pointer-events:none!important;
+  transform:scale(.96)!important;
+}
+
+@media (max-width:980px){
+  :root{
+    --ato-orb-size:50px;
+    --ato-orb-symbol:32px;
+    --ato-orb-expanded:150px;
+  }
+  .ato-orb-v2-host{
+    right:calc(14px + env(safe-area-inset-right))!important;
+    bottom:calc(14px + env(safe-area-inset-bottom) + var(--ato-orb-lift,0px))!important;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ato-orb-v2-host,
+  .ato-orb-v2-visual,
+  .ato-orb-v2-symbol,
+  .ato-orb-v2-label{
+    transition-duration:.01ms!important;
+  }
+  .ato-orb-v2-orbit,
+  .ato-orb-v2-track,
+  .ato-orb-v2-core,
+  .ato-orb-v2-pass{
+    animation:none!important;
+  }
+}
+</style>
+
+<script id="ato-ai-orb-v2-inline-script">
+(function(){
+  'use strict';
+
+  const H='ato-orb-v2-host';
+  const V='ato-orb-v2-visual';
+  const N='ato-orb-v2-native-surface';
+  const SESSION='ato-orb-v2-hint-seen';
+  const PREFERRED=[
+    '[data-ato-assistant-launcher]',
+    '.ato-assistant-ai-host',
+    '.ato-assistant-launcher',
+    '.ato-assistant-trigger',
+    '#atoAssistantLauncher',
+    '[aria-label*="assistant" i][aria-expanded]'
+  ];
+
+  let host=null,native=null,raf=0,open=false,lastTone=0;
+  let discoverObserver=null,discoverQueued=false,stateTimer=0,healthTimer=0;
+
+  const SVG=`
+  <span class="ato-orb-v2-symbol" aria-hidden="true">
+    <svg viewBox="0 0 64 64" focusable="false" aria-hidden="true">
+      <defs>
+        <radialGradient id="atoOrb2Glow" cx="50%" cy="50%" r="60%">
+          <stop offset="0" stop-color="#fff8ec" stop-opacity=".92"/>
+          <stop offset=".18" stop-color="#ead076" stop-opacity=".72"/>
+          <stop offset=".46" stop-color="#42556f" stop-opacity=".32"/>
+          <stop offset="1" stop-color="#0a2243" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="atoOrb2Dot" cx="42%" cy="38%" r="72%">
+          <stop offset="0" stop-color="#fff8ec"/>
+          <stop offset=".36" stop-color="#d9a443"/>
+          <stop offset="1" stop-color="#1a3253"/>
+        </radialGradient>
+      </defs>
+      <ellipse class="ato-orb-v2-orbit ato-orb-v2-a" cx="32" cy="32" rx="24.8" ry="8.4"/>
+      <ellipse class="ato-orb-v2-orbit ato-orb-v2-b" cx="31.2" cy="31.8" rx="22.2" ry="10.2"/>
+      <ellipse class="ato-orb-v2-orbit ato-orb-v2-c" cx="32.7" cy="31.4" rx="19.2" ry="6.4"/>
+      <ellipse class="ato-orb-v2-orbit ato-orb-v2-d" cx="31.7" cy="32.4" rx="26.4" ry="7.2"/>
+      <ellipse class="ato-orb-v2-pass" cx="32" cy="32" rx="24.8" ry="8.4"/>
+
+      <g class="ato-orb-v2-track ato-orb-v2-p1"><circle cx="32" cy="7.8" r="1.2" fill="#d9a443"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p2"><circle cx="53.4" cy="25.4" r="1.0" fill="#42556f"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p3"><circle cx="17" cy="14" r=".85" fill="#fff8ec"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p4"><circle cx="12" cy="42.5" r=".9" fill="#bf8630"/></g>
+      <g class="ato-orb-v2-track ato-orb-v2-p5"><circle cx="44.8" cy="51.8" r="1.0" fill="#1a3253"/></g>
+
+      <g class="ato-orb-v2-core">
+        <circle cx="32" cy="32" r="10.5" fill="url(#atoOrb2Glow)" opacity=".72"/>
+        <circle cx="32" cy="32" r="4.4" fill="none" stroke="#d9a443" stroke-opacity=".28" stroke-width=".7"/>
+        <circle cx="32" cy="32" r="2.2" fill="url(#atoOrb2Dot)"/>
+        <circle cx="31.3" cy="31.3" r=".55" fill="#fff8ec" opacity=".86"/>
+      </g>
+    </svg>
+  </span>`;
+
+  function vis(el){
+    try{
+      if(!el)return false;
+      const cs=getComputedStyle(el),r=el.getBoundingClientRect();
+      return !el.hidden && cs.display!=='none' && cs.visibility!=='hidden' &&
+             parseFloat(cs.opacity||'1')>.02 && r.width>0 && r.height>0 &&
+             r.right>0 && r.bottom>0 && r.left<innerWidth && r.top<innerHeight;
+    }catch(_){return false}
+  }
+
+  function text(el){
+    try{return (el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}
+    catch(_){return ''}
+  }
+
+  function preferredHost(){
+    for(const sel of PREFERRED){
+      let nodes=[];
+      try{nodes=[...document.querySelectorAll(sel)]}catch(_){continue}
+      for(const el of nodes){
+        if(!(el instanceof HTMLElement)||!vis(el)||el.closest?.('#atoGlobalHeaderRoot'))continue;
+        const r=el.getBoundingClientRect();
+        if(r.right<innerWidth*.50||r.bottom<innerHeight*.35)continue;
+        const t=text(el);
+        if(t.includes('ASSISTANT')||/assistant/i.test(el.getAttribute('aria-label')||'')||el.matches('[data-ato-assistant-launcher]'))return el;
+      }
+    }
+    return null;
+  }
+
+  /* Expensive deep fallback is used only while binding/rebinding, never on every mutation/scroll. */
+  function fallbackHost(){
+    const candidates=[];
+    const roots=[document];
+    for(let ri=0;ri<roots.length;ri++){
+      const root=roots[ri];
+      let nodes=[];
+      try{nodes=[...root.querySelectorAll('*')]}catch(_){continue}
+      for(const el of nodes){
+        try{if(el.shadowRoot)roots.push(el.shadowRoot)}catch(_){ }
+        if(!(el instanceof HTMLElement)||!vis(el)||el.closest?.('#atoGlobalHeaderRoot'))continue;
+        const t=text(el);
+        if(!t.includes('ASK SOMETHING')||!t.includes('ASSISTANT'))continue;
+        const r=el.getBoundingClientRect();
+        if(r.width<180||r.width>720||r.height<44||r.height>240)continue;
+        if(r.right<innerWidth*.52||r.bottom<innerHeight*.42)continue;
+
+        let h=el,cur=el;
+        for(let i=0;i<6;i++){
+          const p=cur.parentElement||cur.getRootNode?.()?.host;
+          if(!p||p===document.body||p===document.documentElement)break;
+          const pr=p.getBoundingClientRect(),pt=text(p);
+          if(pt.includes('ASK SOMETHING')&&pt.includes('ASSISTANT')&&
+             pr.width>=180&&pr.width<=720&&pr.height>=44&&pr.height<=240){
+            h=p;
+            const pos=getComputedStyle(p).position;
+            if(pos==='fixed'||pos==='sticky')break;
+          }else break;
+          cur=p;
+        }
+        const hr=h.getBoundingClientRect();
+        candidates.push({h,score:Math.hypot(innerWidth-hr.right,innerHeight-hr.bottom),area:hr.width*hr.height});
+      }
+    }
+    candidates.sort((a,b)=>a.score-b.score||a.area-b.area);
+    return candidates[0]?.h||null;
+  }
+
+  function findHost(){
+    return preferredHost()||fallbackHost();
+  }
+
+  function findNative(h){
+    if(!h)return null;
+    const hr=h.getBoundingClientRect();
+    const controls=[...h.querySelectorAll('button,a,[role="button"],div,span')]
+      .filter(el=>el!==h&&el instanceof HTMLElement&&vis(el))
+      .filter(el=>{
+        const r=el.getBoundingClientRect(),t=text(el);
+        if(t.includes('ASK SOMETHING')||t==='ASSISTANT')return false;
+        return r.width>=28&&r.width<=110&&r.height>=28&&r.height<=110&&
+               r.left>=hr.left+hr.width*.58&&r.right<=hr.right+8;
+      });
+
+    controls.sort((a,b)=>{
+      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+      if(Math.abs(br.right-ar.right)>2)return br.right-ar.right;
+      return (ar.width*ar.height)-(br.width*br.height);
+    });
+
+    let c=controls[0]||null;
+    if(!c)return null;
+    const interactive=c.closest('button,a,[role="button"]');
+    if(interactive&&h.contains(interactive))c=interactive;
+    return c;
+  }
+
+  function visual(h){
+    let v=h.querySelector(':scope > .'+V);
+    if(v)return v;
+    v=document.createElement('span');
+    v.className=V;
+    v.setAttribute('aria-hidden','true');
+    v.innerHTML=SVG+'<span class="ato-orb-v2-label">AI Assistant</span>';
+    h.appendChild(v);
+    return v;
+  }
+
+  function panelOpen(){
+    const known=document.querySelector('.ato-desktop-assistant-v7-surface');
+    if(known&&vis(known))return true;
+    const back=document.getElementById('atoDesktopAssistantBackdropV7');
+    if(back?.classList.contains('is-open'))return true;
+    return native?.getAttribute?.('aria-expanded')==='true';
+  }
+
+  function isMediaSurface(el){
+    for(let i=0;i<8&&el;i++,el=el.parentElement){
+      if(el===host||host?.contains(el))continue;
+      const tag=el.tagName;
+      if(tag==='IMG'||tag==='VIDEO'||tag==='CANVAS'||tag==='IFRAME')return true;
+      try{
+        const cs=getComputedStyle(el);
+        if(cs.backgroundImage&&cs.backgroundImage!=='none')return true;
+      }catch(_){ }
+    }
+    return false;
+  }
+
+  function tone(){
+    if(!host)return;
+    const now=performance.now();
+    if(now-lastTone<140)return;
+    lastTone=now;
+
+    const r=host.getBoundingClientRect();
+    const x=Math.max(3,Math.min(innerWidth-3,r.left-7));
+    const y=Math.max(3,Math.min(innerHeight-3,r.top+r.height/2));
+    const stack=document.elementsFromPoint?.(x,y)||[];
+
+    let media=false,rgb=null;
+    for(const el of stack){
+      if(el===host||host.contains(el))continue;
+      if(isMediaSurface(el)){media=true;break}
+      let cur=el;
+      for(let i=0;i<7&&cur;i++,cur=cur.parentElement){
+        if(cur===host||host.contains(cur))continue;
+        try{
+          const cs=getComputedStyle(cur);
+          if(cs.backgroundImage&&cs.backgroundImage!=='none'){media=true;break}
+          const m=cs.backgroundColor?.match(/rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/i);
+          const a=cs.backgroundColor?.match(/rgba\([^/]*[,\s]([\d.]+)\s*\)$/i);
+          if(m && (!a||+a[1]>.10)){
+            rgb=[+m[1],+m[2],+m[3]];
+            if(rgb.some(v=>v>0))break;
+          }
+        }catch(_){ }
+      }
+      if(media||rgb)break;
+    }
+
+    let light=false;
+    if(rgb&&!media){
+      const [rr,g,b]=rgb;
+      light=(.2126*rr+.7152*g+.0722*b)>170;
+    }
+    host.classList.toggle('ato-orb-v2-media',media);
+    host.classList.toggle('ato-orb-v2-light',!media&&light);
+    host.classList.toggle('ato-orb-v2-dark',media||!light);
+  }
+
+  function fixedAncestor(el){
+    for(let i=0;i<8&&el&&el!==document.body;i++,el=el.parentElement){
+      if(el===host||host?.contains(el))continue;
+      try{
+        const p=getComputedStyle(el).position;
+        if(p==='fixed'||p==='sticky')return el;
+      }catch(_){ }
+    }
+    return null;
+  }
+
+  function lift(){
+    if(!host)return;
+    const hr=host.getBoundingClientRect();
+    const points=[
+      [hr.left+hr.width*.50,hr.top+hr.height*.50],
+      [hr.left+6,hr.top+hr.height*.50],
+      [hr.right-6,hr.top+hr.height*.50],
+      [hr.left+hr.width*.50,hr.bottom-5]
+    ];
+    const seen=new Set();
+    let amount=0;
+
+    for(const [px,py] of points){
+      const stack=document.elementsFromPoint?.(Math.max(1,Math.min(innerWidth-1,px)),Math.max(1,Math.min(innerHeight-1,py)))||[];
+      for(const el of stack){
+        if(el===host||host.contains(el))continue;
+        const fixed=fixedAncestor(el);
+        if(!fixed||seen.has(fixed))continue;
+        seen.add(fixed);
+        const r=fixed.getBoundingClientRect();
+        if(r.width<24||r.height<24)continue;
+        const overlapsX=r.right>hr.left-8&&r.left<hr.right+8;
+        const overlapsY=r.bottom>hr.top-8&&r.top<hr.bottom+8;
+        if(overlapsX&&overlapsY&&r.top>innerHeight*.45){
+          amount=Math.max(amount,Math.min(220,innerHeight-r.top+12));
+        }
+      }
+    }
+
+    /* Bottom bars can sit directly beneath the orb but expose child gaps; inspect top-level bars as a cheap fallback. */
+    for(const el of [...document.body.children]){
+      if(el===host||!vis(el))continue;
+      let cs; try{cs=getComputedStyle(el)}catch(_){continue}
+      if(cs.position!=='fixed'&&cs.position!=='sticky')continue;
+      const r=el.getBoundingClientRect();
+      if(r.width>innerWidth*.55&&r.bottom>innerHeight-8&&r.top>innerHeight-240){
+        amount=Math.max(amount,Math.min(220,innerHeight-r.top+12));
+      }
+    }
+
+    host.style.setProperty('--ato-orb-lift',Math.round(amount)+'px');
+  }
+
+  function syncOpen(){
+    if(!host)return;
+    const next=panelOpen();
+    open=next;
+    host.classList.toggle('ato-orb-v2-open',next);
+    if(native)native.setAttribute('aria-expanded',next?'true':'false');
+  }
+
+  function cleanupOldBinding(){
+    if(!host)return;
+    host.classList.remove(H,'ato-orb-v2-light','ato-orb-v2-dark','ato-orb-v2-media','ato-orb-v2-open','ato-orb-v2-hint','ato-orb-v2-click');
+    host.querySelector(':scope > .'+V)?.remove();
+    native?.classList.remove(N);
+    host=null;native=null;open=false;
+  }
+
+  function bind(h){
+    if(!h)return false;
+    const n=findNative(h);
+    if(!n)return false; // fail-safe: original launcher stays untouched.
+
+    if(host&&host!==h)cleanupOldBinding();
+    host=h;native=n;
+    host.classList.add(H);
+    native.classList.add(N);
+    native.setAttribute('aria-label','Open AI Assistant');
+    visual(host);
+    tone();
+    lift();
+    syncOpen();
+
+    if(discoverObserver){discoverObserver.disconnect();discoverObserver=null}
+    if(!stateTimer)stateTimer=setInterval(syncOpen,420);
+    if(!healthTimer)healthTimer=setInterval(()=>{
+      if(host?.isConnected&&native?.isConnected)return;
+      cleanupOldBinding();
+      startDiscovery();
+    },2400);
+    return true;
+  }
+
+  function tryBind(){
+    discoverQueued=false;
+    if(host?.isConnected&&native?.isConnected)return true;
+    return bind(findHost());
+  }
+
+  function queueBind(){
+    if(discoverQueued)return;
+    discoverQueued=true;
+    requestAnimationFrame(tryBind);
+  }
+
+  function startDiscovery(){
+    if(tryBind())return;
+    if(discoverObserver)return;
+    discoverObserver=new MutationObserver(queueBind);
+    discoverObserver.observe(document.documentElement,{subtree:true,childList:true});
+    setTimeout(queueBind,120);
+    setTimeout(queueBind,480);
+    setTimeout(queueBind,1200);
+    setTimeout(queueBind,2600);
+  }
+
+  function hint(){
+    let seen=false;
+    try{seen=sessionStorage.getItem(SESSION)==='1'}catch(_){ }
+    if(seen||!host||open)return;
+    setTimeout(()=>{
+      if(!host||open)return;
+      host.classList.add('ato-orb-v2-hint');
+      setTimeout(()=>host?.classList.remove('ato-orb-v2-hint'),2400);
+      try{sessionStorage.setItem(SESSION,'1')}catch(_){ }
+    },5200);
+  }
+
+  let motionRAF=0;
+  function queueSurfaceSync(){
+    if(motionRAF)return;
+    motionRAF=requestAnimationFrame(()=>{
+      motionRAF=0;
+      tone();
+      lift();
+    });
+  }
+
+  function init(){
+    startDiscovery();
+
+    document.addEventListener('pointerdown',e=>{
+      if(!host||!host.contains(e.target))return;
+      host.classList.add('ato-orb-v2-click');
+      setTimeout(()=>host?.classList.remove('ato-orb-v2-click'),170);
+    },true);
+
+    document.addEventListener('click',e=>{
+      if(host&&host.contains(e.target)){
+        setTimeout(syncOpen,40);
+        setTimeout(syncOpen,180);
+        setTimeout(syncOpen,420);
+      }else if(open){
+        setTimeout(syncOpen,80);
+        setTimeout(syncOpen,260);
+      }
+    },true);
+
+    addEventListener('scroll',queueSurfaceSync,{passive:true});
+    addEventListener('resize',queueSurfaceSync,{passive:true});
+    addEventListener('orientationchange',()=>setTimeout(queueSurfaceSync,120),{passive:true});
+
+    setTimeout(()=>{if(host)hint();else setTimeout(hint,1600)},1200);
+  }
+
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
+})();
+</script>
 <!-- =====================================================================
      ATO DESKTOP ASSISTANT — BLUE → EMERALD LUXURY V7
      DESKTOP ONLY (>=981px).
@@ -3332,3 +4073,6 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   else init();
 })();
 </script>
+
+</body>
+</html>
