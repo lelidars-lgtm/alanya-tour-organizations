@@ -3331,7 +3331,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </script>
 
 <!-- =====================================================================
-     ATO DESKTOP ASSISTANT LAUNCHER V13 — APPROVED 360° DATA-PROCESSING GIF
+     ATO DESKTOP ASSISTANT LAUNCHER V16 — APPROVED 360° DATA-PROCESSING GIF + NATIVE CLICK BRIDGE
      DESKTOP ONLY (>=981px). Header/mobile untouched.
      The native Assistant launcher remains in DOM and keeps all native logic.
      On desktop it is made visually transparent while this approved launcher is active.
@@ -3466,7 +3466,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   #atoAssistantLauncherV13{display:none!important;}
 }
 </style>
-<script id="ato-desktop-assistant-launcher-v13-js">
+<script id="ato-desktop-assistant-launcher-v16-js">
 (function(){
   'use strict';
   const MQ=window.matchMedia('(min-width:981px)');
@@ -3476,6 +3476,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   const BACKDROP='#atoDesktopAssistantBackdropV7';
   const hidden=new Map();
   let raf=0,release=0;
+  let cachedNativeHost=null;
+  let cachedNativeTarget=null;
 
   function visible(el){
     try{
@@ -3535,9 +3537,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     return candidates[0].host;
   }
 
-  function nativeControl(){
-    const host=launcherHost();
-    if(!host)return null;
+  function controlInside(host){
+    if(!host||!host.isConnected)return null;
     const exact=[...deep(host,[])].filter(el=>el instanceof HTMLElement&&el.classList?.contains('ato-assistant-ai-control'));
     if(exact.length){
       const x=exact[0];
@@ -3546,6 +3547,26 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     const controls=[...host.querySelectorAll('button,a,[role="button"]')];
     if(controls.length)return controls[controls.length-1];
     return host;
+  }
+
+  function cacheNative(host){
+    if(!host||!host.isConnected)return null;
+    const target=controlInside(host);
+    if(target){
+      cachedNativeHost=host;
+      cachedNativeTarget=target;
+    }
+    return target;
+  }
+
+  function nativeControl(){
+    if(cachedNativeTarget?.isConnected)return cachedNativeTarget;
+    if(cachedNativeHost?.isConnected){
+      const target=controlInside(cachedNativeHost);
+      if(target){cachedNativeTarget=target;return target;}
+    }
+    const host=launcherHost();
+    return host?cacheNative(host):null;
   }
 
   function conceal(host){
@@ -3609,7 +3630,10 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     }
     const btn=ensure();
     const host=launcherHost();
-    if(host)conceal(host);
+    if(host){
+      cacheNative(host);
+      conceal(host);
+    }
     const open=modalOpen();
     btn?.classList.toggle('is-open',open);
     if(open)btn?.classList.remove('is-opening');
