@@ -2532,13 +2532,13 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 
 <!-- =====================================================================
-     ATO DESKTOP ASSISTANT — PREMIUM DEPTH + AIR V6
+     ATO DESKTOP ASSISTANT — BLUE → EMERALD LUXURY V7
      DESKTOP ONLY (>=981px).
-     Full backdrop is below Assistant; Assistant is temporarily portaled to
-     document.body while open, then restored to its exact original DOM place.
-     Mobile, header, promo ribbon and Assistant content are untouched.
+     Full backdrop remains below Assistant. The Assistant keeps its proven V6 geometry,
+     while only its desktop visual surface and interaction palette are refined.
+     Mobile, header, promo ribbon and Assistant content/logic are untouched.
      ===================================================================== -->
-<style id="ato-desktop-language-name-hover-v6">
+<style id="ato-desktop-language-name-hover-v7">
 @media (min-width:981px){
   /* Only full language names turn gold on hover. Short En/Ru/Tr/De/Pl stay ivory. */
   #atoGlobalHeaderRoot .language-menu a .ato-lang-name,
@@ -2556,43 +2556,115 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     text-shadow:none!important;
   }
 
-  /* Premium Assistant surface: deep navy with restrained blue/gold depth. */
-  .ato-desktop-assistant-v6-surface{
+  /* V7 — controlled blue → teal → dark emerald depth. No neon, no hard bands. */
+  .ato-desktop-assistant-v7-surface{
     background:
-      radial-gradient(circle at 58% 24%,rgba(38,118,255,.085) 0,rgba(38,118,255,.045) 18%,transparent 42%),
-      radial-gradient(circle at 8% 96%,rgba(203,158,72,.040) 0,transparent 34%),
-      linear-gradient(145deg,#06111c 0%,#081a2a 52%,#071421 100%)!important;
+      radial-gradient(105% 82% at 14% 3%,rgba(105,184,255,.205) 0%,rgba(71,153,236,.105) 22%,rgba(38,111,176,.035) 42%,transparent 58%),
+      radial-gradient(90% 78% at 92% 92%,rgba(24,151,119,.185) 0%,rgba(16,112,91,.095) 30%,rgba(6,65,57,.025) 53%,transparent 70%),
+      radial-gradient(65% 55% at 50% 48%,rgba(16,87,105,.080) 0%,transparent 72%),
+      linear-gradient(136deg,#102a49 0%,#0d2d45 20%,#0b3342 38%,#0a3b3f 57%,#073832 75%,#052a27 88%,#041d1e 100%)!important;
+    border-color:rgba(207,166,84,.62)!important;
     box-shadow:
-      0 34px 90px rgba(0,0,0,.52),
-      0 0 0 1px rgba(203,158,72,.30),
-      inset 0 1px 0 rgba(255,255,255,.025),
-      inset 0 0 48px rgba(34,92,160,.035)!important;
+      0 36px 100px rgba(0,0,0,.54),
+      0 0 0 1px rgba(210,171,92,.18),
+      0 0 56px rgba(25,110,142,.10),
+      inset 0 1px 0 rgba(255,255,255,.042),
+      inset 0 -48px 72px rgba(0,25,24,.13),
+      inset 34px 0 90px rgba(53,133,201,.028)!important;
+    color:#f5f2e9!important;
   }
 
-  #atoDesktopAssistantBackdropV5{
+  /* Keep the native Assistant structure; only refine its desktop visual rhythm. */
+  .ato-desktop-assistant-v7-surface .ato-v7-message-bubble{
+    background:linear-gradient(105deg,rgba(18,48,70,.68),rgba(11,55,61,.42))!important;
+    border-color:rgba(126,178,202,.16)!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.025)!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-quick-chip{
+    color:rgba(247,244,235,.90)!important;
+    border-color:rgba(207,166,84,.34)!important;
+    background:linear-gradient(110deg,rgba(12,37,55,.52),rgba(7,55,52,.38))!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.018)!important;
+    transition:color .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease,transform .22s ease!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-quick-chip:hover{
+    color:#f4d58a!important;
+    border-color:rgba(224,186,100,.66)!important;
+    background:linear-gradient(110deg,rgba(20,67,91,.68),rgba(8,79,68,.56))!important;
+    box-shadow:0 8px 24px rgba(3,27,31,.18),inset 0 1px 0 rgba(255,255,255,.035)!important;
+    transform:translateY(-1px)!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row{
+    border-color:rgba(212,172,90,.48)!important;
+    background:linear-gradient(90deg,rgba(10,34,49,.52),rgba(6,52,48,.34))!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.02)!important;
+    transition:border-color .22s ease,background .22s ease,box-shadow .22s ease!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row:hover{
+    border-color:rgba(227,190,106,.72)!important;
+    background:linear-gradient(90deg,rgba(14,46,63,.62),rgba(7,66,58,.46))!important;
+    box-shadow:0 10px 30px rgba(1,25,26,.14),inset 0 1px 0 rgba(255,255,255,.025)!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row svg,
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row [aria-hidden="true"],
+  .ato-desktop-assistant-v7-surface .ato-v7-manager-row .arrow{
+    color:#ddb75e!important;
+    stroke:#ddb75e!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-input{
+    background:linear-gradient(100deg,rgba(7,29,43,.68),rgba(5,45,43,.50))!important;
+    border-color:rgba(211,170,86,.42)!important;
+    color:#f5f2e9!important;
+    caret-color:#e0b85d!important;
+    transition:border-color .22s ease,box-shadow .22s ease,background .22s ease!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-input:focus{
+    border-color:rgba(225,187,100,.72)!important;
+    box-shadow:0 0 0 3px rgba(40,130,142,.10),0 0 26px rgba(18,109,111,.08)!important;
+    outline:none!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-send{
+    border-color:rgba(213,173,89,.50)!important;
+    background:linear-gradient(145deg,rgba(15,49,64,.70),rgba(6,60,53,.55))!important;
+    color:#f4d58a!important;
+    transition:border-color .22s ease,background .22s ease,box-shadow .22s ease,transform .22s ease!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-send:hover{
+    border-color:rgba(229,191,104,.80)!important;
+    background:linear-gradient(145deg,rgba(23,74,90,.78),rgba(8,82,68,.68))!important;
+    box-shadow:0 8px 28px rgba(2,35,35,.18)!important;
+    transform:translateY(-1px)!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-footnote{
+    color:rgba(205,219,220,.70)!important;
+    letter-spacing:.095em!important;
+    text-shadow:0 1px 10px rgba(0,0,0,.20)!important;
+  }
+
+  #atoDesktopAssistantBackdropV7{
     position:fixed!important;
     inset:0!important;
     z-index:2147483000!important;
-    background:rgba(2,8,16,.62)!important;
-    -webkit-backdrop-filter:blur(5px)!important;
-    backdrop-filter:blur(5px)!important;
+    background:rgba(2,10,17,.60)!important;
+    -webkit-backdrop-filter:blur(4.5px) saturate(.92)!important;
+    backdrop-filter:blur(4.5px) saturate(.92)!important;
     opacity:0!important;
     visibility:hidden!important;
     pointer-events:none!important;
     transition:opacity .16s ease,visibility .16s ease!important;
   }
-  #atoDesktopAssistantBackdropV5.is-open{
+  #atoDesktopAssistantBackdropV7.is-open{
     opacity:1!important;
     visibility:visible!important;
     pointer-events:auto!important;
   }
 }
 </style>
-<script id="ato-desktop-assistant-modal-v6-js">
+<script id="ato-desktop-assistant-modal-v7-js">
 (function(){
   'use strict';
   const desktop=window.matchMedia('(min-width:981px)');
-  const BACKDROP_ID='atoDesktopAssistantBackdropV5';
+  const BACKDROP_ID='atoDesktopAssistantBackdropV7';
   const savedStyle=new WeakMap();
   const savedPlace=new WeakMap();
   const roots=new Set([document]);
@@ -2745,12 +2817,12 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     if(!frame||frame.ownerDocument!==document)return;
     remember(frame);
     if(frame.parentNode!==document.body)document.body.appendChild(frame);
-    frame.classList.add('ato-desktop-assistant-v6-surface');
+    frame.classList.add('ato-desktop-assistant-v7-surface');
   }
 
   function restore(frame){
     if(!frame)return;
-    frame.classList.remove('ato-desktop-assistant-v6-surface');
+    frame.classList.remove('ato-desktop-assistant-v7-surface');
     if(savedStyle.has(frame)){
       const original=savedStyle.get(frame);
       if(original===null)frame.removeAttribute('style');
@@ -2802,6 +2874,47 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     st.setProperty('transform','none','important');
     st.setProperty('box-sizing','border-box','important');
     st.setProperty('z-index','2147483600','important');
+  }
+
+  function decorateAssistant(frame){
+    if(!frame)return;
+    try{
+      const controls=deepControls(frame,[]);
+      controls.forEach(el=>{
+        const t=(el.textContent||'').replace(/\s+/g,' ').trim().toLowerCase();
+        if(['find a tour','with children','prices','pickup & transfer','what do you recommend?'].includes(t))el.classList.add('ato-v7-quick-chip');
+        if(t.includes('talk to manager'))el.classList.add('ato-v7-manager-row');
+      });
+
+      const fields=[...frame.querySelectorAll?.('input,textarea')||[]];
+      fields.forEach(el=>el.classList.add('ato-v7-input'));
+      fields.forEach(field=>{
+        const fr=field.getBoundingClientRect();
+        controls.forEach(btn=>{
+          const r=btn.getBoundingClientRect();
+          if(r.width>=34&&r.width<=90&&r.height>=34&&r.height<=90&&Math.abs(r.top-fr.top)<40&&r.left>=fr.right-12)btn.classList.add('ato-v7-send');
+        });
+      });
+
+      [...frame.querySelectorAll?.('div,p,span,small')||[]].forEach(el=>{
+        const t=(el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase();
+        if(t.startsWith('AI ASSISTANT')&&t.includes('ATO MANAGER'))el.classList.add('ato-v7-footnote');
+      });
+
+      /* Decorate the compact greeting bubble, but never the whole chat body. */
+      [...frame.querySelectorAll?.('div,p')||[]].forEach(el=>{
+        const t=(el.textContent||'').replace(/\s+/g,' ').trim();
+        if(t.startsWith('Hello. I can help with tours')&&t.length<180){
+          let bubble=el;
+          for(let i=0;i<3&&bubble.parentElement;i++){
+            const r=bubble.getBoundingClientRect(),pr=bubble.parentElement.getBoundingClientRect();
+            if(pr.width>r.width*1.45||pr.height>r.height*2.5)break;
+            bubble=bubble.parentElement;
+          }
+          bubble.classList.add('ato-v7-message-bubble');
+        }
+      });
+    }catch(_){ }
   }
 
   function backdrop(){
@@ -2876,6 +2989,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     const nativeRect=frame.getBoundingClientRect();
     portalToBody(frame);
     sizeAndCenter(frame,nativeRect);
+    decorateAssistant(frame);
     showBackdrop();
   }
 
@@ -2923,3 +3037,186 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 })();
 </script>
 
+
+
+<!-- =====================================================================
+     ATO DESKTOP ASSISTANT — BRAND MARK + INPUT ATTENTION V8
+     DESKTOP ONLY (>=981px).
+     Adds only the approved ATO gold brand symbol inside Assistant and a single
+     blue→emerald input-awakening pulse on each desktop open. Mobile/header untouched.
+     ===================================================================== -->
+<style id="ato-desktop-assistant-brand-input-v8">
+@media (min-width:981px){
+  .ato-v8-brand-line{
+    display:flex!important;
+    align-items:center!important;
+    gap:8px!important;
+  }
+  .ato-v8-brand-mark{
+    display:block!important;
+    width:24px!important;
+    height:auto!important;
+    flex:0 0 auto!important;
+    object-fit:contain!important;
+    opacity:.98!important;
+    filter:
+      drop-shadow(0 0 5px rgba(225,177,75,.14))
+      drop-shadow(0 0 10px rgba(40,108,174,.07))!important;
+    transform:translateY(-.5px)!important;
+    pointer-events:none!important;
+    user-select:none!important;
+  }
+
+  /* The input remains calm at rest; attention is called only once per opening. */
+  .ato-desktop-assistant-v7-surface .ato-v7-input{
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.018),
+      0 0 0 1px rgba(42,112,128,.015)!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-input::placeholder{
+    color:rgba(205,220,226,.56)!important;
+    opacity:1!important;
+    transition:color .24s ease,opacity .24s ease!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-input.ato-v8-input-awaken{
+    animation:atoV8InputAwaken 1.34s cubic-bezier(.22,.72,.24,1) 1 both!important;
+  }
+  @keyframes atoV8InputAwaken{
+    0%{
+      border-color:rgba(211,170,86,.42);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.018),
+        0 0 0 0 rgba(71,164,238,0),
+        0 0 0 rgba(20,151,116,0);
+    }
+    28%{
+      border-color:rgba(104,194,236,.78);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.035),
+        0 0 0 3px rgba(77,168,231,.075),
+        0 0 24px rgba(62,158,226,.17),
+        0 0 42px rgba(24,151,119,.10);
+    }
+    58%{
+      border-color:rgba(75,176,173,.66);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.030),
+        0 0 0 2px rgba(45,157,168,.055),
+        0 0 19px rgba(45,151,192,.12),
+        0 0 32px rgba(18,137,104,.085);
+    }
+    100%{
+      border-color:rgba(211,170,86,.42);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.018),
+        0 0 0 1px rgba(42,112,128,.015);
+    }
+  }
+
+  /* Focus is richer than idle, but never flashes or keeps pulsing. */
+  .ato-desktop-assistant-v7-surface .ato-v7-input:focus{
+    border-color:rgba(112,197,208,.76)!important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.035),
+      0 0 0 3px rgba(64,164,198,.075),
+      0 0 24px rgba(53,150,203,.135),
+      0 0 38px rgba(22,137,105,.095)!important;
+    background:
+      linear-gradient(100deg,rgba(8,35,53,.76),rgba(5,55,49,.61))!important;
+    outline:none!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-input:focus::placeholder{
+    color:rgba(225,237,239,.70)!important;
+  }
+
+  /* A quiet echo on the send control guides the eye from field to action. */
+  .ato-desktop-assistant-v7-surface .ato-v7-send{
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.025),
+      0 0 18px rgba(20,126,115,.055)!important;
+  }
+  .ato-desktop-assistant-v7-surface .ato-v7-send:hover{
+    box-shadow:
+      0 8px 28px rgba(2,35,35,.18),
+      0 0 24px rgba(44,151,136,.10)!important;
+  }
+}
+@media (max-width:980px){
+  .ato-v8-brand-mark{display:none!important;}
+}
+</style>
+<script id="ato-desktop-assistant-brand-input-v8-js">
+(function(){
+  'use strict';
+  const desktop=window.matchMedia('(min-width:981px)');
+  const BRAND_SRC="data:image/png;base64,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";
+  let armed=true;
+  let raf=0;
+
+  function smallestExact(root,text){
+    const wanted=text.toUpperCase();
+    const matches=[];
+    try{
+      root.querySelectorAll('span,p,small,div,strong').forEach(el=>{
+        if(el.classList?.contains('ato-v8-brand-mark'))return;
+        const own=(el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase();
+        if(own!==wanted)return;
+        const r=el.getBoundingClientRect();
+        if(r.width>0&&r.height>0)matches.push({el,area:r.width*r.height});
+      });
+    }catch(_){}
+    matches.sort((a,b)=>a.area-b.area);
+    return matches[0]?.el||null;
+  }
+
+  function addBrand(frame){
+    if(!frame||frame.querySelector('.ato-v8-brand-mark'))return;
+    const line=smallestExact(frame,'ALANYA TOUR ORGANIZATIONS');
+    if(!line)return;
+    const img=document.createElement('img');
+    img.className='ato-v8-brand-mark';
+    img.src=BRAND_SRC;
+    img.alt='';
+    img.setAttribute('aria-hidden','true');
+    line.classList.add('ato-v8-brand-line');
+    line.prepend(img);
+  }
+
+  function pulseField(frame){
+    if(!frame)return;
+    const field=frame.querySelector('.ato-v7-input, textarea, input[type="text"], input:not([type])');
+    if(!field)return;
+    field.classList.remove('ato-v8-input-awaken');
+    void field.offsetWidth;
+    field.classList.add('ato-v8-input-awaken');
+    window.setTimeout(()=>field.classList.remove('ato-v8-input-awaken'),1450);
+  }
+
+  function sync(){
+    raf=0;
+    if(!desktop.matches){armed=true;return}
+    const frame=document.querySelector('.ato-desktop-assistant-v7-surface');
+    if(!frame){armed=true;return}
+    addBrand(frame);
+    if(armed){
+      armed=false;
+      window.setTimeout(()=>pulseField(frame),180);
+    }
+  }
+
+  function queue(){
+    if(raf)return;
+    raf=requestAnimationFrame(sync);
+  }
+
+  const mo=new MutationObserver(queue);
+  function init(){
+    mo.observe(document.documentElement,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-hidden','hidden','open']});
+    desktop.addEventListener?.('change',queue);
+    document.addEventListener('click',()=>{setTimeout(queue,35);setTimeout(queue,180)},true);
+    queue();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
+})();
+</script>
