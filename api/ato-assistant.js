@@ -157,15 +157,18 @@ module.exports = async function handler(req,res){
   const history = normalizeHistory(body?.history);
   const instructions = buildInstructions(body?.language, body?.page);
 
-  const input = history.map(x=>({
-    role:x.role,
-    content:[{type:'input_text',text:x.content}]
-  }));
+  // Use the simplest Responses API input shape: one plain text input string.
+  // This avoids invalid-value errors caused by overly-specific message/content shapes
+  // while preserving the recent conversation context for the model.
+  const historyText = history.map(x=>{
+    const speaker = x.role === 'assistant' ? 'ATO ASSISTANT' : 'VISITOR';
+    return `${speaker}: ${x.content}`;
+  }).join('\n\n');
 
-  input.push({
-    role:'user',
-    content:[{type:'input_text',text:message}]
-  });
+  const input = [
+    historyText ? `RECENT CONVERSATION:\n${historyText}` : '',
+    `CURRENT VISITOR MESSAGE:\n${message}`
+  ].filter(Boolean).join('\n\n');
 
   const controller = new AbortController();
   const timeout = setTimeout(()=>controller.abort(),25_000);
@@ -193,7 +196,9 @@ module.exports = async function handler(req,res){
       console.error('ATO Assistant OpenAI error',{
         status:response.status,
         type:data?.error?.type,
-        code:data?.error?.code
+        code:data?.error?.code,
+        param:data?.error?.param,
+        message:data?.error?.message
       });
 
       if(response.status === 429){
