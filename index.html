@@ -3400,5 +3400,71 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }
 </style>
 
+
+<!-- =====================================================================
+     ATO ASSISTANT V12 — MICRO INTERACTION POLISH
+     Only:
+     1) company name fully ivory white
+     2) input hover = same luminous state as input focus
+     3) reset / close hover = gold ring + gold symbol
+     No geometry / orb / GPT / header / promo changes.
+     ===================================================================== -->
+<style id="ato-assistant-v12-hover-polish">
+  /* Company name: fully white/ivory. */
+  #atoAssistantPanel .ato-assistant-eyebrow,
+  #atoAssistantPanel .ato-assistant-brand-main,
+  #atoAssistantPanel .ato-assistant-brand-org{
+    color:#fff8ec!important;
+  }
+
+  @media (min-width:981px) and (hover:hover) and (pointer:fine){
+    /* Input: hover should light up exactly like the active/focus state. */
+    .ato-desktop-assistant-v7-surface .ato-v7-input:hover,
+    .ato-desktop-assistant-v7-surface .ato-v7-input:focus{
+      border-color:rgba(112,197,208,.76)!important;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.035),
+        0 0 0 3px rgba(64,164,198,.075),
+        0 0 24px rgba(53,150,203,.135),
+        0 0 38px rgba(22,137,105,.095)!important;
+      background:
+        linear-gradient(100deg,rgba(8,35,53,.76),rgba(5,55,49,.61))!important;
+      outline:none!important;
+    }
+
+    /* Reset + Close: gold ring, gold icon, restrained premium glow. */
+    .ato-desktop-assistant-v7-surface #atoAssistantReset,
+    .ato-desktop-assistant-v7-surface #atoAssistantClose{
+      transition:
+        color .20s ease,
+        border-color .20s ease,
+        background .20s ease,
+        box-shadow .20s ease,
+        transform .20s ease!important;
+    }
+
+    .ato-desktop-assistant-v7-surface #atoAssistantReset:hover,
+    .ato-desktop-assistant-v7-surface #atoAssistantReset:focus-visible,
+    .ato-desktop-assistant-v7-surface #atoAssistantClose:hover,
+    .ato-desktop-assistant-v7-surface #atoAssistantClose:focus-visible{
+      color:#f3cf7b!important;
+      border-color:rgba(232,194,108,.88)!important;
+      background:
+        radial-gradient(circle at 40% 32%,rgba(243,207,123,.14),transparent 58%),
+        rgba(221,180,93,.075)!important;
+      box-shadow:
+        inset 0 1px 0 rgba(255,248,226,.085),
+        0 0 0 1px rgba(221,180,93,.08),
+        0 0 18px rgba(224,180,87,.14)!important;
+      outline:none!important;
+    }
+
+    .ato-desktop-assistant-v7-surface #atoAssistantReset:active,
+    .ato-desktop-assistant-v7-surface #atoAssistantClose:active{
+      transform:scale(.96)!important;
+    }
+  }
+</style>
+
 </body>
 </html>
