@@ -1089,3 +1089,226 @@ button,a,[role="button"]{
     margin-bottom:env(safe-area-inset-bottom);
   }
 }
+
+/* ======================================================================
+   ATO MOBILE SCREENSHOT FIX PACK — 2026-08-17
+   MOBILE ONLY. Desktop is intentionally untouched.
+   ====================================================================== */
+@media (max-width:760px){
+
+  /* Prevent any page component from creating horizontal page overflow. */
+  html,body{
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  /* MAIN CATEGORIES — card and its inner content must stay inside viewport. */
+  .main-categories-grid,
+  .category-card,
+  .category-card .category-img,
+  .category-card .category-body{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+  }
+  .category-card{
+    overflow:hidden!important;
+  }
+  .category-card .category-body{
+    position:relative!important;
+    padding-left:clamp(18px,5vw,24px)!important;
+    padding-right:clamp(18px,5vw,24px)!important;
+  }
+  .category-card .category-body h3,
+  .category-card .category-body p{
+    max-width:100%!important;
+    overflow-wrap:anywhere!important;
+  }
+  .category-card .category-arrow{
+    right:18px!important;
+    max-width:44px!important;
+  }
+
+  /* VIP SERVICE — no cropped DISCOVER or horizontal escape. */
+  .vip-service-premium-link{
+    display:block!important;
+    width:calc(100% - 28px)!important;
+    max-width:calc(100% - 28px)!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    overflow:visible!important;
+  }
+  .vip-service-premium{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    overflow:hidden!important;
+    display:grid!important;
+    grid-template-columns:44px minmax(0,1fr)!important;
+    grid-template-areas:
+      "icon copy"
+      "action action"!important;
+    align-items:center!important;
+    gap:10px 14px!important;
+    padding:22px 20px 18px!important;
+    box-sizing:border-box!important;
+  }
+  .vip-service-premium .vip-icon{
+    grid-area:icon!important;
+    min-width:0!important;
+  }
+  .vip-service-premium .vip-service-text{
+    grid-area:copy!important;
+    min-width:0!important;
+  }
+  .vip-service-premium .vip-service-text h3{
+    margin:0!important;
+    font-size:clamp(28px,8vw,38px)!important;
+    line-height:.98!important;
+    white-space:normal!important;
+  }
+  .vip-service-premium .vip-service-text p{
+    max-width:100%!important;
+    overflow-wrap:anywhere!important;
+  }
+  .vip-service-premium .vip-discover-btn{
+    grid-area:action!important;
+    justify-self:start!important;
+    width:auto!important;
+    max-width:100%!important;
+    margin:4px 0 0!important;
+    padding:7px 0!important;
+    white-space:nowrap!important;
+  }
+
+  /* RED TÜRKİYE / WE ARE HERE MAP — force it into the mobile column. */
+  #atoAboutLiveMap,
+  .about-live-turkiye,
+  .about-live-map-inner{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
+    overflow:hidden!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  #atoAboutLiveMap .final-turkiye-map,
+  .about-live-map-inner .final-turkiye-map{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    height:auto!important;
+    min-width:0!important;
+    margin:0!important;
+    transform:none!important;
+    transform-origin:center!important;
+  }
+  #atoAboutLiveMap .about-live-geolocate{
+    max-width:calc(100% - 28px)!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  /* Hero controls: leave a clean gap before Main Categories. */
+  #atoLivingHero .ato-living-hero__actions,
+  #atoLivingHero .ato-living-hero__scroll{
+    bottom:max(22px,env(safe-area-inset-bottom))!important;
+  }
+}
+
+@media (max-width:430px){
+  .vip-service-premium-link{
+    width:calc(100% - 20px)!important;
+    max-width:calc(100% - 20px)!important;
+  }
+  .vip-service-premium{
+    grid-template-columns:38px minmax(0,1fr)!important;
+    padding:19px 16px 16px!important;
+    gap:9px 12px!important;
+  }
+  .vip-service-premium .vip-service-text h3{
+    font-size:clamp(25px,7.7vw,34px)!important;
+  }
+}
+
+/* GOOGLE CONTACT MAP — MOBILE: real interactive map, not a screenshot */
+@media (max-width:760px){
+  #contacts .map-wrapper{
+    touch-action:auto!important;
+  }
+  #contacts .map-wrapper iframe{
+    pointer-events:auto!important;
+    user-select:auto!important;
+    -webkit-user-select:auto!important;
+    touch-action:auto!important;
+  }
+}
+
+/* HERO TOUR ARROW — MOBILE ONLY: thin premium gold arrow, no iOS emoji tile */
+@media (max-width:980px){
+  #atoLivingHero .ato-living-hero__arrow{
+    position:relative!important;
+    display:inline-block!important;
+    flex:0 0 24px!important;
+    width:24px!important;
+    height:24px!important;
+    margin-left:8px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:none!important;
+    box-shadow:none!important;
+    color:transparent!important;
+    font-size:0!important;
+    line-height:0!important;
+    font-style:normal!important;
+    vertical-align:middle!important;
+    overflow:visible!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow::before{
+    content:""!important;
+    position:absolute!important;
+    left:4px!important;
+    bottom:5px!important;
+    width:17px!important;
+    height:1px!important;
+    background:#e0b653!important;
+    border-radius:999px!important;
+    transform:rotate(-45deg)!important;
+    transform-origin:center!important;
+    box-shadow:0 0 5px rgba(224,182,83,.16)!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow::after{
+    content:""!important;
+    position:absolute!important;
+    top:3px!important;
+    right:2px!important;
+    width:8px!important;
+    height:8px!important;
+    border-top:1px solid #e0b653!important;
+    border-right:1px solid #e0b653!important;
+    box-sizing:border-box!important;
+  }
+}
+@media (max-width:560px){
+  #atoLivingHero .ato-living-hero__arrow{
+    flex-basis:22px!important;
+    width:22px!important;
+    height:22px!important;
+    margin-left:7px!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow::before{
+    left:4px!important;
+    bottom:5px!important;
+    width:15px!important;
+  }
+  #atoLivingHero .ato-living-hero__arrow::after{
+    top:3px!important;
+    right:2px!important;
+    width:7px!important;
+    height:7px!important;
+  }
+}
+
