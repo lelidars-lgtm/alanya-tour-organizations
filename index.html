@@ -3331,101 +3331,76 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </script>
 
 
-<!-- =====================================================================
-     ATO DESKTOP ASSISTANT LAUNCHER V17 — NATIVE SKIN / ZERO CLICK BRIDGE
-     DESKTOP ONLY (>=981px). Header/mobile untouched.
 
-     IMPORTANT:
-     The real native Assistant launcher is NOT hidden, disabled, moved or replaced.
-     We place the approved visual skin INSIDE the native launcher.
-     The skin has pointer-events:none, therefore the browser delivers the user's
-     REAL click directly to the original Assistant launcher / original controls.
-     No synthetic .click(), no forwarding bridge, no pointer-events:none on native.
+<!-- =====================================================================
+     ATO DESKTOP ASSISTANT LAUNCHER V18 — RESTORE + REAL NATIVE CLICK
+     DESKTOP ONLY (>=981px)
+
+     IMPORTANT SAFETY RULE:
+     - NEVER changes native launcher's position/fixed placement.
+     - NEVER deletes/hides the native launcher host.
+     - Approved visual skin is pointer-events:none.
+     - The REAL existing Assistant control is stretched transparently over
+       the approved visual, so the user's physical click reaches the original
+       control and original listener directly.
      ===================================================================== -->
-<style id="ato-desktop-assistant-launcher-v17">
+<style id="ato-desktop-assistant-launcher-v18">
 @media (min-width:981px){
-  .ato-v17-native-assistant-host{
-    position:relative!important;
+  /* DO NOT touch position/top/right/bottom/transform of the real host. */
+  .ato-assistant-ai-host.ato-v18-launcher-ready{
     isolation:isolate!important;
   }
 
-  /* Hide ONLY the old artwork, never the real clickable controls. 
-     Opacity does not disable hit-testing, so original native click logic remains alive. */
-  .ato-v17-native-assistant-host > .ato-v17-native-original{
-    opacity:0!important;
-  }
-
-  /* Prevent old host decoration from peeking around the approved skin. */
-  .ato-v17-native-assistant-host{
-    background:transparent!important;
-    border-color:transparent!important;
-    box-shadow:none!important;
-  }
-  .ato-v17-native-assistant-host::before,
-  .ato-v17-native-assistant-host::after{
-    opacity:0!important;
-  }
-
-  .ato-v17-launcher-skin{
+  .ato-v18-launcher-skin{
     position:absolute!important;
     inset:0!important;
     width:100%!important;
     height:100%!important;
+    box-sizing:border-box!important;
     display:grid!important;
     grid-template-columns:28px minmax(0,1fr) 72px!important;
     align-items:center!important;
     gap:14px!important;
     padding:9px 10px 9px 20px!important;
     margin:0!important;
-    box-sizing:border-box!important;
-    border:1px solid rgba(210,166,79,.82)!important;
+    border:1px solid rgba(210,166,79,.84)!important;
     border-radius:999px!important;
     background:
-      radial-gradient(circle at 78% 49%,rgba(52,201,211,.09),transparent 29%),
-      radial-gradient(circle at 91% 52%,rgba(21,116,103,.10),transparent 27%),
-      linear-gradient(108deg,#071421 0%,#08243a 42%,#073b3b 76%,#05291f 100%)!important;
+      radial-gradient(circle at 78% 49%,rgba(65,203,218,.10),transparent 30%),
+      radial-gradient(circle at 91% 52%,rgba(19,119,101,.12),transparent 29%),
+      linear-gradient(108deg,#071421 0%,#082b48 38%,#086060 68%,#05382f 86%,#04271f 100%)!important;
     box-shadow:
       0 18px 44px rgba(0,0,0,.32),
-      inset 0 0 0 1px rgba(255,255,255,.015),
-      0 0 26px rgba(28,133,174,.08)!important;
-    color:#f4efe6!important;
+      inset 0 0 0 1px rgba(255,255,255,.018),
+      0 0 28px rgba(36,157,183,.09)!important;
     overflow:hidden!important;
-    pointer-events:none!important; /* CRITICAL: native launcher receives the REAL click */
-    z-index:2147483600!important;
-    transform:translateZ(0)!important;
-    transition:filter .22s ease,box-shadow .22s ease!important;
+    pointer-events:none!important;
+    z-index:10!important;
+    color:#f5f0e8!important;
   }
 
-  .ato-v17-launcher-skin::before{
+  .ato-v18-launcher-skin::before{
     content:"";
     position:absolute;
     inset:0;
-    pointer-events:none;
     border-radius:inherit;
-    background:linear-gradient(180deg,rgba(255,255,255,.030),transparent 39%,rgba(0,0,0,.055));
+    pointer-events:none;
+    background:
+      linear-gradient(180deg,rgba(255,255,255,.030),transparent 42%,rgba(0,0,0,.06));
   }
 
-  .ato-v17-native-assistant-host:hover .ato-v17-launcher-skin{
-    filter:brightness(1.045) saturate(1.035)!important;
-    box-shadow:
-      0 22px 52px rgba(0,0,0,.36),
-      inset 0 0 0 1px rgba(255,255,255,.02),
-      0 0 0 1px rgba(226,185,83,.10),
-      0 0 32px rgba(43,170,184,.12)!important;
-  }
-
-  .ato-v17-dot{
+  .ato-v18-dot{
     width:15px;
     height:15px;
     border-radius:50%;
-    background:linear-gradient(145deg,#f2cc77,#c88f2e);
-    box-shadow:0 0 14px rgba(226,181,83,.36);
     justify-self:start;
     position:relative;
     z-index:2;
+    background:linear-gradient(145deg,#f2cc77,#c88f2e);
+    box-shadow:0 0 14px rgba(226,181,83,.38);
   }
 
-  .ato-v17-copy{
+  .ato-v18-copy{
     min-width:0;
     text-align:left;
     line-height:1;
@@ -3433,17 +3408,17 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     z-index:2;
   }
 
-  .ato-v17-kicker{
+  .ato-v18-kicker{
     display:block;
-    margin:0 0 5px 0;
-    color:#d9ad55;
+    margin:0 0 5px;
+    color:#ddb35d;
     font:700 9px/1.1 Arial,Helvetica,sans-serif;
     letter-spacing:.26em;
     text-transform:uppercase;
     white-space:nowrap;
   }
 
-  .ato-v17-title{
+  .ato-v18-title{
     display:block;
     margin:0;
     color:#f5f0e8;
@@ -3453,7 +3428,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     white-space:nowrap;
   }
 
-  .ato-v17-core{
+  .ato-v18-core{
     width:66px;
     height:66px;
     border-radius:50%;
@@ -3464,13 +3439,13 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     position:relative;
     z-index:2;
     background:#05142c;
-    border:1px solid rgba(210,166,79,.74);
+    border:1px solid rgba(210,166,79,.76);
     box-shadow:
-      inset 0 0 18px rgba(42,183,197,.08),
-      0 0 18px rgba(42,183,197,.08);
+      inset 0 0 18px rgba(42,183,197,.09),
+      0 0 18px rgba(42,183,197,.09);
   }
 
-  .ato-v17-core img{
+  .ato-v18-core img{
     display:block;
     width:74px;
     height:74px;
@@ -3481,160 +3456,164 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     user-select:none;
     -webkit-user-drag:none;
   }
+
+  /* The ORIGINAL real Assistant control keeps its original event listener.
+     We only enlarge its hit area invisibly over the full launcher. */
+  .ato-assistant-ai-host.ato-v18-launcher-ready .ato-assistant-ai-control.ato-v18-native-click-surface{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    min-width:100%!important;
+    max-width:none!important;
+    height:100%!important;
+    min-height:100%!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:999px!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    opacity:0!important;
+    visibility:visible!important;
+    pointer-events:auto!important;
+    cursor:pointer!important;
+    z-index:20!important;
+  }
+
+  .ato-assistant-ai-host.ato-v18-launcher-ready:hover .ato-v18-launcher-skin{
+    filter:brightness(1.045) saturate(1.035)!important;
+    box-shadow:
+      0 22px 52px rgba(0,0,0,.36),
+      inset 0 0 0 1px rgba(255,255,255,.02),
+      0 0 0 1px rgba(226,185,83,.10),
+      0 0 34px rgba(43,170,184,.13)!important;
+  }
 }
 </style>
 
-<script id="ato-desktop-assistant-launcher-v17-js">
+<script id="ato-desktop-assistant-launcher-v18-js">
 (function(){
   'use strict';
 
-  const DESKTOP=window.matchMedia('(min-width:981px)');
-  const SKIN_CLASS='ato-v17-launcher-skin';
-  const HOST_CLASS='ato-v17-native-assistant-host';
-  const ORIGINAL_CLASS='ato-v17-native-original';
+  const MQ=window.matchMedia('(min-width:981px)');
   const GIF='assets/img/ato-ai-processing-360-blue.gif';
+  const HOST_READY='ato-v18-launcher-ready';
+  const SKIN='ato-v18-launcher-skin';
+  const CLICK='ato-v18-native-click-surface';
 
   let raf=0;
   let activeHost=null;
+  let activeControl=null;
 
   function visible(el){
     try{
       const cs=getComputedStyle(el),r=el.getBoundingClientRect();
-      return !el.hidden &&
+      return !!el && !el.hidden &&
         cs.display!=='none' &&
         cs.visibility!=='hidden' &&
-        parseFloat(cs.opacity||'1')>.02 &&
         r.width>0 && r.height>0 &&
         r.right>0 && r.bottom>0 &&
         r.left<innerWidth && r.top<innerHeight;
-    }catch(_){ return false; }
+    }catch(_){return false}
   }
 
-  function deep(root=document,out=[]){
-    try{
-      root.querySelectorAll?.('*').forEach(el=>{
-        out.push(el);
-        if(el.shadowRoot) deep(el.shadowRoot,out);
+  function chooseHost(){
+    if(!MQ.matches)return null;
+
+    const hosts=[...document.querySelectorAll('.ato-assistant-ai-host')]
+      .filter(el=>el instanceof HTMLElement && visible(el))
+      .filter(el=>{
+        const r=el.getBoundingClientRect();
+        return r.width>=180 && r.width<=720 &&
+               r.height>=42 && r.height<=240 &&
+               r.right>innerWidth*.52 &&
+               r.bottom>innerHeight*.42;
       });
-    }catch(_){}
-    return out;
-  }
 
-  /* Find the REAL existing launcher only. Never create or replace it. */
-  function findNativeHost(){
-    if(!DESKTOP.matches) return null;
+    if(!hosts.length)return null;
 
-    const candidates=[];
-    deep().forEach(el=>{
-      if(!(el instanceof HTMLElement)) return;
-      if(el.classList?.contains(SKIN_CLASS) || el.closest?.('.'+SKIN_CLASS)) return;
-      if(el.closest?.('#atoGlobalHeaderRoot')) return;
-      if(!visible(el)) return;
-
-      const r=el.getBoundingClientRect();
-      if(r.width<180 || r.width>700 || r.height<42 || r.height>230) return;
-      if(r.right<innerWidth*.55 || r.bottom<innerHeight*.48) return;
-
-      let text='',meta='';
-      try{
-        text=(el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase();
-        meta=((el.id||'')+' '+(typeof el.className==='string'?el.className:'')+' '+(el.getAttribute?.('aria-label')||'')).toUpperCase();
-      }catch(_){}
-
-      let score=0;
-      if(text.includes('ASK SOMETHING')) score+=150;
-      if(text.includes('ASSISTANT')) score+=100;
-      if(meta.includes('ASSISTANT')) score+=75;
-      if(el.classList?.contains('ato-assistant-ai-host')) score+=160;
-      if(el.querySelector?.('.ato-assistant-ai-control')) score+=110;
-      if(score<90) return;
-
-      let host=el,cur=el;
-      for(let i=0;i<7;i++){
-        const p=cur.parentElement || cur.getRootNode?.()?.host;
-        if(!p || p===document.body || p===document.documentElement) break;
-        const pr=p.getBoundingClientRect();
-        let pcs;
-        try{ pcs=getComputedStyle(p); }catch(_){ break; }
-
-        if(pr.width>=180 && pr.width<=720 && pr.height>=42 && pr.height<=240 &&
-           pr.right>innerWidth*.55 && pr.bottom>innerHeight*.48){
-          host=p;
-          if(pcs.position==='fixed') break;
-        }else if(pr.width>760 || pr.height>280){
-          break;
-        }
-        cur=p;
-      }
-
-      const hr=host.getBoundingClientRect();
-      const dist=Math.hypot(innerWidth-hr.right,innerHeight-hr.bottom);
-      candidates.push({host,score:score-dist*.02,area:hr.width*hr.height});
+    hosts.sort((a,b)=>{
+      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+      const ad=Math.hypot(innerWidth-ar.right,innerHeight-ar.bottom);
+      const bd=Math.hypot(innerWidth-br.right,innerHeight-br.bottom);
+      return ad-bd;
     });
-
-    if(!candidates.length) return null;
-    candidates.sort((a,b)=>(b.score-a.score)||(b.area-a.area));
-    return candidates[0].host;
+    return hosts[0];
   }
 
-  function removeSkin(){
+  function chooseNativeControl(host){
+    if(!host)return null;
+    const exact=[...host.querySelectorAll('.ato-assistant-ai-control')]
+      .filter(el=>el instanceof HTMLElement);
+
+    if(exact.length){
+      const interactive=exact[0].matches('button,a,[role="button"]')
+        ? exact[0]
+        : (exact[0].closest('button,a,[role="button"]')||exact[0]);
+      return interactive;
+    }
+    return null;
+  }
+
+  function restore(){
+    if(activeControl)activeControl.classList.remove(CLICK);
     if(activeHost){
-      activeHost.querySelector?.(':scope > .'+SKIN_CLASS)?.remove();
-      [...activeHost.children].forEach(ch=>ch.classList?.remove(ORIGINAL_CLASS));
-      activeHost.classList?.remove(HOST_CLASS);
+      activeHost.querySelector(':scope > .'+SKIN)?.remove();
+      activeHost.classList.remove(HOST_READY);
     }
     activeHost=null;
+    activeControl=null;
   }
 
-  function skin(host){
-    if(!host || !host.isConnected) return;
+  function apply(){
+    raf=0;
 
-    if(activeHost && activeHost!==host) removeSkin();
+    if(!MQ.matches){
+      restore();
+      return;
+    }
+
+    const host=chooseHost();
+    if(!host){
+      /* Fail-safe: original button remains exactly as-is. */
+      return;
+    }
+
+    const control=chooseNativeControl(host);
+    if(!control){
+      /* Fail-safe: original launcher remains visible and clickable. */
+      return;
+    }
+
+    if(activeHost && activeHost!==host)restore();
+
     activeHost=host;
+    activeControl=control;
 
-    host.classList.add(HOST_CLASS);
+    host.classList.add(HOST_READY);
+    control.classList.add(CLICK);
 
-    /* The native elements stay exactly where they are and keep ALL real event listeners.
-       We only make their artwork transparent on desktop. */
-    [...host.children].forEach(ch=>{
-      if(!ch.classList?.contains(SKIN_CLASS)) ch.classList?.add(ORIGINAL_CLASS);
-    });
-
-    let skin=host.querySelector(':scope > .'+SKIN_CLASS);
+    let skin=host.querySelector(':scope > .'+SKIN);
     if(!skin){
       skin=document.createElement('div');
-      skin.className=SKIN_CLASS;
+      skin.className=SKIN;
       skin.setAttribute('aria-hidden','true');
       skin.innerHTML=
-        '<span class="ato-v17-dot"></span>'+
-        '<span class="ato-v17-copy">'+
-          '<span class="ato-v17-kicker">ASK SOMETHING</span>'+
-          '<span class="ato-v17-title">ASSISTANT</span>'+
+        '<span class="ato-v18-dot"></span>'+
+        '<span class="ato-v18-copy">'+
+          '<span class="ato-v18-kicker">ASK SOMETHING</span>'+
+          '<span class="ato-v18-title">ASSISTANT</span>'+
         '</span>'+
-        '<span class="ato-v17-core">'+
-          '<img src="'+GIF+'" alt="" draggable="false">'+
+        '<span class="ato-v18-core">'+
+          '<img src="'+GIF+'" alt="" aria-hidden="true" draggable="false">'+
         '</span>';
       host.appendChild(skin);
     }
   }
 
-  function sync(){
-    raf=0;
-
-    if(!DESKTOP.matches){
-      removeSkin();
-      return;
-    }
-
-    const host=(activeHost && activeHost.isConnected && visible(activeHost))
-      ? activeHost
-      : findNativeHost();
-
-    if(host) skin(host);
-  }
-
   function queue(){
-    if(!raf) raf=requestAnimationFrame(sync);
+    if(!raf)raf=requestAnimationFrame(apply);
   }
 
   function init(){
@@ -3650,9 +3629,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
     addEventListener('resize',queue,{passive:true});
     addEventListener('scroll',queue,{passive:true});
-    DESKTOP.addEventListener?.('change',queue);
+    MQ.addEventListener?.('change',queue);
 
-    setTimeout(queue,100);
+    setTimeout(queue,120);
     setTimeout(queue,500);
     setTimeout(queue,1200);
   }
@@ -3664,4 +3643,5 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   }
 })();
 </script>
+
 
