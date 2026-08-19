@@ -171,12 +171,23 @@
   #contacts .map-wrapper{border-radius:18px}
   #contacts .map-wrapper{height:430px}
   #contacts .map-wrapper iframe{
-    left:-120px!important;
-    top:-50px!important;
-    width:calc(100% + 240px)!important;
-    min-width:calc(100% + 240px)!important;
-    height:calc(100% + 100px)!important;
-    min-height:calc(100% + 100px)!important;
+    left:0!important;
+    top:0!important;
+    width:100%!important;
+    min-width:100%!important;
+    height:100%!important;
+    min-height:100%!important;
+    max-width:100%!important;
+    max-height:100%!important;
+    pointer-events:auto!important;
+    user-select:auto!important;
+    -webkit-user-select:auto!important;
+    touch-action:auto!important;
+  }
+  /* On mobile the office marker belongs to Google Maps itself.
+     Hide the old screen-fixed overlay pin so it cannot "move" with the viewport. */
+  #contacts .ato-contact-map-pin{
+    display:none!important;
   }
   .ato-office-pin{width:33px;height:33px}
   .ato-office-label{max-width:190px;padding:8px 10px;font-size:9px;letter-spacing:.55px;overflow:hidden;text-overflow:ellipsis}
@@ -1631,6 +1642,24 @@ html body .header #headerTourSearch .ato-search-trigger-label{
     <span class="ato-contact-map-pin" aria-hidden="true"></span>
   </div>
 </section>
+
+<script id="ato-mobile-contact-google-map-fix">
+(function(){
+  'use strict';
+  function applyMobileOfficeMap(){
+    if(!window.matchMedia('(max-width:640px)').matches) return;
+    var iframe=document.querySelector('#contacts .map-wrapper iframe');
+    if(!iframe || iframe.dataset.atoMobileOfficeMap==='1') return;
+    iframe.dataset.atoMobileOfficeMap='1';
+    iframe.src='https://maps.google.com/maps?q=36.529064,32.044613&z=17&t=m&output=embed';
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',applyMobileOfficeMap,{once:true});
+  }else{
+    applyMobileOfficeMap();
+  }
+})();
+</script>
 
 <script id="ato-location-title-font-sync">
 (function(){
