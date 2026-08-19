@@ -921,11 +921,11 @@ html body .header #headerTourSearch .ato-search-trigger-label{
 .final-alanya-location-title{fill:#fff8e8;font-family:"Times New Roman",Times,Georgia,serif;font-size:38px;font-weight:700;letter-spacing:.15px;text-anchor:start}
 .final-alanya-location-coordinates{fill:#d7a83e;font-family:Arial,"Helvetica Neue",sans-serif;font-size:18px;font-weight:900;letter-spacing:.65px;text-anchor:start}
 </style>
-  <link rel="stylesheet" href="assets/css/responsive.css?v=20260819-v11-assistant-safe3" />
+  <link rel="stylesheet" href="assets/css/responsive.css?v=20260819-0653" />
 </head>
 
 <body>
-<script src="/assets/js/ato-global-header.js?v=20260819-v11-assistant-safe3" data-ato-global-header></script>
+<script src="/assets/js/ato-global-header.js?v=20260819-0653" data-ato-global-header></script>
 
 
 
@@ -2522,3 +2522,151 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 </body>
 </html>
+
+
+<!-- =====================================================================
+     ATO DESKTOP ASSISTANT MODAL FIX — 2026-08-19
+     Desktop only. Does not alter mobile, header, promo bar, Hero or Assistant content.
+     ===================================================================== -->
+<style id="ato-desktop-assistant-modal-fix">
+@media (min-width:981px){
+  #atoDesktopAssistantBackdrop{
+    position:fixed;
+    inset:0;
+    z-index:2147482100;
+    background:rgba(2,8,16,.58);
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .22s ease,visibility .22s ease;
+  }
+  #atoDesktopAssistantBackdrop.is-open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+  }
+  .ato-desktop-assistant-modalized{
+    position:fixed!important;
+    left:50%!important;
+    top:50%!important;
+    right:auto!important;
+    bottom:auto!important;
+    width:min(720px,calc(100vw - 72px))!important;
+    max-width:720px!important;
+    height:min(760px,calc(100vh - 72px))!important;
+    max-height:760px!important;
+    margin:0!important;
+    transform:translate(-50%,-50%)!important;
+    z-index:2147482200!important;
+    overflow:hidden!important;
+  }
+}
+</style>
+<script id="ato-desktop-assistant-modal-fix-js">
+(function(){
+  'use strict';
+  const mq=window.matchMedia('(min-width:981px)');
+  const CLASS='ato-desktop-assistant-modalized';
+  let activePanel=null,raf=0;
+
+  function ensureBackdrop(){
+    let el=document.getElementById('atoDesktopAssistantBackdrop');
+    if(!el){
+      el=document.createElement('div');
+      el.id='atoDesktopAssistantBackdrop';
+      el.setAttribute('aria-hidden','true');
+      document.body.appendChild(el);
+      el.addEventListener('click',()=>closeExistingAssistant());
+    }
+    return el;
+  }
+  function candidateText(el){return (el.innerText||'').replace(/\s+/g,' ').trim().toUpperCase()}
+  function findAssistantPanel(){
+    if(!mq.matches)return null;
+    const nodes=[...document.querySelectorAll('aside,dialog,section,div')].filter(el=>{
+      if(el.id==='atoDesktopAssistantBackdrop'||el.closest('#atoGlobalHeaderRoot'))return false;
+      const txt=candidateText(el);
+      if(!txt.includes('TALK TO MANAGER'))return false;
+      if(!txt.includes('AI ASSISTANT')&&!txt.includes('FIND A TOUR'))return false;
+      return !!el.querySelector('input,textarea');
+    });
+    if(!nodes.length)return null;
+    nodes.sort((a,b)=>{
+      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+      return (ar.width*ar.height)-(br.width*br.height);
+    });
+    let panel=nodes[0];
+    for(let i=0;i<4&&panel.parentElement&&panel.parentElement!==document.body;i++){
+      const p=panel.parentElement,cs=getComputedStyle(p),r=p.getBoundingClientRect();
+      if((cs.position==='fixed'||cs.position==='absolute')&&r.width>=320&&r.width<=1100&&r.height>=360&&r.height<=innerHeight*1.2){panel=p;break}
+      if(r.width>innerWidth*.92||r.height>innerHeight*1.15)break;
+      panel=p;
+    }
+    return panel;
+  }
+  function naturallyOpen(panel){
+    if(!panel)return false;
+    const had=panel.classList.contains(CLASS);
+    if(had)panel.classList.remove(CLASS);
+    const cs=getComputedStyle(panel),r=panel.getBoundingClientRect();
+    const opacity=parseFloat(cs.opacity||'1');
+    const open=cs.display!=='none'&&cs.visibility!=='hidden'&&!panel.hidden&&opacity>.05&&r.width>280&&r.height>280&&r.right>0&&r.bottom>0&&r.left<innerWidth&&r.top<innerHeight;
+    if(had&&open)panel.classList.add(CLASS);
+    return open;
+  }
+  function closeExistingAssistant(){
+    const panel=activePanel||findAssistantPanel();
+    if(!panel)return;
+    const controls=[...panel.querySelectorAll('button,[role="button"],a')];
+    const close=controls.find(el=>{
+      const aria=(el.getAttribute('aria-label')||'').toLowerCase();
+      const title=(el.getAttribute('title')||'').toLowerCase();
+      const txt=(el.textContent||'').trim().toLowerCase();
+      return aria.includes('close')||aria.includes('dismiss')||title.includes('close')||txt==='×'||txt==='✕'||txt==='close';
+    });
+    if(close){close.click();return}
+    document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',code:'Escape',bubbles:true}));
+  }
+  function clear(){
+    document.querySelectorAll('.'+CLASS).forEach(el=>el.classList.remove(CLASS));
+    activePanel=null;
+    const back=document.getElementById('atoDesktopAssistantBackdrop');
+    back?.classList.remove('is-open');
+    back?.setAttribute('aria-hidden','true');
+  }
+  function sync(){
+    raf=0;
+    if(!mq.matches){clear();return}
+    const panel=findAssistantPanel();
+    if(!panel){clear();return}
+    if(activePanel&&activePanel!==panel)activePanel.classList.remove(CLASS);
+    if(naturallyOpen(panel)){
+      panel.classList.add(CLASS);
+      activePanel=panel;
+      const back=ensureBackdrop();
+      back.classList.add('is-open');
+      back.setAttribute('aria-hidden','false');
+    }else{
+      panel.classList.remove(CLASS);
+      if(activePanel===panel)activePanel=null;
+      const back=document.getElementById('atoDesktopAssistantBackdrop');
+      back?.classList.remove('is-open');
+      back?.setAttribute('aria-hidden','true');
+    }
+  }
+  function queue(){if(raf)return;raf=requestAnimationFrame(sync)}
+  const mo=new MutationObserver(queue);
+  function init(){
+    mo.observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['class','style','aria-hidden','hidden']});
+    document.addEventListener('click',()=>{queue();setTimeout(queue,90);setTimeout(queue,260)},true);
+    window.addEventListener('resize',queue,{passive:true});
+    mq.addEventListener?.('change',queue);
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')setTimeout(queue,40)},true);
+    queue();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
+</script>
+
