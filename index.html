@@ -3019,7 +3019,16 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   const ORIGINAL='ato-orb-v4-original-art';
   const PATH='ato-orb-v4-control-path';
   const HIDE='ato-orb-v4-hide-branch';
-  const SESSION='ato-orb-v4-hint-seen';
+  const SESSION='ato-orb-v5-hint-seen';
+
+  let host=null;
+  let native=null;
+  let open=false;
+  let discoverObserver=null;
+  let discoverQueued=false;
+  let stateTimer=0;
+  let healthTimer=0;
+  let lastTone=0;
 
   const PREFERRED=[
     '[data-ato-assistant-launcher]',
@@ -3029,26 +3038,23 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     '#atoAssistantLauncher'
   ];
 
-  let host=null,native=null,open=false,lastTone=0;
-  let discoverObserver=null,discoverQueued=false,stateTimer=0,healthTimer=0;
-
   const SVG=`
   <span class="ato-orb-v2-symbol" aria-hidden="true">
     <svg viewBox="0 0 64 64" focusable="false" aria-hidden="true">
       <defs>
-        <radialGradient id="atoOrb4Halo" cx="50%" cy="50%" r="62%">
+        <radialGradient id="atoOrb5Halo" cx="50%" cy="50%" r="62%">
           <stop offset="0" stop-color="#fff9ef" stop-opacity=".94"/>
           <stop offset=".18" stop-color="#f0cf89" stop-opacity=".80"/>
           <stop offset=".46" stop-color="#245f97" stop-opacity=".46"/>
           <stop offset="1" stop-color="#0a2037" stop-opacity="0"/>
         </radialGradient>
-        <radialGradient id="atoOrb4Core" cx="40%" cy="36%" r="74%">
+        <radialGradient id="atoOrb5Core" cx="40%" cy="36%" r="74%">
           <stop offset="0" stop-color="#fff9ef"/>
           <stop offset=".24" stop-color="#f6d58f"/>
           <stop offset=".58" stop-color="#e5a631"/>
           <stop offset="1" stop-color="#b97818"/>
         </radialGradient>
-        <linearGradient id="atoOrb4Ring" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id="atoOrb5Ring" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stop-color="#fff9ef" stop-opacity=".94"/>
           <stop offset=".36" stop-color="#f0cf89" stop-opacity=".86"/>
           <stop offset="1" stop-color="#245f97" stop-opacity=".62"/>
@@ -3069,10 +3075,10 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       <g class="ato-orb-v2-track ato-orb-v2-p6"><circle cx="47.6" cy="16.0" r=".78" fill="#f0cf89"/></g>
 
       <g class="ato-orb-v2-core">
-        <circle cx="32" cy="32" r="13.8" fill="url(#atoOrb4Halo)" opacity=".92"/>
-        <circle cx="32" cy="32" r="8.9" fill="url(#atoOrb4Halo)" opacity=".36"/>
-        <circle cx="32" cy="32" r="6.4" fill="none" stroke="url(#atoOrb4Ring)" stroke-width=".88" stroke-opacity=".72"/>
-        <circle cx="32" cy="32" r="5.5" fill="url(#atoOrb4Core)"/>
+        <circle cx="32" cy="32" r="13.8" fill="url(#atoOrb5Halo)" opacity=".92"/>
+        <circle cx="32" cy="32" r="8.9" fill="url(#atoOrb5Halo)" opacity=".36"/>
+        <circle cx="32" cy="32" r="6.4" fill="none" stroke="url(#atoOrb5Ring)" stroke-width=".88" stroke-opacity=".72"/>
+        <circle cx="32" cy="32" r="5.5" fill="url(#atoOrb5Core)"/>
         <circle cx="32" cy="32" r="2.7" fill="#fff9ef" opacity=".22"/>
         <circle cx="31.15" cy="31.0" r=".78" fill="#fff9ef" opacity=".94"/>
       </g>
@@ -3083,15 +3089,31 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     try{
       if(!el)return false;
       const cs=getComputedStyle(el),r=el.getBoundingClientRect();
-      return !el.hidden && cs.display!=='none' && cs.visibility!=='hidden' &&
+      return !el.hidden &&
+        cs.display!=='none' &&
+        cs.visibility!=='hidden' &&
+        parseFloat(cs.opacity||'1')>.02 &&
         r.width>0 && r.height>0 &&
-        r.right>0 && r.bottom>0 && r.left<innerWidth && r.top<innerHeight;
+        r.right>0 && r.bottom>0 &&
+        r.left<innerWidth && r.top<innerHeight;
     }catch(_){return false}
   }
 
   function text(el){
     try{return (el.innerText||el.textContent||'').replace(/\s+/g,' ').trim().toUpperCase()}
     catch(_){return ''}
+  }
+
+  function clickableFrom(control,h){
+    if(!control)return null;
+    if(control.matches?.('button,a,[role="button"]'))return control;
+
+    const ancestor=control.closest?.('button,a,[role="button"]');
+    if(ancestor && (!h || h.contains(ancestor)))return ancestor;
+
+    /* If the ATO script attached the listener directly to its visual control,
+       keep that exact control. The click can still bubble to the launcher host. */
+    return control;
   }
 
   function preferredHost(){
@@ -3103,7 +3125,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
         const r=el.getBoundingClientRect();
         if(r.right<innerWidth*.48||r.bottom<innerHeight*.32)continue;
         const t=text(el);
-        if(t.includes('ASSISTANT')||/assistant/i.test(el.getAttribute('aria-label')||'')||el.matches('[data-ato-assistant-launcher]')){
+        const meta=(el.getAttribute('aria-label')||'')+' '+(el.id||'')+' '+(typeof el.className==='string'?el.className:'');
+        if(t.includes('ASSISTANT')||/assistant/i.test(meta)||el.matches('[data-ato-assistant-launcher]')){
           return el;
         }
       }
@@ -3122,6 +3145,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       if(r.right<innerWidth*.52||r.bottom<innerHeight*.42)return;
       list.push({el,dist:Math.hypot(innerWidth-r.right,innerHeight-r.bottom),area:r.width*r.height});
     });
+
     list.sort((a,b)=>a.dist-b.dist||a.area-b.area);
     if(!list.length)return null;
 
@@ -3141,33 +3165,40 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     return preferredHost()||fallbackHost();
   }
 
-  /* CRITICAL FIX:
-     Select the REAL Assistant control first, BEFORE any visual shrinking.
-     We do not choose generic div/span children anymore. */
   function findNative(h){
     if(!h)return null;
 
-    const exact=[...h.querySelectorAll('.ato-assistant-ai-control')];
+    /* 1. Use the exact existing ATO Assistant control, but resolve its REAL
+       clickable ancestor when the control is only an inner visual element. */
+    const exact=[...h.querySelectorAll('.ato-assistant-ai-control')].filter(el=>el instanceof HTMLElement);
     if(exact.length){
       exact.sort((a,b)=>{
         const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
-        return br.right-ar.right;
-      });
-      return exact[0];
-    }
-
-    const buttons=[...h.querySelectorAll('button,a,[role="button"]')];
-    if(buttons.length){
-      const hr=h.getBoundingClientRect();
-      buttons.sort((a,b)=>{
-        const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
-        const ad=Math.abs(hr.right-ar.right),bd=Math.abs(hr.right-br.right);
+        const ad=Math.abs(h.getBoundingClientRect().right-ar.right);
+        const bd=Math.abs(h.getBoundingClientRect().right-br.right);
         return ad-bd;
       });
-      return buttons[0];
+      return clickableFrom(exact[0],h);
     }
 
+    /* 2. Prefer the real right-side button/link if present. */
+    const hr=h.getBoundingClientRect();
+    const buttons=[...h.querySelectorAll('button,a,[role="button"]')]
+      .filter(el=>el instanceof HTMLElement && vis(el));
+
+    buttons.sort((a,b)=>{
+      const ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+      const ad=Math.abs(hr.right-ar.right);
+      const bd=Math.abs(hr.right-br.right);
+      if(Math.abs(ad-bd)>2)return ad-bd;
+      return (ar.width*ar.height)-(br.width*br.height);
+    });
+
+    if(buttons.length)return buttons[0];
+
+    /* 3. If the launcher itself is the real button. */
     if(h.matches('button,a,[role="button"]'))return h;
+
     return null;
   }
 
@@ -3189,6 +3220,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
   function installVisual(n){
     if(!n)return;
+
     [...n.children].forEach(ch=>{
       if(!ch.classList.contains(V))ch.classList.add(ORIGINAL);
     });
@@ -3203,12 +3235,39 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     }
   }
 
+  /* IMPORTANT:
+     The orb is hidden ONLY after a REAL Assistant panel/backdrop is visible.
+     aria-expanded is NOT used as proof of an open panel anymore. */
   function panelOpen(){
     const known=document.querySelector('.ato-desktop-assistant-v7-surface');
     if(known&&vis(known))return true;
+
     const back=document.getElementById('atoDesktopAssistantBackdropV7');
-    if(back?.classList.contains('is-open'))return true;
-    return native?.getAttribute?.('aria-expanded')==='true';
+    if(back){
+      const cs=getComputedStyle(back);
+      if(
+        back.classList.contains('is-open') ||
+        (vis(back) && cs.pointerEvents!=='none')
+      ) return true;
+    }
+
+    /* Conservative generic fallback: a large visible element that actually
+       looks like the Assistant panel. */
+    const candidates=[...document.querySelectorAll('body *')].filter(el=>{
+      if(!(el instanceof HTMLElement)||el===host||host?.contains(el)||!vis(el))return false;
+      const r=el.getBoundingClientRect();
+      if(r.width<300||r.height<300||r.width>innerWidth*.96||r.height>innerHeight*.96)return false;
+
+      const t=text(el);
+      const meta=((el.id||'')+' '+(typeof el.className==='string'?el.className:'')+' '+(el.getAttribute('aria-label')||'')).toUpperCase();
+
+      return (
+        (t.includes('AI ASSISTANT')||t.includes('TALK TO MANAGER')) &&
+        (meta.includes('ASSISTANT')||t.includes('ASK ABOUT TOURS'))
+      );
+    });
+
+    return candidates.length>0;
   }
 
   function tone(){
@@ -3232,8 +3291,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
           const cs=getComputedStyle(cur);
           if(['IMG','VIDEO','CANVAS','IFRAME'].includes(cur.tagName) ||
              (cs.backgroundImage&&cs.backgroundImage!=='none')){
-            media=true;
-            break;
+            media=true; break;
           }
           const m=cs.backgroundColor?.match(/rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/i);
           if(m){
@@ -3286,17 +3344,17 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     if(!host)return;
     open=panelOpen();
     host.classList.toggle('ato-orb-v2-open',open);
-    if(native)native.setAttribute('aria-expanded',open?'true':'false');
+    /* DO NOT write aria-expanded here.
+       The original Assistant script owns its own state attributes. */
   }
 
   function cleanup(){
     if(native){
       native.classList.remove(N);
       native.querySelector(':scope > .'+V)?.remove();
-      native.querySelectorAll(':scope > .'+ORIGINAL).forEach(el=>{
-        el.classList.remove(ORIGINAL);
-      });
+      native.querySelectorAll(':scope > .'+ORIGINAL).forEach(el=>el.classList.remove(ORIGINAL));
     }
+
     if(host){
       host.classList.remove(
         H,'ato-orb-v2-light','ato-orb-v2-dark','ato-orb-v2-media',
@@ -3306,6 +3364,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       host.querySelectorAll('.'+HIDE).forEach(el=>el.classList.remove(HIDE));
       host.style.removeProperty('--ato-orb-lift');
     }
+
     host=null;
     native=null;
     open=false;
@@ -3314,7 +3373,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   function bind(h){
     if(!h)return false;
 
-    /* Find real control while the original launcher is still intact. */
+    /* Find the real control BEFORE changing any launcher dimensions/styles. */
     const n=findNative(h);
     if(!n)return false;
 
@@ -3327,14 +3386,13 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     host.classList.add(H);
     native.classList.add(N);
 
-    if(!native.matches('button,a,[role="button"]')){
-      native.setAttribute('role','button');
-      if(!native.hasAttribute('tabindex'))native.setAttribute('tabindex','0');
+    /* Preserve the native element's existing role/tabindex/aria-expanded.
+       Only add a useful aria-label if it does not already have one. */
+    if(!native.getAttribute('aria-label')){
+      native.setAttribute('aria-label','Open AI Assistant');
     }
 
-    native.setAttribute('aria-label','Open AI Assistant');
     installVisual(native);
-
     tone();
     lift();
     syncOpen();
@@ -3345,11 +3403,14 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     }
 
     if(!stateTimer)stateTimer=setInterval(syncOpen,420);
-    if(!healthTimer)healthTimer=setInterval(()=>{
-      if(host?.isConnected&&native?.isConnected)return;
-      cleanup();
-      startDiscovery();
-    },2400);
+
+    if(!healthTimer){
+      healthTimer=setInterval(()=>{
+        if(host?.isConnected&&native?.isConnected)return;
+        cleanup();
+        startDiscovery();
+      },2400);
+    }
 
     return true;
   }
@@ -3405,8 +3466,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   function init(){
     startDiscovery();
 
-    /* Visual press reaction only. We DO NOT intercept or proxy the click.
-       Physical click goes directly to the existing native Assistant control. */
+    /* We only animate the press. We do NOT intercept, preventDefault,
+       stopPropagation, or call another element's .click().
+       The user's real click reaches the original native Assistant control. */
     document.addEventListener('pointerdown',e=>{
       if(!host||!host.contains(e.target))return;
       host.classList.add('ato-orb-v2-click');
@@ -3415,9 +3477,11 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
     document.addEventListener('click',e=>{
       if(host&&host.contains(e.target)){
-        setTimeout(syncOpen,40);
-        setTimeout(syncOpen,180);
-        setTimeout(syncOpen,420);
+        /* Do NOT hide immediately. Wait until a real panel/backdrop is visible. */
+        setTimeout(syncOpen,70);
+        setTimeout(syncOpen,220);
+        setTimeout(syncOpen,500);
+        setTimeout(syncOpen,900);
       }else if(open){
         setTimeout(syncOpen,100);
       }
