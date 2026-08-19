@@ -201,6 +201,11 @@ function atoInitMobileAssistantPolish(){
    });
  };
  const apply=()=>{
+   /* V11 ASSISTANT SAFETY — preserve the original Assistant launcher.
+      Nothing is removed: the legacy arrow transformation remains below,
+      but is bypassed so the Assistant's own markup/click handlers stay intact. */
+   restore();
+   return;
    if(!isMobile()){restore();return;}
    const all=[...document.querySelectorAll('body *')];
    const candidates=all.filter(el=>{
@@ -575,6 +580,19 @@ render();
           and replace the blue square icon with a thin gold SVG arrow. */
   const fixAssistantArrow = () => {
     if (!isMobile()) return;
+
+    /* V11 ASSISTANT SAFETY — do not alter the Assistant's original launcher.
+       Restore only a legacy arrow mutation if one exists, then leave all
+       Assistant markup, text, click handlers and panel logic untouched.
+       The original V11 arrow code is intentionally kept below and not deleted. */
+    document.querySelectorAll('.ato-mobile-assistant-arrow').forEach(el => {
+      if (el.dataset.atoOriginalHtml !== undefined) {
+        el.innerHTML = el.dataset.atoOriginalHtml;
+        delete el.dataset.atoOriginalHtml;
+      }
+      el.classList.remove('ato-mobile-assistant-arrow');
+    });
+    return;
 
     const nodes = [...document.querySelectorAll('body *')].filter(el => {
       if (!(el instanceof HTMLElement)) return false;
