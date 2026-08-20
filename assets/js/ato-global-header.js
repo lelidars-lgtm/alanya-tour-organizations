@@ -1759,3 +1759,18 @@ render();
   window.addEventListener('ato-language-changed',()=>setTimeout(normalize,0));
 })();
 
+/* ATO AI TRAVEL COMPANION — global client-page loader.
+   One loader via canonical header = Tours / Categories / Search / VIP / About / Contact.
+   Internal manager/admin screens and secure Virtual POS screens are excluded. */
+(function atoLoadTravelCompanion(){
+  const path=(location.pathname||'/').toLowerCase();
+  if(/(^|\/)(booking-manager|ato-manager|manager|admin)(\/|$)/.test(path)) return;
+  if(/(virtual[-_]?pos|secure[-_]?payment|card[-_]?payment|payment-gateway)/.test(path)) return;
+  if(document.querySelector('script[src*="ato-assistant.js"]')) return;
+  const s=document.createElement('script');
+  s.src='/assets/js/ato-assistant.js';
+  s.defer=true;
+  s.dataset.atoAssistantLoader='global-header';
+  document.head.appendChild(s);
+})();
+
