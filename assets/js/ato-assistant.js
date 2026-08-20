@@ -446,46 +446,6 @@
         pointer-events:none!important;
       }
 
-      /* ============================================================
-         V3.1 MICRO POLISH — HEADER SOFT SHADOWS + PERMANENT INPUT GLOW
-         Visual only. No API / booking / language / header changes.
-         ============================================================ */
-
-      /* Soft, clean shadow on the three Assistant header text lines. */
-      html body #atoAssistantPanel .ato-assistant-eyebrow,
-      html body #atoAssistantPanel .ato-assistant-head h3,
-      html body #atoAssistantPanel .ato-assistant-status{
-        text-shadow:
-          0 1px 1px rgba(0,0,0,.30),
-          0 3px 8px rgba(0,0,0,.20)!important;
-      }
-
-      /* Input stays permanently in the approved blue/emerald illuminated state.
-         Static glow only — no pulse, no blinking. */
-      html body #atoAssistantPanel #atoAssistantInput,
-      html body .ato-desktop-assistant-v7-surface .ato-v7-input{
-        border-color:rgba(112,197,208,.76)!important;
-        box-shadow:
-          inset 0 1px 0 rgba(255,255,255,.035),
-          0 0 0 1px rgba(222,179,88,.095),
-          0 0 0 3px rgba(64,164,198,.075),
-          0 0 24px rgba(53,150,203,.135),
-          0 0 38px rgba(22,137,105,.095)!important;
-        background:
-          linear-gradient(100deg,rgba(8,35,53,.76),rgba(5,55,49,.61))!important;
-        outline:none!important;
-        transition:
-          border-color .22s ease,
-          box-shadow .22s ease,
-          background .22s ease!important;
-      }
-
-      html body #atoAssistantPanel #atoAssistantInput::placeholder,
-      html body .ato-desktop-assistant-v7-surface .ato-v7-input::placeholder{
-        color:rgba(225,237,239,.70)!important;
-        opacity:1!important;
-      }
-
       @media (prefers-reduced-motion:reduce){
         .ato-ai-orbit,
         .ato-ai-orb-particle,
@@ -570,6 +530,41 @@
     },5600);
   }
 
+  function applyAssistantPolish(){
+    // Visual-only. Does not touch launcher/orb visibility, size, position or click behavior.
+    const input=$('#atoAssistantInput');
+    if(input){
+      input.style.setProperty('border-color','rgba(112,197,208,.76)','important');
+      input.style.setProperty(
+        'box-shadow',
+        'inset 0 1px 0 rgba(255,255,255,.035), 0 0 0 1px rgba(222,179,88,.095), 0 0 0 3px rgba(64,164,198,.075), 0 0 24px rgba(53,150,203,.135), 0 0 38px rgba(22,137,105,.095)',
+        'important'
+      );
+      input.style.setProperty(
+        'background',
+        'linear-gradient(100deg,rgba(8,35,53,.76),rgba(5,55,49,.61))',
+        'important'
+      );
+      input.style.setProperty('outline','none','important');
+      input.style.setProperty('caret-color','#e0b85d','important');
+    }
+
+    [
+      '.ato-assistant-eyebrow',
+      '.ato-assistant-head h3',
+      '.ato-assistant-status'
+    ].forEach(selector=>{
+      const el=$(selector);
+      if(el){
+        el.style.setProperty(
+          'text-shadow',
+          '0 1px 1px rgba(0,0,0,.30), 0 3px 8px rgba(0,0,0,.20)',
+          'important'
+        );
+      }
+    });
+  }
+
   function buildUI(){
     injectOrbStyles();
     // Remove the old generic WhatsApp/Concierge popup without editing legacy markup.
@@ -616,6 +611,7 @@
       </section>`;
     document.body.appendChild(root);
     initLaunchTone();
+    applyAssistantPolish();
 
     renderHistory();
     renderChips();
