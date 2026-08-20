@@ -1480,3 +1480,282 @@ render();
   window.addEventListener('ato-language-changed',()=>setTimeout(applyCopy,0));
 })();
 
+/* ========================================================================
+   ATO HEADER V5.1 — ABOUT US FIX ONLY
+   Repairs LICENSES & CERTIFICATIONS inner links and keeps this tab aligned
+   with the approved Premium Dropdown Master system.
+   ======================================================================== */
+(function atoAboutUsV51Fix(){
+  'use strict';
+
+  const ICONS = {
+    legal: '<svg class="ato-cat-svg" focusable="false" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v5h5M9 12h6M9 16h6"></path></svg>',
+    verify: '<svg class="ato-cat-svg" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="m8.8 12 2.1 2.1 4.6-4.6"></path><path d="M17 4.8 19.2 7 17 9.2"></path></svg>'
+  };
+
+  function normalizeLink(link, kind){
+    if(!link) return;
+
+    const currentText = (
+      link.querySelector('.ato-dropdown-label')?.textContent ||
+      link.textContent ||
+      ''
+    ).replace(/\s+/g,' ').trim();
+
+    const fallback = kind === 'legal' ? 'Legal Information' : 'TÜRSAB Verification ↗';
+    const cleanText = currentText || fallback;
+
+    let symbol = link.querySelector(':scope > .ato-grid-symbol');
+    if(!symbol){
+      symbol = document.createElement('span');
+      symbol.className='dropdown-icon ato-dropdown-svg-icon ato-grid-symbol';
+      symbol.setAttribute('aria-hidden','true');
+      link.prepend(symbol);
+    }
+    if(!symbol.querySelector('svg')) symbol.innerHTML = ICONS[kind];
+
+    let label = link.querySelector(':scope > .ato-dropdown-label');
+    if(!label){
+      label = document.createElement('span');
+      label.className='ato-dropdown-label';
+      link.appendChild(label);
+    }
+
+    /* Remove only stray direct text nodes left by old translation code. */
+    [...link.childNodes].forEach(node=>{
+      if(node.nodeType === Node.TEXT_NODE && node.textContent.trim()) node.remove();
+    });
+
+    if(kind === 'verify'){
+      label.textContent = cleanText.replace(/\s*↗\s*$/,'').trim() || 'TÜRSAB Verification';
+      let arrow = link.querySelector(':scope > .ato-external-arrow');
+      if(!arrow){
+        arrow=document.createElement('span');
+        arrow.className='ato-external-arrow';
+        arrow.setAttribute('aria-hidden','true');
+        arrow.textContent='↗';
+        link.appendChild(arrow);
+      }
+    }else{
+      label.textContent = cleanText.replace(/\s*↗\s*$/,'').trim() || 'Legal Information';
+      link.querySelector(':scope > .ato-external-arrow')?.remove();
+    }
+
+    link.classList.add('ato-v51-license-row');
+  }
+
+  function normalize(){
+    const root=document.getElementById('atoGlobalHeaderRoot');
+    const about=root?.querySelector('.ato-about-menu');
+    if(!about) return;
+
+    normalizeLink(
+      about.querySelector('.ato-subitem[href="/legal-information.html"]'),
+      'legal'
+    );
+    normalizeLink(
+      about.querySelector('.ato-subitem[href*="tursab.org.tr"]'),
+      'verify'
+    );
+  }
+
+  function injectStyle(){
+    if(document.getElementById('ato-about-v51-style')) return;
+    const style=document.createElement('style');
+    style.id='ato-about-v51-style';
+    style.textContent=`
+      @media (min-width:981px){
+        /* Scope strictly to ABOUT US. */
+        #atoGlobalHeaderRoot .ato-about-menu .ato-menu-group{
+          display:flex!important;
+          flex-direction:column!important;
+          gap:5px!important;
+          margin:4px 0 6px!important;
+          padding:7px 0 0!important;
+          border:0!important;
+          border-radius:0!important;
+          background:transparent!important;
+          box-shadow:none!important;
+          overflow:visible!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-menu-group::before{
+          display:block!important;
+          content:""!important;
+          position:relative!important;
+          inset:auto!important;
+          width:calc(100% - 60px)!important;
+          height:1px!important;
+          margin:0 12px 2px 48px!important;
+          background:linear-gradient(
+            90deg,
+            rgba(225,181,88,.20),
+            rgba(255,255,255,.035),
+            transparent
+          )!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-menu-group-label.ato-grid-row{
+          min-height:54px!important;
+          padding-top:7px!important;
+          padding-bottom:7px!important;
+          margin:0!important;
+          border:0!important;
+          background:transparent!important;
+          box-shadow:none!important;
+          transform:none!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-menu-group-label .ato-dropdown-label{
+          color:rgba(242,213,151,.94)!important;
+          font-weight:620!important;
+        }
+
+        /* Both inner links become identical clean premium rows. */
+        #atoGlobalHeaderRoot .ato-about-menu .ato-v51-license-row{
+          display:grid!important;
+          grid-template-columns:48px minmax(0,1fr) 26px!important;
+          grid-template-rows:1fr!important;
+          align-items:center!important;
+          width:100%!important;
+          min-width:0!important;
+          min-height:50px!important;
+          margin:0!important;
+          padding:6px 10px 6px 0!important;
+          border:1px solid rgba(255,255,255,.035)!important;
+          border-radius:13px!important;
+          background:rgba(255,255,255,.012)!important;
+          color:rgba(245,246,247,.84)!important;
+          box-shadow:inset 0 1px 0 rgba(255,255,255,.012)!important;
+          font-family:"Segoe UI Variable","Segoe UI",Arial,Helvetica,sans-serif!important;
+          font-size:13px!important;
+          font-weight:480!important;
+          line-height:1.18!important;
+          letter-spacing:.01em!important;
+          white-space:nowrap!important;
+          overflow:hidden!important;
+          transition:
+            background .22s ease,
+            border-color .22s ease,
+            color .22s ease,
+            transform .22s ease,
+            box-shadow .22s ease!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-v51-license-row .ato-grid-symbol{
+          grid-column:1!important;
+          grid-row:1!important;
+          width:100%!important;
+          height:28px!important;
+          margin:0!important;
+          padding:0 11px 0 8px!important;
+          display:flex!important;
+          align-items:center!important;
+          justify-content:center!important;
+          color:rgba(225,181,88,.72)!important;
+          border-right:1px solid rgba(225,181,88,.22)!important;
+          box-sizing:border-box!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-v51-license-row .ato-grid-symbol .ato-cat-svg{
+          width:17px!important;
+          height:17px!important;
+          display:block!important;
+          fill:none!important;
+          stroke:currentColor!important;
+          stroke-width:1.55!important;
+          stroke-linecap:round!important;
+          stroke-linejoin:round!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-v51-license-row .ato-dropdown-label{
+          grid-column:2!important;
+          grid-row:1!important;
+          min-width:0!important;
+          padding-left:14px!important;
+          margin:0!important;
+          color:inherit!important;
+          font:inherit!important;
+          letter-spacing:inherit!important;
+          white-space:nowrap!important;
+          overflow:hidden!important;
+          text-overflow:ellipsis!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-v51-license-row .ato-external-arrow{
+          grid-column:3!important;
+          grid-row:1!important;
+          justify-self:center!important;
+          color:rgba(225,181,88,.82)!important;
+          font-family:Arial,sans-serif!important;
+          font-size:14px!important;
+          line-height:1!important;
+          opacity:.82!important;
+          transition:transform .2s ease,color .2s ease!important;
+        }
+
+        @media (hover:hover) and (pointer:fine){
+          #atoGlobalHeaderRoot .ato-about-menu .ato-v51-license-row:hover{
+            transform:translateY(-1px)!important;
+            border-color:rgba(225,181,88,.28)!important;
+            background:linear-gradient(
+              90deg,
+              rgba(225,181,88,.07),
+              rgba(55,104,146,.04)
+            )!important;
+            color:#f2d18b!important;
+            box-shadow:
+              inset 0 1px 0 rgba(255,255,255,.025),
+              0 7px 20px rgba(0,0,0,.09)!important;
+          }
+
+          #atoGlobalHeaderRoot .ato-about-menu .ato-v51-license-row:hover .ato-external-arrow{
+            transform:translate(1px,-1px)!important;
+            color:#f0cb77!important;
+          }
+        }
+
+        /* Contact remains a separate final card, with a little breathing room. */
+        #atoGlobalHeaderRoot .ato-about-menu > a.ato-grid-row:last-child{
+          margin-top:3px!important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function init(){
+    const root=document.getElementById('atoGlobalHeaderRoot');
+    if(!root){
+      requestAnimationFrame(init);
+      return;
+    }
+
+    injectStyle();
+    normalize();
+
+    const group=root.querySelector('.ato-about-menu .ato-menu-group');
+    if(group){
+      const observer=new MutationObserver(()=>{
+        const legal=group.querySelector('.ato-subitem[href="/legal-information.html"]');
+        const verify=group.querySelector('.ato-subitem[href*="tursab.org.tr"]');
+
+        /* Normalize only if old code damaged the structure again. */
+        if(
+          (legal && !legal.querySelector(':scope > .ato-dropdown-label')) ||
+          (verify && !verify.querySelector(':scope > .ato-dropdown-label'))
+        ) normalize();
+      });
+      observer.observe(group,{childList:true,subtree:true});
+    }
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',init,{once:true});
+  }else{
+    init();
+  }
+
+  window.addEventListener('ato-language-changed',()=>setTimeout(normalize,0));
+})();
+
