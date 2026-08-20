@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ATO Booking Manager</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=IY3CKgKH8kzI1xo9M2EQ_4ETpXCtaxma8LxvFiqvbZPPUj5g-DqzIRtr-FvOEFnNWt90XeD1Heumh7F4I6MqECT_G7MulMVsuc65hwylccFiyxsG0SO3q0BtzjN8Vpdc3qE6ZilxXJvhFqiUbmEm8HVVoSH4gy9E_90FQvzU7mqirLc7A0FYMCerq9TzuK0pP-yifwG3S7QDtypVVySV9wcn6Dtpou8him97JzNm5ymdT5HPkRw7DGBeB4ab9kDyiFK9qnRV8e7e6_jHiaR18g" charset="UTF-8"></script><script src="../booking-config.js"></script>
+<script src="../../assets/js/ato-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{--navy:#031522;--panel:#082131;--panel2:#061a29;--gold:#e2b33e;--gold2:#f3d77e;--line:rgba(226,179,62,.30);--text:#f5f7f8;--muted:#9fb0bc;--green:#158c70;--red:#b84c55;--blue:#2a6b8f}*{box-sizing:border-box}html,body{min-height:100%}body{margin:0;background:radial-gradient(circle at 80% 0,#12384a 0,transparent 36%),var(--navy);color:var(--text);font:15px Arial,sans-serif}.shell{max-width:1380px;margin:auto;padding:22px}.head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.brand{color:var(--gold);font:700 25px Georgia,serif}.sub{color:var(--muted);font-size:12px;line-height:1.5}.panel{border:1px solid var(--line);border-radius:18px;background:rgba(5,27,41,.96);box-shadow:0 30px 80px #0008;padding:20px}.login{max-width:460px;margin:12vh auto}.field{display:grid;gap:7px;margin:14px 0}.field label,.mini-label{color:var(--gold2);font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}.field input,.field select,.field textarea,.tour-edit input{width:100%;border:1px solid #ffffff24;border-radius:10px;background:var(--panel2);color:#fff;padding:12px;outline:none}.field textarea{min-height:90px;resize:vertical}.btn{border:1px solid var(--gold);border-radius:10px;background:linear-gradient(100deg,#b57d0c,#f0ca5d);color:#06131d;font-weight:900;padding:12px 16px;cursor:pointer}.btn.secondary{background:#082131;color:#f3d77e}.btn.green{background:linear-gradient(100deg,#08705d,#18a482);color:white;border-color:#2bb89a}.btn.red{border-color:#c85d65;background:#4a1720;color:white}.btn.blue{border-color:#3f8fb7;background:#0b334b;color:#cfeeff}.btn:disabled{opacity:.5;cursor:not-allowed}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}.toolbar input,.toolbar select{border:1px solid var(--line);border-radius:9px;background:#061a29;color:#fff;padding:10px}.toolbar input{min-width:260px;flex:1}.grid{display:grid;grid-template-columns:minmax(320px,430px) 1fr;gap:18px}.list{display:grid;gap:8px;max-height:76vh;overflow:auto}.item{border:1px solid #ffffff18;border-radius:12px;background:#061a29;padding:12px;cursor:pointer}.item.active{border-color:var(--gold)}.item-top{display:flex;justify-content:space-between;gap:8px}.status{border-radius:999px;padding:4px 8px;font-size:9px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}.status-new,.status-PENDING{background:#5b430d;color:#ffe19a}.status-reviewing{background:#193d58;color:#c8e9ff}.status-confirmed,.status-CONFIRMED{background:#0c5d4e;color:#bfffea}.status-cancelled,.status-CANCELLED{background:#552029;color:#ffd1d5}.source-tag{display:inline-block;margin-top:7px;padding:3px 7px;border-radius:999px;border:1px solid #ffffff1f;color:#9fc9dd;font-size:9px;font-weight:800;letter-spacing:.05em}.detail h2{margin:5px 0 4px;color:var(--gold);font:700 24px Georgia,serif}.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 0}.fact{border:1px solid #ffffff14;border-radius:10px;padding:10px;overflow-wrap:anywhere}.fact b{display:block;color:var(--muted);font-size:9px;letter-spacing:.06em;margin-bottom:5px}.tours{display:grid;gap:10px}.tour{border-left:3px solid var(--gold);border-radius:10px;background:#061a29;padding:12px}.tour strong{display:block;margin-bottom:5px}.tour-meta{color:var(--muted);font-size:12px;line-height:1.5}.tour-edit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}.tour-edit label{display:grid;gap:5px}.tour-edit span{color:var(--gold2);font-size:9px;font-weight:900;letter-spacing:.05em;text-transform:uppercase}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.hidden{display:none!important}.empty{padding:50px 12px;text-align:center;color:var(--muted)}.notice{color:#ffd984;font-size:12px;line-height:1.55}.error{color:#ffaaa4}.ticket-zone{margin-top:18px;border-top:1px solid var(--line);padding-top:18px}.ticket-zone h3{margin:0 0 6px;color:var(--gold);font:700 20px Georgia,serif}.ticket-card{border:1px solid var(--line);border-radius:14px;background:#041825;margin-top:12px;overflow:hidden}.ticket-card-head{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:11px 12px;border-bottom:1px solid #ffffff14}.ticket-card-head strong{font-size:12px}.ticket-card-actions{display:flex;gap:7px;flex-wrap:wrap}.ticket-card-actions a{font-size:10px;padding:8px 10px;text-decoration:none}.ticket-frame{width:100%;height:720px;border:0;background:white;display:block}.legacy-ticket{border:1px solid var(--gold);border-radius:14px;padding:18px;background:#fff;color:#101820;margin-top:15px}.legacy-ticket h2{color:#9b6800}.legacy-ticket-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.legacy-ticket small{color:#5d6770}.sync{margin-top:6px;color:var(--muted);font-size:10px}.sync.warn{color:#ffd984}.count{color:var(--gold2);font-weight:900}.loading-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-right:6px;animation:pulse 1.4s infinite}@keyframes pulse{50%{opacity:.25}}@media(max-width:900px){.grid{grid-template-columns:1fr}.list{max-height:38vh}.facts,.tour-edit,.legacy-ticket-grid{grid-template-columns:1fr}.shell{padding:10px}.ticket-frame{height:620px}.toolbar input{min-width:0;width:100%}}@media(max-width:520px){.head{align-items:flex-start}.brand{font-size:21px}.panel{padding:14px}.ticket-frame{height:560px}.btn{padding:10px 12px;font-size:11px}}
+@media print{body{background:#fff}.head,.toolbar,.list-pane,.actions,.manager-only,.ticket-card-head{display:none!important}.shell,.panel{max-width:none;padding:0;border:0;box-shadow:none}.grid{display:block}.ticket-frame{height:100vh}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <section id="loginView" class="panel login">
+    <div class="brand">ALANYA TOUR ORGANIZATIONS</div>
+    <h1>Booking Manager</h1>
+    <p class="sub">Закрытый вход владельца. Пароль не нужен — каждый вход выполняется по новой защищённой ссылке из письма.</p>
+    <div class="field"><label>EMAIL</label><input id="email" type="email" autocomplete="email"></div>
+    <button class="btn" id="loginBtn">ПОЛУЧИТЬ ССЫЛКУ ДЛЯ ВХОДА</button>
+    <p id="loginStatus" class="notice"></p>
+  </section>
+
+  <section id="managerView" class="hidden">
+    <header class="head">
+      <div><div class="brand">ATO BOOKING MANAGER</div><div class="sub" id="ownerLabel"></div><div id="syncState" class="sync"></div></div>
+      <button class="btn secondary" id="logoutBtn">ВЫЙТИ</button>
+    </header>
+    <div class="toolbar">
+      <input id="search" placeholder="Поиск по имени, отелю, номеру заявки">
+      <select id="filter"><option value="ALL">ВСЕ</option><option value="NEW">NEW / PENDING</option><option value="CONFIRMED">CONFIRMED</option><option value="CANCELLED">CANCELLED</option></select>
+      <button class="btn secondary" id="refreshBtn">ОБНОВИТЬ</button>
+    </div>
+    <div class="grid">
+      <section class="panel list-pane"><div class="list" id="bookingList"></div></section>
+      <section class="panel detail" id="detail"><div class="empty">Выберите заявку</div></section>
+    </div>
+  </section>
+</main>
+<script>
+(async()=>{
+'use strict';
+const legacyCfg=window.ATO_BOOKING_CONFIG||{};
+const rootCfg=window.ATO_CONFIG||{};
+const cfg={
+  supabaseUrl: legacyCfg.supabaseUrl || rootCfg.supabaseUrl || '',
+  supabaseKey: legacyCfg.supabaseAnonKey || rootCfg.supabasePublishableKey || '',
+  ownerEmail: String(legacyCfg.ownerEmail || 'leli_dars@mail.ru').trim().toLowerCase(),
+  siteBaseUrl: String(rootCfg.siteBaseUrl || location.origin).replace(/\/$/,'')
+};
+const $=id=>document.getElementById(id);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const cleanPhone=v=>String(v||'').replace(/\D/g,'');
+const niceDate=v=>{if(!v)return '—';try{return new Date(v).toLocaleString('ru-RU')}catch(_){return v}};
+const db=(cfg.supabaseUrl&&cfg.supabaseKey&&window.supabase?.createClient)?supabase.createClient(cfg.supabaseUrl,cfg.supabaseKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}}):null;
+let rows=[],current=null,loadWarnings=[],detailDirty=false;
+$('email').value=cfg.ownerEmail;
+
+function normalizeStatus(r){const s=String(r.status||'').toLowerCase();if(s==='new'||s==='pending')return 'NEW';if(s==='reviewing')return 'NEW';if(s==='confirmed')return 'CONFIRMED';if(s==='cancelled')return 'CANCELLED';return s.toUpperCase()||'NEW'}
+function cssStatus(r){return `status-${String(r.status||'new')}`}
+function requestNo(r){return r.__kind==='trip'?r.request_no:r.request_number}
+function guestName(r){return r.__kind==='trip'?r.guest_name:r.client_name}
+function phone(r){return r.__kind==='trip'?r.phone:r.client_whatsapp}
+function toursOf(r){return r.__kind==='trip'?(Array.isArray(r.tours)?r.tours:[]):(Array.isArray(r.selected_tours)?r.selected_tours:[])}
+function statusText(r){return r.__kind==='trip'?String(r.status||'new').toUpperCase():String(r.status||'PENDING').toUpperCase()}
+function sourceText(r){if(r.__kind!=='trip')return 'LEGACY REQUEST';const s=String(r.source||'trip-planner').toLowerCase();if(s==='interactive-map')return 'INTERACTIVE MAP';if(s==='group-event-offer'||s==='group-event')return 'GROUP & EVENT';return 'TRIP PLANNER'}
+function ticketUrl(r,i){if(r.__kind!=='trip'||!r.public_token)return '#';return `${cfg.siteBaseUrl}/e-ticket.html?token=${encodeURIComponent(r.public_token)}&tour=${Number(i)||0}`}
+
+function showLogin(message=''){$('loginView').classList.remove('hidden');$('managerView').classList.add('hidden');if(message)$('loginStatus').textContent=message}
+function showManager(email){$('loginView').classList.add('hidden');$('managerView').classList.remove('hidden');$('ownerLabel').textContent=email}
+
+async function sessionView(){
+  if(!db){showLogin('Supabase не подключён. Проверьте конфигурацию сайта.');return}
+  const {data:{session}}=await db.auth.getSession();
+  const email=session?.user?.email?.toLowerCase();
+  if(!session||email!==cfg.ownerEmail){
+    if(session&&email!==cfg.ownerEmail){await db.auth.signOut();showLogin('Для этого адреса доступ запрещён.')}else showLogin();
+    return;
+  }
+  showManager(email);
+  await load();
+}
+
+async function fetchTripBookings(){
+  // Prefer the owner-only RPC. It avoids RLS mismatches between the old magic-link
+  // Booking Manager and the new Trip Planner table. Fall back to direct SELECT
+  // so the page remains compatible before the SQL patch is installed.
+  const rpc=await db.rpc('ato_manager_list_trip_bookings');
+  if(!rpc.error)return (rpc.data||[]).map(x=>({...x,__kind:'trip'}));
+  const msg=String(rpc.error?.message||'');
+  if(!/function .*ato_manager_list_trip_bookings.* does not exist|Could not find the function|PGRST202/i.test(msg))throw rpc.error;
+  const {data,error}=await db.from('trip_bookings').select('*').order('created_at',{ascending:false}).limit(150);
+  if(error)throw error;
+  return (data||[]).map(x=>({...x,__kind:'trip'}));
+}
+async function fetchLegacyBookings(){
+  const {data,error}=await db.from('bookings').select('*').order('created_at',{ascending:false}).limit(150);
+  if(error){if(/relation .*bookings.* does not exist|Could not find the table/i.test(error.message||''))return [];throw error}
+  return (data||[]).map(x=>({...x,__kind:'legacy'}));
+}
+async function load(){
+  $('syncState').innerHTML='<span class="loading-dot"></span>Загружаю заявки…';
+  loadWarnings=[];
+  const activeId=current?.id||null,activeKind=current?.__kind||null;
+  const [tripResult,legacyResult]=await Promise.allSettled([fetchTripBookings(),fetchLegacyBookings()]);
+  const all=[];
+  if(tripResult.status==='fulfilled')all.push(...tripResult.value);else loadWarnings.push('Новые заявки Trip Planner / Interactive Map: '+(tripResult.reason?.message||tripResult.reason));
+  if(legacyResult.status==='fulfilled')all.push(...legacyResult.value);else loadWarnings.push('Старые заявки: '+(legacyResult.reason?.message||legacyResult.reason));
+  rows=all.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
+  const refreshed=activeId?rows.find(x=>x.__kind===activeKind&&x.id===activeId)||null:null;
+  // ВАЖНО ДЛЯ ТЕЛЕФОНА: автообновление не имеет права перерисовать форму,
+  // пока менеджер вводит даты/время/цену. Иначе мобильный date picker теряет уже введённые значения.
+  if(!detailDirty)current=refreshed;
+  renderList();
+  if(!detailDirty)renderDetail();
+  $('syncState').className='sync'+(loadWarnings.length?' warn':'');
+  if(loadWarnings.length)$('syncState').textContent=loadWarnings.join(' · ');
+  else if(detailDirty)$('syncState').textContent=`Загружено заявок: ${rows.length} · Есть несохранённые изменения — автообновление формы приостановлено`;
+  else $('syncState').textContent=`Загружено заявок: ${rows.length}`;
+}
+function visible(){
+  const q=$('search').value.trim().toLowerCase(),f=$('filter').value;
+  return rows.filter(x=>{
+    const s=normalizeStatus(x);const okStatus=f==='ALL'||(f==='NEW'&&s==='NEW')||s===f;
+    const hay=[requestNo(x),guestName(x),x.hotel,phone(x)].join(' ').toLowerCase();
+    return okStatus&&(!q||hay.includes(q));
+  });
+}
+function renderList(){
+  const v=visible();
+  $('bookingList').innerHTML=v.map(x=>`<article class="item ${current?.id===x.id&&current?.__kind===x.__kind?'active':''}" data-id="${esc(x.id)}" data-kind="${esc(x.__kind)}"><div class="item-top"><strong>${esc(requestNo(x)||'Request')}</strong><span class="status ${cssStatus(x)}">${esc(statusText(x))}</span></div><p>${esc(guestName(x)||'—')} · ${esc(x.hotel||'без отеля')}</p><small>${niceDate(x.created_at)}</small><span class="source-tag">${sourceText(x)}</span></article>`).join('')||'<div class="empty">Заявок нет</div>';
+}
+function tripTourView(t,i,editable=true){
+  const date=t.confirmed_date||t.requested_date||'';
+  const price=t.confirmed_price||t.price_display||'';
+  if(!editable)return `<div class="tour"><strong>${i+1}. ${esc(t.title||'Tour')}</strong><div class="tour-meta">${esc(date||'дата не указана')} · ${esc(price||'цена не указана')}</div></div>`;
+  return `<div class="tour" data-tour-index="${i}"><strong>${i+1}. ${esc(t.title||'Tour')}</strong><div class="tour-meta">Запрошенная дата: ${esc(t.requested_date||'—')} · ${esc(t.category||'Tour')}</div><div class="tour-edit"><label><span>Подтверждённая дата</span><input type="date" data-f="date" value="${esc(date)}"></label><label><span>Место посадки</span><input data-f="pickup" value="${esc(t.pickup||current.hotel||'Hotel lobby')}"></label><label><span>Время посадки</span><input type="time" data-f="time" value="${esc(t.time||'')}"></label><label><span>Подтверждённая цена</span><input data-f="price" value="${esc(price)}"></label></div></div>`;
+}
+function tripDetail(x){
+  const tours=toursOf(x);
+  const kids=String(x.children||'').trim()||'Нет';
+  const confirmed=String(x.status).toLowerCase()==='confirmed';
+  return `<div class="manager-only"><span class="status ${cssStatus(x)}">${esc(statusText(x))}</span><h2>${esc(x.request_no)}</h2><div class="sub">${niceDate(x.created_at)} · ${esc(sourceText(x))}</div><div class="facts"><div class="fact"><b>КЛИЕНТ</b>${esc(x.guest_name)}</div><div class="fact"><b>WHATSAPP</b>${esc(x.phone)}</div><div class="fact"><b>ОТЕЛЬ / КОМНАТА</b>${esc(x.hotel||'—')} · ${esc(x.room||'—')}</div><div class="fact"><b>ОТДЫХ</b>${esc(x.travel_start||'—')} — ${esc(x.travel_end||'—')}</div><div class="fact"><b>ГОСТИ</b>${esc(x.adults)} взрослых · дети/возраст: ${esc(kids)}</div><div class="fact"><b>ЯЗЫК</b>${esc(x.language||'—')}</div><div class="fact"><b>ВАЖНО</b>Беременность: ${x.pregnancy?'Да':'Нет'} · Пожилые: ${x.elderly?'Да':'Нет'}</div><div class="fact"><b>КОЛЯСКА / МОБИЛЬНОСТЬ</b>${esc(x.mobility||'Нет')}</div></div><h3>Экскурсии из конструктора</h3><div class="tours">${tours.map((t,i)=>tripTourView(t,i,true)).join('')}</div><div class="field"><label>ЗАМЕТКА МЕНЕДЖЕРА</label><textarea id="managerNotes">${esc(x.manager_notes||'')}</textarea></div><div class="actions"><button class="btn blue" id="saveBtn">СОХРАНИТЬ ИЗМЕНЕНИЯ</button><button class="btn green" id="confirmBtn">ПОДТВЕРДИТЬ И АКТИВИРОВАТЬ БИЛЕТ</button><button class="btn red" id="cancelBtn">ОТМЕНИТЬ</button></div></div>${x.public_token?ticketZone(x):'<div class="notice" style="margin-top:16px">Для этой заявки нет public token — предварительный e-ticket недоступен.</div>'}`;
+}
+function ticketZone(x){
+  const tours=toursOf(x);
+  const confirmed=String(x.status||'').toLowerCase()==='confirmed';return `<section class="ticket-zone"><h3>${confirmed?'Электронные билеты':'Предварительные e-ticket'}</h3><div class="sub">${confirmed?'Бронирование подтверждено. Эти же ссылки уже были созданы при заявке и теперь показывают финальные данные.':'Билеты уже сформированы со статусом PENDING. Ссылки не изменятся после подтверждения; pickup, time и final price обновятся в них автоматически.'}</div>${tours.map((t,i)=>{const url=ticketUrl(x,i);return `<article class="ticket-card"><div class="ticket-card-head"><strong>${i+1}. ${esc(t.title||'Tour')}</strong><div class="ticket-card-actions"><a class="btn secondary" href="${esc(url)}" target="_blank" rel="noopener">${confirmed?'ОТКРЫТЬ БИЛЕТ':'ОТКРЫТЬ PENDING E-TICKET'}</a></div></div><iframe class="ticket-frame" loading="lazy" src="${esc(url)}" title="E-ticket ${i+1}"></iframe></article>`}).join('')}${confirmed?'<div class="actions"><button class="btn green" id="sendTicketBtn">ОТПРАВИТЬ БИЛЕТЫ В WHATSAPP</button></div>':'<div class="notice" style="margin-top:12px">Клиент может открыть эти билеты уже сейчас. До подтверждения они явно помечены PENDING.</div>'}</section>`;
+}
+function legacyTourHtml(t,i){return `<div class="tour"><strong>${i+1}. ${esc(t.title||'Tour')}</strong><div class="tour-meta">${t.price==null?'Цена по запросу':'€'+esc(t.price)} · ${esc(t.preferred_date||'дата гибкая')}</div></div>`}
+function legacyDetail(x){
+  const tours=toursOf(x),confirmed=String(x.status).toUpperCase()==='CONFIRMED';
+  return `<div class="manager-only"><span class="status ${cssStatus(x)}">${esc(statusText(x))}</span><h2>${esc(x.request_number)}</h2><div class="sub">${niceDate(x.created_at)} · LEGACY REQUEST</div><div class="facts"><div class="fact"><b>КЛИЕНТ</b>${esc(x.client_name)}</div><div class="fact"><b>WHATSAPP</b>${esc(x.client_whatsapp)}</div><div class="fact"><b>ОТЕЛЬ</b>${esc(x.hotel)}</div><div class="fact"><b>ОТДЫХ</b>${esc(x.arrival_date||'—')} — ${esc(x.departure_date||'—')}</div><div class="fact"><b>ГОСТИ</b>${esc(x.adults)} взрослых · ${esc(x.children)} детей ${esc(x.child_ages||'')}</div><div class="fact"><b>ЯЗЫК / ТРАНСФЕР</b>${esc(x.language||'—')} · ${esc(x.pickup||'—')}</div></div><h3>Выбранные туры</h3><div class="tours">${tours.map(legacyTourHtml).join('')}</div><div class="field"><label>ИТОГОВАЯ СУММА, €</label><input id="finalPrice" type="number" min="0" step="0.01" value="${esc(x.final_price||'')}"></div><div class="field"><label>ЗАМЕТКА МЕНЕДЖЕРА</label><textarea id="managerNotes">${esc(x.manager_notes||'')}</textarea></div><div class="actions"><button class="btn green" id="confirmBtn">ПОДТВЕРДИТЬ И СОЗДАТЬ БИЛЕТ</button><button class="btn red" id="cancelBtn">ОТМЕНИТЬ</button></div></div>${confirmed?`<section class="legacy-ticket"><small>ALANYA TOUR ORGANIZATIONS</small><h2>ЭЛЕКТРОННЫЙ БИЛЕТ</h2><div class="legacy-ticket-grid"><div><small>БИЛЕТ</small><br><b>${esc(x.ticket_number||x.request_number)}</b></div><div><small>КЛИЕНТ</small><br><b>${esc(x.client_name)}</b></div><div><small>ОТЕЛЬ</small><br>${esc(x.hotel)}</div><div><small>ГОСТИ</small><br>${esc(x.adults)} взрослых · ${esc(x.children)} детей</div></div><hr>${tours.map(legacyTourHtml).join('')}<p><b>Итого: ${x.final_price==null?'подтверждается менеджером':'€'+esc(x.final_price)}</b></p><p>${esc(x.manager_notes||'')}</p></section><div class="actions"><button class="btn secondary" id="printBtn">ПЕЧАТЬ / PDF</button><button class="btn green" id="sendLegacyBtn">ОТПРАВИТЬ БИЛЕТ В WHATSAPP</button></div>`:''}`;
+}
+function renderDetail(){
+  if(!current){$('detail').innerHTML='<div class="empty">Выберите заявку</div>';return}
+  $('detail').innerHTML=current.__kind==='trip'?tripDetail(current):legacyDetail(current);
+  bindDetail();
+}
+function collectTripTours(){
+  return toursOf(current).map((t,i)=>{
+    const box=$('detail').querySelector(`[data-tour-index="${i}"]`);
+    if(!box)return t;
+    const get=f=>box.querySelector(`[data-f="${f}"]`)?.value?.trim()||'';
+    return {...t,confirmed_date:get('date'),pickup:get('pickup'),time:get('time'),confirmed_price:get('price')};
+  });
+}
+function newTicketNo(){return 'TKT-'+String(Date.now()).slice(-8)}
+async function saveTrip(confirmBooking){
+  const tours=collectTripTours();
+  if(confirmBooking&&tours.some(t=>!t.confirmed_date||!t.pickup||!t.time)){alert('Заполните подтверждённую дату, место и время посадки для каждой экскурсии.');return}
+  const patch={tours,manager_notes:$('managerNotes')?.value?.trim()||'',updated_at:new Date().toISOString()};
+  if(confirmBooking){patch.status='confirmed';patch.confirmed_at=new Date().toISOString();patch.ticket_no=current.ticket_no||newTicketNo()}
+  else if(String(current.status).toLowerCase()==='new')patch.status='reviewing';
+  const {data,error}=await db.from('trip_bookings').update(patch).eq('id',current.id).select().single();
+  if(error){alert(error.message);return}
+  current={...data,__kind:'trip'};detailDirty=false;await load();
+}
+async function cancelTrip(){if(!confirm('Отменить заявку?'))return;const {error}=await db.from('trip_bookings').update({status:'cancelled',updated_at:new Date().toISOString()}).eq('id',current.id);if(error)return alert(error.message);detailDirty=false;await load()}
+async function confirmLegacy(){const number=current.ticket_number||newTicketNo(),price=$('finalPrice')?.value||null,notes=$('managerNotes')?.value||'';const {error}=await db.from('bookings').update({status:'CONFIRMED',final_price:price,manager_notes:notes,confirmed_at:new Date().toISOString(),ticket_number:number,ticket_payload:{issued_at:new Date().toISOString()}}).eq('id',current.id);if(error)return alert(error.message);await load()}
+async function cancelLegacy(){if(!confirm('Отменить заявку?'))return;const {error}=await db.from('bookings').update({status:'CANCELLED'}).eq('id',current.id);if(error)return alert(error.message);await load()}
+function sendTripTickets(){const p=cleanPhone(current.phone);if(!p)return alert('В заявке нет номера WhatsApp клиента.');const links=toursOf(current).map((t,i)=>`${i+1}. ${t.title}\n${ticketUrl(current,i)}`);const msg=[`ALANYA TOUR ORGANIZATIONS — BOOKING CONFIRMED`,`Booking: ${current.request_no}`,`Ticket: ${current.ticket_no||''}`,``,...links,``,`Open each e-ticket to see confirmed pickup details, Weather & What to Bring.`].join('\n');window.open(`https://wa.me/${p}?text=${encodeURIComponent(msg)}`,'_blank','noopener')}
+function sendLegacy(){const tours=toursOf(current).map((t,i)=>`${i+1}. ${t.title} — ${t.preferred_date||'Flexible date'}`).join('\n');const msg=`ELECTRONIC TICKET — ALANYA TOUR ORGANIZATIONS\nTicket: ${current.ticket_number}\nClient: ${current.client_name}\nHotel: ${current.hotel}\nGuests: ${current.adults} adult(s), ${current.children} child(ren)\n\nTOURS\n${tours}\n\nTotal: ${current.final_price==null?'Confirmed by manager':'€'+current.final_price}\n${current.manager_notes||''}`;window.open(`https://wa.me/${cleanPhone(current.client_whatsapp)}?text=${encodeURIComponent(msg)}`,'_blank','noopener')}
+function bindDetail(){
+  if(current?.__kind==='trip'){
+    // Любое изменение в форме блокирует её перерисовку автообновлением до SAVE/CONFIRM.
+    $('detail').querySelectorAll('.manager-only input,.manager-only textarea').forEach(el=>{
+      const markDirty=()=>{
+        if(!detailDirty){
+          detailDirty=true;
+          $('syncState').className='sync warn';
+          $('syncState').textContent='Есть несохранённые изменения — они не будут сброшены автообновлением';
+        }
+      };
+      el.addEventListener('input',markDirty);
+      el.addEventListener('change',markDirty);
+    });
+    $('saveBtn')?.addEventListener('click',()=>saveTrip(false));
+    $('confirmBtn')?.addEventListener('click',()=>saveTrip(true));
+    $('cancelBtn')?.addEventListener('click',cancelTrip);
+    $('sendTicketBtn')?.addEventListener('click',sendTripTickets);
+  }else if(current){
+    $('confirmBtn')?.addEventListener('click',confirmLegacy);
+    $('cancelBtn')?.addEventListener('click',cancelLegacy);
+    $('printBtn')?.addEventListener('click',()=>window.print());
+    $('sendLegacyBtn')?.addEventListener('click',sendLegacy);
+  }
+}
+
+$('loginBtn').onclick=async()=>{
+  if(!db){$('loginStatus').textContent='Supabase не подключён.';return}
+  const email=$('email').value.trim().toLowerCase();
+  if(email!==cfg.ownerEmail){$('loginStatus').textContent='Доступ разрешён только владельцу.';return}
+  $('loginStatus').textContent='Отправляю новую ссылку для входа…';
+  const redirect=`${location.origin}/interactive-map/booking-manager/`;
+  const {error}=await db.auth.signInWithOtp({email,options:{emailRedirectTo:redirect,shouldCreateUser:false}});
+  $('loginStatus').textContent=error?error.message:'Новая ссылка для входа отправлена на почту. Откройте её — пароль не нужен.';
+};
+$('logoutBtn').onclick=async()=>{await db?.auth.signOut();current=null;detailDirty=false;showLogin('Вы вышли из личного кабинета.')};
+$('refreshBtn').onclick=load;
+$('search').oninput=renderList;
+$('filter').onchange=renderList;
+$('bookingList').onclick=e=>{
+  const el=e.target.closest('[data-id]');if(!el)return;
+  const next=rows.find(x=>x.id===el.dataset.id&&x.__kind===el.dataset.kind)||null;
+  const switching=next&&(next.id!==current?.id||next.__kind!==current?.__kind);
+  if(detailDirty&&switching&&!confirm('Есть несохранённые изменения в текущей заявке. Перейти к другой заявке и отменить эти изменения?'))return;
+  if(switching)detailDirty=false;
+  current=next;renderList();renderDetail();
+};
+
+window.addEventListener('beforeunload',e=>{
+  if(!detailDirty)return;
+  e.preventDefault();
+  e.returnValue='';
+});
+
+let autoRefreshTimer=null;
+function startAutoRefresh(){
+  if(autoRefreshTimer)clearInterval(autoRefreshTimer);
+  autoRefreshTimer=setInterval(async()=>{
+    const {data}=await db?.auth.getSession()||{data:{}};
+    const email=data?.session?.user?.email?.toLowerCase()||'';
+    if(email===cfg.ownerEmail)load();
+  },8000);
+}
+if(db){db.auth.onAuthStateChange((_event,session)=>{if(session?.user?.email?.toLowerCase()===cfg.ownerEmail){showManager(session.user.email);load();startAutoRefresh()}})}
+await sessionView();
+if(!$('managerView').classList.contains('hidden'))startAutoRefresh();
+})();
+</script>
+<script src="/booking-manager-gifts-addon.js"></script>
+</body>
+</html>

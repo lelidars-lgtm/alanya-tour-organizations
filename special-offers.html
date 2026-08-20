@@ -389,6 +389,7 @@ body.ato-header-search-open{overflow-x:hidden}
 <span data-group-index="1">02</span>
 <span data-group-index="2">03</span>
 <span data-group-index="3">04</span>
+<span data-group-index="4">05</span>
 </div>
 
 <div class="planner-content">
@@ -406,38 +407,50 @@ body.ato-header-search-open{overflow-x:hidden}
 </div>
 
 <div class="group-question" data-group-step="1">
-<div class="question-label">02 · Group size</div>
+<div class="question-label">02 · Guests</div>
 <h3>HOW MANY GUESTS?</h3>
-<div class="group-choice-grid compact">
-<button class="group-choice" type="button" data-value="5–9 Guests"><strong>5–9</strong><small>Guests</small></button>
-<button class="group-choice" type="button" data-value="10–19 Guests"><strong>10–19</strong><small>Guests</small></button>
-<button class="group-choice" type="button" data-value="20–39 Guests"><strong>20–39</strong><small>Guests</small></button>
-<button class="group-choice" type="button" data-value="40+ Guests"><strong>40+</strong><small>Guests</small></button>
+<div class="group-guest-panel">
+<div class="group-guest-grid">
+<div class="group-field-large"><label>Adults</label><input id="groupAdults" type="number" min="1" step="1" inputmode="numeric" placeholder="5"/></div>
+<div class="group-field-large"><label>Children</label><input id="groupChildren" type="number" min="0" step="1" inputmode="numeric" placeholder="0"/></div>
+<div class="group-field-large group-child-ages-field"><label>Children ages <span>optional</span></label><input id="groupChildAges" type="text" placeholder="e.g. 4, 7, 11"/></div>
+<div class="group-guest-total"><span>Total guests</span><strong id="groupGuestTotalValue">0</strong><small>Group offers start from 5 guests.</small></div>
+</div>
+<p class="group-step-note" id="groupGuestHint">Enter the real number of guests. This is required to calculate the group estimate.</p>
 </div>
 </div>
 
 <div class="group-question" data-group-step="2">
-<div class="question-label">03 · Timing</div>
+<div class="question-label">03 · Experiences</div>
+<h3>CHOOSE YOUR EXPERIENCES</h3>
+<div class="group-tour-selector">
+<div class="group-tour-toolbar">
+<label class="group-tour-search"><span>Search tours</span><input id="groupTourSearch" type="search" placeholder="Search by tour or category" autocomplete="off"/></label>
+<div class="group-tour-selected-count" id="groupSelectedTourCount">0 selected</div>
+</div>
+<div class="group-tour-filters" id="groupTourFilters" aria-label="Tour categories"></div>
+<div class="group-catalog-status" id="groupCatalogStatus">Loading the live tour catalogue…</div>
+<div class="group-tour-grid" id="groupTourGrid"></div>
+<p class="group-step-note">Choose one or more tours. Every tour keeps the discount assigned to its own category; different categories are never averaged into one artificial percentage.</p>
+</div>
+</div>
+
+<div class="group-question" data-group-step="3">
+<div class="question-label">04 · Timing</div>
 <h3>WHEN SHOULD IT HAPPEN?</h3>
 <div class="group-date-panel">
-<div class="group-field-large">
-<label>Preferred Date</label>
-<input id="groupPreferredDate" type="date"/>
-</div>
+<div class="group-field-large"><label>Preferred Date</label><input id="groupPreferredDate" type="date"/></div>
 <button class="group-flexible-date" id="groupFlexibleDate" type="button">My date is flexible</button>
 <p>You can choose a date now or leave it flexible and let the manager check the best suitable option.</p>
 </div>
 </div>
 
-<div class="group-question" data-group-step="3">
-<div class="question-label">04 · Starting point</div>
+<div class="group-question" data-group-step="4">
+<div class="question-label">05 · Starting point</div>
 <h3>WHERE SHOULD WE START?</h3>
 <div class="group-location-panel">
-<div class="group-field-large">
-<label>Hotel / Area</label>
-<input id="groupHotelArea" type="text" placeholder="Hotel name or area in Alanya"/>
-</div>
-<p>This helps us plan transport, pickup coordination and the most practical format for your group.</p>
+<div class="group-field-large"><label>Hotel / Area</label><input id="groupHotelArea" type="text" placeholder="Hotel name or area in Alanya"/></div>
+<p>This helps us plan transport, pickup coordination and the most practical format for your group. You can leave it blank if the hotel is not confirmed yet.</p>
 </div>
 </div>
 
@@ -448,14 +461,33 @@ body.ato-header-search-open{overflow-x:hidden}
 </div>
 </div>
 
-<div class="planner-summary" id="groupPlannerSummary">
-<div class="summary-card">
-<div>
-<div class="kicker">Your Group & Event Request</div>
-<strong>WE’LL BUILD IT AROUND YOUR GROUP.</strong>
+<div class="planner-summary group-offer-summary" id="groupPlannerSummary">
+<div class="summary-card group-offer-summary-card">
+<div class="group-offer-summary-copy">
+<div class="kicker">Your Group & Event Offer</div>
+<strong>YOUR GROUP. YOUR ADVANTAGE.</strong>
 <p id="groupSummaryText"></p>
 </div>
-<button class="btn tp-btn gold" id="sendGroupOffer" type="button">Get My Group Offer →</button>
+<div class="group-offer-lines" id="groupOfferLines"></div>
+<div class="group-offer-totals" aria-label="Group offer totals">
+<div><span>REGULAR TOTAL</span><strong id="groupRegularTotal">—</strong></div>
+<div class="featured"><span>YOUR GROUP PRICE</span><strong id="groupOfferTotal">—</strong></div>
+<div><span>YOU SAVE</span><strong id="groupSavingTotal">—</strong></div>
+</div>
+<p class="group-offer-note" id="groupOfferEstimateNote">Estimated from the current listed tour prices. Final age tariffs, private transport conditions and availability are confirmed by the manager before booking.</p>
+<div class="group-contact-grid">
+<div class="group-field-large"><label>Your name</label><input id="groupClientName" type="text" autocomplete="name" placeholder="Name"/></div>
+<div class="group-field-large"><label>WhatsApp with country code</label><input id="groupClientPhone" type="tel" autocomplete="tel" placeholder="e.g. +49 170 1234567"/></div>
+</div>
+<p class="group-send-status" id="groupSendStatus" aria-live="polite"></p>
+<button class="btn tp-btn gold group-send-offer" id="sendGroupOffer" type="button">Create Group Request &amp; E-Tickets →</button>
+<div class="group-ticket-panel" id="groupTicketPanel" aria-live="polite">
+  <div class="group-ticket-panel-head">
+    <div><span>PENDING E-TICKETS CREATED</span><strong>Request <b id="groupTicketRequestNo">—</b></strong></div>
+    <p>The links are already valid. After manager confirmation, the same e-tickets update with confirmed pickup, time and final price.</p>
+  </div>
+  <div class="group-ticket-links" id="groupTicketLinks"></div>
+</div>
 </div>
 </div>
 </div>

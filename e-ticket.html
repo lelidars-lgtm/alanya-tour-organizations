@@ -389,6 +389,20 @@
       .copyright{font-size:7px;letter-spacing:.03em;white-space:nowrap}
     }
 
+    .ticket-status-strip{
+      display:none;
+      padding:13px 18px;
+      text-align:center;
+      border-bottom:1px solid rgba(200,155,66,.45);
+      background:#fff8df;
+      color:#71520e;
+    }
+    .ticket-status-strip.show{display:block}
+    .ticket-status-strip strong{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+    .ticket-status-strip span{display:block;margin-top:4px;font-size:10px;line-height:1.4}
+    .ticket-status-strip[data-state="CONFIRMED"]{background:#e9f7f1;color:#0b694f;border-bottom-color:#8bcab4}
+    .ticket-status-strip[data-state="CANCELLED"]{background:#fdeced;color:#9c2732;border-bottom-color:#dda1a6}
+
     @media print{
       @page{size:A4;margin:10mm}
       body{padding:0;background:#fff}
@@ -420,7 +434,11 @@
       <section class="ticket-title">
         <div class="ornament">◆</div>
         <h1>ELEKTRONİK BİLET <span>/ ELECTRONIC TICKET</span></h1>
-        <p>Booking confirmation / Rezervasyon onayı</p>
+        <p id="ticketTitleStatus">Booking confirmation / Rezervasyon onayı</p>
+      </section>
+      <section class="ticket-status-strip" id="ticketStatusStrip" data-state="PENDING" aria-live="polite">
+        <strong id="ticketStatusTitle">PENDING CONFIRMATION</strong>
+        <span id="ticketStatusText">Request received. Pickup time and final price are awaiting manager confirmation.</span>
       </section>
 
       <section class="ticket-body">
@@ -652,6 +670,36 @@
         return text;
       }
 
+      function bookingState(booking){
+        const raw=safeText(booking?.status).toUpperCase();
+        if(raw==='CONFIRMED')return 'CONFIRMED';
+        if(raw==='CANCELLED')return 'CANCELLED';
+        return 'PENDING';
+      }
+      function renderBookingStatus(booking){
+        const state=bookingState(booking);
+        const strip=document.getElementById('ticketStatusStrip');
+        const title=document.getElementById('ticketStatusTitle');
+        const text=document.getElementById('ticketStatusText');
+        const subtitle=document.getElementById('ticketTitleStatus');
+        if(!strip)return state;
+        strip.classList.add('show');strip.dataset.state=state;
+        if(state==='CONFIRMED'){
+          if(title)title.textContent='BOOKING CONFIRMED';
+          if(text)text.textContent='This e-ticket is active. Pickup, time and final price are confirmed by ALANYA TOUR ORGANIZATIONS.';
+          if(subtitle)subtitle.textContent='Booking confirmation / Rezervasyon onayı';
+        }else if(state==='CANCELLED'){
+          if(title)title.textContent='BOOKING CANCELLED';
+          if(text)text.textContent='This ticket is no longer valid. Please contact ALANYA TOUR ORGANIZATIONS if you need assistance.';
+          if(subtitle)subtitle.textContent='Cancelled booking / İptal edilen rezervasyon';
+        }else{
+          if(title)title.textContent='PENDING CONFIRMATION';
+          if(text)text.textContent='Your request is saved and this e-ticket link is reserved. Pickup, time and final price will update here after manager confirmation.';
+          if(subtitle)subtitle.textContent='Booking request / Rezervasyon talebi';
+        }
+        return state;
+      }
+
       function setPrepText(id,value){const el=document.getElementById(id);if(el)el.textContent=safeText(value)||"—";}
       function formatPrepDate(value){
         const raw=safeText(value); if(!/^\d{4}-\d{2}-\d{2}$/.test(raw)) return raw||"—";
@@ -701,14 +749,20 @@
         host.innerHTML=`<div class="weather-main"><div class="weather-icon">${escHTML(icon)}</div><div class="weather-copy"><strong>${escHTML(forecast.location?.name||'Tour location')} · ${escHTML(d.condition||'Forecast')}</strong><span>${escHTML(temp)} on the confirmed excursion date</span></div></div><div class="weather-metrics"><div class="weather-metric"><small>Rain</small><b>${escHTML(rain)}</b></div><div class="weather-metric"><small>Wind</small><b>${escHTML(wind)}</b></div><div class="weather-metric"><small>Gusts</small><b>${escHTML(gust)}</b></div></div>${guidance.length?`<ul class="weather-guidance">${guidance.map(x=>`<li>${escHTML(x)}</li>`).join('')}</ul>`:''}<div class="weather-credit">Weather data: MET Norway · CC BY 4.0 · processed by ATO for the confirmed tour date.</div>`;
       }
       async function renderPrepPage(selectedTour,booking){
+        const state=bookingState(booking);
         const date=selectedTour?.confirmed_date||selectedTour?.requested_date||'';
         setPrepText('prepTour',selectedTour?.title||selectedTour?.name||'Tour');
-        setPrepText('prepDate',formatPrepDate(date)); setPrepText('prepTime',selectedTour?.time||'—'); setPrepText('prepPickup',selectedTour?.pickup||booking?.hotel||'Hotel lobby');
+        setPrepText('prepDate',formatPrepDate(date));
+        setPrepText('prepTime',state==='CONFIRMED'?(selectedTour?.time||'—'):'To be confirmed');
+        setPrepText('prepPickup',state==='CONFIRMED'?(selectedTour?.pickup||booking?.hotel||'Hotel lobby'):'To be confirmed');
         let bring=uniqueList(selectedTour?.what_to_bring);
         if(!bring.length)bring=await bringFromTourPage(selectedTour);
         renderBring(bring,selectedTour);
-        if(window.ATOWeather?.getForecast){renderWeather(await window.ATOWeather.getForecast(selectedTour,date));}
-        else renderWeather({state:'error',message:'Live weather service is not loaded.'});
+        if(state!=='CONFIRMED'){
+          renderWeather({state:'waiting',message:date?'Weather guidance will activate after the manager confirms this excursion date.':'Weather guidance will activate after the excursion date is confirmed.'});
+        }else if(window.ATOWeather?.getForecast){
+          renderWeather(await window.ATOWeather.getForecast(selectedTour,date));
+        }else renderWeather({state:'error',message:'Live weather service is not loaded.'});
       }
 
       async function renderFromToken(token, tourIndex) {
@@ -723,7 +777,7 @@
           const result = await window.ATOBooking.getPublicBooking(token);
           const booking = result?.data;
           if (!booking) {
-            console.warn("ATO e-ticket: confirmed booking not found for this token.");
+            console.warn("ATO e-ticket: booking not found for this token.");
             return;
           }
 
@@ -735,6 +789,8 @@
             return;
           }
 
+          const state=renderBookingStatus(booking);
+          const pendingPrice=selectedTour.group_offer_price!==''&&selectedTour.group_offer_price!=null?`Estimated €${Number(selectedTour.group_offer_price).toFixed(Number.isInteger(Number(selectedTour.group_offer_price))?0:2)}`:(selectedTour.price_display||selectedTour.price);
           render({
             ticketNo: booking.ticket_no || booking.request_no || "—",
             name: booking.guest_name || "—",
@@ -742,10 +798,10 @@
             room: booking.room || "—",
             guests: guestText(booking),
             tour: selectedTour.title || selectedTour.name || "Tour",
-            date: selectedTour.confirmed_date || selectedTour.requested_date || "—",
-            pickup: selectedTour.pickup || booking.hotel || "Hotel lobby",
-            time: selectedTour.time || "—",
-            total: normalizePrice(selectedTour.confirmed_price || selectedTour.price_display || selectedTour.price),
+            date: selectedTour.confirmed_date || selectedTour.requested_date || (state==='PENDING'?'To be confirmed':'—'),
+            pickup: state==='CONFIRMED'?(selectedTour.pickup || booking.hotel || "Hotel lobby"):'To be confirmed',
+            time: state==='CONFIRMED'?(selectedTour.time || "—"):'To be confirmed',
+            total: normalizePrice(state==='CONFIRMED'?(selectedTour.confirmed_price || selectedTour.price_display || selectedTour.price):pendingPrice),
             verifyUrl: location.origin
           });
           await renderPrepPage(selectedTour, booking);
