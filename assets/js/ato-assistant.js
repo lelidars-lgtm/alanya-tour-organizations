@@ -62,6 +62,15 @@
   }
   function T(){ return I18N[lang()]; }
 
+  function statusDisplay(raw){
+    const text=String(raw||'').trim();
+    if(!text) return '';
+    return text
+      .replace(/\bAI\b[\s-]*/i,'')
+      .replace(/\s+·\s+/g,' · ')
+      .trim();
+  }
+
   // Current visitor message can use a different language than the site UI.
   function messageLangHint(text){
     const s=String(text||'').trim();
@@ -882,6 +891,220 @@
       html body #atoAssistantPanel .ato-agent-compare{padding:12px!important}.ato-agent-compare>div{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}.ato-agent-compare article{padding:9px!important;border-radius:10px!important;background:rgba(255,255,255,.035)!important}.ato-agent-compare h4{margin:0 0 5px!important;font:800 10px/1.3 Arial,sans-serif!important;color:white!important}.ato-agent-compare b,.ato-agent-compare small{display:block!important;font:700 8px/1.35 Arial,sans-serif!important;color:#e5c36e!important}.ato-agent-compare p{margin:5px 0 0!important;font:500 9px/1.35 Arial,sans-serif!important;color:rgba(235,244,242,.7)!important}
       html body #atoAssistantPanel .ato-agent-itinerary{padding:12px!important;border:1px solid rgba(221,180,93,.22)!important;background:linear-gradient(145deg,rgba(8,36,53,.88),rgba(10,70,64,.58))!important;border-radius:15px!important}.ato-agent-itinerary>header{display:flex!important;justify-content:space-between!important;gap:8px!important;align-items:center!important;margin-bottom:8px!important}.ato-agent-itinerary>header b{font:800 8px Arial,sans-serif!important;letter-spacing:.14em!important;color:#e0b95e!important;text-transform:uppercase!important}.ato-agent-itinerary>header span{font:700 7px Arial,sans-serif!important;color:rgba(230,240,237,.6)!important;text-align:right!important}.ato-agent-itinerary>p{margin:0 0 9px!important;font:500 9.5px/1.4 Arial,sans-serif!important;color:rgba(239,246,244,.76)!important}.ato-agent-itinerary-days{display:grid!important;gap:6px!important}.ato-agent-itinerary-day{display:grid!important;grid-template-columns:58px 1fr!important;gap:8px!important;padding:8px!important;border-radius:10px!important;background:rgba(255,255,255,.035)!important}.ato-agent-itinerary-day>time{font:800 8px/1.25 Arial,sans-serif!important;color:#e8c66f!important}.ato-agent-itinerary-day h5{margin:0 0 2px!important;font:800 9.5px/1.25 Arial,sans-serif!important;color:#fff!important}.ato-agent-itinerary-day p{margin:0!important;font:500 8.5px/1.35 Arial,sans-serif!important;color:rgba(233,242,240,.68)!important}.ato-agent-itinerary-note{display:block!important;margin-top:8px!important;font:600 7.5px/1.35 Arial,sans-serif!important;color:rgba(229,238,235,.55)!important}
       .ato-agent-event{margin:10px 0 0!important;border:1px solid rgba(232,182,79,.24)!important;border-radius:15px!important;background:linear-gradient(145deg,rgba(22,45,65,.84),rgba(8,31,48,.91))!important;padding:12px!important;box-shadow:0 14px 30px rgba(0,0,0,.16)!important}.ato-agent-event header{display:flex!important;justify-content:space-between!important;gap:10px!important;align-items:flex-start!important;margin-bottom:8px!important}.ato-agent-event header b{font:800 10px/1.2 Arial,sans-serif!important;letter-spacing:.11em!important;color:#f1cd78!important}.ato-agent-event header span{font:700 7px/1.25 Arial,sans-serif!important;text-align:right!important;color:rgba(241,205,120,.68)!important}.ato-agent-event>p{margin:0 0 10px!important;font:500 10px/1.45 Arial,sans-serif!important;color:rgba(240,247,246,.83)!important}.ato-agent-event-step{display:grid!important;grid-template-columns:48px 1fr!important;gap:9px!important;padding:8px 0!important;border-top:1px solid rgba(255,255,255,.06)!important}.ato-agent-event-step time{font:800 8px/1.25 Arial,sans-serif!important;color:#e6ba58!important}.ato-agent-event-step h5{margin:0 0 3px!important;font:800 10px/1.25 Arial,sans-serif!important;color:#fff!important}.ato-agent-event-step small{display:block!important;margin-bottom:3px!important;font:700 7px/1.25 Arial,sans-serif!important;color:rgba(112,197,208,.8)!important;text-transform:uppercase!important;letter-spacing:.08em!important}.ato-agent-event-step p{margin:0!important;font:500 9px/1.4 Arial,sans-serif!important;color:rgba(232,242,240,.72)!important}.ato-agent-event-meta{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important;margin:8px 0!important}.ato-agent-event-meta div{padding:7px!important;border:1px solid rgba(255,255,255,.06)!important;border-radius:9px!important;background:rgba(255,255,255,.025)!important}.ato-agent-event-meta small{display:block!important;font:700 6.5px/1.2 Arial,sans-serif!important;color:rgba(236,244,242,.48)!important;text-transform:uppercase!important}.ato-agent-event-meta b{display:block!important;margin-top:2px!important;font:700 8px/1.3 Arial,sans-serif!important;color:#f5f8f7!important;word-break:break-word!important}.ato-agent-event-note{display:block!important;margin-top:7px!important;font:600 7.5px/1.35 Arial,sans-serif!important;color:rgba(229,238,235,.58)!important}.ato-agent-event-must{margin:8px 0 2px!important;padding:7px 8px!important;border:1px solid rgba(232,182,79,.10)!important;border-radius:9px!important;font:600 8px/1.4 Arial,sans-serif!important;color:rgba(240,247,246,.72)!important}.ato-agent-event-alts{display:grid!important;gap:6px!important;margin-top:10px!important}.ato-agent-event-alts>small{font:800 7px/1.2 Arial,sans-serif!important;letter-spacing:.11em!important;color:rgba(241,205,120,.7)!important}.ato-agent-event-alt{display:grid!important;grid-template-columns:1fr auto!important;gap:8px!important;align-items:center!important;padding:8px!important;border:1px solid rgba(255,255,255,.07)!important;border-radius:10px!important;background:rgba(255,255,255,.02)!important}.ato-agent-event-alt b{display:block!important;font:800 9px/1.25 Arial,sans-serif!important;color:#fff!important}.ato-agent-event-alt p{margin:2px 0 0!important;font:500 8px/1.35 Arial,sans-serif!important;color:rgba(232,242,240,.65)!important}.ato-agent-event-alt button{border:1px solid rgba(232,182,79,.32)!important;border-radius:999px!important;background:rgba(232,182,79,.06)!important;color:#f0cb75!important;padding:6px 8px!important;font:800 6.5px/1 Arial,sans-serif!important;letter-spacing:.08em!important;cursor:pointer!important}
+      /* ============================================================
+         V7.3 VISUAL HOTFIX — PREMIUM AMBIENT CHAT
+         Background orb + quiet manager handoff + live AI + live input.
+         ============================================================ */
+      html body #atoAssistantPanel.ato-assistant-panel{
+        isolation:isolate!important;
+      }
+      html body #atoAssistantPanel .ato-assistant-ambient-symbol{
+        position:absolute!important;
+        left:50%!important;
+        top:48%!important;
+        width:min(430px,72%)!important;
+        aspect-ratio:1!important;
+        transform:translate(-50%,-50%) rotate(-6deg)!important;
+        display:grid!important;
+        place-items:center!important;
+        opacity:.085!important;
+        pointer-events:none!important;
+        z-index:0!important;
+        filter:blur(.18px) drop-shadow(0 0 28px rgba(39,126,174,.18)) drop-shadow(0 0 22px rgba(232,182,79,.08))!important;
+        transition:opacity .35s ease,filter .35s ease,transform .45s ease!important;
+      }
+      html body #atoAssistantPanel .ato-assistant-ambient-orb{
+        width:100%!important;
+        height:100%!important;
+        display:block!important;
+        overflow:visible!important;
+        animation:atoAmbientDrift 28s ease-in-out infinite!important;
+      }
+      html body #atoAssistantPanel .ato-assistant-ambient-symbol .ato-ai-orbit--a{animation-duration:31s!important}
+      html body #atoAssistantPanel .ato-assistant-ambient-symbol .ato-ai-orbit--b{animation-duration:27s!important}
+      html body #atoAssistantPanel .ato-assistant-ambient-symbol .ato-ai-orbit--c{animation-duration:23s!important}
+      html body #atoAssistantPanel .ato-assistant-ambient-symbol .ato-ai-orbit--d{animation-duration:34s!important}
+      html body #atoAssistantPanel .ato-assistant-ambient-symbol .ato-ai-orb-particle--1{animation-duration:33s!important}
+      html body #atoAssistantPanel .ato-assistant-ambient-symbol .ato-ai-orb-particle--2{animation-duration:29s!important}
+      html body #atoAssistantPanel .ato-assistant-ambient-symbol .ato-ai-orb-particle--3{animation-duration:25s!important}
+      html body #atoAssistantPanel .ato-assistant-ambient-symbol .ato-ai-orb-particle--4{animation-duration:37s!important}
+      html body #atoAssistantPanel .ato-assistant-ambient-symbol .ato-ai-orb-particle--5{animation-duration:31s!important}
+      html body #atoAssistantPanel .ato-assistant-ambient-symbol .ato-ai-orb-particle--6{animation-duration:35s!important}
+      html body #atoAssistantPanel .ato-assistant-ambient-symbol .ato-ai-orb-core{animation-duration:7.2s!important}
+      @keyframes atoAmbientDrift{
+        0%,100%{transform:rotate(-3deg) scale(.985)}
+        50%{transform:rotate(3deg) scale(1.018)}
+      }
+      html body #atoAssistantPanel.is-thinking .ato-assistant-ambient-symbol{
+        opacity:.045!important;
+        filter:blur(.45px) drop-shadow(0 0 18px rgba(39,126,174,.10))!important;
+        transform:translate(-50%,-50%) rotate(-6deg) scale(.985)!important;
+      }
+      html body #atoAssistantPanel .ato-assistant-head,
+      html body #atoAssistantPanel .ato-assistant-thread,
+      html body #atoAssistantPanel .ato-assistant-chips,
+      html body #atoAssistantPanel .ato-assistant-handoff,
+      html body #atoAssistantPanel .ato-assistant-compose,
+      html body #atoAssistantPanel .ato-assistant-fineprint{
+        position:relative!important;
+        z-index:2!important;
+      }
+
+      /* Live AI mark: larger, luminous, but still refined. */
+      html body #atoAssistantPanel .ato-assistant-status{
+        align-items:center!important;
+        gap:8px!important;
+      }
+      html body #atoAssistantPanel .ato-assistant-status .ato-assistant-ai-live{
+        width:auto!important;
+        min-width:24px!important;
+        height:auto!important;
+        border-radius:0!important;
+        background:none!important;
+        color:#f4d98b!important;
+        font:900 12.5px/1 Arial,sans-serif!important;
+        letter-spacing:.12em!important;
+        text-shadow:
+          0 0 4px rgba(255,249,239,.76),
+          0 0 10px rgba(232,182,79,.48),
+          0 0 18px rgba(63,157,197,.34)!important;
+        box-shadow:none!important;
+        opacity:.96!important;
+        animation:atoAiLivingLight 3.6s ease-in-out infinite!important;
+      }
+      html body #atoAssistantPanel .ato-assistant-status b{
+        color:rgba(224,237,237,.74)!important;
+      }
+      @keyframes atoAiLivingLight{
+        0%,100%{opacity:.82;filter:brightness(.96)}
+        50%{opacity:1;filter:brightness(1.16)}
+      }
+
+      /* Talk to Manager becomes a quiet contextual glass rail. */
+      html body #atoAssistantPanel .ato-assistant-handoff{
+        opacity:.32!important;
+        transform:translateY(1px)!important;
+        transition:opacity .23s ease,transform .23s ease!important;
+      }
+      html body #atoAssistantPanel .ato-assistant-handoff button{
+        min-height:38px!important;
+        border-color:rgba(140,173,179,.12)!important;
+        background:linear-gradient(100deg,rgba(3,17,29,.32),rgba(8,47,51,.23))!important;
+        color:rgba(229,239,238,.66)!important;
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.018)!important;
+        -webkit-backdrop-filter:blur(8px)!important;
+        backdrop-filter:blur(8px)!important;
+        transition:border-color .22s ease,background .22s ease,color .22s ease,box-shadow .22s ease,transform .22s ease!important;
+      }
+      html body #atoAssistantPanel .ato-assistant-handoff button span,
+      html body #atoAssistantPanel .ato-assistant-handoff button b{
+        opacity:.48!important;
+        transition:opacity .2s ease,color .2s ease,transform .2s ease!important;
+      }
+      @media (hover:hover) and (pointer:fine){
+        html body #atoAssistantPanel .ato-assistant-handoff:hover,
+        html body #atoAssistantPanel .ato-assistant-handoff:focus-within{
+          opacity:.94!important;
+          transform:translateY(0)!important;
+        }
+        html body #atoAssistantPanel .ato-assistant-handoff button:hover,
+        html body #atoAssistantPanel .ato-assistant-handoff button:focus-visible{
+          border-color:rgba(221,180,93,.34)!important;
+          background:linear-gradient(100deg,rgba(8,29,43,.58),rgba(8,72,65,.40))!important;
+          color:#fff8ec!important;
+          box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 0 20px rgba(54,139,171,.08)!important;
+        }
+        html body #atoAssistantPanel .ato-assistant-handoff button:hover span,
+        html body #atoAssistantPanel .ato-assistant-handoff button:hover b,
+        html body #atoAssistantPanel .ato-assistant-handoff button:focus-visible span,
+        html body #atoAssistantPanel .ato-assistant-handoff button:focus-visible b{
+          opacity:1!important;
+        }
+        html body #atoAssistantPanel .ato-assistant-handoff button:hover b,
+        html body #atoAssistantPanel .ato-assistant-handoff button:focus-visible b{
+          transform:translateX(2px)!important;
+        }
+      }
+      html body #atoAssistantPanel[data-handoff-ready="true"] .ato-assistant-handoff{
+        opacity:.60!important;
+      }
+      html body #atoAssistantPanel[data-handoff-ready="true"] .ato-assistant-handoff button{
+        border-color:rgba(221,180,93,.24)!important;
+        color:rgba(249,244,234,.83)!important;
+      }
+
+      /* Input is the primary live interaction surface. */
+      html body #atoAssistantPanel #atoAssistantInput{
+        border-color:rgba(109,203,214,.82)!important;
+        background:
+          linear-gradient(105deg,rgba(7,31,48,.82),rgba(5,63,57,.67),rgba(9,38,57,.82))!important;
+        background-size:190% 100%!important;
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,.04),
+          0 0 0 1px rgba(226,181,86,.10),
+          0 0 0 3px rgba(66,168,201,.075),
+          0 0 22px rgba(61,166,205,.18),
+          0 0 38px rgba(29,152,115,.11)!important;
+        animation:atoInputLiving 4.2s ease-in-out infinite!important;
+      }
+      html body #atoAssistantPanel #atoAssistantInput:hover{
+        border-color:rgba(132,220,226,.94)!important;
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,.05),
+          0 0 0 1px rgba(232,182,79,.14),
+          0 0 0 3px rgba(70,177,206,.10),
+          0 0 27px rgba(67,178,211,.22),
+          0 0 43px rgba(35,160,122,.13)!important;
+      }
+      html body #atoAssistantPanel #atoAssistantInput:focus{
+        border-color:rgba(162,231,232,.98)!important;
+        background-position:100% 50%!important;
+        box-shadow:
+          inset 0 1px 0 rgba(255,255,255,.06),
+          0 0 0 1px rgba(238,196,105,.18),
+          0 0 0 4px rgba(76,188,214,.11),
+          0 0 32px rgba(74,187,217,.27),
+          0 0 50px rgba(39,168,128,.16)!important;
+        animation:atoInputFocusLiving 2.9s ease-in-out infinite!important;
+      }
+      html body #atoAssistantPanel.is-thinking #atoAssistantInput{
+        animation:atoInputThinking 2.4s ease-in-out infinite!important;
+      }
+      @keyframes atoInputLiving{
+        0%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 0 0 1px rgba(226,181,86,.09),0 0 0 3px rgba(66,168,201,.065),0 0 19px rgba(61,166,205,.14),0 0 31px rgba(29,152,115,.08)}
+        50%{box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 0 0 1px rgba(226,181,86,.12),0 0 0 3px rgba(66,168,201,.09),0 0 27px rgba(61,166,205,.21),0 0 42px rgba(29,152,115,.13)}
+      }
+      @keyframes atoInputFocusLiving{
+        0%,100%{filter:brightness(1);background-position:0% 50%}
+        50%{filter:brightness(1.08);background-position:100% 50%}
+      }
+      @keyframes atoInputThinking{
+        0%,100%{filter:brightness(.98);background-position:0% 50%}
+        50%{filter:brightness(1.10);background-position:100% 50%}
+      }
+
+      @media (hover:none), (pointer:coarse){
+        html body #atoAssistantPanel .ato-assistant-handoff{opacity:.54!important}
+      }
+
+      @media(max-width:980px){
+        html body #atoAssistantPanel .ato-assistant-ambient-symbol{
+          width:min(330px,68%)!important;
+          top:45%!important;
+          opacity:.050!important;
+          filter:blur(.30px) drop-shadow(0 0 16px rgba(39,126,174,.10))!important;
+        }
+        html body #atoAssistantPanel .ato-assistant-status .ato-assistant-ai-live{
+          font-size:11px!important;
+          min-width:21px!important;
+        }
+        html body #atoAssistantPanel .ato-assistant-handoff{opacity:.52!important}
+        html body #atoAssistantPanel #atoAssistantInput{
+          animation-duration:5.2s!important;
+          box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 0 0 1px rgba(226,181,86,.08),0 0 0 2px rgba(66,168,201,.055),0 0 18px rgba(61,166,205,.12),0 0 26px rgba(29,152,115,.07)!important;
+        }
+      }
+
       @media(max-width:980px){
         html body #atoAssistantPanel.ato-assistant-panel{left:12px!important;right:12px!important;top:auto!important;bottom:calc(12px + env(safe-area-inset-bottom,0px))!important;width:auto!important;height:min(78vh,650px)!important;min-height:430px!important;max-height:calc(100vh - 24px - env(safe-area-inset-top,0px))!important;transform:translateY(8px) scale(.99)!important;border-radius:22px!important}
         html body #atoAssistantPanel.is-open{transform:translateY(0) scale(1)!important}
@@ -902,7 +1125,10 @@
         .ato-ai-orbit,
         .ato-ai-orb-particle,
         .ato-ai-orb-core,
-        .ato-ai-orb-pass{
+        .ato-ai-orb-pass,
+        .ato-assistant-ambient-orb,
+        .ato-assistant-ai-live,
+        #atoAssistantInput{
           animation:none!important;
         }
         #atoAssistantLaunch.ato-ai-orb-launch,
@@ -965,6 +1191,50 @@
     `;
   }
 
+  function ambientOrbMarkup(){
+    return `
+      <div class="ato-assistant-ambient-symbol" aria-hidden="true">
+        <svg class="ato-assistant-ambient-orb" viewBox="0 0 64 64" focusable="false" aria-hidden="true">
+          <defs>
+            <radialGradient id="atoAmbientOrbHalo" cx="50%" cy="50%" r="62%">
+              <stop offset="0" stop-color="#fff9ef" stop-opacity=".76"/>
+              <stop offset=".20" stop-color="#f0cf89" stop-opacity=".58"/>
+              <stop offset=".48" stop-color="#1f5f95" stop-opacity=".32"/>
+              <stop offset="1" stop-color="#0b2948" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="atoAmbientOrbCore" cx="40%" cy="36%" r="74%">
+              <stop offset="0" stop-color="#fff9ef"/>
+              <stop offset=".28" stop-color="#f6d58f"/>
+              <stop offset=".62" stop-color="#e8b64f"/>
+              <stop offset="1" stop-color="#b97818"/>
+            </radialGradient>
+            <linearGradient id="atoAmbientOrbRing" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fff9ef" stop-opacity=".92"/>
+              <stop offset=".38" stop-color="#f0cf89" stop-opacity=".78"/>
+              <stop offset="1" stop-color="#1f5f95" stop-opacity=".58"/>
+            </linearGradient>
+          </defs>
+          <ellipse class="ato-ai-orbit ato-ai-orbit--a" cx="32" cy="32" rx="24.6" ry="8.0"/>
+          <ellipse class="ato-ai-orbit ato-ai-orbit--b" cx="31.4" cy="31.8" rx="21.5" ry="10.8"/>
+          <ellipse class="ato-ai-orbit ato-ai-orbit--c" cx="32.8" cy="31.4" rx="17.6" ry="6.0"/>
+          <ellipse class="ato-ai-orbit ato-ai-orbit--d" cx="31.8" cy="32.6" rx="25.8" ry="9.2"/>
+          <g class="ato-ai-orb-particle ato-ai-orb-particle--1"><circle cx="32" cy="8" r="1.05" fill="#e8b64f"/></g>
+          <g class="ato-ai-orb-particle ato-ai-orb-particle--2"><circle cx="53.2" cy="25.6" r=".90" fill="#5d87ac"/></g>
+          <g class="ato-ai-orb-particle ato-ai-orb-particle--3"><circle cx="17.4" cy="13.9" r=".74" fill="#fff9ef"/></g>
+          <g class="ato-ai-orb-particle ato-ai-orb-particle--4"><circle cx="12.4" cy="42.2" r=".82" fill="#d7a83e"/></g>
+          <g class="ato-ai-orb-particle ato-ai-orb-particle--5"><circle cx="44.6" cy="51.6" r=".86" fill="#1f5f95"/></g>
+          <g class="ato-ai-orb-particle ato-ai-orb-particle--6"><circle cx="47.6" cy="16" r=".72" fill="#f0cf89"/></g>
+          <g class="ato-ai-orb-core">
+            <circle cx="32" cy="32" r="15.6" fill="url(#atoAmbientOrbHalo)" opacity=".82"/>
+            <circle cx="32" cy="32" r="9.8" fill="url(#atoAmbientOrbHalo)" opacity=".26"/>
+            <circle cx="32" cy="32" r="6.5" fill="none" stroke="url(#atoAmbientOrbRing)" stroke-width=".82" stroke-opacity=".66"/>
+            <circle cx="32" cy="32" r="5.5" fill="url(#atoAmbientOrbCore)"/>
+            <circle cx="31.1" cy="31.0" r=".72" fill="#fff9ef" opacity=".86"/>
+          </g>
+        </svg>
+      </div>`;
+  }
+
   function initOrbHint(){
     const launch=$('#atoAssistantLaunch');
     if(!launch || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
@@ -1000,12 +1270,13 @@
         ${orbMarkup()}
       </button>
 
-      <section class="ato-assistant-panel" id="atoAssistantPanel" aria-hidden="true" aria-label="${esc(c.title)}">
+      <section class="ato-assistant-panel" id="atoAssistantPanel" aria-hidden="true" aria-label="${esc(c.title)}" data-handoff-ready="false">
+        ${ambientOrbMarkup()}
         <header class="ato-assistant-head">
           <div>
             <div class="ato-assistant-eyebrow"><span class="ato-assistant-brand-main">ALANYA TOUR</span> <span class="ato-assistant-brand-org">ORGANIZATIONS</span></div>
             <h3 id="atoAssistantContextTitle">${esc(c.title)}</h3>
-            <div class="ato-assistant-status"><span></span><b id="atoAssistantContextStatus">${esc(c.status||t.status)}</b></div>
+            <div class="ato-assistant-status"><span class="ato-assistant-ai-live" aria-hidden="true">AI</span><b id="atoAssistantContextStatus">${esc(statusDisplay(c.status||t.status))}</b></div>
           </div>
           <div class="ato-assistant-head__actions">
             <button type="button" id="atoAssistantReset" title="${esc(t.reset)}" aria-label="${esc(t.reset)}">↺</button>
@@ -1071,6 +1342,11 @@
     const L=agentLabels();
     const wrap=document.createElement('div'); wrap.className='ato-agent-extras';
     const state=loadAgentState();
+    const panel=$('#atoAssistantPanel');
+    if(panel){
+      const handoffReady=['ready_to_request_booking','manager_handoff','payment_after_confirmation','review_vip_event'].includes(data.next_action);
+      panel.dataset.handoffReady=handoffReady?'true':'false';
+    }
     const p={...(state.lead_profile||{}),...(data.lead_profile||{})};
     const hasProfile=p.adults!=null || (p.children_ages||[]).length || p.hotel || (p.preferred_dates||[]).length || p.budget_amount!=null || (p.preferences||[]).length;
     if(hasProfile){
@@ -1146,7 +1422,7 @@
     const root=$('#atoAssistantRoot');
     if(root) root.dataset.mode=detectMode();
     const title=$('#atoAssistantContextTitle'); if(title) title.textContent=c.title;
-    const status=$('#atoAssistantContextStatus'); if(status) status.textContent=c.status||T().status;
+    const status=$('#atoAssistantContextStatus'); if(status) status.textContent=statusDisplay(c.status||T().status);
     const panel=$('#atoAssistantPanel'); if(panel) panel.setAttribute('aria-label',c.title);
     renderChips();
     if(!history.length) renderHistory();
@@ -1191,6 +1467,7 @@
     text=String(text||'').trim();
     if(!text || busy) return;
     busy=true;
+    $('#atoAssistantPanel')?.classList.add('is-thinking');
     const prior=history.slice(-8);
     add('user',text);
     const thread=$('#atoAssistantThread');
@@ -1228,6 +1505,7 @@
       add('assistant',T().retry);
     }finally{
       busy=false;
+      $('#atoAssistantPanel')?.classList.remove('is-thinking');
       $('#atoAssistantSend').disabled=false;
       $('#atoAssistantInput')?.focus();
     }
