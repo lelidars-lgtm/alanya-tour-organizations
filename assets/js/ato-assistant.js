@@ -62,6 +62,26 @@
   }
   function T(){ return I18N[lang()]; }
 
+  // Current visitor message can use a different language than the site UI.
+  function messageLangHint(text){
+    const s=String(text||'').trim();
+    if(!s) return 'auto';
+    if(/[\u3040-\u30ff]/u.test(s)) return 'ja';
+    if(/[\uac00-\ud7af]/u.test(s)) return 'ko';
+    if(/[\u4e00-\u9fff]/u.test(s)) return 'zh';
+    if(/[\u0600-\u06ff]/u.test(s)) return 'ar';
+    if(/[\u0590-\u05ff]/u.test(s)) return 'he';
+    if(/[\u0370-\u03ff]/u.test(s)) return 'el';
+    if(/[\u0900-\u097f]/u.test(s)) return 'hi';
+    if(/[\u0e00-\u0e7f]/u.test(s)) return 'th';
+    if(/[\u10a0-\u10ff]/u.test(s)) return 'ka';
+    if(/[\u0530-\u058f]/u.test(s)) return 'hy';
+    if(/[іїєґІЇЄҐ]/u.test(s)) return 'uk';
+    if(/[А-Яа-яЁё]/u.test(s)) return 'ru';
+    return 'auto';
+  }
+
+
 
   const CONTEXT_I18N = {
     en:{
@@ -1185,6 +1205,7 @@
           message:text,
           history:prior,
           language:lang(),
+          message_language:messageLangHint(text),
           session_id:sessionId(),
           agent_state:loadAgentState(),
           page:pageContext()

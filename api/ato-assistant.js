@@ -45,6 +45,48 @@ const rate=globalThis.__ATO_SALES_AGENT_RATE__ || new Map();
 globalThis.__ATO_SALES_AGENT_RATE__=rate;
 
 function clean(v,limit=2000){ return String(v??'').replace(/\u0000/g,'').trim().slice(0,limit); }
+
+function detectMessageLanguage(message, siteLanguage='en', clientHint=''){
+  const text=clean(message,MAX_MESSAGE);
+  const hint=clean(clientHint,24).toLowerCase();
+  if(hint && hint!=='auto' && /^[a-z]{2,3}(?:-[a-z0-9]{2,8})?$/i.test(hint)) return hint;
+
+  if(/[\u3040-\u30ff]/u.test(text)) return 'ja';
+  if(/[\uac00-\ud7af]/u.test(text)) return 'ko';
+  if(/[\u4e00-\u9fff]/u.test(text)) return 'zh';
+  if(/[\u0600-\u06ff]/u.test(text)) return 'ar';
+  if(/[\u0590-\u05ff]/u.test(text)) return 'he';
+  if(/[\u0370-\u03ff]/u.test(text)) return 'el';
+  if(/[\u0900-\u097f]/u.test(text)) return 'hi';
+  if(/[\u0e00-\u0e7f]/u.test(text)) return 'th';
+  if(/[\u10a0-\u10ff]/u.test(text)) return 'ka';
+  if(/[\u0530-\u058f]/u.test(text)) return 'hy';
+  if(/[іїєґІЇЄҐ]/u.test(text)) return 'uk';
+  if(/[А-Яа-яЁё]/u.test(text)) return 'ru';
+
+  const normalized=` ${text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z]+/g,' ')} `;
+  const score=(words)=>words.reduce((n,w)=>n+(normalized.includes(` ${w} `)?1:0),0);
+  const scores={
+    fr:score(['bonjour','salut','je','nous','voudrais','veux','avec','pour','combien','prix','anniversaire','voyage','excursion','merci']),
+    es:score(['hola','yo','nosotros','quiero','queremos','con','para','cuanto','precio','cumpleanos','viaje','excursion','gracias']),
+    it:score(['ciao','io','noi','voglio','vorrei','con','per','quanto','prezzo','compleanno','viaggio','escursione','grazie']),
+    pt:score(['ola','eu','nos','quero','queremos','com','para','quanto','preco','aniversario','viagem','passeio','obrigado']),
+    nl:score(['hallo','ik','wij','wil','willen','met','voor','hoeveel','prijs','verjaardag','reis','excursie','bedankt']),
+    ro:score(['buna','eu','noi','vreau','vrem','cu','pentru','cat','pret','ziua','excursie','multumesc']),
+    cs:score(['ahoj','ja','my','chci','chceme','pro','kolik','cena','narozeniny','vylet','dekuji']),
+    sv:score(['hej','jag','vi','vill','med','for','hur','pris','fodelsedag','resa','utflykt','tack']),
+    da:score(['hej','jeg','vi','vil','med','for','hvor','pris','fodselsdag','rejse','udflugt','tak']),
+    no:score(['hei','jeg','vi','vil','med','for','hvor','pris','bursdag','reise','utflukt','takk']),
+    de:score(['hallo','ich','wir','mochte','moechte','wollen','mit','fur','fuer','wieviel','preis','geburtstag','reise','ausflug','danke']),
+    tr:score(['merhaba','ben','biz','istiyorum','istiyoruz','ile','icin','fiyat','dogum','gunu','tur','tesekkur']),
+    pl:score(['czesc','ja','my','chce','chcemy','dla','ile','cena','urodziny','wycieczka','dziekuje']),
+    en:score(['hello','hi','want','would','with','for','how','much','price','birthday','trip','tour','thanks'])
+  };
+  const ranked=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
+  if(ranked[0][1]>=2 && ranked[0][1]>ranked[1][1]) return ranked[0][0];
+  return 'auto';
+}
+
 function send(res,status,body){ res.statusCode=status; res.setHeader('Content-Type','application/json; charset=utf-8'); res.setHeader('Cache-Control','no-store'); res.setHeader('X-Content-Type-Options','nosniff'); res.end(JSON.stringify(body)); }
 function clientIp(req){ const f=clean(req.headers['x-forwarded-for']||'',256); return f?f.split(',')[0].trim():clean(req.headers['x-real-ip']||req.socket?.remoteAddress||'unknown',128); }
 function allowRequest(req){ const now=Date.now(), ip=clientIp(req), cur=rate.get(ip); if(!cur||now-cur.start>RATE_WINDOW_MS){rate.set(ip,{start:now,count:1});return true;} cur.count++; rate.set(ip,cur); return cur.count<=RATE_MAX; }
@@ -307,7 +349,7 @@ const OUTPUT_SCHEMA={type:'object',additionalProperties:false,properties:{
  suggested_questions:{type:'array',maxItems:5,items:{type:'string'}}
 },required:['answer','lead_profile','event_profile','recommendations','comparison','weather','itinerary','event_plan','offer_rescue','next_action','suggested_questions']};
 
-function buildInstructions(language,page,verified,agentState){ const lang=clean(language||'en',8).toLowerCase(); const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Istanbul',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()); return `You are the official ATO AI TRAVEL SALES AGENT for ALANYA TOUR ORGANIZATIONS in Alanya, Türkiye.\n\nYour job is not to behave like a passive FAQ bot. Lead the visitor intelligently from discovery to a ready booking request: understand needs, family/group, children ages, preferred dates, hotel, budget and preferences; recommend a small set of strong options; use live weather when dates/destination matter; compare; make a concrete recommendation; then prepare a clean manager handoff.\n\nCURRENT LANGUAGE: ${lang}. Always answer in that language.\nCURRENT DATE IN TÜRKİYE: ${today}. Interpret relative visitor dates against this date.\nCURRENT PAGE: ${JSON.stringify(page)}\nPERSISTENT SESSION STATE: ${JSON.stringify(agentState||{})}\n\nSALES METHOD:\n- Ask only for information that is still missing and materially changes the recommendation. If the visitor gives several details in one sentence, extract them and do not ask again.
+function buildInstructions(siteLanguage,responseLanguage,page,verified,agentState){ const siteLang=clean(siteLanguage||'en',12).toLowerCase(); const langHint=clean(responseLanguage||'auto',24).toLowerCase(); const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Istanbul',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()); return `You are the official ATO AI TRAVEL SALES AGENT for ALANYA TOUR ORGANIZATIONS in Alanya, Türkiye.\n\nYour job is not to behave like a passive FAQ bot. Lead the visitor intelligently from discovery to a ready booking request: understand needs, family/group, children ages, preferred dates, hotel, budget and preferences; recommend a small set of strong options; use live weather when dates/destination matter; compare; make a concrete recommendation; then prepare a clean manager handoff.\n\nSITE UI LANGUAGE: ${siteLang}.\nVISITOR LANGUAGE HINT: ${langHint}.\nUNIVERSAL LANGUAGE POLICY:\n- Answer in the same natural language as the CURRENT VISITOR MESSAGE, regardless of the site's UI language and regardless of whether that language is one of ATO's five website languages. This includes French, Spanish, Italian, Portuguese, Dutch, Arabic, Hebrew, Ukrainian, Greek, Chinese, Japanese, Korean and any other language you can reliably identify.\n- The visitor's actual message is authoritative; VISITOR LANGUAGE HINT is advisory only.\n- If the visitor changes language during the conversation, change with them on that turn and preserve the same remembered trip/event context.\n- If the current message is genuinely too short or language-neutral to identify (for example only a number, emoji, tour name or OK), continue in the language of the most recent clearly identifiable VISITOR message in RECENT CONVERSATION. Only if that is unavailable, fall back to SITE UI LANGUAGE.\n- Keep official ATO brand names, tour names and product names in their verified form where appropriate; do not mistake those English labels for the visitor's language.\n- Do not translate URLs, codes, booking numbers or exact official labels that must remain stable.\nCURRENT DATE IN TÜRKİYE: ${today}. Interpret relative visitor dates against this date.\nCURRENT PAGE: ${JSON.stringify(page)}\nPERSISTENT SESSION STATE: ${JSON.stringify(agentState||{})}\n\nSALES METHOD:\n- Ask only for information that is still missing and materially changes the recommendation. If the visitor gives several details in one sentence, extract them and do not ask again.
 - Distinguish children_count=null (not yet known) from children_count=0 (visitor explicitly has no children). If there are children, collect ages because child tariffs and suitability can change by age.
 - Treat PERSISTENT SESSION STATE as remembered visitor information. Carry it forward across turns. If the visitor explicitly corrects a remembered fact, the newest statement wins. Never erase a known field merely because it is absent from the latest message.
 - When the visitor clearly chooses or commits to a tour, put its verified tour id in lead_profile.selected_tour_ids. Recommendations alone are not selections; do not mark them selected until the visitor chooses them.\n- Prefer 2–4 strong choices, not a giant list. Explain why each fits.\n- When budget is given, optimise the whole experience plan, not just the cheapest single tour.\n- If weather is relevant to date choice, call get_weather_forecast. Say \"best weather-comfort day\", not \"tour definitely operates\".\n- For comparisons, make a recommendation with trade-offs. Do not hide behind neutrality.\n- Use estimate_group_price only for safe deterministic estimates. If it returns manager_confirmation, say so plainly.\n- Group & Event Offers: every eligible ordinary line uses its own category discount; never average categories.
@@ -363,9 +405,10 @@ module.exports=async function handler(req,res){
   const body=req.body&&typeof req.body==='object'?req.body:(()=>{try{return JSON.parse(req.body||'{}')}catch{return{}}})();
   const message=clean(body?.message,MAX_MESSAGE); if(!message)return send(res,400,{error:'Message is required.'});
   const history=normalizeHistory(body?.history), page=structuredPage(body?.page||{}), agentState=normalizeAgentState(body?.agent_state||{}), matches=knowledgeMatches(message,page), verified=compactKnowledge(matches), model=chooseModel(message,page);
+  const responseLanguage=detectMessageLanguage(message,body?.language,body?.message_language);
   const historyText=history.map(x=>`${x.role==='assistant'?'ATO ASSISTANT':'VISITOR'}: ${x.content}`).join('\n\n');
   const userText=[`REMEMBERED SESSION PROFILE:\n${JSON.stringify(agentState.lead_profile)}`,historyText?`RECENT CONVERSATION:\n${historyText}`:'',`CURRENT VISITOR MESSAGE:\n${message}`].filter(Boolean).join('\n\n');
-  const instructions=buildInstructions(body?.language,page,verified,agentState);
+  const instructions=buildInstructions(body?.language,responseLanguage,page,verified,agentState);
   let input=[{role:'user',content:[{type:'input_text',text:userText}]}];
   const controller=new AbortController(), timeout=setTimeout(()=>controller.abort(),28_000);
   let lastWeather=null, lastOffer=null, toolTrace=[];
@@ -386,7 +429,7 @@ module.exports=async function handler(req,res){
           };
           if(result.next_action==='continue_discovery') result.next_action='review_special_offer';
         }
-        return send(res,200,{...result,model,context_mode:page.mode||'generic',knowledge_matches:matches.map(x=>x.title).slice(0,5),tool_trace:toolTrace}); }
+        return send(res,200,{...result,model,response_language:responseLanguage,context_mode:page.mode||'generic',knowledge_matches:matches.map(x=>x.title).slice(0,5),tool_trace:toolTrace}); }
       input.push(...(data.output||[]));
       const outputs=[];
       for(const call of calls){ let args={}; try{args=JSON.parse(call.arguments||'{}')}catch{} const result=await runTool(call.name,args); if(call.name==='get_weather_forecast')lastWeather=result; if(call.name==='check_special_offers_savings')lastOffer=result; toolTrace.push(call.name); outputs.push({type:'function_call_output',call_id:call.call_id,output:JSON.stringify(result).slice(0,18000)}); }
@@ -398,4 +441,4 @@ module.exports=async function handler(req,res){
 };
 
 // Optional test exports (ignored by Vercel runtime).
-module.exports.__test={parseAdultPrice,childCostForAge,estimateGroupPrice,groupOffer,checkSpecialOffersSavings,searchTours,compareTours,getVipEventComponents,normalizeAgentState};
+module.exports.__test={parseAdultPrice,childCostForAge,estimateGroupPrice,groupOffer,checkSpecialOffersSavings,searchTours,compareTours,getVipEventComponents,normalizeAgentState,detectMessageLanguage};
