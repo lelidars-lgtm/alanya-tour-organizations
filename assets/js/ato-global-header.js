@@ -1056,3 +1056,427 @@ render();
   }
 })();
 
+/* ========================================================================
+   ATO HEADER V5 — PREMIUM DROPDOWN MASTER SYSTEM
+   Desktop only. TOURS · SPECIAL OFFERS · ABOUT US · LANGUAGES.
+   No header geometry / promo ribbon / search / mobile / Assistant changes.
+   ======================================================================== */
+(function atoPremiumDropdownMasterV5(){
+  'use strict';
+
+  const COPY = {
+    en: {
+      tours: [
+        'Yachts · Boat trips · Fishing',
+        'Rafting · Buggy · Adrenaline',
+        'Canyons · Safaris · Landscapes',
+        'Ancient sites · Cities · Culture',
+        'Theme parks · Waterparks · Family days',
+        'Parasailing · Jet Ski · Diving',
+        'Paragliding · Helicopter · Sky',
+        'Hammam · Massage · Spa'
+      ],
+      offers: [
+        'Groups · Events · Tailored offers',
+        'A surprise experience shaped around your mood',
+        'A flexible way to give an ATO experience'
+      ],
+      about: {
+        company: 'Story · Values · Travel with love',
+        licenses: 'Official documents & verification',
+        contact: 'Office · WhatsApp · Company details'
+      }
+    },
+    ru: {
+      tours: [
+        'Яхты · Морские прогулки · Рыбалка',
+        'Рафтинг · Багги · Адреналин',
+        'Каньоны · Сафари · Природа',
+        'Античные места · Города · Культура',
+        'Парки · Аквапарки · Семейный отдых',
+        'Парасейлинг · Гидроциклы · Дайвинг',
+        'Параглайдинг · Вертолёт · Небо',
+        'Хаммам · Массаж · Spa'
+      ],
+      offers: [
+        'Группы · Мероприятия · Индивидуальные предложения',
+        'Сюрприз-впечатление под настроение клиента',
+        'Гибкий формат подарка от ATO'
+      ],
+      about: {
+        company: 'История · Ценности · Travel with love',
+        licenses: 'Официальные документы и проверка',
+        contact: 'Офис · WhatsApp · Данные компании'
+      }
+    },
+    tr: {
+      tours: [
+        'Yatlar · Tekne turları · Balıkçılık',
+        'Rafting · Buggy · Adrenalin',
+        'Kanyonlar · Safariler · Manzaralar',
+        'Antik kentler · Şehirler · Kültür',
+        'Tema parkları · Aquapark · Aile günleri',
+        'Parasailing · Jet Ski · Dalış',
+        'Yamaç paraşütü · Helikopter · Gökyüzü',
+        'Hamam · Masaj · Spa'
+      ],
+      offers: [
+        'Gruplar · Etkinlikler · Özel teklifler',
+        'Ruh halinize göre şekillenen sürpriz deneyim',
+        'ATO deneyimini hediye etmenin esnek yolu'
+      ],
+      about: {
+        company: 'Hikâye · Değerler · Travel with love',
+        licenses: 'Resmî belgeler ve doğrulama',
+        contact: 'Ofis · WhatsApp · Şirket bilgileri'
+      }
+    },
+    de: {
+      tours: [
+        'Yachten · Bootstouren · Angeln',
+        'Rafting · Buggy · Adrenalin',
+        'Canyons · Safaris · Landschaften',
+        'Antike Stätten · Städte · Kultur',
+        'Freizeitparks · Wasserparks · Familientage',
+        'Parasailing · Jet Ski · Tauchen',
+        'Paragliding · Helikopter · Himmel',
+        'Hamam · Massage · Spa'
+      ],
+      offers: [
+        'Gruppen · Events · Maßgeschneiderte Angebote',
+        'Ein Überraschungserlebnis passend zur Stimmung',
+        'Eine flexible Art, ein ATO Erlebnis zu verschenken'
+      ],
+      about: {
+        company: 'Geschichte · Werte · Travel with love',
+        licenses: 'Offizielle Dokumente & Verifizierung',
+        contact: 'Büro · WhatsApp · Firmendaten'
+      }
+    },
+    pl: {
+      tours: [
+        'Jachty · Rejsy · Wędkowanie',
+        'Rafting · Buggy · Adrenalina',
+        'Kaniony · Safari · Krajobrazy',
+        'Starożytne miejsca · Miasta · Kultura',
+        'Parki rozrywki · Aquaparki · Rodzinne dni',
+        'Parasailing · Jet Ski · Nurkowanie',
+        'Paralotnia · Helikopter · Niebo',
+        'Hammam · Masaż · Spa'
+      ],
+      offers: [
+        'Grupy · Eventy · Oferty indywidualne',
+        'Niespodzianka dopasowana do nastroju',
+        'Elastyczny sposób na prezent od ATO'
+      ],
+      about: {
+        company: 'Historia · Wartości · Travel with love',
+        licenses: 'Oficjalne dokumenty i weryfikacja',
+        contact: 'Biuro · WhatsApp · Dane firmy'
+      }
+    }
+  };
+
+  function lang(){
+    const x=(localStorage.getItem('atoLanguage') || document.documentElement.lang || 'en').toLowerCase().slice(0,2);
+    return COPY[x] ? x : 'en';
+  }
+
+  function ensureDesc(row, text){
+    if(!row) return;
+    let d=row.querySelector(':scope > .ato-menu-desc');
+    if(!d){
+      d=document.createElement('span');
+      d.className='ato-menu-desc';
+      row.appendChild(d);
+    }
+    d.textContent=text || '';
+  }
+
+  function applyCopy(){
+    const root=document.getElementById('atoGlobalHeaderRoot');
+    if(!root) return;
+    const c=COPY[lang()] || COPY.en;
+
+    root.querySelectorAll('.ato-tours-menu > a.ato-grid-row').forEach((row,i)=>{
+      ensureDesc(row,c.tours[i] || '');
+    });
+
+    root.querySelectorAll('.ato-special-menu > a.ato-grid-row').forEach((row,i)=>{
+      ensureDesc(row,c.offers[i] || '');
+    });
+
+    ensureDesc(root.querySelector('.ato-about-menu > a.ato-grid-row:first-child'), c.about.company);
+    ensureDesc(root.querySelector('.ato-about-menu .ato-menu-group-label.ato-grid-row'), c.about.licenses);
+    ensureDesc(root.querySelector('.ato-about-menu > a.ato-grid-row:last-child'), c.about.contact);
+
+    root.querySelectorAll('.ato-about-menu .ato-subitem').forEach(x=>x.classList.add('ato-v5-subitem'));
+  }
+
+  function injectStyle(){
+    if(document.getElementById('ato-dropdown-master-v5')) return;
+    const st=document.createElement('style');
+    st.id='ato-dropdown-master-v5';
+    st.textContent=`
+      #atoGlobalHeaderRoot .ato-menu-desc{display:none!important}
+
+      @media (min-width:981px){
+        /* ---------- Surface ---------- */
+        #atoGlobalHeaderRoot .ato-tours-menu,
+        #atoGlobalHeaderRoot .ato-special-menu,
+        #atoGlobalHeaderRoot .ato-about-menu,
+        #atoGlobalHeaderRoot .language-menu{
+          padding:10px!important;
+          gap:5px!important;
+          border-radius:20px!important;
+          background:
+            radial-gradient(circle at 15% 0,rgba(224,181,88,.075),transparent 31%),
+            linear-gradient(155deg,rgba(7,24,39,.982),rgba(4,16,29,.976))!important;
+          border:1px solid rgba(224,181,88,.26)!important;
+          box-shadow:
+            0 28px 70px rgba(0,0,0,.38),
+            inset 0 1px 0 rgba(255,255,255,.035),
+            0 0 30px rgba(37,88,124,.055)!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-tours-menu{width:410px!important}
+        #atoGlobalHeaderRoot .ato-special-menu{width:420px!important}
+        #atoGlobalHeaderRoot .ato-about-menu{width:410px!important}
+        #atoGlobalHeaderRoot .language-menu{width:292px!important}
+
+        /* ---------- Master row ---------- */
+        #atoGlobalHeaderRoot .ato-tours-menu > .ato-grid-row,
+        #atoGlobalHeaderRoot .ato-special-menu > .ato-grid-row,
+        #atoGlobalHeaderRoot .ato-about-menu > .ato-grid-row,
+        #atoGlobalHeaderRoot .ato-about-menu .ato-menu-group-label.ato-grid-row{
+          display:grid!important;
+          grid-template-columns:48px minmax(0,1fr) 12px!important;
+          grid-template-rows:auto auto!important;
+          align-items:center!important;
+          column-gap:0!important;
+          row-gap:3px!important;
+          min-height:62px!important;
+          padding:9px 12px 9px 0!important;
+          border:1px solid rgba(255,255,255,.032)!important;
+          border-radius:14px!important;
+          background:rgba(255,255,255,.012)!important;
+          color:rgba(250,248,241,.93)!important;
+          box-shadow:inset 0 1px 0 rgba(255,255,255,.012)!important;
+          transition:
+            background .22s ease,
+            border-color .22s ease,
+            color .22s ease,
+            transform .22s ease,
+            box-shadow .22s ease!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-tours-menu .ato-grid-symbol,
+        #atoGlobalHeaderRoot .ato-special-menu .ato-grid-symbol,
+        #atoGlobalHeaderRoot .ato-about-menu > .ato-grid-row .ato-grid-symbol,
+        #atoGlobalHeaderRoot .ato-about-menu .ato-menu-group-label .ato-grid-symbol{
+          grid-column:1!important;
+          grid-row:1 / 3!important;
+          width:100%!important;
+          height:32px!important;
+          padding:0 11px 0 8px!important;
+          color:rgba(225,181,88,.90)!important;
+          border-right:1px solid rgba(225,181,88,.27)!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-tours-menu .ato-dropdown-label,
+        #atoGlobalHeaderRoot .ato-special-menu .ato-dropdown-label,
+        #atoGlobalHeaderRoot .ato-about-menu > .ato-grid-row .ato-dropdown-label,
+        #atoGlobalHeaderRoot .ato-about-menu .ato-menu-group-label .ato-dropdown-label{
+          grid-column:2!important;
+          grid-row:1!important;
+          padding-left:14px!important;
+          margin:0!important;
+          font-family:"Segoe UI Variable","Segoe UI",Arial,Helvetica,sans-serif!important;
+          font-size:15px!important;
+          font-weight:620!important;
+          line-height:1.13!important;
+          letter-spacing:.012em!important;
+          color:inherit!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-menu-desc{
+          display:block!important;
+          grid-column:2!important;
+          grid-row:2!important;
+          min-width:0!important;
+          padding-left:14px!important;
+          margin:0!important;
+          color:rgba(231,235,238,.59)!important;
+          font-family:"Segoe UI Variable","Segoe UI",Arial,Helvetica,sans-serif!important;
+          font-size:11.5px!important;
+          font-weight:400!important;
+          line-height:1.22!important;
+          letter-spacing:.018em!important;
+          white-space:normal!important;
+        }
+
+        /* ---------- Active / hover: gold is an accent, not the default ---------- */
+        #atoGlobalHeaderRoot .ato-grid-row.is-current{
+          color:#efc66f!important;
+          border-color:rgba(225,181,88,.34)!important;
+          background:
+            linear-gradient(90deg,rgba(225,181,88,.105),rgba(51,103,139,.034))!important;
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.02),
+            0 8px 20px rgba(0,0,0,.08)!important;
+        }
+
+        @media (hover:hover) and (pointer:fine){
+          #atoGlobalHeaderRoot .ato-tours-menu > .ato-grid-row:hover,
+          #atoGlobalHeaderRoot .ato-special-menu > .ato-grid-row:hover,
+          #atoGlobalHeaderRoot .ato-about-menu > .ato-grid-row:hover,
+          #atoGlobalHeaderRoot .ato-about-menu .ato-subitem:hover,
+          #atoGlobalHeaderRoot .language-menu a[data-lang]:hover{
+            transform:translateY(-1px)!important;
+            border-color:rgba(225,181,88,.28)!important;
+            background:
+              linear-gradient(90deg,rgba(225,181,88,.075),rgba(55,104,146,.045))!important;
+            color:#f2d18b!important;
+            box-shadow:
+              inset 0 1px 0 rgba(255,255,255,.025),
+              0 7px 20px rgba(0,0,0,.10)!important;
+          }
+        }
+
+        /* ---------- ABOUT US: no card-inside-card ---------- */
+        #atoGlobalHeaderRoot .ato-about-menu .ato-menu-group{
+          margin:2px 0!important;
+          padding:6px 0 2px!important;
+          gap:2px!important;
+          background:transparent!important;
+          border:0!important;
+          border-radius:0!important;
+          box-shadow:none!important;
+          position:relative!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-menu-group::before{
+          content:""!important;
+          display:block!important;
+          position:absolute!important;
+          left:48px!important;
+          right:12px!important;
+          top:0!important;
+          height:1px!important;
+          background:linear-gradient(90deg,rgba(225,181,88,.18),rgba(255,255,255,.035),transparent)!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-menu-group-label.ato-grid-row{
+          min-height:58px!important;
+          border-color:transparent!important;
+          background:transparent!important;
+          cursor:default!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-menu-group-label .ato-dropdown-label{
+          color:rgba(242,213,151,.91)!important;
+          font-weight:600!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-v5-subitem{
+          display:grid!important;
+          grid-template-columns:48px minmax(0,1fr)!important;
+          align-items:center!important;
+          min-height:44px!important;
+          margin:0!important;
+          padding:5px 12px 5px 0!important;
+          border:1px solid transparent!important;
+          border-radius:12px!important;
+          background:transparent!important;
+          color:rgba(245,246,247,.82)!important;
+          font-family:"Segoe UI Variable","Segoe UI",Arial,Helvetica,sans-serif!important;
+          font-size:13px!important;
+          font-weight:450!important;
+          line-height:1.2!important;
+          letter-spacing:.01em!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-v5-subitem .ato-grid-symbol{
+          grid-column:1!important;
+          grid-row:1!important;
+          height:25px!important;
+          padding:0 11px 0 8px!important;
+          color:rgba(225,181,88,.62)!important;
+          border-right:1px solid rgba(225,181,88,.18)!important;
+        }
+
+        #atoGlobalHeaderRoot .ato-about-menu .ato-v5-subitem .ato-dropdown-label{
+          grid-column:2!important;
+          grid-row:1!important;
+          padding-left:14px!important;
+          font:inherit!important;
+          color:inherit!important;
+        }
+
+        /* ---------- Languages: same family, denser ---------- */
+        #atoGlobalHeaderRoot .language-menu a[data-lang]{
+          grid-template-columns:48px minmax(0,1fr) 18px!important;
+          min-height:50px!important;
+          padding:0 11px 0 0!important;
+          border-radius:13px!important;
+          border-color:rgba(255,255,255,.028)!important;
+          background:rgba(255,255,255,.01)!important;
+          font-family:"Segoe UI Variable","Segoe UI",Arial,Helvetica,sans-serif!important;
+          font-size:13.5px!important;
+          font-weight:500!important;
+          letter-spacing:.012em!important;
+        }
+
+        #atoGlobalHeaderRoot .language-menu .ato-lang-code,
+        #atoGlobalHeaderRoot .language-menu .ato-v8-lang-code{
+          height:28px!important;
+          padding:0 10px 0 7px!important;
+          color:rgba(225,181,88,.88)!important;
+          border-right-color:rgba(225,181,88,.25)!important;
+          font-weight:650!important;
+        }
+
+        #atoGlobalHeaderRoot .language-menu .ato-lang-name,
+        #atoGlobalHeaderRoot .language-menu .ato-v8-lang-name{
+          padding-left:13px!important;
+          font-weight:450!important;
+          color:rgba(246,247,248,.86)!important;
+        }
+
+        #atoGlobalHeaderRoot .language-menu a.is-active{
+          background:linear-gradient(90deg,rgba(225,181,88,.095),rgba(225,181,88,.03))!important;
+          border-color:rgba(225,181,88,.28)!important;
+        }
+
+        /* Keep dropdowns compact and remove any legacy excessive spacing. */
+        #atoGlobalHeaderRoot .ato-tours-menu > *,
+        #atoGlobalHeaderRoot .ato-special-menu > *,
+        #atoGlobalHeaderRoot .ato-about-menu > *,
+        #atoGlobalHeaderRoot .language-menu > *{
+          margin-top:0!important;
+          margin-bottom:0!important;
+        }
+      }
+    `;
+    document.head.appendChild(st);
+  }
+
+  function init(){
+    const root=document.getElementById('atoGlobalHeaderRoot');
+    if(!root){
+      requestAnimationFrame(init);
+      return;
+    }
+    injectStyle();
+    applyCopy();
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',init,{once:true});
+  }else{
+    init();
+  }
+
+  window.addEventListener('ato-language-changed',()=>setTimeout(applyCopy,0));
+})();
+
