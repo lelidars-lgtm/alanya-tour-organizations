@@ -1,0 +1,469 @@
+{
+  "format": "ATO Safe Language Layer manifest v1",
+  "created": "2026-08-23",
+  "brand": "ALANYA TOUR ORGANIZATIONS",
+  "source": "approved current site supplied by user",
+  "safety": "SEPARATE LAYER ONLY. No approved HTML/CSS/JS/media files are included or replaced.",
+  "default_language": "en",
+  "supported_languages": [
+    "en",
+    "ru",
+    "tr",
+    "de",
+    "pl"
+  ],
+  "page_count": 75,
+  "global_dictionary_key_count": 6740,
+  "pages": [
+    {
+      "path": "adrasan-suluada-porto-genovese.html",
+      "approved_sha256": "9afc84ed9db6e0acdd02b634e3605daa59566edc48df6b3a7adcd7685dd2442e",
+      "document_root": "pages/adrasan-suluada-porto-genovese",
+      "translation_entries": 129
+    },
+    {
+      "path": "airport-vip-transfer.html",
+      "approved_sha256": "f47b90cdf95f822e4f8e8242a9a4cd4949d05551a94a5bcc376b0d7acc640c51",
+      "document_root": "pages/airport-vip-transfer",
+      "translation_entries": 138
+    },
+    {
+      "path": "alanya-city-tour.html",
+      "approved_sha256": "809be8573248853f2344d40a50b784011250ba388101ea7a1162aefe1bed707a",
+      "document_root": "pages/alanya-city-tour",
+      "translation_entries": 152
+    },
+    {
+      "path": "anamur.html",
+      "approved_sha256": "bee9466c1ec00b5a438fe964e35a1b8f81aedb4d785ceeccf04b223a04654af8",
+      "document_root": "pages/anamur",
+      "translation_entries": 139
+    },
+    {
+      "path": "aspendos.html",
+      "approved_sha256": "df2192b397b9ef8cae122a2349e21339d687b34050847446d3d81763a5be0181",
+      "document_root": "pages/aspendos",
+      "translation_entries": 142
+    },
+    {
+      "path": "banana-boat.html",
+      "approved_sha256": "eb4ff66b8d2c6b32191f6a4c11f08c2c801d692656418ac48b70b53615f36c99",
+      "document_root": "pages/banana-boat",
+      "translation_entries": 150
+    },
+    {
+      "path": "cappadocia.html",
+      "approved_sha256": "d14889688640bd0fd6906d9a994423d215740fbada67d9fd5c82befd3e1f5034",
+      "document_root": "pages/cappadocia",
+      "translation_entries": 171
+    },
+    {
+      "path": "catamaran.html",
+      "approved_sha256": "97b14cb61c5041875189304da773d70f6f2f63d95389d68823c5364ae2a95e68",
+      "document_root": "pages/catamaran",
+      "translation_entries": 134
+    },
+    {
+      "path": "demre-myra-kekova.html",
+      "approved_sha256": "c674276d99c9979b0c19c081fbb86d6b7aaf55877e51f957de4682e1a9381630",
+      "document_root": "pages/demre-myra-kekova",
+      "translation_entries": 161
+    },
+    {
+      "path": "e-foil.html",
+      "approved_sha256": "d4fa35ffc2ab1666a0f411aa5c6c329ce46eaa44ea12ac709393420bce92899a",
+      "document_root": "pages/e-foil",
+      "translation_entries": 149
+    },
+    {
+      "path": "eftalia-island-waterpark.html",
+      "approved_sha256": "008db40ed8afae71c7b74f378705bdaadad2e24f48823e007547932b585f16ed",
+      "document_root": "pages/eftalia-island-waterpark",
+      "translation_entries": 149
+    },
+    {
+      "path": "family-buggy-safari.html",
+      "approved_sha256": "b70f88f863d39a12b10a0eafd655dff900483310ccf48232675e0b509d79849c",
+      "document_root": "pages/family-buggy-safari",
+      "translation_entries": 135
+    },
+    {
+      "path": "family-jeep-safari.html",
+      "approved_sha256": "4c40a3a6ac81d75ef98ee0ed346fc99a6d71500116815f0675536d7ac7eb5cee",
+      "document_root": "pages/family-jeep-safari",
+      "translation_entries": 130
+    },
+    {
+      "path": "fishing-tour.html",
+      "approved_sha256": "ae959c96e9312dc60701cb40fb2275c4a5c67f7f59339e7f898f29d940c1527c",
+      "document_root": "pages/fishing-tour",
+      "translation_entries": 129
+    },
+    {
+      "path": "gazipasa-bays.html",
+      "approved_sha256": "7400a5e054664b386d07930dc49e2f8b8ca089340189e9655d726d69f028f521",
+      "document_root": "pages/gazipasa-bays",
+      "translation_entries": 128
+    },
+    {
+      "path": "green-canyon.html",
+      "approved_sha256": "c6595c018fa1191fc2d2d491ec4ba505d7027e20ac7b845bbf4e047fb7ba02c5",
+      "document_root": "pages/green-canyon",
+      "translation_entries": 154
+    },
+    {
+      "path": "helicopter-experience.html",
+      "approved_sha256": "ec1b4509727c1cf41d4810072ac465fa53313525d82ef6f3d46241356d4f1aee",
+      "document_root": "pages/helicopter-experience",
+      "translation_entries": 143
+    },
+    {
+      "path": "helicopter-flight.html",
+      "approved_sha256": "e670cd14104f7d446d754f232cc57cff88aca004711c6043d356e83a955153a5",
+      "document_root": "pages/helicopter-flight",
+      "translation_entries": 144
+    },
+    {
+      "path": "horse-riding.html",
+      "approved_sha256": "adce812072f2b6d576b20183ae28260c8bca1924014406b03fbebd504d436e52",
+      "document_root": "pages/horse-riding",
+      "translation_entries": 159
+    },
+    {
+      "path": "istanbul-tour.html",
+      "approved_sha256": "6d616e52752d8fa2822bd68ee6b62712f0e720e63e9b09ad03a5a83e16757d22",
+      "document_root": "pages/istanbul-tour",
+      "translation_entries": 150
+    },
+    {
+      "path": "jeep-safari.html",
+      "approved_sha256": "003ebe120ec4196cdeaff6534a2f791c18e309ff8db1b96620546893a73fabdc",
+      "document_root": "pages/jeep-safari",
+      "translation_entries": 124
+    },
+    {
+      "path": "jet-ski.html",
+      "approved_sha256": "d41999919420e641e7883a9855319e0c3017b4ac74708e088d0f241557eaca55",
+      "document_root": "pages/jet-ski",
+      "translation_entries": 146
+    },
+    {
+      "path": "land-of-legends.html",
+      "approved_sha256": "21d7dc58a4dc0f0d55705f85626438559128335d40bcb346827bc750e5820129",
+      "document_root": "pages/land-of-legends",
+      "translation_entries": 190
+    },
+    {
+      "path": "luxury-jet-car.html",
+      "approved_sha256": "f1760ff4537c994dec40d0a09c45605a539d255eed9ad0bc657d185f3a506a0c",
+      "document_root": "pages/luxury-jet-car",
+      "translation_entries": 150
+    },
+    {
+      "path": "luxury-yacht-cruise.html",
+      "approved_sha256": "bcdc0fddcd95d02bbeb2c3dcd12be91fa0ea02ea877990bccf647b0d666b8310",
+      "document_root": "pages/luxury-yacht-cruise",
+      "translation_entries": 161
+    },
+    {
+      "path": "manavgat-aspendos-side.html",
+      "approved_sha256": "862b19f0b81dd843dce3473d13c991510a67a66fa0dc12746314d8959215ea84",
+      "document_root": "pages/manavgat-aspendos-side",
+      "translation_entries": 143
+    },
+    {
+      "path": "night-jeep-safari.html",
+      "approved_sha256": "0f3b205e356df7dd5402eb9586e23be0d27a51703d148fff16efb242e67c4f8a",
+      "document_root": "pages/night-jeep-safari",
+      "translation_entries": 134
+    },
+    {
+      "path": "pamukkale-salda.html",
+      "approved_sha256": "73c240c34430ebb1748f675229fc4ba887ea16950df25c5f1c7cf33af3688c96",
+      "document_root": "pages/pamukkale-salda",
+      "translation_entries": 173
+    },
+    {
+      "path": "paragliding.html",
+      "approved_sha256": "1c6b23b9c0e99b8e4c1ff09178341efcc3148a85c368700aa0bb704c9634aaee",
+      "document_root": "pages/paragliding",
+      "translation_entries": 148
+    },
+    {
+      "path": "parasailing.html",
+      "approved_sha256": "87d03347c7be51eae85898a30d1d518a7685e47545c3180562815a041a37aabc",
+      "document_root": "pages/parasailing",
+      "translation_entries": 140
+    },
+    {
+      "path": "personal-concierge.html",
+      "approved_sha256": "d63d20d2d8951ef1576dcfdf81e68010eef6e5f551576830a6ba67284cf7ccae",
+      "document_root": "pages/personal-concierge",
+      "translation_entries": 169
+    },
+    {
+      "path": "pirate-yacht.html",
+      "approved_sha256": "70e322eb724daa6668ae8b1b8b9fe8b538eafb5a7fcbdb8f6b6d80755540b85e",
+      "document_root": "pages/pirate-yacht",
+      "translation_entries": 127
+    },
+    {
+      "path": "private-fishing-tour.html",
+      "approved_sha256": "c06c5b0b7c209213fbeeb326aee0a71f408a55a123b00074c9cc4e32d5445ef7",
+      "document_root": "pages/private-fishing-tour",
+      "translation_entries": 148
+    },
+    {
+      "path": "private-photographer.html",
+      "approved_sha256": "5551627bbdbfcd3618b83033a4e97d72fb83cb755ed38dfb98d5f389ac2cdc19",
+      "document_root": "pages/private-photographer",
+      "translation_entries": 167
+    },
+    {
+      "path": "private-yacht-charter.html",
+      "approved_sha256": "9134f5f161a607dc56ec1ca2fbd63bafc4660e92489dd2f1c7dce926f00ff0e1",
+      "document_root": "pages/private-yacht-charter",
+      "translation_entries": 151
+    },
+    {
+      "path": "quad-safari.html",
+      "approved_sha256": "b45686de1624dc2f2d9cb62ccf806ed94fd1853a67c2d7d31f49fea7a0fc5523",
+      "document_root": "pages/quad-safari",
+      "translation_entries": 125
+    },
+    {
+      "path": "rafting-buggy-zipline-6-in-1.html",
+      "approved_sha256": "2a8ba11fb9344f51d6380f0be4fc54f93159c4860f85e54a9f600eb39b13173c",
+      "document_root": "pages/rafting-buggy-zipline-6-in-1",
+      "translation_entries": 152
+    },
+    {
+      "path": "rafting-koprulu-canyon.html",
+      "approved_sha256": "10d5f37c48a5ca0705d5b2f2edcf53e14b7f5d8a2b2508729043cfa46c2e56ac",
+      "document_root": "pages/rafting-koprulu-canyon",
+      "translation_entries": 126
+    },
+    {
+      "path": "relax-boat-tour.html",
+      "approved_sha256": "e473caff84621a70fc5a11b2bd0d42203915bc607e6683bbf68ee9de8217a4a5",
+      "document_root": "pages/relax-boat-tour",
+      "translation_entries": 125
+    },
+    {
+      "path": "ringo-ride.html",
+      "approved_sha256": "6f561c8e9ebd3e17911b7b54fe1ea8b0b387db54c3eb13b5ad866136315b8636",
+      "document_root": "pages/ringo-ride",
+      "translation_entries": 149
+    },
+    {
+      "path": "sapadere-canyon.html",
+      "approved_sha256": "f805bfda46255596d76859144a9f1ab797c098d3958009f0e8180f774301230c",
+      "document_root": "pages/sapadere-canyon",
+      "translation_entries": 150
+    },
+    {
+      "path": "scuba-diving.html",
+      "approved_sha256": "999480a02c1e70a84359d85c87ff10e65e9690a1907cb8f1f7164eea7fe84791",
+      "document_root": "pages/scuba-diving",
+      "translation_entries": 150
+    },
+    {
+      "path": "sealanya-dolphinpark.html",
+      "approved_sha256": "83efa028077f71c74680ca78a2c52d77e08ae64760ff96c2d119af3734013515",
+      "document_root": "pages/sealanya-dolphinpark",
+      "translation_entries": 144
+    },
+    {
+      "path": "skydive-experience.html",
+      "approved_sha256": "caa8c7ed252d7caffe0f676fa932986747a7187e3cf3553d250148c8808faba9",
+      "document_root": "pages/skydive-experience",
+      "translation_entries": 161
+    },
+    {
+      "path": "sofa-ride.html",
+      "approved_sha256": "f63e91fcc5f0d555864a6569ed1ab86599e396157614c0832dbf653e46ad0ded",
+      "document_root": "pages/sofa-ride",
+      "translation_entries": 149
+    },
+    {
+      "path": "speed-boat-tour.html",
+      "approved_sha256": "a0359567fe5f5c3c5058786d44c2be9ea2ee2be95581aeba622eac8ec8817c9d",
+      "document_root": "pages/speed-boat-tour",
+      "translation_entries": 152
+    },
+    {
+      "path": "sup-boarding.html",
+      "approved_sha256": "cfd55cb1125899604a7e8b4f6d68c7c27f20cf8641917946c5a8a09bab035769",
+      "document_root": "pages/sup-boarding",
+      "translation_entries": 153
+    },
+    {
+      "path": "syedra-ancient-city.html",
+      "approved_sha256": "d49f88c5f97b7dcd2c7c894d081a693062055bd65e5ea14a3c087f0f339aa459",
+      "document_root": "pages/syedra-ancient-city",
+      "translation_entries": 146
+    },
+    {
+      "path": "turkish-hammam.html",
+      "approved_sha256": "69fa57ddea237e9bc96b5a3a566110b4a3d3a94f4beab2ef368a3bf5680f7eb3",
+      "document_root": "pages/turkish-hammam",
+      "translation_entries": 160
+    },
+    {
+      "path": "turkish-massage-spa.html",
+      "approved_sha256": "fed2a7b3b969ac03a56edcd7368f972d565ee46887771207fcf3766f9ceaf56b",
+      "document_root": "pages/turkish-massage-spa",
+      "translation_entries": 162
+    },
+    {
+      "path": "twister.html",
+      "approved_sha256": "fb69aeb538e57f137fd6a15586731c989ae0488b9affacfa4ebfe1258a97f038",
+      "document_root": "pages/twister",
+      "translation_entries": 150
+    },
+    {
+      "path": "wakeboard.html",
+      "approved_sha256": "08fdfac32d5a6dfd72bd7f3a3dafcac2e0e3b395ef08d04fb158b57233848300",
+      "document_root": "pages/wakeboard",
+      "translation_entries": 147
+    },
+    {
+      "path": "water-ski.html",
+      "approved_sha256": "03d1d2b1071da6448b1251f08685432f37905a3fdd1ab9270cfd6fda515dbf79",
+      "document_root": "pages/water-ski",
+      "translation_entries": 150
+    },
+    {
+      "path": "air-experiences.html",
+      "approved_sha256": "bdc48a9cc2cfe83610a75109f3bcfd869eb48942006387f407555efa08b9e391",
+      "document_root": "pages/air-experiences",
+      "translation_entries": 58
+    },
+    {
+      "path": "combo-deals.html",
+      "approved_sha256": "769de6339050be05ad0fd366fa1031d6edc74def6735bac24f79ee152cf8be4f",
+      "document_root": "pages/combo-deals",
+      "translation_entries": 70
+    },
+    {
+      "path": "extreme-adventure.html",
+      "approved_sha256": "1b44561bbf4340d6d6abfb62b446ae7505084a86bb68a3a158d35031b82b7e65",
+      "document_root": "pages/extreme-adventure",
+      "translation_entries": 55
+    },
+    {
+      "path": "family-experiences.html",
+      "approved_sha256": "d90d0525b4a890fb5093b24ca6963ae454920d206730b1590aca25d8ed583cd5",
+      "document_root": "pages/family-experiences",
+      "translation_entries": 62
+    },
+    {
+      "path": "history-culture.html",
+      "approved_sha256": "628a828873592d66f2a91aec18f31615c920232812c15dd45bc14f8ff5ca1d3a",
+      "document_root": "pages/history-culture",
+      "translation_entries": 98
+    },
+    {
+      "path": "nature-adventures.html",
+      "approved_sha256": "185b07dbfdcadd339c41d34c9a61d104b5f2efe14705ec677f2cf38feb1728ce",
+      "document_root": "pages/nature-adventures",
+      "translation_entries": 69
+    },
+    {
+      "path": "popular-tours.html",
+      "approved_sha256": "5f720e57f27fcaab0a4f8e7927a4b72b58a96a6c727ae56816696dd45a04e8f8",
+      "document_root": "pages/popular-tours",
+      "translation_entries": 109
+    },
+    {
+      "path": "sea-experiences.html",
+      "approved_sha256": "b5e4d76e4466a4d93a1ee20f98191f4e98d3ef129b8c6e3e5d84c1536678b67c",
+      "document_root": "pages/sea-experiences",
+      "translation_entries": 79
+    },
+    {
+      "path": "vip-service.html",
+      "approved_sha256": "30ce217ad3a54f8356af7aab7ced45d286ac3969dca993abf45cc83d7d64ab3f",
+      "document_root": "pages/vip-service",
+      "translation_entries": 79
+    },
+    {
+      "path": "water-sports.html",
+      "approved_sha256": "049f01330ba17dd5bc981c46a85d8910cdf40552dc0dd8e9c6d504d746231788",
+      "document_root": "pages/water-sports",
+      "translation_entries": 150
+    },
+    {
+      "path": "wellness-relax.html",
+      "approved_sha256": "0937699d8aaf188d0ba083e47241d99ce028b916deb83a1ed2efbfc3bc9e8002",
+      "document_root": "pages/wellness-relax",
+      "translation_entries": 52
+    },
+    {
+      "path": "index.html",
+      "approved_sha256": "5f64a60576c4be1f24b820f234a75f80328a98b2bcd9420887bf9ca15ad35ded",
+      "document_root": "pages/index",
+      "translation_entries": 132
+    },
+    {
+      "path": "contact.html",
+      "approved_sha256": "43221f99a4fc5e146fc9d2a3d31ec3079703840bd2bc3d903243dce82ce178c8",
+      "document_root": "pages/contact",
+      "translation_entries": 47
+    },
+    {
+      "path": "legal-information.html",
+      "approved_sha256": "5ab2f03fae77eddabb2f97dcd4d6ee9f09fb72f85700de3b8690ebb4cfb92492",
+      "document_root": "pages/legal-information",
+      "translation_entries": 60
+    },
+    {
+      "path": "e-ticket.html",
+      "approved_sha256": "7899ce66cf08e3f028fb12214a5736c1ef068b26cf1e3d987fd0e466f2f6833d",
+      "document_root": "pages/e-ticket",
+      "translation_entries": 66
+    },
+    {
+      "path": "special-offers.html",
+      "approved_sha256": "01d754f59b3a910c65c92ff2089069bd136074fb49e82f0d4961f3a4e6f52396",
+      "document_root": "pages/special-offers",
+      "translation_entries": 294
+    },
+    {
+      "path": "trip-planner.html",
+      "approved_sha256": "8c0bda091ad73e5295e961089077e7abb38219b0d8459bc2fdf168655826d693",
+      "document_root": "pages/trip-planner",
+      "translation_entries": 180
+    },
+    {
+      "path": "gift-certificate.html",
+      "approved_sha256": "4f38228a72b3a72da41cdb1f344946d5f7b90745c474d414c1fcab73b032de91",
+      "document_root": "pages/gift-certificate",
+      "translation_entries": 11
+    },
+    {
+      "path": "booking-cancellation.html",
+      "approved_sha256": "5a9cfd869b97029c5c08e327c64c7a7503b77d021f5c42931650e8ec003a8b6e",
+      "document_root": "pages/booking-cancellation",
+      "translation_entries": 50
+    },
+    {
+      "path": "cookie-policy.html",
+      "approved_sha256": "2ccdefff03482ef5c3d198a865cbc5a29d8d385e59a4005155de511decc019b3",
+      "document_root": "pages/cookie-policy",
+      "translation_entries": 71
+    },
+    {
+      "path": "kvkk-privacy.html",
+      "approved_sha256": "443db8c74b339d8951aea80e79258456599692f8e21f03fb26c17525311fe9ce",
+      "document_root": "pages/kvkk-privacy",
+      "translation_entries": 90
+    },
+    {
+      "path": "interactive-map/index.html",
+      "approved_sha256": "b37dc0457604912c4e304b7e688fb34c4661bf0069274a4bf2007a2438cf892d",
+      "document_root": "pages/interactive-map/index",
+      "translation_entries": 114
+    }
+  ]
+}

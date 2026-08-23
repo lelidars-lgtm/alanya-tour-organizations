@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "quad-safari.html",
+  "approved_sha256": "b45686de1624dc2f2d9cb62ccf806ed94fd1853a67c2d7d31f49fea7a0fc5523",
+  "translation_entries": 125,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

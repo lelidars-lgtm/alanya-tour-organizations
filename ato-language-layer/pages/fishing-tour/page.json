@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "fishing-tour.html",
+  "approved_sha256": "ae959c96e9312dc60701cb40fb2275c4a5c67f7f59339e7f898f29d940c1527c",
+  "translation_entries": 129,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

@@ -1,0 +1,728 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "helicopter-flight.html",
+  "approved_sha256": "e670cd14104f7d446d754f232cc57cff88aca004711c6043d356e83a955153a5",
+  "entries": [
+    {
+      "source": "Helicopter Flight in Alanya | ALANYA TOUR ORGANIZATIONS",
+      "translation": "Полёт на вертолёте в Алании | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "Premium 30-minute helicopter flight over Alanya Castle, Cleopatra Beach, Red Tower, marina, Mediterranean coastline and Taurus Mountains. Price €250. Hotel transfer, certified pilot, briefing and insurance included.",
+      "translation": "Премиальный 30-минутный полёт над крепостью Алании, пляжем Клеопатры, Красной башней, мариной, средиземноморским побережьем и Таврскими горами. Цена €250. Трансфер из отеля, сертифицированный пилот, инструктаж и страховка включены.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › Air Experiences ›",
+      "translation": "Главная › Воздушные приключения ›",
+      "kind": "text"
+    },
+    {
+      "source": "Helicopter Flight",
+      "translation": "Полёт на вертолёте",
+      "kind": "text"
+    },
+    {
+      "source": "Air Experience",
+      "translation": "Воздушное приключение",
+      "kind": "text"
+    },
+    {
+      "source": "Helicopter Flight in Alanya",
+      "translation": "Полёт на вертолёте в Аланье",
+      "kind": "text"
+    },
+    {
+      "source": "A premium 30-minute aerial journey above Alanya Castle, Cleopatra Beach, the Red Tower and the Mediterranean coastline.",
+      "translation": "Премиальный 30-минутный полёт над крепостью Алании, пляжем Клеопатры, Красной башней и средиземноморским побережьем.",
+      "kind": "text"
+    },
+    {
+      "source": "Discover Alanya from a breathtaking bird’s-eye view with a luxury helicopter flight over the turquoise sea, historic coastline, yacht marina and the Taurus Mountains.",
+      "translation": "Откройте Аланию с захватывающей высоты во время роскошного вертолётного полёта над бирюзовым морем, историческим побережьем, яхтенной мариной и Таврскими горами.",
+      "kind": "text"
+    },
+    {
+      "source": "30 Minutes",
+      "translation": "30 минут",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Flight",
+      "translation": "VIP-полёт",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer",
+      "translation": "Трансфер",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Tour",
+      "translation": "VIP-тур",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya Castle",
+      "translation": "Крепость Алании",
+      "kind": "text"
+    },
+    {
+      "source": "Cleopatra Beach",
+      "translation": "Пляж Клеопатры",
+      "kind": "text"
+    },
+    {
+      "source": "Red Tower",
+      "translation": "Красная башня",
+      "kind": "text"
+    },
+    {
+      "source": "Certified Pilot",
+      "translation": "Сертифицированный пилот",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer Included",
+      "translation": "Трансфер включён",
+      "kind": "text"
+    },
+    {
+      "source": "Premium Experience",
+      "translation": "Премиальный опыт",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Забронировать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "Об этом впечатлении",
+      "kind": "text"
+    },
+    {
+      "source": "is a premium 30-minute sightseeing experience offering panoramic views of Alanya and the Mediterranean coastline from the air.",
+      "translation": "— премиальный 30-минутный обзорный полёт с панорамными видами на Аланию и средиземноморское побережье с воздуха.",
+      "kind": "text"
+    },
+    {
+      "source": "The planned route includes views of Alanya Castle and the historic peninsula, Cleopatra Beach, the Red Tower, the harbour, the coastline and the Taurus Mountains. The exact route may change according to weather, air traffic and operational conditions.",
+      "translation": "Запланированный маршрут включает виды на крепость Алании и исторический полуостров, пляж Клеопатры, Красную башню, порт, побережье и Таврские горы. Точный маршрут может измениться из-за погоды, воздушного движения и операционных условий.",
+      "kind": "text"
+    },
+    {
+      "source": "Before departure, guests receive a safety briefing and boarding instructions. The experience is suitable for sightseeing, romantic occasions, marriage proposals and private photo or video projects arranged in advance.",
+      "translation": "Перед вылетом гости проходят инструктаж по безопасности и получают указания по посадке. Программа подходит для обзорных полётов, романтических случаев, предложений руки и сердца и заранее согласованных приватных фото- или видеопроектов.",
+      "kind": "text"
+    },
+    {
+      "source": "Perfect for",
+      "translation": "Идеально для",
+      "kind": "text"
+    },
+    {
+      "source": "Romantic flight",
+      "translation": "Романтический полёт",
+      "kind": "text"
+    },
+    {
+      "source": "A private memory above Alanya",
+      "translation": "Приватное воспоминание над Аланией",
+      "kind": "text"
+    },
+    {
+      "source": "Marriage proposal",
+      "translation": "Предложение руки и сердца",
+      "kind": "text"
+    },
+    {
+      "source": "A spectacular moment in the sky",
+      "translation": "Впечатляющий момент в небе",
+      "kind": "text"
+    },
+    {
+      "source": "Birthday surprise",
+      "translation": "Сюрприз на день рождения",
+      "kind": "text"
+    },
+    {
+      "source": "An unforgettable premium celebration",
+      "translation": "Незабываемый премиальный праздник",
+      "kind": "text"
+    },
+    {
+      "source": "Photo & video project",
+      "translation": "Фото- и видеопроект",
+      "kind": "text"
+    },
+    {
+      "source": "Content arranged in advance",
+      "translation": "Контент согласуется заранее",
+      "kind": "text"
+    },
+    {
+      "source": "Private organization available on request.",
+      "translation": "Приватная организация доступна по запросу.",
+      "kind": "text"
+    },
+    {
+      "source": "Flowers, photographer, video shooting and special occasion details can be arranged in advance.",
+      "translation": "Цветы, фотограф, видеосъёмка и детали особого события могут быть организованы заранее.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Главные впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "30-minute panoramic helicopter flight",
+      "translation": "30-минутный панорамный полёт на вертолёте",
+      "kind": "text"
+    },
+    {
+      "source": "Aerial views of Alanya Castle and the historic peninsula",
+      "translation": "Виды с воздуха на крепость Алании и исторический полуостров",
+      "kind": "text"
+    },
+    {
+      "source": "Cleopatra Beach, Red Tower and harbour from above",
+      "translation": "Пляж Клеопатры, Красная башня и порт с высоты",
+      "kind": "text"
+    },
+    {
+      "source": "Mediterranean coastline and Taurus Mountains panorama",
+      "translation": "Панорама средиземноморского побережья и Таврских гор",
+      "kind": "text"
+    },
+    {
+      "source": "Certified pilot and mandatory pre-flight safety briefing",
+      "translation": "Сертифицированный пилот и обязательный предполётный инструктаж по безопасности",
+      "kind": "text"
+    },
+    {
+      "source": "Suitable for romantic occasions and private celebrations",
+      "translation": "Подходит для романтических случаев и приватных праздников",
+      "kind": "text"
+    },
+    {
+      "source": "Emotion • Freedom • Private Experience",
+      "translation": "Эмоции • Свобода • Приватный опыт",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Детали",
+      "kind": "text"
+    },
+    {
+      "source": "Flight duration: 30 minutes",
+      "translation": "Продолжительность полёта: 30 минут",
+      "kind": "text"
+    },
+    {
+      "source": "Advance reservation required",
+      "translation": "Требуется предварительное бронирование",
+      "kind": "text"
+    },
+    {
+      "source": "Flight route confirmed before departure",
+      "translation": "Маршрут полёта подтверждается перед вылетом",
+      "kind": "text"
+    },
+    {
+      "source": "Limited seats available",
+      "translation": "Ограниченное количество мест",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Цена",
+      "kind": "text"
+    },
+    {
+      "source": "€250",
+      "translation": "€250",
+      "kind": "text"
+    },
+    {
+      "source": "per person",
+      "translation": "за человека",
+      "kind": "text"
+    },
+    {
+      "source": "Children pay full price.",
+      "translation": "Дети оплачивают полную стоимость.",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Включено",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel pick-up and return transfer",
+      "translation": "Трансфер из отеля и обратно",
+      "kind": "text"
+    },
+    {
+      "source": "Helicopter tour according to the program",
+      "translation": "Вертолётный тур согласно программе",
+      "kind": "text"
+    },
+    {
+      "source": "Assistance and pre-flight briefing",
+      "translation": "Сопровождение и предполётный инструктаж",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance coverage",
+      "translation": "Страховое покрытие",
+      "kind": "text"
+    },
+    {
+      "source": "Certified pilot",
+      "translation": "Сертифицированный пилот",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Не включено",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photo and video shooting",
+      "translation": "Профессиональная фото- и видеосъёмка",
+      "kind": "text"
+    },
+    {
+      "source": "Individual route requests",
+      "translation": "Индивидуальные запросы по маршруту",
+      "kind": "text"
+    },
+    {
+      "source": "VIP romantic event organization",
+      "translation": "Организация VIP-романтического события",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Личные расходы",
+      "kind": "text"
+    },
+    {
+      "source": "Tour Program",
+      "translation": "Программа тура",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup",
+      "translation": "Трансфер",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or Apartment Transfer",
+      "translation": "Трансфер из отеля или апартаментов",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from your hotel or apartment address. The exact time is confirmed after booking according to the scheduled flight slot.",
+      "translation": "Трансфер из отеля или по адресу апартаментов. Точное время подтверждается после бронирования в соответствии с назначенным слотом полёта.",
+      "kind": "text"
+    },
+    {
+      "source": "Helipad",
+      "translation": "Вертолётная площадка",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer to the Departure Point",
+      "translation": "Трансфер к точке вылета",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable transfer to the helicopter departure point and arrival at the designated passenger meeting area.",
+      "translation": "Комфортный трансфер к месту вылета вертолёта и прибытие в назначенную зону встречи пассажиров.",
+      "kind": "text"
+    },
+    {
+      "source": "Briefing",
+      "translation": "Инструктаж",
+      "kind": "text"
+    },
+    {
+      "source": "Check-in & Safety Instructions",
+      "translation": "Регистрация и инструкции по безопасности",
+      "kind": "text"
+    },
+    {
+      "source": "Passenger check-in, seat assignment and mandatory briefing about approaching the aircraft, boarding, restraints and emergency procedures.",
+      "translation": "Регистрация пассажиров, распределение мест и обязательный инструктаж по подходу к воздушному судну, посадке на борт, ремням безопасности и аварийным процедурам.",
+      "kind": "text"
+    },
+    {
+      "source": "Boarding",
+      "translation": "Посадка на борт",
+      "kind": "text"
+    },
+    {
+      "source": "Boarding the Helicopter",
+      "translation": "Посадка в вертолёт",
+      "kind": "text"
+    },
+    {
+      "source": "Boarding is completed only under crew supervision. Personal items are secured and all passengers are seated with restraints fastened.",
+      "translation": "Посадка выполняется только под контролем экипажа. Личные вещи закрепляются, все пассажиры занимают места с пристёгнутыми ремнями.",
+      "kind": "text"
+    },
+    {
+      "source": "Flight",
+      "translation": "Полёт",
+      "kind": "text"
+    },
+    {
+      "source": "30-Minute Panoramic Flight",
+      "translation": "30-минутный панорамный полёт",
+      "kind": "text"
+    },
+    {
+      "source": "Fly above Alanya Castle, Cleopatra Beach, the Red Tower, marina, Mediterranean coastline and the Taurus Mountains.",
+      "translation": "Полёт над крепостью Алании, пляжем Клеопатры, Красной башней, мариной, средиземноморским побережьем и Таврскими горами.",
+      "kind": "text"
+    },
+    {
+      "source": "Landing",
+      "translation": "Посадка",
+      "kind": "text"
+    },
+    {
+      "source": "Landing & Return Transfer",
+      "translation": "Посадка и обратный трансфер",
+      "kind": "text"
+    },
+    {
+      "source": "After landing and leaving the aircraft under crew supervision, return transfer is provided to the original pickup point.",
+      "translation": "После посадки и выхода из воздушного судна под контролем экипажа предоставляется обратный трансфер к исходной точке трансфера.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Фотогалерея",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Время тура",
+      "kind": "text"
+    },
+    {
+      "source": "Flight duration:",
+      "translation": "Продолжительность полёта:",
+      "kind": "text"
+    },
+    {
+      "source": "30 minutes",
+      "translation": "30 минут",
+      "kind": "text"
+    },
+    {
+      "source": "Schedule:",
+      "translation": "Расписание:",
+      "kind": "text"
+    },
+    {
+      "source": "confirmed after booking",
+      "translation": "подтверждается после бронирования",
+      "kind": "text"
+    },
+    {
+      "source": "Reservation:",
+      "translation": "Бронирование:",
+      "kind": "text"
+    },
+    {
+      "source": "required in advance",
+      "translation": "требуется заранее",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Что взять с собой",
+      "kind": "text"
+    },
+    {
+      "source": "Passport or ID",
+      "translation": "Паспорт или удостоверение личности",
+      "kind": "text"
+    },
+    {
+      "source": "Phone for communication",
+      "translation": "Телефон для связи",
+      "kind": "text"
+    },
+    {
+      "source": "Booking confirmation",
+      "translation": "Подтверждение бронирования",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable clothing",
+      "translation": "Удобная одежда",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable shoes",
+      "translation": "Удобная обувь",
+      "kind": "text"
+    },
+    {
+      "source": "Water",
+      "translation": "Вода",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Солнцезащитные очки",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Правила для детей",
+      "kind": "text"
+    },
+    {
+      "source": "Children:",
+      "translation": "Дети:",
+      "kind": "text"
+    },
+    {
+      "source": "full price",
+      "translation": "полная цена",
+      "kind": "text"
+    },
+    {
+      "source": "Seats:",
+      "translation": "Места:",
+      "kind": "text"
+    },
+    {
+      "source": "limited availability",
+      "translation": "ограниченная доступность",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Информация о трансфере",
+      "kind": "text"
+    },
+    {
+      "source": "Customer meeting point: hotel or apartment address.",
+      "translation": "Место встречи с клиентом: отель или адрес апартаментов.",
+      "kind": "text"
+    },
+    {
+      "source": "Exact pick-up time is confirmed after reservation according to the flight schedule.",
+      "translation": "Точное время трансфера подтверждается после бронирования в соответствии с расписанием полёта.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Часто задаваемые вопросы",
+      "kind": "text"
+    },
+    {
+      "source": "How long does the helicopter experience take?",
+      "translation": "Сколько длится вертолётный опыт?",
+      "kind": "text"
+    },
+    {
+      "source": "The flight itself lasts approximately 30 minutes. The total experience is longer because it also includes hotel transfer, check-in, preparation and the safety briefing.",
+      "translation": "Сам полёт длится около 30 минут. Вся программа занимает больше времени, поскольку включает трансфер из отеля, регистрацию, подготовку и инструктаж по безопасности.",
+      "kind": "text"
+    },
+    {
+      "source": "Is hotel transfer included?",
+      "translation": "Включён ли трансфер из отеля?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Pick-up and return transfer from your hotel or apartment address are included. The exact time is confirmed after reservation according to the flight schedule.",
+      "translation": "Да. Трансфер туда и обратно из вашего отеля или по адресу апартаментов включён. Точное время подтверждается после бронирования в соответствии с расписанием полёта.",
+      "kind": "text"
+    },
+    {
+      "source": "Do children pay a reduced price?",
+      "translation": "Есть ли скидка для детей?",
+      "kind": "text"
+    },
+    {
+      "source": "No. Every passenger occupies an individual seat, so children pay the full price. Availability and passenger requirements are confirmed before booking.",
+      "translation": "Нет. Каждый пассажир занимает отдельное место, поэтому дети оплачивают полную стоимость. Доступность и требования к пассажирам подтверждаются до бронирования.",
+      "kind": "text"
+    },
+    {
+      "source": "Can the flight be arranged for a proposal or photo shoot?",
+      "translation": "Можно организовать полёт для предложения руки и сердца или фотосессии?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Romantic organization, professional photo or video shooting and individual requests can be arranged separately, subject to availability and an additional charge.",
+      "translation": "Да. Романтическая организация, профессиональная фото- или видеосъёмка и индивидуальные запросы могут быть организованы отдельно при наличии и за дополнительную плату.",
+      "kind": "text"
+    },
+    {
+      "source": "Can the schedule or route change?",
+      "translation": "Может ли расписание или маршрут измениться?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Flight time and route may be adjusted for operational, aviation or weather conditions. Final details are confirmed before departure.",
+      "translation": "Да. Время и маршрут полёта могут корректироваться из-за операционных, авиационных или погодных условий. Окончательные детали подтверждаются перед вылетом.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Есть вопросы?",
+      "kind": "text"
+    },
+    {
+      "source": "Message us on WhatsApp — we will confirm availability, flight schedule, transfer details and VIP organization options.",
+      "translation": "Напишите нам в WhatsApp — мы подтвердим доступность, расписание полёта, детали трансфера и варианты VIP-организации.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Написать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "Important Helicopter Flight Safety Rules",
+      "translation": "Важные правила безопасности вертолётного полёта",
+      "kind": "text"
+    },
+    {
+      "source": "Crew Instructions",
+      "translation": "Указания экипажа",
+      "kind": "text"
+    },
+    {
+      "source": "Passengers must attend the safety briefing and follow all pilot and ground-crew instructions during approach, boarding, flight, landing and disembarkation.",
+      "translation": "Пассажиры обязаны пройти инструктаж по безопасности и выполнять все указания пилота и наземного экипажа при подходе, посадке на борт, во время полёта, посадки и высадки.",
+      "kind": "text"
+    },
+    {
+      "source": "Approaching the Helicopter",
+      "translation": "Подход к вертолёту",
+      "kind": "text"
+    },
+    {
+      "source": "Approach only when instructed, use the route shown by the crew and never walk behind the helicopter or near the tail rotor.",
+      "translation": "Подходите только по указанию экипажа, двигайтесь по показанному маршруту и никогда не проходите позади вертолёта или рядом с хвостовым винтом.",
+      "kind": "text"
+    },
+    {
+      "source": "Loose Items & Equipment",
+      "translation": "Свободные предметы и оборудование",
+      "kind": "text"
+    },
+    {
+      "source": "Secure hats, scarves, bags, jewellery, phones, selfie sticks and camera straps. Carry personal items low and never raise objects above your head near the aircraft.",
+      "translation": "Надёжно закрепите головные уборы, шарфы, сумки, украшения, телефоны, селфи-палки и ремни камер. Держите личные вещи низко и никогда не поднимайте предметы над головой рядом с воздушным судном.",
+      "kind": "text"
+    },
+    {
+      "source": "Weather & Operational Conditions",
+      "translation": "Погода и операционные условия",
+      "kind": "text"
+    },
+    {
+      "source": "The pilot may delay, reroute, reschedule or cancel the flight when weather, technical or operational conditions do not allow safe operation.",
+      "translation": "Пилот может задержать, изменить маршрут, перенести или отменить полёт, если погодные, технические или операционные условия не позволяют безопасное выполнение.",
+      "kind": "text"
+    },
+    {
+      "source": "Safety has priority over the advertised schedule and route. The operator’s aircraft-specific briefing, safety card and crew instructions always take priority.",
+      "translation": "Безопасность важнее заявленного расписания и маршрута. Инструктаж для конкретного воздушного судна, карточка безопасности и указания экипажа оператора всегда имеют приоритет.",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Open emotional helicopter flight moment",
+      "translation": "Эмоциональный момент вертолётного полёта",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Couple inside a helicopter cabin watching the sunset over Alanya",
+      "translation": "Пара в салоне вертолёта смотрит на закат над Аланией",
+      "kind": "alt"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Предыдущее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Helicopter safety briefing",
+      "translation": "Инструктаж по безопасности перед вертолётным полётом",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Следующее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Миниатюры галереи",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Transfer to helipad",
+      "translation": "Трансфер к вертолётной площадке",
+      "kind": "alt"
+    },
+    {
+      "source": "Helicopter cabin boarding",
+      "translation": "Посадка в салон вертолёта",
+      "kind": "alt"
+    },
+    {
+      "source": "Helicopter takeoff",
+      "translation": "Взлёт вертолёта",
+      "kind": "alt"
+    },
+    {
+      "source": "Alanya Castle helicopter flight",
+      "translation": "Полёт на вертолёте над крепостью Алании",
+      "kind": "alt"
+    },
+    {
+      "source": "Romantic helicopter flight",
+      "translation": "Романтический полёт на вертолёте",
+      "kind": "alt"
+    },
+    {
+      "source": "Green Canyon helicopter flight",
+      "translation": "Полёт на вертолёте над Green Canyon",
+      "kind": "alt"
+    },
+    {
+      "source": "Main helicopter flight information",
+      "translation": "Основная информация о вертолётном полёте",
+      "kind": "aria-label"
+    }
+  ]
+}

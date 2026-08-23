@@ -1,0 +1,758 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "DE",
+  "approved_page": "water-ski.html",
+  "approved_sha256": "03d1d2b1071da6448b1251f08685432f37905a3fdd1ab9270cfd6fda515dbf79",
+  "entries": [
+    {
+      "source": "Water Ski Experience in Alanya | ALANYA TOUR ORGANIZATIONS",
+      "translation": "Wasserski-Erlebnis in Alanya | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "Water Ski Experience in Alanya. Enjoy a 15-minute individual water ski activity with professional guidance, equipment, insurance and transfer near the activity location. From €70.",
+      "translation": "Wasserski-Erlebnis in Alanya. Genießen Sie eine 15-minütige individuelle Wasserski-Aktivität mit professioneller Anleitung, Ausrüstung, Versicherung und Transfer in der Nähe des Aktivitätsorts. Ab €70.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home / Water Sports /",
+      "translation": "Startseite / Wassersport /",
+      "kind": "text"
+    },
+    {
+      "source": "Water Ski Experience",
+      "translation": "Wasserski-Erlebnis",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "Water Ski Experience in Alanya",
+      "translation": "Wasserski-Erlebnis in Alanya",
+      "kind": "text"
+    },
+    {
+      "source": "Glide across the sea with speed, balance and pure adrenaline",
+      "translation": "Gleiten Sie mit Geschwindigkeit, Balance und purem Adrenalin über das Meer",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy a classic water ski activity in Alanya with professional guidance, full equipment and a powerful sea ride. Feel the pull of the boat, rise above the water and challenge yourself with one of the most iconic individual water sports on the coast.",
+      "translation": "Genießen Sie klassisches Wasserskifahren in Alanya mit professioneller Anleitung, kompletter Ausrüstung und einer kraftvollen Fahrt auf dem Meer. Spüren Sie den Zug des Boots, kommen Sie aus dem Wasser und fordern Sie sich bei einer der bekanntesten individuellen Wassersportarten der Küste heraus.",
+      "kind": "text"
+    },
+    {
+      "source": "From €70",
+      "translation": "Ab 70 €",
+      "kind": "text"
+    },
+    {
+      "source": "Water Ski",
+      "translation": "Wasserski",
+      "kind": "text"
+    },
+    {
+      "source": "15 Min Session",
+      "translation": "15-Minuten-Session",
+      "kind": "text"
+    },
+    {
+      "source": "Water Sports",
+      "translation": "Wassersport",
+      "kind": "text"
+    },
+    {
+      "source": "Professional Guidance",
+      "translation": "Professionelle Anleitung",
+      "kind": "text"
+    },
+    {
+      "source": "Daily Activity",
+      "translation": "Tägliche Aktivität",
+      "kind": "text"
+    },
+    {
+      "source": "Individual Ride",
+      "translation": "Individuelle Fahrt",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Über WhatsApp buchen →",
+      "kind": "text"
+    },
+    {
+      "source": "About This Experience",
+      "translation": "Über dieses Erlebnis",
+      "kind": "text"
+    },
+    {
+      "source": "Water Ski Experience is a classic Mediterranean challenge built around speed, balance and technique.",
+      "translation": "Water Ski Experience ist eine klassische Mittelmeer-Herausforderung rund um Geschwindigkeit, Balance und Technik.",
+      "kind": "text"
+    },
+    {
+      "source": "After a clear safety briefing, you enter the water with professional equipment and are pulled behind the boat. Beginners receive practical guidance on body position, safe falling and the correct water start, while more confident riders can focus on control and smooth turns.",
+      "translation": "Nach einer klaren Sicherheitseinweisung gehen Sie mit professioneller Ausrüstung ins Wasser und werden hinter dem Boot gezogen. Anfänger erhalten praktische Hinweise zu Körperhaltung, sicherem Fallen und richtigem Wasserstart; erfahrenere Fahrer können sich auf Kontrolle und saubere Kurven konzentrieren.",
+      "kind": "text"
+    },
+    {
+      "source": "One booked session lasts approximately 15 minutes and includes your attempts during the allocated riding period. The activity is individual; groups reserve consecutive sessions.",
+      "translation": "Eine gebuchte Session dauert etwa 15 Minuten und umfasst Ihre Versuche innerhalb der zugeteilten Fahrzeit. Die Aktivität ist individuell; Gruppen buchen aufeinanderfolgende Sessions.",
+      "kind": "text"
+    },
+    {
+      "source": "Extended private instruction may be available at an additional cost and must be confirmed in advance.",
+      "translation": "Erweiterter Privatunterricht kann gegen Aufpreis verfügbar sein und muss vorab bestätigt werden.",
+      "kind": "text"
+    },
+    {
+      "source": "Classic Sea Sport",
+      "translation": "Klassischer Meeressport",
+      "kind": "text"
+    },
+    {
+      "source": "A real skill-based activity, not just a passive ride.",
+      "translation": "Eine echte, auf Können basierende Aktivität – nicht nur eine passive Fahrt.",
+      "kind": "text"
+    },
+    {
+      "source": "Progressive Challenge",
+      "translation": "Schrittweise Herausforderung",
+      "kind": "text"
+    },
+    {
+      "source": "Build confidence from the first water start.",
+      "translation": "Bauen Sie schon beim ersten Wasserstart Vertrauen auf.",
+      "kind": "text"
+    },
+    {
+      "source": "Guided & Equipped",
+      "translation": "Angeleitet & Ausgerüstet",
+      "kind": "text"
+    },
+    {
+      "source": "Professional briefing and required safety gear included.",
+      "translation": "Professionelle Einweisung und erforderliche Sicherheitsausrüstung inklusive.",
+      "kind": "text"
+    },
+    {
+      "source": "Pure Sea Energy",
+      "translation": "Pure Meeresenergie",
+      "kind": "text"
+    },
+    {
+      "source": "Speed, spray and control in one compact session.",
+      "translation": "Geschwindigkeit, Spritzwasser und Kontrolle in einer kompakten Session.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Highlights",
+      "kind": "text"
+    },
+    {
+      "source": "Individual water ski session behind a speedboat.",
+      "translation": "Individuelle Wasserski-Session hinter einem Speedboot.",
+      "kind": "text"
+    },
+    {
+      "source": "Professional safety briefing and technique guidance.",
+      "translation": "Professionelle Sicherheitseinweisung und Technikanleitung.",
+      "kind": "text"
+    },
+    {
+      "source": "Required water ski equipment and insurance included.",
+      "translation": "Erforderliche Wasserskiausrüstung und Versicherung inklusive.",
+      "kind": "text"
+    },
+    {
+      "source": "Suitable for confident swimmers; beginners can request extra instruction.",
+      "translation": "Geeignet für sichere Schwimmer; Anfänger können zusätzliche Anleitung anfragen.",
+      "kind": "text"
+    },
+    {
+      "source": "Group reservations are arranged as consecutive individual sessions.",
+      "translation": "Gruppenbuchungen werden als aufeinanderfolgende Einzelsessions organisiert.",
+      "kind": "text"
+    },
+    {
+      "source": "Ride the Mediterranean",
+      "translation": "Fahren Sie über das Mittelmeer",
+      "kind": "text"
+    },
+    {
+      "source": "Water Ski Session",
+      "translation": "Wasserski-Session",
+      "kind": "text"
+    },
+    {
+      "source": "€70",
+      "translation": "€70",
+      "kind": "text"
+    },
+    {
+      "source": "per person / approximately 15 minutes",
+      "translation": "pro Person / etwa 15 Minuten",
+      "kind": "text"
+    },
+    {
+      "source": "Individual activity",
+      "translation": "Individuelle Aktivität",
+      "kind": "text"
+    },
+    {
+      "source": "Attempts within the booked session",
+      "translation": "Versuche innerhalb der gebuchten Session",
+      "kind": "text"
+    },
+    {
+      "source": "Equipment and briefing included",
+      "translation": "Ausrüstung und Einweisung inklusive",
+      "kind": "text"
+    },
+    {
+      "source": "Group Reservation",
+      "translation": "Gruppenbuchung",
+      "kind": "text"
+    },
+    {
+      "source": "Consecutive individual sessions",
+      "translation": "Aufeinanderfolgende Einzelsessions",
+      "kind": "text"
+    },
+    {
+      "source": "Advance booking required",
+      "translation": "Vorabreservierung erforderlich",
+      "kind": "text"
+    },
+    {
+      "source": "Total duration depends on group size",
+      "translation": "Gesamtdauer hängt von der Gruppengröße ab",
+      "kind": "text"
+    },
+    {
+      "source": "Exact schedule confirmed after booking",
+      "translation": "Genauer Zeitplan wird nach der Buchung bestätigt",
+      "kind": "text"
+    },
+    {
+      "source": "Operation",
+      "translation": "Betrieb",
+      "kind": "text"
+    },
+    {
+      "source": "Available daily",
+      "translation": "Täglich verfügbar",
+      "kind": "text"
+    },
+    {
+      "source": "Weather and sea conditions permitting",
+      "translation": "Bei geeigneten Wetter- und Seebedingungen",
+      "kind": "text"
+    },
+    {
+      "source": "Exact session time confirmed after booking",
+      "translation": "Genaue Sessionzeit wird nach der Buchung bestätigt",
+      "kind": "text"
+    },
+    {
+      "source": "The operator may delay or reschedule for safety",
+      "translation": "Der Betreiber kann die Aktivität aus Sicherheitsgründen verschieben oder neu ansetzen",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer",
+      "translation": "Transfer",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment pickup may be available",
+      "translation": "Abholung vom Hotel oder Apartment kann verfügbar sein",
+      "kind": "text"
+    },
+    {
+      "source": "Coverage depends on accommodation location",
+      "translation": "Servicegebiet hängt von der Lage der Unterkunft ab",
+      "kind": "text"
+    },
+    {
+      "source": "Any additional charge is confirmed before booking",
+      "translation": "Etwaige Zusatzkosten werden vor der Buchung bestätigt",
+      "kind": "text"
+    },
+    {
+      "source": "Direct meeting may also be arranged",
+      "translation": "Auch ein direktes Treffen vor Ort kann vereinbart werden",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Inklusive",
+      "kind": "text"
+    },
+    {
+      "source": "Approximately 15-minute booked water ski session.",
+      "translation": "Gebuchte Wasserski-Session von etwa 15 Minuten.",
+      "kind": "text"
+    },
+    {
+      "source": "Water skis, bindings, life jacket and required safety equipment.",
+      "translation": "Wasserski, Bindungen, Schwimmweste und erforderliche Sicherheitsausrüstung.",
+      "kind": "text"
+    },
+    {
+      "source": "Professional safety briefing and basic technique guidance.",
+      "translation": "Professionelle Sicherheitseinweisung und grundlegende Technikanleitung.",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance.",
+      "translation": "Versicherung.",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer when available for the confirmed accommodation zone.",
+      "translation": "Transfer, sofern für die bestätigte Unterkunftszone verfügbar.",
+      "kind": "text"
+    },
+    {
+      "source": "Not Included",
+      "translation": "Nicht inklusive",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photos and videos.",
+      "translation": "Professionelle Fotos und Videos.",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses.",
+      "translation": "Persönliche Ausgaben.",
+      "kind": "text"
+    },
+    {
+      "source": "Extended private instruction unless booked separately.",
+      "translation": "Erweiterter Privatunterricht, sofern nicht separat gebucht.",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer supplements outside the included service zone.",
+      "translation": "Transferzuschläge außerhalb der enthaltenen Servicezone.",
+      "kind": "text"
+    },
+    {
+      "source": "Tour Program",
+      "translation": "Tourprogramm",
+      "kind": "text"
+    },
+    {
+      "source": "The order remains the same, while exact timing may change because of weather, sea conditions, participant preparation and the operator’s schedule.",
+      "translation": "Die Reihenfolge bleibt gleich; die genaue Zeitplanung kann sich jedoch aufgrund von Wetter, Seebedingungen, Vorbereitung des Teilnehmers und Betreiberplan ändern.",
+      "kind": "text"
+    },
+    {
+      "source": "Meeting",
+      "translation": "Treffen",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup or Direct Arrival",
+      "translation": "Abholung oder direkte Anreise",
+      "kind": "text"
+    },
+    {
+      "source": "Meet at the confirmed hotel, apartment or activity location according to the booking details.",
+      "translation": "Treffen Sie sich gemäß den Buchungsdetails am bestätigten Hotel, Apartment oder Aktivitätsort.",
+      "kind": "text"
+    },
+    {
+      "source": "Equipment",
+      "translation": "Ausrüstung",
+      "kind": "text"
+    },
+    {
+      "source": "Equipment Preparation",
+      "translation": "Ausrüstungsvorbereitung",
+      "kind": "text"
+    },
+    {
+      "source": "Receive the water skis, bindings, life jacket and required safety equipment.",
+      "translation": "Erhalten Sie Wasserski, Bindungen, Schwimmweste und erforderliche Sicherheitsausrüstung.",
+      "kind": "text"
+    },
+    {
+      "source": "Briefing",
+      "translation": "Einweisung",
+      "kind": "text"
+    },
+    {
+      "source": "Safety and Technique Instructions",
+      "translation": "Sicherheits- und Technikeinweisung",
+      "kind": "text"
+    },
+    {
+      "source": "Learn the correct body position, boat signals, water start and safe falling technique.",
+      "translation": "Lernen Sie die richtige Körperhaltung, Bootssignale, den Wasserstart und sicheres Fallen.",
+      "kind": "text"
+    },
+    {
+      "source": "Practice",
+      "translation": "Praxis",
+      "kind": "text"
+    },
+    {
+      "source": "Water Start Preparation",
+      "translation": "Vorbereitung auf den Wasserstart",
+      "kind": "text"
+    },
+    {
+      "source": "Enter the water and prepare for the first pull with guidance from the crew.",
+      "translation": "Gehen Sie ins Wasser und bereiten Sie sich unter Anleitung der Crew auf den ersten Zug vor.",
+      "kind": "text"
+    },
+    {
+      "source": "Session",
+      "translation": "Session",
+      "kind": "text"
+    },
+    {
+      "source": "Use the booked riding period for your attempts, starts and active water ski ride behind the boat.",
+      "translation": "Nutzen Sie die gebuchte Fahrzeit für Versuche, Starts und aktive Wasserskifahrt hinter dem Boot.",
+      "kind": "text"
+    },
+    {
+      "source": "Finish",
+      "translation": "Abschluss",
+      "kind": "text"
+    },
+    {
+      "source": "Return Equipment",
+      "translation": "Ausrüstung zurückgeben",
+      "kind": "text"
+    },
+    {
+      "source": "Return to the activity point, remove the equipment and receive any final guidance from the crew.",
+      "translation": "Kehren Sie zum Aktivitätspunkt zurück, legen Sie die Ausrüstung ab und erhalten Sie bei Bedarf abschließende Hinweise von der Crew.",
+      "kind": "text"
+    },
+    {
+      "source": "Return",
+      "translation": "Rückkehr",
+      "kind": "text"
+    },
+    {
+      "source": "Return Transfer",
+      "translation": "Rücktransfer",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer back is provided when included in the confirmed booking arrangement.",
+      "translation": "Der Rücktransfer wird angeboten, wenn er in der bestätigten Buchungsvereinbarung enthalten ist.",
+      "kind": "text"
+    },
+    {
+      "source": "Safety has priority over the advertised schedule. The captain and instructor may change, delay or stop the activity because of wind, waves, visibility or participant readiness.",
+      "translation": "Sicherheit hat Vorrang vor dem angekündigten Zeitplan. Kapitän und Instruktor können die Aktivität wegen Wind, Wellen, Sicht oder mangelnder Bereitschaft des Teilnehmers ändern, verschieben oder stoppen.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Fotogalerie",
+      "kind": "text"
+    },
+    {
+      "source": "Tour Time",
+      "translation": "Tourzeit",
+      "kind": "text"
+    },
+    {
+      "source": "Activity:",
+      "translation": "Aktivität:",
+      "kind": "text"
+    },
+    {
+      "source": "15 minutes",
+      "translation": "15 Minuten",
+      "kind": "text"
+    },
+    {
+      "source": "Days:",
+      "translation": "Tage:",
+      "kind": "text"
+    },
+    {
+      "source": "every day",
+      "translation": "täglich",
+      "kind": "text"
+    },
+    {
+      "source": "Format:",
+      "translation": "Format:",
+      "kind": "text"
+    },
+    {
+      "source": "individual water sport",
+      "translation": "individueller Wassersport",
+      "kind": "text"
+    },
+    {
+      "source": "Booking:",
+      "translation": "Buchung:",
+      "kind": "text"
+    },
+    {
+      "source": "time confirmed after reservation",
+      "translation": "Zeit wird nach der Reservierung bestätigt",
+      "kind": "text"
+    },
+    {
+      "source": "What To Bring",
+      "translation": "Was Sie mitbringen sollten",
+      "kind": "text"
+    },
+    {
+      "source": "Swimsuit or swim trunks",
+      "translation": "Badeanzug oder Badehose",
+      "kind": "text"
+    },
+    {
+      "source": "Rash guard or light T-shirt",
+      "translation": "Rashguard oder leichtes T-Shirt",
+      "kind": "text"
+    },
+    {
+      "source": "Aqua shoes or coral shoes",
+      "translation": "Wasserschuhe oder Korallenschuhe",
+      "kind": "text"
+    },
+    {
+      "source": "Hat and sunglasses with safety lanyard",
+      "translation": "Hut und Sonnenbrille mit Sicherungsband",
+      "kind": "text"
+    },
+    {
+      "source": "Waterproof sunscreen SPF 30+",
+      "translation": "Wasserfeste Sonnencreme SPF 30+",
+      "kind": "text"
+    },
+    {
+      "source": "Towel and dry change of clothes",
+      "translation": "Handtuch und trockene Wechselkleidung",
+      "kind": "text"
+    },
+    {
+      "source": "Child Policy",
+      "translation": "Kinderregelung",
+      "kind": "text"
+    },
+    {
+      "source": "Minimum age:",
+      "translation": "Mindestalter:",
+      "kind": "text"
+    },
+    {
+      "source": "confirmed by the operator",
+      "translation": "vom Betreiber bestätigt",
+      "kind": "text"
+    },
+    {
+      "source": "Required:",
+      "translation": "Erforderlich:",
+      "kind": "text"
+    },
+    {
+      "source": "confident swimming ability and safe equipment fit",
+      "translation": "sicheres Schwimmen und passende, sicher sitzende Ausrüstung",
+      "kind": "text"
+    },
+    {
+      "source": "Minors:",
+      "translation": "Minderjährige:",
+      "kind": "text"
+    },
+    {
+      "source": "parental or guardian consent may be required",
+      "translation": "Zustimmung eines Elternteils oder Erziehungsberechtigten kann erforderlich sein",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup Information",
+      "translation": "Informationen zur Abholung",
+      "kind": "text"
+    },
+    {
+      "source": "Meeting point:",
+      "translation": "Treffpunkt:",
+      "kind": "text"
+    },
+    {
+      "source": "hotel or apartment address",
+      "translation": "Hotel- oder Apartmentadresse",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer:",
+      "translation": "Transfer:",
+      "kind": "text"
+    },
+    {
+      "source": "availability depends on hotel location",
+      "translation": "Verfügbarkeit hängt von der Hotellage ab",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup time:",
+      "translation": "Abholzeit:",
+      "kind": "text"
+    },
+    {
+      "source": "confirmed after booking",
+      "translation": "wird nach der Buchung bestätigt",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Häufig gestellte Fragen",
+      "kind": "text"
+    },
+    {
+      "source": "Do I need previous water ski experience?",
+      "translation": "Brauche ich Wasserski-Vorerfahrung?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "No previous experience is required, but beginners should expect several attempts. Basic guidance is included; extended private instruction must be booked separately when available.",
+      "translation": "Vorerfahrung ist nicht erforderlich, Anfänger sollten jedoch mit mehreren Versuchen rechnen. Grundlegende Anleitung ist inklusive; erweiterter Privatunterricht muss – sofern verfügbar – separat gebucht werden.",
+      "kind": "text"
+    },
+    {
+      "source": "Must I be able to swim?",
+      "translation": "Muss ich schwimmen können?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Participants must be confident swimmers, able to remain calm in open water and follow the crew’s hand signals and instructions.",
+      "translation": "Ja. Teilnehmer müssen sicher schwimmen können, im offenen Wasser ruhig bleiben und den Handzeichen sowie Anweisungen der Crew folgen.",
+      "kind": "text"
+    },
+    {
+      "source": "How long is the actual session?",
+      "translation": "Wie lange dauert die eigentliche Session?",
+      "kind": "text"
+    },
+    {
+      "source": "One booked session lasts approximately 15 minutes and includes the attempts made during that allocated riding period. It does not guarantee 15 uninterrupted minutes standing on the skis.",
+      "translation": "Eine gebuchte Session dauert etwa 15 Minuten und umfasst die Versuche innerhalb dieser zugeteilten Fahrzeit. Sie garantiert nicht 15 ununterbrochene Minuten auf den Skiern.",
+      "kind": "text"
+    },
+    {
+      "source": "What happens in bad weather or rough sea?",
+      "translation": "Was passiert bei schlechtem Wetter oder rauer See?",
+      "kind": "text"
+    },
+    {
+      "source": "The activity may be delayed, shortened, rescheduled or cancelled when wind, waves or visibility do not allow safe operation.",
+      "translation": "Die Aktivität kann verzögert, verkürzt, verschoben oder abgesagt werden, wenn Wind, Wellen oder Sicht keinen sicheren Betrieb zulassen.",
+      "kind": "text"
+    },
+    {
+      "source": "Are there age or weight limits?",
+      "translation": "Gibt es Alters- oder Gewichtsbeschränkungen?",
+      "kind": "text"
+    },
+    {
+      "source": "The operator confirms participation according to age, swimming ability, physical condition and safe equipment fit. Minors may require parental or guardian consent.",
+      "translation": "Der Betreiber bestätigt die Teilnahme anhand von Alter, Schwimmfähigkeit, körperlicher Verfassung und sicherer Passform der Ausrüstung. Für Minderjährige kann die Zustimmung eines Elternteils oder Erziehungsberechtigten erforderlich sein.",
+      "kind": "text"
+    },
+    {
+      "source": "Who should not participate?",
+      "translation": "Wer sollte nicht teilnehmen?",
+      "kind": "text"
+    },
+    {
+      "source": "The activity is not suitable during pregnancy or for guests with serious heart conditions, recent surgery, significant back or joint injuries, or impaired ability to follow instructions. Final approval remains with the operator.",
+      "translation": "Die Aktivität ist während der Schwangerschaft sowie für Gäste mit schweren Herzerkrankungen, kürzlicher Operation, erheblichen Rücken- oder Gelenkverletzungen oder eingeschränkter Fähigkeit, Anweisungen zu befolgen, nicht geeignet. Die endgültige Freigabe liegt beim Betreiber.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Noch Fragen?",
+      "kind": "text"
+    },
+    {
+      "source": "Contact us on WhatsApp — we will help you choose the best water ski session time, lesson option and transfer details.",
+      "translation": "Kontaktieren Sie uns auf WhatsApp – wir helfen Ihnen bei der Wahl der besten Wasserski-Zeit, der Unterrichtsoption und den Transferdetails.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Auf WhatsApp schreiben →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Water ski experience in Alanya",
+      "translation": "Wasserski-Erlebnis in Alanya",
+      "kind": "alt"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Vorheriges Foto",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Nächstes Foto",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Galerie-Vorschaubilder",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Water Ski sea action",
+      "translation": "Wasserski-Action auf dem Meer",
+      "kind": "alt"
+    },
+    {
+      "source": "Water Ski training",
+      "translation": "Wasserski-Training",
+      "kind": "alt"
+    },
+    {
+      "source": "Water Ski speed ride",
+      "translation": "Wasserski-Speed-Fahrt",
+      "kind": "alt"
+    },
+    {
+      "source": "Water Ski water sport",
+      "translation": "Wasserski-Wassersport",
+      "kind": "alt"
+    },
+    {
+      "source": "Water ski equipment",
+      "translation": "Wasserskiausrüstung",
+      "kind": "alt"
+    }
+  ]
+}

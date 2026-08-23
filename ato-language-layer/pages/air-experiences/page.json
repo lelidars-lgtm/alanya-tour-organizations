@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "air-experiences.html",
+  "approved_sha256": "bdc48a9cc2cfe83610a75109f3bcfd869eb48942006387f407555efa08b9e391",
+  "translation_entries": 58,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

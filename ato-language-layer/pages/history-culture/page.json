@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "history-culture.html",
+  "approved_sha256": "628a828873592d66f2a91aec18f31615c920232812c15dd45bc14f8ff5ca1d3a",
+  "translation_entries": 98,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

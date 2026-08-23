@@ -1,0 +1,753 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "e-foil.html",
+  "approved_sha256": "d4fa35ffc2ab1666a0f411aa5c6c329ce46eaa44ea12ac709393420bce92899a",
+  "entries": [
+    {
+      "source": "E-Foil Experience & Training in Alanya | ALANYA TOUR ORGANIZATIONS",
+      "translation": "E-Foil в Аланье: катание и обучение | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "E-Foil Experience and Training in Alanya. Fly above the Mediterranean Sea on an electric hydrofoil board. Rent 25 minutes or rent and course 40 minutes. Daily activity from €110.",
+      "translation": "E-Foil в Аланье: катание и обучение. Парите над Средиземным морем на электрической гидрофойл-доске. Аренда 25 минут или аренда с курсом 40 минут. Ежедневно, от €110.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home / Water Sports /",
+      "translation": "Главная / Водные виды спорта /",
+      "kind": "text"
+    },
+    {
+      "source": "E-Foil Experience & Training",
+      "translation": "E-Foil: опыт и обучение",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "E-Foil Experience & Training in Alanya",
+      "translation": "E-Foil и обучение в Аланье",
+      "kind": "text"
+    },
+    {
+      "source": "Glide above the Mediterranean Sea",
+      "translation": "Скользите над Средиземным морем",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy a modern electric hydrofoil board experience in Alanya. Rise above the water, feel the speed and balance, and discover one of the most exciting individual water sports on the coast.",
+      "translation": "Попробуйте современную электрическую гидрофойл-доску в Аланье. Поднимитесь над водой, почувствуйте скорость и баланс и откройте для себя один из самых захватывающих индивидуальных водных видов спорта на побережье.",
+      "kind": "text"
+    },
+    {
+      "source": "From €110",
+      "translation": "От €110",
+      "kind": "text"
+    },
+    {
+      "source": "Electric Foil",
+      "translation": "Электрический фойл",
+      "kind": "text"
+    },
+    {
+      "source": "25 / 40 Min",
+      "translation": "25 / 40 мин",
+      "kind": "text"
+    },
+    {
+      "source": "Water Sports",
+      "translation": "Водные виды спорта",
+      "kind": "text"
+    },
+    {
+      "source": "E-Foil",
+      "translation": "E-Foil",
+      "kind": "text"
+    },
+    {
+      "source": "Training",
+      "translation": "Обучение",
+      "kind": "text"
+    },
+    {
+      "source": "Private Lesson",
+      "translation": "Индивидуальное занятие",
+      "kind": "text"
+    },
+    {
+      "source": "Daily Activity",
+      "translation": "Ежедневная активность",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Забронировать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About This Experience",
+      "translation": "Об этом впечатлении",
+      "kind": "text"
+    },
+    {
+      "source": "combines modern technology, balance and the feeling of flying just above the Mediterranean Sea.",
+      "translation": "сочетает современные технологии, баланс и ощущение полёта прямо над Средиземным морем.",
+      "kind": "text"
+    },
+    {
+      "source": "The electric motor drives a hydrofoil beneath the board. As speed increases, the board rises above the surface, creating a quiet and smooth gliding sensation that is completely different from a conventional board sport.",
+      "translation": "Электромотор приводит в движение гидрофойл под доской. С ростом скорости доска поднимается над поверхностью, создавая тихое и плавное ощущение скольжения, совсем не похожее на обычные виды спорта на доске.",
+      "kind": "text"
+    },
+    {
+      "source": "Beginners receive step-by-step guidance before entering the water. The 25-minute option is suitable for guests with previous board-sport experience or those choosing a short introduction. The 40-minute course provides more instructor support and practice time.",
+      "translation": "Новички получают пошаговые инструкции до выхода на воду. Вариант на 25 минут подходит гостям с опытом катания на доске или тем, кто выбирает короткое знакомство. 40-минутный курс даёт больше поддержки инструктора и времени для практики.",
+      "kind": "text"
+    },
+    {
+      "source": "Electric Freedom",
+      "translation": "Электрическая свобода",
+      "kind": "text"
+    },
+    {
+      "source": "Smooth acceleration without a tow boat or sail.",
+      "translation": "Плавное ускорение без буксировочного катера и паруса.",
+      "kind": "text"
+    },
+    {
+      "source": "Fly Above Water",
+      "translation": "Парите над водой",
+      "kind": "text"
+    },
+    {
+      "source": "Feel the board lift clear of the surface as your balance improves.",
+      "translation": "Почувствуйте, как по мере улучшения баланса доска поднимается над поверхностью воды.",
+      "kind": "text"
+    },
+    {
+      "source": "Focused Session",
+      "translation": "Сфокусированная сессия",
+      "kind": "text"
+    },
+    {
+      "source": "Choose 25 minutes or a longer 40-minute coached course.",
+      "translation": "Выберите 25 минут или более длительный 40-минутный курс с инструктором.",
+      "kind": "text"
+    },
+    {
+      "source": "Instructor Support",
+      "translation": "Поддержка инструктора",
+      "kind": "text"
+    },
+    {
+      "source": "Safety briefing, equipment setup and riding guidance are included.",
+      "translation": "Инструктаж по безопасности, настройка оборудования и рекомендации по катанию включены.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Главные впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "Premium electric hydrofoil board experience on the Mediterranean Sea.",
+      "translation": "Премиальный опыт катания на электрической гидрофойл-доске по Средиземному морю.",
+      "kind": "text"
+    },
+    {
+      "source": "Individual session with professional safety and control guidance.",
+      "translation": "Индивидуальная сессия с профессиональными инструкциями по безопасности и управлению.",
+      "kind": "text"
+    },
+    {
+      "source": "Two formats: 25-minute experience or 40-minute course.",
+      "translation": "Два формата: 25-минутное катание или 40-минутный курс.",
+      "kind": "text"
+    },
+    {
+      "source": "Suitable for confident beginners and experienced board-sport guests.",
+      "translation": "Подходит уверенным новичкам и гостям с опытом в видах спорта на доске.",
+      "kind": "text"
+    },
+    {
+      "source": "Quiet, futuristic gliding sensation above the water.",
+      "translation": "Тихое футуристичное ощущение скольжения над водой.",
+      "kind": "text"
+    },
+    {
+      "source": "FLY ABOVE THE WATER",
+      "translation": "ПАРИТЕ НАД ВОДОЙ",
+      "kind": "text"
+    },
+    {
+      "source": "MASTER THE BALANCE",
+      "translation": "ОСВОЙТЕ БАЛАНС",
+      "kind": "text"
+    },
+    {
+      "source": "Rent",
+      "translation": "Аренда",
+      "kind": "text"
+    },
+    {
+      "source": "€110",
+      "translation": "€110",
+      "kind": "text"
+    },
+    {
+      "source": "25 minutes",
+      "translation": "25 минут",
+      "kind": "text"
+    },
+    {
+      "source": "Individual activity",
+      "translation": "Индивидуальная активность",
+      "kind": "text"
+    },
+    {
+      "source": "Guidance before start",
+      "translation": "Инструктаж перед стартом",
+      "kind": "text"
+    },
+    {
+      "source": "All equipment included",
+      "translation": "Всё оборудование включено",
+      "kind": "text"
+    },
+    {
+      "source": "Rent & Course",
+      "translation": "Аренда и курс",
+      "kind": "text"
+    },
+    {
+      "source": "€160",
+      "translation": "€160",
+      "kind": "text"
+    },
+    {
+      "source": "40 minutes",
+      "translation": "40 минут",
+      "kind": "text"
+    },
+    {
+      "source": "Private lesson option",
+      "translation": "Вариант индивидуального занятия",
+      "kind": "text"
+    },
+    {
+      "source": "Professional instructor",
+      "translation": "Профессиональный инструктор",
+      "kind": "text"
+    },
+    {
+      "source": "Longer training time",
+      "translation": "Больше времени на обучение",
+      "kind": "text"
+    },
+    {
+      "source": "Schedule",
+      "translation": "Расписание",
+      "kind": "text"
+    },
+    {
+      "source": "Every day",
+      "translation": "Ежедневно",
+      "kind": "text"
+    },
+    {
+      "source": "Reservation by available time",
+      "translation": "Бронирование по доступному времени",
+      "kind": "text"
+    },
+    {
+      "source": "Activity duration: 25 or 40 minutes",
+      "translation": "Продолжительность активности: 25 или 40 минут",
+      "kind": "text"
+    },
+    {
+      "source": "Water and weather dependent",
+      "translation": "Зависит от состояния воды и погоды",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer Zone",
+      "translation": "Зона трансфера",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer availability and any additional charge depend on the hotel location",
+      "translation": "Наличие трансфера и возможная доплата зависят от расположения отеля",
+      "kind": "text"
+    },
+    {
+      "source": "Exact pickup confirmed after booking",
+      "translation": "Точный трансфер подтверждается после бронирования",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment address",
+      "translation": "Адрес отеля или апартаментов",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Включено",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer availability and any additional charge depend on the hotel location.",
+      "translation": "Наличие трансфера и возможная доплата зависят от расположения отеля.",
+      "kind": "text"
+    },
+    {
+      "source": "Activity time according to selected program: 25 or 40 minutes.",
+      "translation": "Время активности по выбранной программе: 25 или 40 минут.",
+      "kind": "text"
+    },
+    {
+      "source": "E-Foil board, controller, life jacket and required safety equipment.",
+      "translation": "E-Foil-доска, пульт управления, спасательный жилет и необходимое защитное снаряжение.",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance.",
+      "translation": "Страхование.",
+      "kind": "text"
+    },
+    {
+      "source": "Safety briefing and guidance according to the selected program.",
+      "translation": "Инструктаж и сопровождение в соответствии с выбранной программой.",
+      "kind": "text"
+    },
+    {
+      "source": "Not Included",
+      "translation": "Не включено",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photos and videos.",
+      "translation": "Профессиональные фото и видео.",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses.",
+      "translation": "Личные расходы.",
+      "kind": "text"
+    },
+    {
+      "source": "Extra services not mentioned in the selected program.",
+      "translation": "Дополнительные услуги, не указанные в выбранной программе.",
+      "kind": "text"
+    },
+    {
+      "source": "Tour Program",
+      "translation": "Программа тура",
+      "kind": "text"
+    },
+    {
+      "source": "The sequence remains the same, while exact timing may change because of weather, sea conditions, equipment preparation and the operator’s schedule.",
+      "translation": "Последовательность программы сохраняется, но точное время может меняться из-за погоды, состояния моря, подготовки оборудования и графика оператора.",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival",
+      "translation": "Прибытие",
+      "kind": "text"
+    },
+    {
+      "source": "Meeting or Confirmed Transfer",
+      "translation": "Встреча на месте или подтверждённый трансфер",
+      "kind": "text"
+    },
+    {
+      "source": "Arrive at the water sports point or use the transfer arrangement confirmed for your accommodation.",
+      "translation": "Прибудьте в центр водных видов спорта самостоятельно или воспользуйтесь трансфером, подтверждённым для вашего места проживания.",
+      "kind": "text"
+    },
+    {
+      "source": "Briefing",
+      "translation": "Инструктаж",
+      "kind": "text"
+    },
+    {
+      "source": "Safety and Control Instructions",
+      "translation": "Инструктаж по безопасности и управлению",
+      "kind": "text"
+    },
+    {
+      "source": "Learn safe falling, controller use, body position, balance and the instructor’s signals.",
+      "translation": "Освойте безопасное падение, использование пульта, положение тела, баланс и сигналы инструктора.",
+      "kind": "text"
+    },
+    {
+      "source": "Equipment",
+      "translation": "Оборудование",
+      "kind": "text"
+    },
+    {
+      "source": "Board Setup and Safety Equipment",
+      "translation": "Настройка доски и защитное снаряжение",
+      "kind": "text"
+    },
+    {
+      "source": "The team prepares the board, controller and required safety equipment for the selected session.",
+      "translation": "Команда готовит доску, пульт и необходимое защитное снаряжение для выбранной сессии.",
+      "kind": "text"
+    },
+    {
+      "source": "Practice",
+      "translation": "Практика",
+      "kind": "text"
+    },
+    {
+      "source": "Low-Speed Balance Practice",
+      "translation": "Практика баланса на низкой скорости",
+      "kind": "text"
+    },
+    {
+      "source": "Begin in a stable position and learn throttle control before attempting to stand and lift above the water.",
+      "translation": "Начните в устойчивом положении и освойте управление тягой, прежде чем пытаться встать и подняться над водой.",
+      "kind": "text"
+    },
+    {
+      "source": "Ride",
+      "translation": "Катание",
+      "kind": "text"
+    },
+    {
+      "source": "E-Foil Session",
+      "translation": "Сессия E-Foil",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy the selected 25-minute experience or the 40-minute coached course with professional support.",
+      "translation": "Насладитесь выбранной 25-минутной сессией или 40-минутным курсом с профессиональной поддержкой инструктора.",
+      "kind": "text"
+    },
+    {
+      "source": "Finish",
+      "translation": "Завершение",
+      "kind": "text"
+    },
+    {
+      "source": "Equipment Return and Feedback",
+      "translation": "Возврат оборудования и рекомендации",
+      "kind": "text"
+    },
+    {
+      "source": "Return the equipment and receive final technique recommendations from the instructor.",
+      "translation": "Верните оборудование и получите от инструктора финальные рекомендации по технике.",
+      "kind": "text"
+    },
+    {
+      "source": "The operator may shorten, delay or reschedule the session when wind, waves, visibility or equipment conditions do not allow safe operation.",
+      "translation": "Оператор может сократить, задержать или перенести сессию, если ветер, волны, видимость или состояние оборудования не позволяют безопасное проведение.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Фотогалерея",
+      "kind": "text"
+    },
+    {
+      "source": "Tour Time",
+      "translation": "Время тура",
+      "kind": "text"
+    },
+    {
+      "source": "Rent:",
+      "translation": "Аренда:",
+      "kind": "text"
+    },
+    {
+      "source": "Rent & course:",
+      "translation": "Аренда и курс:",
+      "kind": "text"
+    },
+    {
+      "source": "Days:",
+      "translation": "Дни:",
+      "kind": "text"
+    },
+    {
+      "source": "every day, weather permitting",
+      "translation": "ежедневно, при подходящей погоде",
+      "kind": "text"
+    },
+    {
+      "source": "Booking:",
+      "translation": "Бронирование:",
+      "kind": "text"
+    },
+    {
+      "source": "time confirmed after reservation",
+      "translation": "время подтверждается после бронирования",
+      "kind": "text"
+    },
+    {
+      "source": "What To Bring",
+      "translation": "Что взять с собой",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable swimwear or swim trunks",
+      "translation": "Удобный купальник или плавки",
+      "kind": "text"
+    },
+    {
+      "source": "Beach towel and dry clothes",
+      "translation": "Пляжное полотенце и сухая одежда",
+      "kind": "text"
+    },
+    {
+      "source": "SPF 50+ waterproof sunscreen",
+      "translation": "Водостойкий солнцезащитный крем SPF 50+",
+      "kind": "text"
+    },
+    {
+      "source": "Rash guard or Lycra shirt",
+      "translation": "Рашгард или лайкровая футболка",
+      "kind": "text"
+    },
+    {
+      "source": "Water bottle",
+      "translation": "Бутылка воды",
+      "kind": "text"
+    },
+    {
+      "source": "Light jacket for windy days",
+      "translation": "Лёгкая куртка на ветреную погоду",
+      "kind": "text"
+    },
+    {
+      "source": "Important Information",
+      "translation": "Важная информация",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming:",
+      "translation": "Купание:",
+      "kind": "text"
+    },
+    {
+      "source": "participants must be confident in the water",
+      "translation": "участники должны уверенно чувствовать себя в воде",
+      "kind": "text"
+    },
+    {
+      "source": "Participation:",
+      "translation": "Участие:",
+      "kind": "text"
+    },
+    {
+      "source": "subject to instructor approval, equipment fit and sea conditions",
+      "translation": "при одобрении инструктора, подходящем снаряжении и условиях на море",
+      "kind": "text"
+    },
+    {
+      "source": "Not suitable for:",
+      "translation": "Не подходит для:",
+      "kind": "text"
+    },
+    {
+      "source": "pregnancy, intoxication, serious heart conditions or recent major injuries",
+      "translation": "беременность, состояние опьянения, серьёзные заболевания сердца или недавние тяжёлые травмы",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup Information",
+      "translation": "Информация о трансфере",
+      "kind": "text"
+    },
+    {
+      "source": "Meeting point:",
+      "translation": "Место встречи:",
+      "kind": "text"
+    },
+    {
+      "source": "hotel, apartment or activity location",
+      "translation": "отель, апартаменты или место проведения активности",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer:",
+      "translation": "Трансфер:",
+      "kind": "text"
+    },
+    {
+      "source": "availability and price depend on hotel location",
+      "translation": "наличие и цена зависят от расположения отеля",
+      "kind": "text"
+    },
+    {
+      "source": "Time:",
+      "translation": "Время:",
+      "kind": "text"
+    },
+    {
+      "source": "confirmed after booking",
+      "translation": "подтверждается после бронирования",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Часто задаваемые вопросы",
+      "kind": "text"
+    },
+    {
+      "source": "Do I need previous E-Foil experience?",
+      "translation": "Нужен ли предыдущий опыт E-Foil?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "No previous E-Foil experience is required. The 40-minute course is the stronger choice for complete beginners because it provides more guided practice time.",
+      "translation": "Предыдущий опыт E-Foil не требуется. Для полных новичков лучше подходит 40-минутный курс, поскольку он даёт больше времени для практики с инструктором.",
+      "kind": "text"
+    },
+    {
+      "source": "What is the difference between the two options?",
+      "translation": "В чём разница между двумя вариантами?",
+      "kind": "text"
+    },
+    {
+      "source": "The 25-minute option is a shorter individual experience with initial guidance. The 40-minute option includes a longer coached course with more instructor support.",
+      "translation": "Вариант на 25 минут — это более короткая индивидуальная сессия с первоначальным инструктажем. Вариант на 40 минут включает более длительный курс с большей поддержкой инструктора.",
+      "kind": "text"
+    },
+    {
+      "source": "Must I be able to swim?",
+      "translation": "Нужно ли уметь плавать?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Participants must be confident in the water, able to follow safety instructions and comfortable falling into the sea while wearing a life jacket.",
+      "translation": "Да. Участники должны уверенно чувствовать себя в воде, уметь следовать инструкциям по безопасности и спокойно относиться к падению в море в спасательном жилете.",
+      "kind": "text"
+    },
+    {
+      "source": "What happens in bad weather?",
+      "translation": "Что происходит при плохой погоде?",
+      "kind": "text"
+    },
+    {
+      "source": "Strong wind, waves, poor visibility or unsafe sea conditions may cause a delay, rescheduling or cancellation. The operator’s safety decision is final.",
+      "translation": "Сильный ветер, волны, плохая видимость или небезопасные условия на море могут привести к задержке, переносу или отмене. Решение оператора по безопасности является окончательным.",
+      "kind": "text"
+    },
+    {
+      "source": "Are there age or weight restrictions?",
+      "translation": "Есть ли ограничения по возрасту или весу?",
+      "kind": "text"
+    },
+    {
+      "source": "Final participation depends on the operator’s age policy, equipment fit, body weight, swimming ability and physical condition. These details are confirmed before booking.",
+      "translation": "Окончательный допуск зависит от возрастных правил оператора, соответствия оборудования, веса, умения плавать и физического состояния. Эти детали подтверждаются до бронирования.",
+      "kind": "text"
+    },
+    {
+      "source": "Is transfer included?",
+      "translation": "Включён ли трансфер?",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer availability and any additional charge depend on the hotel location. The meeting point, pickup time and transfer terms are confirmed before booking.",
+      "translation": "Наличие трансфера и возможная доплата зависят от расположения отеля. Место встречи, время забора и условия трансфера подтверждаются до бронирования.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Есть вопросы?",
+      "kind": "text"
+    },
+    {
+      "source": "Contact us on WhatsApp — we will help you choose the best E-Foil option, training time and transfer details.",
+      "translation": "Напишите нам в WhatsApp — мы поможем выбрать лучший вариант E-Foil, время обучения и условия трансфера.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Написать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "E-Foil rider above the Mediterranean Sea",
+      "translation": "Райдер E-Foil над Средиземным морем",
+      "kind": "alt"
+    },
+    {
+      "source": "E-Foil training in Alanya",
+      "translation": "Обучение E-Foil в Аланье",
+      "kind": "alt"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Предыдущее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "E-Foil Experience in Alanya",
+      "translation": "E-Foil в Аланье",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Следующее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Миниатюры галереи",
+      "kind": "aria-label"
+    },
+    {
+      "source": "E-Foil in Alanya",
+      "translation": "E-Foil в Аланье",
+      "kind": "alt"
+    },
+    {
+      "source": "E-Foil training",
+      "translation": "Обучение E-Foil",
+      "kind": "alt"
+    },
+    {
+      "source": "Electric hydrofoil board",
+      "translation": "Электрическая гидрофойл-доска",
+      "kind": "alt"
+    },
+    {
+      "source": "E-Foil sunset ride",
+      "translation": "Катание на E-Foil на закате",
+      "kind": "alt"
+    },
+    {
+      "source": "E-Foil sea view",
+      "translation": "E-Foil с видом на море",
+      "kind": "alt"
+    },
+    {
+      "source": "E-Foil activity Alanya",
+      "translation": "E-Foil-активность в Аланье",
+      "kind": "alt"
+    }
+  ]
+}

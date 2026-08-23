@@ -1,0 +1,863 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "PL",
+  "approved_page": "cappadocia.html",
+  "approved_sha256": "d14889688640bd0fd6906d9a994423d215740fbada67d9fd5c82befd3e1f5034",
+  "entries": [
+    {
+      "source": "Cappadocia Tour from Alanya | 2 & 3 Days",
+      "translation": "Wycieczka do Kapadocji z Alanyi | 2 i 3 dni",
+      "kind": "title"
+    },
+    {
+      "source": "Discover Cappadocia from Alanya on a 2-day or seasonal 3-day tour with contracted cave-hotel accommodation, meals, drinks at the hotel, museum tickets and guided sightseeing.",
+      "translation": "Odkryj Kapadocję z Alanyi podczas 2-dniowej lub sezonowej 3-dniowej wycieczki z noclegiem w hotelu jaskiniowym, posiłkami, napojami w hotelu, biletami muzealnymi i zwiedzaniem z przewodnikiem.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › History & Culture ›",
+      "translation": "Strona główna › Historia i kultura ›",
+      "kind": "text"
+    },
+    {
+      "source": "Cappadocia",
+      "translation": "Kapadocja",
+      "kind": "text"
+    },
+    {
+      "source": "History & Culture",
+      "translation": "Historia i kultura",
+      "kind": "text"
+    },
+    {
+      "source": "Cappadocia Tour",
+      "translation": "Wycieczka do Kapadocji",
+      "kind": "text"
+    },
+    {
+      "source": "A multi-day journey through ancient settlements, fairy chimneys, underground cities and Cappadocia’s legendary volcanic landscape.",
+      "translation": "Wielodniowa podróż przez starożytne osady, kominy wróżek, podziemne miasta i legendarny wulkaniczny krajobraz Kapadocji.",
+      "kind": "text"
+    },
+    {
+      "source": "Travel from Alanya to one of Türkiye’s most remarkable historical regions. The tour combines guided sightseeing, contracted cave-hotel accommodation, meals and drinks served at the hotel, and entrance tickets for museums and archaeological sites listed in the confirmed itinerary.",
+      "translation": "Wyrusz z Alanyi do jednego z najbardziej niezwykłych historycznych regionów Turcji. Wycieczka łączy zwiedzanie z przewodnikiem, nocleg w zakontraktowanym hotelu jaskiniowym, posiłki i napoje w hotelu oraz bilety do muzeów i stanowisk archeologicznych wymienionych w potwierdzonym programie.",
+      "kind": "text"
+    },
+    {
+      "source": "2-Day / Seasonal 3-Day",
+      "translation": "2 dni / sezonowo 3 dni",
+      "kind": "text"
+    },
+    {
+      "source": "Contracted Cave Hotel",
+      "translation": "Partnerski hotel jaskiniowy",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer Included",
+      "translation": "Transfer w cenie",
+      "kind": "text"
+    },
+    {
+      "source": "Göreme",
+      "translation": "Göreme",
+      "kind": "text"
+    },
+    {
+      "source": "Underground City",
+      "translation": "Podziemne miasto",
+      "kind": "text"
+    },
+    {
+      "source": "Fairy Chimneys",
+      "translation": "Kominy wróżek",
+      "kind": "text"
+    },
+    {
+      "source": "Tickets Included",
+      "translation": "Bilety w cenie",
+      "kind": "text"
+    },
+    {
+      "source": "Dates by Confirmation",
+      "translation": "Daty po potwierdzeniu",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Zarezerwuj przez WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "O tym doświadczeniu",
+      "kind": "text"
+    },
+    {
+      "source": "Discover Cappadocia on a long-distance multi-day journey from Alanya. The region is known for its volcanic valleys, fairy chimneys, rock-cut churches, historic settlements and underground cities.",
+      "translation": "Odkryj Kapadocję podczas wielodniowej podróży z Alanyi. Region słynie z wulkanicznych dolin, kominów wróżek, kościołów wykutych w skale, historycznych osad i podziemnych miast.",
+      "kind": "text"
+    },
+    {
+      "source": "Cappadocia is one of Türkiye’s most distinctive cultural landscapes, where volcanic rock was gradually shaped by erosion into valleys, stone pillars and the formations known as fairy chimneys. Over the centuries, people carved homes, churches, monasteries and shelters directly into this soft rock, creating a landscape where nature and history remain closely connected.",
+      "translation": "Kapadocja jest jednym z najbardziej charakterystycznych krajobrazów kulturowych Turcji, gdzie skała wulkaniczna została stopniowo ukształtowana przez erozję w doliny, kamienne filary i formacje zwane kominami wróżek. Przez wieki ludzie wykuwali domy, kościoły, klasztory i schronienia bezpośrednio w miękkiej skale, tworząc krajobraz, w którym natura i historia są ściśle połączone.",
+      "kind": "text"
+    },
+    {
+      "source": "Göreme National Park and the Rock Sites of Cappadocia are included on the UNESCO World Heritage List and are recognised for their cave sanctuaries, historic settlements and extraordinary geological scenery.",
+      "translation": "Park Narodowy Göreme i skalne zabytki Kapadocji znajdują się na Liście Światowego Dziedzictwa UNESCO i są cenione za jaskiniowe sanktuaria, historyczne osady i niezwykłe krajobrazy geologiczne.",
+      "kind": "text"
+    },
+    {
+      "source": "The package includes accommodation in our contracted cave hotel, breakfast, lunch and dinner according to the confirmed program, drinks served at the hotel, and entrance tickets for museums and archaeological sites listed in the confirmed itinerary.",
+      "translation": "Pakiet obejmuje nocleg w zakontraktowanym hotelu jaskiniowym, śniadanie, obiad i kolację zgodnie z potwierdzonym programem, napoje serwowane w hotelu oraz bilety do muzeów i stanowisk archeologicznych wymienionych w potwierdzonej trasie.",
+      "kind": "text"
+    },
+    {
+      "source": "The exact underground city and the order of sightseeing stops may change because our local partner adjusts the daily route according to operating conditions, site access, season and the confirmed program.",
+      "translation": "Dokładne podziemne miasto i kolejność zwiedzania mogą się zmieniać, ponieważ lokalny partner dostosowuje trasę dnia do warunków operacyjnych, dostępu, sezonu i potwierdzonego programu.",
+      "kind": "text"
+    },
+    {
+      "source": "Hot-air balloon flights and sunrise balloon viewing are optional. They depend on weather conditions, official flight permission and local availability.",
+      "translation": "Loty balonem i oglądanie balonów o wschodzie słońca są opcjonalne. Zależą od pogody, oficjalnej zgody na loty i lokalnej dostępności.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Najważniejsze atrakcje",
+      "kind": "text"
+    },
+    {
+      "source": "Göreme and Cappadocia’s UNESCO-listed cultural landscape",
+      "translation": "Göreme i wpisany na listę UNESCO krajobraz kulturowy Kapadocji",
+      "kind": "text"
+    },
+    {
+      "source": "Rock-cut churches, valleys and famous fairy chimneys",
+      "translation": "Kościoły wykute w skale, doliny i słynne kominy wróżek",
+      "kind": "text"
+    },
+    {
+      "source": "Visit to one underground city selected for the confirmed route",
+      "translation": "Wizyta w jednym podziemnym mieście wybranym do potwierdzonej trasy",
+      "kind": "text"
+    },
+    {
+      "source": "Panoramic stops around Uçhisar, Love Valley or Pigeon Valley",
+      "translation": "Panoramiczne postoje w okolicy Uçhisar, Doliny Miłości lub Doliny Gołębi",
+      "kind": "text"
+    },
+    {
+      "source": "Avanos pottery tradition and regional craft demonstrations",
+      "translation": "Tradycja garncarska Avanos i pokazy lokalnego rzemiosła",
+      "kind": "text"
+    },
+    {
+      "source": "Accommodation in our contracted cave hotel",
+      "translation": "Nocleg w naszym zakontraktowanym hotelu jaskiniowym",
+      "kind": "text"
+    },
+    {
+      "source": "UNESCO Cultural Landscape",
+      "translation": "Krajobraz kulturowy UNESCO",
+      "kind": "text"
+    },
+    {
+      "source": "Fairy chimneys, cave heritage and unforgettable sunrise panoramas.",
+      "translation": "Kominy wróżek, jaskiniowe dziedzictwo i niezapomniane panoramy o wschodzie słońca.",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Szczegóły",
+      "kind": "text"
+    },
+    {
+      "source": "Duration: 2 days or seasonal 3 days",
+      "translation": "Czas trwania: 2 dni lub sezonowo 3 dni",
+      "kind": "text"
+    },
+    {
+      "source": "Early departure from Alanya",
+      "translation": "Wczesny wyjazd z Alanyi",
+      "kind": "text"
+    },
+    {
+      "source": "Long-distance coach journey",
+      "translation": "Długa podróż autokarem",
+      "kind": "text"
+    },
+    {
+      "source": "Exact pickup time confirmed after booking",
+      "translation": "Dokładna godzina odbioru jest potwierdzana po rezerwacji",
+      "kind": "text"
+    },
+    {
+      "source": "Operating dates must be confirmed in advance",
+      "translation": "Terminy realizacji należy potwierdzić z wyprzedzeniem",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Cena",
+      "kind": "text"
+    },
+    {
+      "source": "€100",
+      "translation": "€100",
+      "kind": "text"
+    },
+    {
+      "source": "2-Day Program",
+      "translation": "Program 2-dniowy",
+      "kind": "text"
+    },
+    {
+      "source": "€120",
+      "translation": "€120",
+      "kind": "text"
+    },
+    {
+      "source": "Seasonal 3-Day Program",
+      "translation": "Sezonowy program 3-dniowy",
+      "kind": "text"
+    },
+    {
+      "source": "Children 0–3: Free",
+      "translation": "Dzieci 0–3: bezpłatnie",
+      "kind": "text"
+    },
+    {
+      "source": "Children 4–12: Half price",
+      "translation": "Dzieci 4–12 lat: połowa ceny",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "W cenie",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel pickup and return transfer",
+      "translation": "Odbiór z hotelu i transfer powrotny",
+      "kind": "text"
+    },
+    {
+      "source": "Air-conditioned tourist bus",
+      "translation": "Klimatyzowany autokar turystyczny",
+      "kind": "text"
+    },
+    {
+      "source": "Guide service and insurance",
+      "translation": "Usługa przewodnika i ubezpieczenie",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast, lunch and dinner according to the confirmed program",
+      "translation": "Śniadanie, obiad i kolacja zgodnie z potwierdzonym programem",
+      "kind": "text"
+    },
+    {
+      "source": "Drinks served at the hotel",
+      "translation": "Napoje serwowane w hotelu",
+      "kind": "text"
+    },
+    {
+      "source": "All museum and archaeological-site entrance tickets listed in the confirmed itinerary",
+      "translation": "Wszystkie bilety do muzeów i stanowisk archeologicznych wymienionych w potwierdzonym programie",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Nie w cenie",
+      "kind": "text"
+    },
+    {
+      "source": "Optional sunrise balloon-viewing transfer and panoramic viewpoint: €30, paid locally",
+      "translation": "Opcjonalny transfer na obserwację balonów o wschodzie słońca i punkt panoramiczny: €30, płatne na miejscu",
+      "kind": "text"
+    },
+    {
+      "source": "Optional hot-air balloon flight: approximately €150–€200, paid locally",
+      "translation": "Opcjonalny lot balonem: około €150–€200, płatne na miejscu",
+      "kind": "text"
+    },
+    {
+      "source": "Drinks purchased during the journey, at roadside stops or outside the hotel",
+      "translation": "Napoje kupowane podczas podróży, na postojach lub poza hotelem",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photography and personal expenses",
+      "translation": "Profesjonalne zdjęcia i wydatki osobiste",
+      "kind": "text"
+    },
+    {
+      "source": "The order of visits may change according to the confirmed route, weather, operating conditions and the local partner’s daily program.",
+      "translation": "Kolejność zwiedzania może się zmieniać zależnie od potwierdzonej trasy, pogody, warunków operacyjnych i programu lokalnego partnera.",
+      "kind": "text"
+    },
+    {
+      "source": "Departure and return times are approximate and depend on the pickup area, traffic and the final operating schedule.",
+      "translation": "Godziny wyjazdu i powrotu są orientacyjne i zależą od strefy odbioru, ruchu i ostatecznego harmonogramu.",
+      "kind": "text"
+    },
+    {
+      "source": "1",
+      "translation": "1",
+      "kind": "text"
+    },
+    {
+      "source": "Day One",
+      "translation": "Dzień pierwszy",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel pickup and departure from Alanya",
+      "translation": "Odbiór z hotelu i wyjazd z Alanyi",
+      "kind": "text"
+    },
+    {
+      "source": "Early-morning pickup from the confirmed hotel or apartment, followed by the long-distance journey toward Cappadocia.",
+      "translation": "Wczesny odbiór z potwierdzonego hotelu lub apartamentu, a następnie długa podróż w kierunku Kapadocji.",
+      "kind": "text"
+    },
+    {
+      "source": "Roadside breaks and route meals",
+      "translation": "Postoje i posiłki po drodze",
+      "kind": "text"
+    },
+    {
+      "source": "Comfort breaks are arranged during the journey. Drinks purchased at roadside stops are paid separately.",
+      "translation": "Podczas podróży przewidziane są postoje na odpoczynek. Napoje kupione na postojach są płatne osobno.",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival and Cappadocia sightseeing",
+      "translation": "Przyjazd i zwiedzanie Kapadocji",
+      "kind": "text"
+    },
+    {
+      "source": "Begin the confirmed regional program with selected panoramic viewpoints, valleys, rock formations and cultural stops.",
+      "translation": "Rozpoczęcie potwierdzonego programu regionalnego z wybranymi punktami panoramicznymi, dolinami, formacjami skalnymi i przystankami kulturowymi.",
+      "kind": "text"
+    },
+    {
+      "source": "Underground city",
+      "translation": "Podziemne miasto",
+      "kind": "text"
+    },
+    {
+      "source": "Visit one of Cappadocia’s underground cities. The exact site is selected by the local partner according to current access and the confirmed route.",
+      "translation": "Odwiedź jedno z podziemnych miast Kapadocji. Konkretne miejsce wybiera lokalny partner zgodnie z bieżącym dostępem i potwierdzoną trasą.",
+      "kind": "text"
+    },
+    {
+      "source": "Cave-hotel check-in and dinner",
+      "translation": "Zameldowanie w hotelu jaskiniowym i kolacja",
+      "kind": "text"
+    },
+    {
+      "source": "Accommodation in our contracted cave hotel. Dinner and drinks served at the hotel are included.",
+      "translation": "Nocleg w naszym zakontraktowanym hotelu jaskiniowym. Kolacja i napoje serwowane w hotelu są w cenie.",
+      "kind": "text"
+    },
+    {
+      "source": "2",
+      "translation": "2",
+      "kind": "text"
+    },
+    {
+      "source": "Day Two",
+      "translation": "Dzień drugi",
+      "kind": "text"
+    },
+    {
+      "source": "Optional sunrise balloon viewing",
+      "translation": "Opcjonalne oglądanie balonów o wschodzie słońca",
+      "kind": "text"
+    },
+    {
+      "source": "Guests may join the optional €30 local transfer to a panoramic balloon-viewing area. The fee includes local transport and access to the viewing area. Balloon operations depend on weather and official permission.",
+      "translation": "Goście mogą skorzystać z opcjonalnego lokalnego transferu za €30 do panoramicznego miejsca obserwacji balonów. Opłata obejmuje transport lokalny i dostęp do punktu. Loty zależą od pogody i oficjalnej zgody.",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast at the hotel",
+      "translation": "Śniadanie w hotelu",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast and drinks served at the hotel are included.",
+      "translation": "Śniadanie i napoje serwowane w hotelu są w cenie.",
+      "kind": "text"
+    },
+    {
+      "source": "Göreme and regional highlights",
+      "translation": "Göreme i najważniejsze atrakcje regionu",
+      "kind": "text"
+    },
+    {
+      "source": "Continue with the confirmed sightseeing program, which may include rock-cut churches, fairy chimneys, panoramic valleys, Uçhisar and Avanos.",
+      "translation": "Kontynuacja potwierdzonego programu zwiedzania, który może obejmować kościoły wykute w skale, kominy wróżek, panoramiczne doliny, Uçhisar i Avanos.",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch",
+      "translation": "Obiad",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch is included according to the confirmed program.",
+      "translation": "Obiad jest w cenie zgodnie z potwierdzonym programem.",
+      "kind": "text"
+    },
+    {
+      "source": "Return to Alanya",
+      "translation": "Powrót do Alanyi",
+      "kind": "text"
+    },
+    {
+      "source": "Departure from Cappadocia after the final scheduled stop and evening return to the pickup area.",
+      "translation": "Wyjazd z Kapadocji po ostatnim zaplanowanym postoju i wieczorny powrót do strefy odbioru.",
+      "kind": "text"
+    },
+    {
+      "source": "The 3-day version is seasonal and must be confirmed in advance. It follows the same service principles as the 2-day tour, with an additional hotel night and more time for the confirmed Cappadocia route.",
+      "translation": "Wersja 3-dniowa jest sezonowa i wymaga wcześniejszego potwierdzenia. Obejmuje te same zasady usług co wycieczka 2-dniowa, z dodatkową nocą w hotelu i większą ilością czasu na potwierdzoną trasę Kapadocji.",
+      "kind": "text"
+    },
+    {
+      "source": "The exact attractions and their order are determined by the local partner. The underground city may change when access conditions or the operating program changes.",
+      "translation": "Konkretne atrakcje i ich kolejność ustala lokalny partner. Podziemne miasto może się zmienić przy zmianie warunków dostępu lub programu operacyjnego.",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup and journey to Cappadocia",
+      "translation": "Odbiór i podróż do Kapadocji",
+      "kind": "text"
+    },
+    {
+      "source": "Early departure from Alanya with planned comfort and meal stops along the route.",
+      "translation": "Wczesny wyjazd z Alanyi z planowanymi postojami na odpoczynek i posiłki.",
+      "kind": "text"
+    },
+    {
+      "source": "First sightseeing program",
+      "translation": "Pierwszy program zwiedzania",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival in the region and visits to selected panoramic, cultural and geological landmarks according to the confirmed itinerary.",
+      "translation": "Przyjazd do regionu i zwiedzanie wybranych panoramicznych, kulturowych i geologicznych miejsc zgodnie z potwierdzonym programem.",
+      "kind": "text"
+    },
+    {
+      "source": "Cave-hotel check-in",
+      "translation": "Zameldowanie w hotelu jaskiniowym",
+      "kind": "text"
+    },
+    {
+      "source": "Dinner and drinks served at the hotel are included.",
+      "translation": "Kolacja i napoje serwowane w hotelu są w cenie.",
+      "kind": "text"
+    },
+    {
+      "source": "Optional balloon activities",
+      "translation": "Opcjonalne aktywności balonowe",
+      "kind": "text"
+    },
+    {
+      "source": "Optional sunrise viewing and balloon flights are paid locally and operate only when weather conditions and official flight permission allow.",
+      "translation": "Opcjonalne oglądanie wschodu słońca i loty balonem są płatne na miejscu i odbywają się tylko przy odpowiedniej pogodzie oraz oficjalnej zgodzie na loty.",
+      "kind": "text"
+    },
+    {
+      "source": "Full regional sightseeing day",
+      "translation": "Całodniowe zwiedzanie regionu",
+      "kind": "text"
+    },
+    {
+      "source": "Visit the confirmed combination of underground city, valleys, rock-cut sites, Göreme-area attractions, Uçhisar, Avanos and regional viewpoints.",
+      "translation": "Odwiedź potwierdzoną kombinację podziemnego miasta, dolin, miejsc skalnych, atrakcji okolic Göreme, Uçhisar, Avanos i regionalnych punktów widokowych.",
+      "kind": "text"
+    },
+    {
+      "source": "Meals and second hotel night",
+      "translation": "Posiłki i druga noc w hotelu",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast, lunch and dinner are included according to the confirmed program. Drinks served at the hotel are included.",
+      "translation": "Śniadanie, obiad i kolacja są w cenie zgodnie z potwierdzonym programem. Napoje serwowane w hotelu są w cenie.",
+      "kind": "text"
+    },
+    {
+      "source": "3",
+      "translation": "3",
+      "kind": "text"
+    },
+    {
+      "source": "Day Three",
+      "translation": "Dzień trzeci",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast and final visits",
+      "translation": "Śniadanie i ostatnie wizyty",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast at the hotel followed by the remaining stops in the confirmed program.",
+      "translation": "Śniadanie w hotelu, a następnie pozostałe postoje z potwierdzonego programu.",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch and departure",
+      "translation": "Obiad i wyjazd",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch is included according to the program before the return journey.",
+      "translation": "Obiad jest w cenie zgodnie z programem przed podróżą powrotną.",
+      "kind": "text"
+    },
+    {
+      "source": "Evening arrival is approximate and may vary by traffic, route and hotel location.",
+      "translation": "Wieczorna godzina przyjazdu jest orientacyjna i może się zmieniać zależnie od ruchu, trasy i lokalizacji hotelu.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Galeria zdjęć",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Czas wycieczki",
+      "kind": "text"
+    },
+    {
+      "source": "2 Days Program:",
+      "translation": "Program 2-dniowy:",
+      "kind": "text"
+    },
+    {
+      "source": "Early departure; return on Day 2",
+      "translation": "Wczesny wyjazd; powrót 2. dnia",
+      "kind": "text"
+    },
+    {
+      "source": "Available:",
+      "translation": "Dostępne:",
+      "kind": "text"
+    },
+    {
+      "source": "Confirm in advance",
+      "translation": "Potwierdź z wyprzedzeniem",
+      "kind": "text"
+    },
+    {
+      "source": "3 Days Program:",
+      "translation": "Program 3-dniowy:",
+      "kind": "text"
+    },
+    {
+      "source": "Early departure; return on Day 3",
+      "translation": "Wczesny wyjazd; powrót 3. dnia",
+      "kind": "text"
+    },
+    {
+      "source": "Seasonal — confirm in advance",
+      "translation": "Sezonowo — potwierdź wcześniej",
+      "kind": "text"
+    },
+    {
+      "source": "* The 3-day program is seasonal and may not be available every week. Please contact us before booking.",
+      "translation": "* Program 3-dniowy jest sezonowy i może nie być dostępny co tydzień. Skontaktuj się z nami przed rezerwacją.",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Co zabrać ze sobą",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable Walking Shoes",
+      "translation": "Wygodne buty do chodzenia",
+      "kind": "text"
+    },
+    {
+      "source": "Weather-Appropriate Clothing",
+      "translation": "Odzież odpowiednia do pogody",
+      "kind": "text"
+    },
+    {
+      "source": "Sunscreen",
+      "translation": "Krem z filtrem",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Okulary przeciwsłoneczne",
+      "kind": "text"
+    },
+    {
+      "source": "Refillable Water Bottle",
+      "translation": "Butelka na wodę wielokrotnego użytku",
+      "kind": "text"
+    },
+    {
+      "source": "Camera or Smartphone",
+      "translation": "Aparat lub smartfon",
+      "kind": "text"
+    },
+    {
+      "source": "Power Bank",
+      "translation": "Powerbank",
+      "kind": "text"
+    },
+    {
+      "source": "Personal Medications (if required)",
+      "translation": "Leki osobiste (w razie potrzeby)",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Zasady dla dzieci",
+      "kind": "text"
+    },
+    {
+      "source": "0–3 Years:",
+      "translation": "0–3 lata:",
+      "kind": "text"
+    },
+    {
+      "source": "Free",
+      "translation": "Bezpłatnie",
+      "kind": "text"
+    },
+    {
+      "source": "4–12 Years:",
+      "translation": "4–12 lat:",
+      "kind": "text"
+    },
+    {
+      "source": "Half Price",
+      "translation": "Połowa ceny",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Informacje o odbiorze",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from Hotels or Apartments Included.",
+      "translation": "Odbiór z hoteli lub apartamentów w cenie.",
+      "kind": "text"
+    },
+    {
+      "source": "Exact Pickup Time Confirmed After Booking.",
+      "translation": "Dokładna godzina odbioru jest potwierdzana po rezerwacji.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Najczęściej zadawane pytania",
+      "kind": "text"
+    },
+    {
+      "source": "Are museum and archaeological-site tickets included?",
+      "translation": "Czy bilety do muzeów i stanowisk archeologicznych są w cenie?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Entrance tickets for museums and archaeological sites listed in the confirmed itinerary are included in the tour price.",
+      "translation": "Tak. Bilety do muzeów i stanowisk archeologicznych wymienionych w potwierdzonym programie są w cenie wycieczki.",
+      "kind": "text"
+    },
+    {
+      "source": "Which underground city will we visit?",
+      "translation": "Które podziemne miasto odwiedzimy?",
+      "kind": "text"
+    },
+    {
+      "source": "The exact underground city may change. Our local partner selects the site according to the confirmed route, current access conditions and the operating program.",
+      "translation": "Konkretne podziemne miasto może się zmienić. Lokalny partner wybiera miejsce na podstawie potwierdzonej trasy, aktualnych warunków dostępu i programu operacyjnego.",
+      "kind": "text"
+    },
+    {
+      "source": "What is included at the cave hotel?",
+      "translation": "Co obejmuje pobyt w hotelu jaskiniowym?",
+      "kind": "text"
+    },
+    {
+      "source": "Accommodation in our contracted cave hotel is included. Breakfast, lunch and dinner are included according to the confirmed program, and drinks served at the hotel are included.",
+      "translation": "Nocleg w naszym zakontraktowanym hotelu jaskiniowym jest w cenie. Śniadanie, obiad i kolacja są w cenie zgodnie z potwierdzonym programem, podobnie jak napoje serwowane w hotelu.",
+      "kind": "text"
+    },
+    {
+      "source": "Are drinks included during the journey?",
+      "translation": "Czy napoje podczas podróży są w cenie?",
+      "kind": "text"
+    },
+    {
+      "source": "No. Drinks purchased during the road journey, at roadside stops or outside the hotel are paid separately.",
+      "translation": "Nie. Napoje kupione podczas podróży, na postojach lub poza hotelem są płatne osobno.",
+      "kind": "text"
+    },
+    {
+      "source": "What does the €30 sunrise balloon-viewing option include?",
+      "translation": "Co obejmuje opcja obserwacji balonów o wschodzie słońca za €30?",
+      "kind": "text"
+    },
+    {
+      "source": "It includes local transport from the hotel area and access to a panoramic viewing location. It is paid directly to the local organisers in Cappadocia. Guests may take their own photographs; professional photography may be purchased separately.",
+      "translation": "Opcja obejmuje lokalny transfer z okolicy hotelu i dostęp do panoramicznego punktu widokowego. Opłata jest przekazywana bezpośrednio lokalnym organizatorom w Kapadocji. Goście mogą robić własne zdjęcia; profesjonalną sesję można kupić osobno.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the balloon flight included?",
+      "translation": "Czy lot balonem jest w cenie?",
+      "kind": "text"
+    },
+    {
+      "source": "No. The optional balloon flight costs approximately €150–€200 and is paid locally. The final price is set by the balloon operator and may vary by season, demand and availability.",
+      "translation": "Nie. Opcjonalny lot balonem kosztuje około €150–€200 i jest płatny na miejscu. Ostateczną cenę ustala operator balonu; może się ona zmieniać zależnie od sezonu, popytu i dostępności.",
+      "kind": "text"
+    },
+    {
+      "source": "Are balloon activities guaranteed?",
+      "translation": "Czy aktywności balonowe są gwarantowane?",
+      "kind": "text"
+    },
+    {
+      "source": "No. Balloon flights and balloon viewing depend on weather, official flight permission and local operating conditions.",
+      "translation": "Nie. Loty i obserwacja balonów zależą od pogody, oficjalnej zgody na loty i lokalnych warunków operacyjnych.",
+      "kind": "text"
+    },
+    {
+      "source": "Which days does the tour operate?",
+      "translation": "W jakie dni odbywa się wycieczka?",
+      "kind": "text"
+    },
+    {
+      "source": "Operating days may change because of season, weather and the local partner’s schedule. Availability must be confirmed before booking.",
+      "translation": "Dni realizacji mogą się zmieniać z powodu sezonu, pogody i harmonogramu lokalnego partnera. Dostępność należy potwierdzić przed rezerwacją.",
+      "kind": "text"
+    },
+    {
+      "source": "Is this a long journey?",
+      "translation": "Czy to długa podróż?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. This is a long-distance multi-day tour with early departures and extended coach travel. Comfortable clothing and preparation for a long road journey are recommended.",
+      "translation": "Tak. To wielodniowa wycieczka dalekobieżna z wczesnymi wyjazdami i długimi przejazdami autokarem. Zalecana jest wygodna odzież i przygotowanie do długiej drogi.",
+      "kind": "text"
+    },
+    {
+      "source": "When will I receive my exact pickup time?",
+      "translation": "Kiedy otrzymam dokładną godzinę odbioru?",
+      "kind": "text"
+    },
+    {
+      "source": "The exact pickup time is confirmed after booking and depends on the hotel or apartment location.",
+      "translation": "Dokładna godzina odbioru jest potwierdzana po rezerwacji i zależy od lokalizacji hotelu lub apartamentu.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Masz pytania?",
+      "kind": "text"
+    },
+    {
+      "source": "Contact us on WhatsApp for availability, hotel details, pickup times and current 3-day program information.",
+      "translation": "Skontaktuj się z nami na WhatsApp, aby sprawdzić dostępność, szczegóły hotelu, godziny odbioru i aktualne informacje o programie 3-dniowym.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Napisz na WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Key tour advantages",
+      "translation": "Najważniejsze zalety wycieczki",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Hot-air balloons above Cappadocia at sunrise",
+      "translation": "Balony nad Kapadocją o wschodzie słońca",
+      "kind": "alt"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Poprzednie zdjęcie",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Hot Air Balloons",
+      "translation": "Balony na ogrzane powietrze",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Następne zdjęcie",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Miniatury galerii",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Göreme Open Air Museum",
+      "translation": "Muzeum na świeżym powietrzu Göreme",
+      "kind": "alt"
+    },
+    {
+      "source": "Rock Churches and Frescoes",
+      "translation": "Kościoły skalne i freski",
+      "kind": "alt"
+    },
+    {
+      "source": "Avanos Pottery and Onyx Factory",
+      "translation": "Garncarstwo Avanos i fabryka onyksu",
+      "kind": "alt"
+    },
+    {
+      "source": "Balloon Viewpoint",
+      "translation": "Punkt widokowy na balony",
+      "kind": "alt"
+    },
+    {
+      "source": "Essential tour information",
+      "translation": "Najważniejsze informacje o wycieczce",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Close gallery",
+      "translation": "Zamknij galerię",
+      "kind": "aria-label"
+    }
+  ]
+}

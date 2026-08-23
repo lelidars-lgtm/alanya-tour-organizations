@@ -1,0 +1,853 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "PL",
+  "approved_page": "personal-concierge.html",
+  "approved_sha256": "d63d20d2d8951ef1576dcfdf81e68010eef6e5f551576830a6ba67284cf7ccae",
+  "entries": [
+    {
+      "source": "Personal Concierge in Turkey | ALANYA TOUR ORGANIZATIONS",
+      "translation": "Personal Concierge w Turcji | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "Private chauffeur and personal concierge service in Alanya for custom routes, business appointments, shopping, family journeys and selected intercity travel.",
+      "translation": "Prywatny kierowca i usługa personal concierge w Alanyi dla indywidualnych tras, spotkań biznesowych, zakupów, podróży rodzinnych i wybranych przejazdów międzymiastowych.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home ›",
+      "translation": "Strona główna ›",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Services",
+      "translation": "Usługi VIP",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Personal Concierge",
+      "translation": "Osobisty concierge",
+      "kind": "text"
+    },
+    {
+      "source": "Private Chauffeur & VIP Concierge",
+      "translation": "Prywatny kierowca i VIP Concierge",
+      "kind": "text"
+    },
+    {
+      "source": "One Chauffeur. Unlimited Possibilities.",
+      "translation": "Jeden kierowca. Nieograniczone możliwości.",
+      "kind": "text"
+    },
+    {
+      "source": "Private chauffeur and journey-coordination service for custom routes, business plans, family travel and selected intercity journeys.",
+      "translation": "Prywatny kierowca i koordynacja podróży dla indywidualnych tras, planów biznesowych, podróży rodzinnych i wybranych przejazdów międzymiastowych.",
+      "kind": "text"
+    },
+    {
+      "source": "A tailor-made private chauffeur service with flexible routing, a confirmed vehicle class and personal journey coordination before and during the booked service period.",
+      "translation": "Indywidualna usługa prywatnego kierowcy z elastyczną trasą, potwierdzoną klasą pojazdu i osobistą koordynacją przed i w trakcie zarezerwowanego okresu.",
+      "kind": "text"
+    },
+    {
+      "source": "ON REQUEST",
+      "translation": "NA ŻYCZENIE",
+      "kind": "text"
+    },
+    {
+      "source": "PREMIUM VEHICLE",
+      "translation": "POJAZD PREMIUM",
+      "kind": "text"
+    },
+    {
+      "source": "CUSTOM ROUTE",
+      "translation": "INDYWIDUALNA TRASA",
+      "kind": "text"
+    },
+    {
+      "source": "PRIVATE CHAUFFEUR",
+      "translation": "PRYWATNY KIEROWCA",
+      "kind": "text"
+    },
+    {
+      "source": "S-CLASS / V-CLASS",
+      "translation": "S-CLASS / V-CLASS",
+      "kind": "text"
+    },
+    {
+      "source": "LONG DISTANCE",
+      "translation": "DŁUGIE TRASY",
+      "kind": "text"
+    },
+    {
+      "source": "BUSINESS TRIPS",
+      "translation": "PODRÓŻE BIZNESOWE",
+      "kind": "text"
+    },
+    {
+      "source": "FAMILY TRAVEL",
+      "translation": "PODRÓŻE RODZINNE",
+      "kind": "text"
+    },
+    {
+      "source": "SHOPPING",
+      "translation": "ZAKUPY",
+      "kind": "text"
+    },
+    {
+      "source": "CITY CONCIERGE",
+      "translation": "CONCIERGE MIEJSKI",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Zarezerwuj przez WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About This Service",
+      "translation": "O tej usłudze",
+      "kind": "text"
+    },
+    {
+      "source": "Personal Concierge is a private chauffeur and journey-coordination service arranged around an individual itinerary.",
+      "translation": "Personal Concierge to usługa prywatnego kierowcy i koordynacji podróży zorganizowana wokół indywidualnego planu.",
+      "kind": "text"
+    },
+    {
+      "source": "The service can be requested for business appointments, shopping, restaurant evenings, family travel, airport connections, intercity journeys and transportation to a clinic or medical appointment.",
+      "translation": "Usługę można zamówić na spotkania biznesowe, zakupy, wieczory w restauracji, podróże rodzinne, transfery lotniskowe, przejazdy międzymiastowe oraz do kliniki lub na wizytę medyczną.",
+      "kind": "text"
+    },
+    {
+      "source": "It provides transportation and route coordination only. It does not include medical care, interpreting, legal representation, security services or unrestricted personal assistance unless a separate service is specifically confirmed.",
+      "translation": "Usługa obejmuje wyłącznie transport i koordynację trasy. Pomoc medyczna, tłumaczenie, reprezentacja prawna, ochrona ani nieograniczona pomoc osobista nie są wliczone, chyba że osobna usługa została wyraźnie potwierdzona.",
+      "kind": "text"
+    },
+    {
+      "source": "The route, service hours, waiting time, vehicle class, passenger capacity, luggage allowance and final price are confirmed before booking. Long-distance and intercity requests remain subject to vehicle, driver and route availability.",
+      "translation": "Trasa, godziny usługi, czas oczekiwania, klasa pojazdu, liczba pasażerów, bagaż i ostateczna cena są potwierdzane przed rezerwacją. Przejazdy długodystansowe i międzymiastowe zależą od dostępności pojazdu, kierowcy i trasy.",
+      "kind": "text"
+    },
+    {
+      "source": "Private Itinerary",
+      "translation": "Indywidualny plan podróży",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup, route, stops and timing planned around your request.",
+      "translation": "Odbiór, trasa, postoje i harmonogram są planowane zgodnie z Twoim życzeniem.",
+      "kind": "text"
+    },
+    {
+      "source": "Dedicated Chauffeur",
+      "translation": "Dedykowany kierowca",
+      "kind": "text"
+    },
+    {
+      "source": "Private driver service for the confirmed booking period.",
+      "translation": "Usługa prywatnego kierowcy na potwierdzony okres rezerwacji.",
+      "kind": "text"
+    },
+    {
+      "source": "Flexible Format",
+      "translation": "Elastyczny format",
+      "kind": "text"
+    },
+    {
+      "source": "Hourly, daily or intercity service when available.",
+      "translation": "Usługa godzinowa, dzienna lub międzymiastowa, jeśli dostępna.",
+      "kind": "text"
+    },
+    {
+      "source": "Written Confirmation",
+      "translation": "Pisemne potwierdzenie",
+      "kind": "text"
+    },
+    {
+      "source": "Vehicle class, route, inclusions and price agreed in advance.",
+      "translation": "Klasa pojazdu, trasa, zakres usług i cena są ustalane z wyprzedzeniem.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Najważniejsze atrakcje",
+      "kind": "text"
+    },
+    {
+      "source": "Private chauffeur service without shared passengers.",
+      "translation": "Prywatny kierowca bez współdzielonych pasażerów.",
+      "kind": "text"
+    },
+    {
+      "source": "Hourly, daily and selected intercity formats.",
+      "translation": "Format godzinowy, dzienny i wybrane trasy międzymiastowe.",
+      "kind": "text"
+    },
+    {
+      "source": "Business, shopping, dining and family itineraries.",
+      "translation": "Trasy biznesowe, zakupowe, restauracyjne i rodzinne.",
+      "kind": "text"
+    },
+    {
+      "source": "Airport, hotel, villa and confirmed private-address pickup.",
+      "translation": "Odbiór z lotniska, hotelu, willi i potwierdzonego prywatnego adresu.",
+      "kind": "text"
+    },
+    {
+      "source": "Flexible stops and waiting time when agreed in advance.",
+      "translation": "Elastyczne postoje i czas oczekiwania, jeśli uzgodnione wcześniej.",
+      "kind": "text"
+    },
+    {
+      "source": "Vehicle class and capacity confirmed before booking.",
+      "translation": "Klasa i pojemność pojazdu są potwierdzane przed rezerwacją.",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR ROUTE. YOUR TIME.",
+      "translation": "TWOJA TRASA. TWÓJ CZAS.",
+      "kind": "text"
+    },
+    {
+      "source": "What Can Your Personal Concierge Help With?",
+      "translation": "W czym może pomóc Twój Personal Concierge?",
+      "kind": "text"
+    },
+    {
+      "source": "Your private chauffeur is more than a driver — enjoy a dedicated concierge service designed around your schedule, comfort and personal needs.",
+      "translation": "Twój prywatny kierowca to więcej niż kierowca — korzystaj z dedykowanej usługi concierge dopasowanej do harmonogramu, komfortu i osobistych potrzeb.",
+      "kind": "text"
+    },
+    {
+      "source": "Clinic & Medical Appointments",
+      "translation": "Kliniki i wizyty medyczne",
+      "kind": "text"
+    },
+    {
+      "source": "Private transportation to clinics, hospitals, check-ups or appointments, with agreed waiting time and return travel. Medical assistance is not included.",
+      "translation": "Prywatny transport do klinik, szpitali, na badania lub wizyty z uzgodnionym czasem oczekiwania i powrotem. Pomoc medyczna nie jest wliczona.",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury Shopping",
+      "translation": "Luksusowe zakupy",
+      "kind": "text"
+    },
+    {
+      "source": "Private chauffeur service for boutiques and shopping centres, with agreed waiting time and luggage space confirmed before booking.",
+      "translation": "Prywatny kierowca do butików i centrów handlowych, z uzgodnionym czasem oczekiwania i przestrzenią bagażową potwierdzoną przed rezerwacją.",
+      "kind": "text"
+    },
+    {
+      "source": "Business & VIP Meetings",
+      "translation": "Spotkania biznesowe i VIP",
+      "kind": "text"
+    },
+    {
+      "source": "Discreet scheduled transportation for meetings, conferences and corporate appointments.",
+      "translation": "Dyskretny, zaplanowany transport na spotkania, konferencje i wydarzenia firmowe.",
+      "kind": "text"
+    },
+    {
+      "source": "Selected Intercity Trips",
+      "translation": "Wybrane przejazdy międzymiastowe",
+      "kind": "text"
+    },
+    {
+      "source": "Long-distance journeys can be arranged for selected destinations, subject to route, driver and vehicle availability.",
+      "translation": "Długie przejazdy mogą być organizowane do wybranych miejsc, zależnie od dostępności trasy, kierowcy i pojazdu.",
+      "kind": "text"
+    },
+    {
+      "source": "Restaurants & Evening Experiences",
+      "translation": "Restauracje i wieczorne atrakcje",
+      "kind": "text"
+    },
+    {
+      "source": "Private transport for restaurants, celebrations and evening events, with waiting time and return journey agreed in advance.",
+      "translation": "Prywatny transport do restauracji, na uroczystości i wydarzenia wieczorne z uzgodnionym wcześniej czasem oczekiwania i powrotem.",
+      "kind": "text"
+    },
+    {
+      "source": "Airport Meet & Greet",
+      "translation": "Powitanie na lotnisku",
+      "kind": "text"
+    },
+    {
+      "source": "Airport connections with confirmed meeting instructions, luggage arrangements and direct travel to the agreed destination.",
+      "translation": "Transfery lotniskowe z potwierdzonymi instrukcjami spotkania, ustaleniami bagażowymi i bezpośrednim przejazdem do uzgodnionego celu.",
+      "kind": "text"
+    },
+    {
+      "source": "Family & Personal Assistance",
+      "translation": "Wsparcie rodzinne i osobiste",
+      "kind": "text"
+    },
+    {
+      "source": "Private transportation for families and personal schedules, including agreed stops and child-seat requests.",
+      "translation": "Prywatny transport dla rodzin i osobistych planów, w tym uzgodnione postoje i prośby o fotelik dziecięcy.",
+      "kind": "text"
+    },
+    {
+      "source": "Completely Customized Service",
+      "translation": "W pełni spersonalizowana usługa",
+      "kind": "text"
+    },
+    {
+      "source": "Send the itinerary and required service details. The route, vehicle, schedule and price are confirmed individually.",
+      "translation": "Wyślij plan i wymagane szczegóły usługi. Trasa, pojazd, harmonogram i cena są potwierdzane indywidualnie.",
+      "kind": "text"
+    },
+    {
+      "source": "Service",
+      "translation": "Obsługa",
+      "kind": "text"
+    },
+    {
+      "source": "Private chauffeur and route coordination",
+      "translation": "Prywatny kierowca i koordynacja trasy",
+      "kind": "text"
+    },
+    {
+      "source": "Hourly, daily or selected intercity format",
+      "translation": "Format godzinowy, dzienny lub wybrane trasy międzymiastowe",
+      "kind": "text"
+    },
+    {
+      "source": "Advance reservation required",
+      "translation": "Wymagana wcześniejsza rezerwacja",
+      "kind": "text"
+    },
+    {
+      "source": "Service scope confirmed in writing",
+      "translation": "Zakres usługi jest potwierdzany pisemnie",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Cena",
+      "kind": "text"
+    },
+    {
+      "source": "On Request",
+      "translation": "Na życzenie",
+      "kind": "text"
+    },
+    {
+      "source": "Final cost depends on route, vehicle class, duration, waiting time, tolls, parking, overnight requirements and additional stops.",
+      "translation": "Ostateczny koszt zależy od trasy, klasy pojazdu, czasu, oczekiwania, opłat drogowych, parkingu, potrzeby noclegu i dodatkowych postojów.",
+      "kind": "text"
+    },
+    {
+      "source": "Vehicle",
+      "translation": "Pojazd",
+      "kind": "text"
+    },
+    {
+      "source": "Premium sedan or minivan class",
+      "translation": "Sedan premium lub minivan",
+      "kind": "text"
+    },
+    {
+      "source": "Specific model subject to written confirmation",
+      "translation": "Konkretny model zależy od pisemnego potwierdzenia",
+      "kind": "text"
+    },
+    {
+      "source": "Capacity matched to passengers and luggage",
+      "translation": "Pojemność dopasowana do pasażerów i bagażu",
+      "kind": "text"
+    },
+    {
+      "source": "Child seat on advance request",
+      "translation": "Fotelik dziecięcy na wcześniejsze życzenie",
+      "kind": "text"
+    },
+    {
+      "source": "Not Automatically Included",
+      "translation": "Nie jest automatycznie wliczone",
+      "kind": "text"
+    },
+    {
+      "source": "Medical or nursing assistance",
+      "translation": "Pomoc medyczna lub pielęgniarska",
+      "kind": "text"
+    },
+    {
+      "source": "Interpreter or licensed guide",
+      "translation": "Tłumacz lub licencjonowany przewodnik",
+      "kind": "text"
+    },
+    {
+      "source": "Security or bodyguard service",
+      "translation": "Ochrona lub usługa bodyguarda",
+      "kind": "text"
+    },
+    {
+      "source": "Entrance tickets, meals and personal purchases",
+      "translation": "Bilety wstępu, posiłki i zakupy osobiste",
+      "kind": "text"
+    },
+    {
+      "source": "Service Program",
+      "translation": "Program usługi",
+      "kind": "text"
+    },
+    {
+      "source": "Every concierge booking is custom. The sequence below shows the standard planning process.",
+      "translation": "Każda rezerwacja concierge jest indywidualna. Poniżej pokazano standardowy proces planowania.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 1",
+      "translation": "Krok 1",
+      "kind": "text"
+    },
+    {
+      "source": "Send Your Request",
+      "translation": "Wyślij zapytanie",
+      "kind": "text"
+    },
+    {
+      "source": "Provide the date, pickup point, destination, passenger count, luggage, required stops, waiting time and special requests.",
+      "translation": "Podaj datę, miejsce odbioru, cel podróży, liczbę pasażerów, bagaż, wymagane postoje, czas oczekiwania i specjalne życzenia.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 2",
+      "translation": "Krok 2",
+      "kind": "text"
+    },
+    {
+      "source": "Route and Service Review",
+      "translation": "Weryfikacja trasy i usługi",
+      "kind": "text"
+    },
+    {
+      "source": "The route, driving time, waiting period, vehicle capacity and operational availability are checked.",
+      "translation": "Sprawdzane są trasa, czas przejazdu, czas oczekiwania, pojemność pojazdu i dostępność operacyjna.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 3",
+      "translation": "Krok 3",
+      "kind": "text"
+    },
+    {
+      "source": "Receive the confirmed vehicle class, included hours, route, waiting terms, additional charges and final price.",
+      "translation": "Otrzymujesz potwierdzoną klasę pojazdu, liczbę godzin w cenie, trasę, warunki oczekiwania, dodatkowe opłaty i ostateczną cenę.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 4",
+      "translation": "Krok 4",
+      "kind": "text"
+    },
+    {
+      "source": "Chauffeur Pickup",
+      "translation": "Odbiór przez kierowcę",
+      "kind": "text"
+    },
+    {
+      "source": "The driver arrives at the confirmed hotel, villa, airport, business venue or private address.",
+      "translation": "Kierowca przyjeżdża do potwierdzonego hotelu, willi, na lotnisko, miejsce biznesowe lub prywatny adres.",
+      "kind": "text"
+    },
+    {
+      "source": "Private Chauffeur Journey",
+      "translation": "Przejazd z prywatnym kierowcą",
+      "kind": "text"
+    },
+    {
+      "source": "Follow the confirmed itinerary with agreed stops and waiting time. Changes remain subject to driver hours, route feasibility and additional cost.",
+      "translation": "Realizuj potwierdzony plan z uzgodnionymi postojami i czasem oczekiwania. Zmiany zależą od czasu pracy kierowcy, możliwości realizacji trasy i mogą wiązać się z dodatkowymi kosztami.",
+      "kind": "text"
+    },
+    {
+      "source": "Completion",
+      "translation": "Zakończenie",
+      "kind": "text"
+    },
+    {
+      "source": "Final Drop-Off",
+      "translation": "Końcowe miejsce wysiadania",
+      "kind": "text"
+    },
+    {
+      "source": "The service ends at the confirmed destination or after the agreed booking period.",
+      "translation": "Usługa kończy się w potwierdzonym miejscu docelowym lub po zakończeniu uzgodnionego okresu rezerwacji.",
+      "kind": "text"
+    },
+    {
+      "source": "Traffic, road closures, weather, driver working-time limits, parking restrictions and route changes may affect timing and availability.",
+      "translation": "Ruch, zamknięcia dróg, pogoda, limity czasu pracy kierowcy, ograniczenia parkingowe i zmiany trasy mogą wpływać na czas i dostępność.",
+      "kind": "text"
+    },
+    {
+      "source": "Popular Personal Concierge Requests",
+      "translation": "Popularne zapytania Personal Concierge",
+      "kind": "text"
+    },
+    {
+      "source": "Every booking is private and fully customized. These are some of the most requested journeys and service combinations.",
+      "translation": "Każda rezerwacja jest prywatna i w pełni dopasowana. Oto niektóre z najczęściej wybieranych tras i kombinacji usług.",
+      "kind": "text"
+    },
+    {
+      "source": "Antalya Airport → shopping → hotel or villa",
+      "translation": "Lotnisko Antalya → zakupy → hotel lub willa",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya → clinic appointment → return",
+      "translation": "Alanya → wizyta w klinice → powrót",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya → selected intercity destination",
+      "translation": "Alanya → wybrany cel międzymiastowy",
+      "kind": "text"
+    },
+    {
+      "source": "Business meetings in Antalya or Alanya",
+      "translation": "Spotkania biznesowe w Antalyi lub Alanyi",
+      "kind": "text"
+    },
+    {
+      "source": "Fine dining and evening chauffeur service",
+      "translation": "Fine dining i wieczorna usługa kierowcy",
+      "kind": "text"
+    },
+    {
+      "source": "Family day trip with flexible stops",
+      "translation": "Rodzinny całodniowy wyjazd z elastycznymi postojami",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or villa → airport transfer",
+      "translation": "Hotel lub willa → transfer na lotnisko",
+      "kind": "text"
+    },
+    {
+      "source": "Personalized route around your schedule",
+      "translation": "Spersonalizowana trasa dopasowana do harmonogramu",
+      "kind": "text"
+    },
+    {
+      "source": "One chauffeur. Unlimited possibilities.",
+      "translation": "Jeden kierowca. Nieograniczone możliwości.",
+      "kind": "text"
+    },
+    {
+      "source": "Tell us the route and service scope. We will confirm what can be arranged, the suitable vehicle, timing and final price.",
+      "translation": "Podaj trasę i zakres usługi. Potwierdzimy, co można zorganizować, odpowiedni pojazd, czas i ostateczną cenę.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Galeria zdjęć",
+      "kind": "text"
+    },
+    {
+      "source": "Service Time",
+      "translation": "Czas usługi",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Czas trwania:",
+      "kind": "text"
+    },
+    {
+      "source": "hourly, daily or custom",
+      "translation": "godzinowo, dziennie lub indywidualnie",
+      "kind": "text"
+    },
+    {
+      "source": "Availability:",
+      "translation": "Dostępność:",
+      "kind": "text"
+    },
+    {
+      "source": "by advance reservation",
+      "translation": "po wcześniejszej rezerwacji",
+      "kind": "text"
+    },
+    {
+      "source": "Route:",
+      "translation": "Trasa:",
+      "kind": "text"
+    },
+    {
+      "source": "any destination in Turkey",
+      "translation": "dowolny kierunek w Turcji",
+      "kind": "text"
+    },
+    {
+      "source": "Booking Details",
+      "translation": "Szczegóły rezerwacji",
+      "kind": "text"
+    },
+    {
+      "source": "Travel date",
+      "translation": "Data podróży",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup address",
+      "translation": "Adres odbioru",
+      "kind": "text"
+    },
+    {
+      "source": "Destination city or route",
+      "translation": "Miasto docelowe lub trasa",
+      "kind": "text"
+    },
+    {
+      "source": "Number of passengers",
+      "translation": "Liczba pasażerów",
+      "kind": "text"
+    },
+    {
+      "source": "Preferred vehicle type",
+      "translation": "Preferowany typ pojazdu",
+      "kind": "text"
+    },
+    {
+      "source": "Approximate waiting time",
+      "translation": "Przybliżony czas oczekiwania",
+      "kind": "text"
+    },
+    {
+      "source": "Special requests",
+      "translation": "Specjalne życzenia",
+      "kind": "text"
+    },
+    {
+      "source": "Important Information",
+      "translation": "Ważne informacje",
+      "kind": "text"
+    },
+    {
+      "source": "Vehicle:",
+      "translation": "Pojazd:",
+      "kind": "text"
+    },
+    {
+      "source": "class and capacity confirmed before booking",
+      "translation": "klasa i pojemność są potwierdzane przed rezerwacją",
+      "kind": "text"
+    },
+    {
+      "source": "Route changes:",
+      "translation": "Zmiany trasy:",
+      "kind": "text"
+    },
+    {
+      "source": "subject to feasibility and additional cost",
+      "translation": "zależnie od możliwości realizacji i dodatkowej opłaty",
+      "kind": "text"
+    },
+    {
+      "source": "Service limits:",
+      "translation": "Ograniczenia usługi:",
+      "kind": "text"
+    },
+    {
+      "source": "transportation only unless extras are confirmed separately",
+      "translation": "tylko transport, jeśli dodatki nie zostały potwierdzone osobno",
+      "kind": "text"
+    },
+    {
+      "source": "Extra costs:",
+      "translation": "Dodatkowe koszty:",
+      "kind": "text"
+    },
+    {
+      "source": "tolls, parking, additional waiting and overnight driver expenses may be charged separately",
+      "translation": "opłaty drogowe, parking, dodatkowe oczekiwanie i koszty noclegu kierowcy mogą być płatne osobno",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup Information",
+      "translation": "Informacje o odbiorze",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from hotel, villa, airport, business center, shopping mall or private address.",
+      "translation": "Odbiór z hotelu, willi, lotniska, centrum biznesowego, galerii handlowej lub prywatnego adresu.",
+      "kind": "text"
+    },
+    {
+      "source": "Exact pickup time is confirmed after booking.",
+      "translation": "Dokładna godzina odbioru jest potwierdzana po rezerwacji.",
+      "kind": "text"
+    },
+    {
+      "source": "Driver and vehicle details are provided before departure.",
+      "translation": "Dane kierowcy i pojazdu są przekazywane przed wyjazdem.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Najczęściej zadawane pytania",
+      "kind": "text"
+    },
+    {
+      "source": "Is this service available anywhere in Turkey?",
+      "translation": "Czy usługa jest dostępna w całej Turcji?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "Selected local and intercity routes can be arranged. Availability depends on the requested route, vehicle, driver schedule and operating conditions.",
+      "translation": "Można zorganizować wybrane trasy lokalne i międzymiastowe. Dostępność zależy od żądanej trasy, pojazdu, grafiku kierowcy i warunków operacyjnych.",
+      "kind": "text"
+    },
+    {
+      "source": "Is a Mercedes S-Class or V-Class guaranteed?",
+      "translation": "Czy Mercedes S-Class lub V-Class jest gwarantowany?",
+      "kind": "text"
+    },
+    {
+      "source": "A specific model is guaranteed only when it appears in the written confirmation. Otherwise, a suitable premium vehicle class is assigned.",
+      "translation": "Konkretny model jest gwarantowany tylko wtedy, gdy widnieje w pisemnym potwierdzeniu. W przeciwnym razie przydzielana jest odpowiednia klasa premium.",
+      "kind": "text"
+    },
+    {
+      "source": "Does clinic transportation include medical assistance?",
+      "translation": "Czy transport do kliniki obejmuje pomoc medyczną?",
+      "kind": "text"
+    },
+    {
+      "source": "No. The standard service provides private transportation and agreed waiting time only. Medical care or patient transport requires an appropriate specialist provider.",
+      "translation": "Nie. Standardowa usługa obejmuje tylko prywatny transport i uzgodniony czas oczekiwania. Opieka medyczna lub transport pacjenta wymagają specjalistycznego usługodawcy.",
+      "kind": "text"
+    },
+    {
+      "source": "Can the chauffeur wait during appointments or shopping?",
+      "translation": "Czy kierowca może czekać podczas wizyty lub zakupów?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes, when waiting time is included in the confirmed booking. Additional waiting may change the price.",
+      "translation": "Tak, jeśli czas oczekiwania jest ujęty w potwierdzonej rezerwacji. Dodatkowe oczekiwanie może zmienić cenę.",
+      "kind": "text"
+    },
+    {
+      "source": "Can we change the route during the service?",
+      "translation": "Czy można zmienić trasę w trakcie usługi?",
+      "kind": "text"
+    },
+    {
+      "source": "Changes may be possible when time, route and driver availability allow. Additional distance, tolls, parking or waiting may be charged separately.",
+      "translation": "Zmiany mogą być możliwe, jeśli pozwalają na to czas, trasa i dostępność kierowcy. Dodatkowy dystans, opłaty drogowe, parking lub oczekiwanie mogą być płatne osobno.",
+      "kind": "text"
+    },
+    {
+      "source": "What details are needed for a quote?",
+      "translation": "Jakie dane są potrzebne do wyceny?",
+      "kind": "text"
+    },
+    {
+      "source": "Send the date, pickup point, destination, passengers, luggage, estimated service hours, required stops and preferred vehicle class.",
+      "translation": "Podaj datę, miejsce odbioru, cel, liczbę pasażerów, bagaż, szacowany czas usługi, wymagane postoje i preferowaną klasę pojazdu.",
+      "kind": "text"
+    },
+    {
+      "source": "Arrange Your Private Chauffeur Service",
+      "translation": "Zorganizuj usługę prywatnego kierowcy",
+      "kind": "text"
+    },
+    {
+      "source": "Send your route, timing, passenger count and service requirements. We will confirm availability, vehicle class, inclusions and final price.",
+      "translation": "Wyślij trasę, godziny, liczbę pasażerów i wymagania. Potwierdzimy dostępność, klasę pojazdu, zakres usług i ostateczną cenę.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Napisz na WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Private personal concierge chauffeur service",
+      "translation": "Prywatna usługa Personal Concierge z kierowcą",
+      "kind": "alt"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Poprzednie zdjęcie",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Personal Concierge in Turkey",
+      "translation": "Personal Concierge w Turcji",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Następne zdjęcie",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Miniatury galerii",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Personal Driver Service",
+      "translation": "Usługa prywatnego kierowcy",
+      "kind": "alt"
+    },
+    {
+      "source": "Long Distance VIP Trip",
+      "translation": "Długa podróż VIP",
+      "kind": "alt"
+    },
+    {
+      "source": "Business Concierge with S-Class",
+      "translation": "Business Concierge z S-Class",
+      "kind": "alt"
+    },
+    {
+      "source": "Family Private Driver",
+      "translation": "Prywatny kierowca dla rodziny",
+      "kind": "alt"
+    },
+    {
+      "source": "Shopping and City Concierge",
+      "translation": "Zakupy i miejski concierge",
+      "kind": "alt"
+    },
+    {
+      "source": "Turkey Private Route",
+      "translation": "Prywatna trasa po Turcji",
+      "kind": "alt"
+    },
+    {
+      "source": "Main personal concierge information",
+      "translation": "Najważniejsze informacje o Personal Concierge",
+      "kind": "aria-label"
+    }
+  ]
+}

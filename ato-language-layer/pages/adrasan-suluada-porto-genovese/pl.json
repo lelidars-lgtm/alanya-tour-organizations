@@ -1,0 +1,653 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "PL",
+  "approved_page": "adrasan-suluada-porto-genovese.html",
+  "approved_sha256": "9afc84ed9db6e0acdd02b634e3605daa59566edc48df6b3a7adcd7685dd2442e",
+  "entries": [
+    {
+      "source": "Adrasan, Suluada & Porto Genovese Bay Tour | Alanya Tour Organizations",
+      "translation": "Wycieczka Adrasan, Suluada i zatoka Porto Genovese | Alanya Tour Organizations",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home ›",
+      "translation": "Strona główna ›",
+      "kind": "text"
+    },
+    {
+      "source": "Hidden Bays & Islands",
+      "translation": "Ukryte zatoki i wyspy",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Adrasan Suluada Porto Genovese Bay",
+      "translation": "Adrasan, Suluada i Zatoka Porto Genovese",
+      "kind": "text"
+    },
+    {
+      "source": "Adrasan – Suluada –",
+      "translation": "Adrasan – Suluada –",
+      "kind": "text"
+    },
+    {
+      "source": "Porto Genovese Bay",
+      "translation": "Zatoka Porto Genovese",
+      "kind": "text"
+    },
+    {
+      "source": "Turquoise water, white beaches, hidden bays and the natural beauty of the Mediterranean coast.",
+      "translation": "Turkusowa woda, białe plaże, ukryte zatoki i naturalne piękno wybrzeża Morza Śródziemnego.",
+      "kind": "text"
+    },
+    {
+      "source": "A full-day boat experience with scenic swimming stops, coastal views, lunch on board and hotel transfer included.",
+      "translation": "Całodniowy rejs z malowniczymi postojami na kąpiel, widokami na wybrzeże, obiadem na pokładzie i transferem z hotelu w cenie.",
+      "kind": "text"
+    },
+    {
+      "source": "1 DAY",
+      "translation": "1 DZIEŃ",
+      "kind": "text"
+    },
+    {
+      "source": "SULUADA",
+      "translation": "SULUADA",
+      "kind": "text"
+    },
+    {
+      "source": "TRANSFER",
+      "translation": "TRANSFER",
+      "kind": "text"
+    },
+    {
+      "source": "HIDDEN BAYS",
+      "translation": "UKRYTE ZATOKI",
+      "kind": "text"
+    },
+    {
+      "source": "ISLAND TOUR",
+      "translation": "WYCIECZKA PO WYSPIE",
+      "kind": "text"
+    },
+    {
+      "source": "WHITE BEACHES",
+      "translation": "BIAŁE PLAŻE",
+      "kind": "text"
+    },
+    {
+      "source": "PORTO GENOVESE",
+      "translation": "PORTO GENOVESE",
+      "kind": "text"
+    },
+    {
+      "source": "LUNCH ON BOARD",
+      "translation": "OBIAD NA POKŁADZIE",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Zarezerwuj przez WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "O tym doświadczeniu",
+      "kind": "text"
+    },
+    {
+      "source": "Discover the Mediterranean coastline on a full-day boat tour featuring turquoise water, quiet bays, sea caves and striking natural scenery.",
+      "translation": "Odkryj wybrzeże Morza Śródziemnego podczas całodniowego rejsu z turkusową wodą, spokojnymi zatokami, morskimi jaskiniami i zachwycającymi krajobrazami.",
+      "kind": "text"
+    },
+    {
+      "source": "The experience includes scenic swimming stops around Suluada and nearby coastal bays. Depending on the operating route, weather and sea conditions, the captain may adjust the sequence of stops or replace locations with suitable alternatives.",
+      "translation": "Program obejmuje malownicze postoje na kąpiel wokół Suluady i w pobliskich zatokach. W zależności od trasy, pogody i warunków na morzu kapitan może zmienić kolejność postojów lub zastąpić miejsca odpowiednimi alternatywami.",
+      "kind": "text"
+    },
+    {
+      "source": "During the cruise, guests can relax on deck, swim in clear water and enjoy lunch on board. Hotel or apartment transfer from the Alanya region is included.",
+      "translation": "Podczas rejsu goście mogą odpoczywać na pokładzie, pływać w przejrzystej wodzie i zjeść obiad na pokładzie. Transfer z hotelu lub apartamentu w regionie Alanyi jest w cenie.",
+      "kind": "text"
+    },
+    {
+      "source": "This tour is ideal for couples, families and travelers looking for a long, scenic day at sea away from the city.",
+      "translation": "Ta wycieczka jest idealna dla par, rodzin i podróżnych, którzy chcą spędzić długi, malowniczy dzień na morzu z dala od miasta.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Najważniejsze atrakcje",
+      "kind": "text"
+    },
+    {
+      "source": "Full-day Mediterranean boat experience",
+      "translation": "Całodniowy rejs po Morzu Śródziemnym",
+      "kind": "text"
+    },
+    {
+      "source": "Suluada and scenic coastal bays",
+      "translation": "Suluada i malownicze zatoki przybrzeżne",
+      "kind": "text"
+    },
+    {
+      "source": "Turquoise water and swimming stops",
+      "translation": "Turkusowa woda i postoje na kąpiel",
+      "kind": "text"
+    },
+    {
+      "source": "Sea caves and rocky coastline views",
+      "translation": "Morskie jaskinie i widoki na skaliste wybrzeże",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch served on board",
+      "translation": "Obiad serwowany na pokładzie",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment transfer included",
+      "translation": "Transfer z hotelu lub apartamentu w cenie",
+      "kind": "text"
+    },
+    {
+      "source": "Route may vary depending on sea and weather conditions",
+      "translation": "Trasa może się zmieniać w zależności od warunków na morzu i pogody",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Szczegóły",
+      "kind": "text"
+    },
+    {
+      "source": "Duration: full day",
+      "translation": "Czas trwania: cały dzień",
+      "kind": "text"
+    },
+    {
+      "source": "Approximate time: 04:00–19:00",
+      "translation": "Orientacyjny czas: 04:00–19:00",
+      "kind": "text"
+    },
+    {
+      "source": "Availability: selected days, subject to season",
+      "translation": "Dostępność: wybrane dni, zależnie od sezonu",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup: hotel or apartment address",
+      "translation": "Odbiór: adres hotelu lub apartamentu",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Cena",
+      "kind": "text"
+    },
+    {
+      "source": "€40",
+      "translation": "€40",
+      "kind": "text"
+    },
+    {
+      "source": "per person",
+      "translation": "za osobę",
+      "kind": "text"
+    },
+    {
+      "source": "Children 0–4 years: free",
+      "translation": "Dzieci 0–4 lata: bezpłatnie",
+      "kind": "text"
+    },
+    {
+      "source": "Children 5+ years: full adult price",
+      "translation": "Dzieci od 5 lat: pełna cena dla dorosłych",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "W cenie",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment transfer",
+      "translation": "Transfer z hotelu lub apartamentu",
+      "kind": "text"
+    },
+    {
+      "source": "Boat trip",
+      "translation": "Rejs statkiem",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch on board",
+      "translation": "Obiad na pokładzie",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance",
+      "translation": "Ubezpieczenie",
+      "kind": "text"
+    },
+    {
+      "source": "Program assistance",
+      "translation": "Wsparcie podczas programu",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Nie w cenie",
+      "kind": "text"
+    },
+    {
+      "source": "Drinks",
+      "translation": "Napoje",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Wydatki osobiste",
+      "kind": "text"
+    },
+    {
+      "source": "Photo and video services",
+      "translation": "Usługi foto i wideo",
+      "kind": "text"
+    },
+    {
+      "source": "Program",
+      "translation": "Program",
+      "kind": "text"
+    },
+    {
+      "source": "A long full-day experience with early pickup, coastal cruising, swimming stops, lunch on board and return transfer.",
+      "translation": "Długi całodniowy program z wczesnym odbiorem, rejsem wzdłuż wybrzeża, postojami na kąpiel, obiadem na pokładzie i transferem powrotnym.",
+      "kind": "text"
+    },
+    {
+      "source": "01",
+      "translation": "01",
+      "kind": "text"
+    },
+    {
+      "source": "Early Morning",
+      "translation": "Wczesny ranek",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or Apartment Pickup",
+      "translation": "Odbiór z hotelu lub apartamentu",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from your accommodation in the Alanya region. Exact time depends on hotel location and is confirmed after booking.",
+      "translation": "Odbiór z miejsca zakwaterowania w regionie Alanyi. Dokładna godzina zależy od lokalizacji hotelu i jest potwierdzana po rezerwacji.",
+      "kind": "text"
+    },
+    {
+      "source": "02",
+      "translation": "02",
+      "kind": "text"
+    },
+    {
+      "source": "Morning",
+      "translation": "Rano",
+      "kind": "text"
+    },
+    {
+      "source": "Boat Departure",
+      "translation": "Wypłynięcie łodzi",
+      "kind": "text"
+    },
+    {
+      "source": "Board the boat and begin the coastal route toward Suluada and nearby bays.",
+      "translation": "Wejdź na pokład i rozpocznij trasę wzdłuż wybrzeża w kierunku Suluady i pobliskich zatok.",
+      "kind": "text"
+    },
+    {
+      "source": "03",
+      "translation": "03",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming Stops",
+      "translation": "Przystanki na pływanie",
+      "kind": "text"
+    },
+    {
+      "source": "Suluada and Coastal Bays",
+      "translation": "Suluada i zatoki przybrzeżne",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy swimming and photo stops in clear Mediterranean water. The exact route and sequence depend on the captain, weather and sea conditions.",
+      "translation": "Ciesz się kąpielami i postojami na zdjęcia w przejrzystej wodzie Morza Śródziemnego. Dokładna trasa i kolejność zależą od kapitana, pogody i warunków na morzu.",
+      "kind": "text"
+    },
+    {
+      "source": "04",
+      "translation": "04",
+      "kind": "text"
+    },
+    {
+      "source": "Route Dependent",
+      "translation": "Zależnie od trasy",
+      "kind": "text"
+    },
+    {
+      "source": "Sea Caves and Porto Genovese Area",
+      "translation": "Morskie jaskinie i okolice Porto Genovese",
+      "kind": "text"
+    },
+    {
+      "source": "When included in the operating route, the boat visits scenic caves and the Porto Genovese area. Locations may be replaced when conditions require.",
+      "translation": "Jeśli obejmuje to trasa operacyjna, łódź odwiedza malownicze jaskinie i okolice Porto Genovese. W razie potrzeby miejsca mogą zostać zastąpione.",
+      "kind": "text"
+    },
+    {
+      "source": "05",
+      "translation": "05",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch",
+      "translation": "Obiad",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch on Board",
+      "translation": "Obiad na pokładzie",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch is served during the cruise. Drinks are available separately.",
+      "translation": "Obiad serwowany jest podczas rejsu. Napoje są dostępne osobno.",
+      "kind": "text"
+    },
+    {
+      "source": "06",
+      "translation": "06",
+      "kind": "text"
+    },
+    {
+      "source": "Evening",
+      "translation": "Wieczór",
+      "kind": "text"
+    },
+    {
+      "source": "Return Transfer",
+      "translation": "Transfer powrotny",
+      "kind": "text"
+    },
+    {
+      "source": "Return to the harbor and transfer back to your hotel or apartment.",
+      "translation": "Powrót do portu i transfer z powrotem do hotelu lub apartamentu.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Galeria zdjęć",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Czas wycieczki",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Czas trwania:",
+      "kind": "text"
+    },
+    {
+      "source": "Full day",
+      "translation": "Cały dzień",
+      "kind": "text"
+    },
+    {
+      "source": "Approx. time:",
+      "translation": "Orientacyjny czas:",
+      "kind": "text"
+    },
+    {
+      "source": "04:00–19:00",
+      "translation": "04:00–19:00",
+      "kind": "text"
+    },
+    {
+      "source": "Availability:",
+      "translation": "Dostępność:",
+      "kind": "text"
+    },
+    {
+      "source": "Selected days, subject to season",
+      "translation": "Wybrane dni, zależnie od sezonu",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Co zabrać ze sobą",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast box from your hotel",
+      "translation": "Pakiet śniadaniowy z hotelu",
+      "kind": "text"
+    },
+    {
+      "source": "Swimsuit",
+      "translation": "Strój kąpielowy",
+      "kind": "text"
+    },
+    {
+      "source": "Sunscreen",
+      "translation": "Krem z filtrem",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Okulary przeciwsłoneczne",
+      "kind": "text"
+    },
+    {
+      "source": "Towel",
+      "translation": "Ręcznik",
+      "kind": "text"
+    },
+    {
+      "source": "Hat or cap",
+      "translation": "Kapelusz lub czapka",
+      "kind": "text"
+    },
+    {
+      "source": "Money for drinks and personal expenses",
+      "translation": "Pieniądze na napoje i wydatki osobiste",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Zasady dla dzieci",
+      "kind": "text"
+    },
+    {
+      "source": "0–4 years:",
+      "translation": "0–4 lata:",
+      "kind": "text"
+    },
+    {
+      "source": "Free",
+      "translation": "Bezpłatnie",
+      "kind": "text"
+    },
+    {
+      "source": "5+ years:",
+      "translation": "Od 5 lat:",
+      "kind": "text"
+    },
+    {
+      "source": "Full adult price",
+      "translation": "Pełna cena dla dorosłych",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Informacje o odbiorze",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from hotel or apartment address.",
+      "translation": "Odbiór spod hotelu lub apartamentu.",
+      "kind": "text"
+    },
+    {
+      "source": "Early morning departure.",
+      "translation": "Wczesny wyjazd rano.",
+      "kind": "text"
+    },
+    {
+      "source": "Exact pickup time is confirmed after booking.",
+      "translation": "Dokładna godzina odbioru jest potwierdzana po rezerwacji.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Najczęściej zadawane pytania",
+      "kind": "text"
+    },
+    {
+      "source": "How long is the journey from Alanya?",
+      "translation": "Jak długo trwa podróż z Alanyi?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "This is a long full-day excursion with an early departure. Exact pickup time depends on your hotel location.",
+      "translation": "To długa całodniowa wycieczka z wczesnym wyjazdem. Dokładna godzina odbioru zależy od lokalizacji hotelu.",
+      "kind": "text"
+    },
+    {
+      "source": "Are drinks included?",
+      "translation": "Czy napoje są w cenie?",
+      "kind": "text"
+    },
+    {
+      "source": "No. Lunch is included, while drinks and personal expenses are paid separately.",
+      "translation": "Nie. Obiad jest w cenie, natomiast napoje i wydatki osobiste są płatne osobno.",
+      "kind": "text"
+    },
+    {
+      "source": "Does the tour always include Porto Genovese?",
+      "translation": "Czy wycieczka zawsze obejmuje Porto Genovese?",
+      "kind": "text"
+    },
+    {
+      "source": "The exact route may vary by operating day, season, weather and sea conditions. Porto Genovese is visited when included in the confirmed route.",
+      "translation": "Dokładna trasa może się zmieniać w zależności od dnia, sezonu, pogody i warunków na morzu. Porto Genovese jest odwiedzane, jeśli znajduje się w potwierdzonej trasie.",
+      "kind": "text"
+    },
+    {
+      "source": "What is the child price?",
+      "translation": "Jaka jest cena dla dziecka?",
+      "kind": "text"
+    },
+    {
+      "source": "Children aged 0–4 join free of charge. From age 5, the full adult price applies.",
+      "translation": "Dzieci w wieku 0–4 lat uczestniczą bezpłatnie. Od 5. roku życia obowiązuje pełna cena dla dorosłych.",
+      "kind": "text"
+    },
+    {
+      "source": "Can the swimming stops change?",
+      "translation": "Czy postoje na kąpiel mogą się zmienić?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. The captain may change the route or swimming stops when weather, sea traffic or safety conditions require.",
+      "translation": "Tak. Kapitan może zmienić trasę lub postoje na kąpiel, jeśli wymagają tego pogoda, ruch morski lub warunki bezpieczeństwa.",
+      "kind": "text"
+    },
+    {
+      "source": "What should I bring?",
+      "translation": "Co mam zabrać?",
+      "kind": "text"
+    },
+    {
+      "source": "Bring a swimsuit, towel, sunscreen, sunglasses, hat, comfortable clothing and money for drinks or personal expenses.",
+      "translation": "Zabierz strój kąpielowy, ręcznik, krem z filtrem, okulary przeciwsłoneczne, nakrycie głowy, wygodne ubranie i pieniądze na napoje lub wydatki osobiste.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Masz pytania?",
+      "kind": "text"
+    },
+    {
+      "source": "Message us on WhatsApp for availability, pickup time, route details, current operating days and booking assistance.",
+      "translation": "Napisz do nas na WhatsApp, aby sprawdzić dostępność, godzinę odbioru, szczegóły trasy, aktualne dni realizacji i uzyskać pomoc w rezerwacji.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Napisz na WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Poprzednie zdjęcie",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Następne zdjęcie",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Miniatury galerii",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Suluada turquoise water",
+      "translation": "Turkusowa woda Suluady",
+      "kind": "alt"
+    },
+    {
+      "source": "Suluada white beach",
+      "translation": "Biała plaża Suluady",
+      "kind": "alt"
+    },
+    {
+      "source": "Hidden bays and islands",
+      "translation": "Ukryte zatoki i wyspy",
+      "kind": "alt"
+    },
+    {
+      "source": "Adrasan Suluada boat tour",
+      "translation": "Rejs Adrasan–Suluada",
+      "kind": "alt"
+    },
+    {
+      "source": "Essential tour information",
+      "translation": "Najważniejsze informacje o wycieczce",
+      "kind": "aria-label"
+    }
+  ]
+}

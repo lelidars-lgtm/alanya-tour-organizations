@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "scuba-diving.html",
+  "approved_sha256": "999480a02c1e70a84359d85c87ff10e65e9690a1907cb8f1f7164eea7fe84791",
+  "translation_entries": 150,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

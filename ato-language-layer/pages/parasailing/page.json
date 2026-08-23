@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "parasailing.html",
+  "approved_sha256": "87d03347c7be51eae85898a30d1d518a7685e47545c3180562815a041a37aabc",
+  "translation_entries": 140,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

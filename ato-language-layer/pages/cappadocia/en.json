@@ -1,0 +1,863 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "EN",
+  "approved_page": "cappadocia.html",
+  "approved_sha256": "d14889688640bd0fd6906d9a994423d215740fbada67d9fd5c82befd3e1f5034",
+  "entries": [
+    {
+      "source": "Cappadocia Tour from Alanya | 2 & 3 Days",
+      "translation": "Cappadocia Tour from Alanya | 2 & 3 Days",
+      "kind": "title"
+    },
+    {
+      "source": "Discover Cappadocia from Alanya on a 2-day or seasonal 3-day tour with contracted cave-hotel accommodation, meals, drinks at the hotel, museum tickets and guided sightseeing.",
+      "translation": "Discover Cappadocia from Alanya on a 2-day or seasonal 3-day tour with contracted cave-hotel accommodation, meals, drinks at the hotel, museum tickets and guided sightseeing.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › History & Culture ›",
+      "translation": "Home › History & Culture ›",
+      "kind": "text"
+    },
+    {
+      "source": "Cappadocia",
+      "translation": "Cappadocia",
+      "kind": "text"
+    },
+    {
+      "source": "History & Culture",
+      "translation": "History & Culture",
+      "kind": "text"
+    },
+    {
+      "source": "Cappadocia Tour",
+      "translation": "Cappadocia Tour",
+      "kind": "text"
+    },
+    {
+      "source": "A multi-day journey through ancient settlements, fairy chimneys, underground cities and Cappadocia’s legendary volcanic landscape.",
+      "translation": "A multi-day journey through ancient settlements, fairy chimneys, underground cities and Cappadocia’s legendary volcanic landscape.",
+      "kind": "text"
+    },
+    {
+      "source": "Travel from Alanya to one of Türkiye’s most remarkable historical regions. The tour combines guided sightseeing, contracted cave-hotel accommodation, meals and drinks served at the hotel, and entrance tickets for museums and archaeological sites listed in the confirmed itinerary.",
+      "translation": "Travel from Alanya to one of Türkiye’s most remarkable historical regions. The tour combines guided sightseeing, contracted cave-hotel accommodation, meals and drinks served at the hotel, and entrance tickets for museums and archaeological sites listed in the confirmed itinerary.",
+      "kind": "text"
+    },
+    {
+      "source": "2-Day / Seasonal 3-Day",
+      "translation": "2-Day / Seasonal 3-Day",
+      "kind": "text"
+    },
+    {
+      "source": "Contracted Cave Hotel",
+      "translation": "Contracted Cave Hotel",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer Included",
+      "translation": "Transfer Included",
+      "kind": "text"
+    },
+    {
+      "source": "Göreme",
+      "translation": "Göreme",
+      "kind": "text"
+    },
+    {
+      "source": "Underground City",
+      "translation": "Underground City",
+      "kind": "text"
+    },
+    {
+      "source": "Fairy Chimneys",
+      "translation": "Fairy Chimneys",
+      "kind": "text"
+    },
+    {
+      "source": "Tickets Included",
+      "translation": "Tickets Included",
+      "kind": "text"
+    },
+    {
+      "source": "Dates by Confirmation",
+      "translation": "Dates by Confirmation",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Book on WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "About this experience",
+      "kind": "text"
+    },
+    {
+      "source": "Discover Cappadocia on a long-distance multi-day journey from Alanya. The region is known for its volcanic valleys, fairy chimneys, rock-cut churches, historic settlements and underground cities.",
+      "translation": "Discover Cappadocia on a long-distance multi-day journey from Alanya. The region is known for its volcanic valleys, fairy chimneys, rock-cut churches, historic settlements and underground cities.",
+      "kind": "text"
+    },
+    {
+      "source": "Cappadocia is one of Türkiye’s most distinctive cultural landscapes, where volcanic rock was gradually shaped by erosion into valleys, stone pillars and the formations known as fairy chimneys. Over the centuries, people carved homes, churches, monasteries and shelters directly into this soft rock, creating a landscape where nature and history remain closely connected.",
+      "translation": "Cappadocia is one of Türkiye’s most distinctive cultural landscapes, where volcanic rock was gradually shaped by erosion into valleys, stone pillars and the formations known as fairy chimneys. Over the centuries, people carved homes, churches, monasteries and shelters directly into this soft rock, creating a landscape where nature and history remain closely connected.",
+      "kind": "text"
+    },
+    {
+      "source": "Göreme National Park and the Rock Sites of Cappadocia are included on the UNESCO World Heritage List and are recognised for their cave sanctuaries, historic settlements and extraordinary geological scenery.",
+      "translation": "Göreme National Park and the Rock Sites of Cappadocia are included on the UNESCO World Heritage List and are recognised for their cave sanctuaries, historic settlements and extraordinary geological scenery.",
+      "kind": "text"
+    },
+    {
+      "source": "The package includes accommodation in our contracted cave hotel, breakfast, lunch and dinner according to the confirmed program, drinks served at the hotel, and entrance tickets for museums and archaeological sites listed in the confirmed itinerary.",
+      "translation": "The package includes accommodation in our contracted cave hotel, breakfast, lunch and dinner according to the confirmed program, drinks served at the hotel, and entrance tickets for museums and archaeological sites listed in the confirmed itinerary.",
+      "kind": "text"
+    },
+    {
+      "source": "The exact underground city and the order of sightseeing stops may change because our local partner adjusts the daily route according to operating conditions, site access, season and the confirmed program.",
+      "translation": "The exact underground city and the order of sightseeing stops may change because our local partner adjusts the daily route according to operating conditions, site access, season and the confirmed program.",
+      "kind": "text"
+    },
+    {
+      "source": "Hot-air balloon flights and sunrise balloon viewing are optional. They depend on weather conditions, official flight permission and local availability.",
+      "translation": "Hot-air balloon flights and sunrise balloon viewing are optional. They depend on weather conditions, official flight permission and local availability.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Highlights",
+      "kind": "text"
+    },
+    {
+      "source": "Göreme and Cappadocia’s UNESCO-listed cultural landscape",
+      "translation": "Göreme and Cappadocia’s UNESCO-listed cultural landscape",
+      "kind": "text"
+    },
+    {
+      "source": "Rock-cut churches, valleys and famous fairy chimneys",
+      "translation": "Rock-cut churches, valleys and famous fairy chimneys",
+      "kind": "text"
+    },
+    {
+      "source": "Visit to one underground city selected for the confirmed route",
+      "translation": "Visit to one underground city selected for the confirmed route",
+      "kind": "text"
+    },
+    {
+      "source": "Panoramic stops around Uçhisar, Love Valley or Pigeon Valley",
+      "translation": "Panoramic stops around Uçhisar, Love Valley or Pigeon Valley",
+      "kind": "text"
+    },
+    {
+      "source": "Avanos pottery tradition and regional craft demonstrations",
+      "translation": "Avanos pottery tradition and regional craft demonstrations",
+      "kind": "text"
+    },
+    {
+      "source": "Accommodation in our contracted cave hotel",
+      "translation": "Accommodation in our contracted cave hotel",
+      "kind": "text"
+    },
+    {
+      "source": "UNESCO Cultural Landscape",
+      "translation": "UNESCO Cultural Landscape",
+      "kind": "text"
+    },
+    {
+      "source": "Fairy chimneys, cave heritage and unforgettable sunrise panoramas.",
+      "translation": "Fairy chimneys, cave heritage and unforgettable sunrise panoramas.",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Details",
+      "kind": "text"
+    },
+    {
+      "source": "Duration: 2 days or seasonal 3 days",
+      "translation": "Duration: 2 days or seasonal 3 days",
+      "kind": "text"
+    },
+    {
+      "source": "Early departure from Alanya",
+      "translation": "Early departure from Alanya",
+      "kind": "text"
+    },
+    {
+      "source": "Long-distance coach journey",
+      "translation": "Long-distance coach journey",
+      "kind": "text"
+    },
+    {
+      "source": "Exact pickup time confirmed after booking",
+      "translation": "Exact pickup time confirmed after booking",
+      "kind": "text"
+    },
+    {
+      "source": "Operating dates must be confirmed in advance",
+      "translation": "Operating dates must be confirmed in advance",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Price",
+      "kind": "text"
+    },
+    {
+      "source": "€100",
+      "translation": "€100",
+      "kind": "text"
+    },
+    {
+      "source": "2-Day Program",
+      "translation": "2-Day Program",
+      "kind": "text"
+    },
+    {
+      "source": "€120",
+      "translation": "€120",
+      "kind": "text"
+    },
+    {
+      "source": "Seasonal 3-Day Program",
+      "translation": "Seasonal 3-Day Program",
+      "kind": "text"
+    },
+    {
+      "source": "Children 0–3: Free",
+      "translation": "Children 0–3: Free",
+      "kind": "text"
+    },
+    {
+      "source": "Children 4–12: Half price",
+      "translation": "Children 4–12: Half price",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Included",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel pickup and return transfer",
+      "translation": "Hotel pickup and return transfer",
+      "kind": "text"
+    },
+    {
+      "source": "Air-conditioned tourist bus",
+      "translation": "Air-conditioned tourist bus",
+      "kind": "text"
+    },
+    {
+      "source": "Guide service and insurance",
+      "translation": "Guide service and insurance",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast, lunch and dinner according to the confirmed program",
+      "translation": "Breakfast, lunch and dinner according to the confirmed program",
+      "kind": "text"
+    },
+    {
+      "source": "Drinks served at the hotel",
+      "translation": "Drinks served at the hotel",
+      "kind": "text"
+    },
+    {
+      "source": "All museum and archaeological-site entrance tickets listed in the confirmed itinerary",
+      "translation": "All museum and archaeological-site entrance tickets listed in the confirmed itinerary",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Not included",
+      "kind": "text"
+    },
+    {
+      "source": "Optional sunrise balloon-viewing transfer and panoramic viewpoint: €30, paid locally",
+      "translation": "Optional sunrise balloon-viewing transfer and panoramic viewpoint: €30, paid locally",
+      "kind": "text"
+    },
+    {
+      "source": "Optional hot-air balloon flight: approximately €150–€200, paid locally",
+      "translation": "Optional hot-air balloon flight: approximately €150–€200, paid locally",
+      "kind": "text"
+    },
+    {
+      "source": "Drinks purchased during the journey, at roadside stops or outside the hotel",
+      "translation": "Drinks purchased during the journey, at roadside stops or outside the hotel",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photography and personal expenses",
+      "translation": "Professional photography and personal expenses",
+      "kind": "text"
+    },
+    {
+      "source": "The order of visits may change according to the confirmed route, weather, operating conditions and the local partner’s daily program.",
+      "translation": "The order of visits may change according to the confirmed route, weather, operating conditions and the local partner’s daily program.",
+      "kind": "text"
+    },
+    {
+      "source": "Departure and return times are approximate and depend on the pickup area, traffic and the final operating schedule.",
+      "translation": "Departure and return times are approximate and depend on the pickup area, traffic and the final operating schedule.",
+      "kind": "text"
+    },
+    {
+      "source": "1",
+      "translation": "1",
+      "kind": "text"
+    },
+    {
+      "source": "Day One",
+      "translation": "Day One",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel pickup and departure from Alanya",
+      "translation": "Hotel pickup and departure from Alanya",
+      "kind": "text"
+    },
+    {
+      "source": "Early-morning pickup from the confirmed hotel or apartment, followed by the long-distance journey toward Cappadocia.",
+      "translation": "Early-morning pickup from the confirmed hotel or apartment, followed by the long-distance journey toward Cappadocia.",
+      "kind": "text"
+    },
+    {
+      "source": "Roadside breaks and route meals",
+      "translation": "Roadside breaks and route meals",
+      "kind": "text"
+    },
+    {
+      "source": "Comfort breaks are arranged during the journey. Drinks purchased at roadside stops are paid separately.",
+      "translation": "Comfort breaks are arranged during the journey. Drinks purchased at roadside stops are paid separately.",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival and Cappadocia sightseeing",
+      "translation": "Arrival and Cappadocia sightseeing",
+      "kind": "text"
+    },
+    {
+      "source": "Begin the confirmed regional program with selected panoramic viewpoints, valleys, rock formations and cultural stops.",
+      "translation": "Begin the confirmed regional program with selected panoramic viewpoints, valleys, rock formations and cultural stops.",
+      "kind": "text"
+    },
+    {
+      "source": "Underground city",
+      "translation": "Underground city",
+      "kind": "text"
+    },
+    {
+      "source": "Visit one of Cappadocia’s underground cities. The exact site is selected by the local partner according to current access and the confirmed route.",
+      "translation": "Visit one of Cappadocia’s underground cities. The exact site is selected by the local partner according to current access and the confirmed route.",
+      "kind": "text"
+    },
+    {
+      "source": "Cave-hotel check-in and dinner",
+      "translation": "Cave-hotel check-in and dinner",
+      "kind": "text"
+    },
+    {
+      "source": "Accommodation in our contracted cave hotel. Dinner and drinks served at the hotel are included.",
+      "translation": "Accommodation in our contracted cave hotel. Dinner and drinks served at the hotel are included.",
+      "kind": "text"
+    },
+    {
+      "source": "2",
+      "translation": "2",
+      "kind": "text"
+    },
+    {
+      "source": "Day Two",
+      "translation": "Day Two",
+      "kind": "text"
+    },
+    {
+      "source": "Optional sunrise balloon viewing",
+      "translation": "Optional sunrise balloon viewing",
+      "kind": "text"
+    },
+    {
+      "source": "Guests may join the optional €30 local transfer to a panoramic balloon-viewing area. The fee includes local transport and access to the viewing area. Balloon operations depend on weather and official permission.",
+      "translation": "Guests may join the optional €30 local transfer to a panoramic balloon-viewing area. The fee includes local transport and access to the viewing area. Balloon operations depend on weather and official permission.",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast at the hotel",
+      "translation": "Breakfast at the hotel",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast and drinks served at the hotel are included.",
+      "translation": "Breakfast and drinks served at the hotel are included.",
+      "kind": "text"
+    },
+    {
+      "source": "Göreme and regional highlights",
+      "translation": "Göreme and regional highlights",
+      "kind": "text"
+    },
+    {
+      "source": "Continue with the confirmed sightseeing program, which may include rock-cut churches, fairy chimneys, panoramic valleys, Uçhisar and Avanos.",
+      "translation": "Continue with the confirmed sightseeing program, which may include rock-cut churches, fairy chimneys, panoramic valleys, Uçhisar and Avanos.",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch",
+      "translation": "Lunch",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch is included according to the confirmed program.",
+      "translation": "Lunch is included according to the confirmed program.",
+      "kind": "text"
+    },
+    {
+      "source": "Return to Alanya",
+      "translation": "Return to Alanya",
+      "kind": "text"
+    },
+    {
+      "source": "Departure from Cappadocia after the final scheduled stop and evening return to the pickup area.",
+      "translation": "Departure from Cappadocia after the final scheduled stop and evening return to the pickup area.",
+      "kind": "text"
+    },
+    {
+      "source": "The 3-day version is seasonal and must be confirmed in advance. It follows the same service principles as the 2-day tour, with an additional hotel night and more time for the confirmed Cappadocia route.",
+      "translation": "The 3-day version is seasonal and must be confirmed in advance. It follows the same service principles as the 2-day tour, with an additional hotel night and more time for the confirmed Cappadocia route.",
+      "kind": "text"
+    },
+    {
+      "source": "The exact attractions and their order are determined by the local partner. The underground city may change when access conditions or the operating program changes.",
+      "translation": "The exact attractions and their order are determined by the local partner. The underground city may change when access conditions or the operating program changes.",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup and journey to Cappadocia",
+      "translation": "Pickup and journey to Cappadocia",
+      "kind": "text"
+    },
+    {
+      "source": "Early departure from Alanya with planned comfort and meal stops along the route.",
+      "translation": "Early departure from Alanya with planned comfort and meal stops along the route.",
+      "kind": "text"
+    },
+    {
+      "source": "First sightseeing program",
+      "translation": "First sightseeing program",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival in the region and visits to selected panoramic, cultural and geological landmarks according to the confirmed itinerary.",
+      "translation": "Arrival in the region and visits to selected panoramic, cultural and geological landmarks according to the confirmed itinerary.",
+      "kind": "text"
+    },
+    {
+      "source": "Cave-hotel check-in",
+      "translation": "Cave-hotel check-in",
+      "kind": "text"
+    },
+    {
+      "source": "Dinner and drinks served at the hotel are included.",
+      "translation": "Dinner and drinks served at the hotel are included.",
+      "kind": "text"
+    },
+    {
+      "source": "Optional balloon activities",
+      "translation": "Optional balloon activities",
+      "kind": "text"
+    },
+    {
+      "source": "Optional sunrise viewing and balloon flights are paid locally and operate only when weather conditions and official flight permission allow.",
+      "translation": "Optional sunrise viewing and balloon flights are paid locally and operate only when weather conditions and official flight permission allow.",
+      "kind": "text"
+    },
+    {
+      "source": "Full regional sightseeing day",
+      "translation": "Full regional sightseeing day",
+      "kind": "text"
+    },
+    {
+      "source": "Visit the confirmed combination of underground city, valleys, rock-cut sites, Göreme-area attractions, Uçhisar, Avanos and regional viewpoints.",
+      "translation": "Visit the confirmed combination of underground city, valleys, rock-cut sites, Göreme-area attractions, Uçhisar, Avanos and regional viewpoints.",
+      "kind": "text"
+    },
+    {
+      "source": "Meals and second hotel night",
+      "translation": "Meals and second hotel night",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast, lunch and dinner are included according to the confirmed program. Drinks served at the hotel are included.",
+      "translation": "Breakfast, lunch and dinner are included according to the confirmed program. Drinks served at the hotel are included.",
+      "kind": "text"
+    },
+    {
+      "source": "3",
+      "translation": "3",
+      "kind": "text"
+    },
+    {
+      "source": "Day Three",
+      "translation": "Day Three",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast and final visits",
+      "translation": "Breakfast and final visits",
+      "kind": "text"
+    },
+    {
+      "source": "Breakfast at the hotel followed by the remaining stops in the confirmed program.",
+      "translation": "Breakfast at the hotel followed by the remaining stops in the confirmed program.",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch and departure",
+      "translation": "Lunch and departure",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch is included according to the program before the return journey.",
+      "translation": "Lunch is included according to the program before the return journey.",
+      "kind": "text"
+    },
+    {
+      "source": "Evening arrival is approximate and may vary by traffic, route and hotel location.",
+      "translation": "Evening arrival is approximate and may vary by traffic, route and hotel location.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Photo Gallery",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Tour time",
+      "kind": "text"
+    },
+    {
+      "source": "2 Days Program:",
+      "translation": "2 Days Program:",
+      "kind": "text"
+    },
+    {
+      "source": "Early departure; return on Day 2",
+      "translation": "Early departure; return on Day 2",
+      "kind": "text"
+    },
+    {
+      "source": "Available:",
+      "translation": "Available:",
+      "kind": "text"
+    },
+    {
+      "source": "Confirm in advance",
+      "translation": "Confirm in advance",
+      "kind": "text"
+    },
+    {
+      "source": "3 Days Program:",
+      "translation": "3 Days Program:",
+      "kind": "text"
+    },
+    {
+      "source": "Early departure; return on Day 3",
+      "translation": "Early departure; return on Day 3",
+      "kind": "text"
+    },
+    {
+      "source": "Seasonal — confirm in advance",
+      "translation": "Seasonal — confirm in advance",
+      "kind": "text"
+    },
+    {
+      "source": "* The 3-day program is seasonal and may not be available every week. Please contact us before booking.",
+      "translation": "* The 3-day program is seasonal and may not be available every week. Please contact us before booking.",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "What to bring",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable Walking Shoes",
+      "translation": "Comfortable Walking Shoes",
+      "kind": "text"
+    },
+    {
+      "source": "Weather-Appropriate Clothing",
+      "translation": "Weather-Appropriate Clothing",
+      "kind": "text"
+    },
+    {
+      "source": "Sunscreen",
+      "translation": "Sunscreen",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Sunglasses",
+      "kind": "text"
+    },
+    {
+      "source": "Refillable Water Bottle",
+      "translation": "Refillable Water Bottle",
+      "kind": "text"
+    },
+    {
+      "source": "Camera or Smartphone",
+      "translation": "Camera or Smartphone",
+      "kind": "text"
+    },
+    {
+      "source": "Power Bank",
+      "translation": "Power Bank",
+      "kind": "text"
+    },
+    {
+      "source": "Personal Medications (if required)",
+      "translation": "Personal Medications (if required)",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Child policy",
+      "kind": "text"
+    },
+    {
+      "source": "0–3 Years:",
+      "translation": "0–3 Years:",
+      "kind": "text"
+    },
+    {
+      "source": "Free",
+      "translation": "Free",
+      "kind": "text"
+    },
+    {
+      "source": "4–12 Years:",
+      "translation": "4–12 Years:",
+      "kind": "text"
+    },
+    {
+      "source": "Half Price",
+      "translation": "Half Price",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Pickup information",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from Hotels or Apartments Included.",
+      "translation": "Pickup from Hotels or Apartments Included.",
+      "kind": "text"
+    },
+    {
+      "source": "Exact Pickup Time Confirmed After Booking.",
+      "translation": "Exact Pickup Time Confirmed After Booking.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Frequently Asked Questions",
+      "kind": "text"
+    },
+    {
+      "source": "Are museum and archaeological-site tickets included?",
+      "translation": "Are museum and archaeological-site tickets included?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Entrance tickets for museums and archaeological sites listed in the confirmed itinerary are included in the tour price.",
+      "translation": "Yes. Entrance tickets for museums and archaeological sites listed in the confirmed itinerary are included in the tour price.",
+      "kind": "text"
+    },
+    {
+      "source": "Which underground city will we visit?",
+      "translation": "Which underground city will we visit?",
+      "kind": "text"
+    },
+    {
+      "source": "The exact underground city may change. Our local partner selects the site according to the confirmed route, current access conditions and the operating program.",
+      "translation": "The exact underground city may change. Our local partner selects the site according to the confirmed route, current access conditions and the operating program.",
+      "kind": "text"
+    },
+    {
+      "source": "What is included at the cave hotel?",
+      "translation": "What is included at the cave hotel?",
+      "kind": "text"
+    },
+    {
+      "source": "Accommodation in our contracted cave hotel is included. Breakfast, lunch and dinner are included according to the confirmed program, and drinks served at the hotel are included.",
+      "translation": "Accommodation in our contracted cave hotel is included. Breakfast, lunch and dinner are included according to the confirmed program, and drinks served at the hotel are included.",
+      "kind": "text"
+    },
+    {
+      "source": "Are drinks included during the journey?",
+      "translation": "Are drinks included during the journey?",
+      "kind": "text"
+    },
+    {
+      "source": "No. Drinks purchased during the road journey, at roadside stops or outside the hotel are paid separately.",
+      "translation": "No. Drinks purchased during the road journey, at roadside stops or outside the hotel are paid separately.",
+      "kind": "text"
+    },
+    {
+      "source": "What does the €30 sunrise balloon-viewing option include?",
+      "translation": "What does the €30 sunrise balloon-viewing option include?",
+      "kind": "text"
+    },
+    {
+      "source": "It includes local transport from the hotel area and access to a panoramic viewing location. It is paid directly to the local organisers in Cappadocia. Guests may take their own photographs; professional photography may be purchased separately.",
+      "translation": "It includes local transport from the hotel area and access to a panoramic viewing location. It is paid directly to the local organisers in Cappadocia. Guests may take their own photographs; professional photography may be purchased separately.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the balloon flight included?",
+      "translation": "Is the balloon flight included?",
+      "kind": "text"
+    },
+    {
+      "source": "No. The optional balloon flight costs approximately €150–€200 and is paid locally. The final price is set by the balloon operator and may vary by season, demand and availability.",
+      "translation": "No. The optional balloon flight costs approximately €150–€200 and is paid locally. The final price is set by the balloon operator and may vary by season, demand and availability.",
+      "kind": "text"
+    },
+    {
+      "source": "Are balloon activities guaranteed?",
+      "translation": "Are balloon activities guaranteed?",
+      "kind": "text"
+    },
+    {
+      "source": "No. Balloon flights and balloon viewing depend on weather, official flight permission and local operating conditions.",
+      "translation": "No. Balloon flights and balloon viewing depend on weather, official flight permission and local operating conditions.",
+      "kind": "text"
+    },
+    {
+      "source": "Which days does the tour operate?",
+      "translation": "Which days does the tour operate?",
+      "kind": "text"
+    },
+    {
+      "source": "Operating days may change because of season, weather and the local partner’s schedule. Availability must be confirmed before booking.",
+      "translation": "Operating days may change because of season, weather and the local partner’s schedule. Availability must be confirmed before booking.",
+      "kind": "text"
+    },
+    {
+      "source": "Is this a long journey?",
+      "translation": "Is this a long journey?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. This is a long-distance multi-day tour with early departures and extended coach travel. Comfortable clothing and preparation for a long road journey are recommended.",
+      "translation": "Yes. This is a long-distance multi-day tour with early departures and extended coach travel. Comfortable clothing and preparation for a long road journey are recommended.",
+      "kind": "text"
+    },
+    {
+      "source": "When will I receive my exact pickup time?",
+      "translation": "When will I receive my exact pickup time?",
+      "kind": "text"
+    },
+    {
+      "source": "The exact pickup time is confirmed after booking and depends on the hotel or apartment location.",
+      "translation": "The exact pickup time is confirmed after booking and depends on the hotel or apartment location.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Have questions?",
+      "kind": "text"
+    },
+    {
+      "source": "Contact us on WhatsApp for availability, hotel details, pickup times and current 3-day program information.",
+      "translation": "Contact us on WhatsApp for availability, hotel details, pickup times and current 3-day program information.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Chat on WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Key tour advantages",
+      "translation": "Key tour advantages",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Hot-air balloons above Cappadocia at sunrise",
+      "translation": "Hot-air balloons above Cappadocia at sunrise",
+      "kind": "alt"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Previous photo",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Hot Air Balloons",
+      "translation": "Hot Air Balloons",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Next photo",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Gallery thumbnails",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Göreme Open Air Museum",
+      "translation": "Göreme Open Air Museum",
+      "kind": "alt"
+    },
+    {
+      "source": "Rock Churches and Frescoes",
+      "translation": "Rock Churches and Frescoes",
+      "kind": "alt"
+    },
+    {
+      "source": "Avanos Pottery and Onyx Factory",
+      "translation": "Avanos Pottery and Onyx Factory",
+      "kind": "alt"
+    },
+    {
+      "source": "Balloon Viewpoint",
+      "translation": "Balloon Viewpoint",
+      "kind": "alt"
+    },
+    {
+      "source": "Essential tour information",
+      "translation": "Essential tour information",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Close gallery",
+      "translation": "Close gallery",
+      "kind": "aria-label"
+    }
+  ]
+}

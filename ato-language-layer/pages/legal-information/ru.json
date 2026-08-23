@@ -1,0 +1,308 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "legal-information.html",
+  "approved_sha256": "5ab2f03fae77eddabb2f97dcd4d6ee9f09fb72f85700de3b8690ebb4cfb92492",
+  "entries": [
+    {
+      "source": "Legal Information — ALANYA TOUR ORGANIZATIONS",
+      "translation": "Юридическая информация — ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "LEGAL INFORMATION",
+      "translation": "ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ",
+      "kind": "text"
+    },
+    {
+      "source": "Home",
+      "translation": "Главная",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Legal Information",
+      "translation": "Юридическая информация",
+      "kind": "text"
+    },
+    {
+      "source": "Booking & Cancellation",
+      "translation": "Бронирование и отмена",
+      "kind": "text"
+    },
+    {
+      "source": "KVKK & Privacy",
+      "translation": "KVKK и конфиденциальность",
+      "kind": "text"
+    },
+    {
+      "source": "Cookie Policy",
+      "translation": "Политика cookie",
+      "kind": "text"
+    },
+    {
+      "source": "Contact",
+      "translation": "Контакты",
+      "kind": "text"
+    },
+    {
+      "source": "Official agency details",
+      "translation": "Официальные данные агентства",
+      "kind": "text"
+    },
+    {
+      "source": "SEYAHAT ACENTASI KÜNYESİ / LEGAL INFORMATION",
+      "translation": "СВЕДЕНИЯ О ТУРИСТИЧЕСКОМ АГЕНТСТВЕ / ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS is the customer-facing brand and online platform. Licensed travel agency services are provided through UNION TOUR.",
+      "translation": "ALANYA TOUR ORGANIZATIONS — клиентский бренд и онлайн-платформа. Лицензированные услуги туристического агентства предоставляются через UNION TOUR.",
+      "kind": "text"
+    },
+    {
+      "source": "◆",
+      "translation": "◆",
+      "kind": "text"
+    },
+    {
+      "source": "Seyahat Acentası / Travel Agency",
+      "translation": "Туристическое агентство",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI",
+      "translation": "UNION TOUR SEYAHAT ACENTASI",
+      "kind": "text"
+    },
+    {
+      "source": "◇",
+      "translation": "◇",
+      "kind": "text"
+    },
+    {
+      "source": "TÜRSAB Belge No / License No",
+      "translation": "TÜRSAB Belge No / № лицензии",
+      "kind": "text"
+    },
+    {
+      "source": "2156",
+      "translation": "2156",
+      "kind": "text"
+    },
+    {
+      "source": "▣",
+      "translation": "▣",
+      "kind": "text"
+    },
+    {
+      "source": "Şirket Unvanı / Legal Company Name",
+      "translation": "Юридическое наименование компании",
+      "kind": "text"
+    },
+    {
+      "source": "HALİLOĞLU TURİZM VE TİCARET LİMİTED ŞİRKETİ",
+      "translation": "HALİLOĞLU TURİZM VE TİCARET LİMİTED ŞİRKETİ",
+      "kind": "text"
+    },
+    {
+      "source": "✦",
+      "translation": "✦",
+      "kind": "text"
+    },
+    {
+      "source": "Yayın Sorumlusu / Publication Responsible",
+      "translation": "Ответственный за публикацию",
+      "kind": "text"
+    },
+    {
+      "source": "Hasan Avcı",
+      "translation": "Hasan Avcı",
+      "kind": "text"
+    },
+    {
+      "source": "◎",
+      "translation": "◎",
+      "kind": "text"
+    },
+    {
+      "source": "MERSİS No",
+      "translation": "№ MERSİS",
+      "kind": "text"
+    },
+    {
+      "source": "0455004369400022",
+      "translation": "0455004369400022",
+      "kind": "text"
+    },
+    {
+      "source": "▤",
+      "translation": "▤",
+      "kind": "text"
+    },
+    {
+      "source": "Ticaret Sicil No / Trade Registry No",
+      "translation": "№ торгового реестра",
+      "kind": "text"
+    },
+    {
+      "source": "3935",
+      "translation": "3935",
+      "kind": "text"
+    },
+    {
+      "source": "⌖",
+      "translation": "⌖",
+      "kind": "text"
+    },
+    {
+      "source": "Şube / Workplace Address",
+      "translation": "Филиал / адрес места деятельности",
+      "kind": "text"
+    },
+    {
+      "source": "Tosmur Mah., Atatürk Cad., Güvercin Apt., Dış Kapı No: 13, İç Kapı No: A, Alanya / Antalya",
+      "translation": "Tosmur Mah., Atatürk Cad., Güvercin Apt., Dış Kapı No: 13, İç Kapı No: A, Alanya / Antalya",
+      "kind": "text"
+    },
+    {
+      "source": "✉",
+      "translation": "✉",
+      "kind": "text"
+    },
+    {
+      "source": "E-mail",
+      "translation": "E-mail",
+      "kind": "text"
+    },
+    {
+      "source": "alanyatourorganizations@gmail.com",
+      "translation": "alanyatourorganizations@gmail.com",
+      "kind": "text"
+    },
+    {
+      "source": "☎",
+      "translation": "☎",
+      "kind": "text"
+    },
+    {
+      "source": "Telefon / Phone",
+      "translation": "Телефон",
+      "kind": "text"
+    },
+    {
+      "source": "+90 (535) 207 27 68",
+      "translation": "+90 (535) 207 27 68",
+      "kind": "text"
+    },
+    {
+      "source": "✓",
+      "translation": "✓",
+      "kind": "text"
+    },
+    {
+      "source": "Mesleki Kuruluş / Professional Organisation",
+      "translation": "Профессиональная организация",
+      "kind": "text"
+    },
+    {
+      "source": "TÜRSAB — Türkiye Seyahat Acentaları Birliği",
+      "translation": "TÜRSAB — Ассоциация туристических агентств Турции",
+      "kind": "text"
+    },
+    {
+      "source": "BRAND & LICENSE RELATIONSHIP",
+      "translation": "СООТНОШЕНИЕ БРЕНДА И ЛИЦЕНЗИИ",
+      "kind": "text"
+    },
+    {
+      "source": "is presented as the customer-facing brand and online booking platform.",
+      "translation": "представлен как клиентский бренд и онлайн-платформа бронирования.",
+      "kind": "text"
+    },
+    {
+      "source": "Licensed travel agency services are provided through",
+      "translation": "Лицензированные услуги туристического агентства предоставляются через",
+      "kind": "text"
+    },
+    {
+      "source": ", TÜRSAB Belge No",
+      "translation": ", TÜRSAB Belge No",
+      "kind": "text"
+    },
+    {
+      "source": ".",
+      "translation": ".",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR",
+      "translation": "UNION TOUR",
+      "kind": "text"
+    },
+    {
+      "source": "•",
+      "translation": "•",
+      "kind": "text"
+    },
+    {
+      "source": "TÜRSAB Belge No / License No: 2156",
+      "translation": "TÜRSAB Belge No / Лицензия №: 2156",
+      "kind": "text"
+    },
+    {
+      "source": "© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "translation": "© 2026 ALANYA TOUR ORGANIZATIONS — ПУТЕШЕСТВУЙТЕ С ЛЮБОВЬЮ. ПУТЕШЕСТВУЙТЕ С НАМИ.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "translation": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB № 2156",
+      "kind": "text"
+    },
+    {
+      "source": "Company & Legal Information",
+      "translation": "Компания и юридическая информация",
+      "kind": "text"
+    },
+    {
+      "source": "·",
+      "translation": "·",
+      "kind": "text"
+    },
+    {
+      "source": "Privacy & Cookies",
+      "translation": "Конфиденциальность и cookie",
+      "kind": "text"
+    },
+    {
+      "source": "tml>",
+      "translation": "tml>",
+      "kind": "text"
+    },
+    {
+      "source": "Legal pages",
+      "translation": "Юридические страницы",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Company and legal links",
+      "translation": "Ссылки компании и юридическая информация",
+      "kind": "aria-label"
+    }
+  ]
+}

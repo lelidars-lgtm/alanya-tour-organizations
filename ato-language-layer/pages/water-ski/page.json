@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "water-ski.html",
+  "approved_sha256": "03d1d2b1071da6448b1251f08685432f37905a3fdd1ab9270cfd6fda515dbf79",
+  "translation_entries": 150,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

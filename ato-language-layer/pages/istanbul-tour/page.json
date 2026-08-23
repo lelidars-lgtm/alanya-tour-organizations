@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "istanbul-tour.html",
+  "approved_sha256": "6d616e52752d8fa2822bd68ee6b62712f0e720e63e9b09ad03a5a83e16757d22",
+  "translation_entries": 150,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

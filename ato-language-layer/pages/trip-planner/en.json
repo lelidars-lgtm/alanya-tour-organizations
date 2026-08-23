@@ -1,0 +1,908 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "EN",
+  "approved_page": "trip-planner.html",
+  "approved_sha256": "8c0bda091ad73e5295e961089077e7abb38219b0d8459bc2fdf168655826d693",
+  "entries": [
+    {
+      "source": "TRIP PLANNER | ALANYA TOUR ORGANIZATIONS",
+      "translation": "TRIP PLANNER | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "Compare tours and build your perfect Alanya itinerary.",
+      "translation": "Compare tours and build your perfect Alanya itinerary.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR",
+      "translation": "YOUR",
+      "kind": "text"
+    },
+    {
+      "source": "Signature travel planning experience",
+      "translation": "Signature travel planning experience",
+      "kind": "text"
+    },
+    {
+      "source": "TRIP",
+      "translation": "TRIP",
+      "kind": "text"
+    },
+    {
+      "source": "PLANNER",
+      "translation": "PLANNER",
+      "kind": "text"
+    },
+    {
+      "source": "Compare tours. Build your perfect itinerary.",
+      "translation": "Compare tours. Build your perfect itinerary.",
+      "kind": "text"
+    },
+    {
+      "source": "Choose your experiences, tell us how you travel, and turn your holiday into a personal itinerary.",
+      "translation": "Choose your experiences, tell us how you travel, and turn your holiday into a personal itinerary.",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 01",
+      "translation": "STEP 01",
+      "kind": "text"
+    },
+    {
+      "source": "Choose Experiences",
+      "translation": "Choose Experiences",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 02",
+      "translation": "STEP 02",
+      "kind": "text"
+    },
+    {
+      "source": "Tell Us About Your Trip",
+      "translation": "Tell Us About Your Trip",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 03",
+      "translation": "STEP 03",
+      "kind": "text"
+    },
+    {
+      "source": "Compare & Plan",
+      "translation": "Compare & Plan",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 04",
+      "translation": "STEP 04",
+      "kind": "text"
+    },
+    {
+      "source": "Confirm With Manager",
+      "translation": "Confirm With Manager",
+      "kind": "text"
+    },
+    {
+      "source": "START PLANNING",
+      "translation": "START PLANNING",
+      "kind": "text"
+    },
+    {
+      "source": "↓",
+      "translation": "↓",
+      "kind": "text"
+    },
+    {
+      "source": "01",
+      "translation": "01",
+      "kind": "text"
+    },
+    {
+      "source": "Choose",
+      "translation": "Choose",
+      "kind": "text"
+    },
+    {
+      "source": "02",
+      "translation": "02",
+      "kind": "text"
+    },
+    {
+      "source": "Selected",
+      "translation": "Selected",
+      "kind": "text"
+    },
+    {
+      "source": "03",
+      "translation": "03",
+      "kind": "text"
+    },
+    {
+      "source": "Preferences",
+      "translation": "Preferences",
+      "kind": "text"
+    },
+    {
+      "source": "04",
+      "translation": "04",
+      "kind": "text"
+    },
+    {
+      "source": "Recommendations",
+      "translation": "Recommendations",
+      "kind": "text"
+    },
+    {
+      "source": "05",
+      "translation": "05",
+      "kind": "text"
+    },
+    {
+      "source": "Dates",
+      "translation": "Dates",
+      "kind": "text"
+    },
+    {
+      "source": "↻ START OVER",
+      "translation": "↻ START OVER",
+      "kind": "text"
+    },
+    {
+      "source": "BEGIN YOUR JOURNEY",
+      "translation": "BEGIN YOUR JOURNEY",
+      "kind": "text"
+    },
+    {
+      "source": "Explore by category",
+      "translation": "Explore by category",
+      "kind": "text"
+    },
+    {
+      "source": "Open any original category, choose the tours you love and return here — your selections stay saved.",
+      "translation": "Open any original category, choose the tours you love and return here — your selections stay saved.",
+      "kind": "text"
+    },
+    {
+      "source": "9",
+      "translation": "9",
+      "kind": "text"
+    },
+    {
+      "source": "experiences",
+      "translation": "experiences",
+      "kind": "text"
+    },
+    {
+      "source": "collections",
+      "translation": "collections",
+      "kind": "text"
+    },
+    {
+      "source": "Yachts • Fishing • Hidden bays",
+      "translation": "Yachts • Fishing • Hidden bays",
+      "kind": "text"
+    },
+    {
+      "source": "SEA EXPERIENCES",
+      "translation": "SEA EXPERIENCES",
+      "kind": "text"
+    },
+    {
+      "source": "EXPLORE →",
+      "translation": "EXPLORE →",
+      "kind": "text"
+    },
+    {
+      "source": "0 selected",
+      "translation": "0 selected",
+      "kind": "text"
+    },
+    {
+      "source": "Canyons • Lakes • Mountains",
+      "translation": "Canyons • Lakes • Mountains",
+      "kind": "text"
+    },
+    {
+      "source": "NATURE & ADVENTURE",
+      "translation": "NATURE & ADVENTURE",
+      "kind": "text"
+    },
+    {
+      "source": "Rafting • Safari • Adrenaline",
+      "translation": "Rafting • Safari • Adrenaline",
+      "kind": "text"
+    },
+    {
+      "source": "EXTREME & ADVENTURE",
+      "translation": "EXTREME & ADVENTURE",
+      "kind": "text"
+    },
+    {
+      "source": "Theme parks • Shows • Family days",
+      "translation": "Theme parks • Shows • Family days",
+      "kind": "text"
+    },
+    {
+      "source": "FAMILY EXPERIENCES",
+      "translation": "FAMILY EXPERIENCES",
+      "kind": "text"
+    },
+    {
+      "source": "Ancient cities • Cappadocia • Istanbul",
+      "translation": "Ancient cities • Cappadocia • Istanbul",
+      "kind": "text"
+    },
+    {
+      "source": "HISTORY & CULTURE",
+      "translation": "HISTORY & CULTURE",
+      "kind": "text"
+    },
+    {
+      "source": "06",
+      "translation": "06",
+      "kind": "text"
+    },
+    {
+      "source": "Jetski • Parasailing • Diving",
+      "translation": "Jetski • Parasailing • Diving",
+      "kind": "text"
+    },
+    {
+      "source": "WATER SPORTS",
+      "translation": "WATER SPORTS",
+      "kind": "text"
+    },
+    {
+      "source": "07",
+      "translation": "07",
+      "kind": "text"
+    },
+    {
+      "source": "Paragliding • Helicopter • Skydive",
+      "translation": "Paragliding • Helicopter • Skydive",
+      "kind": "text"
+    },
+    {
+      "source": "AIR EXPERIENCES",
+      "translation": "AIR EXPERIENCES",
+      "kind": "text"
+    },
+    {
+      "source": "08",
+      "translation": "08",
+      "kind": "text"
+    },
+    {
+      "source": "Hammam • Spa • Massage",
+      "translation": "Hammam • Spa • Massage",
+      "kind": "text"
+    },
+    {
+      "source": "WELLNESS & RELAX",
+      "translation": "WELLNESS & RELAX",
+      "kind": "text"
+    },
+    {
+      "source": "09",
+      "translation": "09",
+      "kind": "text"
+    },
+    {
+      "source": "Private yachts • Transfers • Concierge",
+      "translation": "Private yachts • Transfers • Concierge",
+      "kind": "text"
+    },
+    {
+      "source": "VIP SERVICES",
+      "translation": "VIP SERVICES",
+      "kind": "text"
+    },
+    {
+      "source": "PERSONAL CONCIERGE SHORTCUTS",
+      "translation": "PERSONAL CONCIERGE SHORTCUTS",
+      "kind": "text"
+    },
+    {
+      "source": "Quick start",
+      "translation": "Quick start",
+      "kind": "text"
+    },
+    {
+      "source": "Not sure where to begin? Choose the holiday style closest to you. We will pre-fill the planner preferences — you still make every final choice.",
+      "translation": "Not sure where to begin? Choose the holiday style closest to you. We will pre-fill the planner preferences — you still make every final choice.",
+      "kind": "text"
+    },
+    {
+      "source": "Family First",
+      "translation": "Family First",
+      "kind": "text"
+    },
+    {
+      "source": "Children, comfort and balanced days",
+      "translation": "Children, comfort and balanced days",
+      "kind": "text"
+    },
+    {
+      "source": "Sea Lover",
+      "translation": "Sea Lover",
+      "kind": "text"
+    },
+    {
+      "source": "Yachts, bays and water experiences",
+      "translation": "Yachts, bays and water experiences",
+      "kind": "text"
+    },
+    {
+      "source": "Adventure Mode",
+      "translation": "Adventure Mode",
+      "kind": "text"
+    },
+    {
+      "source": "Active pace and adrenaline",
+      "translation": "Active pace and adrenaline",
+      "kind": "text"
+    },
+    {
+      "source": "Slow Luxury",
+      "translation": "Slow Luxury",
+      "kind": "text"
+    },
+    {
+      "source": "Relaxed pace, spa and easy days",
+      "translation": "Relaxed pace, spa and easy days",
+      "kind": "text"
+    },
+    {
+      "source": "First Time in Alanya",
+      "translation": "First Time in Alanya",
+      "kind": "text"
+    },
+    {
+      "source": "A balanced introduction to the region",
+      "translation": "A balanced introduction to the region",
+      "kind": "text"
+    },
+    {
+      "source": "Private & VIP",
+      "translation": "Private & VIP",
+      "kind": "text"
+    },
+    {
+      "source": "Premium services and private experiences",
+      "translation": "Premium services and private experiences",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR COLLECTION",
+      "translation": "YOUR COLLECTION",
+      "kind": "text"
+    },
+    {
+      "source": "Your selected tours",
+      "translation": "Your selected tours",
+      "kind": "text"
+    },
+    {
+      "source": "Choose up to 4 tours you like most from any category. Images, price and card information are read from the current original tour cards.",
+      "translation": "Choose up to 4 tours you like most from any category. Images, price and card information are read from the current original tour cards.",
+      "kind": "text"
+    },
+    {
+      "source": "Clear all",
+      "translation": "Clear all",
+      "kind": "text"
+    },
+    {
+      "source": "0/4",
+      "translation": "0/4",
+      "kind": "text"
+    },
+    {
+      "source": "TELL US HOW YOU TRAVEL",
+      "translation": "TELL US HOW YOU TRAVEL",
+      "kind": "text"
+    },
+    {
+      "source": "Your trip & preferences",
+      "translation": "Your trip & preferences",
+      "kind": "text"
+    },
+    {
+      "source": "Safety and factual restrictions are checked before preferences.",
+      "translation": "Safety and factual restrictions are checked before preferences.",
+      "kind": "text"
+    },
+    {
+      "source": "Holiday start",
+      "translation": "Holiday start",
+      "kind": "text"
+    },
+    {
+      "source": "Holiday end",
+      "translation": "Holiday end",
+      "kind": "text"
+    },
+    {
+      "source": "Adults",
+      "translation": "Adults",
+      "kind": "text"
+    },
+    {
+      "source": "Children & ages",
+      "translation": "Children & ages",
+      "kind": "text"
+    },
+    {
+      "source": "Pace",
+      "translation": "Pace",
+      "kind": "text"
+    },
+    {
+      "source": "Balanced",
+      "translation": "Balanced",
+      "kind": "text"
+    },
+    {
+      "source": "Relaxed",
+      "translation": "Relaxed",
+      "kind": "text"
+    },
+    {
+      "source": "Active",
+      "translation": "Active",
+      "kind": "text"
+    },
+    {
+      "source": "Road tolerance",
+      "translation": "Road tolerance",
+      "kind": "text"
+    },
+    {
+      "source": "Medium",
+      "translation": "Medium",
+      "kind": "text"
+    },
+    {
+      "source": "Prefer short road time",
+      "translation": "Prefer short road time",
+      "kind": "text"
+    },
+    {
+      "source": "Long trips are fine",
+      "translation": "Long trips are fine",
+      "kind": "text"
+    },
+    {
+      "source": "Start time preference",
+      "translation": "Start time preference",
+      "kind": "text"
+    },
+    {
+      "source": "Any",
+      "translation": "Any",
+      "kind": "text"
+    },
+    {
+      "source": "Avoid early starts",
+      "translation": "Avoid early starts",
+      "kind": "text"
+    },
+    {
+      "source": "Early starts are fine",
+      "translation": "Early starts are fine",
+      "kind": "text"
+    },
+    {
+      "source": "Free days between tours",
+      "translation": "Free days between tours",
+      "kind": "text"
+    },
+    {
+      "source": "Not necessary",
+      "translation": "Not necessary",
+      "kind": "text"
+    },
+    {
+      "source": "Prefer a free day",
+      "translation": "Prefer a free day",
+      "kind": "text"
+    },
+    {
+      "source": "Important for planning",
+      "translation": "Important for planning",
+      "kind": "text"
+    },
+    {
+      "source": "Pregnancy",
+      "translation": "Pregnancy",
+      "kind": "text"
+    },
+    {
+      "source": "Elderly guest",
+      "translation": "Elderly guest",
+      "kind": "text"
+    },
+    {
+      "source": "Reduced mobility",
+      "translation": "Reduced mobility",
+      "kind": "text"
+    },
+    {
+      "source": "Stroller",
+      "translation": "Stroller",
+      "kind": "text"
+    },
+    {
+      "source": "Interests",
+      "translation": "Interests",
+      "kind": "text"
+    },
+    {
+      "source": "Sea",
+      "translation": "Sea",
+      "kind": "text"
+    },
+    {
+      "source": "Nature",
+      "translation": "Nature",
+      "kind": "text"
+    },
+    {
+      "source": "History",
+      "translation": "History",
+      "kind": "text"
+    },
+    {
+      "source": "Extreme",
+      "translation": "Extreme",
+      "kind": "text"
+    },
+    {
+      "source": "Family",
+      "translation": "Family",
+      "kind": "text"
+    },
+    {
+      "source": "Wellness",
+      "translation": "Wellness",
+      "kind": "text"
+    },
+    {
+      "source": "Water Sports",
+      "translation": "Water Sports",
+      "kind": "text"
+    },
+    {
+      "source": "Air",
+      "translation": "Air",
+      "kind": "text"
+    },
+    {
+      "source": "VIP",
+      "translation": "VIP",
+      "kind": "text"
+    },
+    {
+      "source": "Get recommendations",
+      "translation": "Get recommendations",
+      "kind": "text"
+    },
+    {
+      "source": "Get a suggested schedule based on your selected tours and travel dates.",
+      "translation": "Get a suggested schedule based on your selected tours and travel dates.",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR PERSONAL MATCHES",
+      "translation": "YOUR PERSONAL MATCHES",
+      "kind": "text"
+    },
+    {
+      "source": "Planner recommendations",
+      "translation": "Planner recommendations",
+      "kind": "text"
+    },
+    {
+      "source": "We analyze and rank the tours you selected using your travel details, preferences and tour rules.",
+      "translation": "We analyze and rank the tours you selected using your travel details, preferences and tour rules.",
+      "kind": "text"
+    },
+    {
+      "source": "COMPARE BEFORE YOU DECIDE",
+      "translation": "COMPARE BEFORE YOU DECIDE",
+      "kind": "text"
+    },
+    {
+      "source": "Detailed comparison",
+      "translation": "Detailed comparison",
+      "kind": "text"
+    },
+    {
+      "source": "Your selected tours are compared automatically in one analytical table. Choose 2–4 tours from any categories.",
+      "translation": "Your selected tours are compared automatically in one analytical table. Choose 2–4 tours from any categories.",
+      "kind": "text"
+    },
+    {
+      "source": "TURN CHOICES INTO A JOURNEY",
+      "translation": "TURN CHOICES INTO A JOURNEY",
+      "kind": "text"
+    },
+    {
+      "source": "Plan Your Dates",
+      "translation": "Plan Your Dates",
+      "kind": "text"
+    },
+    {
+      "source": "Weather layer:",
+      "translation": "Weather layer:",
+      "kind": "text"
+    },
+    {
+      "source": "add your travel dates to prepare date-specific guidance.",
+      "translation": "add your travel dates to prepare date-specific guidance.",
+      "kind": "text"
+    },
+    {
+      "source": "Suggested itinerary — dates and availability require confirmation.",
+      "translation": "Suggested itinerary — dates and availability require confirmation.",
+      "kind": "text"
+    },
+    {
+      "source": "PREPARE WITH CONFIDENCE",
+      "translation": "PREPARE WITH CONFIDENCE",
+      "kind": "text"
+    },
+    {
+      "source": "What to Bring",
+      "translation": "What to Bring",
+      "kind": "text"
+    },
+    {
+      "source": "Each selected tour keeps its own requirements. The planner never merges tour-specific rules into a generic list.",
+      "translation": "Each selected tour keeps its own requirements. The planner never merges tour-specific rules into a generic list.",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR PERSONAL TRAVEL PLAN",
+      "translation": "YOUR PERSONAL TRAVEL PLAN",
+      "kind": "text"
+    },
+    {
+      "source": "Ready to turn your plan into a real holiday?",
+      "translation": "Ready to turn your plan into a real holiday?",
+      "kind": "text"
+    },
+    {
+      "source": "Your selected pool, comparison and suggested dates stay saved while you browse. Final availability, pickup time and price are confirmed by our travel manager.",
+      "translation": "Your selected pool, comparison and suggested dates stay saved while you browse. Final availability, pickup time and price are confirmed by our travel manager.",
+      "kind": "text"
+    },
+    {
+      "source": "Share My Itinerary",
+      "translation": "Share My Itinerary",
+      "kind": "text"
+    },
+    {
+      "source": "I’VE MADE MY CHOICE",
+      "translation": "I’VE MADE MY CHOICE",
+      "kind": "text"
+    },
+    {
+      "source": "Choose your tours first",
+      "translation": "Choose your tours first",
+      "kind": "text"
+    },
+    {
+      "source": "© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "translation": "© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "translation": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "kind": "text"
+    },
+    {
+      "source": "Company & Legal Information",
+      "translation": "Company & Legal Information",
+      "kind": "text"
+    },
+    {
+      "source": "·",
+      "translation": "·",
+      "kind": "text"
+    },
+    {
+      "source": "Privacy & Cookies",
+      "translation": "Privacy & Cookies",
+      "kind": "text"
+    },
+    {
+      "source": "Contact our travel manager",
+      "translation": "Contact our travel manager",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Name",
+      "translation": "Name",
+      "kind": "text"
+    },
+    {
+      "source": "WhatsApp / phone",
+      "translation": "WhatsApp / phone",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel",
+      "translation": "Hotel",
+      "kind": "text"
+    },
+    {
+      "source": "Room number",
+      "translation": "Room number",
+      "kind": "text"
+    },
+    {
+      "source": "Children / ages",
+      "translation": "Children / ages",
+      "kind": "text"
+    },
+    {
+      "source": "No",
+      "translation": "No",
+      "kind": "text"
+    },
+    {
+      "source": "Yes",
+      "translation": "Yes",
+      "kind": "text"
+    },
+    {
+      "source": "Elderly guests",
+      "translation": "Elderly guests",
+      "kind": "text"
+    },
+    {
+      "source": "Stroller / mobility",
+      "translation": "Stroller / mobility",
+      "kind": "text"
+    },
+    {
+      "source": "Child stroller",
+      "translation": "Child stroller",
+      "kind": "text"
+    },
+    {
+      "source": "Wheelchair / reduced mobility",
+      "translation": "Wheelchair / reduced mobility",
+      "kind": "text"
+    },
+    {
+      "source": "Both",
+      "translation": "Both",
+      "kind": "text"
+    },
+    {
+      "source": "Language",
+      "translation": "Language",
+      "kind": "text"
+    },
+    {
+      "source": "English",
+      "translation": "English",
+      "kind": "text"
+    },
+    {
+      "source": "Russian",
+      "translation": "Russian",
+      "kind": "text"
+    },
+    {
+      "source": "Turkish",
+      "translation": "Turkish",
+      "kind": "text"
+    },
+    {
+      "source": "German",
+      "translation": "German",
+      "kind": "text"
+    },
+    {
+      "source": "Polish",
+      "translation": "Polish",
+      "kind": "text"
+    },
+    {
+      "source": "Notes",
+      "translation": "Notes",
+      "kind": "text"
+    },
+    {
+      "source": "Send request to manager via WhatsApp",
+      "translation": "Send request to manager via WhatsApp",
+      "kind": "text"
+    },
+    {
+      "source": "Sending the request does not confirm availability. The manager reviews the dates, pickup, final price and any safety restrictions before confirmation.",
+      "translation": "Sending the request does not confirm availability. The manager reviews the dates, pickup, final price and any safety restrictions before confirmation.",
+      "kind": "text"
+    },
+    {
+      "source": "Trip Planner progress",
+      "translation": "Trip Planner progress",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Start a new Trip Planner",
+      "translation": "Start a new Trip Planner",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Sea Experiences",
+      "translation": "Sea Experiences",
+      "kind": "alt"
+    },
+    {
+      "source": "Nature and Adventure",
+      "translation": "Nature and Adventure",
+      "kind": "alt"
+    },
+    {
+      "source": "Extreme and Adventure",
+      "translation": "Extreme and Adventure",
+      "kind": "alt"
+    },
+    {
+      "source": "Family Experiences",
+      "translation": "Family Experiences",
+      "kind": "alt"
+    },
+    {
+      "source": "History and Culture",
+      "translation": "History and Culture",
+      "kind": "alt"
+    },
+    {
+      "source": "Air Experiences",
+      "translation": "Air Experiences",
+      "kind": "alt"
+    },
+    {
+      "source": "Wellness and Relax",
+      "translation": "Wellness and Relax",
+      "kind": "alt"
+    },
+    {
+      "source": "VIP Services",
+      "translation": "VIP Services",
+      "kind": "alt"
+    },
+    {
+      "source": "e.g. 2 children: 4, 9",
+      "translation": "e.g. 2 children: 4, 9",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Site footer",
+      "translation": "Site footer",
+      "kind": "aria-label"
+    },
+    {
+      "source": "e.g. 4, 9",
+      "translation": "e.g. 4, 9",
+      "kind": "placeholder"
+    }
+  ]
+}

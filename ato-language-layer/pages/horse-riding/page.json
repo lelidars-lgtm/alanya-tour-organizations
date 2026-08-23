@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "horse-riding.html",
+  "approved_sha256": "adce812072f2b6d576b20183ae28260c8bca1924014406b03fbebd504d436e52",
+  "translation_entries": 159,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

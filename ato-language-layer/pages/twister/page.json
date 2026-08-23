@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "twister.html",
+  "approved_sha256": "fb69aeb538e57f137fd6a15586731c989ae0488b9affacfa4ebfe1258a97f038",
+  "translation_entries": 150,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

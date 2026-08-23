@@ -1,0 +1,758 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "water-sports.html",
+  "approved_sha256": "049f01330ba17dd5bc981c46a85d8910cdf40552dc0dd8e9c6d504d746231788",
+  "entries": [
+    {
+      "source": "Water Sports | ALANYA TOUR ORGANIZATIONS",
+      "translation": "Su Sporları | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › Tours ›",
+      "translation": "Ana Sayfa › Turlar ›",
+      "kind": "text"
+    },
+    {
+      "source": "Water Sports",
+      "translation": "Su Sporları",
+      "kind": "text"
+    },
+    {
+      "source": "Solo Adrenaline • Luxury Rides • Group Fun",
+      "translation": "Solo Adrenalin • Lüks Deneyimler • Grup Eğlencesi",
+      "kind": "text"
+    },
+    {
+      "source": "7. Water",
+      "translation": "7. Su",
+      "kind": "text"
+    },
+    {
+      "source": "Sports",
+      "translation": "Sporları",
+      "kind": "text"
+    },
+    {
+      "source": "Premium water sports in Alanya: solo adrenaline, luxury water experiences, group fun rides and calm Mediterranean exploration.",
+      "translation": "Alanya'da premium su sporları: solo adrenalin, lüks su deneyimleri, grup eğlenceleri ve Akdeniz'de sakin keşifler.",
+      "kind": "text"
+    },
+    {
+      "source": "Solo",
+      "translation": "Solo",
+      "kind": "text"
+    },
+    {
+      "source": "Adrenaline",
+      "translation": "Adrenalin",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury",
+      "translation": "Lüks",
+      "kind": "text"
+    },
+    {
+      "source": "Rides",
+      "translation": "Aktiviteler",
+      "kind": "text"
+    },
+    {
+      "source": "Group",
+      "translation": "Grup",
+      "kind": "text"
+    },
+    {
+      "source": "Fun",
+      "translation": "Eğlenceli",
+      "kind": "text"
+    },
+    {
+      "source": "Relax &",
+      "translation": "Rahatla &",
+      "kind": "text"
+    },
+    {
+      "source": "Explore",
+      "translation": "Keşfet",
+      "kind": "text"
+    },
+    {
+      "source": "Solo Adrenaline",
+      "translation": "Solo Adrenalin",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "WhatsApp'tan Rezerve Et →",
+      "kind": "text"
+    },
+    {
+      "source": "Sky View",
+      "translation": "Gökyüzü Manzarası",
+      "kind": "text"
+    },
+    {
+      "source": "1",
+      "translation": "1",
+      "kind": "text"
+    },
+    {
+      "source": "Parasailing Adventure",
+      "translation": "Parasailing Macerası",
+      "kind": "text"
+    },
+    {
+      "source": "From",
+      "translation": "Başlangıç",
+      "kind": "text"
+    },
+    {
+      "source": "€70",
+      "translation": "€70",
+      "kind": "text"
+    },
+    {
+      "source": "/ person",
+      "translation": "/ kişi",
+      "kind": "text"
+    },
+    {
+      "source": "Fly above the Mediterranean and enjoy panoramic views of the Alanya coastline.",
+      "translation": "Akdeniz'in üzerinde uçun ve Alanya kıyılarının panoramik manzarasının keyfini çıkarın.",
+      "kind": "text"
+    },
+    {
+      "source": "Flying",
+      "translation": "Uçuş",
+      "kind": "text"
+    },
+    {
+      "source": "Sea View",
+      "translation": "Deniz Manzarası",
+      "kind": "text"
+    },
+    {
+      "source": "Short ride",
+      "translation": "Kısa sürüş",
+      "kind": "text"
+    },
+    {
+      "source": "Panoramic",
+      "translation": "Panoramik",
+      "kind": "text"
+    },
+    {
+      "source": "→",
+      "translation": "→",
+      "kind": "text"
+    },
+    {
+      "source": "Fast Ride",
+      "translation": "Hızlı Sürüş",
+      "kind": "text"
+    },
+    {
+      "source": "2",
+      "translation": "2",
+      "kind": "text"
+    },
+    {
+      "source": "Jet Ski Safari",
+      "translation": "Jet Ski Safari",
+      "kind": "text"
+    },
+    {
+      "source": "€60",
+      "translation": "€60",
+      "kind": "text"
+    },
+    {
+      "source": "Powerful solo sea ride for guests who want speed, spray and pure action.",
+      "translation": "Hız, su sıçraması ve saf aksiyon isteyenler için güçlü bir solo deniz sürüşü.",
+      "kind": "text"
+    },
+    {
+      "source": "Speed",
+      "translation": "Hız",
+      "kind": "text"
+    },
+    {
+      "source": "Flexible time",
+      "translation": "Esnek zaman",
+      "kind": "text"
+    },
+    {
+      "source": "Open sea",
+      "translation": "Açık deniz",
+      "kind": "text"
+    },
+    {
+      "source": "Training",
+      "translation": "Eğitim",
+      "kind": "text"
+    },
+    {
+      "source": "3",
+      "translation": "3",
+      "kind": "text"
+    },
+    {
+      "source": "E-Foil Experience & Training",
+      "translation": "E-Foil Deneyimi & Eğitimi",
+      "kind": "text"
+    },
+    {
+      "source": "€110",
+      "translation": "€110",
+      "kind": "text"
+    },
+    {
+      "source": "Learn to glide above the water with professional support and premium atmosphere.",
+      "translation": "Profesyonel destek ve premium atmosferle suyun üzerinde süzülmeyi öğrenin.",
+      "kind": "text"
+    },
+    {
+      "source": "E-Foil",
+      "translation": "E-Foil",
+      "kind": "text"
+    },
+    {
+      "source": "Premium",
+      "translation": "Premium",
+      "kind": "text"
+    },
+    {
+      "source": "Lesson",
+      "translation": "Ders",
+      "kind": "text"
+    },
+    {
+      "source": "Instructor",
+      "translation": "Eğitmen",
+      "kind": "text"
+    },
+    {
+      "source": "Sport",
+      "translation": "Spor",
+      "kind": "text"
+    },
+    {
+      "source": "4",
+      "translation": "4",
+      "kind": "text"
+    },
+    {
+      "source": "Professional Wakeboarding",
+      "translation": "Profesyonel Wakeboard",
+      "kind": "text"
+    },
+    {
+      "source": "Dynamic board sport with strong motion, water spray and a luxury action mood.",
+      "translation": "Güçlü hareket, su sıçraması ve premium aksiyon atmosferi sunan dinamik board sporu.",
+      "kind": "text"
+    },
+    {
+      "source": "Wakeboard",
+      "translation": "Wakeboard",
+      "kind": "text"
+    },
+    {
+      "source": "Action",
+      "translation": "Aksiyon",
+      "kind": "text"
+    },
+    {
+      "source": "Sport ride",
+      "translation": "Sportif sürüş",
+      "kind": "text"
+    },
+    {
+      "source": "Speedboat",
+      "translation": "Sürat Teknesi",
+      "kind": "text"
+    },
+    {
+      "source": "Classic",
+      "translation": "Klasik",
+      "kind": "text"
+    },
+    {
+      "source": "5",
+      "translation": "5",
+      "kind": "text"
+    },
+    {
+      "source": "Water Ski Experience",
+      "translation": "Su Kayağı Deneyimi",
+      "kind": "text"
+    },
+    {
+      "source": "Classic water ski experience with elegant trails and beautiful sea reflections.",
+      "translation": "Zarif su izleri ve güzel deniz yansımalarıyla klasik su kayağı deneyimi.",
+      "kind": "text"
+    },
+    {
+      "source": "Waterski",
+      "translation": "Su Kayağı",
+      "kind": "text"
+    },
+    {
+      "source": "Sea Sport",
+      "translation": "Deniz Sporu",
+      "kind": "text"
+    },
+    {
+      "source": "Sea trail",
+      "translation": "Deniz izi",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury Water Experiences",
+      "translation": "Lüks Su Deneyimleri",
+      "kind": "text"
+    },
+    {
+      "source": "6",
+      "translation": "6",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury Jet Car",
+      "translation": "Lüks Jet Car",
+      "kind": "text"
+    },
+    {
+      "source": "€100",
+      "translation": "€100",
+      "kind": "text"
+    },
+    {
+      "source": "A supercar-shaped water experience made for premium photos and attention.",
+      "translation": "Dikkat çekici fotoğraflar ve güçlü bir premium etki için tasarlanmış süper otomobil görünümlü su deneyimi.",
+      "kind": "text"
+    },
+    {
+      "source": "Jet Car",
+      "translation": "Jet Car",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Spot",
+      "translation": "Fotoğraf Noktası",
+      "kind": "text"
+    },
+    {
+      "source": "VIP mood",
+      "translation": "VIP atmosferi",
+      "kind": "text"
+    },
+    {
+      "source": "VIP",
+      "translation": "VIP",
+      "kind": "text"
+    },
+    {
+      "source": "7",
+      "translation": "7",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Speed Boat Tour",
+      "translation": "VIP Sürat Teknesi Turu",
+      "kind": "text"
+    },
+    {
+      "source": "€300",
+      "translation": "€300",
+      "kind": "text"
+    },
+    {
+      "source": "/ boat",
+      "translation": "/ tekne",
+      "kind": "text"
+    },
+    {
+      "source": "Fast and elegant sea route along the Alanya coastline with a luxury feeling.",
+      "translation": "Alanya kıyıları boyunca lüks hissi veren hızlı ve zarif bir deniz rotası.",
+      "kind": "text"
+    },
+    {
+      "source": "Speed Boat",
+      "translation": "Sürat Teknesi",
+      "kind": "text"
+    },
+    {
+      "source": "Coastline",
+      "translation": "Sahil Şeridi",
+      "kind": "text"
+    },
+    {
+      "source": "Sea tour",
+      "translation": "Deniz turu",
+      "kind": "text"
+    },
+    {
+      "source": "Fast ride",
+      "translation": "Hızlı sürüş",
+      "kind": "text"
+    },
+    {
+      "source": "Group Fun Rides",
+      "translation": "Grup Eğlence Aktiviteleri",
+      "kind": "text"
+    },
+    {
+      "source": "Group Fun",
+      "translation": "Grup Eğlencesi",
+      "kind": "text"
+    },
+    {
+      "source": "8",
+      "translation": "8",
+      "kind": "text"
+    },
+    {
+      "source": "Twister Ride",
+      "translation": "Twister Aktivitesi",
+      "kind": "text"
+    },
+    {
+      "source": "€170",
+      "translation": "€170",
+      "kind": "text"
+    },
+    {
+      "source": "/ group",
+      "translation": "/ grup",
+      "kind": "text"
+    },
+    {
+      "source": "Fast inflatable ride with turns, splashes and strong group energy.",
+      "translation": "Dönüşler, su sıçramaları ve yüksek grup enerjisiyle hızlı şişme su aktivitesi.",
+      "kind": "text"
+    },
+    {
+      "source": "Twister",
+      "translation": "Twister",
+      "kind": "text"
+    },
+    {
+      "source": "Splash",
+      "translation": "Su Sıçraması",
+      "kind": "text"
+    },
+    {
+      "source": "Fun ride",
+      "translation": "Eğlenceli sürüş",
+      "kind": "text"
+    },
+    {
+      "source": "Friends",
+      "translation": "Arkadaşlar",
+      "kind": "text"
+    },
+    {
+      "source": "Classic Fun",
+      "translation": "Klasik Eğlence",
+      "kind": "text"
+    },
+    {
+      "source": "9",
+      "translation": "9",
+      "kind": "text"
+    },
+    {
+      "source": "Banana Boat",
+      "translation": "Banana",
+      "kind": "text"
+    },
+    {
+      "source": "€120",
+      "translation": "€120",
+      "kind": "text"
+    },
+    {
+      "source": "The iconic water ride for families, friends and easy holiday laughter.",
+      "translation": "Aileler ve arkadaş grupları için tatilin klasik, keyifli ve bol kahkahalı su aktivitesi.",
+      "kind": "text"
+    },
+    {
+      "source": "Banana",
+      "translation": "Banana",
+      "kind": "text"
+    },
+    {
+      "source": "Family",
+      "translation": "Aile",
+      "kind": "text"
+    },
+    {
+      "source": "Comfort Fun",
+      "translation": "Konforlu Eğlence",
+      "kind": "text"
+    },
+    {
+      "source": "10",
+      "translation": "10",
+      "kind": "text"
+    },
+    {
+      "source": "Sofa Ride",
+      "translation": "Sofa Aktivitesi",
+      "kind": "text"
+    },
+    {
+      "source": "€25",
+      "translation": "€25",
+      "kind": "text"
+    },
+    {
+      "source": "A sofa-style inflatable ride with comfort, speed and fun splashes.",
+      "translation": "Konfor, hız ve eğlenceli su sıçramalarını birleştiren sofa tipi şişme aktivite.",
+      "kind": "text"
+    },
+    {
+      "source": "Sofa",
+      "translation": "Sofa",
+      "kind": "text"
+    },
+    {
+      "source": "Easy Fun",
+      "translation": "Kolay Eğlence",
+      "kind": "text"
+    },
+    {
+      "source": "Sea spray",
+      "translation": "Deniz sıçraması",
+      "kind": "text"
+    },
+    {
+      "source": "Extreme",
+      "translation": "Ekstrem",
+      "kind": "text"
+    },
+    {
+      "source": "11",
+      "translation": "11",
+      "kind": "text"
+    },
+    {
+      "source": "Extreme Ringo",
+      "translation": "Ekstrem Ringo",
+      "kind": "text"
+    },
+    {
+      "source": "A sharper inflatable tube ride for guests who want more adrenaline.",
+      "translation": "Daha fazla adrenalin isteyenler için daha sert ve dinamik şişme ringo aktivitesi.",
+      "kind": "text"
+    },
+    {
+      "source": "Ringo",
+      "translation": "Ringo",
+      "kind": "text"
+    },
+    {
+      "source": "Solo / Duo",
+      "translation": "Solo / İki Kişi",
+      "kind": "text"
+    },
+    {
+      "source": "Relax & Exploration",
+      "translation": "Rahatlama & Keşif",
+      "kind": "text"
+    },
+    {
+      "source": "Lifestyle",
+      "translation": "Yaşam Tarzı",
+      "kind": "text"
+    },
+    {
+      "source": "12",
+      "translation": "12",
+      "kind": "text"
+    },
+    {
+      "source": "Stand Up Paddleboarding",
+      "translation": "Stand Up Paddleboard",
+      "kind": "text"
+    },
+    {
+      "source": "€35",
+      "translation": "€35",
+      "kind": "text"
+    },
+    {
+      "source": "Calm SUP boarding on golden water with a peaceful Mediterranean mood.",
+      "translation": "Huzurlu Akdeniz atmosferinde, ışıldayan sularda sakin bir SUP deneyimi.",
+      "kind": "text"
+    },
+    {
+      "source": "SUP",
+      "translation": "SUP",
+      "kind": "text"
+    },
+    {
+      "source": "Relax",
+      "translation": "Rahatla",
+      "kind": "text"
+    },
+    {
+      "source": "Calm ride",
+      "translation": "Sakin sürüş",
+      "kind": "text"
+    },
+    {
+      "source": "Clear water",
+      "translation": "Berrak su",
+      "kind": "text"
+    },
+    {
+      "source": "Underwater",
+      "translation": "Sualtı",
+      "kind": "text"
+    },
+    {
+      "source": "13",
+      "translation": "13",
+      "kind": "text"
+    },
+    {
+      "source": "Scuba Diving Experience",
+      "translation": "Tüplü Dalış Deneyimi",
+      "kind": "text"
+    },
+    {
+      "source": "Explore clear Mediterranean underwater scenery with professional diving support.",
+      "translation": "Profesyonel dalış desteğiyle Akdeniz'in berrak su altı dünyasını keşfedin.",
+      "kind": "text"
+    },
+    {
+      "source": "Diving",
+      "translation": "Dalış",
+      "kind": "text"
+    },
+    {
+      "source": "Half day",
+      "translation": "Yarım gün",
+      "kind": "text"
+    },
+    {
+      "source": "Discover Water Sports",
+      "translation": "Su Sporlarını Keşfedin",
+      "kind": "text"
+    },
+    {
+      "source": "Book parasailing, jet ski, jet car, group rides, SUP and scuba diving via WhatsApp",
+      "translation": "Parasailing, jet ski, jet car, grup aktiviteleri, SUP ve tüplü dalışı WhatsApp üzerinden rezerve edin",
+      "kind": "text"
+    },
+    {
+      "source": "Safety",
+      "translation": "Güvenlik",
+      "kind": "text"
+    },
+    {
+      "source": "First",
+      "translation": "Önce",
+      "kind": "text"
+    },
+    {
+      "source": "Flexible",
+      "translation": "Esnek",
+      "kind": "text"
+    },
+    {
+      "source": "Booking",
+      "translation": "Rezervasyon",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel Pickup",
+      "translation": "Otelden Alınma",
+      "kind": "text"
+    },
+    {
+      "source": "Available",
+      "translation": "Müsait",
+      "kind": "text"
+    },
+    {
+      "source": "Solo & Group",
+      "translation": "Solo & Grup",
+      "kind": "text"
+    },
+    {
+      "source": "Parasailing Adventure in Alanya",
+      "translation": "Alanya'da Parasailing Macerası",
+      "kind": "alt"
+    },
+    {
+      "source": "Jet Ski Safari in Alanya",
+      "translation": "Alanya'da Jet Ski Safari",
+      "kind": "alt"
+    },
+    {
+      "source": "E-Foil Experience and Training in Alanya",
+      "translation": "Alanya'da E-Foil Deneyimi ve Eğitimi",
+      "kind": "alt"
+    },
+    {
+      "source": "Professional Wakeboarding in Alanya",
+      "translation": "Alanya'da Profesyonel Wakeboard",
+      "kind": "alt"
+    },
+    {
+      "source": "Water Ski Experience in Alanya",
+      "translation": "Alanya'da Su Kayağı Deneyimi",
+      "kind": "alt"
+    },
+    {
+      "source": "Luxury Jet Car in Alanya",
+      "translation": "Alanya'da Lüks Jet Car",
+      "kind": "alt"
+    },
+    {
+      "source": "VIP Speed Boat Tour in Alanya",
+      "translation": "Alanya'da VIP Sürat Teknesi Turu",
+      "kind": "alt"
+    },
+    {
+      "source": "Twister Ride in Alanya",
+      "translation": "Alanya'da Twister Aktivitesi",
+      "kind": "alt"
+    },
+    {
+      "source": "Banana Boat in Alanya",
+      "translation": "Alanya'da Banana",
+      "kind": "alt"
+    },
+    {
+      "source": "Sofa Ride in Alanya",
+      "translation": "Alanya'da Sofa Aktivitesi",
+      "kind": "alt"
+    },
+    {
+      "source": "Extreme Ringo in Alanya",
+      "translation": "Alanya'da Ekstrem Ringo",
+      "kind": "alt"
+    },
+    {
+      "source": "Stand Up Paddleboarding in Alanya",
+      "translation": "Alanya'da Stand Up Paddleboard",
+      "kind": "alt"
+    },
+    {
+      "source": "Scuba Diving Experience in Alanya",
+      "translation": "Alanya'da Tüplü Dalış",
+      "kind": "alt"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "extreme-adventure.html",
+  "approved_sha256": "1b44561bbf4340d6d6abfb62b446ae7505084a86bb68a3a158d35031b82b7e65",
+  "translation_entries": 55,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

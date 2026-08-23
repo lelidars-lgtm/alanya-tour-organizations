@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "helicopter-experience.html",
+  "approved_sha256": "ec1b4509727c1cf41d4810072ac465fa53313525d82ef6f3d46241356d4f1aee",
+  "translation_entries": 143,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

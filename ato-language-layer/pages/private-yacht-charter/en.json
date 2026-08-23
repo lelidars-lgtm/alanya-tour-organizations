@@ -1,0 +1,763 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "EN",
+  "approved_page": "private-yacht-charter.html",
+  "approved_sha256": "9134f5f161a607dc56ec1ca2fbd63bafc4660e92489dd2f1c7dce926f00ff0e1",
+  "entries": [
+    {
+      "source": "Private Yacht Charter in Alanya | ALANYA TOUR ORGANIZATIONS",
+      "translation": "Private Yacht Charter in Alanya | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "Private yacht charter in Alanya for proposals, birthdays, family celebrations, sunset experiences and custom coastal routes, subject to yacht availability and sea conditions.",
+      "translation": "Private yacht charter in Alanya for proposals, birthdays, family celebrations, sunset experiences and custom coastal routes, subject to yacht availability and sea conditions.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home ›",
+      "translation": "Home ›",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Services",
+      "translation": "VIP Services",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Private Yacht Charter",
+      "translation": "Private Yacht Charter",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Private Sea Experience",
+      "translation": "VIP Private Sea Experience",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury private yacht experiences created for your most important moments.",
+      "translation": "Luxury private yacht experiences created for your most important moments.",
+      "kind": "text"
+    },
+    {
+      "source": "Weddings, marriage proposals, birthday surprises, romantic dinners, VIP transfers and fully customized yacht charters along the Alanya coast — every detail is designed around your wishes.",
+      "translation": "Weddings, marriage proposals, birthday surprises, romantic dinners, VIP transfers and fully customized yacht charters along the Alanya coast — every detail is designed around your wishes.",
+      "kind": "text"
+    },
+    {
+      "source": "CUSTOM EVENT",
+      "translation": "CUSTOM EVENT",
+      "kind": "text"
+    },
+    {
+      "source": "PRIVATE YACHT",
+      "translation": "PRIVATE YACHT",
+      "kind": "text"
+    },
+    {
+      "source": "ON REQUEST",
+      "translation": "ON REQUEST",
+      "kind": "text"
+    },
+    {
+      "source": "PRIVATE CHARTER",
+      "translation": "PRIVATE CHARTER",
+      "kind": "text"
+    },
+    {
+      "source": "WEDDING",
+      "translation": "WEDDING",
+      "kind": "text"
+    },
+    {
+      "source": "MARRIAGE PROPOSAL",
+      "translation": "MARRIAGE PROPOSAL",
+      "kind": "text"
+    },
+    {
+      "source": "BIRTHDAY SURPRISE",
+      "translation": "BIRTHDAY SURPRISE",
+      "kind": "text"
+    },
+    {
+      "source": "VIP TRANSFER",
+      "translation": "VIP TRANSFER",
+      "kind": "text"
+    },
+    {
+      "source": "CUSTOM DESTINATION",
+      "translation": "CUSTOM DESTINATION",
+      "kind": "text"
+    },
+    {
+      "source": "ROMANTIC DINNER",
+      "translation": "ROMANTIC DINNER",
+      "kind": "text"
+    },
+    {
+      "source": "SPECIAL REQUEST",
+      "translation": "SPECIAL REQUEST",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Book on WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About This Experience",
+      "translation": "About This Experience",
+      "kind": "text"
+    },
+    {
+      "source": "Private Yacht Charter in Alanya is an individually planned sea experience for couples, families and private groups.",
+      "translation": "Private Yacht Charter in Alanya is an individually planned sea experience for couples, families and private groups.",
+      "kind": "text"
+    },
+    {
+      "source": "It can be arranged for marriage proposals, birthdays, anniversaries, sunset experiences, family celebrations, photo sessions and selected coastal routes.",
+      "translation": "It can be arranged for marriage proposals, birthdays, anniversaries, sunset experiences, family celebrations, photo sessions and selected coastal routes.",
+      "kind": "text"
+    },
+    {
+      "source": "The yacht, route, duration, departure point, guest capacity, catering, decorations, music and transfer are confirmed before booking. There is no guaranteed universal route or unlimited destination choice.",
+      "translation": "The yacht, route, duration, departure point, guest capacity, catering, decorations, music and transfer are confirmed before booking. There is no guaranteed universal route or unlimited destination choice.",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming, anchoring and route changes depend on sea conditions, local restrictions and the captain’s decision. Alcoholic beverages or celebratory drinks are subject to yacht policy, legal requirements and written confirmation.",
+      "translation": "Swimming, anchoring and route changes depend on sea conditions, local restrictions and the captain’s decision. Alcoholic beverages or celebratory drinks are subject to yacht policy, legal requirements and written confirmation.",
+      "kind": "text"
+    },
+    {
+      "source": "Private Charter",
+      "translation": "Private Charter",
+      "kind": "text"
+    },
+    {
+      "source": "The yacht is reserved for the confirmed private group.",
+      "translation": "The yacht is reserved for the confirmed private group.",
+      "kind": "text"
+    },
+    {
+      "source": "Special Occasions",
+      "translation": "Special Occasions",
+      "kind": "text"
+    },
+    {
+      "source": "Proposals, birthdays, anniversaries and sunset celebrations.",
+      "translation": "Proposals, birthdays, anniversaries and sunset celebrations.",
+      "kind": "text"
+    },
+    {
+      "source": "Custom Planning",
+      "translation": "Custom Planning",
+      "kind": "text"
+    },
+    {
+      "source": "Route, timing, setup and extras agreed before booking.",
+      "translation": "Route, timing, setup and extras agreed before booking.",
+      "kind": "text"
+    },
+    {
+      "source": "Captain Approval",
+      "translation": "Captain Approval",
+      "kind": "text"
+    },
+    {
+      "source": "Safety, weather and sea conditions always take priority.",
+      "translation": "Safety, weather and sea conditions always take priority.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Highlights",
+      "kind": "text"
+    },
+    {
+      "source": "Private yacht reserved for the confirmed booking.",
+      "translation": "Private yacht reserved for the confirmed booking.",
+      "kind": "text"
+    },
+    {
+      "source": "Marriage proposals, birthdays and family celebrations.",
+      "translation": "Marriage proposals, birthdays and family celebrations.",
+      "kind": "text"
+    },
+    {
+      "source": "Morning, daytime or sunset format when available.",
+      "translation": "Morning, daytime or sunset format when available.",
+      "kind": "text"
+    },
+    {
+      "source": "Flowers, cake, decorations and photography on request.",
+      "translation": "Flowers, cake, decorations and photography on request.",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming stops when conditions and captain permit.",
+      "translation": "Swimming stops when conditions and captain permit.",
+      "kind": "text"
+    },
+    {
+      "source": "Guest capacity confirmed according to the selected yacht.",
+      "translation": "Guest capacity confirmed according to the selected yacht.",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR MOMENT AT SEA.",
+      "translation": "YOUR MOMENT AT SEA.",
+      "kind": "text"
+    },
+    {
+      "source": "Experience",
+      "translation": "Experience",
+      "kind": "text"
+    },
+    {
+      "source": "Private yacht charter",
+      "translation": "Private yacht charter",
+      "kind": "text"
+    },
+    {
+      "source": "Advance reservation required",
+      "translation": "Advance reservation required",
+      "kind": "text"
+    },
+    {
+      "source": "Duration and route confirmed individually",
+      "translation": "Duration and route confirmed individually",
+      "kind": "text"
+    },
+    {
+      "source": "Limited yacht availability",
+      "translation": "Limited yacht availability",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Price",
+      "kind": "text"
+    },
+    {
+      "source": "On Request",
+      "translation": "On Request",
+      "kind": "text"
+    },
+    {
+      "source": "Final price depends on yacht, duration, route, guest count, catering, decorations, transfer and additional services.",
+      "translation": "Final price depends on yacht, duration, route, guest count, catering, decorations, transfer and additional services.",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Included",
+      "kind": "text"
+    },
+    {
+      "source": "Private yacht and operating crew",
+      "translation": "Private yacht and operating crew",
+      "kind": "text"
+    },
+    {
+      "source": "Confirmed charter duration and route",
+      "translation": "Confirmed charter duration and route",
+      "kind": "text"
+    },
+    {
+      "source": "Passenger safety briefing",
+      "translation": "Passenger safety briefing",
+      "kind": "text"
+    },
+    {
+      "source": "Required life-saving equipment",
+      "translation": "Required life-saving equipment",
+      "kind": "text"
+    },
+    {
+      "source": "Optional Extras",
+      "translation": "Optional Extras",
+      "kind": "text"
+    },
+    {
+      "source": "Flowers, cake and decorations",
+      "translation": "Flowers, cake and decorations",
+      "kind": "text"
+    },
+    {
+      "source": "Catering and approved beverages",
+      "translation": "Catering and approved beverages",
+      "kind": "text"
+    },
+    {
+      "source": "Photo and video shooting",
+      "translation": "Photo and video shooting",
+      "kind": "text"
+    },
+    {
+      "source": "Private ground transfer",
+      "translation": "Private ground transfer",
+      "kind": "text"
+    },
+    {
+      "source": "Charter Program",
+      "translation": "Charter Program",
+      "kind": "text"
+    },
+    {
+      "source": "Every private yacht charter is planned individually. The sequence below shows the standard organization process.",
+      "translation": "Every private yacht charter is planned individually. The sequence below shows the standard organization process.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 1",
+      "translation": "Step 1",
+      "kind": "text"
+    },
+    {
+      "source": "Send Your Request",
+      "translation": "Send Your Request",
+      "kind": "text"
+    },
+    {
+      "source": "Provide the date, occasion, guest count, preferred duration, route idea, catering needs and optional arrangements.",
+      "translation": "Provide the date, occasion, guest count, preferred duration, route idea, catering needs and optional arrangements.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 2",
+      "translation": "Step 2",
+      "kind": "text"
+    },
+    {
+      "source": "Yacht and Route Review",
+      "translation": "Yacht and Route Review",
+      "kind": "text"
+    },
+    {
+      "source": "The yacht capacity, availability, departure point, route feasibility, duration and sea conditions are checked.",
+      "translation": "The yacht capacity, availability, departure point, route feasibility, duration and sea conditions are checked.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 3",
+      "translation": "Step 3",
+      "kind": "text"
+    },
+    {
+      "source": "Written Confirmation",
+      "translation": "Written Confirmation",
+      "kind": "text"
+    },
+    {
+      "source": "Receive the confirmed yacht, guest limit, duration, route, inclusions, extras, meeting point and final price.",
+      "translation": "Receive the confirmed yacht, guest limit, duration, route, inclusions, extras, meeting point and final price.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 4",
+      "translation": "Step 4",
+      "kind": "text"
+    },
+    {
+      "source": "Event Preparation",
+      "translation": "Event Preparation",
+      "kind": "text"
+    },
+    {
+      "source": "Approved decorations, cake, catering, photographer or transfer are prepared according to the confirmed order.",
+      "translation": "Approved decorations, cake, catering, photographer or transfer are prepared according to the confirmed order.",
+      "kind": "text"
+    },
+    {
+      "source": "Charter",
+      "translation": "Charter",
+      "kind": "text"
+    },
+    {
+      "source": "Private Yacht Experience",
+      "translation": "Private Yacht Experience",
+      "kind": "text"
+    },
+    {
+      "source": "Board at the confirmed marina, attend the safety briefing and enjoy the agreed private route and event format.",
+      "translation": "Board at the confirmed marina, attend the safety briefing and enjoy the agreed private route and event format.",
+      "kind": "text"
+    },
+    {
+      "source": "Return",
+      "translation": "Return",
+      "kind": "text"
+    },
+    {
+      "source": "Return to the Confirmed Marina",
+      "translation": "Return to the Confirmed Marina",
+      "kind": "text"
+    },
+    {
+      "source": "The charter ends at the agreed departure or arrival point, followed by optional ground transfer when booked.",
+      "translation": "The charter ends at the agreed departure or arrival point, followed by optional ground transfer when booked.",
+      "kind": "text"
+    },
+    {
+      "source": "The captain may change the route, swimming stop, anchoring point, departure time or charter operation when weather, sea, technical or port conditions require it.",
+      "translation": "The captain may change the route, swimming stop, anchoring point, departure time or charter operation when weather, sea, technical or port conditions require it.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Photo Gallery",
+      "kind": "text"
+    },
+    {
+      "source": "Tour Time",
+      "translation": "Tour Time",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Duration:",
+      "kind": "text"
+    },
+    {
+      "source": "custom",
+      "translation": "custom",
+      "kind": "text"
+    },
+    {
+      "source": "Days:",
+      "translation": "Days:",
+      "kind": "text"
+    },
+    {
+      "source": "every day on request",
+      "translation": "every day on request",
+      "kind": "text"
+    },
+    {
+      "source": "Schedule:",
+      "translation": "Schedule:",
+      "kind": "text"
+    },
+    {
+      "source": "morning, day or sunset",
+      "translation": "morning, day or sunset",
+      "kind": "text"
+    },
+    {
+      "source": "What To Bring",
+      "translation": "What To Bring",
+      "kind": "text"
+    },
+    {
+      "source": "Passport or ID",
+      "translation": "Passport or ID",
+      "kind": "text"
+    },
+    {
+      "source": "Phone for contact",
+      "translation": "Phone for contact",
+      "kind": "text"
+    },
+    {
+      "source": "Elegant or comfortable clothing",
+      "translation": "Elegant or comfortable clothing",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Sunglasses",
+      "kind": "text"
+    },
+    {
+      "source": "Swimsuit if swimming is planned",
+      "translation": "Swimsuit if swimming is planned",
+      "kind": "text"
+    },
+    {
+      "source": "Special items for your surprise",
+      "translation": "Special items for your surprise",
+      "kind": "text"
+    },
+    {
+      "source": "Camera",
+      "translation": "Camera",
+      "kind": "text"
+    },
+    {
+      "source": "Important Information",
+      "translation": "Important Information",
+      "kind": "text"
+    },
+    {
+      "source": "Capacity:",
+      "translation": "Capacity:",
+      "kind": "text"
+    },
+    {
+      "source": "confirmed according to yacht certification and layout",
+      "translation": "confirmed according to yacht certification and layout",
+      "kind": "text"
+    },
+    {
+      "source": "Children:",
+      "translation": "Children:",
+      "kind": "text"
+    },
+    {
+      "source": "child-size lifejackets must be available and children remain under adult supervision",
+      "translation": "child-size lifejackets must be available and children remain under adult supervision",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming:",
+      "translation": "Swimming:",
+      "kind": "text"
+    },
+    {
+      "source": "only when the captain permits and sea conditions are suitable",
+      "translation": "only when the captain permits and sea conditions are suitable",
+      "kind": "text"
+    },
+    {
+      "source": "Beverages:",
+      "translation": "Beverages:",
+      "kind": "text"
+    },
+    {
+      "source": "subject to yacht policy and written confirmation",
+      "translation": "subject to yacht policy and written confirmation",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup Information",
+      "translation": "Pickup Information",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel, apartment, marina or private meeting point can be arranged.",
+      "translation": "Hotel, apartment, marina or private meeting point can be arranged.",
+      "kind": "text"
+    },
+    {
+      "source": "VIP transfer is available on request.",
+      "translation": "VIP transfer is available on request.",
+      "kind": "text"
+    },
+    {
+      "source": "Exact details are confirmed after booking.",
+      "translation": "Exact details are confirmed after booking.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Frequently Asked Questions",
+      "kind": "text"
+    },
+    {
+      "source": "Is there a fixed route and duration?",
+      "translation": "Is there a fixed route and duration?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "No. The yacht, route and duration are confirmed individually according to availability, sea conditions and the requested format.",
+      "translation": "No. The yacht, route and duration are confirmed individually according to availability, sea conditions and the requested format.",
+      "kind": "text"
+    },
+    {
+      "source": "Can we swim during the charter?",
+      "translation": "Can we swim during the charter?",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming may be included when the captain approves the location and sea conditions are suitable. It cannot be guaranteed in advance for every charter.",
+      "translation": "Swimming may be included when the captain approves the location and sea conditions are suitable. It cannot be guaranteed in advance for every charter.",
+      "kind": "text"
+    },
+    {
+      "source": "Are children allowed?",
+      "translation": "Are children allowed?",
+      "kind": "text"
+    },
+    {
+      "source": "Children may join when accepted for the selected yacht. Appropriate child-size lifejackets and continuous adult supervision are required.",
+      "translation": "Children may join when accepted for the selected yacht. Appropriate child-size lifejackets and continuous adult supervision are required.",
+      "kind": "text"
+    },
+    {
+      "source": "Can we bring or order alcoholic drinks?",
+      "translation": "Can we bring or order alcoholic drinks?",
+      "kind": "text"
+    },
+    {
+      "source": "Only when permitted by the yacht operator and confirmed in writing. Beverage service may be subject to yacht policy, licensing and additional charges.",
+      "translation": "Only when permitted by the yacht operator and confirmed in writing. Beverage service may be subject to yacht policy, licensing and additional charges.",
+      "kind": "text"
+    },
+    {
+      "source": "What happens if the weather changes?",
+      "translation": "What happens if the weather changes?",
+      "kind": "text"
+    },
+    {
+      "source": "The captain may delay, reroute, shorten, reschedule or cancel the charter when weather or sea conditions do not allow safe operation.",
+      "translation": "The captain may delay, reroute, shorten, reschedule or cancel the charter when weather or sea conditions do not allow safe operation.",
+      "kind": "text"
+    },
+    {
+      "source": "How is the final price calculated?",
+      "translation": "How is the final price calculated?",
+      "kind": "text"
+    },
+    {
+      "source": "The final price depends on yacht type, duration, route, guests, catering, decorations, transfer, photography and other confirmed extras.",
+      "translation": "The final price depends on yacht type, duration, route, guests, catering, decorations, transfer, photography and other confirmed extras.",
+      "kind": "text"
+    },
+    {
+      "source": "Ready to create your yacht experience?",
+      "translation": "Ready to create your yacht experience?",
+      "kind": "text"
+    },
+    {
+      "source": "Message us on WhatsApp — we will prepare a private yacht charter according to your occasion, route, timing, guest count and special wishes.",
+      "translation": "Message us on WhatsApp — we will prepare a private yacht charter according to your occasion, route, timing, guest count and special wishes.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Chat on WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "Important Private Yacht Safety Rules",
+      "translation": "Important Private Yacht Safety Rules",
+      "kind": "text"
+    },
+    {
+      "source": "Captain Instructions",
+      "translation": "Captain Instructions",
+      "kind": "text"
+    },
+    {
+      "source": "All guests must follow the captain and crew during boarding, movement on deck, swimming, anchoring and emergency procedures.",
+      "translation": "All guests must follow the captain and crew during boarding, movement on deck, swimming, anchoring and emergency procedures.",
+      "kind": "text"
+    },
+    {
+      "source": "Lifejackets & Capacity",
+      "translation": "Lifejackets & Capacity",
+      "kind": "text"
+    },
+    {
+      "source": "The yacht must carry suitable life-saving equipment for the permitted number of people. Child-size lifejackets must be confirmed when children join.",
+      "translation": "The yacht must carry suitable life-saving equipment for the permitted number of people. Child-size lifejackets must be confirmed when children join.",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming & Deck Safety",
+      "translation": "Swimming & Deck Safety",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming is allowed only with crew permission. Running, unsafe climbing, diving from unapproved areas and entering the water while the vessel is moving are prohibited.",
+      "translation": "Swimming is allowed only with crew permission. Running, unsafe climbing, diving from unapproved areas and entering the water while the vessel is moving are prohibited.",
+      "kind": "text"
+    },
+    {
+      "source": "Weather & Route Changes",
+      "translation": "Weather & Route Changes",
+      "kind": "text"
+    },
+    {
+      "source": "The captain may change or cancel the route, swimming stop, timing or entire charter when sea, weather, port or technical conditions require it.",
+      "translation": "The captain may change or cancel the route, swimming stop, timing or entire charter when sea, weather, port or technical conditions require it.",
+      "kind": "text"
+    },
+    {
+      "source": "The captain’s safety decision, vessel-specific briefing and onboard instructions always take priority over the advertised route, timing and event plan.",
+      "translation": "The captain’s safety decision, vessel-specific briefing and onboard instructions always take priority over the advertised route, timing and event plan.",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Marriage proposal on a private yacht in Alanya",
+      "translation": "Marriage proposal on a private yacht in Alanya",
+      "kind": "alt"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Previous photo",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Private Yacht Charter in Alanya",
+      "translation": "Private Yacht Charter in Alanya",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Next photo",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Gallery thumbnails",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Private Yacht Charter boarding in Alanya",
+      "translation": "Private Yacht Charter boarding in Alanya",
+      "kind": "alt"
+    },
+    {
+      "source": "Marriage Proposal on Yacht in Alanya",
+      "translation": "Marriage Proposal on Yacht in Alanya",
+      "kind": "alt"
+    },
+    {
+      "source": "Birthday Yacht Surprise in Alanya",
+      "translation": "Birthday Yacht Surprise in Alanya",
+      "kind": "alt"
+    },
+    {
+      "source": "Wedding Celebration on Private Yacht",
+      "translation": "Wedding Celebration on Private Yacht",
+      "kind": "alt"
+    },
+    {
+      "source": "Luxury Yacht Interior",
+      "translation": "Luxury Yacht Interior",
+      "kind": "alt"
+    },
+    {
+      "source": "Custom Destination Yacht Charter",
+      "translation": "Custom Destination Yacht Charter",
+      "kind": "alt"
+    },
+    {
+      "source": "Main private yacht charter information",
+      "translation": "Main private yacht charter information",
+      "kind": "aria-label"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "gift-certificate.html",
+  "approved_sha256": "4f38228a72b3a72da41cdb1f344946d5f7b90745c474d414c1fcab73b032de91",
+  "translation_entries": 11,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

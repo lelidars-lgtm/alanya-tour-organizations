@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "sea-experiences.html",
+  "approved_sha256": "b5e4d76e4466a4d93a1ee20f98191f4e98d3ef129b8c6e3e5d84c1536678b67c",
+  "translation_entries": 79,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

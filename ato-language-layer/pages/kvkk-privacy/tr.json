@@ -1,0 +1,458 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "kvkk-privacy.html",
+  "approved_sha256": "443db8c74b339d8951aea80e79258456599692f8e21f03fb26c17525311fe9ce",
+  "entries": [
+    {
+      "source": "KVKK & Privacy — ALANYA TOUR ORGANIZATIONS",
+      "translation": "KVKK ve Gizlilik — ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "KVKK & PRIVACY",
+      "translation": "KVKK VE GİZLİLİK",
+      "kind": "text"
+    },
+    {
+      "source": "Home",
+      "translation": "Ana Sayfa",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "KVKK & Privacy",
+      "translation": "KVKK & Gizlilik",
+      "kind": "text"
+    },
+    {
+      "source": "Legal Information",
+      "translation": "Yasal Bilgiler",
+      "kind": "text"
+    },
+    {
+      "source": "Booking & Cancellation",
+      "translation": "Rezervasyon & İptal",
+      "kind": "text"
+    },
+    {
+      "source": "Cookie Policy",
+      "translation": "Çerez Politikası",
+      "kind": "text"
+    },
+    {
+      "source": "Contact",
+      "translation": "İletişim",
+      "kind": "text"
+    },
+    {
+      "source": "Personal data notice",
+      "translation": "Kişisel veri bilgilendirmesi",
+      "kind": "text"
+    },
+    {
+      "source": "KVKK AYDINLATMA METNİ / PRIVACY NOTICE",
+      "translation": "KVKK AYDINLATMA METNİ / GİZLİLİK BİLDİRİMİ",
+      "kind": "text"
+    },
+    {
+      "source": "This notice explains how personal data submitted through the website, Trip Planner, booking requests and customer communications is processed under Law No. 6698 on the Protection of Personal Data (KVKK).",
+      "translation": "Bu bildirim, internet sitesi, Trip Planner, rezervasyon talepleri ve müşteri iletişimleri aracılığıyla iletilen kişisel verilerin 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında nasıl işlendiğini açıklar.",
+      "kind": "text"
+    },
+    {
+      "source": "Last updated: 13 August 2026",
+      "translation": "Son güncelleme: 13 Ağustos 2026",
+      "kind": "text"
+    },
+    {
+      "source": "Veri Sorumlusu / Data Controller",
+      "translation": "Veri Sorumlusu",
+      "kind": "text"
+    },
+    {
+      "source": "HALİLOĞLU TURİZM VE TİCARET LİMİTED ŞİRKETİ",
+      "translation": "HALİLOĞLU TURİZM VE TİCARET LİMİTED ŞİRKETİ",
+      "kind": "text"
+    },
+    {
+      "source": ", operating the licensed travel agency",
+      "translation": ", lisanslı seyahat acentesini işleten",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI — TÜRSAB Belge No 2156",
+      "translation": "UNION TOUR SEYAHAT ACENTASI — TÜRSAB Belge No 2156",
+      "kind": "text"
+    },
+    {
+      "source": ", acts as the data controller for the personal-data processing activities described in this notice.",
+      "translation": ", bu bildirimde açıklanan kişisel veri işleme faaliyetleri bakımından veri sorumlusu olarak hareket eder.",
+      "kind": "text"
+    },
+    {
+      "source": "Address:",
+      "translation": "Adres:",
+      "kind": "text"
+    },
+    {
+      "source": "Tosmur Mah., Atatürk Cad., Güvercin Apt., Dış Kapı No: 13, İç Kapı No: A, Alanya / Antalya",
+      "translation": "Tosmur Mah., Atatürk Cad., Güvercin Apt., Dış Kapı No: 13, İç Kapı No: A, Alanya / Antalya",
+      "kind": "text"
+    },
+    {
+      "source": "E-mail:",
+      "translation": "E-posta:",
+      "kind": "text"
+    },
+    {
+      "source": "alanyatourorganizations@gmail.com",
+      "translation": "alanyatourorganizations@gmail.com",
+      "kind": "text"
+    },
+    {
+      "source": "Phone:",
+      "translation": "Telefon:",
+      "kind": "text"
+    },
+    {
+      "source": "+90 (535) 207 27 68",
+      "translation": "+90 (535) 207 27 68",
+      "kind": "text"
+    },
+    {
+      "source": "Processed Data Categories / İşlenen Veri Kategorileri",
+      "translation": "İşlenen Veri Kategorileri",
+      "kind": "text"
+    },
+    {
+      "source": "Identity and contact:",
+      "translation": "Kimlik ve iletişim:",
+      "kind": "text"
+    },
+    {
+      "source": "name, WhatsApp/phone number, e-mail where provided.",
+      "translation": "ad, WhatsApp/telefon numarası ve sağlanması hâlinde e-posta adresi.",
+      "kind": "text"
+    },
+    {
+      "source": "Booking and service information:",
+      "translation": "Rezervasyon ve hizmet bilgileri:",
+      "kind": "text"
+    },
+    {
+      "source": "selected tour(s), requested dates, hotel/accommodation, room number where needed for pickup, pickup details, adults, children and ages, preferred language, notes and booking/ticket records.",
+      "translation": "seçilen tur(lar), talep edilen tarihler, otel/konaklama, transfer için gerektiğinde oda numarası, alınış bilgileri, yetişkinler, çocuklar ve yaşları, tercih edilen dil, notlar ve rezervasyon/bilet kayıtları.",
+      "kind": "text"
+    },
+    {
+      "source": "Planning preferences:",
+      "translation": "Planlama tercihleri:",
+      "kind": "text"
+    },
+    {
+      "source": "selected tours, travel dates, pace, road/start-time preferences and other choices entered into Trip Planner.",
+      "translation": "seçilen turlar, seyahat tarihleri, tempo, yol/başlangıç saati tercihleri ve Trip Planner’a girilen diğer seçimler.",
+      "kind": "text"
+    },
+    {
+      "source": "Optional location data:",
+      "translation": "İsteğe bağlı konum verileri:",
+      "kind": "text"
+    },
+    {
+      "source": "device/browser geolocation only when the visitor actively grants permission for nearby-tour, distance or route functionality. The site does not need location permission for ordinary browsing.",
+      "translation": "cihaz/tarayıcı konum bilgisi yalnızca ziyaretçinin yakındaki turlar, mesafe veya rota işlevleri için aktif olarak izin vermesi hâlinde kullanılır. Sitenin normal şekilde gezilmesi için konum izni gerekli değildir.",
+      "kind": "text"
+    },
+    {
+      "source": "Technical and browser information:",
+      "translation": "Teknik ve tarayıcı bilgileri:",
+      "kind": "text"
+    },
+    {
+      "source": "security/connection logs where generated by the website or its technical providers, and first-party browser-storage preferences such as language, filters, map mode and planner selections.",
+      "translation": "internet sitesi veya teknik hizmet sağlayıcıları tarafından oluşturulması hâlinde güvenlik/bağlantı kayıtları ile dil, filtreler, harita modu ve planlayıcı seçimleri gibi birinci taraf tarayıcı depolama tercihleri.",
+      "kind": "text"
+    },
+    {
+      "source": "Special-category information only when voluntarily provided and necessary:",
+      "translation": "Yalnızca gönüllü olarak sağlandığında ve gerekli olduğunda özel nitelikli bilgiler:",
+      "kind": "text"
+    },
+    {
+      "source": "pregnancy status and information indicating wheelchair/reduced-mobility or similar health/accessibility needs used to assess tour safety, suitability or required assistance.",
+      "translation": "tur güvenliğini, uygunluğunu veya gerekli desteği değerlendirmek amacıyla kullanılan hamilelik durumu ile tekerlekli sandalye/kısıtlı hareket kabiliyeti veya benzeri sağlık/erişilebilirlik ihtiyaçlarını gösteren bilgiler.",
+      "kind": "text"
+    },
+    {
+      "source": "Where information relates to an accompanying child, it should be provided by the parent, guardian or other person authorised to make the booking.",
+      "translation": "Bilgi, seyahate katılan bir çocuğa ilişkinse ebeveyn, vasi veya rezervasyon yapmaya yetkili başka bir kişi tarafından sağlanmalıdır.",
+      "kind": "text"
+    },
+    {
+      "source": "Purposes / İşleme Amaçları",
+      "translation": "İşleme Amaçları",
+      "kind": "text"
+    },
+    {
+      "source": "Receiving enquiries and taking steps requested before a booking is concluded.",
+      "translation": "Rezervasyon kurulmadan önce taleplerin alınması ve ilgili kişinin istediği adımların atılması.",
+      "kind": "text"
+    },
+    {
+      "source": "Checking availability, price, age/safety restrictions, transfer/pickup arrangements and service suitability.",
+      "translation": "Müsaitlik, fiyat, yaş/güvenlik kısıtlamaları, transfer/alınış düzenlemeleri ve hizmet uygunluğunun kontrol edilmesi.",
+      "kind": "text"
+    },
+    {
+      "source": "Preparing confirmations and electronic tickets and communicating with customers about the requested service.",
+      "translation": "Onayların ve elektronik biletlerin hazırlanması ve talep edilen hizmet hakkında müşterilerle iletişim kurulması.",
+      "kind": "text"
+    },
+    {
+      "source": "Providing Trip Planner functionality, comparison and itinerary assistance requested by the visitor.",
+      "translation": "Ziyaretçinin talep ettiği Trip Planner, karşılaştırma ve güzergâh planlama işlevlerinin sağlanması.",
+      "kind": "text"
+    },
+    {
+      "source": "Showing nearby tours, map positioning, distance or route guidance when the visitor has actively enabled location functionality.",
+      "translation": "Ziyaretçi konum işlevini aktif olarak etkinleştirdiğinde yakındaki turların, harita konumunun, mesafenin veya rota yönlendirmesinin gösterilmesi.",
+      "kind": "text"
+    },
+    {
+      "source": "Fulfilling accounting, tax, travel-agency, consumer-law and other applicable legal obligations.",
+      "translation": "Muhasebe, vergi, seyahat acenteliği, tüketici hukuku ve diğer uygulanabilir yasal yükümlülüklerin yerine getirilmesi.",
+      "kind": "text"
+    },
+    {
+      "source": "Establishing, exercising or protecting legal rights and handling complaints or disputes.",
+      "translation": "Hukuki hakların tesisi, kullanılması veya korunması ile şikâyet veya uyuşmazlıkların ele alınması.",
+      "kind": "text"
+    },
+    {
+      "source": "Maintaining website, booking-system and information security.",
+      "translation": "İnternet sitesi, rezervasyon sistemi ve bilgi güvenliğinin sağlanması.",
+      "kind": "text"
+    },
+    {
+      "source": "Collection Methods & Legal Grounds / Toplama Yöntemi ve Hukuki Sebepler",
+      "translation": "Toplama Yöntemi ve Hukuki Sebepler",
+      "kind": "text"
+    },
+    {
+      "source": "Personal data may be collected electronically or verbally through website forms, Trip Planner, WhatsApp, telephone, e-mail, electronic-ticket and booking-management processes, browser storage used for requested site functions, optional browser geolocation after the visitor grants permission, and confirmations exchanged with the relevant service provider.",
+      "translation": "Kişisel veriler; internet sitesi formları, Trip Planner, WhatsApp, telefon, e-posta, elektronik bilet ve rezervasyon yönetimi süreçleri, talep edilen site işlevleri için kullanılan tarayıcı depolaması, ziyaretçinin izin vermesinden sonra isteğe bağlı tarayıcı konum bilgisi ve ilgili hizmet sağlayıcıyla paylaşılan teyitler aracılığıyla elektronik veya sözlü olarak toplanabilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Depending on the processing activity, ordinary personal data is processed on one or more legal grounds provided by KVKK, including that processing is necessary for the establishment or performance of a contract, compliance with a legal obligation, establishment/exercise/protection of a right, or the legitimate interests of the data controller provided that the fundamental rights and freedoms of the data subject are not harmed.",
+      "translation": "İşleme faaliyetine göre sıradan nitelikteki kişisel veriler, KVKK’da öngörülen bir veya birden fazla hukuki sebebe dayanılarak işlenir. Bunlar arasında işlemenin bir sözleşmenin kurulması veya ifası için gerekli olması, hukuki yükümlülüğün yerine getirilmesi, bir hakkın tesisi/kullanılması/korunması veya ilgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla veri sorumlusunun meşru menfaatleri yer alabilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Special Categories & Explicit Consent / Özel Nitelikli Veriler ve Açık Rıza",
+      "translation": "Özel Nitelikli Veriler ve Açık Rıza",
+      "kind": "text"
+    },
+    {
+      "source": "Pregnancy and health/accessibility information can constitute special-category personal data. The website asks for such information only where it can be relevant to tour safety, suitability or assistance. Where explicit consent is the applicable legal ground, it is requested",
+      "translation": "Hamilelik ile sağlık/erişilebilirlik bilgileri özel nitelikli kişisel veri oluşturabilir. İnternet sitesi bu bilgileri yalnızca tur güvenliği, uygunluğu veya yardım ihtiyacı açısından önemli olabilecek durumlarda sorar. Açık rızanın uygulanabilir hukuki sebep olduğu hâllerde bu rıza",
+      "kind": "text"
+    },
+    {
+      "source": "separately from this privacy notice",
+      "translation": "bu gizlilik bildiriminden ayrı olarak",
+      "kind": "text"
+    },
+    {
+      "source": ", by an affirmative action and before the information is used or submitted.",
+      "translation": ", olumlu bir irade beyanıyla ve bilgi kullanılmadan veya gönderilmeden önce alınır.",
+      "kind": "text"
+    },
+    {
+      "source": "Providing optional health/accessibility information is not used for advertising or profiling. A visitor who does not wish to provide it online may contact the manager directly to discuss tour suitability.",
+      "translation": "İsteğe bağlı sağlık/erişilebilirlik bilgileri reklam veya profilleme amacıyla kullanılmaz. Bu bilgileri çevrimiçi vermek istemeyen ziyaretçi, turun uygunluğunu görüşmek için yöneticiyle doğrudan iletişime geçebilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Recipients / Aktarım",
+      "translation": "Aktarım",
+      "kind": "text"
+    },
+    {
+      "source": "Personal data may be shared, only to the extent necessary for the stated purposes, with the relevant tour operator, transfer or activity provider, accommodation/pickup contact where operationally required, accounting/legal advisers, authorised information-technology, hosting or database service providers, and legally authorised public authorities.",
+      "translation": "Kişisel veriler, yalnızca belirtilen amaçlar için gerekli olduğu ölçüde ilgili tur operatörü, transfer veya aktivite sağlayıcısı, operasyonel olarak gerektiğinde konaklama/alınış irtibatı, muhasebe/hukuk danışmanları, yetkili bilgi teknolojileri, barındırma veya veri tabanı hizmet sağlayıcıları ve kanunen yetkili kamu kurumlarıyla paylaşılabilir.",
+      "kind": "text"
+    },
+    {
+      "source": "If use of a technology or communication provider results in an international transfer of personal data, the transfer is carried out only in accordance with the applicable conditions and safeguards under Article 9 of KVKK.",
+      "translation": "Bir teknoloji veya iletişim sağlayıcısının kullanılması kişisel verilerin yurt dışına aktarılmasına yol açarsa aktarım yalnızca KVKK’nın 9. maddesindeki uygulanabilir şart ve güvencelere uygun olarak gerçekleştirilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Retention / Saklama",
+      "translation": "Saklama",
+      "kind": "text"
+    },
+    {
+      "source": "Personal data is kept only for the period necessary for the relevant booking/service purpose and for any applicable statutory retention, accounting, claim or limitation periods. When the purpose and legal retention requirement end, data is deleted, destroyed or anonymised in accordance with applicable law and the controller’s retention practices.",
+      "translation": "Kişisel veriler yalnızca ilgili rezervasyon/hizmet amacı için gerekli süre boyunca ve uygulanabilir yasal saklama, muhasebe, talep veya zamanaşımı süreleri boyunca saklanır. Amaç ve yasal saklama yükümlülüğü sona erdiğinde veriler, uygulanabilir mevzuata ve veri sorumlusunun saklama uygulamalarına uygun şekilde silinir, yok edilir veya anonim hâle getirilir.",
+      "kind": "text"
+    },
+    {
+      "source": "KVKK Article 11 Rights / İlgili Kişinin Hakları",
+      "translation": "KVKK Madde 11 Kapsamındaki Haklar / İlgili Kişinin Hakları",
+      "kind": "text"
+    },
+    {
+      "source": "Subject to the conditions of KVKK, you may request to:",
+      "translation": "KVKK’daki şartlara tabi olarak aşağıdakileri talep edebilirsiniz:",
+      "kind": "text"
+    },
+    {
+      "source": "learn whether your personal data is processed;",
+      "translation": "kişisel verilerinizin işlenip işlenmediğini öğrenmek;",
+      "kind": "text"
+    },
+    {
+      "source": "request information if it has been processed;",
+      "translation": "işlenmişse buna ilişkin bilgi talep etmek;",
+      "kind": "text"
+    },
+    {
+      "source": "learn the purpose of processing and whether the data is used in accordance with that purpose;",
+      "translation": "işleme amacını ve verilerin bu amaca uygun kullanılıp kullanılmadığını öğrenmek;",
+      "kind": "text"
+    },
+    {
+      "source": "know the third parties to whom personal data is transferred in Türkiye or abroad;",
+      "translation": "kişisel verilerin Türkiye’de veya yurt dışında aktarıldığı üçüncü kişileri bilmek;",
+      "kind": "text"
+    },
+    {
+      "source": "request correction of incomplete or inaccurate data;",
+      "translation": "eksik veya yanlış verilerin düzeltilmesini istemek;",
+      "kind": "text"
+    },
+    {
+      "source": "request deletion or destruction where the legal conditions are met;",
+      "translation": "kanuni şartların oluşması hâlinde verilerin silinmesini veya yok edilmesini istemek;",
+      "kind": "text"
+    },
+    {
+      "source": "request notification of correction, deletion or destruction to third parties to whom the data was transferred;",
+      "translation": "düzeltme, silme veya yok etme işlemlerinin verilerin aktarıldığı üçüncü kişilere bildirilmesini istemek;",
+      "kind": "text"
+    },
+    {
+      "source": "object to a result against you arising exclusively from automated analysis of processed data;",
+      "translation": "işlenen verilerin münhasıran otomatik sistemlerle analiz edilmesi sonucunda aleyhinize bir sonucun ortaya çıkmasına itiraz etmek;",
+      "kind": "text"
+    },
+    {
+      "source": "claim compensation if you suffer damage because personal data was processed unlawfully.",
+      "translation": "kişisel verilerin kanuna aykırı işlenmesi nedeniyle zarara uğramanız hâlinde zararın giderilmesini talep etmek.",
+      "kind": "text"
+    },
+    {
+      "source": "How to Apply / Başvuru Usulü",
+      "translation": "Başvuru Usulü",
+      "kind": "text"
+    },
+    {
+      "source": "KVKK requests may be submitted in writing to the address above or by another method permitted by applicable legislation. An e-mail application may be made from an e-mail address that has previously been notified to and recorded by the data controller, to",
+      "translation": "KVKK kapsamındaki talepler yukarıdaki adrese yazılı olarak veya uygulanabilir mevzuatın izin verdiği başka bir yöntemle iletilebilir. E-posta ile başvuru, daha önce veri sorumlusuna bildirilmiş ve sistemlerinde kayıtlı bir e-posta adresinden şu adrese yapılabilir:",
+      "kind": "text"
+    },
+    {
+      "source": ".",
+      "translation": ".",
+      "kind": "text"
+    },
+    {
+      "source": "The application should contain the information necessary to identify the applicant and clearly describe the requested KVKK right. Applications are answered within the statutory period, which is at the latest thirty days, subject to the conditions of the law. Data subjects may also exercise their statutory right to complain to the Personal Data Protection Board where the legal conditions are met.",
+      "translation": "Başvuruda, başvuru sahibini belirlemek için gerekli bilgiler yer almalı ve kullanılmak istenen KVKK hakkı açıkça belirtilmelidir. Başvurular, kanundaki şartlara tabi olmak üzere yasal süre içinde ve en geç otuz gün içinde yanıtlanır. İlgili kişiler, yasal şartların oluşması hâlinde Kişisel Verileri Koruma Kuruluna şikâyette bulunma haklarını da kullanabilir.",
+      "kind": "text"
+    },
+    {
+      "source": "SEPARATE CONSENT:",
+      "translation": "AYRI AÇIK RIZA:",
+      "kind": "text"
+    },
+    {
+      "source": "This notice is an information text. It is not an “accept everything” consent form. When special-category data requires explicit consent, that consent is requested separately at the relevant form.",
+      "translation": "Bu bildirim bir aydınlatma metnidir. “Her şeyi kabul et” şeklinde bir rıza formu değildir. Özel nitelikli veriler için açık rıza gerektiğinde, bu rıza ilgili formda ayrı olarak talep edilir.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR",
+      "translation": "UNION TOUR",
+      "kind": "text"
+    },
+    {
+      "source": "•",
+      "translation": "•",
+      "kind": "text"
+    },
+    {
+      "source": "TÜRSAB Belge No / License No: 2156",
+      "translation": "TÜRSAB Belge No / Lisans No: 2156",
+      "kind": "text"
+    },
+    {
+      "source": "© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "translation": "© 2026 ALANYA TOUR ORGANIZATIONS — SEVGİYLE SEYAHAT EDİN. BİZİMLE SEYAHAT EDİN.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "translation": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "kind": "text"
+    },
+    {
+      "source": "Company & Legal Information",
+      "translation": "Şirket ve Yasal Bilgiler",
+      "kind": "text"
+    },
+    {
+      "source": "·",
+      "translation": "·",
+      "kind": "text"
+    },
+    {
+      "source": "Privacy & Cookies",
+      "translation": "Gizlilik & Çerezler",
+      "kind": "text"
+    },
+    {
+      "source": "l>",
+      "translation": "l>",
+      "kind": "text"
+    },
+    {
+      "source": "Legal pages",
+      "translation": "Yasal sayfalar",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Company and legal links",
+      "translation": "Şirket ve yasal bağlantılar",
+      "kind": "aria-label"
+    }
+  ]
+}

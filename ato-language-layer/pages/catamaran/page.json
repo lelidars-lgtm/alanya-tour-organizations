@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "catamaran.html",
+  "approved_sha256": "97b14cb61c5041875189304da773d70f6f2f63d95389d68823c5364ae2a95e68",
+  "translation_entries": 134,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

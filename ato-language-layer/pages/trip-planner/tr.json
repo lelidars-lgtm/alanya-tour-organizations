@@ -1,0 +1,908 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "trip-planner.html",
+  "approved_sha256": "8c0bda091ad73e5295e961089077e7abb38219b0d8459bc2fdf168655826d693",
+  "entries": [
+    {
+      "source": "TRIP PLANNER | ALANYA TOUR ORGANIZATIONS",
+      "translation": "SEYAHAT PLANLAYICI | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "Compare tours and build your perfect Alanya itinerary.",
+      "translation": "Turları karşılaştırın ve mükemmel Alanya programınızı oluşturun.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR",
+      "translation": "SİZİN",
+      "kind": "text"
+    },
+    {
+      "source": "Signature travel planning experience",
+      "translation": "Özel seyahat planlama deneyimi",
+      "kind": "text"
+    },
+    {
+      "source": "TRIP",
+      "translation": "SEYAHAT",
+      "kind": "text"
+    },
+    {
+      "source": "PLANNER",
+      "translation": "PLANLAYICI",
+      "kind": "text"
+    },
+    {
+      "source": "Compare tours. Build your perfect itinerary.",
+      "translation": "Turları karşılaştırın. Size uygun rotayı oluşturun.",
+      "kind": "text"
+    },
+    {
+      "source": "Choose your experiences, tell us how you travel, and turn your holiday into a personal itinerary.",
+      "translation": "Deneyimlerinizi seçin, nasıl seyahat ettiğinizi anlatın ve tatilinizi kişisel bir rotaya dönüştürün.",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 01",
+      "translation": "ADIM 01",
+      "kind": "text"
+    },
+    {
+      "source": "Choose Experiences",
+      "translation": "Deneyimleri Seç",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 02",
+      "translation": "ADIM 02",
+      "kind": "text"
+    },
+    {
+      "source": "Tell Us About Your Trip",
+      "translation": "Seyahatinizi Anlatın",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 03",
+      "translation": "ADIM 03",
+      "kind": "text"
+    },
+    {
+      "source": "Compare & Plan",
+      "translation": "Karşılaştır & Planla",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 04",
+      "translation": "ADIM 04",
+      "kind": "text"
+    },
+    {
+      "source": "Confirm With Manager",
+      "translation": "Yöneticiyle Onayla",
+      "kind": "text"
+    },
+    {
+      "source": "START PLANNING",
+      "translation": "PLANLAMAYA BAŞLA",
+      "kind": "text"
+    },
+    {
+      "source": "↓",
+      "translation": "↓",
+      "kind": "text"
+    },
+    {
+      "source": "01",
+      "translation": "01",
+      "kind": "text"
+    },
+    {
+      "source": "Choose",
+      "translation": "Seç",
+      "kind": "text"
+    },
+    {
+      "source": "02",
+      "translation": "02",
+      "kind": "text"
+    },
+    {
+      "source": "Selected",
+      "translation": "Seçildi",
+      "kind": "text"
+    },
+    {
+      "source": "03",
+      "translation": "03",
+      "kind": "text"
+    },
+    {
+      "source": "Preferences",
+      "translation": "Tercihler",
+      "kind": "text"
+    },
+    {
+      "source": "04",
+      "translation": "04",
+      "kind": "text"
+    },
+    {
+      "source": "Recommendations",
+      "translation": "Öneriler",
+      "kind": "text"
+    },
+    {
+      "source": "05",
+      "translation": "05",
+      "kind": "text"
+    },
+    {
+      "source": "Dates",
+      "translation": "Tarihler",
+      "kind": "text"
+    },
+    {
+      "source": "↻ START OVER",
+      "translation": "↻ BAŞTAN BAŞLA",
+      "kind": "text"
+    },
+    {
+      "source": "BEGIN YOUR JOURNEY",
+      "translation": "YOLCULUĞUNUZA BAŞLAYIN",
+      "kind": "text"
+    },
+    {
+      "source": "Explore by category",
+      "translation": "Kategoriye göre keşfet",
+      "kind": "text"
+    },
+    {
+      "source": "Open any original category, choose the tours you love and return here — your selections stay saved.",
+      "translation": "İstediğiniz kategoriyi açın, sevdiğiniz turları seçin ve buraya dönün — seçimleriniz kaydedilir.",
+      "kind": "text"
+    },
+    {
+      "source": "9",
+      "translation": "9",
+      "kind": "text"
+    },
+    {
+      "source": "experiences",
+      "translation": "deneyimler",
+      "kind": "text"
+    },
+    {
+      "source": "collections",
+      "translation": "koleksiyon",
+      "kind": "text"
+    },
+    {
+      "source": "Yachts • Fishing • Hidden bays",
+      "translation": "Yatlar • Balıkçılık • Saklı koylar",
+      "kind": "text"
+    },
+    {
+      "source": "SEA EXPERIENCES",
+      "translation": "DENİZ DENEYİMLERİ",
+      "kind": "text"
+    },
+    {
+      "source": "EXPLORE →",
+      "translation": "KEŞFET →",
+      "kind": "text"
+    },
+    {
+      "source": "0 selected",
+      "translation": "0 seçildi",
+      "kind": "text"
+    },
+    {
+      "source": "Canyons • Lakes • Mountains",
+      "translation": "Kanyonlar • Göller • Dağlar",
+      "kind": "text"
+    },
+    {
+      "source": "NATURE & ADVENTURE",
+      "translation": "DOĞA & MACERA",
+      "kind": "text"
+    },
+    {
+      "source": "Rafting • Safari • Adrenaline",
+      "translation": "Rafting • Safari • Adrenalin",
+      "kind": "text"
+    },
+    {
+      "source": "EXTREME & ADVENTURE",
+      "translation": "EKSTREM & MACERA",
+      "kind": "text"
+    },
+    {
+      "source": "Theme parks • Shows • Family days",
+      "translation": "Tema parkları • Gösteriler • Aile günleri",
+      "kind": "text"
+    },
+    {
+      "source": "FAMILY EXPERIENCES",
+      "translation": "AİLE DENEYİMLERİ",
+      "kind": "text"
+    },
+    {
+      "source": "Ancient cities • Cappadocia • Istanbul",
+      "translation": "Antik kentler • Kapadokya • İstanbul",
+      "kind": "text"
+    },
+    {
+      "source": "HISTORY & CULTURE",
+      "translation": "TARİH & KÜLTÜR",
+      "kind": "text"
+    },
+    {
+      "source": "06",
+      "translation": "06",
+      "kind": "text"
+    },
+    {
+      "source": "Jetski • Parasailing • Diving",
+      "translation": "Jet Ski • Parasailing • Dalış",
+      "kind": "text"
+    },
+    {
+      "source": "WATER SPORTS",
+      "translation": "SU SPORLARI",
+      "kind": "text"
+    },
+    {
+      "source": "07",
+      "translation": "07",
+      "kind": "text"
+    },
+    {
+      "source": "Paragliding • Helicopter • Skydive",
+      "translation": "Yamaç Paraşütü • Helikopter • Skydive",
+      "kind": "text"
+    },
+    {
+      "source": "AIR EXPERIENCES",
+      "translation": "HAVA DENEYİMLERİ",
+      "kind": "text"
+    },
+    {
+      "source": "08",
+      "translation": "08",
+      "kind": "text"
+    },
+    {
+      "source": "Hammam • Spa • Massage",
+      "translation": "Hamam • Spa • Masaj",
+      "kind": "text"
+    },
+    {
+      "source": "WELLNESS & RELAX",
+      "translation": "WELLNESS & RAHATLAMA",
+      "kind": "text"
+    },
+    {
+      "source": "09",
+      "translation": "09",
+      "kind": "text"
+    },
+    {
+      "source": "Private yachts • Transfers • Concierge",
+      "translation": "Özel yatlar • Transferler • Concierge",
+      "kind": "text"
+    },
+    {
+      "source": "VIP SERVICES",
+      "translation": "VIP HİZMETLER",
+      "kind": "text"
+    },
+    {
+      "source": "PERSONAL CONCIERGE SHORTCUTS",
+      "translation": "KİŞİSEL CONCIERGE KISAYOLLARI",
+      "kind": "text"
+    },
+    {
+      "source": "Quick start",
+      "translation": "Hızlı başlangıç",
+      "kind": "text"
+    },
+    {
+      "source": "Not sure where to begin? Choose the holiday style closest to you. We will pre-fill the planner preferences — you still make every final choice.",
+      "translation": "Nereden başlayacağınızı bilmiyor musunuz? Size en yakın tatil tarzını seçin. Planlayıcı tercihlerini önceden dolduracağız; son seçim her zaman sizde.",
+      "kind": "text"
+    },
+    {
+      "source": "Family First",
+      "translation": "Önce Aile",
+      "kind": "text"
+    },
+    {
+      "source": "Children, comfort and balanced days",
+      "translation": "Çocuklar, konfor ve dengeli günler",
+      "kind": "text"
+    },
+    {
+      "source": "Sea Lover",
+      "translation": "Deniz Tutkunu",
+      "kind": "text"
+    },
+    {
+      "source": "Yachts, bays and water experiences",
+      "translation": "Yatlar, koylar ve su deneyimleri",
+      "kind": "text"
+    },
+    {
+      "source": "Adventure Mode",
+      "translation": "Macera Modu",
+      "kind": "text"
+    },
+    {
+      "source": "Active pace and adrenaline",
+      "translation": "Aktif tempo ve adrenalin",
+      "kind": "text"
+    },
+    {
+      "source": "Slow Luxury",
+      "translation": "Yavaş Lüks",
+      "kind": "text"
+    },
+    {
+      "source": "Relaxed pace, spa and easy days",
+      "translation": "Rahat tempo, spa ve sakin günler",
+      "kind": "text"
+    },
+    {
+      "source": "First Time in Alanya",
+      "translation": "Alanya'da İlk Kez",
+      "kind": "text"
+    },
+    {
+      "source": "A balanced introduction to the region",
+      "translation": "Bölgeyi dengeli bir şekilde keşfetme",
+      "kind": "text"
+    },
+    {
+      "source": "Private & VIP",
+      "translation": "Özel & VIP",
+      "kind": "text"
+    },
+    {
+      "source": "Premium services and private experiences",
+      "translation": "Premium hizmetler ve özel deneyimler",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR COLLECTION",
+      "translation": "KOLEKSİYONUNUZ",
+      "kind": "text"
+    },
+    {
+      "source": "Your selected tours",
+      "translation": "Seçtiğiniz turlar",
+      "kind": "text"
+    },
+    {
+      "source": "Choose up to 4 tours you like most from any category. Images, price and card information are read from the current original tour cards.",
+      "translation": "Herhangi bir kategoriden en çok beğendiğiniz 4 tura kadar seçim yapın. Görseller, fiyat ve kart bilgileri güncel orijinal tur kartlarından alınır.",
+      "kind": "text"
+    },
+    {
+      "source": "Clear all",
+      "translation": "Tümünü temizle",
+      "kind": "text"
+    },
+    {
+      "source": "0/4",
+      "translation": "0/4",
+      "kind": "text"
+    },
+    {
+      "source": "TELL US HOW YOU TRAVEL",
+      "translation": "NASIL SEYAHAT ETTİĞİNİZİ ANLATIN",
+      "kind": "text"
+    },
+    {
+      "source": "Your trip & preferences",
+      "translation": "Seyahatiniz & tercihleriniz",
+      "kind": "text"
+    },
+    {
+      "source": "Safety and factual restrictions are checked before preferences.",
+      "translation": "Güvenlik ve gerçek koşullar, tercihlerden önce kontrol edilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Holiday start",
+      "translation": "Tatil başlangıcı",
+      "kind": "text"
+    },
+    {
+      "source": "Holiday end",
+      "translation": "Tatil bitişi",
+      "kind": "text"
+    },
+    {
+      "source": "Adults",
+      "translation": "Yetişkinler",
+      "kind": "text"
+    },
+    {
+      "source": "Children & ages",
+      "translation": "Çocuklar & yaşları",
+      "kind": "text"
+    },
+    {
+      "source": "Pace",
+      "translation": "Tempo",
+      "kind": "text"
+    },
+    {
+      "source": "Balanced",
+      "translation": "Dengeli",
+      "kind": "text"
+    },
+    {
+      "source": "Relaxed",
+      "translation": "Rahat",
+      "kind": "text"
+    },
+    {
+      "source": "Active",
+      "translation": "Aktif",
+      "kind": "text"
+    },
+    {
+      "source": "Road tolerance",
+      "translation": "Yol toleransı",
+      "kind": "text"
+    },
+    {
+      "source": "Medium",
+      "translation": "Orta",
+      "kind": "text"
+    },
+    {
+      "source": "Prefer short road time",
+      "translation": "Kısa yol süresini tercih ederim",
+      "kind": "text"
+    },
+    {
+      "source": "Long trips are fine",
+      "translation": "Uzun yolculuklar uygun",
+      "kind": "text"
+    },
+    {
+      "source": "Start time preference",
+      "translation": "Başlangıç saati tercihi",
+      "kind": "text"
+    },
+    {
+      "source": "Any",
+      "translation": "Farketmez",
+      "kind": "text"
+    },
+    {
+      "source": "Avoid early starts",
+      "translation": "Erken başlangıçlardan kaçın",
+      "kind": "text"
+    },
+    {
+      "source": "Early starts are fine",
+      "translation": "Erken başlangıçlar uygun",
+      "kind": "text"
+    },
+    {
+      "source": "Free days between tours",
+      "translation": "Turlar arasında boş günler",
+      "kind": "text"
+    },
+    {
+      "source": "Not necessary",
+      "translation": "Gerekli değil",
+      "kind": "text"
+    },
+    {
+      "source": "Prefer a free day",
+      "translation": "Boş gün tercih ederim",
+      "kind": "text"
+    },
+    {
+      "source": "Important for planning",
+      "translation": "Planlama için önemli",
+      "kind": "text"
+    },
+    {
+      "source": "Pregnancy",
+      "translation": "Hamilelik",
+      "kind": "text"
+    },
+    {
+      "source": "Elderly guest",
+      "translation": "Yaşlı misafir",
+      "kind": "text"
+    },
+    {
+      "source": "Reduced mobility",
+      "translation": "Hareket kısıtlılığı",
+      "kind": "text"
+    },
+    {
+      "source": "Stroller",
+      "translation": "Bebek arabası",
+      "kind": "text"
+    },
+    {
+      "source": "Interests",
+      "translation": "İlgi alanları",
+      "kind": "text"
+    },
+    {
+      "source": "Sea",
+      "translation": "Deniz",
+      "kind": "text"
+    },
+    {
+      "source": "Nature",
+      "translation": "Doğa",
+      "kind": "text"
+    },
+    {
+      "source": "History",
+      "translation": "Tarih",
+      "kind": "text"
+    },
+    {
+      "source": "Extreme",
+      "translation": "Ekstrem",
+      "kind": "text"
+    },
+    {
+      "source": "Family",
+      "translation": "Aile",
+      "kind": "text"
+    },
+    {
+      "source": "Wellness",
+      "translation": "Wellness",
+      "kind": "text"
+    },
+    {
+      "source": "Water Sports",
+      "translation": "Su Sporları",
+      "kind": "text"
+    },
+    {
+      "source": "Air",
+      "translation": "Hava",
+      "kind": "text"
+    },
+    {
+      "source": "VIP",
+      "translation": "VIP",
+      "kind": "text"
+    },
+    {
+      "source": "Get recommendations",
+      "translation": "Önerileri al",
+      "kind": "text"
+    },
+    {
+      "source": "Get a suggested schedule based on your selected tours and travel dates.",
+      "translation": "Seçtiğiniz turlara ve seyahat tarihlerine göre önerilen bir program alın.",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR PERSONAL MATCHES",
+      "translation": "SİZE ÖZEL EŞLEŞMELER",
+      "kind": "text"
+    },
+    {
+      "source": "Planner recommendations",
+      "translation": "Planlayıcı önerileri",
+      "kind": "text"
+    },
+    {
+      "source": "We analyze and rank the tours you selected using your travel details, preferences and tour rules.",
+      "translation": "Seçtiğiniz turları seyahat bilgileriniz, tercihleriniz ve tur kurallarına göre analiz edip sıralarız.",
+      "kind": "text"
+    },
+    {
+      "source": "COMPARE BEFORE YOU DECIDE",
+      "translation": "KARAR VERMEDEN ÖNCE KARŞILAŞTIRIN",
+      "kind": "text"
+    },
+    {
+      "source": "Detailed comparison",
+      "translation": "Ayrıntılı karşılaştırma",
+      "kind": "text"
+    },
+    {
+      "source": "Your selected tours are compared automatically in one analytical table. Choose 2–4 tours from any categories.",
+      "translation": "Seçtiğiniz turlar tek bir analiz tablosunda otomatik olarak karşılaştırılır. Herhangi bir kategoriden 2–4 tur seçin.",
+      "kind": "text"
+    },
+    {
+      "source": "TURN CHOICES INTO A JOURNEY",
+      "translation": "SEÇİMLERİNİZİ YOLCULUĞA DÖNÜŞTÜRÜN",
+      "kind": "text"
+    },
+    {
+      "source": "Plan Your Dates",
+      "translation": "Tarihlerinizi Planlayın",
+      "kind": "text"
+    },
+    {
+      "source": "Weather layer:",
+      "translation": "Hava durumu katmanı:",
+      "kind": "text"
+    },
+    {
+      "source": "add your travel dates to prepare date-specific guidance.",
+      "translation": "belirli tarihlere göre öneri hazırlamak için seyahat tarihlerinizi ekleyin.",
+      "kind": "text"
+    },
+    {
+      "source": "Suggested itinerary — dates and availability require confirmation.",
+      "translation": "Önerilen rota — tarihler ve müsaitlik onay gerektirir.",
+      "kind": "text"
+    },
+    {
+      "source": "PREPARE WITH CONFIDENCE",
+      "translation": "GÜVENLE HAZIRLANIN",
+      "kind": "text"
+    },
+    {
+      "source": "What to Bring",
+      "translation": "Yanınıza Ne Almalısınız",
+      "kind": "text"
+    },
+    {
+      "source": "Each selected tour keeps its own requirements. The planner never merges tour-specific rules into a generic list.",
+      "translation": "Seçilen her turun kendi gereklilikleri korunur. Planlayıcı tur özelindeki kuralları tek bir genel listeye dönüştürmez.",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR PERSONAL TRAVEL PLAN",
+      "translation": "KİŞİSEL SEYAHAT PLANINIZ",
+      "kind": "text"
+    },
+    {
+      "source": "Ready to turn your plan into a real holiday?",
+      "translation": "Planınızı gerçek bir tatile dönüştürmeye hazır mısınız?",
+      "kind": "text"
+    },
+    {
+      "source": "Your selected pool, comparison and suggested dates stay saved while you browse. Final availability, pickup time and price are confirmed by our travel manager.",
+      "translation": "Seçim havuzunuz, karşılaştırmalarınız ve önerilen tarihler siz gezinirken kaydedilir. Nihai müsaitlik, alınma saati ve fiyat seyahat yöneticimiz tarafından onaylanır.",
+      "kind": "text"
+    },
+    {
+      "source": "Share My Itinerary",
+      "translation": "Rotamı Paylaş",
+      "kind": "text"
+    },
+    {
+      "source": "I’VE MADE MY CHOICE",
+      "translation": "SEÇİMİMİ YAPTIM",
+      "kind": "text"
+    },
+    {
+      "source": "Choose your tours first",
+      "translation": "Önce turlarınızı seçin",
+      "kind": "text"
+    },
+    {
+      "source": "© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "translation": "© 2026 ALANYA TOUR ORGANIZATIONS — SEVGİYLE SEYAHAT EDİN. BİZİMLE SEYAHAT EDİN.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "translation": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "kind": "text"
+    },
+    {
+      "source": "Company & Legal Information",
+      "translation": "Şirket ve Yasal Bilgiler",
+      "kind": "text"
+    },
+    {
+      "source": "·",
+      "translation": "·",
+      "kind": "text"
+    },
+    {
+      "source": "Privacy & Cookies",
+      "translation": "Gizlilik & Çerezler",
+      "kind": "text"
+    },
+    {
+      "source": "Contact our travel manager",
+      "translation": "Seyahat yöneticimizle iletişime geçin",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Name",
+      "translation": "Ad",
+      "kind": "text"
+    },
+    {
+      "source": "WhatsApp / phone",
+      "translation": "WhatsApp / telefon",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel",
+      "translation": "Otel",
+      "kind": "text"
+    },
+    {
+      "source": "Room number",
+      "translation": "Oda numarası",
+      "kind": "text"
+    },
+    {
+      "source": "Children / ages",
+      "translation": "Çocuklar / yaşları",
+      "kind": "text"
+    },
+    {
+      "source": "No",
+      "translation": "Hayır",
+      "kind": "text"
+    },
+    {
+      "source": "Yes",
+      "translation": "Evet",
+      "kind": "text"
+    },
+    {
+      "source": "Elderly guests",
+      "translation": "Yaşlı misafirler",
+      "kind": "text"
+    },
+    {
+      "source": "Stroller / mobility",
+      "translation": "Bebek arabası / hareketlilik",
+      "kind": "text"
+    },
+    {
+      "source": "Child stroller",
+      "translation": "Bebek arabası",
+      "kind": "text"
+    },
+    {
+      "source": "Wheelchair / reduced mobility",
+      "translation": "Tekerlekli sandalye / hareket kısıtlılığı",
+      "kind": "text"
+    },
+    {
+      "source": "Both",
+      "translation": "Her ikisi",
+      "kind": "text"
+    },
+    {
+      "source": "Language",
+      "translation": "Dil",
+      "kind": "text"
+    },
+    {
+      "source": "English",
+      "translation": "İngilizce",
+      "kind": "text"
+    },
+    {
+      "source": "Russian",
+      "translation": "Rusça",
+      "kind": "text"
+    },
+    {
+      "source": "Turkish",
+      "translation": "Türkçe",
+      "kind": "text"
+    },
+    {
+      "source": "German",
+      "translation": "Almanca",
+      "kind": "text"
+    },
+    {
+      "source": "Polish",
+      "translation": "Lehçe",
+      "kind": "text"
+    },
+    {
+      "source": "Notes",
+      "translation": "Notlar",
+      "kind": "text"
+    },
+    {
+      "source": "Send request to manager via WhatsApp",
+      "translation": "Talebi WhatsApp üzerinden yöneticiye gönder",
+      "kind": "text"
+    },
+    {
+      "source": "Sending the request does not confirm availability. The manager reviews the dates, pickup, final price and any safety restrictions before confirmation.",
+      "translation": "Talebin gönderilmesi müsaitliği onaylamaz. Yönetici onaydan önce tarihleri, transferi, nihai fiyatı ve güvenlik kısıtlamalarını kontrol eder.",
+      "kind": "text"
+    },
+    {
+      "source": "Trip Planner progress",
+      "translation": "Seyahat Planlayıcı ilerlemesi",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Start a new Trip Planner",
+      "translation": "Yeni Seyahat Planlayıcı başlat",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Sea Experiences",
+      "translation": "Deniz Deneyimleri",
+      "kind": "alt"
+    },
+    {
+      "source": "Nature and Adventure",
+      "translation": "Doğa ve Macera",
+      "kind": "alt"
+    },
+    {
+      "source": "Extreme and Adventure",
+      "translation": "Ekstrem ve Macera",
+      "kind": "alt"
+    },
+    {
+      "source": "Family Experiences",
+      "translation": "Aile Deneyimleri",
+      "kind": "alt"
+    },
+    {
+      "source": "History and Culture",
+      "translation": "Tarih ve Kültür",
+      "kind": "alt"
+    },
+    {
+      "source": "Air Experiences",
+      "translation": "Hava Deneyimleri",
+      "kind": "alt"
+    },
+    {
+      "source": "Wellness and Relax",
+      "translation": "Wellness ve Rahatlama",
+      "kind": "alt"
+    },
+    {
+      "source": "VIP Services",
+      "translation": "VIP Hizmetler",
+      "kind": "alt"
+    },
+    {
+      "source": "e.g. 2 children: 4, 9",
+      "translation": "ör. 2 çocuk: 4, 9",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Site footer",
+      "translation": "Site alt bilgisi",
+      "kind": "aria-label"
+    },
+    {
+      "source": "e.g. 4, 9",
+      "translation": "örn. 4, 9",
+      "kind": "placeholder"
+    }
+  ]
+}

@@ -1,0 +1,668 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "PL",
+  "approved_page": "index.html",
+  "approved_sha256": "5f64a60576c4be1f24b820f234a75f80328a98b2bcd9420887bf9ca15ad35ded",
+  "entries": [
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS — Tours in Alanya",
+      "translation": "ALANYA TOUR ORGANIZATIONS — Wycieczki w Alanyi",
+      "kind": "title"
+    },
+    {
+      "source": "Tours in Alanya: boat trips, safaris, canyons, water sports, flights, hammam, VIP services and private tours. Book quickly via WhatsApp.",
+      "translation": "Wycieczki w Alanyi: rejsy, safari, kaniony, sporty wodne, loty, hammam, usługi VIP i wycieczki prywatne. Szybka rezerwacja przez WhatsApp.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "01",
+      "translation": "01",
+      "kind": "text"
+    },
+    {
+      "source": "08",
+      "translation": "08",
+      "kind": "text"
+    },
+    {
+      "source": "SCROLL TO EXPLORE",
+      "translation": "PRZEWIŃ, ABY ODKRYWAĆ",
+      "kind": "text"
+    },
+    {
+      "source": "FAMILY EXPERIENCE",
+      "translation": "RODZINNA PRZYGODA",
+      "kind": "text"
+    },
+    {
+      "source": "THE LAND OF LEGENDS",
+      "translation": "THE LAND OF LEGENDS",
+      "kind": "text"
+    },
+    {
+      "source": "Ⅱ",
+      "translation": "Ⅱ",
+      "kind": "text"
+    },
+    {
+      "source": "THE TURKISH",
+      "translation": "TURECKA",
+      "kind": "text"
+    },
+    {
+      "source": "RIVIERA AWAITS",
+      "translation": "RIWIERA CZEKA",
+      "kind": "text"
+    },
+    {
+      "source": "EXPERIENCE MORE. OPEN YOUR MIND.",
+      "translation": "PRZEŻYWAJ WIĘCEJ. OTWÓRZ SIĘ NA NOWE.",
+      "kind": "text"
+    },
+    {
+      "source": "RIGHT NOW.",
+      "translation": "WŁAŚNIE TERAZ.",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya • Antalya • Türkiye",
+      "translation": "Alanya • Antalya • Turcja",
+      "kind": "text"
+    },
+    {
+      "source": "Best tours in Alanya",
+      "translation": "Najlepsze wycieczki w Alanyi",
+      "kind": "text"
+    },
+    {
+      "source": "Boat trips, canyons, safaris, water sports, flights, hammam, VIP services and family tours with fast WhatsApp booking.",
+      "translation": "Rejsy, kaniony, safari, sporty wodne, loty, hamam, usługi VIP i rodzinne wycieczki z szybką rezerwacją przez WhatsApp.",
+      "kind": "text"
+    },
+    {
+      "source": "Book via WhatsApp",
+      "translation": "Zarezerwuj przez WhatsApp",
+      "kind": "text"
+    },
+    {
+      "source": "MAIN CATEGORIES",
+      "translation": "GŁÓWNE KATEGORIE",
+      "kind": "text"
+    },
+    {
+      "source": "Find Your",
+      "translation": "Znajdź swoje",
+      "kind": "text"
+    },
+    {
+      "source": "Ideal Adventure",
+      "translation": "Idealna przygoda",
+      "kind": "text"
+    },
+    {
+      "source": "Explore the best tours in Alanya and across Türkiye",
+      "translation": "Odkryj najlepsze wycieczki w Alanyi i całej Turcji",
+      "kind": "text"
+    },
+    {
+      "source": "1. SEA EXPERIENCES",
+      "translation": "1. MORSKIE PRZYGODY",
+      "kind": "text"
+    },
+    {
+      "source": "Pirate Yacht, Relax Boat Tour, Catamaran, Luxury Yacht Cruise and hidden bays.",
+      "translation": "Pirate Yacht, Relax Boat Tour, katamaran, Luxury Yacht Cruise i ukryte zatoki.",
+      "kind": "text"
+    },
+    {
+      "source": "→",
+      "translation": "→",
+      "kind": "text"
+    },
+    {
+      "source": "2. EXTREME & ADVENTURE",
+      "translation": "2. EKSTREMALNE PRZYGODY",
+      "kind": "text"
+    },
+    {
+      "source": "Rafting in Köprülü Canyon, Quad Safari, Family Jeep Safari, Family Buggy Safari and Jeep Safari.",
+      "translation": "Rafting w Kanionie Köprülü, Quad Safari, Family Jeep Safari, Family Buggy Safari i Jeep Safari.",
+      "kind": "text"
+    },
+    {
+      "source": "3. NATURE & ADVENTURE",
+      "translation": "3. NATURA I PRZYGODA",
+      "kind": "text"
+    },
+    {
+      "source": "Green Canyon, Sapadere Canyon, Pamukkale, Salda Lake and nature routes.",
+      "translation": "Green Canyon, Kanion Sapadere, Pamukkale, Jezioro Salda i trasy przyrodnicze.",
+      "kind": "text"
+    },
+    {
+      "source": "4. HISTORY & CULTURE",
+      "translation": "4. HISTORIA I KULTURA",
+      "kind": "text"
+    },
+    {
+      "source": "Cappadocia, Pamukkale, Demre Myra Kekova, Side, Aspendos and Istanbul.",
+      "translation": "Kapadocja, Pamukkale, Demre–Myra–Kekova, Side, Aspendos i Stambuł.",
+      "kind": "text"
+    },
+    {
+      "source": "5. FAMILY EXPERIENCES",
+      "translation": "5. RODZINNE ATRAKCJE",
+      "kind": "text"
+    },
+    {
+      "source": "The Land of Legends, dolphin show, waterparks and family entertainment.",
+      "translation": "The Land of Legends, pokazy delfinów, aquaparki i rodzinna rozrywka.",
+      "kind": "text"
+    },
+    {
+      "source": "6. AIR EXPERIENCES",
+      "translation": "6. PRZYGODY W POWIETRZU",
+      "kind": "text"
+    },
+    {
+      "source": "Paragliding, helicopter flight, skydive and unforgettable aerial emotions.",
+      "translation": "Paralotnia, lot helikopterem, skydive i niezapomniane emocje w powietrzu.",
+      "kind": "text"
+    },
+    {
+      "source": "7. WATER SPORTS",
+      "translation": "7. SPORTY WODNE",
+      "kind": "text"
+    },
+    {
+      "source": "Parasailing, Jet Ski, Banana, Phantom, Big Mable, Wakeboard and Diving.",
+      "translation": "Parasailing, Jet Ski, Banana, Phantom, Big Mable, Wakeboard i nurkowanie.",
+      "kind": "text"
+    },
+    {
+      "source": "8. WELLNESS & RELAX",
+      "translation": "8. WELLNESS I RELAKS",
+      "kind": "text"
+    },
+    {
+      "source": "Hamam, Turkish massage, spa programs and premium relaxation experiences.",
+      "translation": "Hamam, masaż turecki, programy spa i premium relaks.",
+      "kind": "text"
+    },
+    {
+      "source": "FIND YOUR PERFECT TOUR",
+      "translation": "ZNAJDŹ IDEALNĄ WYCIECZKĘ",
+      "kind": "text"
+    },
+    {
+      "source": "FILTERS",
+      "translation": "FILTRY",
+      "kind": "text"
+    },
+    {
+      "source": "◆",
+      "translation": "◆",
+      "kind": "text"
+    },
+    {
+      "source": "Family",
+      "translation": "Rodzina",
+      "kind": "text"
+    },
+    {
+      "source": "♛",
+      "translation": "♛",
+      "kind": "text"
+    },
+    {
+      "source": "VIP",
+      "translation": "VIP",
+      "kind": "text"
+    },
+    {
+      "source": "●",
+      "translation": "●",
+      "kind": "text"
+    },
+    {
+      "source": "Private",
+      "translation": "Prywatne",
+      "kind": "text"
+    },
+    {
+      "source": "✦",
+      "translation": "✦",
+      "kind": "text"
+    },
+    {
+      "source": "Kids",
+      "translation": "Dzieci",
+      "kind": "text"
+    },
+    {
+      "source": "♥",
+      "translation": "♥",
+      "kind": "text"
+    },
+    {
+      "source": "Couples",
+      "translation": "Pary",
+      "kind": "text"
+    },
+    {
+      "source": "◈",
+      "translation": "◈",
+      "kind": "text"
+    },
+    {
+      "source": "Friends",
+      "translation": "Przyjaciele",
+      "kind": "text"
+    },
+    {
+      "source": "⚡",
+      "translation": "⚡",
+      "kind": "text"
+    },
+    {
+      "source": "Extreme",
+      "translation": "Ekstremalne",
+      "kind": "text"
+    },
+    {
+      "source": "✺",
+      "translation": "✺",
+      "kind": "text"
+    },
+    {
+      "source": "Relax",
+      "translation": "Relaks",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury",
+      "translation": "Luksus",
+      "kind": "text"
+    },
+    {
+      "source": "0",
+      "translation": "0",
+      "kind": "text"
+    },
+    {
+      "source": "tours found",
+      "translation": "znalezionych wycieczek",
+      "kind": "text"
+    },
+    {
+      "source": "Reset",
+      "translation": "Resetuj",
+      "kind": "text"
+    },
+    {
+      "source": "🔥 POPULAR TOURS",
+      "translation": "🔥 POPULARNE WYCIECZKI",
+      "kind": "text"
+    },
+    {
+      "source": "START YOUR ADVENTURE NOW!",
+      "translation": "ROZPOCZNIJ PRZYGODĘ JUŻ TERAZ!",
+      "kind": "text"
+    },
+    {
+      "source": "GREAT PRICES • UNFORGETTABLE EXPERIENCES",
+      "translation": "ŚWIETNE CENY • NIEZAPOMNIANE WRAŻENIA",
+      "kind": "text"
+    },
+    {
+      "source": "Pirate Yacht Tour",
+      "translation": "Rejs pirackim statkiem",
+      "kind": "text"
+    },
+    {
+      "source": "6 Hours · Alanya",
+      "translation": "6 godzin · Alanya",
+      "kind": "text"
+    },
+    {
+      "source": "from €25",
+      "translation": "od €25",
+      "kind": "text"
+    },
+    {
+      "source": "Green Canyon",
+      "translation": "Green Canyon",
+      "kind": "text"
+    },
+    {
+      "source": "Full Day · Manavgat",
+      "translation": "Cały dzień · Manavgat",
+      "kind": "text"
+    },
+    {
+      "source": "from €35",
+      "translation": "od €35",
+      "kind": "text"
+    },
+    {
+      "source": "Jeep Safari",
+      "translation": "Jeep Safari",
+      "kind": "text"
+    },
+    {
+      "source": "Full Day · Alanya",
+      "translation": "Cały dzień · Alanya",
+      "kind": "text"
+    },
+    {
+      "source": "VIEW ALL TOURS",
+      "translation": "ZOBACZ WSZYSTKIE WYCIECZKI",
+      "kind": "text"
+    },
+    {
+      "source": "15+",
+      "translation": "15+",
+      "kind": "text"
+    },
+    {
+      "source": "Years Experience",
+      "translation": "Lat doświadczenia",
+      "kind": "text"
+    },
+    {
+      "source": "60+",
+      "translation": "60+",
+      "kind": "text"
+    },
+    {
+      "source": "Destinations",
+      "translation": "Kierunki",
+      "kind": "text"
+    },
+    {
+      "source": "35000+",
+      "translation": "35000+",
+      "kind": "text"
+    },
+    {
+      "source": "Happy Guests",
+      "translation": "Zadowoleni goście",
+      "kind": "text"
+    },
+    {
+      "source": "24/7",
+      "translation": "24/7",
+      "kind": "text"
+    },
+    {
+      "source": "Premium Support",
+      "translation": "Wsparcie premium",
+      "kind": "text"
+    },
+    {
+      "source": "VIP SERVICE",
+      "translation": "USŁUGI VIP",
+      "kind": "text"
+    },
+    {
+      "source": "Helicopter Charter, Luxury Airport Transfer, Private Yacht Charter, Private Driver, Private Photographer and premium private experiences.",
+      "translation": "Czarter helikoptera, luksusowy transfer lotniskowy, prywatny jacht, prywatny kierowca, fotograf i inne doświadczenia premium.",
+      "kind": "text"
+    },
+    {
+      "source": "DISCOVER VIP",
+      "translation": "ODKRYJ VIP",
+      "kind": "text"
+    },
+    {
+      "source": "About Our Company",
+      "translation": "O naszej firmie",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "is a travel company based in Alanya. We create more than tours—we create experiences that stay with you long after your journey ends.",
+      "translation": "to biuro turystyczne w Alanyi. Tworzymy nie tylko wycieczki, lecz także wspomnienia, które zostają na długo.",
+      "kind": "text"
+    },
+    {
+      "source": "Since 2010, we have organized boat trips, safaris, canyon adventures, historical routes, premium yacht cruises, private tours, transfers and signature itineraries across Alanya, Antalya and Türkiye.",
+      "translation": "Od 2010 roku organizujemy rejsy, safari, kaniony, trasy historyczne, luksusowe jachty, wycieczki prywatne i transfery w Alanyi, Antalyi i całej Turcji.",
+      "kind": "text"
+    },
+    {
+      "source": "We do not sell one-size-fits-all excursions. We select each experience to suit your travel style, hotel, family composition, mood and preferred level of comfort.",
+      "translation": "Nie sprzedajemy przypadkowych wycieczek. Dobieramy podróż do Twojego stylu, hotelu, rodziny, nastroju i oczekiwanego komfortu.",
+      "kind": "text"
+    },
+    {
+      "source": "For some, it is a sunset yacht cruise past Alanya Castle. For others, it is a flight above the coast, ancient Cappadocia, the snow-white terraces of Pamukkale or the hidden bays of the Mediterranean.",
+      "translation": "Dla jednych to rejs o zachodzie słońca obok zamku w Alanyi. Dla innych lot nad wybrzeżem, Kapadocja, Pamukkale lub ukryte zatoki Morza Śródziemnego.",
+      "kind": "text"
+    },
+    {
+      "source": "Over more than 16 years, our guests have explored over 60 destinations with us across the Republic of Türkiye—from luxury resorts and private beaches to ancient cities, natural canyons and coastal routes.",
+      "translation": "Przez ponad 16 lat nasi goście odkryli z nami ponad 60 miejsc w Turcji—od luksusowych kurortów po starożytne miasta i kaniony.",
+      "kind": "text"
+    },
+    {
+      "source": "We create holidays without chaos, stress or uncertainty. Every itinerary is planned in advance—from the transfer and route to the atmosphere of the day itself.",
+      "translation": "Tworzymy wypoczynek bez chaosu, stresu i niepewności. Każdy program planujemy wcześniej—od transferu po atmosferę całego dnia.",
+      "kind": "text"
+    },
+    {
+      "source": "Your holiday should never be left to chance. It is time that deserves to be beautiful, comfortable and truly unforgettable.",
+      "translation": "Twój urlop nie powinien być dziełem przypadku. Zasługuje na to, by był piękny, komfortowy i niezapomniany.",
+      "kind": "text"
+    },
+    {
+      "source": "REPUBLIC OF TÜRKİYE",
+      "translation": "REPUBLIKA TURCJI",
+      "kind": "text"
+    },
+    {
+      "source": "YOU ARE HERE",
+      "translation": "JESTEŚ TUTAJ",
+      "kind": "text"
+    },
+    {
+      "source": "Show My Location",
+      "translation": "Pokaż moją lokalizację",
+      "kind": "text"
+    },
+    {
+      "source": "Contact Us",
+      "translation": "Skontaktuj się z nami",
+      "kind": "text"
+    },
+    {
+      "source": "WhatsApp / Phone",
+      "translation": "WhatsApp / Telefon",
+      "kind": "text"
+    },
+    {
+      "source": "+90 538 704 59 99",
+      "translation": "+90 538 704 59 99",
+      "kind": "text"
+    },
+    {
+      "source": "Hotline phone",
+      "translation": "Telefon infolinii",
+      "kind": "text"
+    },
+    {
+      "source": "+90 (535) 207 27 68",
+      "translation": "+90 (535) 207 27 68",
+      "kind": "text"
+    },
+    {
+      "source": "Office in Alanya",
+      "translation": "Biuro w Alanyi",
+      "kind": "text"
+    },
+    {
+      "source": "Sarıtaş Hotel Yanı, Tosmur, Ahmet Tokuş Blv. No:13,",
+      "translation": "Sarıtaş Hotel Yanı, Tosmur, Ahmet Tokuş Blv. No:13,",
+      "kind": "text"
+    },
+    {
+      "source": "07400 Alanya / Antalya",
+      "translation": "07400 Alanya / Antalya",
+      "kind": "text"
+    },
+    {
+      "source": "Open Every Day",
+      "translation": "Otwarte codziennie",
+      "kind": "text"
+    },
+    {
+      "source": "Office: 08:00–01:00",
+      "translation": "Biuro: 08:00–01:00",
+      "kind": "text"
+    },
+    {
+      "source": "Online booking: 24/7",
+      "translation": "Rezerwacja online: 24/7",
+      "kind": "text"
+    },
+    {
+      "source": "© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "translation": "© 2026 ALANYA TOUR ORGANIZATIONS — PODRÓŻUJ Z MIŁOŚCIĄ. PODRÓŻUJ Z NAMI.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "translation": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB nr 2156",
+      "kind": "text"
+    },
+    {
+      "source": "Company & Legal Information",
+      "translation": "Firma i informacje prawne",
+      "kind": "text"
+    },
+    {
+      "source": "·",
+      "translation": "·",
+      "kind": "text"
+    },
+    {
+      "source": "Privacy & Cookies",
+      "translation": "Prywatność i pliki cookie",
+      "kind": "text"
+    },
+    {
+      "source": "Looking for the right tour in Alanya?",
+      "translation": "Szukasz odpowiedniej wycieczki w Alanyi?",
+      "kind": "text"
+    },
+    {
+      "source": "Message Us on WhatsApp",
+      "translation": "Napisz do nas na WhatsApp",
+      "kind": "text"
+    },
+    {
+      "source": "Featured experiences",
+      "translation": "Polecane atrakcje",
+      "kind": "aria-label"
+    },
+    {
+      "source": "FAMILY EXPERIENCE — THE LAND OF LEGENDS — open tour",
+      "translation": "RODZINNA PRZYGODA — THE LAND OF LEGENDS — otwórz wycieczkę",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Hero slide progress",
+      "translation": "Postęp slajdów hero",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Scroll to explore tours",
+      "translation": "Przewiń, aby odkrywać wycieczki",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Pause hero animation",
+      "translation": "Wstrzymaj animację hero",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Sea Experiences",
+      "translation": "Morskie atrakcje",
+      "kind": "alt"
+    },
+    {
+      "source": "Extreme Adventure",
+      "translation": "Ekstremalna przygoda",
+      "kind": "alt"
+    },
+    {
+      "source": "Nature Adventure",
+      "translation": "Natura i przygoda",
+      "kind": "alt"
+    },
+    {
+      "source": "History Culture",
+      "translation": "Historia i kultura",
+      "kind": "alt"
+    },
+    {
+      "source": "Family Experiences",
+      "translation": "Rodzinne atrakcje",
+      "kind": "alt"
+    },
+    {
+      "source": "Air Experiences",
+      "translation": "Atrakcje w powietrzu",
+      "kind": "alt"
+    },
+    {
+      "source": "Water Sports",
+      "translation": "Sporty wodne",
+      "kind": "alt"
+    },
+    {
+      "source": "Wellness Relax",
+      "translation": "Wellness i relaks",
+      "kind": "alt"
+    },
+    {
+      "source": "Search tours, activities...",
+      "translation": "Szukaj wycieczek i atrakcji...",
+      "kind": "placeholder"
+    },
+    {
+      "source": "View all popular tours",
+      "translation": "Zobacz wszystkie popularne wycieczki",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Open Popular Tours",
+      "translation": "Otwórz popularne wycieczki",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Open VIP Service category",
+      "translation": "Otwórz kategorię VIP",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Alanya Tour Organizations location",
+      "translation": "Lokalizacja Alanya Tour Organizations",
+      "kind": "title"
+    },
+    {
+      "source": "Site footer",
+      "translation": "Stopka strony",
+      "kind": "aria-label"
+    }
+  ]
+}

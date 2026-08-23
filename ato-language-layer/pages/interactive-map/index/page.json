@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "interactive-map/index.html",
+  "approved_sha256": "b37dc0457604912c4e304b7e688fb34c4661bf0069274a4bf2007a2438cf892d",
+  "translation_entries": 114,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

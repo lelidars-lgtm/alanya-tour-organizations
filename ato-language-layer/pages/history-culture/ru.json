@@ -1,0 +1,498 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "history-culture.html",
+  "approved_sha256": "628a828873592d66f2a91aec18f31615c920232812c15dd45bc14f8ff5ca1d3a",
+  "entries": [
+    {
+      "source": "History & Culture | ALANYA TOUR ORGANIZATIONS",
+      "translation": "История и культура | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › Tours ›",
+      "translation": "Главная › Туры ›",
+      "kind": "text"
+    },
+    {
+      "source": "History & Culture",
+      "translation": "История и культура",
+      "kind": "text"
+    },
+    {
+      "source": "Ancient Civilizations & Cultural Heritage",
+      "translation": "Древние цивилизации и культурное наследие",
+      "kind": "text"
+    },
+    {
+      "source": "4. History &",
+      "translation": "4. История и",
+      "kind": "text"
+    },
+    {
+      "source": "Culture",
+      "translation": "Культура",
+      "kind": "text"
+    },
+    {
+      "source": "Explore ancient civilizations, legendary cities, UNESCO heritage sites and the rich cultural heritage of Türkiye.",
+      "translation": "Откройте древние цивилизации, легендарные города, объекты наследия UNESCO и богатую культуру Турции.",
+      "kind": "text"
+    },
+    {
+      "source": "Ancient",
+      "translation": "Античность",
+      "kind": "text"
+    },
+    {
+      "source": "Sites",
+      "translation": "Места",
+      "kind": "text"
+    },
+    {
+      "source": "Cultural",
+      "translation": "Культурный",
+      "kind": "text"
+    },
+    {
+      "source": "Routes",
+      "translation": "Маршруты",
+      "kind": "text"
+    },
+    {
+      "source": "Historic",
+      "translation": "Историческое",
+      "kind": "text"
+    },
+    {
+      "source": "Cities",
+      "translation": "Города",
+      "kind": "text"
+    },
+    {
+      "source": "For All",
+      "translation": "Для всех",
+      "kind": "text"
+    },
+    {
+      "source": "Ages",
+      "translation": "Возрастов",
+      "kind": "text"
+    },
+    {
+      "source": "Popular History Tours",
+      "translation": "Популярные исторические туры",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Забронировать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "Signature",
+      "translation": "Фирменный",
+      "kind": "text"
+    },
+    {
+      "source": "1",
+      "translation": "1",
+      "kind": "text"
+    },
+    {
+      "source": "Cappadocia",
+      "translation": "Каппадокия",
+      "kind": "text"
+    },
+    {
+      "source": "From",
+      "translation": "От",
+      "kind": "text"
+    },
+    {
+      "source": "€100",
+      "translation": "€100",
+      "kind": "text"
+    },
+    {
+      "source": "/ per person",
+      "translation": "/ с человека",
+      "kind": "text"
+    },
+    {
+      "source": "Fairy chimneys, underground cities, panoramic valleys and one of Türkiye’s most iconic cultural landscapes.",
+      "translation": "Сказочные дымоходы, подземные города, панорамные долины и один из самых узнаваемых культурных ландшафтов Турции.",
+      "kind": "text"
+    },
+    {
+      "source": "UNESCO",
+      "translation": "UNESCO",
+      "kind": "text"
+    },
+    {
+      "source": "2 Days",
+      "translation": "2 дня",
+      "kind": "text"
+    },
+    {
+      "source": "→",
+      "translation": "→",
+      "kind": "text"
+    },
+    {
+      "source": "Lycian",
+      "translation": "Ликийское наследие",
+      "kind": "text"
+    },
+    {
+      "source": "2",
+      "translation": "2",
+      "kind": "text"
+    },
+    {
+      "source": "Demre – Myra – Kekova",
+      "translation": "Демре – Мира – Кекова",
+      "kind": "text"
+    },
+    {
+      "source": "Church of St. Nicholas, ancient Myra, Lycian rock tombs and the sunken city of Kekova by boat.",
+      "translation": "Церковь Святого Николая, древняя Мира, ликийские скальные гробницы и затонувший город Кекова во время морской прогулки.",
+      "kind": "text"
+    },
+    {
+      "source": "St. Nicholas",
+      "translation": "Святой Николай",
+      "kind": "text"
+    },
+    {
+      "source": "Myra",
+      "translation": "Мира",
+      "kind": "text"
+    },
+    {
+      "source": "Kekova",
+      "translation": "Кекова",
+      "kind": "text"
+    },
+    {
+      "source": "Full Day",
+      "translation": "Весь день",
+      "kind": "text"
+    },
+    {
+      "source": "History",
+      "translation": "История",
+      "kind": "text"
+    },
+    {
+      "source": "Legendary",
+      "translation": "Легендарное",
+      "kind": "text"
+    },
+    {
+      "source": "3",
+      "translation": "3",
+      "kind": "text"
+    },
+    {
+      "source": "Istanbul Tour",
+      "translation": "Тур в Стамбул",
+      "kind": "text"
+    },
+    {
+      "source": "€290",
+      "translation": "€290",
+      "kind": "text"
+    },
+    {
+      "source": "Legendary Istanbul with iconic mosques, old city atmosphere, Bosphorus views and rich cultural heritage.",
+      "translation": "Легендарный Стамбул: знаменитые мечети, атмосфера старого города, виды на Босфор и богатое культурное наследие.",
+      "kind": "text"
+    },
+    {
+      "source": "Istanbul",
+      "translation": "Стамбул",
+      "kind": "text"
+    },
+    {
+      "source": "Bosphorus",
+      "translation": "Босфор",
+      "kind": "text"
+    },
+    {
+      "source": "Old City",
+      "translation": "Старый город",
+      "kind": "text"
+    },
+    {
+      "source": "City",
+      "translation": "Город",
+      "kind": "text"
+    },
+    {
+      "source": "Ancient Cities",
+      "translation": "Античные города",
+      "kind": "text"
+    },
+    {
+      "source": "Ancient City",
+      "translation": "Античный город",
+      "kind": "text"
+    },
+    {
+      "source": "4",
+      "translation": "4",
+      "kind": "text"
+    },
+    {
+      "source": "Syedra Ancient City",
+      "translation": "Античный город Сиедра",
+      "kind": "text"
+    },
+    {
+      "source": "€45",
+      "translation": "€45",
+      "kind": "text"
+    },
+    {
+      "source": "Ancient ruins, mountain views and archaeological atmosphere near Alanya’s coastline.",
+      "translation": "Древние руины, горные виды и атмосфера археологического памятника недалеко от побережья Аланьи.",
+      "kind": "text"
+    },
+    {
+      "source": "Syedra",
+      "translation": "Сиедра",
+      "kind": "text"
+    },
+    {
+      "source": "Ruins",
+      "translation": "Руины",
+      "kind": "text"
+    },
+    {
+      "source": "Archaeology",
+      "translation": "Археология",
+      "kind": "text"
+    },
+    {
+      "source": "Half Day",
+      "translation": "Полдня",
+      "kind": "text"
+    },
+    {
+      "source": "Castle",
+      "translation": "Крепость",
+      "kind": "text"
+    },
+    {
+      "source": "5",
+      "translation": "5",
+      "kind": "text"
+    },
+    {
+      "source": "Anamur",
+      "translation": "Анамур",
+      "kind": "text"
+    },
+    {
+      "source": "€75",
+      "translation": "€75",
+      "kind": "text"
+    },
+    {
+      "source": "Mamure Castle, Roman heritage, Mediterranean coastline and historical landmarks on a scenic route.",
+      "translation": "Крепость Мамуре, римское наследие, средиземноморское побережье и исторические достопримечательности на живописном маршруте.",
+      "kind": "text"
+    },
+    {
+      "source": "Mamure Castle",
+      "translation": "Крепость Мамуре",
+      "kind": "text"
+    },
+    {
+      "source": "Coast",
+      "translation": "Побережье",
+      "kind": "text"
+    },
+    {
+      "source": "Roman Theatre",
+      "translation": "Римский театр",
+      "kind": "text"
+    },
+    {
+      "source": "6",
+      "translation": "6",
+      "kind": "text"
+    },
+    {
+      "source": "Aspendos Ancient City & Roman Theatre",
+      "translation": "Античный город Аспендос и Римский театр",
+      "kind": "text"
+    },
+    {
+      "source": "€65",
+      "translation": "€65",
+      "kind": "text"
+    },
+    {
+      "source": "One of the best preserved Roman theatres in Türkiye and a powerful ancient city experience.",
+      "translation": "Один из лучше всего сохранившихся римских театров Турции и яркое знакомство с античным городом.",
+      "kind": "text"
+    },
+    {
+      "source": "Aspendos",
+      "translation": "Аспендос",
+      "kind": "text"
+    },
+    {
+      "source": "Historic Landmarks & Local Discovery",
+      "translation": "Исторические места и знакомство с регионом",
+      "kind": "text"
+    },
+    {
+      "source": "Local",
+      "translation": "Местное",
+      "kind": "text"
+    },
+    {
+      "source": "7",
+      "translation": "7",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya City Tour",
+      "translation": "Обзорная экскурсия по Аланье",
+      "kind": "text"
+    },
+    {
+      "source": "€35",
+      "translation": "€35",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya Castle, Red Tower, cable car, Cleopatra Beach and the city’s most recognizable landmarks.",
+      "translation": "Крепость Аланьи, Красная башня, канатная дорога, пляж Клеопатры и самые узнаваемые достопримечательности города.",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya",
+      "translation": "Аланья",
+      "kind": "text"
+    },
+    {
+      "source": "Cable Car",
+      "translation": "Канатная дорога",
+      "kind": "text"
+    },
+    {
+      "source": "Regional",
+      "translation": "Региональное",
+      "kind": "text"
+    },
+    {
+      "source": "8",
+      "translation": "8",
+      "kind": "text"
+    },
+    {
+      "source": "Manavgat – M.A.S. – Side",
+      "translation": "Манавгат – M.A.S. – Сиде",
+      "kind": "text"
+    },
+    {
+      "source": "Waterfalls, Side ancient atmosphere, local culture and regional discovery in one route.",
+      "translation": "Водопады, античная атмосфера Сиде, местная культура и знакомство с регионом в одном маршруте.",
+      "kind": "text"
+    },
+    {
+      "source": "Manavgat",
+      "translation": "Манавгат",
+      "kind": "text"
+    },
+    {
+      "source": "Side",
+      "translation": "Сиде",
+      "kind": "text"
+    },
+    {
+      "source": "Waterfall",
+      "translation": "Водопад",
+      "kind": "text"
+    },
+    {
+      "source": "Family",
+      "translation": "Семья",
+      "kind": "text"
+    },
+    {
+      "source": "☏",
+      "translation": "☏",
+      "kind": "text"
+    },
+    {
+      "source": "Discover History & Culture",
+      "translation": "Откройте историю и культуру",
+      "kind": "text"
+    },
+    {
+      "source": "Book cultural, historical and ancient city tours via WhatsApp",
+      "translation": "Бронируйте культурные, исторические и античные экскурсии через WhatsApp",
+      "kind": "text"
+    },
+    {
+      "source": "Heritage",
+      "translation": "Наследие",
+      "kind": "text"
+    },
+    {
+      "source": "Flexible",
+      "translation": "Гибко",
+      "kind": "text"
+    },
+    {
+      "source": "Booking",
+      "translation": "Бронирование",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel Pickup",
+      "translation": "Трансфер из отеля",
+      "kind": "text"
+    },
+    {
+      "source": "Available",
+      "translation": "Доступно",
+      "kind": "text"
+    },
+    {
+      "source": "Guided & Reliable",
+      "translation": "С гидом и надёжно",
+      "kind": "text"
+    },
+    {
+      "source": "Programs",
+      "translation": "Программы",
+      "kind": "text"
+    },
+    {
+      "source": "Demre Myra Kekova",
+      "translation": "Демре, Мира, Кекова",
+      "kind": "alt"
+    },
+    {
+      "source": "Aspendos Ancient City and Roman Theatre",
+      "translation": "Античный город Аспендос и Римский театр",
+      "kind": "alt"
+    },
+    {
+      "source": "Manavgat MAS Side",
+      "translation": "Манавгат, M.A.S., Сиде",
+      "kind": "alt"
+    }
+  ]
+}

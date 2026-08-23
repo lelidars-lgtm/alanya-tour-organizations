@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "cookie-policy.html",
+  "approved_sha256": "2ccdefff03482ef5c3d198a865cbc5a29d8d385e59a4005155de511decc019b3",
+  "translation_entries": 71,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

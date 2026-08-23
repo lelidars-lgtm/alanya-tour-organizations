@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "personal-concierge.html",
+  "approved_sha256": "d63d20d2d8951ef1576dcfdf81e68010eef6e5f551576830a6ba67284cf7ccae",
+  "translation_entries": 169,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

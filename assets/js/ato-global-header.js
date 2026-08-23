@@ -1774,3 +1774,27 @@ render();
   document.head.appendChild(s);
 })();
 
+
+/* ======================================================================
+   ATO LANGUAGE LAYER — SAFE PRODUCTION ACTIVATION
+   2026-08-23
+   Single integration point via the canonical global header.
+   The approved HTML/CSS/page JS files remain unchanged.
+   Translation data is loaded only from /ato-language-layer/.
+   ====================================================================== */
+(function atoLoadSafeLanguageLayer(){
+  'use strict';
+  const SCRIPT_ID='ato-language-live-loader';
+  if(window.ATOLanguageLive || document.getElementById(SCRIPT_ID)) return;
+
+  const s=document.createElement('script');
+  s.id=SCRIPT_ID;
+  s.src='/ato-language-layer/runtime/ato-language-live.js?v=20260823-1430';
+  s.async=true;
+  s.dataset.atoLanguageIntegration='global-header';
+  s.onerror=function(){
+    document.documentElement.dataset.atoLanguageLayer='loader-error';
+    console.warn('[ATO Language Layer] live loader could not be loaded. The approved page remains unchanged.');
+  };
+  (document.head||document.documentElement).appendChild(s);
+})();

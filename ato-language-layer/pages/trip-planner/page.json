@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "trip-planner.html",
+  "approved_sha256": "8c0bda091ad73e5295e961089077e7abb38219b0d8459bc2fdf168655826d693",
+  "translation_entries": 180,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

@@ -1,0 +1,908 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "trip-planner.html",
+  "approved_sha256": "8c0bda091ad73e5295e961089077e7abb38219b0d8459bc2fdf168655826d693",
+  "entries": [
+    {
+      "source": "TRIP PLANNER | ALANYA TOUR ORGANIZATIONS",
+      "translation": "ПЛАНИРОВЩИК ПОЕЗДКИ | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "Compare tours and build your perfect Alanya itinerary.",
+      "translation": "Сравнивайте туры и создайте идеальный маршрут по Аланье.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR",
+      "translation": "ВАШ",
+      "kind": "text"
+    },
+    {
+      "source": "Signature travel planning experience",
+      "translation": "Премиальный персональный план путешествия",
+      "kind": "text"
+    },
+    {
+      "source": "TRIP",
+      "translation": "ПОЕЗДКА",
+      "kind": "text"
+    },
+    {
+      "source": "PLANNER",
+      "translation": "ПЛАНИРОВЩИК",
+      "kind": "text"
+    },
+    {
+      "source": "Compare tours. Build your perfect itinerary.",
+      "translation": "Сравнивайте туры. Создайте идеальный маршрут.",
+      "kind": "text"
+    },
+    {
+      "source": "Choose your experiences, tell us how you travel, and turn your holiday into a personal itinerary.",
+      "translation": "Выберите впечатления, расскажите, как вы путешествуете, и превратите отпуск в персональный маршрут.",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 01",
+      "translation": "ШАГ 01",
+      "kind": "text"
+    },
+    {
+      "source": "Choose Experiences",
+      "translation": "Выбрать впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 02",
+      "translation": "ШАГ 02",
+      "kind": "text"
+    },
+    {
+      "source": "Tell Us About Your Trip",
+      "translation": "Расскажите о поездке",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 03",
+      "translation": "ШАГ 03",
+      "kind": "text"
+    },
+    {
+      "source": "Compare & Plan",
+      "translation": "Сравнить и спланировать",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 04",
+      "translation": "ШАГ 04",
+      "kind": "text"
+    },
+    {
+      "source": "Confirm With Manager",
+      "translation": "Подтвердить с менеджером",
+      "kind": "text"
+    },
+    {
+      "source": "START PLANNING",
+      "translation": "НАЧАТЬ ПЛАНИРОВАНИЕ",
+      "kind": "text"
+    },
+    {
+      "source": "↓",
+      "translation": "↓",
+      "kind": "text"
+    },
+    {
+      "source": "01",
+      "translation": "01",
+      "kind": "text"
+    },
+    {
+      "source": "Choose",
+      "translation": "Выбрать",
+      "kind": "text"
+    },
+    {
+      "source": "02",
+      "translation": "02",
+      "kind": "text"
+    },
+    {
+      "source": "Selected",
+      "translation": "Выбрано",
+      "kind": "text"
+    },
+    {
+      "source": "03",
+      "translation": "03",
+      "kind": "text"
+    },
+    {
+      "source": "Preferences",
+      "translation": "Предпочтения",
+      "kind": "text"
+    },
+    {
+      "source": "04",
+      "translation": "04",
+      "kind": "text"
+    },
+    {
+      "source": "Recommendations",
+      "translation": "Рекомендации",
+      "kind": "text"
+    },
+    {
+      "source": "05",
+      "translation": "05",
+      "kind": "text"
+    },
+    {
+      "source": "Dates",
+      "translation": "Даты",
+      "kind": "text"
+    },
+    {
+      "source": "↻ START OVER",
+      "translation": "↻ НАЧАТЬ СНАЧАЛА",
+      "kind": "text"
+    },
+    {
+      "source": "BEGIN YOUR JOURNEY",
+      "translation": "НАЧНИТЕ СВОЁ ПУТЕШЕСТВИЕ",
+      "kind": "text"
+    },
+    {
+      "source": "Explore by category",
+      "translation": "Изучить по категориям",
+      "kind": "text"
+    },
+    {
+      "source": "Open any original category, choose the tours you love and return here — your selections stay saved.",
+      "translation": "Откройте любую категорию, выберите понравившиеся туры и вернитесь сюда — ваш выбор сохранится.",
+      "kind": "text"
+    },
+    {
+      "source": "9",
+      "translation": "9",
+      "kind": "text"
+    },
+    {
+      "source": "experiences",
+      "translation": "впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "collections",
+      "translation": "коллекций",
+      "kind": "text"
+    },
+    {
+      "source": "Yachts • Fishing • Hidden bays",
+      "translation": "Яхты • Рыбалка • Скрытые бухты",
+      "kind": "text"
+    },
+    {
+      "source": "SEA EXPERIENCES",
+      "translation": "МОРСКИЕ ПРИКЛЮЧЕНИЯ",
+      "kind": "text"
+    },
+    {
+      "source": "EXPLORE →",
+      "translation": "ИЗУЧИТЬ →",
+      "kind": "text"
+    },
+    {
+      "source": "0 selected",
+      "translation": "Выбрано: 0",
+      "kind": "text"
+    },
+    {
+      "source": "Canyons • Lakes • Mountains",
+      "translation": "Каньоны • Озёра • Горы",
+      "kind": "text"
+    },
+    {
+      "source": "NATURE & ADVENTURE",
+      "translation": "ПРИРОДА И ПРИКЛЮЧЕНИЯ",
+      "kind": "text"
+    },
+    {
+      "source": "Rafting • Safari • Adrenaline",
+      "translation": "Рафтинг • Сафари • Адреналин",
+      "kind": "text"
+    },
+    {
+      "source": "EXTREME & ADVENTURE",
+      "translation": "ЭКСТРИМ И ПРИКЛЮЧЕНИЯ",
+      "kind": "text"
+    },
+    {
+      "source": "Theme parks • Shows • Family days",
+      "translation": "Тематические парки • Шоу • Семейные дни",
+      "kind": "text"
+    },
+    {
+      "source": "FAMILY EXPERIENCES",
+      "translation": "СЕМЕЙНЫЙ ОТДЫХ",
+      "kind": "text"
+    },
+    {
+      "source": "Ancient cities • Cappadocia • Istanbul",
+      "translation": "Древние города • Каппадокия • Стамбул",
+      "kind": "text"
+    },
+    {
+      "source": "HISTORY & CULTURE",
+      "translation": "ИСТОРИЯ И КУЛЬТУРА",
+      "kind": "text"
+    },
+    {
+      "source": "06",
+      "translation": "06",
+      "kind": "text"
+    },
+    {
+      "source": "Jetski • Parasailing • Diving",
+      "translation": "Гидроцикл • Парасейлинг • Дайвинг",
+      "kind": "text"
+    },
+    {
+      "source": "WATER SPORTS",
+      "translation": "ВОДНЫЕ ВИДЫ СПОРТА",
+      "kind": "text"
+    },
+    {
+      "source": "07",
+      "translation": "07",
+      "kind": "text"
+    },
+    {
+      "source": "Paragliding • Helicopter • Skydive",
+      "translation": "Параглайдинг • Вертолёт • Скайдайвинг",
+      "kind": "text"
+    },
+    {
+      "source": "AIR EXPERIENCES",
+      "translation": "ВОЗДУШНЫЕ ПРИКЛЮЧЕНИЯ",
+      "kind": "text"
+    },
+    {
+      "source": "08",
+      "translation": "08",
+      "kind": "text"
+    },
+    {
+      "source": "Hammam • Spa • Massage",
+      "translation": "Хамам • SPA • Массаж",
+      "kind": "text"
+    },
+    {
+      "source": "WELLNESS & RELAX",
+      "translation": "ВЕЛНЕС И ОТДЫХ",
+      "kind": "text"
+    },
+    {
+      "source": "09",
+      "translation": "09",
+      "kind": "text"
+    },
+    {
+      "source": "Private yachts • Transfers • Concierge",
+      "translation": "Частные яхты • Трансферы • Консьерж",
+      "kind": "text"
+    },
+    {
+      "source": "VIP SERVICES",
+      "translation": "VIP-СЕРВИС",
+      "kind": "text"
+    },
+    {
+      "source": "PERSONAL CONCIERGE SHORTCUTS",
+      "translation": "БЫСТРЫЙ ДОСТУП К ПЕРСОНАЛЬНОМУ КОНСЬЕРЖУ",
+      "kind": "text"
+    },
+    {
+      "source": "Quick start",
+      "translation": "Быстрый старт",
+      "kind": "text"
+    },
+    {
+      "source": "Not sure where to begin? Choose the holiday style closest to you. We will pre-fill the planner preferences — you still make every final choice.",
+      "translation": "Не знаете, с чего начать? Выберите стиль отдыха, который вам ближе. Мы предварительно заполним предпочтения планировщика — окончательный выбор всегда остаётся за вами.",
+      "kind": "text"
+    },
+    {
+      "source": "Family First",
+      "translation": "Семья прежде всего",
+      "kind": "text"
+    },
+    {
+      "source": "Children, comfort and balanced days",
+      "translation": "Дети, комфорт и сбалансированный отдых",
+      "kind": "text"
+    },
+    {
+      "source": "Sea Lover",
+      "translation": "Люблю море",
+      "kind": "text"
+    },
+    {
+      "source": "Yachts, bays and water experiences",
+      "translation": "Яхты, бухты и водные впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "Adventure Mode",
+      "translation": "Режим приключений",
+      "kind": "text"
+    },
+    {
+      "source": "Active pace and adrenaline",
+      "translation": "Активный темп и адреналин",
+      "kind": "text"
+    },
+    {
+      "source": "Slow Luxury",
+      "translation": "Спокойная роскошь",
+      "kind": "text"
+    },
+    {
+      "source": "Relaxed pace, spa and easy days",
+      "translation": "Спокойный темп, SPA и лёгкие дни",
+      "kind": "text"
+    },
+    {
+      "source": "First Time in Alanya",
+      "translation": "Впервые в Аланье",
+      "kind": "text"
+    },
+    {
+      "source": "A balanced introduction to the region",
+      "translation": "Сбалансированное знакомство с регионом",
+      "kind": "text"
+    },
+    {
+      "source": "Private & VIP",
+      "translation": "Частные и VIP",
+      "kind": "text"
+    },
+    {
+      "source": "Premium services and private experiences",
+      "translation": "Премиальные услуги и частные впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR COLLECTION",
+      "translation": "ВАША ПОДБОРКА",
+      "kind": "text"
+    },
+    {
+      "source": "Your selected tours",
+      "translation": "Выбранные туры",
+      "kind": "text"
+    },
+    {
+      "source": "Choose up to 4 tours you like most from any category. Images, price and card information are read from the current original tour cards.",
+      "translation": "Выберите до 4 понравившихся туров из любых категорий. Изображения, цена и данные берутся из актуальных оригинальных карточек туров.",
+      "kind": "text"
+    },
+    {
+      "source": "Clear all",
+      "translation": "Очистить всё",
+      "kind": "text"
+    },
+    {
+      "source": "0/4",
+      "translation": "0/4",
+      "kind": "text"
+    },
+    {
+      "source": "TELL US HOW YOU TRAVEL",
+      "translation": "РАССКАЖИТЕ, КАК ВЫ ПУТЕШЕСТВУЕТЕ",
+      "kind": "text"
+    },
+    {
+      "source": "Your trip & preferences",
+      "translation": "Ваша поездка и предпочтения",
+      "kind": "text"
+    },
+    {
+      "source": "Safety and factual restrictions are checked before preferences.",
+      "translation": "Ограничения по безопасности и фактические условия проверяются раньше предпочтений.",
+      "kind": "text"
+    },
+    {
+      "source": "Holiday start",
+      "translation": "Начало отпуска",
+      "kind": "text"
+    },
+    {
+      "source": "Holiday end",
+      "translation": "Окончание отпуска",
+      "kind": "text"
+    },
+    {
+      "source": "Adults",
+      "translation": "Взрослые",
+      "kind": "text"
+    },
+    {
+      "source": "Children & ages",
+      "translation": "Дети и возраст",
+      "kind": "text"
+    },
+    {
+      "source": "Pace",
+      "translation": "Темп",
+      "kind": "text"
+    },
+    {
+      "source": "Balanced",
+      "translation": "Сбалансированный",
+      "kind": "text"
+    },
+    {
+      "source": "Relaxed",
+      "translation": "Спокойный",
+      "kind": "text"
+    },
+    {
+      "source": "Active",
+      "translation": "Активно",
+      "kind": "text"
+    },
+    {
+      "source": "Road tolerance",
+      "translation": "Допустимая длительность переездов",
+      "kind": "text"
+    },
+    {
+      "source": "Medium",
+      "translation": "Средний",
+      "kind": "text"
+    },
+    {
+      "source": "Prefer short road time",
+      "translation": "Предпочитаю короткие переезды",
+      "kind": "text"
+    },
+    {
+      "source": "Long trips are fine",
+      "translation": "Долгие поездки подходят",
+      "kind": "text"
+    },
+    {
+      "source": "Start time preference",
+      "translation": "Предпочтительное время начала",
+      "kind": "text"
+    },
+    {
+      "source": "Any",
+      "translation": "Любой",
+      "kind": "text"
+    },
+    {
+      "source": "Avoid early starts",
+      "translation": "Избегать ранних выездов",
+      "kind": "text"
+    },
+    {
+      "source": "Early starts are fine",
+      "translation": "Ранние выезды подходят",
+      "kind": "text"
+    },
+    {
+      "source": "Free days between tours",
+      "translation": "Свободные дни между турами",
+      "kind": "text"
+    },
+    {
+      "source": "Not necessary",
+      "translation": "Необязательно",
+      "kind": "text"
+    },
+    {
+      "source": "Prefer a free day",
+      "translation": "Предпочитаю свободный день",
+      "kind": "text"
+    },
+    {
+      "source": "Important for planning",
+      "translation": "Важно для планирования",
+      "kind": "text"
+    },
+    {
+      "source": "Pregnancy",
+      "translation": "Беременность",
+      "kind": "text"
+    },
+    {
+      "source": "Elderly guest",
+      "translation": "Пожилой гость",
+      "kind": "text"
+    },
+    {
+      "source": "Reduced mobility",
+      "translation": "Ограниченная мобильность",
+      "kind": "text"
+    },
+    {
+      "source": "Stroller",
+      "translation": "Коляска",
+      "kind": "text"
+    },
+    {
+      "source": "Interests",
+      "translation": "Интересы",
+      "kind": "text"
+    },
+    {
+      "source": "Sea",
+      "translation": "Море",
+      "kind": "text"
+    },
+    {
+      "source": "Nature",
+      "translation": "Природа",
+      "kind": "text"
+    },
+    {
+      "source": "History",
+      "translation": "История",
+      "kind": "text"
+    },
+    {
+      "source": "Extreme",
+      "translation": "Экстрим",
+      "kind": "text"
+    },
+    {
+      "source": "Family",
+      "translation": "Семья",
+      "kind": "text"
+    },
+    {
+      "source": "Wellness",
+      "translation": "Велнес",
+      "kind": "text"
+    },
+    {
+      "source": "Water Sports",
+      "translation": "Водные виды спорта",
+      "kind": "text"
+    },
+    {
+      "source": "Air",
+      "translation": "Воздух",
+      "kind": "text"
+    },
+    {
+      "source": "VIP",
+      "translation": "VIP",
+      "kind": "text"
+    },
+    {
+      "source": "Get recommendations",
+      "translation": "Получить рекомендации",
+      "kind": "text"
+    },
+    {
+      "source": "Get a suggested schedule based on your selected tours and travel dates.",
+      "translation": "Получите рекомендованное расписание на основе выбранных туров и дат поездки.",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR PERSONAL MATCHES",
+      "translation": "ВАШИ ПЕРСОНАЛЬНЫЕ ВАРИАНТЫ",
+      "kind": "text"
+    },
+    {
+      "source": "Planner recommendations",
+      "translation": "Рекомендации планировщика",
+      "kind": "text"
+    },
+    {
+      "source": "We analyze and rank the tours you selected using your travel details, preferences and tour rules.",
+      "translation": "Мы анализируем и ранжируем выбранные туры с учётом параметров поездки, ваших предпочтений и правил каждого тура.",
+      "kind": "text"
+    },
+    {
+      "source": "COMPARE BEFORE YOU DECIDE",
+      "translation": "СРАВНИТЕ ПЕРЕД ВЫБОРОМ",
+      "kind": "text"
+    },
+    {
+      "source": "Detailed comparison",
+      "translation": "Подробное сравнение",
+      "kind": "text"
+    },
+    {
+      "source": "Your selected tours are compared automatically in one analytical table. Choose 2–4 tours from any categories.",
+      "translation": "Выбранные туры автоматически сравниваются в одной аналитической таблице. Выберите 2–4 тура из любых категорий.",
+      "kind": "text"
+    },
+    {
+      "source": "TURN CHOICES INTO A JOURNEY",
+      "translation": "ПРЕВРАТИТЕ ВЫБОР В ПУТЕШЕСТВИЕ",
+      "kind": "text"
+    },
+    {
+      "source": "Plan Your Dates",
+      "translation": "Запланировать даты",
+      "kind": "text"
+    },
+    {
+      "source": "Weather layer:",
+      "translation": "Слой погоды:",
+      "kind": "text"
+    },
+    {
+      "source": "add your travel dates to prepare date-specific guidance.",
+      "translation": "добавьте даты поездки, чтобы получить рекомендации с учётом конкретных дней.",
+      "kind": "text"
+    },
+    {
+      "source": "Suggested itinerary — dates and availability require confirmation.",
+      "translation": "Рекомендуемый маршрут — даты и наличие требуют подтверждения.",
+      "kind": "text"
+    },
+    {
+      "source": "PREPARE WITH CONFIDENCE",
+      "translation": "ГОТОВЬТЕСЬ УВЕРЕННО",
+      "kind": "text"
+    },
+    {
+      "source": "What to Bring",
+      "translation": "Что взять с собой",
+      "kind": "text"
+    },
+    {
+      "source": "Each selected tour keeps its own requirements. The planner never merges tour-specific rules into a generic list.",
+      "translation": "У каждого выбранного тура сохраняются собственные требования. Планировщик не объединяет правила разных туров в один общий список.",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR PERSONAL TRAVEL PLAN",
+      "translation": "ВАШ ПЕРСОНАЛЬНЫЙ ПЛАН ПОЕЗДКИ",
+      "kind": "text"
+    },
+    {
+      "source": "Ready to turn your plan into a real holiday?",
+      "translation": "Готовы превратить план в настоящий отпуск?",
+      "kind": "text"
+    },
+    {
+      "source": "Your selected pool, comparison and suggested dates stay saved while you browse. Final availability, pickup time and price are confirmed by our travel manager.",
+      "translation": "Ваша подборка, сравнение и предложенные даты сохраняются, пока вы просматриваете сайт. Итоговое наличие, время трансфера и цену подтверждает наш менеджер.",
+      "kind": "text"
+    },
+    {
+      "source": "Share My Itinerary",
+      "translation": "Поделиться маршрутом",
+      "kind": "text"
+    },
+    {
+      "source": "I’VE MADE MY CHOICE",
+      "translation": "Я СДЕЛАЛ(А) ВЫБОР",
+      "kind": "text"
+    },
+    {
+      "source": "Choose your tours first",
+      "translation": "Сначала выберите туры",
+      "kind": "text"
+    },
+    {
+      "source": "© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "translation": "© 2026 ALANYA TOUR ORGANIZATIONS — ПУТЕШЕСТВУЙТЕ С ЛЮБОВЬЮ. ПУТЕШЕСТВУЙТЕ С НАМИ.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "translation": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB № 2156",
+      "kind": "text"
+    },
+    {
+      "source": "Company & Legal Information",
+      "translation": "Компания и юридическая информация",
+      "kind": "text"
+    },
+    {
+      "source": "·",
+      "translation": "·",
+      "kind": "text"
+    },
+    {
+      "source": "Privacy & Cookies",
+      "translation": "Конфиденциальность и cookie",
+      "kind": "text"
+    },
+    {
+      "source": "Contact our travel manager",
+      "translation": "Связаться с нашим менеджером",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Name",
+      "translation": "Имя",
+      "kind": "text"
+    },
+    {
+      "source": "WhatsApp / phone",
+      "translation": "WhatsApp / телефон",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel",
+      "translation": "Отель",
+      "kind": "text"
+    },
+    {
+      "source": "Room number",
+      "translation": "Номер комнаты",
+      "kind": "text"
+    },
+    {
+      "source": "Children / ages",
+      "translation": "Дети / возраст",
+      "kind": "text"
+    },
+    {
+      "source": "No",
+      "translation": "Нет",
+      "kind": "text"
+    },
+    {
+      "source": "Yes",
+      "translation": "Да",
+      "kind": "text"
+    },
+    {
+      "source": "Elderly guests",
+      "translation": "Пожилые гости",
+      "kind": "text"
+    },
+    {
+      "source": "Stroller / mobility",
+      "translation": "Коляска / мобильность",
+      "kind": "text"
+    },
+    {
+      "source": "Child stroller",
+      "translation": "Детская коляска",
+      "kind": "text"
+    },
+    {
+      "source": "Wheelchair / reduced mobility",
+      "translation": "Инвалидная коляска / ограниченная мобильность",
+      "kind": "text"
+    },
+    {
+      "source": "Both",
+      "translation": "Оба варианта",
+      "kind": "text"
+    },
+    {
+      "source": "Language",
+      "translation": "Язык",
+      "kind": "text"
+    },
+    {
+      "source": "English",
+      "translation": "Английский",
+      "kind": "text"
+    },
+    {
+      "source": "Russian",
+      "translation": "Русский",
+      "kind": "text"
+    },
+    {
+      "source": "Turkish",
+      "translation": "Турецкий",
+      "kind": "text"
+    },
+    {
+      "source": "German",
+      "translation": "Немецкий",
+      "kind": "text"
+    },
+    {
+      "source": "Polish",
+      "translation": "Польский",
+      "kind": "text"
+    },
+    {
+      "source": "Notes",
+      "translation": "Uwagi",
+      "kind": "text"
+    },
+    {
+      "source": "Send request to manager via WhatsApp",
+      "translation": "Отправить запрос менеджеру через WhatsApp",
+      "kind": "text"
+    },
+    {
+      "source": "Sending the request does not confirm availability. The manager reviews the dates, pickup, final price and any safety restrictions before confirmation.",
+      "translation": "Отправка запроса не подтверждает наличие. Перед подтверждением менеджер проверяет даты, трансфер, итоговую цену и ограничения по безопасности.",
+      "kind": "text"
+    },
+    {
+      "source": "Trip Planner progress",
+      "translation": "Прогресс Trip Planner",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Start a new Trip Planner",
+      "translation": "Начать новый Trip Planner",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Sea Experiences",
+      "translation": "Морские впечатления",
+      "kind": "alt"
+    },
+    {
+      "source": "Nature and Adventure",
+      "translation": "Природа и приключения",
+      "kind": "alt"
+    },
+    {
+      "source": "Extreme and Adventure",
+      "translation": "Экстрим и приключения",
+      "kind": "alt"
+    },
+    {
+      "source": "Family Experiences",
+      "translation": "Семейные развлечения",
+      "kind": "alt"
+    },
+    {
+      "source": "History and Culture",
+      "translation": "История и культура",
+      "kind": "alt"
+    },
+    {
+      "source": "Air Experiences",
+      "translation": "Воздушные впечатления",
+      "kind": "alt"
+    },
+    {
+      "source": "Wellness and Relax",
+      "translation": "Велнес и отдых",
+      "kind": "alt"
+    },
+    {
+      "source": "VIP Services",
+      "translation": "VIP-сервисы",
+      "kind": "alt"
+    },
+    {
+      "source": "e.g. 2 children: 4, 9",
+      "translation": "например, 2 ребёнка: 4, 9",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Site footer",
+      "translation": "Нижняя часть сайта",
+      "kind": "aria-label"
+    },
+    {
+      "source": "e.g. 4, 9",
+      "translation": "например: 4, 9",
+      "kind": "placeholder"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "manavgat-aspendos-side.html",
+  "approved_sha256": "862b19f0b81dd843dce3473d13c991510a67a66fa0dc12746314d8959215ea84",
+  "translation_entries": 143,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

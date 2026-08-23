@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "airport-vip-transfer.html",
+  "approved_sha256": "f47b90cdf95f822e4f8e8242a9a4cd4949d05551a94a5bcc376b0d7acc640c51",
+  "translation_entries": 138,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

@@ -1,0 +1,63 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "gift-certificate.html",
+  "approved_sha256": "4f38228a72b3a72da41cdb1f344946d5f7b90745c474d414c1fcab73b032de91",
+  "entries": [
+    {
+      "source": "Electronic Gift Certificate | Alanya Tour Organizations",
+      "translation": "Elektronik Hediye Sertifikası | Alanya Tour Organizations",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "Electronic Gift Certificate",
+      "translation": "Elektronik Hediye Sertifikası",
+      "kind": "text"
+    },
+    {
+      "source": "Loading certificate…",
+      "translation": "Sertifika yükleniyor…",
+      "kind": "text"
+    },
+    {
+      "source": "PRINT / SAVE PDF",
+      "translation": "YAZDIR / PDF KAYDET",
+      "kind": "text"
+    },
+    {
+      "source": "COPY CERTIFICATE CODE",
+      "translation": "SERTİFİKA KODUNU KOPYALA",
+      "kind": "text"
+    },
+    {
+      "source": "WHATSAPP",
+      "translation": "WHATSAPP",
+      "kind": "text"
+    },
+    {
+      "source": "This electronic certificate becomes valid only after confirmation by Alanya Tour Organizations.",
+      "translation": "Bu elektronik sertifika yalnızca Alanya Tour Organizations onayından sonra geçerli olur.",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya Tour electronic gift certificate",
+      "translation": "Alanya Tour elektronik hediye sertifikası",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Alanya Tour Gift Card",
+      "translation": "Alanya Tour Hediye Kartı",
+      "kind": "alt"
+    }
+  ]
+}

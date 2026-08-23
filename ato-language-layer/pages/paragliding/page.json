@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "paragliding.html",
+  "approved_sha256": "1c6b23b9c0e99b8e4c1ff09178341efcc3148a85c368700aa0bb704c9634aaee",
+  "translation_entries": 148,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

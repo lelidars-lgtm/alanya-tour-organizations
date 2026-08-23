@@ -1,0 +1,658 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "family-jeep-safari.html",
+  "approved_sha256": "4c40a3a6ac81d75ef98ee0ed346fc99a6d71500116815f0675536d7ac7eb5cee",
+  "entries": [
+    {
+      "source": "Family Jeep Safari | ALANYA TOUR ORGANIZATIONS",
+      "translation": "Family Jeep Safari | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home ›",
+      "translation": "Главная ›",
+      "kind": "text"
+    },
+    {
+      "source": "Extreme & Adventure",
+      "translation": "Экстрим и приключения",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Family Jeep Safari",
+      "translation": "Семейное джип-сафари",
+      "kind": "text"
+    },
+    {
+      "source": "Family Adventure",
+      "translation": "Семейное приключение",
+      "kind": "text"
+    },
+    {
+      "source": "Private Jeep Experience • Green Canyon Views • Authentic Villages",
+      "translation": "Приватное джип-приключение • Виды на Зелёный каньон • Аутентичные деревни",
+      "kind": "text"
+    },
+    {
+      "source": "Traveling in private jeeps is the perfect way to discover the authentic side of Alanya beyond the usual tourist routes: mountain roads, traditional villages, waterfalls, and breathtaking Green Canyon panoramas.",
+      "translation": "Путешествие на приватных джипах — идеальный способ открыть аутентичную сторону Алании вдали от привычных туристических маршрутов: горные дороги, традиционные деревни, водопады и захватывающие панорамы Зелёного каньона.",
+      "kind": "text"
+    },
+    {
+      "source": "MOUNTAINS",
+      "translation": "ГОРЫ",
+      "kind": "text"
+    },
+    {
+      "source": "PRIVATE JEEPS",
+      "translation": "ПРИВАТНЫЕ ДЖИПЫ",
+      "kind": "text"
+    },
+    {
+      "source": "TRANSFER",
+      "translation": "ТРАНСФЕР",
+      "kind": "text"
+    },
+    {
+      "source": "FAMILY JEEP",
+      "translation": "СЕМЕЙНЫЙ ДЖИП-ТУР",
+      "kind": "text"
+    },
+    {
+      "source": "GREEN CANYON",
+      "translation": "ЗЕЛЁНЫЙ КАНЬОН",
+      "kind": "text"
+    },
+    {
+      "source": "VILLAGES",
+      "translation": "ДЕРЕВНИ",
+      "kind": "text"
+    },
+    {
+      "source": "WATERFALLS",
+      "translation": "ВОДОПАДЫ",
+      "kind": "text"
+    },
+    {
+      "source": "PRIVATE SAFARI",
+      "translation": "ПРИВАТНОЕ САФАРИ",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Забронировать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "Об этом впечатлении",
+      "kind": "text"
+    },
+    {
+      "source": "is a private jeep journey and an opportunity to discover the authentic side of Alanya beyond standard tourist routes.",
+      "translation": "— это приватное путешествие на джипе и возможность открыть аутентичную сторону Алании за пределами стандартных туристических маршрутов.",
+      "kind": "text"
+    },
+    {
+      "source": "You will drive through mountain roads and authentic villages of Antalya Province, stop at picturesque waterfalls, and enjoy panoramic views of Green Canyon and five surrounding mountain ranges.",
+      "translation": "Вы проедете по горным дорогам и аутентичным деревням провинции Анталья, остановитесь у живописных водопадов и насладитесь панорамами Зелёного каньона и пяти окружающих горных хребтов.",
+      "kind": "text"
+    },
+    {
+      "source": "Optionally, you can explore an ancient cave with winding passages and a unique historical atmosphere.",
+      "translation": "По желанию можно посетить древнюю пещеру с извилистыми проходами и особой исторической атмосферой.",
+      "kind": "text"
+    },
+    {
+      "source": "This tour is perfect for families, friends, and travelers who want to combine nature, light adventure, spectacular scenery, and comfortable travel.",
+      "translation": "Этот тур идеально подходит семьям, друзьям и путешественникам, которые хотят совместить природу, лёгкое приключение, впечатляющие пейзажи и комфортную поездку.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Главные впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "Private jeeps for maximum comfort",
+      "translation": "Приватные джипы для максимального комфорта",
+      "kind": "text"
+    },
+    {
+      "source": "Mountain roads of Antalya Province",
+      "translation": "Горные дороги провинции Анталья",
+      "kind": "text"
+    },
+    {
+      "source": "Authentic villages and local culture",
+      "translation": "Аутентичные деревни и местная культура",
+      "kind": "text"
+    },
+    {
+      "source": "Picturesque waterfalls",
+      "translation": "Живописные водопады",
+      "kind": "text"
+    },
+    {
+      "source": "Green Canyon panoramas",
+      "translation": "Панорамы Зелёного каньона",
+      "kind": "text"
+    },
+    {
+      "source": "Views of five mountain ranges",
+      "translation": "Виды на пять горных хребтов",
+      "kind": "text"
+    },
+    {
+      "source": "Optional visit to an ancient cave",
+      "translation": "Опциональное посещение древней пещеры",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Детали",
+      "kind": "text"
+    },
+    {
+      "source": "Format: private jeep experience",
+      "translation": "Формат: приватное джип-приключение",
+      "kind": "text"
+    },
+    {
+      "source": "Route: mountains, villages, waterfalls",
+      "translation": "Маршрут: горы, деревни, водопады",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup: hotel / apartment address",
+      "translation": "Трансфер: адрес отеля / апартаментов",
+      "kind": "text"
+    },
+    {
+      "source": "Category: Extreme & Adventure",
+      "translation": "Категория: Экстрим и приключения",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Цена",
+      "kind": "text"
+    },
+    {
+      "source": "€35",
+      "translation": "€35",
+      "kind": "text"
+    },
+    {
+      "source": "5–9 guests — €35 per person",
+      "translation": "5–9 гостей — €35 с человека",
+      "kind": "text"
+    },
+    {
+      "source": "10–14 guests — €30 per person",
+      "translation": "10–14 гостей — €30 с человека",
+      "kind": "text"
+    },
+    {
+      "source": "15+ guests — €25 per person",
+      "translation": "15+ гостей — €25 с человека",
+      "kind": "text"
+    },
+    {
+      "source": "Children 5–11:",
+      "translation": "Дети 5–11 лет:",
+      "kind": "text"
+    },
+    {
+      "source": "50% of the applicable group price.",
+      "translation": "50% от применимой групповой цены.",
+      "kind": "text"
+    },
+    {
+      "source": "Children 12+:",
+      "translation": "Дети 12+:",
+      "kind": "text"
+    },
+    {
+      "source": "full applicable group price.",
+      "translation": "полная применимая групповая цена.",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Включено",
+      "kind": "text"
+    },
+    {
+      "source": "Private Jeep",
+      "translation": "Приватный джип",
+      "kind": "text"
+    },
+    {
+      "source": "Professional Driver",
+      "translation": "Профессиональный водитель",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel Transfer",
+      "translation": "Трансфер из отеля",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance",
+      "translation": "Страховка",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch",
+      "translation": "Обед",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Не включено",
+      "kind": "text"
+    },
+    {
+      "source": "Drinks",
+      "translation": "Напитки",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Личные расходы",
+      "kind": "text"
+    },
+    {
+      "source": "Optional cave entrance",
+      "translation": "Вход в пещеру по желанию",
+      "kind": "text"
+    },
+    {
+      "source": "Program",
+      "translation": "Программа",
+      "kind": "text"
+    },
+    {
+      "source": "A carefully planned family route through mountain landscapes, authentic villages, panoramic viewpoints, waterfalls and natural attractions.",
+      "translation": "Тщательно спланированный семейный маршрут по горным пейзажам, аутентичным деревням, панорамным точкам, водопадам и природным достопримечательностям.",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup",
+      "translation": "Трансфер",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel / Apartment Pickup",
+      "translation": "Трансфер из отеля / апартаментов",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from your hotel or apartment address and departure toward the mountain route.",
+      "translation": "Трансфер от вашего отеля или адреса апартаментов и отправление к горному маршруту.",
+      "kind": "text"
+    },
+    {
+      "source": "Safari",
+      "translation": "Сафари",
+      "kind": "text"
+    },
+    {
+      "source": "Mountain Jeep Route",
+      "translation": "Горный маршрут на джипе",
+      "kind": "text"
+    },
+    {
+      "source": "Drive through mountain roads, authentic villages and scenic nature routes.",
+      "translation": "Поездка по горным дорогам, через аутентичные деревни и живописные природные маршруты.",
+      "kind": "text"
+    },
+    {
+      "source": "Views",
+      "translation": "Виды",
+      "kind": "text"
+    },
+    {
+      "source": "Green Canyon Panorama",
+      "translation": "Панорама Зелёного каньона",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy panoramic views of Green Canyon and five mountain ranges.",
+      "translation": "Насладитесь панорамами Зелёного каньона и пяти горных хребтов.",
+      "kind": "text"
+    },
+    {
+      "source": "Nature",
+      "translation": "Природа",
+      "kind": "text"
+    },
+    {
+      "source": "Waterfalls & Stops",
+      "translation": "Водопады и остановки",
+      "kind": "text"
+    },
+    {
+      "source": "Stop near picturesque waterfalls and enjoy the natural atmosphere of the route.",
+      "translation": "Остановка у живописных водопадов и возможность насладиться природной атмосферой маршрута.",
+      "kind": "text"
+    },
+    {
+      "source": "Optional",
+      "translation": "По желанию",
+      "kind": "text"
+    },
+    {
+      "source": "Ancient Cave",
+      "translation": "Древняя пещера",
+      "kind": "text"
+    },
+    {
+      "source": "Optional visit to an ancient cave with winding routes and historical atmosphere.",
+      "translation": "Опциональное посещение древней пещеры с извилистыми проходами и исторической атмосферой.",
+      "kind": "text"
+    },
+    {
+      "source": "Return",
+      "translation": "Возвращение",
+      "kind": "text"
+    },
+    {
+      "source": "Return Transfer",
+      "translation": "Обратный трансфер",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer back to your hotel or apartment address.",
+      "translation": "Обратный трансфер в ваш отель или по адресу апартаментов.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Фотогалерея",
+      "kind": "text"
+    },
+    {
+      "source": "‹",
+      "translation": "‹",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Время тура",
+      "kind": "text"
+    },
+    {
+      "source": "Format:",
+      "translation": "Формат:",
+      "kind": "text"
+    },
+    {
+      "source": "Private route",
+      "translation": "Приватный маршрут",
+      "kind": "text"
+    },
+    {
+      "source": "Exact time:",
+      "translation": "Точное время:",
+      "kind": "text"
+    },
+    {
+      "source": "Confirmed after booking",
+      "translation": "Подтверждается после бронирования",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup:",
+      "translation": "Трансфер:",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel / apartment",
+      "translation": "Отель / апартаменты",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Что взять с собой",
+      "kind": "text"
+    },
+    {
+      "source": "Towel",
+      "translation": "Полотенце",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Солнцезащитные очки",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable shoes",
+      "translation": "Удобная обувь",
+      "kind": "text"
+    },
+    {
+      "source": "Bandana",
+      "translation": "Бандана",
+      "kind": "text"
+    },
+    {
+      "source": "Swimsuit",
+      "translation": "Купальник",
+      "kind": "text"
+    },
+    {
+      "source": "Weather-appropriate clothes",
+      "translation": "Одежда по погоде",
+      "kind": "text"
+    },
+    {
+      "source": "Camera / phone",
+      "translation": "Камера / телефон",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Правила для детей",
+      "kind": "text"
+    },
+    {
+      "source": "5–11 years:",
+      "translation": "5–11 лет:",
+      "kind": "text"
+    },
+    {
+      "source": "Half of the applicable group price",
+      "translation": "Половина применимой групповой цены",
+      "kind": "text"
+    },
+    {
+      "source": "12+ years:",
+      "translation": "12+ лет:",
+      "kind": "text"
+    },
+    {
+      "source": "Full price",
+      "translation": "Полная цена",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Информация о трансфере",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment",
+      "translation": "Отель или апартаменты",
+      "kind": "text"
+    },
+    {
+      "source": "The exact pickup time is confirmed after booking.",
+      "translation": "Точное время трансфера подтверждается после бронирования.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Часто задаваемые вопросы",
+      "kind": "text"
+    },
+    {
+      "source": "Is this a private tour?",
+      "translation": "Это приватный тур?",
+      "kind": "text"
+    },
+    {
+      "source": "The route is organized as a private jeep experience. Final vehicle allocation and route details are confirmed during booking according to the group size.",
+      "translation": "Маршрут организован в формате приватного джип-приключения. Окончательное распределение по автомобилям и детали маршрута подтверждаются при бронировании с учётом размера группы.",
+      "kind": "text"
+    },
+    {
+      "source": "How is the price calculated?",
+      "translation": "Как рассчитывается цена?",
+      "kind": "text"
+    },
+    {
+      "source": "The adult price depends on the total number of guests: €35 per person for 5–9 guests, €30 for 10–14 guests, and €25 for groups of 15 or more.",
+      "translation": "Цена для взрослого зависит от общего числа гостей: €35 с человека для 5–9 гостей, €30 для 10–14 гостей и €25 для групп от 15 человек.",
+      "kind": "text"
+    },
+    {
+      "source": "How much do children pay?",
+      "translation": "Сколько платят дети?",
+      "kind": "text"
+    },
+    {
+      "source": "Children aged 5–11 pay 50% of the applicable group price. Guests aged 12 and over pay the full applicable group price.",
+      "translation": "Дети 5–11 лет платят 50% от применимой групповой цены. Гости от 12 лет оплачивают полную применимую групповую цену.",
+      "kind": "text"
+    },
+    {
+      "source": "Are lunch and transfer included?",
+      "translation": "Обед и трансфер включены?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Hotel or apartment transfer, a professional driver, insurance and lunch are included. Drinks, personal expenses and optional cave admission are not included.",
+      "translation": "Да. Трансфер от отеля или апартаментов, профессиональный водитель, страховка и обед включены. Напитки, личные расходы и опциональный вход в пещеру не включены.",
+      "kind": "text"
+    },
+    {
+      "source": "What time does the tour start?",
+      "translation": "Во сколько начинается тур?",
+      "kind": "text"
+    },
+    {
+      "source": "This is a private-format route. The exact pickup and departure time is confirmed after booking.",
+      "translation": "Это маршрут в приватном формате. Точное время трансфера и отправления подтверждается после бронирования.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the cave visit mandatory?",
+      "translation": "Посещение пещеры обязательно?",
+      "kind": "text"
+    },
+    {
+      "source": "No. The ancient cave visit is optional and its entrance fee is paid separately.",
+      "translation": "Нет. Посещение древней пещеры — опционально, вход оплачивается отдельно.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Есть вопросы?",
+      "kind": "text"
+    },
+    {
+      "source": "Message us on WhatsApp for availability, Family Jeep Safari details and your exact pickup time.",
+      "translation": "Напишите нам в WhatsApp, чтобы узнать доступность Family Jeep Safari, детали программы и точное время трансфера.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Написать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "Important Family Jeep Safari Safety Rules",
+      "translation": "Важные правила безопасности Family Jeep Safari",
+      "kind": "text"
+    },
+    {
+      "source": "This is a family-oriented private jeep route, but it still includes mountain roads, uneven surfaces, outdoor stops and changing weather conditions. The driver’s instructions and the safety needs of children always take priority over the advertised route and schedule.",
+      "translation": "Это семейный приватный джип-маршрут, однако он включает горные дороги, неровные поверхности, остановки на открытом воздухе и меняющиеся погодные условия. Указания водителя и безопасность детей всегда важнее заявленного маршрута и расписания.",
+      "kind": "text"
+    },
+    {
+      "source": "Safe Behaviour in the Jeep",
+      "translation": "Безопасное поведение в джипе",
+      "kind": "text"
+    },
+    {
+      "source": "Guests must remain seated while the vehicle is moving, keep arms and personal items inside, avoid standing or changing seats, and follow the driver during all sections of the mountain route.",
+      "translation": "Во время движения гости должны оставаться на своих местах, держать руки и личные вещи внутри автомобиля, не вставать и не менять места, а также выполнять указания водителя на всех участках горного маршрута.",
+      "kind": "text"
+    },
+    {
+      "source": "Children & Supervision",
+      "translation": "Дети и сопровождение",
+      "kind": "text"
+    },
+    {
+      "source": "Children must stay under continuous adult supervision. Seating arrangements and any required child restraint must be confirmed before departure according to the child’s age and the assigned vehicle.",
+      "translation": "Дети должны постоянно находиться под присмотром взрослых. Рассадку и необходимость детского удерживающего устройства следует подтвердить до отправления с учётом возраста ребёнка и назначенного автомобиля.",
+      "kind": "text"
+    },
+    {
+      "source": "Waterfalls, Viewpoints & Stops",
+      "translation": "Водопады, смотровые площадки и остановки",
+      "kind": "text"
+    },
+    {
+      "source": "At waterfalls, viewpoints and roadside stops, stay within the area indicated by the driver. Children must not approach steep edges, slippery rocks, moving water or road traffic without an adult.",
+      "translation": "У водопадов, на смотровых площадках и придорожных остановках оставайтесь в зоне, указанной водителем. Дети не должны без взрослого подходить к крутым краям, скользким камням, движущейся воде или дороге.",
+      "kind": "text"
+    },
+    {
+      "source": "Weather, Roads & Route Changes",
+      "translation": "Погода, дороги и изменения маршрута",
+      "kind": "text"
+    },
+    {
+      "source": "The driver may change, shorten, delay or cancel parts of the route because of rain, heat, road conditions, traffic, vehicle safety, local restrictions or the needs of children in the group.",
+      "translation": "Водитель может изменить, сократить, задержать или отменить отдельные участки маршрута из-за дождя, жары, состояния дорог, дорожной обстановки, безопасности автомобиля, местных ограничений или потребностей детей в группе.",
+      "kind": "text"
+    },
+    {
+      "source": "The driver’s instructions, vehicle-specific seating rules and decisions made for child and passenger safety always take priority over the advertised stops, timings and optional activities.",
+      "translation": "Указания водителя, правила рассадки для конкретного автомобиля и решения, принятые ради безопасности детей и пассажиров, всегда имеют приоритет над заявленными остановками, временем и опциональными активностями.",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Essential tour information",
+      "translation": "Основная информация о туре",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Important family jeep safari safety rules",
+      "translation": "Важные правила безопасности семейного джип-сафари",
+      "kind": "aria-label"
+    }
+  ]
+}

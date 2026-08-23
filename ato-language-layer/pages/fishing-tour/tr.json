@@ -1,0 +1,653 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "fishing-tour.html",
+  "approved_sha256": "ae959c96e9312dc60701cb40fb2275c4a5c67f7f59339e7f898f29d940c1527c",
+  "entries": [
+    {
+      "source": "Group Fishing Tour in Alanya | Alanya Tour Organizations",
+      "translation": "Alanya'da Grup Balık Turu | Alanya Tour Organizations",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home ›",
+      "translation": "Ana Sayfa ›",
+      "kind": "text"
+    },
+    {
+      "source": "Fishing Experiences",
+      "translation": "Balıkçılık Deneyimleri",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Group Fishing Tour",
+      "translation": "Grup Balık Turu",
+      "kind": "text"
+    },
+    {
+      "source": "Fishing Experience",
+      "translation": "Balıkçılık Deneyimi",
+      "kind": "text"
+    },
+    {
+      "source": "in Alanya",
+      "translation": "Alanya'da",
+      "kind": "text"
+    },
+    {
+      "source": "A shared Mediterranean fishing experience with an experienced captain, equipment, lunch and hotel transfer included.",
+      "translation": "Deneyimli kaptan eşliğinde paylaşımlı Akdeniz balıkçılığı; ekipman, öğle yemeği ve otel transferi dahil.",
+      "kind": "text"
+    },
+    {
+      "source": "Join a relaxed four-hour fishing trip from Alanya Harbor. The captain selects suitable fishing areas according to the season, weather and sea conditions.",
+      "translation": "Alanya Limanı'ndan rahatlatıcı dört saatlik bir balık turuna katılın. Kaptan, mevsim, hava ve deniz koşullarına göre uygun avlanma bölgelerini seçer.",
+      "kind": "text"
+    },
+    {
+      "source": "4 HOURS",
+      "translation": "4 SAAT",
+      "kind": "text"
+    },
+    {
+      "source": "GROUP FISHING",
+      "translation": "GRUP BALIKÇILIĞI",
+      "kind": "text"
+    },
+    {
+      "source": "TRANSFER",
+      "translation": "TRANSFER",
+      "kind": "text"
+    },
+    {
+      "source": "FISHING EXPERIENCE",
+      "translation": "BALIKÇILIK DENEYİMİ",
+      "kind": "text"
+    },
+    {
+      "source": "GROUP TOUR",
+      "translation": "GRUP TURU",
+      "kind": "text"
+    },
+    {
+      "source": "OPEN SEA",
+      "translation": "AÇIK DENİZ",
+      "kind": "text"
+    },
+    {
+      "source": "EQUIPMENT INCLUDED",
+      "translation": "EKİPMAN DAHİL",
+      "kind": "text"
+    },
+    {
+      "source": "LUNCH ON BOARD",
+      "translation": "TEKNEDE ÖĞLE YEMEĞİ",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "WhatsApp'tan Rezerve Et →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "Bu deneyim hakkında",
+      "kind": "text"
+    },
+    {
+      "source": "Group Fishing Tour in Alanya is a shared four-hour sea experience for beginners, families, friends and guests who enjoy fishing.",
+      "translation": "Alanya Grup Balık Turu; yeni başlayanlar, aileler, arkadaşlar ve balık tutmayı seven misafirler için paylaşımlı dört saatlik bir deniz deneyimidir.",
+      "kind": "text"
+    },
+    {
+      "source": "After pickup from your hotel or apartment, you travel to Alanya Harbor and board a comfortable fishing boat with an experienced local captain. Fishing rods, tackle and essential equipment are prepared on board.",
+      "translation": "Otel veya dairenizden alındıktan sonra Alanya Limanı'na gidip deneyimli yerel kaptanın bulunduğu konforlu balıkçı teknesine binersiniz. Olta, takım ve temel ekipman teknede hazırdır.",
+      "kind": "text"
+    },
+    {
+      "source": "The captain selects suitable fishing areas according to the season, weather and sea conditions. Possible species vary throughout the year, and the catch cannot be guaranteed.",
+      "translation": "Kaptan, mevsim, hava ve deniz koşullarına göre uygun balıkçılık bölgelerini seçer. Yakalanabilecek türler yıl boyunca değişir ve av garantisi verilemez.",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch, soft drinks, water, insurance and return transfer are included, allowing you to enjoy the Mediterranean without arranging anything separately.",
+      "translation": "Öğle yemeği, alkolsüz içecekler, su, sigorta ve dönüş transferi dahildir; böylece ayrıca hiçbir şey organize etmeden Akdeniz'in keyfini çıkarabilirsiniz.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Öne Çıkanlar",
+      "kind": "text"
+    },
+    {
+      "source": "Shared open-sea fishing experience from Alanya Harbor",
+      "translation": "Alanya Limanı'ndan paylaşımlı açık deniz balıkçılığı",
+      "kind": "text"
+    },
+    {
+      "source": "Experienced local captain and guidance for beginners",
+      "translation": "Deneyimli yerel kaptan ve yeni başlayanlar için rehberlik",
+      "kind": "text"
+    },
+    {
+      "source": "Fishing rods, tackle and essential equipment included",
+      "translation": "Olta, takım ve temel ekipman dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Fishing areas selected according to seasonal sea conditions",
+      "translation": "Balıkçılık alanları mevsimsel deniz koşullarına göre seçilir",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch, soft drinks and water served on board",
+      "translation": "Teknede öğle yemeği, alkolsüz içecekler ve su",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance included",
+      "translation": "Sigorta dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment transfer included",
+      "translation": "Otel veya daire transferi dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Detaylar",
+      "kind": "text"
+    },
+    {
+      "source": "Duration: 4 hours",
+      "translation": "Süre: 4 saat",
+      "kind": "text"
+    },
+    {
+      "source": "Format: shared group tour",
+      "translation": "Format: paylaşımlı grup turu",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time: 08:30–12:30",
+      "translation": "Tur saati: 08:30–12:30",
+      "kind": "text"
+    },
+    {
+      "source": "Availability: every day",
+      "translation": "Müsaitlik: her gün",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup: hotel or apartment address",
+      "translation": "Alınma: otel veya daire adresi",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Fiyat",
+      "kind": "text"
+    },
+    {
+      "source": "€45",
+      "translation": "€45",
+      "kind": "text"
+    },
+    {
+      "source": "per person",
+      "translation": "kişi başı",
+      "kind": "text"
+    },
+    {
+      "source": "Children 0–3 years: free",
+      "translation": "0–3 yaş çocuklar: ücretsiz",
+      "kind": "text"
+    },
+    {
+      "source": "Children 4+ years: full price",
+      "translation": "4+ yaş çocuklar: tam fiyat",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment transfer",
+      "translation": "Otel veya apart transferi",
+      "kind": "text"
+    },
+    {
+      "source": "Fishing boat and captain",
+      "translation": "Balıkçı teknesi ve kaptan",
+      "kind": "text"
+    },
+    {
+      "source": "Fishing rods, tackle and equipment",
+      "translation": "Olta, takım ve ekipman",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch on board",
+      "translation": "Teknede öğle yemeği",
+      "kind": "text"
+    },
+    {
+      "source": "Soft drinks and water",
+      "translation": "Alkolsüz içecekler ve su",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance",
+      "translation": "Sigorta",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Dahil değil",
+      "kind": "text"
+    },
+    {
+      "source": "Alcoholic drinks",
+      "translation": "Alkollü içecekler",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Kişisel harcamalar",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photo or video services",
+      "translation": "Profesyonel fotoğraf veya video hizmetleri",
+      "kind": "text"
+    },
+    {
+      "source": "Guaranteed catch",
+      "translation": "Garantili av",
+      "kind": "text"
+    },
+    {
+      "source": "Program",
+      "translation": "Program",
+      "kind": "text"
+    },
+    {
+      "source": "A carefully organized shared fishing trip with transfer, equipment, lunch and professional guidance included.",
+      "translation": "Transfer, ekipman, öğle yemeği ve profesyonel rehberlik dahil, özenle organize edilmiş paylaşımlı balık turu.",
+      "kind": "text"
+    },
+    {
+      "source": "01",
+      "translation": "01",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup",
+      "translation": "Alınma",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or Apartment Transfer",
+      "translation": "Otel veya Daire Transferi",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from your accommodation and comfortable transfer to Alanya Harbor.",
+      "translation": "Konaklama yerinizden alınış ve Alanya Limanı'na konforlu transfer.",
+      "kind": "text"
+    },
+    {
+      "source": "02",
+      "translation": "02",
+      "kind": "text"
+    },
+    {
+      "source": "08:30",
+      "translation": "08:30",
+      "kind": "text"
+    },
+    {
+      "source": "Boarding and Briefing",
+      "translation": "Tekneye Biniş & Bilgilendirme",
+      "kind": "text"
+    },
+    {
+      "source": "Meet the captain, board the fishing boat and receive a short introduction to the equipment and safety rules.",
+      "translation": "Kaptanla tanışın, balıkçı teknesine binin ve ekipman ile güvenlik kuralları hakkında kısa bir bilgilendirme alın.",
+      "kind": "text"
+    },
+    {
+      "source": "03",
+      "translation": "03",
+      "kind": "text"
+    },
+    {
+      "source": "Open Sea",
+      "translation": "Açık Deniz",
+      "kind": "text"
+    },
+    {
+      "source": "Group Sea Fishing",
+      "translation": "Grup Deniz Balıkçılığı",
+      "kind": "text"
+    },
+    {
+      "source": "Fish with the provided rods and tackle while the captain selects suitable areas according to seasonal and sea conditions.",
+      "translation": "Kaptan mevsimsel ve deniz koşullarına göre uygun bölgeleri seçerken sağlanan olta ve takımlarla balık tutun.",
+      "kind": "text"
+    },
+    {
+      "source": "04",
+      "translation": "04",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch",
+      "translation": "Öğle yemeği",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch on Board",
+      "translation": "Teknede Öğle Yemeği",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy the included lunch, soft drinks and water during the tour.",
+      "translation": "Tur sırasında dahil olan öğle yemeği, alkolsüz içecekler ve suyun keyfini çıkarın.",
+      "kind": "text"
+    },
+    {
+      "source": "05",
+      "translation": "05",
+      "kind": "text"
+    },
+    {
+      "source": "12:30",
+      "translation": "12:30",
+      "kind": "text"
+    },
+    {
+      "source": "Return Transfer",
+      "translation": "Dönüş Transferi",
+      "kind": "text"
+    },
+    {
+      "source": "Return to Alanya Harbor and transfer back to your hotel or apartment.",
+      "translation": "Alanya Limanı'na dönüş ve otelinize veya dairenize geri transfer.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Fotoğraf Galerisi",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Tur saati",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Süre:",
+      "kind": "text"
+    },
+    {
+      "source": "4 hours",
+      "translation": "4 saat",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time:",
+      "translation": "Tur saati:",
+      "kind": "text"
+    },
+    {
+      "source": "08:30–12:30",
+      "translation": "08:30–12:30",
+      "kind": "text"
+    },
+    {
+      "source": "Format:",
+      "translation": "Format:",
+      "kind": "text"
+    },
+    {
+      "source": "Shared group tour",
+      "translation": "Paylaşımlı grup turu",
+      "kind": "text"
+    },
+    {
+      "source": "Availability:",
+      "translation": "Müsaitlik:",
+      "kind": "text"
+    },
+    {
+      "source": "Every day",
+      "translation": "Her gün",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Yanınıza ne almalısınız",
+      "kind": "text"
+    },
+    {
+      "source": "Towel",
+      "translation": "Havlu",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Güneş gözlüğü",
+      "kind": "text"
+    },
+    {
+      "source": "Weather-appropriate clothing",
+      "translation": "Hava koşullarına uygun kıyafet",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable non-slip shoes",
+      "translation": "Rahat ve kaymaz ayakkabılar",
+      "kind": "text"
+    },
+    {
+      "source": "Sunscreen",
+      "translation": "Güneş kremi",
+      "kind": "text"
+    },
+    {
+      "source": "Camera or phone",
+      "translation": "Kamera veya telefon",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Çocuk politikası",
+      "kind": "text"
+    },
+    {
+      "source": "0–3 years:",
+      "translation": "0–3 yaş:",
+      "kind": "text"
+    },
+    {
+      "source": "Free",
+      "translation": "Ücretsiz",
+      "kind": "text"
+    },
+    {
+      "source": "4+ years:",
+      "translation": "4 yaş ve üzeri:",
+      "kind": "text"
+    },
+    {
+      "source": "Full adult price",
+      "translation": "Tam yetişkin fiyatı",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Alınma bilgileri",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from hotel or apartment address.",
+      "translation": "Otel veya daire adresinden alınma.",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable transfer to the harbor.",
+      "translation": "Limana konforlu transfer.",
+      "kind": "text"
+    },
+    {
+      "source": "Exact pickup time is confirmed after booking.",
+      "translation": "Kesin alınma saati rezervasyondan sonra onaylanır.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Sıkça Sorulan Sorular",
+      "kind": "text"
+    },
+    {
+      "source": "Is previous fishing experience required?",
+      "translation": "Daha önce balıkçılık deneyimi gerekli mi?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "No. The tour is suitable for beginners, and the captain provides guidance on using the equipment.",
+      "translation": "Hayır. Tur yeni başlayanlar için uygundur ve kaptan ekipmanın kullanımı konusunda yardımcı olur.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the catch guaranteed?",
+      "translation": "Av garantili mi?",
+      "kind": "text"
+    },
+    {
+      "source": "No. The catch depends on the season, weather, sea conditions and natural fish activity.",
+      "translation": "Hayır. Av; mevsime, hava ve deniz koşullarına ve balıkların doğal hareketliliğine bağlıdır.",
+      "kind": "text"
+    },
+    {
+      "source": "What is the child price?",
+      "translation": "Çocuk fiyatı nedir?",
+      "kind": "text"
+    },
+    {
+      "source": "Children aged 0–3 join free of charge. From age 4, the full adult price applies.",
+      "translation": "0–3 yaş çocuklar ücretsiz katılır. 4 yaşından itibaren tam yetişkin fiyatı uygulanır.",
+      "kind": "text"
+    },
+    {
+      "source": "Are lunch and drinks included?",
+      "translation": "Öğle yemeği ve içecekler dahil mi?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Lunch, soft drinks and water are included in the tour price.",
+      "translation": "Evet. Öğle yemeği, alkolsüz içecekler ve su tur fiyatına dahildir.",
+      "kind": "text"
+    },
+    {
+      "source": "Can the tour change because of the weather?",
+      "translation": "Tur hava nedeniyle değişebilir mi?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. The route, fishing areas or operating date may change when sea or weather conditions are unsuitable.",
+      "translation": "Evet. Deniz veya hava koşulları uygun olmadığında rota, balıkçılık bölgeleri veya tur tarihi değişebilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Sorunuz mu var?",
+      "kind": "text"
+    },
+    {
+      "source": "Message us on WhatsApp for availability, pickup time, program details and booking assistance.",
+      "translation": "Müsaitlik, alınış saati, program detayları ve rezervasyon desteği için WhatsApp'tan bize yazın.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "WhatsApp'tan Yaz →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Önceki fotoğraf",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Group fishing tour collage",
+      "translation": "Grup balık turu kolajı",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Sonraki fotoğraf",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Galeri küçük resimleri",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Group fishing gallery photo 1",
+      "translation": "Grup balık turu galeri fotoğrafı 1",
+      "kind": "alt"
+    },
+    {
+      "source": "Group fishing gallery photo 2",
+      "translation": "Grup balık turu galeri fotoğrafı 2",
+      "kind": "alt"
+    },
+    {
+      "source": "Group fishing gallery photo 3",
+      "translation": "Grup balık turu galeri fotoğrafı 3",
+      "kind": "alt"
+    },
+    {
+      "source": "Group fishing gallery photo 4",
+      "translation": "Grup balık turu galeri fotoğrafı 4",
+      "kind": "alt"
+    },
+    {
+      "source": "Group fishing gallery photo 5",
+      "translation": "Grup balık turu galeri fotoğrafı 5",
+      "kind": "alt"
+    },
+    {
+      "source": "Essential tour information",
+      "translation": "Tur hakkında temel bilgiler",
+      "kind": "aria-label"
+    }
+  ]
+}

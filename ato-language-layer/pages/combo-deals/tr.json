@@ -1,0 +1,358 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "combo-deals.html",
+  "approved_sha256": "769de6339050be05ad0fd366fa1031d6edc74def6735bac24f79ee152cf8be4f",
+  "entries": [
+    {
+      "source": "Combo Deals | ALANYA TOUR ORGANIZATIONS",
+      "translation": "Kombo Fırsatlar | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › Tours ›",
+      "translation": "Ana Sayfa › Turlar ›",
+      "kind": "text"
+    },
+    {
+      "source": "Combo Deals",
+      "translation": "Kombo Fırsatlar",
+      "kind": "text"
+    },
+    {
+      "source": "ONE DAY · UNFORGETTABLE EXPERIENCES · FREE YOUR MIND ·",
+      "translation": "BİR GÜN · UNUTULMAZ DENEYİMLER · ZİHNİNİ ÖZGÜR BIRAK ·",
+      "kind": "text"
+    },
+    {
+      "source": "FEEL ALIVE",
+      "translation": "HAYATI HİSSET",
+      "kind": "text"
+    },
+    {
+      "source": "COMBO",
+      "translation": "KOMBO",
+      "kind": "text"
+    },
+    {
+      "source": "✦",
+      "translation": "✦",
+      "kind": "text"
+    },
+    {
+      "source": "DEALS",
+      "translation": "FIRSATLAR",
+      "kind": "text"
+    },
+    {
+      "source": "Explore combined experiences where different adventures come together in one unforgettable day. Create a day full of emotions and impressions that energizes you, inspires you, and frees your mind from daily worries.",
+      "translation": "Farklı maceraların unutulmaz tek bir günde buluştuğu kombine deneyimleri keşfedin. Size enerji veren, ilham veren ve günlük kaygılardan uzaklaştıran duygu ve izlenimlerle dolu bir gün yaratın.",
+      "kind": "text"
+    },
+    {
+      "source": "More",
+      "translation": "Daha Fazla",
+      "kind": "text"
+    },
+    {
+      "source": "Experiences",
+      "translation": "Deneyimler",
+      "kind": "text"
+    },
+    {
+      "source": "One-Day",
+      "translation": "Tek Günlük",
+      "kind": "text"
+    },
+    {
+      "source": "Combos",
+      "translation": "Kombolar",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel",
+      "translation": "Otel",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer",
+      "translation": "Transfer",
+      "kind": "text"
+    },
+    {
+      "source": "Easy",
+      "translation": "Kolay",
+      "kind": "text"
+    },
+    {
+      "source": "Booking",
+      "translation": "Rezervasyon",
+      "kind": "text"
+    },
+    {
+      "source": "Choose Your Combo Experience",
+      "translation": "Kombo Deneyiminizi Seçin",
+      "kind": "text"
+    },
+    {
+      "source": "BUILD YOUR DAY →",
+      "translation": "GÜNÜNÜ OLUŞTUR →",
+      "kind": "text"
+    },
+    {
+      "source": "New · 6 in 1",
+      "translation": "Yeni · 6’sı 1 arada",
+      "kind": "text"
+    },
+    {
+      "source": "Rafting, Buggy & Zipline 6 in 1",
+      "translation": "Rafting, Buggy & Zipline 6'sı 1 Arada",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Fiyat",
+      "kind": "text"
+    },
+    {
+      "source": "€60",
+      "translation": "€60",
+      "kind": "text"
+    },
+    {
+      "source": "/ per person",
+      "translation": "/ kişi başı",
+      "kind": "text"
+    },
+    {
+      "source": "Tazi Canyon, Oluk Bridge, 14 km rafting, zipline and your choice of buggy or quad in one full adventure day.",
+      "translation": "Tazı Kanyonu, Oluk Köprüsü, 14 km rafting, zipline ve buggy ya da quad seçiminiz tek bir tam macera gününde.",
+      "kind": "text"
+    },
+    {
+      "source": "Full Day",
+      "translation": "Tam Gün",
+      "kind": "text"
+    },
+    {
+      "source": "6 Experiences",
+      "translation": "6 Deneyim",
+      "kind": "text"
+    },
+    {
+      "source": "＋ Compare",
+      "translation": "＋ Karşılaştır",
+      "kind": "text"
+    },
+    {
+      "source": "→",
+      "translation": "→",
+      "kind": "text"
+    },
+    {
+      "source": "Evening Combo",
+      "translation": "Akşam Kombosu",
+      "kind": "text"
+    },
+    {
+      "source": "Night Jeep Safari",
+      "translation": "Gece Jeep Safari",
+      "kind": "text"
+    },
+    {
+      "source": "From",
+      "translation": "Başlangıç",
+      "kind": "text"
+    },
+    {
+      "source": "€35",
+      "translation": "€35",
+      "kind": "text"
+    },
+    {
+      "source": "Open-top jeep adventure, panoramic viewpoints, sunset atmosphere, entertainment and dinner in one evening route.",
+      "translation": "Açık jeep macerası, panoramik seyir noktaları, gün batımı atmosferi, eğlence ve akşam yemeği tek bir akşam rotasında.",
+      "kind": "text"
+    },
+    {
+      "source": "Evening Tour",
+      "translation": "Akşam Turu",
+      "kind": "text"
+    },
+    {
+      "source": "Family Friendly",
+      "translation": "Aile Dostu",
+      "kind": "text"
+    },
+    {
+      "source": "Day + Night Program",
+      "translation": "Gündüz + Gece Programı",
+      "kind": "text"
+    },
+    {
+      "source": "The Land of Legends: Day + Night Program",
+      "translation": "The Land of Legends: Gündüz + Gece Programı",
+      "kind": "text"
+    },
+    {
+      "source": "€95",
+      "translation": "€95",
+      "kind": "text"
+    },
+    {
+      "source": "A complete combined program: enjoy The Land of Legends Theme Park during the day, then continue into the evening with the Shopping Avenue Night Show.",
+      "translation": "Eksiksiz kombine program: gündüz The Land of Legends Tema Parkı’nın keyfini çıkarın, akşam ise Shopping Avenue Night Show ile devam edin.",
+      "kind": "text"
+    },
+    {
+      "source": "Day + Night",
+      "translation": "Gündüz + Gece",
+      "kind": "text"
+    },
+    {
+      "source": "Combined Program",
+      "translation": "Kombine Program",
+      "kind": "text"
+    },
+    {
+      "source": "Culture Combo",
+      "translation": "Kültür Kombosu",
+      "kind": "text"
+    },
+    {
+      "source": "Aspendos, Side & Manavgat Waterfall",
+      "translation": "Aspendos, Side & Manavgat Şelalesi",
+      "kind": "text"
+    },
+    {
+      "source": "€75",
+      "translation": "€75",
+      "kind": "text"
+    },
+    {
+      "source": "Ancient Aspendos, historic Side and Manavgat Waterfall brought together in one full-day cultural route.",
+      "translation": "Antik Aspendos, tarihi Side ve Manavgat Şelalesi tek bir tam günlük kültür rotasında buluşuyor.",
+      "kind": "text"
+    },
+    {
+      "source": "History & Nature",
+      "translation": "Tarih & Doğa",
+      "kind": "text"
+    },
+    {
+      "source": "Nature Combo",
+      "translation": "Doğa Kombosu",
+      "kind": "text"
+    },
+    {
+      "source": "Pamukkale & Salda Lake",
+      "translation": "Pamukkale & Salda Gölü",
+      "kind": "text"
+    },
+    {
+      "source": "€90",
+      "translation": "€90",
+      "kind": "text"
+    },
+    {
+      "source": "White Pamukkale terraces, ancient Hierapolis and the blue landscape of Salda Lake in one memorable journey.",
+      "translation": "Beyaz Pamukkale travertenleri, antik Hierapolis ve Salda Gölü’nün mavi manzarası tek bir unutulmaz yolculukta.",
+      "kind": "text"
+    },
+    {
+      "source": "Nature & History",
+      "translation": "Doğa & Tarih",
+      "kind": "text"
+    },
+    {
+      "source": "History & Sea",
+      "translation": "Tarih & Deniz",
+      "kind": "text"
+    },
+    {
+      "source": "Demre, Myra & Kekova",
+      "translation": "Demre, Myra & Kekova",
+      "kind": "text"
+    },
+    {
+      "source": "€100",
+      "translation": "€100",
+      "kind": "text"
+    },
+    {
+      "source": "Myra Ancient City, St. Nicholas heritage and a Kekova boat experience with a swimming stop in one complete route.",
+      "translation": "Myra Antik Kenti, Aziz Nikolaos mirası ve yüzme molalı Kekova tekne deneyimi tek kapsamlı rotada.",
+      "kind": "text"
+    },
+    {
+      "source": "☏",
+      "translation": "☏",
+      "kind": "text"
+    },
+    {
+      "source": "Build More Into One Day",
+      "translation": "Bir Güne Daha Fazlasını Sığdırın",
+      "kind": "text"
+    },
+    {
+      "source": "Tell us your hotel, travel date and number of guests — we will help you choose the right combo.",
+      "translation": "Otelinizi, seyahat tarihinizi ve misafir sayısını bize bildirin — size uygun komboyu seçmenize yardımcı olalım.",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "WhatsApp'tan Rezerve Et →",
+      "kind": "text"
+    },
+    {
+      "source": "Best Price",
+      "translation": "En İyi Fiyat",
+      "kind": "text"
+    },
+    {
+      "source": "Guarantee",
+      "translation": "Garantisi",
+      "kind": "text"
+    },
+    {
+      "source": "Free Cancellation",
+      "translation": "Ücretsiz İptal",
+      "kind": "text"
+    },
+    {
+      "source": "Flexible Booking",
+      "translation": "Esnek Rezervasyon",
+      "kind": "text"
+    },
+    {
+      "source": "24/7 Support",
+      "translation": "7/24 Destek",
+      "kind": "text"
+    },
+    {
+      "source": "We Are Here",
+      "translation": "Yanınızdayız",
+      "kind": "text"
+    },
+    {
+      "source": "Trusted Company",
+      "translation": "Güvenilir Şirket",
+      "kind": "text"
+    },
+    {
+      "source": "Licensed & Insured",
+      "translation": "Lisanslı & Sigortalı",
+      "kind": "text"
+    },
+    {
+      "source": "The Land of Legends Day + Night Program",
+      "translation": "The Land of Legends Gündüz + Gece Programı",
+      "kind": "alt"
+    }
+  ]
+}

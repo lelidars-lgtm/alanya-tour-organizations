@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "jeep-safari.html",
+  "approved_sha256": "003ebe120ec4196cdeaff6534a2f791c18e309ff8db1b96620546893a73fabdc",
+  "translation_entries": 124,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

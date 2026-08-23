@@ -1,0 +1,553 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "popular-tours.html",
+  "approved_sha256": "5f720e57f27fcaab0a4f8e7927a4b72b58a96a6c727ae56816696dd45a04e8f8",
+  "entries": [
+    {
+      "source": "Most Popular Tours on the Turkish Riviera | ALANYA TOUR ORGANIZATIONS",
+      "translation": "Самые популярные туры Турецкой Ривьеры | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "The most popular tours on the Turkish Riviera: Pirate Yacht, Green Canyon, Jeep Safari, Sapadere Canyon, The Land of Legends, Cappadocia, Pamukkale, Turkish Hammam and Paragliding.",
+      "translation": "Самые популярные туры Турецкой Ривьеры: Pirate Yacht, Green Canyon, Jeep Safari, Sapadere Canyon, The Land of Legends, Каппадокия, Памуккале, турецкий хамам и параглайдинг.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home",
+      "translation": "Главная",
+      "kind": "text"
+    },
+    {
+      "source": "› Tours ›",
+      "translation": "› Туры ›",
+      "kind": "text"
+    },
+    {
+      "source": "Popular Tours",
+      "translation": "Популярные туры",
+      "kind": "text"
+    },
+    {
+      "source": "Travellers’ Choice · Turkish Riviera · Experiences Not to Miss",
+      "translation": "Выбор путешественников · Турецкая Ривьера · Впечатления, которые нельзя пропустить",
+      "kind": "text"
+    },
+    {
+      "source": "Most Popular",
+      "translation": "Самые популярные",
+      "kind": "text"
+    },
+    {
+      "source": "Tours",
+      "translation": "Туры",
+      "kind": "text"
+    },
+    {
+      "source": "From Mediterranean cruises and mountain canyons to legendary landmarks, family adventures, authentic hammam rituals and unforgettable views across Türkiye — these are the experiences travellers refuse to miss.",
+      "translation": "От средиземноморских круизов и горных каньонов до легендарных достопримечательностей, семейных приключений, аутентичных хаммам-ритуалов и незабываемых видов Турции — именно эти впечатления путешественники не хотят упускать.",
+      "kind": "text"
+    },
+    {
+      "source": "Guest",
+      "translation": "Гости",
+      "kind": "text"
+    },
+    {
+      "source": "Favourites",
+      "translation": "Фавориты",
+      "kind": "text"
+    },
+    {
+      "source": "Verified",
+      "translation": "Проверено",
+      "kind": "text"
+    },
+    {
+      "source": "Experiences",
+      "translation": "Впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "For Every",
+      "translation": "Для каждого",
+      "kind": "text"
+    },
+    {
+      "source": "Traveller",
+      "translation": "Путешественника",
+      "kind": "text"
+    },
+    {
+      "source": "Easy",
+      "translation": "Легко",
+      "kind": "text"
+    },
+    {
+      "source": "Booking",
+      "translation": "Бронирование",
+      "kind": "text"
+    },
+    {
+      "source": "ATO EDITORIAL SELECTION",
+      "translation": "ВЫБОР РЕДАКЦИИ ATO",
+      "kind": "text"
+    },
+    {
+      "source": "The Tours Guests Choose Most",
+      "translation": "Туры, которые гости выбирают чаще всего",
+      "kind": "text"
+    },
+    {
+      "source": "Ask for advice →",
+      "translation": "Получить совет →",
+      "kind": "text"
+    },
+    {
+      "source": "01",
+      "translation": "01",
+      "kind": "text"
+    },
+    {
+      "source": "Top Pick",
+      "translation": "Рекомендуем",
+      "kind": "text"
+    },
+    {
+      "source": "Pirate Yacht Tour",
+      "translation": "Пиратская яхта",
+      "kind": "text"
+    },
+    {
+      "source": "From",
+      "translation": "От",
+      "kind": "text"
+    },
+    {
+      "source": "€25",
+      "translation": "€25",
+      "kind": "text"
+    },
+    {
+      "source": "/ per person",
+      "translation": "/ с человека",
+      "kind": "text"
+    },
+    {
+      "source": "Fun, animation, lunch and foam party.",
+      "translation": "Веселье, анимация, обед и пенная вечеринка.",
+      "kind": "text"
+    },
+    {
+      "source": "6–7 Hours",
+      "translation": "6–7 часов",
+      "kind": "text"
+    },
+    {
+      "source": "All Ages",
+      "translation": "Для любого возраста",
+      "kind": "text"
+    },
+    {
+      "source": "＋ Compare",
+      "translation": "＋ Сравнить",
+      "kind": "text"
+    },
+    {
+      "source": "→",
+      "translation": "→",
+      "kind": "text"
+    },
+    {
+      "source": "02",
+      "translation": "02",
+      "kind": "text"
+    },
+    {
+      "source": "Canyon",
+      "translation": "Каньон",
+      "kind": "text"
+    },
+    {
+      "source": "Green Canyon",
+      "translation": "Зелёный каньон",
+      "kind": "text"
+    },
+    {
+      "source": "€35",
+      "translation": "€35",
+      "kind": "text"
+    },
+    {
+      "source": "Cruise across emerald waters surrounded by dramatic mountain scenery and discover one of Türkiye's most peaceful natural escapes. Relax, swim in crystal-clear waters and enjoy unforgettable panoramic views throughout the journey.",
+      "translation": "Отправьтесь в круиз по изумрудным водам среди впечатляющих горных пейзажей и откройте одно из самых спокойных природных мест Турции. Отдыхайте, купайтесь в кристально чистой воде и наслаждайтесь панорамными видами на протяжении всей поездки.",
+      "kind": "text"
+    },
+    {
+      "source": "Boat Trip",
+      "translation": "Морская прогулка",
+      "kind": "text"
+    },
+    {
+      "source": "Nature",
+      "translation": "Природа",
+      "kind": "text"
+    },
+    {
+      "source": "Full Day",
+      "translation": "Весь день",
+      "kind": "text"
+    },
+    {
+      "source": "03",
+      "translation": "03",
+      "kind": "text"
+    },
+    {
+      "source": "Bestseller",
+      "translation": "Хит продаж",
+      "kind": "text"
+    },
+    {
+      "source": "Jeep Safari",
+      "translation": "Джип-сафари",
+      "kind": "text"
+    },
+    {
+      "source": "Explore the Taurus Mountains, hidden villages and panoramic viewpoints on Alanya's most popular off-road adventure. Includes memorable stops throughout the day.",
+      "translation": "Исследуйте Таврские горы, скрытые деревни и панорамные площадки во время самого популярного внедорожного приключения Аланьи. В течение дня вас ждут яркие остановки по маршруту.",
+      "kind": "text"
+    },
+    {
+      "source": "04",
+      "translation": "04",
+      "kind": "text"
+    },
+    {
+      "source": "Waterfall",
+      "translation": "Водопад",
+      "kind": "text"
+    },
+    {
+      "source": "Sapadere Canyon",
+      "translation": "Каньон Сападере",
+      "kind": "text"
+    },
+    {
+      "source": "Walk through a breathtaking canyon filled with waterfalls, wooden pathways and refreshing mountain streams. Escape the summer heat while experiencing one of Alanya's most beautiful natural treasures.",
+      "translation": "Прогуляйтесь по впечатляющему каньону с водопадами, деревянными дорожками и прохладными горными ручьями. Спрячьтесь от летней жары и откройте одно из самых красивых природных мест Аланьи.",
+      "kind": "text"
+    },
+    {
+      "source": "Sapadere",
+      "translation": "Сападере",
+      "kind": "text"
+    },
+    {
+      "source": "Waterfalls",
+      "translation": "Водопады",
+      "kind": "text"
+    },
+    {
+      "source": "Canyon Walk",
+      "translation": "Прогулка по каньону",
+      "kind": "text"
+    },
+    {
+      "source": "Half Day",
+      "translation": "Полдня",
+      "kind": "text"
+    },
+    {
+      "source": "Family",
+      "translation": "Семья",
+      "kind": "text"
+    },
+    {
+      "source": "05",
+      "translation": "05",
+      "kind": "text"
+    },
+    {
+      "source": "Theme Park",
+      "translation": "Тематический парк",
+      "kind": "text"
+    },
+    {
+      "source": "The Land of Legends",
+      "translation": "The Land of Legends",
+      "kind": "text"
+    },
+    {
+      "source": "€95",
+      "translation": "€95",
+      "kind": "text"
+    },
+    {
+      "source": "Türkiye's most famous theme park with roller coasters, water attractions, evening shows and world-class entertainment.",
+      "translation": "Самый известный тематический парк Турции с американскими горками, водными аттракционами, вечерними шоу и развлечениями мирового уровня.",
+      "kind": "text"
+    },
+    {
+      "source": "Water Park",
+      "translation": "Аквапарк",
+      "kind": "text"
+    },
+    {
+      "source": "06",
+      "translation": "06",
+      "kind": "text"
+    },
+    {
+      "source": "Signature",
+      "translation": "Фирменный",
+      "kind": "text"
+    },
+    {
+      "source": "Cappadocia",
+      "translation": "Каппадокия",
+      "kind": "text"
+    },
+    {
+      "source": "€100",
+      "translation": "€100",
+      "kind": "text"
+    },
+    {
+      "source": "Fairy chimneys, underground cities, panoramic valleys and one of Türkiye’s most iconic cultural landscapes.",
+      "translation": "Сказочные дымоходы, подземные города, панорамные долины и один из самых узнаваемых культурных ландшафтов Турции.",
+      "kind": "text"
+    },
+    {
+      "source": "UNESCO",
+      "translation": "UNESCO",
+      "kind": "text"
+    },
+    {
+      "source": "2 Days",
+      "translation": "2 дня",
+      "kind": "text"
+    },
+    {
+      "source": "Culture",
+      "translation": "Культура",
+      "kind": "text"
+    },
+    {
+      "source": "07",
+      "translation": "07",
+      "kind": "text"
+    },
+    {
+      "source": "Nature Wonder",
+      "translation": "Чудо природы",
+      "kind": "text"
+    },
+    {
+      "source": "Pamukkale & Salda Lake",
+      "translation": "Памуккале и озеро Салда",
+      "kind": "text"
+    },
+    {
+      "source": "€90",
+      "translation": "€90",
+      "kind": "text"
+    },
+    {
+      "source": "Visit two of Türkiye's most spectacular natural wonders in one unforgettable journey. Discover the world-famous white travertine terraces of Pamukkale and the crystal-clear turquoise shores of Salda Lake.",
+      "translation": "Посетите два самых впечатляющих природных чуда Турции за одну незабываемую поездку. Увидьте всемирно известные белые травертины Памуккале и кристально чистые бирюзовые берега озера Салда.",
+      "kind": "text"
+    },
+    {
+      "source": "Pamukkale",
+      "translation": "Памуккале",
+      "kind": "text"
+    },
+    {
+      "source": "Salda Lake",
+      "translation": "Озеро Салда",
+      "kind": "text"
+    },
+    {
+      "source": "Scenic",
+      "translation": "Живописно",
+      "kind": "text"
+    },
+    {
+      "source": "08",
+      "translation": "08",
+      "kind": "text"
+    },
+    {
+      "source": "Hammam",
+      "translation": "Хаммам",
+      "kind": "text"
+    },
+    {
+      "source": "Turkish Hammam",
+      "translation": "Турецкий хаммам",
+      "kind": "text"
+    },
+    {
+      "source": "/ person",
+      "translation": "/ с человека",
+      "kind": "text"
+    },
+    {
+      "source": "Traditional Turkish bath with steam, peeling and foam massage for deep purification, relaxation and a true hammam ritual.",
+      "translation": "Традиционный турецкий хаммам с паром, пилингом и пенным массажем для глубокого очищения, расслабления и настоящего ритуала хаммама.",
+      "kind": "text"
+    },
+    {
+      "source": "Steam Bath",
+      "translation": "Паровая баня",
+      "kind": "text"
+    },
+    {
+      "source": "Peeling",
+      "translation": "Пилинг",
+      "kind": "text"
+    },
+    {
+      "source": "Foam Massage",
+      "translation": "Пенный массаж",
+      "kind": "text"
+    },
+    {
+      "source": "Daily",
+      "translation": "Ежедневно",
+      "kind": "text"
+    },
+    {
+      "source": "Classic",
+      "translation": "Классика",
+      "kind": "text"
+    },
+    {
+      "source": "09",
+      "translation": "09",
+      "kind": "text"
+    },
+    {
+      "source": "Paragliding",
+      "translation": "Параглайдинг",
+      "kind": "text"
+    },
+    {
+      "source": "€60",
+      "translation": "€60",
+      "kind": "text"
+    },
+    {
+      "source": "Fly above Cleopatra Beach and the Mediterranean coastline with an unforgettable tandem paragliding experience.",
+      "translation": "Пролетите над пляжем Клеопатры и средиземноморским побережьем во время незабываемого полёта на параплане в тандеме.",
+      "kind": "text"
+    },
+    {
+      "source": "Tandem Flight",
+      "translation": "Полёт в тандеме",
+      "kind": "text"
+    },
+    {
+      "source": "Panoramic Views",
+      "translation": "Панорамные виды",
+      "kind": "text"
+    },
+    {
+      "source": "Adventure",
+      "translation": "Приключение",
+      "kind": "text"
+    },
+    {
+      "source": "Flight",
+      "translation": "Полёт",
+      "kind": "text"
+    },
+    {
+      "source": "Popular",
+      "translation": "Популярное",
+      "kind": "text"
+    },
+    {
+      "source": "☏",
+      "translation": "☏",
+      "kind": "text"
+    },
+    {
+      "source": "Choose Your Next Experience",
+      "translation": "Выберите следующее впечатление",
+      "kind": "text"
+    },
+    {
+      "source": "Tell us what you enjoy — we will help you choose the right tour",
+      "translation": "Расскажите, что вам нравится, — мы поможем выбрать подходящий тур",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Забронировать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "Best Price",
+      "translation": "Лучшая цена",
+      "kind": "text"
+    },
+    {
+      "source": "Guarantee",
+      "translation": "Гарантия",
+      "kind": "text"
+    },
+    {
+      "source": "Free Cancellation",
+      "translation": "Бесплатная отмена",
+      "kind": "text"
+    },
+    {
+      "source": "Flexible Booking",
+      "translation": "Гибкое бронирование",
+      "kind": "text"
+    },
+    {
+      "source": "24/7 Support",
+      "translation": "Поддержка 24/7",
+      "kind": "text"
+    },
+    {
+      "source": "We Are Here",
+      "translation": "Мы рядом",
+      "kind": "text"
+    },
+    {
+      "source": "Trusted Company",
+      "translation": "Надёжная компания",
+      "kind": "text"
+    },
+    {
+      "source": "Licensed & Insured",
+      "translation": "Лицензия и страховка",
+      "kind": "text"
+    },
+    {
+      "source": "Pamukkale and Salda Lake",
+      "translation": "Памуккале и озеро Салда",
+      "kind": "alt"
+    },
+    {
+      "source": "Turkish Hammam in Alanya",
+      "translation": "Турецкий хаммам в Аланье",
+      "kind": "alt"
+    },
+    {
+      "source": "Tandem paragliding over the Alanya coastline",
+      "translation": "Тандемный полёт на параплане над побережьем Алании",
+      "kind": "alt"
+    }
+  ]
+}

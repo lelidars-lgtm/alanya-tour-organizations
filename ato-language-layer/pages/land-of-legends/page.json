@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "land-of-legends.html",
+  "approved_sha256": "21d7dc58a4dc0f0d55705f85626438559128335d40bcb346827bc750e5820129",
+  "translation_entries": 190,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

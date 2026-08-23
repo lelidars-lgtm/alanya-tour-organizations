@@ -1,0 +1,1478 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "special-offers.html",
+  "approved_sha256": "01d754f59b3a910c65c92ff2089069bd136074fb49e82f0d4961f3a4e6f52396",
+  "entries": [
+    {
+      "source": "SPECIAL OFFERS | ALANYA TOUR ORGANIZATIONS",
+      "translation": "СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "Personal experiences, special occasions and gift certificates by ALANYA TOUR ORGANIZATIONS.",
+      "translation": "Персональные впечатления, особые события и подарочные сертификаты от ALANYA TOUR ORGANIZATIONS.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "WHEN THE HEART CALLS FOR CHANGE,",
+      "translation": "КОГДА СЕРДЦЕ ЗОВЁТ К ПЕРЕМЕНАМ,",
+      "kind": "text"
+    },
+    {
+      "source": "A NEW JOURNEY BEGINS.",
+      "translation": "НАЧИНАЕТСЯ НОВОЕ ПУТЕШЕСТВИЕ.",
+      "kind": "text"
+    },
+    {
+      "source": "THE HEART OF ALANYA TOUR ORGANIZATIONS",
+      "translation": "СЕРДЦЕ ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "SPECIAL OFFERS,",
+      "translation": "СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ,",
+      "kind": "text"
+    },
+    {
+      "source": "MADE AROUND YOU",
+      "translation": "СОЗДАНО ВОКРУГ ВАС",
+      "kind": "text"
+    },
+    {
+      "source": "This is the most personal part of our website — where a tour becomes a gift, a birthday becomes a memory, and an ordinary day becomes something worth remembering. From corporate events to graduation celebrations, from weddings and anniversaries to school and university trips, from student groups to private family gatherings, and from carefully planned group experiences to fully individual concepts, every journey here is designed around people, emotions and moments that matter.",
+      "translation": "Это самая личная часть нашего сайта — здесь тур становится подарком, день рождения превращается в воспоминание, а обычный день становится моментом, который хочется сохранить. Корпоративные события и выпускные, свадьбы и годовщины, школьные и университетские поездки, студенческие группы, семейные встречи, продуманные групповые программы и полностью индивидуальные концепции — каждое путешествие здесь создаётся вокруг людей, эмоций и действительно важных моментов.",
+      "kind": "text"
+    },
+    {
+      "source": "Choose My Special Offer →",
+      "translation": "Выбрать специальное предложение →",
+      "kind": "text"
+    },
+    {
+      "source": "Gift an Experience",
+      "translation": "Подарить впечатление",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 01",
+      "translation": "ШАГ 01",
+      "kind": "text"
+    },
+    {
+      "source": "Choose the Moment",
+      "translation": "Выберите момент",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 02",
+      "translation": "ШАГ 02",
+      "kind": "text"
+    },
+    {
+      "source": "Tell Us About You",
+      "translation": "Расскажите о себе",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 03",
+      "translation": "ШАГ 03",
+      "kind": "text"
+    },
+    {
+      "source": "We Create It",
+      "translation": "Мы создаём",
+      "kind": "text"
+    },
+    {
+      "source": "STEP 04",
+      "translation": "ШАГ 04",
+      "kind": "text"
+    },
+    {
+      "source": "Keep the Memory",
+      "translation": "Сохраните воспоминание",
+      "kind": "text"
+    },
+    {
+      "source": "01",
+      "translation": "01",
+      "kind": "text"
+    },
+    {
+      "source": "Choose",
+      "translation": "Выбрать",
+      "kind": "text"
+    },
+    {
+      "source": "02",
+      "translation": "02",
+      "kind": "text"
+    },
+    {
+      "source": "Group & Event",
+      "translation": "Группа и мероприятие",
+      "kind": "text"
+    },
+    {
+      "source": "03",
+      "translation": "03",
+      "kind": "text"
+    },
+    {
+      "source": "Create",
+      "translation": "Создать",
+      "kind": "text"
+    },
+    {
+      "source": "04",
+      "translation": "04",
+      "kind": "text"
+    },
+    {
+      "source": "Journey",
+      "translation": "Путешествие",
+      "kind": "text"
+    },
+    {
+      "source": "05",
+      "translation": "05",
+      "kind": "text"
+    },
+    {
+      "source": "Gift",
+      "translation": "Подарок",
+      "kind": "text"
+    },
+    {
+      "source": "01 · Choose Your Special Offer",
+      "translation": "01 · Выберите специальное предложение",
+      "kind": "text"
+    },
+    {
+      "source": "Special Offers",
+      "translation": "Специальные предложения",
+      "kind": "text"
+    },
+    {
+      "source": "Choose Your Way",
+      "translation": "Выберите свой вариант",
+      "kind": "text"
+    },
+    {
+      "source": "WHAT ARE YOU HERE FOR?",
+      "translation": "ЧТО ВАМ НУЖНО?",
+      "kind": "text"
+    },
+    {
+      "source": "Don’t search through promotions. Start with what you actually need, and we’ll take you directly to the right kind of offer.",
+      "translation": "Не ищите среди десятков акций. Начните с того, что вам действительно нужно, а мы сразу приведём вас к подходящему предложению.",
+      "kind": "text"
+    },
+    {
+      "source": "A GROUP",
+      "translation": "ГРУППА",
+      "kind": "text"
+    },
+    {
+      "source": "OR EVENT",
+      "translation": "ИЛИ СОБЫТИЕ",
+      "kind": "text"
+    },
+    {
+      "source": "For friends, families, celebrations, corporate groups, schools, universities and larger parties.",
+      "translation": "Для друзей, семей, праздников, корпоративных групп, школ, университетов и больших компаний.",
+      "kind": "text"
+    },
+    {
+      "source": "Group-aware planning",
+      "translation": "Планирование с учётом группы",
+      "kind": "text"
+    },
+    {
+      "source": "Transport and timing coordination",
+      "translation": "Координация транспорта и времени",
+      "kind": "text"
+    },
+    {
+      "source": "Personal conditions for the real request",
+      "translation": "Персональные условия под реальный запрос",
+      "kind": "text"
+    },
+    {
+      "source": "Explore Group & Event Offers →",
+      "translation": "Открыть групповые предложения и мероприятия →",
+      "kind": "text"
+    },
+    {
+      "source": "Signature Experience",
+      "translation": "Особенное впечатление",
+      "kind": "text"
+    },
+    {
+      "source": "CREATE",
+      "translation": "СОЗДАТЬ",
+      "kind": "text"
+    },
+    {
+      "source": "SOMETHING SPECIAL",
+      "translation": "ЧТО-ТО ОСОБЕННОЕ",
+      "kind": "text"
+    },
+    {
+      "source": "Tell us the moment, the people and the feeling. We turn your choices into a personal journey that ends in Alanya with your own offer card.",
+      "translation": "Расскажите о поводе, людях и атмосфере. Мы превратим ваш выбор в персональное путешествие, которое завершится в Аланье вашей собственной карточкой предложения.",
+      "kind": "text"
+    },
+    {
+      "source": "4-step Experience Planner",
+      "translation": "Планировщик события в 4 шага",
+      "kind": "text"
+    },
+    {
+      "source": "Journey of the Heart",
+      "translation": "Путешествие сердца",
+      "kind": "text"
+    },
+    {
+      "source": "Personal offer generated from your choices",
+      "translation": "Персональное предложение на основе вашего выбора",
+      "kind": "text"
+    },
+    {
+      "source": "Create My Experience →",
+      "translation": "Создать моё событие →",
+      "kind": "text"
+    },
+    {
+      "source": "GIVE AN",
+      "translation": "ПОДАРИТЕ",
+      "kind": "text"
+    },
+    {
+      "source": "EXPERIENCE",
+      "translation": "ВПЕЧАТЛЕНИЕ",
+      "kind": "text"
+    },
+    {
+      "source": "Choose an amount or a specific experience and turn it into a gift built around the recipient.",
+      "translation": "Выберите сумму или конкретное впечатление и превратите его в подарок, созданный специально для получателя.",
+      "kind": "text"
+    },
+    {
+      "source": "Let them choose",
+      "translation": "Пусть выбирают сами",
+      "kind": "text"
+    },
+    {
+      "source": "Choose for them",
+      "translation": "Выбрать за них",
+      "kind": "text"
+    },
+    {
+      "source": "Add a personal message",
+      "translation": "Добавить личное сообщение",
+      "kind": "text"
+    },
+    {
+      "source": "Create a Gift →",
+      "translation": "Создать подарок →",
+      "kind": "text"
+    },
+    {
+      "source": "One clear route",
+      "translation": "Один понятный маршрут",
+      "kind": "text"
+    },
+    {
+      "source": "No promotion maze",
+      "translation": "Без лабиринта акций",
+      "kind": "text"
+    },
+    {
+      "source": "Personal by design",
+      "translation": "Персонально по замыслу",
+      "kind": "text"
+    },
+    {
+      "source": "Built around the request",
+      "translation": "Создано под ваш запрос",
+      "kind": "text"
+    },
+    {
+      "source": "Human confirmation",
+      "translation": "Подтверждение менеджером",
+      "kind": "text"
+    },
+    {
+      "source": "Manager finalises details",
+      "translation": "Менеджер подтверждает детали",
+      "kind": "text"
+    },
+    {
+      "source": "02 · Group & Event Offers",
+      "translation": "02 · Групповые предложения и мероприятия",
+      "kind": "text"
+    },
+    {
+      "source": "← Back to the 3 options",
+      "translation": "← Назад к 3 вариантам",
+      "kind": "text"
+    },
+    {
+      "source": "Special Privileges",
+      "translation": "Особые привилегии",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR GROUP.",
+      "translation": "ВАША ГРУППА.",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR ADVANTAGE.",
+      "translation": "ВАША ВЫГОДА.",
+      "kind": "text"
+    },
+    {
+      "source": "Some moments deserve more than a standard plan.",
+      "translation": "Некоторые моменты заслуживают большего, чем стандартный план.",
+      "kind": "text"
+    },
+    {
+      "source": "A celebration, a family gathering, a company event, a graduation, a wedding, a university trip or a day with friends can become something far more memorable when every detail is created around the people who will be there.",
+      "translation": "Праздник, семейная встреча, корпоративное событие, выпускной, свадьба, университетская поездка или день с друзьями становятся гораздо ярче, когда каждая деталь создаётся вокруг людей, которые будут рядом.",
+      "kind": "text"
+    },
+    {
+      "source": "We shape the experience around your group, your timing, your style and the feeling you want the day to have — creating something personal, thoughtful and made especially for your occasion.",
+      "translation": "Мы создаём впечатление вокруг вашей группы, времени, стиля и той атмосферы, которую вы хотите получить — лично, продуманно и специально для вашего события.",
+      "kind": "text"
+    },
+    {
+      "source": "01 · Group / Event",
+      "translation": "01 · Группа / Событие",
+      "kind": "text"
+    },
+    {
+      "source": "WHO ARE WE PLANNING FOR?",
+      "translation": "ДЛЯ КОГО МЫ ПЛАНИРУЕМ?",
+      "kind": "text"
+    },
+    {
+      "source": "Friends & Family",
+      "translation": "Друзья и семья",
+      "kind": "text"
+    },
+    {
+      "source": "One coordinated day for the people travelling together.",
+      "translation": "Один согласованный день для тех, кто путешествует вместе.",
+      "kind": "text"
+    },
+    {
+      "source": "Celebration",
+      "translation": "Праздник",
+      "kind": "text"
+    },
+    {
+      "source": "Birthdays, anniversaries, weddings and surprise moments.",
+      "translation": "Дни рождения, годовщины, свадьбы и моменты-сюрпризы.",
+      "kind": "text"
+    },
+    {
+      "source": "Corporate / Team",
+      "translation": "Корпоратив / Команда",
+      "kind": "text"
+    },
+    {
+      "source": "Company events, colleagues and team experiences.",
+      "translation": "Корпоративные мероприятия, коллеги и командные впечатления.",
+      "kind": "text"
+    },
+    {
+      "source": "School / University",
+      "translation": "Школа / Университет",
+      "kind": "text"
+    },
+    {
+      "source": "Student and educational groups with coordinated timing.",
+      "translation": "Студенческие и образовательные группы с согласованным расписанием.",
+      "kind": "text"
+    },
+    {
+      "source": "Large Group",
+      "translation": "Большая группа",
+      "kind": "text"
+    },
+    {
+      "source": "When logistics, pickup and timing need one clear plan.",
+      "translation": "Когда логистика, трансфер и время требуют одного понятного плана.",
+      "kind": "text"
+    },
+    {
+      "source": "Private Concept",
+      "translation": "Индивидуальная концепция",
+      "kind": "text"
+    },
+    {
+      "source": "A custom format built around your own idea.",
+      "translation": "Индивидуальный формат, созданный вокруг вашей идеи.",
+      "kind": "text"
+    },
+    {
+      "source": "02 · Guests",
+      "translation": "02 · Гости",
+      "kind": "text"
+    },
+    {
+      "source": "HOW MANY GUESTS?",
+      "translation": "СКОЛЬКО ГОСТЕЙ?",
+      "kind": "text"
+    },
+    {
+      "source": "Adults",
+      "translation": "Взрослые",
+      "kind": "text"
+    },
+    {
+      "source": "Children",
+      "translation": "Дети",
+      "kind": "text"
+    },
+    {
+      "source": "Children ages",
+      "translation": "Возраст детей",
+      "kind": "text"
+    },
+    {
+      "source": "optional",
+      "translation": "необязательно",
+      "kind": "text"
+    },
+    {
+      "source": "Total guests",
+      "translation": "Всего гостей",
+      "kind": "text"
+    },
+    {
+      "source": "0",
+      "translation": "0",
+      "kind": "text"
+    },
+    {
+      "source": "Group offers start from 5 guests.",
+      "translation": "Групповые предложения доступны от 5 гостей.",
+      "kind": "text"
+    },
+    {
+      "source": "Enter the real number of guests. This is required to calculate the group estimate.",
+      "translation": "Укажите фактическое количество гостей. Это необходимо для расчёта группового предложения.",
+      "kind": "text"
+    },
+    {
+      "source": "03 · Experiences",
+      "translation": "03 · Впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "CHOOSE YOUR EXPERIENCES",
+      "translation": "ВЫБЕРИТЕ ВПЕЧАТЛЕНИЯ",
+      "kind": "text"
+    },
+    {
+      "source": "Search tours",
+      "translation": "Поиск туров",
+      "kind": "text"
+    },
+    {
+      "source": "0 selected",
+      "translation": "Выбрано: 0",
+      "kind": "text"
+    },
+    {
+      "source": "Loading the live tour catalogue…",
+      "translation": "Загружаем актуальный каталог туров…",
+      "kind": "text"
+    },
+    {
+      "source": "Choose one or more tours. Every tour keeps the discount assigned to its own category; different categories are never averaged into one artificial percentage.",
+      "translation": "Выберите один или несколько туров. Для каждого тура сохраняется скидка его категории; скидки разных категорий никогда не усредняются в искусственный общий процент.",
+      "kind": "text"
+    },
+    {
+      "source": "04 · Timing",
+      "translation": "04 · Время",
+      "kind": "text"
+    },
+    {
+      "source": "WHEN SHOULD IT HAPPEN?",
+      "translation": "КОГДА ЭТО ДОЛЖНО ПРОИЗОЙТИ?",
+      "kind": "text"
+    },
+    {
+      "source": "Preferred Date",
+      "translation": "Предпочтительная дата",
+      "kind": "text"
+    },
+    {
+      "source": "My date is flexible",
+      "translation": "Дата гибкая",
+      "kind": "text"
+    },
+    {
+      "source": "You can choose a date now or leave it flexible and let the manager check the best suitable option.",
+      "translation": "Вы можете выбрать дату сейчас или оставить её гибкой, чтобы менеджер подобрал лучший вариант.",
+      "kind": "text"
+    },
+    {
+      "source": "05 · Starting point",
+      "translation": "05 · Точка отправления",
+      "kind": "text"
+    },
+    {
+      "source": "WHERE SHOULD WE START?",
+      "translation": "С ЧЕГО НАЧНЁМ?",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel / Area",
+      "translation": "Отель / Район",
+      "kind": "text"
+    },
+    {
+      "source": "This helps us plan transport, pickup coordination and the most practical format for your group. You can leave it blank if the hotel is not confirmed yet.",
+      "translation": "Это помогает нам спланировать транспорт, координацию трансфера и самый удобный формат для вашей группы. Если отель ещё не подтверждён, поле можно оставить пустым.",
+      "kind": "text"
+    },
+    {
+      "source": "← Back",
+      "translation": "← Назад",
+      "kind": "text"
+    },
+    {
+      "source": "Continue →",
+      "translation": "Продолжить →",
+      "kind": "text"
+    },
+    {
+      "source": "Your Group & Event Offer",
+      "translation": "Ваше групповое / event-предложение",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR GROUP. YOUR ADVANTAGE.",
+      "translation": "ВАША ГРУППА. ВАША ВЫГОДА.",
+      "kind": "text"
+    },
+    {
+      "source": "REGULAR TOTAL",
+      "translation": "ОБЫЧНАЯ СУММА",
+      "kind": "text"
+    },
+    {
+      "source": "—",
+      "translation": "—",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR GROUP PRICE",
+      "translation": "ВАША ГРУППОВАЯ ЦЕНА",
+      "kind": "text"
+    },
+    {
+      "source": "YOU SAVE",
+      "translation": "ВЫ ЭКОНОМИТЕ",
+      "kind": "text"
+    },
+    {
+      "source": "Estimated from the current listed tour prices. Final age tariffs, private transport conditions and availability are confirmed by the manager before booking.",
+      "translation": "Расчёт основан на текущих опубликованных ценах туров. Итоговые возрастные тарифы, условия частного транспорта и наличие подтверждает менеджер до бронирования.",
+      "kind": "text"
+    },
+    {
+      "source": "Your name",
+      "translation": "Ваше имя",
+      "kind": "text"
+    },
+    {
+      "source": "WhatsApp with country code",
+      "translation": "WhatsApp с кодом страны",
+      "kind": "text"
+    },
+    {
+      "source": "Create Group Request & E-Tickets →",
+      "translation": "Создать групповую заявку и e-билеты →",
+      "kind": "text"
+    },
+    {
+      "source": "PENDING E-TICKETS CREATED",
+      "translation": "СОЗДАНЫ БИЛЕТЫ В ОЖИДАНИИ ПОДТВЕРЖДЕНИЯ",
+      "kind": "text"
+    },
+    {
+      "source": "Request",
+      "translation": "Заявка",
+      "kind": "text"
+    },
+    {
+      "source": "The links are already valid. After manager confirmation, the same e-tickets update with confirmed pickup, time and final price.",
+      "translation": "Ссылки уже действуют. После подтверждения менеджером эти же электронные билеты обновятся: появятся подтверждённые трансфер, время и окончательная стоимость.",
+      "kind": "text"
+    },
+    {
+      "source": "03 · Create Your Experience",
+      "translation": "03 · Создайте своё событие",
+      "kind": "text"
+    },
+    {
+      "source": "Special Experience Planner",
+      "translation": "Планировщик особенных событий",
+      "kind": "text"
+    },
+    {
+      "source": "WHAT ARE WE CREATING?",
+      "translation": "ЧТО МЫ СОЗДАЁМ?",
+      "kind": "text"
+    },
+    {
+      "source": "Four quick choices. We’ll shape the experience, transport and details around your moment and group.",
+      "translation": "Четыре быстрых выбора. Мы подстроим впечатление, транспорт и детали под ваше событие и вашу группу.",
+      "kind": "text"
+    },
+    {
+      "source": "01 · Occasion",
+      "translation": "01 · Повод",
+      "kind": "text"
+    },
+    {
+      "source": "WHAT ARE WE CELEBRATING?",
+      "translation": "ЧТО МЫ ПРАЗДНУЕМ?",
+      "kind": "text"
+    },
+    {
+      "source": "Birthday",
+      "translation": "День рождения",
+      "kind": "text"
+    },
+    {
+      "source": "Wedding",
+      "translation": "Свадьба",
+      "kind": "text"
+    },
+    {
+      "source": "Anniversary",
+      "translation": "Годовщина",
+      "kind": "text"
+    },
+    {
+      "source": "Family Day",
+      "translation": "Семейный день",
+      "kind": "text"
+    },
+    {
+      "source": "Friends",
+      "translation": "Друзья",
+      "kind": "text"
+    },
+    {
+      "source": "Corporate",
+      "translation": "Корпоративное",
+      "kind": "text"
+    },
+    {
+      "source": "Education",
+      "translation": "Образование",
+      "kind": "text"
+    },
+    {
+      "source": "Just Because",
+      "translation": "Просто так",
+      "kind": "text"
+    },
+    {
+      "source": "02 · For whom",
+      "translation": "02 · Для кого",
+      "kind": "text"
+    },
+    {
+      "source": "WHO IS IT FOR?",
+      "translation": "ДЛЯ КОГО ЭТО?",
+      "kind": "text"
+    },
+    {
+      "source": "Couple",
+      "translation": "Пара",
+      "kind": "text"
+    },
+    {
+      "source": "Family",
+      "translation": "Семья",
+      "kind": "text"
+    },
+    {
+      "source": "Team",
+      "translation": "Команда",
+      "kind": "text"
+    },
+    {
+      "source": "03 · The feeling",
+      "translation": "03 · Атмосфера",
+      "kind": "text"
+    },
+    {
+      "source": "HOW SHOULD IT FEEL?",
+      "translation": "КАКОЙ ДОЛЖНА БЫТЬ АТМОСФЕРА?",
+      "kind": "text"
+    },
+    {
+      "source": "Relaxed",
+      "translation": "Спокойный",
+      "kind": "text"
+    },
+    {
+      "source": "Romantic",
+      "translation": "Романтично",
+      "kind": "text"
+    },
+    {
+      "source": "Adventurous",
+      "translation": "Приключенческий",
+      "kind": "text"
+    },
+    {
+      "source": "Fun",
+      "translation": "Весело",
+      "kind": "text"
+    },
+    {
+      "source": "Exclusive",
+      "translation": "Эксклюзивный",
+      "kind": "text"
+    },
+    {
+      "source": "Cultural",
+      "translation": "Культурный",
+      "kind": "text"
+    },
+    {
+      "source": "04 · Group size",
+      "translation": "04 · Размер группы",
+      "kind": "text"
+    },
+    {
+      "source": "2–4 Guests",
+      "translation": "2–4 гостя",
+      "kind": "text"
+    },
+    {
+      "source": "5–9 Guests",
+      "translation": "5–9 гостей",
+      "kind": "text"
+    },
+    {
+      "source": "10–19 Guests",
+      "translation": "10–19 гостей",
+      "kind": "text"
+    },
+    {
+      "source": "20–39 Guests",
+      "translation": "20–39 гостей",
+      "kind": "text"
+    },
+    {
+      "source": "40+ Guests",
+      "translation": "40+ гостей",
+      "kind": "text"
+    },
+    {
+      "source": "Your Special Experience",
+      "translation": "Ваше особенное событие",
+      "kind": "text"
+    },
+    {
+      "source": "WE’LL CREATE IT AROUND YOU.",
+      "translation": "МЫ СОЗДАДИМ ЭТО ВОКРУГ ВАС.",
+      "kind": "text"
+    },
+    {
+      "source": "04 · Journey",
+      "translation": "04 · Путешествие",
+      "kind": "text"
+    },
+    {
+      "source": "WHERE WILL YOUR HEART TAKE YOU?",
+      "translation": "КУДА ПРИВЕДЁТ ВАС СЕРДЦЕ?",
+      "kind": "text"
+    },
+    {
+      "source": "Start your own journey. Follow the golden route to Türkiye. One destination, one heartbeat, one beginning.",
+      "translation": "Начните своё путешествие. Следуйте по золотому маршруту в Турцию. Одно направление, один ритм сердца, одно начало.",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS IS WAITING.",
+      "translation": "ALANYA TOUR ORGANIZATIONS ЖДЁТ ВАС.",
+      "kind": "text"
+    },
+    {
+      "source": "LABEL → FLIGHT → ORBIT → ALANYA → HEART",
+      "translation": "ЛЕЙБЛ → ПОЛЁТ → ОРБИТА → АЛАНЬЯ → СЕРДЦЕ",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR TOUR DESTINATION",
+      "translation": "НАПРАВЛЕНИЕ ВАШЕГО ТУРА",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR TOUR WILL APPEAR HERE",
+      "translation": "ВАШ ТУР ПОЯВИТСЯ ЗДЕСЬ",
+      "kind": "text"
+    },
+    {
+      "source": "Follow the journey and discover where the heart takes you.",
+      "translation": "Следуйте за путешествием и узнайте, куда приведёт вас сердце.",
+      "kind": "text"
+    },
+    {
+      "source": "WAITING FOR YOUR JOURNEY",
+      "translation": "ЖДЁМ ВАШЕ ПУТЕШЕСТВИЕ",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR TOUR HAS ARRIVED",
+      "translation": "ВАШ ТУР УЖЕ ЗДЕСЬ",
+      "kind": "text"
+    },
+    {
+      "source": "A custom concept shaped around your celebration.",
+      "translation": "Индивидуальная концепция, созданная специально для вашего события.",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR HEART OFFER",
+      "translation": "ВАШЕ HEART-ПРЕДЛОЖЕНИЕ",
+      "kind": "text"
+    },
+    {
+      "source": "—% OFF",
+      "translation": "СКИДКА —%",
+      "kind": "text"
+    },
+    {
+      "source": "Click to claim · confirmed by ATO Manager",
+      "translation": "Нажмите, чтобы получить · подтверждается менеджером ATO",
+      "kind": "text"
+    },
+    {
+      "source": "REGULAR",
+      "translation": "ОБЫЧНАЯ ЦЕНА",
+      "kind": "text"
+    },
+    {
+      "source": "HEART PRICE · CLICK TO CLAIM",
+      "translation": "HEART-ЦЕНА · НАЖМИТЕ, ЧТОБЫ ПОЛУЧИТЬ",
+      "kind": "text"
+    },
+    {
+      "source": "Get My Personal Offer →",
+      "translation": "Получить персональное предложение →",
+      "kind": "text"
+    },
+    {
+      "source": "Edit Choices",
+      "translation": "Изменить выбор",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "REPUBLIC OF TÜRKİYE",
+      "translation": "ТУРЕЦКАЯ РЕСПУБЛИКА",
+      "kind": "text"
+    },
+    {
+      "source": "WE ARE HERE",
+      "translation": "МЫ ЗДЕСЬ",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA · 36.532392° N · 32.038899° E",
+      "translation": "АЛАНЬЯ · 36.532392° N · 32.038899° E",
+      "kind": "text"
+    },
+    {
+      "source": "Republic of Türkiye",
+      "translation": "Турецкая Республика",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA",
+      "translation": "АЛАНЬЯ",
+      "kind": "text"
+    },
+    {
+      "source": "36.532392° N · 32.038899° E",
+      "translation": "36.532392° N · 32.038899° E",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR RANDOM TOUR",
+      "translation": "ВАШ СЛУЧАЙНЫЙ ТУР",
+      "kind": "text"
+    },
+    {
+      "source": "START MY JOURNEY →",
+      "translation": "НАЧАТЬ МОЁ ПУТЕШЕСТВИЕ →",
+      "kind": "text"
+    },
+    {
+      "source": "05 · Gift an Experience",
+      "translation": "05 · Подарить впечатление",
+      "kind": "text"
+    },
+    {
+      "source": "Gift Experiences",
+      "translation": "Подарочные впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "WE GIVE EMOTIONS.",
+      "translation": "МЫ ДАРИМ ЭМОЦИИ.",
+      "kind": "text"
+    },
+    {
+      "source": "Because some of the most valuable things in life cannot be wrapped.",
+      "translation": "Потому что самые ценные вещи в жизни не всегда можно упаковать.",
+      "kind": "text"
+    },
+    {
+      "source": "DON’T KNOW WHAT TO GIVE SOMEONE CLOSE TO YOU?",
+      "translation": "НЕ ЗНАЕТЕ, ЧТО ПОДАРИТЬ БЛИЗКОМУ ЧЕЛОВЕКУ?",
+      "kind": "text"
+    },
+    {
+      "source": "A sunset shared with someone you love.",
+      "translation": "Закат рядом с любимым человеком.",
+      "kind": "text"
+    },
+    {
+      "source": "The first flight above the sea.",
+      "translation": "Первый полёт над морем.",
+      "kind": "text"
+    },
+    {
+      "source": "A child’s pure excitement.",
+      "translation": "Искренний восторг ребёнка.",
+      "kind": "text"
+    },
+    {
+      "source": "An adventure with your family.",
+      "translation": "Приключение всей семьёй.",
+      "kind": "text"
+    },
+    {
+      "source": "A quiet moment for two.",
+      "translation": "Тихий момент для двоих.",
+      "kind": "text"
+    },
+    {
+      "source": "A surprise for your parents — simply to say thank you for being there.",
+      "translation": "Сюрприз для родителей — просто чтобы сказать спасибо за то, что они рядом.",
+      "kind": "text"
+    },
+    {
+      "source": "AMOUNT",
+      "translation": "СУММА",
+      "kind": "text"
+    },
+    {
+      "source": "€100",
+      "translation": "€100",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR RECIPIENT",
+      "translation": "ВАШ ПОЛУЧАТЕЛЬ",
+      "kind": "text"
+    },
+    {
+      "source": "VALID FOR 12 MONTHS",
+      "translation": "ДЕЙСТВИТЕЛЕН 12 МЕСЯЦЕВ",
+      "kind": "text"
+    },
+    {
+      "source": "ATO-GIFT-PREVIEW",
+      "translation": "ATO-GIFT-PREVIEW",
+      "kind": "text"
+    },
+    {
+      "source": "The recipient chooses the experience and suitable date later with our team.",
+      "translation": "Получатель позже выберет впечатление и подходящую дату вместе с нашей командой.",
+      "kind": "text"
+    },
+    {
+      "source": "YOU GIVE THE GIFT.",
+      "translation": "ВЫ ДАРИТЕ ПОДАРОК.",
+      "kind": "text"
+    },
+    {
+      "source": "THEY CHOOSE THE MEMORY.",
+      "translation": "ОНИ ВЫБИРАЮТ ВОСПОМИНАНИЕ.",
+      "kind": "text"
+    },
+    {
+      "source": "01 · FREEDOM GIFT",
+      "translation": "01 · ПОДАРОК СВОБОДЫ",
+      "kind": "text"
+    },
+    {
+      "source": "LET THE RECIPIENT CHOOSE",
+      "translation": "ПУСТЬ ПОЛУЧАТЕЛЬ ВЫБЕРЕТ САМ",
+      "kind": "text"
+    },
+    {
+      "source": "You choose the value. The recipient chooses the experience and date later.",
+      "translation": "Вы выбираете сумму. Получатель позже выбирает впечатление и дату.",
+      "kind": "text"
+    },
+    {
+      "source": "BEST WHEN",
+      "translation": "ЛУЧШЕ ВСЕГО, КОГДА",
+      "kind": "text"
+    },
+    {
+      "source": "You do not want to guess their schedule or favourite tour.",
+      "translation": "Вы не хотите угадывать их расписание или любимый тур.",
+      "kind": "text"
+    },
+    {
+      "source": "THE ADVANTAGE",
+      "translation": "ВАША ВЫГОДА",
+      "kind": "text"
+    },
+    {
+      "source": "Maximum freedom.",
+      "translation": "Максимальная свобода.",
+      "kind": "text"
+    },
+    {
+      "source": "CERTIFICATE SHOWS",
+      "translation": "В СЕРТИФИКАТЕ УКАЗАНО",
+      "kind": "text"
+    },
+    {
+      "source": "The gift value.",
+      "translation": "Сумма подарка.",
+      "kind": "text"
+    },
+    {
+      "source": "OUTPUT · VALUE CERTIFICATE →",
+      "translation": "РЕЗУЛЬТАТ · СЕРТИФИКАТ НА СУММУ →",
+      "kind": "text"
+    },
+    {
+      "source": "02 · SIGNATURE GIFT",
+      "translation": "02 · ОСОБЕННЫЙ ПОДАРОК",
+      "kind": "text"
+    },
+    {
+      "source": "CHOOSE FOR THE RECIPIENT",
+      "translation": "ВЫБРАТЬ ДЛЯ ПОЛУЧАТЕЛЯ",
+      "kind": "text"
+    },
+    {
+      "source": "You choose the experience. The exact date can stay flexible.",
+      "translation": "Вы выбираете впечатление. Точная дата может оставаться гибкой.",
+      "kind": "text"
+    },
+    {
+      "source": "You know what would genuinely delight them.",
+      "translation": "Вы точно знаете, что их порадует.",
+      "kind": "text"
+    },
+    {
+      "source": "More emotional and personal.",
+      "translation": "Более эмоционально и лично.",
+      "kind": "text"
+    },
+    {
+      "source": "The chosen experience.",
+      "translation": "Выбранное впечатление.",
+      "kind": "text"
+    },
+    {
+      "source": "OUTPUT · EXPERIENCE CERTIFICATE →",
+      "translation": "РЕЗУЛЬТАТ · СЕРТИФИКАТ НА ВПЕЧАТЛЕНИЕ →",
+      "kind": "text"
+    },
+    {
+      "source": "From",
+      "translation": "От",
+      "kind": "text"
+    },
+    {
+      "source": "Buyer WhatsApp",
+      "translation": "WhatsApp покупателя",
+      "kind": "text"
+    },
+    {
+      "source": "Recipient",
+      "translation": "Получатель",
+      "kind": "text"
+    },
+    {
+      "source": "Send certificate to",
+      "translation": "Отправить сертификат",
+      "kind": "text"
+    },
+    {
+      "source": "FREEDOM GIFT",
+      "translation": "ПОДАРОК СВОБОДЫ",
+      "kind": "text"
+    },
+    {
+      "source": "Choose the value. The recipient chooses the experience later.",
+      "translation": "Выберите сумму. Получатель выберет впечатление позже.",
+      "kind": "text"
+    },
+    {
+      "source": "Gift value, EUR",
+      "translation": "Сумма подарка, EUR",
+      "kind": "text"
+    },
+    {
+      "source": "€50",
+      "translation": "€50",
+      "kind": "text"
+    },
+    {
+      "source": "€150",
+      "translation": "€150",
+      "kind": "text"
+    },
+    {
+      "source": "€250",
+      "translation": "€250",
+      "kind": "text"
+    },
+    {
+      "source": "SIGNATURE GIFT",
+      "translation": "ОСОБЕННЫЙ ПОДАРОК",
+      "kind": "text"
+    },
+    {
+      "source": "Choose the experience. The price stays off the certificate.",
+      "translation": "Выберите впечатление. Цена на сертификате не указывается.",
+      "kind": "text"
+    },
+    {
+      "source": "Experience",
+      "translation": "Впечатление",
+      "kind": "text"
+    },
+    {
+      "source": "Preferred experience date",
+      "translation": "Желаемая дата впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "Let the recipient arrange the date with our team",
+      "translation": "Пусть получатель согласует дату с нашей командой",
+      "kind": "text"
+    },
+    {
+      "source": "Send on",
+      "translation": "Отправить через",
+      "kind": "text"
+    },
+    {
+      "source": "Personal message",
+      "translation": "Личное сообщение",
+      "kind": "text"
+    },
+    {
+      "source": "SEND TO ATO MANAGER →",
+      "translation": "ОТПРАВИТЬ МЕНЕДЖЕРУ ATO →",
+      "kind": "text"
+    },
+    {
+      "source": "TYPE",
+      "translation": "ТИП",
+      "kind": "text"
+    },
+    {
+      "source": "Choose a gift",
+      "translation": "Выберите подарок",
+      "kind": "text"
+    },
+    {
+      "source": "RECIPIENT",
+      "translation": "ПОЛУЧАТЕЛЬ",
+      "kind": "text"
+    },
+    {
+      "source": "Your recipient",
+      "translation": "Ваш получатель",
+      "kind": "text"
+    },
+    {
+      "source": "DELIVERY",
+      "translation": "ДОСТАВКА",
+      "kind": "text"
+    },
+    {
+      "source": "Manager confirmation",
+      "translation": "Подтверждение менеджером",
+      "kind": "text"
+    },
+    {
+      "source": "THE BEST GIFTS DON’T TAKE UP SPACE.",
+      "translation": "ЛУЧШИЕ ПОДАРКИ НЕ ЗАНИМАЮТ МЕСТА.",
+      "kind": "text"
+    },
+    {
+      "source": "THEY TAKE A PLACE IN OUR HEARTS.",
+      "translation": "ОНИ ОСТАЮТСЯ В НАШЕМ СЕРДЦЕ.",
+      "kind": "text"
+    },
+    {
+      "source": "© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "translation": "© 2026 ALANYA TOUR ORGANIZATIONS — ПУТЕШЕСТВУЙТЕ С ЛЮБОВЬЮ. ПУТЕШЕСТВУЙТЕ С НАМИ.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "translation": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB № 2156",
+      "kind": "text"
+    },
+    {
+      "source": "Company & Legal Information",
+      "translation": "Компания и юридическая информация",
+      "kind": "text"
+    },
+    {
+      "source": "·",
+      "translation": "·",
+      "kind": "text"
+    },
+    {
+      "source": "Privacy & Cookies",
+      "translation": "Конфиденциальность и cookie",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "CLAIM YOUR OFFER",
+      "translation": "ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ",
+      "kind": "text"
+    },
+    {
+      "source": "Your selected tour",
+      "translation": "Выбранный тур",
+      "kind": "text"
+    },
+    {
+      "source": "Category",
+      "translation": "Категория",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR NAME",
+      "translation": "ВАШЕ ИМЯ",
+      "kind": "text"
+    },
+    {
+      "source": "WHATSAPP · TO SAVE YOUR OFFER",
+      "translation": "WHATSAPP · ЧТОБЫ СОХРАНИТЬ ПРЕДЛОЖЕНИЕ",
+      "kind": "text"
+    },
+    {
+      "source": "ADULTS",
+      "translation": "ВЗРОСЛЫЕ",
+      "kind": "text"
+    },
+    {
+      "source": "CHILDREN & AGES",
+      "translation": "ДЕТИ И ВОЗРАСТ",
+      "kind": "text"
+    },
+    {
+      "source": "DESIRED DATE",
+      "translation": "ЖЕЛАЕМАЯ ДАТА",
+      "kind": "text"
+    },
+    {
+      "source": "HOTEL / AREA",
+      "translation": "ОТЕЛЬ / РАЙОН",
+      "kind": "text"
+    },
+    {
+      "source": "COMMENT",
+      "translation": "КОММЕНТАРИЙ",
+      "kind": "text"
+    },
+    {
+      "source": "The displayed Heart Price is the discounted listed base price. Final family/child tariff and total are confirmed by the manager before booking.",
+      "translation": "Показанная Heart Price — это базовая опубликованная цена со скидкой. Итоговый семейный/детский тариф и общую сумму менеджер подтверждает до бронирования.",
+      "kind": "text"
+    },
+    {
+      "source": "CREATE MY HEART OFFER CODE →",
+      "translation": "СОЗДАТЬ МОЙ КОД HEART OFFER →",
+      "kind": "text"
+    },
+    {
+      "source": "body>",
+      "translation": "body>",
+      "kind": "text"
+    },
+    {
+      "source": "Special Offers progress",
+      "translation": "Прогресс Special Offers",
+      "kind": "aria-label"
+    },
+    {
+      "source": "5",
+      "translation": "5",
+      "kind": "placeholder"
+    },
+    {
+      "source": "e.g. 4, 7, 11",
+      "translation": "например: 4, 7, 11",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Search by tour or category",
+      "translation": "Поиск по туру или категории",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Tour categories",
+      "translation": "Категории туров",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Hotel name or area in Alanya",
+      "translation": "Название отеля или район в Аланье",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Group offer totals",
+      "translation": "Итог группового предложения",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Name",
+      "translation": "Имя",
+      "kind": "placeholder"
+    },
+    {
+      "source": "e.g. +49 170 1234567",
+      "translation": "например: +49 170 1234567",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Open selected tour",
+      "translation": "Открыть выбранный тур",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Claim this Heart Offer",
+      "translation": "Получить это Heart-предложение",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Claim the discounted Heart price",
+      "translation": "Получить специальную Heart-цену",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Rotating digital globe",
+      "translation": "Вращающийся цифровой глобус",
+      "kind": "aria-label"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS Gift Certificate",
+      "translation": "Подарочный сертификат ALANYA TOUR ORGANIZATIONS",
+      "kind": "alt"
+    },
+    {
+      "source": "Choose gift certificate type",
+      "translation": "Выберите тип подарочного сертификата",
+      "kind": "aria-label"
+    },
+    {
+      "source": "+90 5XX XXX XX XX",
+      "translation": "+90 5XX XXX XX XX",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Recipient name",
+      "translation": "Имя получателя",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Recipient WhatsApp or email",
+      "translation": "WhatsApp или email получателя",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Quick gift values",
+      "translation": "Быстрый выбор суммы",
+      "kind": "aria-label"
+    },
+    {
+      "source": "e.g. Private Yacht Charter",
+      "translation": "например: частный чартер яхты",
+      "kind": "placeholder"
+    },
+    {
+      "source": "A few words from you…",
+      "translation": "Несколько слов от вас…",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Live gift certificate preview",
+      "translation": "Предпросмотр подарочного сертификата",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Site footer",
+      "translation": "Нижняя часть сайта",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Close",
+      "translation": "Закрыть",
+      "kind": "aria-label"
+    },
+    {
+      "source": "e.g. 2 children: 4, 9",
+      "translation": "например, 2 ребёнка: 4, 9",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Hotel name or area",
+      "translation": "Название отеля или район",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Anything the manager should know",
+      "translation": "Что ещё важно знать менеджеру",
+      "kind": "placeholder"
+    }
+  ]
+}

@@ -1,0 +1,698 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "EN",
+  "approved_page": "airport-vip-transfer.html",
+  "approved_sha256": "f47b90cdf95f822e4f8e8242a9a4cd4949d05551a94a5bcc376b0d7acc640c51",
+  "entries": [
+    {
+      "source": "Airport VIP Transfer in Alanya | ALANYA TOUR ORGANIZATIONS",
+      "translation": "Airport VIP Transfer in Alanya | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home ›",
+      "translation": "Home ›",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Services",
+      "translation": "VIP Services",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Airport VIP Transfer",
+      "translation": "Airport VIP Transfer",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Airport Service",
+      "translation": "VIP Airport Service",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury private airport transfers between Antalya Airport, Gazipaşa Airport and Alanya.",
+      "translation": "Luxury private airport transfers between Antalya Airport, Gazipaşa Airport and Alanya.",
+      "kind": "text"
+    },
+    {
+      "source": "Travel in comfort from the moment you arrive. Private Mercedes Vito or Sprinter transfer, personal airport meet & greet, luggage assistance, flight monitoring and fixed price service for your family or group.",
+      "translation": "Travel in comfort from the moment you arrive. Private Mercedes Vito or Sprinter transfer, personal airport meet & greet, luggage assistance, flight monitoring and fixed price service for your family or group.",
+      "kind": "text"
+    },
+    {
+      "source": "FROM €80",
+      "translation": "FROM €80",
+      "kind": "text"
+    },
+    {
+      "source": "PRIVATE VEHICLE",
+      "translation": "PRIVATE VEHICLE",
+      "kind": "text"
+    },
+    {
+      "source": "MEET & GREET",
+      "translation": "MEET & GREET",
+      "kind": "text"
+    },
+    {
+      "source": "ANTALYA AIRPORT",
+      "translation": "ANTALYA AIRPORT",
+      "kind": "text"
+    },
+    {
+      "source": "GAZIPAŞA AIRPORT",
+      "translation": "GAZIPAŞA AIRPORT",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TRANSFER",
+      "translation": "ALANYA TRANSFER",
+      "kind": "text"
+    },
+    {
+      "source": "FIXED PRICE",
+      "translation": "FIXED PRICE",
+      "kind": "text"
+    },
+    {
+      "source": "24/7 SERVICE",
+      "translation": "24/7 SERVICE",
+      "kind": "text"
+    },
+    {
+      "source": "FAMILY FRIENDLY",
+      "translation": "FAMILY FRIENDLY",
+      "kind": "text"
+    },
+    {
+      "source": "LUGGAGE ASSISTANCE",
+      "translation": "LUGGAGE ASSISTANCE",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Book on WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About This Service",
+      "translation": "About This Service",
+      "kind": "text"
+    },
+    {
+      "source": "Airport VIP Transfer is a private door-to-door transfer service between Antalya Airport, Antalya Gazipaşa–Alanya Airport and confirmed addresses in the Alanya region.",
+      "translation": "Airport VIP Transfer is a private door-to-door transfer service between Antalya Airport, Antalya Gazipaşa–Alanya Airport and confirmed addresses in the Alanya region.",
+      "kind": "text"
+    },
+    {
+      "source": "The vehicle is reserved only for the booked passengers. The final vehicle, route, pickup point, luggage capacity and price are confirmed before the transfer.",
+      "translation": "The vehicle is reserved only for the booked passengers. The final vehicle, route, pickup point, luggage capacity and price are confirmed before the transfer.",
+      "kind": "text"
+    },
+    {
+      "source": "For airport arrivals, the driver or meeting representative uses the agreed meeting instructions and the transfer team monitors the supplied flight number for schedule changes.",
+      "translation": "For airport arrivals, the driver or meeting representative uses the agreed meeting instructions and the transfer team monitors the supplied flight number for schedule changes.",
+      "kind": "text"
+    },
+    {
+      "source": "Mercedes Vito or Sprinter-class vehicles may be assigned according to passenger count, luggage and operational availability. A specific model cannot be guaranteed unless confirmed in writing.",
+      "translation": "Mercedes Vito or Sprinter-class vehicles may be assigned according to passenger count, luggage and operational availability. A specific model cannot be guaranteed unless confirmed in writing.",
+      "kind": "text"
+    },
+    {
+      "source": "Private Service",
+      "translation": "Private Service",
+      "kind": "text"
+    },
+    {
+      "source": "No shared passengers or scheduled shuttle stops.",
+      "translation": "No shared passengers or scheduled shuttle stops.",
+      "kind": "text"
+    },
+    {
+      "source": "Flight Monitoring",
+      "translation": "Flight Monitoring",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup timing is adjusted using the confirmed flight details.",
+      "translation": "Pickup timing is adjusted using the confirmed flight details.",
+      "kind": "text"
+    },
+    {
+      "source": "Door to Door",
+      "translation": "Door to Door",
+      "kind": "text"
+    },
+    {
+      "source": "Airport, hotel, apartment, villa or confirmed private address.",
+      "translation": "Airport, hotel, apartment, villa or confirmed private address.",
+      "kind": "text"
+    },
+    {
+      "source": "Family Ready",
+      "translation": "Family Ready",
+      "kind": "text"
+    },
+    {
+      "source": "Child seat requests must be made before confirmation.",
+      "translation": "Child seat requests must be made before confirmation.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Highlights",
+      "kind": "text"
+    },
+    {
+      "source": "Private vehicle reserved for your booking.",
+      "translation": "Private vehicle reserved for your booking.",
+      "kind": "text"
+    },
+    {
+      "source": "Antalya Airport and Antalya Gazipaşa–Alanya Airport routes.",
+      "translation": "Antalya Airport and Antalya Gazipaşa–Alanya Airport routes.",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival or departure transfer by advance reservation.",
+      "translation": "Arrival or departure transfer by advance reservation.",
+      "kind": "text"
+    },
+    {
+      "source": "Flight monitoring using the supplied flight number.",
+      "translation": "Flight monitoring using the supplied flight number.",
+      "kind": "text"
+    },
+    {
+      "source": "Luggage assistance and confirmed meeting instructions.",
+      "translation": "Luggage assistance and confirmed meeting instructions.",
+      "kind": "text"
+    },
+    {
+      "source": "Fixed price after route and booking details are confirmed.",
+      "translation": "Fixed price after route and booking details are confirmed.",
+      "kind": "text"
+    },
+    {
+      "source": "ARRIVE IN COMFORT.",
+      "translation": "ARRIVE IN COMFORT.",
+      "kind": "text"
+    },
+    {
+      "source": "Service",
+      "translation": "Service",
+      "kind": "text"
+    },
+    {
+      "source": "Private airport transfer",
+      "translation": "Private airport transfer",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival or departure service",
+      "translation": "Arrival or departure service",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel, apartment, villa or confirmed address",
+      "translation": "Hotel, apartment, villa or confirmed address",
+      "kind": "text"
+    },
+    {
+      "source": "Advance reservation required",
+      "translation": "Advance reservation required",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Price",
+      "kind": "text"
+    },
+    {
+      "source": "From €80",
+      "translation": "From €80",
+      "kind": "text"
+    },
+    {
+      "source": "per confirmed vehicle and route",
+      "translation": "per confirmed vehicle and route",
+      "kind": "text"
+    },
+    {
+      "source": "The final price depends on airport, destination zone, vehicle, waiting requirements and additional stops.",
+      "translation": "The final price depends on airport, destination zone, vehicle, waiting requirements and additional stops.",
+      "kind": "text"
+    },
+    {
+      "source": "Vehicle",
+      "translation": "Vehicle",
+      "kind": "text"
+    },
+    {
+      "source": "Mercedes Vito or Sprinter class",
+      "translation": "Mercedes Vito or Sprinter class",
+      "kind": "text"
+    },
+    {
+      "source": "Vehicle assigned by passenger and luggage count",
+      "translation": "Vehicle assigned by passenger and luggage count",
+      "kind": "text"
+    },
+    {
+      "source": "Air conditioning",
+      "translation": "Air conditioning",
+      "kind": "text"
+    },
+    {
+      "source": "Child seat on advance request",
+      "translation": "Child seat on advance request",
+      "kind": "text"
+    },
+    {
+      "source": "Confirmation",
+      "translation": "Confirmation",
+      "kind": "text"
+    },
+    {
+      "source": "Flight and pickup details required",
+      "translation": "Flight and pickup details required",
+      "kind": "text"
+    },
+    {
+      "source": "Meeting point confirmed in writing",
+      "translation": "Meeting point confirmed in writing",
+      "kind": "text"
+    },
+    {
+      "source": "Price fixed after confirmation",
+      "translation": "Price fixed after confirmation",
+      "kind": "text"
+    },
+    {
+      "source": "Extra stops agreed separately",
+      "translation": "Extra stops agreed separately",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer Program",
+      "translation": "Transfer Program",
+      "kind": "text"
+    },
+    {
+      "source": "The sequence below shows the standard booking and transfer process. Exact pickup instructions vary by airport terminal, flight and destination.",
+      "translation": "The sequence below shows the standard booking and transfer process. Exact pickup instructions vary by airport terminal, flight and destination.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 1",
+      "translation": "Step 1",
+      "kind": "text"
+    },
+    {
+      "source": "Send Transfer Details",
+      "translation": "Send Transfer Details",
+      "kind": "text"
+    },
+    {
+      "source": "Provide airport, flight number, date, scheduled time, destination, passenger count, luggage and child-seat request.",
+      "translation": "Provide airport, flight number, date, scheduled time, destination, passenger count, luggage and child-seat request.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 2",
+      "translation": "Step 2",
+      "kind": "text"
+    },
+    {
+      "source": "Written Confirmation",
+      "translation": "Written Confirmation",
+      "kind": "text"
+    },
+    {
+      "source": "Receive the vehicle class, pickup instructions, route, confirmed price and contact information.",
+      "translation": "Receive the vehicle class, pickup instructions, route, confirmed price and contact information.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 3",
+      "translation": "Step 3",
+      "kind": "text"
+    },
+    {
+      "source": "The transfer team uses the supplied flight number to follow the published arrival status and adjust the meeting timing when necessary.",
+      "translation": "The transfer team uses the supplied flight number to follow the published arrival status and adjust the meeting timing when necessary.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 4",
+      "translation": "Step 4",
+      "kind": "text"
+    },
+    {
+      "source": "Meeting at the Confirmed Point",
+      "translation": "Meeting at the Confirmed Point",
+      "kind": "text"
+    },
+    {
+      "source": "Follow the meeting instructions supplied for the relevant terminal, hotel, apartment or private address.",
+      "translation": "Follow the meeting instructions supplied for the relevant terminal, hotel, apartment or private address.",
+      "kind": "text"
+    },
+    {
+      "source": "Step 5",
+      "translation": "Step 5",
+      "kind": "text"
+    },
+    {
+      "source": "Private Direct Transfer",
+      "translation": "Private Direct Transfer",
+      "kind": "text"
+    },
+    {
+      "source": "Travel to the confirmed destination in the assigned private vehicle. Additional stops must be agreed in advance.",
+      "translation": "Travel to the confirmed destination in the assigned private vehicle. Additional stops must be agreed in advance.",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival",
+      "translation": "Arrival",
+      "kind": "text"
+    },
+    {
+      "source": "Door-to-Door Drop-Off",
+      "translation": "Door-to-Door Drop-Off",
+      "kind": "text"
+    },
+    {
+      "source": "The driver completes the transfer at the confirmed hotel, apartment, villa or airport departure point.",
+      "translation": "The driver completes the transfer at the confirmed hotel, apartment, villa or airport departure point.",
+      "kind": "text"
+    },
+    {
+      "source": "Airport access, terminal rules, traffic, road closures, flight changes and operational conditions may affect the meeting point or travel time.",
+      "translation": "Airport access, terminal rules, traffic, road closures, flight changes and operational conditions may affect the meeting point or travel time.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Photo Gallery",
+      "kind": "text"
+    },
+    {
+      "source": "Tour Time",
+      "translation": "Tour Time",
+      "kind": "text"
+    },
+    {
+      "source": "Service:",
+      "translation": "Service:",
+      "kind": "text"
+    },
+    {
+      "source": "airport arrival or departure",
+      "translation": "airport arrival or departure",
+      "kind": "text"
+    },
+    {
+      "source": "Availability:",
+      "translation": "Availability:",
+      "kind": "text"
+    },
+    {
+      "source": "24/7 by reservation",
+      "translation": "24/7 by reservation",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup:",
+      "translation": "Pickup:",
+      "kind": "text"
+    },
+    {
+      "source": "confirmed after booking",
+      "translation": "confirmed after booking",
+      "kind": "text"
+    },
+    {
+      "source": "What To Bring",
+      "translation": "What To Bring",
+      "kind": "text"
+    },
+    {
+      "source": "Flight number",
+      "translation": "Flight number",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival or departure date",
+      "translation": "Arrival or departure date",
+      "kind": "text"
+    },
+    {
+      "source": "Airport name",
+      "translation": "Airport name",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment address",
+      "translation": "Hotel or apartment address",
+      "kind": "text"
+    },
+    {
+      "source": "Number of passengers",
+      "translation": "Number of passengers",
+      "kind": "text"
+    },
+    {
+      "source": "Number of suitcases",
+      "translation": "Number of suitcases",
+      "kind": "text"
+    },
+    {
+      "source": "Child seat request if needed",
+      "translation": "Child seat request if needed",
+      "kind": "text"
+    },
+    {
+      "source": "Important Information",
+      "translation": "Important Information",
+      "kind": "text"
+    },
+    {
+      "source": "Vehicle:",
+      "translation": "Vehicle:",
+      "kind": "text"
+    },
+    {
+      "source": "assigned according to passenger and luggage count",
+      "translation": "assigned according to passenger and luggage count",
+      "kind": "text"
+    },
+    {
+      "source": "Child seat:",
+      "translation": "Child seat:",
+      "kind": "text"
+    },
+    {
+      "source": "must be requested before confirmation",
+      "translation": "must be requested before confirmation",
+      "kind": "text"
+    },
+    {
+      "source": "Extra stops:",
+      "translation": "Extra stops:",
+      "kind": "text"
+    },
+    {
+      "source": "require advance agreement and may affect price",
+      "translation": "require advance agreement and may affect price",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup Information",
+      "translation": "Pickup Information",
+      "kind": "text"
+    },
+    {
+      "source": "Airport arrivals area, hotel lobby, apartment address or private villa pickup.",
+      "translation": "Airport arrivals area, hotel lobby, apartment address or private villa pickup.",
+      "kind": "text"
+    },
+    {
+      "source": "Exact meeting point is confirmed after booking.",
+      "translation": "Exact meeting point is confirmed after booking.",
+      "kind": "text"
+    },
+    {
+      "source": "Driver waits with a personalized name sign for airport arrivals.",
+      "translation": "Driver waits with a personalized name sign for airport arrivals.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Frequently Asked Questions",
+      "kind": "text"
+    },
+    {
+      "source": "Is the transfer private?",
+      "translation": "Is the transfer private?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. The vehicle is reserved for the passengers included in the confirmed booking and is not operated as a shared shuttle.",
+      "translation": "Yes. The vehicle is reserved for the passengers included in the confirmed booking and is not operated as a shared shuttle.",
+      "kind": "text"
+    },
+    {
+      "source": "Is €80 the final price for every route?",
+      "translation": "Is €80 the final price for every route?",
+      "kind": "text"
+    },
+    {
+      "source": "No. €80 is the starting price shown on the page. The final price is confirmed according to airport, destination zone, vehicle, luggage, waiting requirements and extra stops.",
+      "translation": "No. €80 is the starting price shown on the page. The final price is confirmed according to airport, destination zone, vehicle, luggage, waiting requirements and extra stops.",
+      "kind": "text"
+    },
+    {
+      "source": "What happens if the flight is delayed?",
+      "translation": "What happens if the flight is delayed?",
+      "kind": "text"
+    },
+    {
+      "source": "The transfer team uses the supplied flight number to follow the published flight status. Updated meeting instructions are provided when required.",
+      "translation": "The transfer team uses the supplied flight number to follow the published flight status. Updated meeting instructions are provided when required.",
+      "kind": "text"
+    },
+    {
+      "source": "Is a specific Mercedes model guaranteed?",
+      "translation": "Is a specific Mercedes model guaranteed?",
+      "kind": "text"
+    },
+    {
+      "source": "The confirmed vehicle class is supplied before booking. A specific model should be considered guaranteed only when stated in the written confirmation.",
+      "translation": "The confirmed vehicle class is supplied before booking. A specific model should be considered guaranteed only when stated in the written confirmation.",
+      "kind": "text"
+    },
+    {
+      "source": "Can I request a child seat?",
+      "translation": "Can I request a child seat?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Send the child’s age and the required seat type before booking so availability can be confirmed.",
+      "translation": "Yes. Send the child’s age and the required seat type before booking so availability can be confirmed.",
+      "kind": "text"
+    },
+    {
+      "source": "Where will the driver meet us?",
+      "translation": "Where will the driver meet us?",
+      "kind": "text"
+    },
+    {
+      "source": "The exact meeting point and contact instructions are sent after booking because terminal and airport arrangements can vary.",
+      "translation": "The exact meeting point and contact instructions are sent after booking because terminal and airport arrangements can vary.",
+      "kind": "text"
+    },
+    {
+      "source": "Ready to book your VIP transfer?",
+      "translation": "Ready to book your VIP transfer?",
+      "kind": "text"
+    },
+    {
+      "source": "Message us on WhatsApp — we will confirm your airport, pickup time, vehicle type, route and fixed price.",
+      "translation": "Message us on WhatsApp — we will confirm your airport, pickup time, vehicle type, route and fixed price.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Chat on WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Airport VIP transfer meet and greet",
+      "translation": "Airport VIP transfer meet and greet",
+      "kind": "alt"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Previous photo",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Airport VIP Transfer in Alanya",
+      "translation": "Airport VIP Transfer in Alanya",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Next photo",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Gallery thumbnails",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Airport Meet and Greet VIP Transfer",
+      "translation": "Airport Meet and Greet VIP Transfer",
+      "kind": "alt"
+    },
+    {
+      "source": "Luxury Mercedes V-Class Interior",
+      "translation": "Luxury Mercedes V-Class Interior",
+      "kind": "alt"
+    },
+    {
+      "source": "Family VIP Airport Transfer",
+      "translation": "Family VIP Airport Transfer",
+      "kind": "alt"
+    },
+    {
+      "source": "Luxury Hotel Arrival in Alanya",
+      "translation": "Luxury Hotel Arrival in Alanya",
+      "kind": "alt"
+    },
+    {
+      "source": "Gazipaşa Alanya Airport VIP Transfer",
+      "translation": "Gazipaşa Alanya Airport VIP Transfer",
+      "kind": "alt"
+    },
+    {
+      "source": "Night VIP Transfer in Alanya",
+      "translation": "Night VIP Transfer in Alanya",
+      "kind": "alt"
+    },
+    {
+      "source": "Main airport VIP transfer information",
+      "translation": "Main airport VIP transfer information",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Transfer booking details",
+      "translation": "Transfer booking details",
+      "kind": "aria-label"
+    }
+  ]
+}

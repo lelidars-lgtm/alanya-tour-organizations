@@ -1,0 +1,403 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "vip-service.html",
+  "approved_sha256": "30ce217ad3a54f8356af7aab7ced45d286ac3969dca993abf45cc83d7d64ab3f",
+  "entries": [
+    {
+      "source": "VIP Service | ALANYA TOUR ORGANIZATIONS",
+      "translation": "VIP Hizmet | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "VIP Service in Alanya: helicopter charter, luxury airport transfer, private yacht charter, private driver and private photographer with premium concierge support.",
+      "translation": "Alanya'da VIP hizmet: helikopter kiralama, lüks havalimanı transferi, özel yat kiralama, özel şoför ve premium concierge desteğiyle özel fotoğrafçı.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › Tours ›",
+      "translation": "Ana Sayfa › Turlar ›",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Service",
+      "translation": "VIP Hizmet",
+      "kind": "text"
+    },
+    {
+      "source": "Private Luxury Services in Alanya",
+      "translation": "Alanya'da Özel Lüks Hizmetler",
+      "kind": "text"
+    },
+    {
+      "source": "VIP",
+      "translation": "VIP",
+      "kind": "text"
+    },
+    {
+      "source": "Service",
+      "translation": "Hizmet",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury transportation, private experiences and premium concierge services designed for guests who expect the highest level of comfort in Alanya.",
+      "translation": "Alanya'da en yüksek konforu bekleyen misafirler için lüks ulaşım, özel deneyimler ve premium concierge hizmetleri.",
+      "kind": "text"
+    },
+    {
+      "source": "Exclusive",
+      "translation": "Özel",
+      "kind": "text"
+    },
+    {
+      "source": "Experiences",
+      "translation": "Deneyimler",
+      "kind": "text"
+    },
+    {
+      "source": "Private",
+      "translation": "Özel",
+      "kind": "text"
+    },
+    {
+      "source": "Concierge",
+      "translation": "Concierge",
+      "kind": "text"
+    },
+    {
+      "source": "24/7 VIP",
+      "translation": "7/24 VIP",
+      "kind": "text"
+    },
+    {
+      "source": "Assistance",
+      "translation": "Destek",
+      "kind": "text"
+    },
+    {
+      "source": "Tailor-Made",
+      "translation": "Size Özel",
+      "kind": "text"
+    },
+    {
+      "source": "Signature VIP Collection",
+      "translation": "Signature VIP Koleksiyonu",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "WhatsApp'tan Rezerve Et →",
+      "kind": "text"
+    },
+    {
+      "source": "1",
+      "translation": "1",
+      "kind": "text"
+    },
+    {
+      "source": "Airport VIP Transfer",
+      "translation": "VIP Havalimanı Transferi",
+      "kind": "text"
+    },
+    {
+      "source": "/ on request",
+      "translation": "/ talep üzerine",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury airport arrival with premium vehicle, professional chauffeur and seamless VIP welcome for your stay in Alanya.",
+      "translation": "Premium araç, profesyonel şoför ve Alanya konaklamanız için kusursuz VIP karşılama ile lüks havalimanı varışı.",
+      "kind": "text"
+    },
+    {
+      "source": "Airport Pickup",
+      "translation": "Havalimanı Karşılama",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury Vehicle",
+      "translation": "Lüks Araç",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Arrival",
+      "translation": "VIP Karşılama",
+      "kind": "text"
+    },
+    {
+      "source": "On Request",
+      "translation": "Talep Üzerine",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury",
+      "translation": "Lüks",
+      "kind": "text"
+    },
+    {
+      "source": "→",
+      "translation": "→",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer",
+      "translation": "Transfer",
+      "kind": "text"
+    },
+    {
+      "source": "2",
+      "translation": "2",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury Yacht",
+      "translation": "Lüks Yat",
+      "kind": "text"
+    },
+    {
+      "source": "Private yacht charter for unforgettable Mediterranean moments, sunset routes, elegant service and premium sea views.",
+      "translation": "Unutulmaz Akdeniz anları, gün batımı rotaları, zarif hizmet ve premium deniz manzaraları için özel yat kiralama.",
+      "kind": "text"
+    },
+    {
+      "source": "Private Yacht",
+      "translation": "Özel Yat",
+      "kind": "text"
+    },
+    {
+      "source": "Sunset Cruise",
+      "translation": "Gün Batımı Turu",
+      "kind": "text"
+    },
+    {
+      "source": "Sea Luxury",
+      "translation": "Denizde Lüks",
+      "kind": "text"
+    },
+    {
+      "source": "24/7",
+      "translation": "24/7",
+      "kind": "text"
+    },
+    {
+      "source": "Yacht",
+      "translation": "Yat",
+      "kind": "text"
+    },
+    {
+      "source": "3",
+      "translation": "3",
+      "kind": "text"
+    },
+    {
+      "source": "Personal Concierge",
+      "translation": "Kişisel Concierge",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photoshoots in the most beautiful locations of Alanya with cinematic views, premium styling and lasting memories.",
+      "translation": "Alanya'nın en güzel noktalarında sinematik manzaralar, premium stil ve kalıcı anılar sunan profesyonel fotoğraf çekimleri.",
+      "kind": "text"
+    },
+    {
+      "source": "Personal Manager",
+      "translation": "Kişisel Yönetici",
+      "kind": "text"
+    },
+    {
+      "source": "Reservations",
+      "translation": "Rezervasyonlar",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Support",
+      "translation": "VIP Destek",
+      "kind": "text"
+    },
+    {
+      "source": "Daily",
+      "translation": "Her Gün",
+      "kind": "text"
+    },
+    {
+      "source": "Sea VIP",
+      "translation": "Deniz VIP",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury Concierge Services",
+      "translation": "Lüks Concierge Hizmetleri",
+      "kind": "text"
+    },
+    {
+      "source": "Request Service →",
+      "translation": "Hizmet Talep Et →",
+      "kind": "text"
+    },
+    {
+      "source": "Helicopter",
+      "translation": "Helikopter",
+      "kind": "text"
+    },
+    {
+      "source": "4",
+      "translation": "4",
+      "kind": "text"
+    },
+    {
+      "source": "Helicopter Experience",
+      "translation": "Helikopter Deneyimi",
+      "kind": "text"
+    },
+    {
+      "source": "Private helicopter tours and premium air transfers with breathtaking views, fast routes and exclusive travel comfort.",
+      "translation": "Nefes kesen manzaralar, hızlı rotalar ve özel seyahat konforuyla özel helikopter turları ve premium hava transferleri.",
+      "kind": "text"
+    },
+    {
+      "source": "Private Flight",
+      "translation": "Özel Uçuş",
+      "kind": "text"
+    },
+    {
+      "source": "Aerial Views",
+      "translation": "Havadan Manzaralar",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Route",
+      "translation": "VIP Rota",
+      "kind": "text"
+    },
+    {
+      "source": "Flexible",
+      "translation": "Esnek",
+      "kind": "text"
+    },
+    {
+      "source": "Photo",
+      "translation": "Fotoğraf",
+      "kind": "text"
+    },
+    {
+      "source": "5",
+      "translation": "5",
+      "kind": "text"
+    },
+    {
+      "source": "Private Photographer",
+      "translation": "Özel Fotoğrafçı",
+      "kind": "text"
+    },
+    {
+      "source": "Personalized assistance for reservations, special arrangements, luxury experiences and every detail of your stay in Alanya.",
+      "translation": "Rezervasyonlar, özel düzenlemeler, lüks deneyimler ve Alanya konaklamanızın her detayı için kişiselleştirilmiş destek.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Session",
+      "translation": "Fotoğraf Çekimi",
+      "kind": "text"
+    },
+    {
+      "source": "Best Locations",
+      "translation": "En İyi Noktalar",
+      "kind": "text"
+    },
+    {
+      "source": "Premium Memories",
+      "translation": "Premium Anılar",
+      "kind": "text"
+    },
+    {
+      "source": "Creative",
+      "translation": "Yaratıcı",
+      "kind": "text"
+    },
+    {
+      "source": "Book Your VIP Service",
+      "translation": "VIP Hizmetinizi Rezerve Edin",
+      "kind": "text"
+    },
+    {
+      "source": "Choose your preferred private service and confirm availability, timing and personal arrangements via WhatsApp.",
+      "translation": "Tercih ettiğiniz özel hizmeti seçin; müsaitlik, saat ve kişisel düzenlemeleri WhatsApp üzerinden netleştirin.",
+      "kind": "text"
+    },
+    {
+      "source": "PERSONAL TRAVEL MANAGER",
+      "translation": "KİŞİSEL SEYAHAT YÖNETİCİSİ",
+      "kind": "text"
+    },
+    {
+      "source": "ONE DEDICATED CONTACT FROM BOOKING TO COMPLETION",
+      "translation": "REZERVASYONDAN TAMAMLANANA KADAR TEK KİŞİSEL İLETİŞİM",
+      "kind": "text"
+    },
+    {
+      "source": "FAST VIP CONFIRMATION",
+      "translation": "HIZLI VIP ONAYI",
+      "kind": "text"
+    },
+    {
+      "source": "QUICK RESPONSE AND RESERVATION WITHIN MINUTES",
+      "translation": "HIZLI YANIT VE DAKİKALAR İÇİNDE REZERVASYON",
+      "kind": "text"
+    },
+    {
+      "source": "PREMIUM PARTNERS ONLY",
+      "translation": "YALNIZCA PREMIUM PARTNERLER",
+      "kind": "text"
+    },
+    {
+      "source": "CAREFULLY SELECTED LUXURY PROVIDERS IN ALANYA",
+      "translation": "ALANYA'DA ÖZENLE SEÇİLMİŞ LÜKS HİZMET SAĞLAYICILARI",
+      "kind": "text"
+    },
+    {
+      "source": "FULLY CUSTOM EXPERIENCE",
+      "translation": "TAMAMEN KİŞİYE ÖZEL DENEYİM",
+      "kind": "text"
+    },
+    {
+      "source": "EVERY SERVICE TAILORED TO YOUR PERSONAL REQUESTS",
+      "translation": "HER HİZMET KİŞİSEL TALEPLERİNİZE GÖRE UYARLANIR",
+      "kind": "text"
+    },
+    {
+      "source": "VIP signature symbol",
+      "translation": "VIP imza sembolü",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Airport VIP Transfer in Alanya",
+      "translation": "Alanya VIP Havalimanı Transferi",
+      "kind": "alt"
+    },
+    {
+      "source": "Luxury Yacht Charter in Alanya",
+      "translation": "Alanya'da Lüks Yat Kiralama",
+      "kind": "alt"
+    },
+    {
+      "source": "Personal Concierge in Alanya",
+      "translation": "Alanya'da Kişisel Concierge",
+      "kind": "alt"
+    },
+    {
+      "source": "Helicopter Experience in Alanya",
+      "translation": "Alanya'da Helikopter Deneyimi",
+      "kind": "alt"
+    },
+    {
+      "source": "Private Photographer in Alanya",
+      "translation": "Alanya'da Özel Fotoğrafçı",
+      "kind": "alt"
+    }
+  ]
+}

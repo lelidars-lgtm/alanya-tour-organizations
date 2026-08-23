@@ -1,0 +1,648 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "gazipasa-bays.html",
+  "approved_sha256": "7400a5e054664b386d07930dc49e2f8b8ca089340189e9655d726d69f028f521",
+  "entries": [
+    {
+      "source": "Gazipasa Bays in Alanya | Alanya Tour Organizations",
+      "translation": "Бухты Газипаша в Алании | Alanya Tour Organizations",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home ›",
+      "translation": "Главная ›",
+      "kind": "text"
+    },
+    {
+      "source": "Hidden Bays & Islands",
+      "translation": "Скрытые бухты и острова",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Gazipasa Bays",
+      "translation": "Бухты Газипаши",
+      "kind": "text"
+    },
+    {
+      "source": "Delik Deniz • Antiochia ad Cragum • Iotape • Yalan Dünya Cave",
+      "translation": "Delik Deniz • Antiochia ad Cragum • Iotape • Пещера Yalan Dünya",
+      "kind": "text"
+    },
+    {
+      "source": "Discover the hidden bays of Gazipasa, ancient ruins and natural wonders along Turkey’s Mediterranean coast.",
+      "translation": "Откройте скрытые бухты Газипаша, древние руины и природные чудеса средиземноморского побережья Турции.",
+      "kind": "text"
+    },
+    {
+      "source": "9 HOURS",
+      "translation": "9 ЧАСОВ",
+      "kind": "text"
+    },
+    {
+      "source": "ANCIENT CITIES",
+      "translation": "ДРЕВНИЕ ГОРОДА",
+      "kind": "text"
+    },
+    {
+      "source": "TRANSFER",
+      "translation": "ТРАНСФЕР",
+      "kind": "text"
+    },
+    {
+      "source": "HIDDEN BAYS",
+      "translation": "СКРЫТЫЕ БУХТЫ",
+      "kind": "text"
+    },
+    {
+      "source": "DELIK DENIZ",
+      "translation": "DELIK DENIZ",
+      "kind": "text"
+    },
+    {
+      "source": "YALAN DÜNYA CAVE",
+      "translation": "ПЕЩЕРА YALAN DÜNYA",
+      "kind": "text"
+    },
+    {
+      "source": "NATURE TOUR",
+      "translation": "ПРИРОДНЫЙ ТУР",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Забронировать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "Об этом впечатлении",
+      "kind": "text"
+    },
+    {
+      "source": "Gazipasa Bays is an exclusive journey through the hidden paradises of Gazipasa, combining ancient history, natural wonders and time to relax in exceptionally beautiful bays far from mass tourism.",
+      "translation": "Бухты Газипаша — эксклюзивное путешествие по скрытым райским уголкам Газипаша, сочетающее древнюю историю, природные чудеса и время для отдыха в необыкновенно красивых бухтах вдали от массового туризма.",
+      "kind": "text"
+    },
+    {
+      "source": "This tour is designed for travelers who appreciate atmospheric locations, turquoise water, ancient ruins and the authentic natural beauty of Turkey.",
+      "translation": "Тур создан для путешественников, которые ценят атмосферные места, бирюзовую воду, древние руины и аутентичную природную красоту Турции.",
+      "kind": "text"
+    },
+    {
+      "source": "Delik Deniz — King’s Bay",
+      "translation": "Delik Deniz — Королевская бухта",
+      "kind": "text"
+    },
+    {
+      "source": "is one of the most beautiful and unusual places on the coast, with crystal-clear turquoise water and a giant natural rock arch opening directly toward the sea.",
+      "translation": "— одно из самых красивых и необычных мест побережья с кристально чистой бирюзовой водой и огромной природной каменной аркой, открывающейся прямо к морю.",
+      "kind": "text"
+    },
+    {
+      "source": "Antiochia ad Cragum",
+      "translation": "Antiochia ad Cragum",
+      "kind": "text"
+    },
+    {
+      "source": "is an ancient city located high above the sea amid dramatic landscapes. Its ruins, columns and remains of old streets create the feeling of traveling back in time.",
+      "translation": "— древний город, расположенный высоко над морем среди драматических пейзажей. Его руины, колонны и остатки старых улиц создают ощущение путешествия во времени.",
+      "kind": "text"
+    },
+    {
+      "source": "Aytap / Iotape",
+      "translation": "Aytap / Iotape",
+      "kind": "text"
+    },
+    {
+      "source": "is a unique coastal archaeological site where the history of the ancient world meets the blue Mediterranean Sea.",
+      "translation": "— уникальный прибрежный археологический объект, где история древнего мира встречается с синевой Средиземного моря.",
+      "kind": "text"
+    },
+    {
+      "source": "Yalan Dünya Cave",
+      "translation": "Пещера Yalan Dünya",
+      "kind": "text"
+    },
+    {
+      "source": "is an impressive natural cave with stalactites and stalagmites, hidden among the rocks and landscapes of the region.",
+      "translation": "— впечатляющая природная пещера со сталактитами и сталагмитами, скрытая среди скал и пейзажей региона.",
+      "kind": "text"
+    },
+    {
+      "source": "This journey is a wonderful alternative to classic sightseeing tours and reveals a completely different side of the Alanya coastline.",
+      "translation": "Это путешествие — прекрасная альтернатива классическим обзорным турам и показывает совершенно другую сторону побережья Алании.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Главные впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "Delik Deniz — King’s Bay with a natural sea arch",
+      "translation": "Delik Deniz — Королевская бухта с природной морской аркой",
+      "kind": "text"
+    },
+    {
+      "source": "Antiochia ad Cragum — an ancient city above the sea",
+      "translation": "Antiochia ad Cragum — древний город над морем",
+      "kind": "text"
+    },
+    {
+      "source": "Aytap / Iotape ancient city by the coast",
+      "translation": "Древний город Aytap / Iotape у побережья",
+      "kind": "text"
+    },
+    {
+      "source": "Yalan Dünya Cave with stalactites and stalagmites",
+      "translation": "Пещера Yalan Dünya со сталактитами и сталагмитами",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming in turquoise water and natural pools",
+      "translation": "Купание в бирюзовой воде и природных бассейнах",
+      "kind": "text"
+    },
+    {
+      "source": "Panoramic locations for memorable photos",
+      "translation": "Панорамные места для памятных фотографий",
+      "kind": "text"
+    },
+    {
+      "source": "A route away from mass tourism",
+      "translation": "Маршрут вдали от массового туризма",
+      "kind": "text"
+    },
+    {
+      "source": "Hidden bays. Pure beauty.",
+      "translation": "Скрытые бухты. Чистая красота.",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Детали",
+      "kind": "text"
+    },
+    {
+      "source": "Duration: 9 hours",
+      "translation": "Продолжительность: 9 часов",
+      "kind": "text"
+    },
+    {
+      "source": "Time: 09:00–18:00",
+      "translation": "Время: 09:00–18:00",
+      "kind": "text"
+    },
+    {
+      "source": "Days: Tuesday, Thursday, Saturday, Sunday",
+      "translation": "Дни: вторник, четверг, суббота, воскресенье",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup: hotel / apartment address",
+      "translation": "Трансфер: адрес отеля / апартаментов",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Цена",
+      "kind": "text"
+    },
+    {
+      "source": "€65",
+      "translation": "€65",
+      "kind": "text"
+    },
+    {
+      "source": "per person",
+      "translation": "за человека",
+      "kind": "text"
+    },
+    {
+      "source": "Children 0–4 years old: Free",
+      "translation": "Дети 0–4 лет: бесплатно",
+      "kind": "text"
+    },
+    {
+      "source": "Children 5+ years old: Full price",
+      "translation": "Дети от 5 лет: полная цена",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Включено",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer from / to hotel",
+      "translation": "Трансфер из / в отель",
+      "kind": "text"
+    },
+    {
+      "source": "Guide service",
+      "translation": "Услуги гида",
+      "kind": "text"
+    },
+    {
+      "source": "Program assistance",
+      "translation": "Сопровождение по программе",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance",
+      "translation": "Страховка",
+      "kind": "text"
+    },
+    {
+      "source": "Entrance tickets",
+      "translation": "Входные билеты",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Не включено",
+      "kind": "text"
+    },
+    {
+      "source": "Drinks",
+      "translation": "Напитки",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Личные расходы",
+      "kind": "text"
+    },
+    {
+      "source": "Program",
+      "translation": "Программа",
+      "kind": "text"
+    },
+    {
+      "source": "A full-day journey through Gazipaşa’s hidden coastline, combining turquoise bays, ancient cities and one of the region’s most impressive natural caves.",
+      "translation": "Полнодневное путешествие по скрытому побережью Газипаша, объединяющее бирюзовые бухты, древние города и одну из самых впечатляющих природных пещер региона.",
+      "kind": "text"
+    },
+    {
+      "source": "09:00",
+      "translation": "09:00",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or Apartment Pickup",
+      "translation": "Трансфер из отеля или апартаментов",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable pickup from your accommodation and departure toward the Gazipaşa region.",
+      "translation": "Комфортный трансфер от места проживания и отправление в регион Газипаша.",
+      "kind": "text"
+    },
+    {
+      "source": "Morning",
+      "translation": "Утро",
+      "kind": "text"
+    },
+    {
+      "source": "Visit the iconic natural sea arch and enjoy time for swimming, relaxing and panoramic photographs in crystal-clear turquoise water.",
+      "translation": "Посетите знаменитую природную морскую арку и проведите время за купанием, отдыхом и панорамными фотографиями в кристально чистой бирюзовой воде.",
+      "kind": "text"
+    },
+    {
+      "source": "Midday",
+      "translation": "В середине дня",
+      "kind": "text"
+    },
+    {
+      "source": "Explore the ruins, columns and historic atmosphere of this remarkable ancient city overlooking the Mediterranean Sea.",
+      "translation": "Исследуйте руины, колонны и историческую атмосферу этого замечательного древнего города с видом на Средиземное море.",
+      "kind": "text"
+    },
+    {
+      "source": "Afternoon",
+      "translation": "День",
+      "kind": "text"
+    },
+    {
+      "source": "Aytap / Iotape Ancient City",
+      "translation": "Древний город Aytap / Iotape",
+      "kind": "text"
+    },
+    {
+      "source": "Discover a unique coastal archaeological site where traces of the ancient world meet the blue Mediterranean.",
+      "translation": "Откройте уникальный прибрежный археологический объект, где следы древнего мира встречаются с синевой Средиземного моря.",
+      "kind": "text"
+    },
+    {
+      "source": "Walk inside the impressive cave and admire its natural stalactites, stalagmites and atmospheric rock formations.",
+      "translation": "Пройдите внутрь впечатляющей пещеры и полюбуйтесь её природными сталактитами, сталагмитами и атмосферными скальными образованиями.",
+      "kind": "text"
+    },
+    {
+      "source": "18:00",
+      "translation": "18:00",
+      "kind": "text"
+    },
+    {
+      "source": "Return Transfer",
+      "translation": "Обратный трансфер",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable return transfer to your hotel or apartment after the full-day experience.",
+      "translation": "Комфортный обратный трансфер в отель или апартаменты после насыщенного дня.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Фотогалерея",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Время тура",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Продолжительность:",
+      "kind": "text"
+    },
+    {
+      "source": "9 hours",
+      "translation": "9 часов",
+      "kind": "text"
+    },
+    {
+      "source": "Time:",
+      "translation": "Время:",
+      "kind": "text"
+    },
+    {
+      "source": "09:00 – 18:00",
+      "translation": "09:00 – 18:00",
+      "kind": "text"
+    },
+    {
+      "source": "Days:",
+      "translation": "Дни:",
+      "kind": "text"
+    },
+    {
+      "source": "Tuesday, Thursday, Saturday, Sunday",
+      "translation": "Вторник, четверг, суббота, воскресенье",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Что взять с собой",
+      "kind": "text"
+    },
+    {
+      "source": "Towel",
+      "translation": "Полотенце",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Солнцезащитные очки",
+      "kind": "text"
+    },
+    {
+      "source": "Swimsuit",
+      "translation": "Купальник",
+      "kind": "text"
+    },
+    {
+      "source": "Weather-appropriate clothes",
+      "translation": "Одежда по погоде",
+      "kind": "text"
+    },
+    {
+      "source": "Water",
+      "translation": "Вода",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable shoes",
+      "translation": "Удобная обувь",
+      "kind": "text"
+    },
+    {
+      "source": "Sunscreen",
+      "translation": "Солнцезащитный крем",
+      "kind": "text"
+    },
+    {
+      "source": "Camera",
+      "translation": "Камера",
+      "kind": "text"
+    },
+    {
+      "source": "Phone for contact",
+      "translation": "Телефон для связи",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Правила для детей",
+      "kind": "text"
+    },
+    {
+      "source": "0–4 years old:",
+      "translation": "0–4 года:",
+      "kind": "text"
+    },
+    {
+      "source": "Free",
+      "translation": "Бесплатно",
+      "kind": "text"
+    },
+    {
+      "source": "5+ years old:",
+      "translation": "От 5 лет:",
+      "kind": "text"
+    },
+    {
+      "source": "Full price",
+      "translation": "Полная цена",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Информация о трансфере",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from hotel or apartment address.",
+      "translation": "Трансфер от адреса отеля или апартаментов.",
+      "kind": "text"
+    },
+    {
+      "source": "Exact pickup time is confirmed after booking.",
+      "translation": "Точное время трансфера подтверждается после бронирования.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Часто задаваемые вопросы",
+      "kind": "text"
+    },
+    {
+      "source": "Is hotel pickup included?",
+      "translation": "Трансфер из отеля включён?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Pickup and return from hotels and apartments in the Alanya region are included.",
+      "translation": "Да. Трансфер туда и обратно из отелей и апартаментов в регионе Алании включён.",
+      "kind": "text"
+    },
+    {
+      "source": "Are entrance tickets included?",
+      "translation": "Входные билеты включены?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Entrance tickets listed in the tour program are included in the price.",
+      "translation": "Да. Входные билеты, указанные в программе тура, включены в стоимость.",
+      "kind": "text"
+    },
+    {
+      "source": "Can we swim during the tour?",
+      "translation": "Можно купаться во время тура?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Swimming time is planned at Delik Deniz when weather and sea conditions permit.",
+      "translation": "Да. Купание в Delik Deniz запланировано, если позволяют погода и состояние моря.",
+      "kind": "text"
+    },
+    {
+      "source": "Is this tour suitable for children?",
+      "translation": "Подходит ли этот тур детям?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Families with children are welcome. Comfortable shoes and sun protection are recommended.",
+      "translation": "Да. Семьи с детьми приветствуются. Рекомендуются удобная обувь и защита от солнца.",
+      "kind": "text"
+    },
+    {
+      "source": "What should I bring?",
+      "translation": "Что взять с собой?",
+      "kind": "text"
+    },
+    {
+      "source": "Please bring swimwear, a towel, sunscreen, water, comfortable shoes and a camera or phone.",
+      "translation": "Возьмите купальник, полотенце, солнцезащитный крем, воду, удобную обувь и камеру или телефон.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the route suitable for guests with limited mobility?",
+      "translation": "Подходит ли маршрут гостям с ограниченной мобильностью?",
+      "kind": "text"
+    },
+    {
+      "source": "Some locations include uneven terrain, steps and natural paths. Please contact us before booking so we can advise you.",
+      "translation": "В некоторых местах есть неровный рельеф, ступени и природные тропы. Свяжитесь с нами до бронирования, чтобы мы могли проконсультировать вас.",
+      "kind": "text"
+    },
+    {
+      "source": "Can the program change?",
+      "translation": "Может ли программа измениться?",
+      "kind": "text"
+    },
+    {
+      "source": "Minor changes may be made because of weather, sea conditions, road access or local operating requirements.",
+      "translation": "Незначительные изменения возможны из-за погоды, состояния моря, доступности дорог или местных операционных требований.",
+      "kind": "text"
+    },
+    {
+      "source": "Should I book in advance?",
+      "translation": "Нужно ли бронировать заранее?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Advance booking is recommended, especially during weekends and the high season.",
+      "translation": "Да. Рекомендуется бронировать заранее, особенно на выходные и в высокий сезон.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Есть вопросы?",
+      "kind": "text"
+    },
+    {
+      "source": "Message us on WhatsApp for Gazipasa Bays availability, pickup time, route details, price and what to bring.",
+      "translation": "Напишите нам в WhatsApp, чтобы узнать доступность Gazipasa Bays, время трансфера, детали маршрута, цену и что взять с собой.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Написать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Gazipasa Bays scenic view",
+      "translation": "Панорамный вид на бухты Газипаша",
+      "kind": "alt"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Предыдущее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Следующее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Миниатюры галереи",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Delik Deniz King's Bay",
+      "translation": "Delik Deniz — Королевская бухта",
+      "kind": "alt"
+    },
+    {
+      "source": "Iotape Ancient City",
+      "translation": "Древний город Iotape",
+      "kind": "alt"
+    },
+    {
+      "source": "Gazipasa Hidden Bays",
+      "translation": "Скрытые бухты Газипаша",
+      "kind": "alt"
+    },
+    {
+      "source": "Essential tour information",
+      "translation": "Основная информация о туре",
+      "kind": "aria-label"
+    }
+  ]
+}

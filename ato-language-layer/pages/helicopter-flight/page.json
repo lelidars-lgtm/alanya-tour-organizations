@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "helicopter-flight.html",
+  "approved_sha256": "e670cd14104f7d446d754f232cc57cff88aca004711c6043d356e83a955153a5",
+  "translation_entries": 144,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

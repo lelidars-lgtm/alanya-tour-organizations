@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "speed-boat-tour.html",
+  "approved_sha256": "a0359567fe5f5c3c5058786d44c2be9ea2ee2be95581aeba622eac8ec8817c9d",
+  "translation_entries": 152,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

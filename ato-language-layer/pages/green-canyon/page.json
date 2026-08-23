@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "green-canyon.html",
+  "approved_sha256": "c6595c018fa1191fc2d2d491ec4ba505d7027e20ac7b845bbf4e047fb7ba02c5",
+  "translation_entries": 154,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

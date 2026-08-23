@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "demre-myra-kekova.html",
+  "approved_sha256": "c674276d99c9979b0c19c081fbb86d6b7aaf55877e51f957de4682e1a9381630",
+  "translation_entries": 161,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

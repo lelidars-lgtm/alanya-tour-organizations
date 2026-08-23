@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "kvkk-privacy.html",
+  "approved_sha256": "443db8c74b339d8951aea80e79258456599692f8e21f03fb26c17525311fe9ce",
+  "translation_entries": 90,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

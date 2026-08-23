@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "jet-ski.html",
+  "approved_sha256": "d41999919420e641e7883a9855319e0c3017b4ac74708e088d0f241557eaca55",
+  "translation_entries": 146,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

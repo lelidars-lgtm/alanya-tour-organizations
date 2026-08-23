@@ -1,0 +1,633 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "DE",
+  "approved_page": "relax-boat-tour.html",
+  "approved_sha256": "e473caff84621a70fc5a11b2bd0d42203915bc607e6683bbf68ee9de8217a4a5",
+  "entries": [
+    {
+      "source": "Relax Boat Tour in Alanya | Alanya Tour Organizations",
+      "translation": "Relax Boat Tour in Alanya | Alanya Tour Organizations",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › Sea Experiences ›",
+      "translation": "Startseite › Meer-Erlebnisse ›",
+      "kind": "text"
+    },
+    {
+      "source": "Relax Boat Tour",
+      "translation": "Relax-Bootstour",
+      "kind": "text"
+    },
+    {
+      "source": "Sea Experience",
+      "translation": "Meereserlebnis",
+      "kind": "text"
+    },
+    {
+      "source": "Relax Boat Tour in Alanya",
+      "translation": "Relax-Bootstour in Alanya",
+      "kind": "text"
+    },
+    {
+      "source": "A peaceful day at sea with hidden bays, crystal-clear water and a calm premium atmosphere.",
+      "translation": "Ein ruhiger Tag auf dem Meer mit versteckten Buchten, kristallklarem Wasser und entspannter Premium-Atmosphäre.",
+      "kind": "text"
+    },
+    {
+      "source": "Escape the crowds aboard a small boat for only 10–15 guests. Discover secluded Mediterranean bays, enjoy refreshing swimming stops, a freshly prepared BBQ lunch and unlimited soft drinks.",
+      "translation": "Entfliehen Sie den Menschenmengen auf einem kleinen Boot für nur 10–15 Gäste. Entdecken Sie abgelegene Mittelmeerbuchten, genießen Sie erfrischende Badestopps, frisch zubereitetes BBQ-Mittagessen und unbegrenzte Softdrinks.",
+      "kind": "text"
+    },
+    {
+      "source": "6 Hours",
+      "translation": "6 Stunden",
+      "kind": "text"
+    },
+    {
+      "source": "BBQ Lunch",
+      "translation": "BBQ-Mittagessen",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer",
+      "translation": "Transfer",
+      "kind": "text"
+    },
+    {
+      "source": "Small Group",
+      "translation": "Kleine Gruppe",
+      "kind": "text"
+    },
+    {
+      "source": "Hidden Bays",
+      "translation": "Versteckte Buchten",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming Stops",
+      "translation": "Badestopps",
+      "kind": "text"
+    },
+    {
+      "source": "Soft Drinks",
+      "translation": "Softdrinks",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer Included",
+      "translation": "Transfer inklusive",
+      "kind": "text"
+    },
+    {
+      "source": "Family Friendly",
+      "translation": "Familienfreundlich",
+      "kind": "text"
+    },
+    {
+      "source": "Relax Atmosphere",
+      "translation": "Entspannte Atmosphäre",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Über WhatsApp buchen →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "Über dieses Erlebnis",
+      "kind": "text"
+    },
+    {
+      "source": "The Relax Boat Tour offers a quieter and more intimate way to experience the Mediterranean coast of Alanya.",
+      "translation": "Die Relax Boat Tour bietet eine ruhigere und persönlichere Art, die Mittelmeerküste von Alanya zu erleben.",
+      "kind": "text"
+    },
+    {
+      "source": "Unlike large party boats, this small-group cruise welcomes only 10–15 guests, creating a peaceful atmosphere without loud music, animation or crowded decks.",
+      "translation": "Anders als große Partyboote nimmt diese Kleingruppenfahrt nur 10–15 Gäste mit und bietet eine ruhige Atmosphäre ohne laute Musik, Animation oder überfüllte Decks.",
+      "kind": "text"
+    },
+    {
+      "source": "The route focuses on secluded bays and hidden coves that larger yachts cannot easily reach. During the day, you can swim in clear water, sunbathe on deck, relax in the shade and enjoy the sound of the sea.",
+      "translation": "Die Route konzentriert sich auf abgelegene Buchten und versteckte Küstenabschnitte, die größere Yachten nur schwer erreichen. Tagsüber können Sie im klaren Wasser schwimmen, an Deck sonnen, im Schatten entspannen und dem Meer lauschen.",
+      "kind": "text"
+    },
+    {
+      "source": "This experience is ideal for couples, families and guests who prefer comfort, privacy and genuine relaxation away from busy tourist routes.",
+      "translation": "Dieses Erlebnis ist ideal für Paare, Familien und Gäste, die Komfort, Privatsphäre und echte Entspannung abseits belebter Touristenrouten bevorzugen.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Highlights",
+      "kind": "text"
+    },
+    {
+      "source": "Small group of only 10–15 guests",
+      "translation": "Kleine Gruppe mit nur 10–15 Gästen",
+      "kind": "text"
+    },
+    {
+      "source": "No loud music, animation or party atmosphere",
+      "translation": "Keine laute Musik, Animation oder Partyatmosphäre",
+      "kind": "text"
+    },
+    {
+      "source": "Hidden bays and secluded Mediterranean coves",
+      "translation": "Versteckte Buchten und abgelegene Mittelmeer-Coves",
+      "kind": "text"
+    },
+    {
+      "source": "Multiple swimming stops in clear water",
+      "translation": "Mehrere Badestopps im klaren Wasser",
+      "kind": "text"
+    },
+    {
+      "source": "Freshly prepared BBQ lunch with salads and snacks",
+      "translation": "Frisch zubereitetes BBQ-Mittagessen mit Salaten und Snacks",
+      "kind": "text"
+    },
+    {
+      "source": "Unlimited soft drinks throughout the day",
+      "translation": "Unbegrenzte Softdrinks den ganzen Tag",
+      "kind": "text"
+    },
+    {
+      "source": "Perfect for couples, families and peaceful relaxation",
+      "translation": "Ideal für Paare, Familien und ruhige Erholung",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Details",
+      "kind": "text"
+    },
+    {
+      "source": "Duration: 6 hours",
+      "translation": "Dauer: 6 Stunden",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time: 09:00–15:00",
+      "translation": "Tourzeit: 09:00–15:00",
+      "kind": "text"
+    },
+    {
+      "source": "Group size: 10–15 guests",
+      "translation": "Gruppengröße: 10–15 Gäste",
+      "kind": "text"
+    },
+    {
+      "source": "Available every day",
+      "translation": "Täglich verfügbar",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment pickup",
+      "translation": "Abholung vom Hotel oder Apartment",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Preis",
+      "kind": "text"
+    },
+    {
+      "source": "€25",
+      "translation": "€25",
+      "kind": "text"
+    },
+    {
+      "source": "per person",
+      "translation": "pro Person",
+      "kind": "text"
+    },
+    {
+      "source": "Children 0–3: Free",
+      "translation": "Kinder 0–3: Kostenlos",
+      "kind": "text"
+    },
+    {
+      "source": "Children 4–11: Half price",
+      "translation": "Kinder 4–11: halber Preis",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Inklusive",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel transfer",
+      "translation": "Hoteltransfer",
+      "kind": "text"
+    },
+    {
+      "source": "BBQ lunch",
+      "translation": "BBQ-Mittagessen",
+      "kind": "text"
+    },
+    {
+      "source": "Fresh salads and snacks",
+      "translation": "Frische Salate und Snacks",
+      "kind": "text"
+    },
+    {
+      "source": "Unlimited soft drinks",
+      "translation": "Unbegrenzte Softdrinks",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming stops",
+      "translation": "Badestopps",
+      "kind": "text"
+    },
+    {
+      "source": "Small-group boat cruise",
+      "translation": "Bootsfahrt in kleiner Gruppe",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Nicht inklusive",
+      "kind": "text"
+    },
+    {
+      "source": "Alcoholic drinks",
+      "translation": "Alkoholische Getränke",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photos or videos",
+      "translation": "Professionelle Fotos oder Videos",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Persönliche Ausgaben",
+      "kind": "text"
+    },
+    {
+      "source": "Program",
+      "translation": "Programm",
+      "kind": "text"
+    },
+    {
+      "source": "A carefully balanced day of cruising, swimming, dining and complete relaxation in the quieter bays of the Alanya coastline.",
+      "translation": "Ein ausgewogener Tag mit Bootsfahrt, Schwimmen, Essen und völliger Entspannung in den ruhigeren Buchten der Küste von Alanya.",
+      "kind": "text"
+    },
+    {
+      "source": "09:00",
+      "translation": "09:00",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel Pickup",
+      "translation": "Hotelabholung",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable pickup from your hotel or apartment and transfer to the departure point.",
+      "translation": "Bequeme Abholung von Ihrem Hotel oder Apartment und Transfer zum Abfahrtspunkt.",
+      "kind": "text"
+    },
+    {
+      "source": "Departure",
+      "translation": "Abfahrt",
+      "kind": "text"
+    },
+    {
+      "source": "Welcome Aboard",
+      "translation": "Willkommen an Bord",
+      "kind": "text"
+    },
+    {
+      "source": "Meet the crew and begin your peaceful cruise in a relaxed small-group atmosphere.",
+      "translation": "Lernen Sie die Crew kennen und beginnen Sie Ihre ruhige Fahrt in entspannter Kleingruppenatmosphäre.",
+      "kind": "text"
+    },
+    {
+      "source": "Coastal Route",
+      "translation": "Küstenroute",
+      "kind": "text"
+    },
+    {
+      "source": "Discover secluded coves and scenic parts of the Mediterranean coastline away from large tourist boats.",
+      "translation": "Entdecken Sie abgelegene Buchten und malerische Abschnitte der Mittelmeerküste fernab großer Touristenboote.",
+      "kind": "text"
+    },
+    {
+      "source": "Crystal-Clear Water",
+      "translation": "Kristallklares Wasser",
+      "kind": "text"
+    },
+    {
+      "source": "Swim and snorkel in calm bays with time to sunbathe, relax on deck or rest in the shade.",
+      "translation": "Schwimmen und schnorcheln Sie in ruhigen Buchten und nehmen Sie sich Zeit zum Sonnenbaden, Entspannen an Deck oder Ausruhen im Schatten.",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch",
+      "translation": "Mittagessen",
+      "kind": "text"
+    },
+    {
+      "source": "BBQ Lunch on Board",
+      "translation": "BBQ-Mittagessen an Bord",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy freshly grilled dishes, salads and snacks together with unlimited soft drinks.",
+      "translation": "Genießen Sie frisch gegrillte Gerichte, Salate und Snacks zusammen mit unbegrenzten Softdrinks.",
+      "kind": "text"
+    },
+    {
+      "source": "Relax",
+      "translation": "Entspannen",
+      "kind": "text"
+    },
+    {
+      "source": "Free Time at Sea",
+      "translation": "Freizeit auf dem Meer",
+      "kind": "text"
+    },
+    {
+      "source": "Read, sunbathe and enjoy the peaceful Mediterranean atmosphere without loud entertainment.",
+      "translation": "Lesen Sie, sonnen Sie sich und genießen Sie die ruhige Mittelmeeratmosphäre ohne laute Unterhaltung.",
+      "kind": "text"
+    },
+    {
+      "source": "15:00",
+      "translation": "15:00",
+      "kind": "text"
+    },
+    {
+      "source": "Return & Hotel Transfer",
+      "translation": "Rückkehr & Hoteltransfer",
+      "kind": "text"
+    },
+    {
+      "source": "Return to the departure point followed by a comfortable transfer back to your hotel or apartment.",
+      "translation": "Rückkehr zum Abfahrtspunkt, anschließend bequemer Transfer zurück zu Ihrem Hotel oder Apartment.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Fotogalerie",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Tourzeit",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Dauer:",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time:",
+      "translation": "Tourzeit:",
+      "kind": "text"
+    },
+    {
+      "source": "09:00–15:00",
+      "translation": "09:00–15:00",
+      "kind": "text"
+    },
+    {
+      "source": "Availability:",
+      "translation": "Verfügbarkeit:",
+      "kind": "text"
+    },
+    {
+      "source": "Every day",
+      "translation": "Täglich",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Was Sie mitbringen sollten",
+      "kind": "text"
+    },
+    {
+      "source": "Towel",
+      "translation": "Handtuch",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Sonnenbrille",
+      "kind": "text"
+    },
+    {
+      "source": "Swimsuit",
+      "translation": "Badebekleidung",
+      "kind": "text"
+    },
+    {
+      "source": "Sunscreen",
+      "translation": "Sonnencreme",
+      "kind": "text"
+    },
+    {
+      "source": "Flip-flops or sandals",
+      "translation": "Flip-Flops oder Sandalen",
+      "kind": "text"
+    },
+    {
+      "source": "Camera / phone",
+      "translation": "Kamera / Telefon",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Kinderregelung",
+      "kind": "text"
+    },
+    {
+      "source": "0–3 years:",
+      "translation": "0–3 Jahre:",
+      "kind": "text"
+    },
+    {
+      "source": "Free",
+      "translation": "Kostenlos",
+      "kind": "text"
+    },
+    {
+      "source": "4–11 years:",
+      "translation": "4–11 Jahre:",
+      "kind": "text"
+    },
+    {
+      "source": "Half price",
+      "translation": "Halber Preis",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Informationen zur Abholung",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup is available from your hotel or apartment address.",
+      "translation": "Abholung ist von Ihrem Hotel oder Ihrer Apartmentadresse möglich.",
+      "kind": "text"
+    },
+    {
+      "source": "The exact pickup time is confirmed after booking.",
+      "translation": "Die genaue Abholzeit wird nach der Buchung bestätigt.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Häufig gestellte Fragen",
+      "kind": "text"
+    },
+    {
+      "source": "Is hotel transfer included?",
+      "translation": "Ist der Hoteltransfer inklusive?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Pickup and return from hotels and apartments in the Alanya area are included.",
+      "translation": "Ja. Abholung und Rücktransfer von Hotels und Apartments im Raum Alanya sind inklusive.",
+      "kind": "text"
+    },
+    {
+      "source": "Is BBQ lunch included?",
+      "translation": "Ist das BBQ-Mittagessen inklusive?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Fresh BBQ lunch together with unlimited soft drinks is included.",
+      "translation": "Ja. Frisches BBQ-Mittagessen und unbegrenzte Softdrinks sind inklusive.",
+      "kind": "text"
+    },
+    {
+      "source": "How many guests are on the boat?",
+      "translation": "Wie viele Gäste sind auf dem Boot?",
+      "kind": "text"
+    },
+    {
+      "source": "The tour is limited to approximately 10–15 guests for a peaceful atmosphere.",
+      "translation": "Für eine ruhige Atmosphäre ist die Tour auf etwa 10–15 Gäste begrenzt.",
+      "kind": "text"
+    },
+    {
+      "source": "Are there swimming stops?",
+      "translation": "Gibt es Badestopps?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Several swimming stops are made in beautiful secluded bays.",
+      "translation": "Ja. Es gibt mehrere Badestopps in schönen, abgelegenen Buchten.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the tour suitable for children?",
+      "translation": "Ist die Tour für Kinder geeignet?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. The tour is family-friendly and ideal for couples and families.",
+      "translation": "Ja. Die Tour ist familienfreundlich und ideal für Paare und Familien.",
+      "kind": "text"
+    },
+    {
+      "source": "What should I bring?",
+      "translation": "Was sollte ich mitbringen?",
+      "kind": "text"
+    },
+    {
+      "source": "Please bring swimwear, a towel, sunscreen, sunglasses and a camera.",
+      "translation": "Bitte bringen Sie Badebekleidung, Handtuch, Sonnencreme, Sonnenbrille und Kamera mit.",
+      "kind": "text"
+    },
+    {
+      "source": "Is insurance included?",
+      "translation": "Ist die Versicherung inklusive?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Insurance is included in the tour price.",
+      "translation": "Ja. Die Versicherung ist im Tourpreis enthalten.",
+      "kind": "text"
+    },
+    {
+      "source": "Should I book in advance?",
+      "translation": "Sollte ich im Voraus buchen?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Early booking is recommended, especially during the summer season.",
+      "translation": "Ja. Frühzeitige Buchung wird empfohlen, besonders in der Sommersaison.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Noch Fragen?",
+      "kind": "text"
+    },
+    {
+      "source": "Message us on WhatsApp for availability, route details, boat information and your exact pickup time.",
+      "translation": "Schreiben Sie uns auf WhatsApp für Verfügbarkeit, Routendetails, Bootsinformationen und Ihre genaue Abholzeit.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Auf WhatsApp schreiben →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Vorheriges Foto",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Nächstes Foto",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Galerie-Vorschaubilder",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Hidden Mediterranean bays",
+      "translation": "Versteckte Mittelmeerbuchten",
+      "kind": "alt"
+    },
+    {
+      "source": "Peaceful atmosphere on board",
+      "translation": "Ruhige Atmosphäre an Bord",
+      "kind": "alt"
+    },
+    {
+      "source": "Essential tour information",
+      "translation": "Wichtige Tourinformationen",
+      "kind": "aria-label"
+    }
+  ]
+}

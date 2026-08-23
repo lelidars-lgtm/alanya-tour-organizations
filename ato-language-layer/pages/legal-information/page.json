@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "legal-information.html",
+  "approved_sha256": "5ab2f03fae77eddabb2f97dcd4d6ee9f09fb72f85700de3b8690ebb4cfb92492",
+  "translation_entries": 60,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

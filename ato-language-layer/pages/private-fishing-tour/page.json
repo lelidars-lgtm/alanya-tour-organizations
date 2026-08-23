@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "private-fishing-tour.html",
+  "approved_sha256": "c06c5b0b7c209213fbeeb326aee0a71f408a55a123b00074c9cc4e32d5445ef7",
+  "translation_entries": 148,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

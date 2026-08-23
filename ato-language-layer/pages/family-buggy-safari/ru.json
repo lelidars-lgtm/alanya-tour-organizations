@@ -1,0 +1,683 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "family-buggy-safari.html",
+  "approved_sha256": "b70f88f863d39a12b10a0eafd655dff900483310ccf48232675e0b509d79849c",
+  "entries": [
+    {
+      "source": "Family Buggy Safari | ALANYA TOUR ORGANIZATIONS",
+      "translation": "Семейное багги-сафари | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home",
+      "translation": "Главная",
+      "kind": "text"
+    },
+    {
+      "source": "Extreme & Adventure",
+      "translation": "Экстрим и приключения",
+      "kind": "text"
+    },
+    {
+      "source": "Family Buggy Safari",
+      "translation": "Семейное багги-сафари",
+      "kind": "text"
+    },
+    {
+      "source": "Family Adventure",
+      "translation": "Семейное приключение",
+      "kind": "text"
+    },
+    {
+      "source": "Off-road Buggy Adventure • Forest Routes • River & Nature",
+      "translation": "Приключение на багги • Лесные маршруты • Река и природа",
+      "kind": "text"
+    },
+    {
+      "source": "Family Buggy Safari delivers an exciting mix of adrenaline, speed, and genuine off-road adventure across mountain routes, forest tracks, and natural landscapes along the Mediterranean coast.",
+      "translation": "Family Buggy Safari сочетает адреналин, скорость и настоящее внедорожное приключение на горных маршрутах, лесных тропах и среди природных пейзажей Средиземноморского побережья.",
+      "kind": "text"
+    },
+    {
+      "source": "OFF-ROAD",
+      "translation": "БЕЗДОРОЖЬЕ",
+      "kind": "text"
+    },
+    {
+      "source": "BUGGY SAFARI",
+      "translation": "БАГГИ-САФАРИ",
+      "kind": "text"
+    },
+    {
+      "source": "4 HOURS",
+      "translation": "4 ЧАСА",
+      "kind": "text"
+    },
+    {
+      "source": "TRANSFER",
+      "translation": "ТРАНСФЕР",
+      "kind": "text"
+    },
+    {
+      "source": "FAMILY BUGGY SAFARI",
+      "translation": "СЕМЕЙНОЕ БАГГИ-САФАРИ",
+      "kind": "text"
+    },
+    {
+      "source": "FOREST ROUTES",
+      "translation": "ЛЕСНЫЕ МАРШРУТЫ",
+      "kind": "text"
+    },
+    {
+      "source": "RIVER STOP",
+      "translation": "ОСТАНОВКА У РЕКИ",
+      "kind": "text"
+    },
+    {
+      "source": "FAMILY FRIENDLY",
+      "translation": "ПОДХОДИТ ДЛЯ СЕМЕЙ",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp",
+      "translation": "Забронировать в WhatsApp",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "Об этом впечатлении",
+      "kind": "text"
+    },
+    {
+      "source": "Family Buggy Safari in Alanya",
+      "translation": "Семейное багги-сафари в Аланье",
+      "kind": "text"
+    },
+    {
+      "source": "is an exciting off-road adventure for travelers who enjoy active experiences, speed, and unforgettable emotions.",
+      "translation": "— это захватывающее внедорожное приключение для тех, кто любит активный отдых, скорость и яркие эмоции.",
+      "kind": "text"
+    },
+    {
+      "source": "The tour combines thrilling experiences, beautiful natural scenery, and the atmosphere of a real adventure among mountains, forest roads, and picturesque routes along the Mediterranean coast.",
+      "translation": "Тур сочетает яркие впечатления, красивую природу и атмосферу настоящего приключения среди гор, лесных дорог и живописных маршрутов Средиземноморского побережья.",
+      "kind": "text"
+    },
+    {
+      "source": "The Family Buggy Safari follows forest trails, mountain roads, dusty and muddy tracks, and natural routes far from crowded tourist areas.",
+      "translation": "Маршрут Family Buggy Safari проходит по лесным тропам, горным дорогам, пыльным и грязевым участкам вдали от многолюдных туристических зон.",
+      "kind": "text"
+    },
+    {
+      "source": "After the transfer to the safari base, you will receive a detailed safety briefing, an introduction to the buggy controls, protective equipment, and a test drive of approximately 15 minutes.",
+      "translation": "После трансфера на базу вы пройдёте подробный инструктаж по безопасности, познакомитесь с управлением багги, получите защитное снаряжение и совершите тестовую поездку примерно на 15 минут.",
+      "kind": "text"
+    },
+    {
+      "source": "No previous buggy-driving experience is required. The instructors will help you become comfortable and confident before the main route begins.",
+      "translation": "Опыт вождения багги не требуется. Инструкторы помогут освоиться и почувствовать уверенность до начала основного маршрута.",
+      "kind": "text"
+    },
+    {
+      "source": "During the route, there is a stop by a scenic mountain river where you can relax, cool down, and take memorable photos.",
+      "translation": "По маршруту предусмотрена остановка у живописной горной реки, где можно отдохнуть, освежиться и сделать памятные фотографии.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Главные впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "Off-road buggy safari",
+      "translation": "Внедорожное багги-сафари",
+      "kind": "text"
+    },
+    {
+      "source": "Mountain and forest routes",
+      "translation": "Горные и лесные маршруты",
+      "kind": "text"
+    },
+    {
+      "source": "Dusty and muddy tracks",
+      "translation": "Пыльные и грязевые трассы",
+      "kind": "text"
+    },
+    {
+      "source": "Stop by a mountain river",
+      "translation": "Остановка у горной реки",
+      "kind": "text"
+    },
+    {
+      "source": "Test drive and safety briefing",
+      "translation": "Тестовая поездка и инструктаж",
+      "kind": "text"
+    },
+    {
+      "source": "Suitable for families and groups of friends",
+      "translation": "Подходит семьям и компаниям друзей",
+      "kind": "text"
+    },
+    {
+      "source": "Excitement, adventure, and adrenaline",
+      "translation": "Эмоции, приключение и адреналин",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Детали",
+      "kind": "text"
+    },
+    {
+      "source": "Duration: approximately 4 hours",
+      "translation": "Продолжительность: около 4 часов",
+      "kind": "text"
+    },
+    {
+      "source": "Morning tour: 08:30–12:30",
+      "translation": "Утренний тур: 08:30–12:30",
+      "kind": "text"
+    },
+    {
+      "source": "Afternoon tour: 13:30–17:30",
+      "translation": "Дневной тур: 13:30–17:30",
+      "kind": "text"
+    },
+    {
+      "source": "Operating days: every day",
+      "translation": "Дни проведения: ежедневно",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Цена",
+      "kind": "text"
+    },
+    {
+      "source": "€35",
+      "translation": "€35",
+      "kind": "text"
+    },
+    {
+      "source": "Starting price",
+      "translation": "Цена от",
+      "kind": "text"
+    },
+    {
+      "source": "1 person — €35",
+      "translation": "1 человек — €35",
+      "kind": "text"
+    },
+    {
+      "source": "2 people sharing one buggy — €50 per buggy",
+      "translation": "2 человека на одном багги — €50 за багги",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Включено",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel pickup and return transfer",
+      "translation": "Трансфер из отеля и обратно",
+      "kind": "text"
+    },
+    {
+      "source": "Professional instructor assistance",
+      "translation": "Помощь профессионального инструктора",
+      "kind": "text"
+    },
+    {
+      "source": "Protective equipment",
+      "translation": "Защитное снаряжение",
+      "kind": "text"
+    },
+    {
+      "source": "Safety briefing and test drive",
+      "translation": "Инструктаж и тестовая поездка",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance",
+      "translation": "Страховка",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Не включено",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photo and video service",
+      "translation": "Профессиональная фото- и видеосъёмка",
+      "kind": "text"
+    },
+    {
+      "source": "Drinks",
+      "translation": "Напитки",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Личные расходы",
+      "kind": "text"
+    },
+    {
+      "source": "Program",
+      "translation": "Программа",
+      "kind": "text"
+    },
+    {
+      "source": "A carefully planned family route combining safety briefing, test driving, forest and mountain off-road trails, and a relaxing stop by a mountain river.",
+      "translation": "Продуманный семейный маршрут сочетает инструктаж, тестовую поездку, лесные и горные внедорожные трассы и спокойную остановку у горной реки.",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup",
+      "translation": "Трансфер",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel / Apartment Pickup",
+      "translation": "Трансфер из отеля / апартаментов",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer from your hotel or apartment to the buggy safari base.",
+      "translation": "Трансфер из вашего отеля или апартаментов на базу багги-сафари.",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival",
+      "translation": "Прибытие",
+      "kind": "text"
+    },
+    {
+      "source": "Safety Briefing",
+      "translation": "Инструктаж по безопасности",
+      "kind": "text"
+    },
+    {
+      "source": "Professional instructors explain safety rules and provide protective equipment.",
+      "translation": "Профессиональные инструкторы объясняют правила безопасности и выдают защитное снаряжение.",
+      "kind": "text"
+    },
+    {
+      "source": "Test Drive",
+      "translation": "Тестовая поездка",
+      "kind": "text"
+    },
+    {
+      "source": "Buggy Training",
+      "translation": "Обучение управлению багги",
+      "kind": "text"
+    },
+    {
+      "source": "A 15-minute test drive helps you become familiar with the buggy before the main route.",
+      "translation": "15-минутная тестовая поездка помогает освоиться с багги перед основным маршрутом.",
+      "kind": "text"
+    },
+    {
+      "source": "Safari",
+      "translation": "Сафари",
+      "kind": "text"
+    },
+    {
+      "source": "Off-road Adventure",
+      "translation": "Внедорожное приключение",
+      "kind": "text"
+    },
+    {
+      "source": "Ride through forest tracks, mountain roads, and dusty and muddy off-road trails.",
+      "translation": "Проезжайте по лесным трассам, горным дорогам и пыльным и грязевым внедорожным участкам.",
+      "kind": "text"
+    },
+    {
+      "source": "River Stop",
+      "translation": "Остановка у реки",
+      "kind": "text"
+    },
+    {
+      "source": "Nature Break",
+      "translation": "Отдых на природе",
+      "kind": "text"
+    },
+    {
+      "source": "Relax near the mountain river, enjoy the natural surroundings, and take photos.",
+      "translation": "Отдохните у горной реки, насладитесь природой и сделайте фотографии.",
+      "kind": "text"
+    },
+    {
+      "source": "Return",
+      "translation": "Возвращение",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer Back",
+      "translation": "Обратный трансфер",
+      "kind": "text"
+    },
+    {
+      "source": "Return transfer to your hotel or apartment address.",
+      "translation": "Обратный трансфер до вашего отеля или апартаментов.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Фотогалерея",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Время тура",
+      "kind": "text"
+    },
+    {
+      "source": "Approximately 4 hours",
+      "translation": "Около 4 часов",
+      "kind": "text"
+    },
+    {
+      "source": "Morning: 08:30–12:30",
+      "translation": "Утро: 08:30–12:30",
+      "kind": "text"
+    },
+    {
+      "source": "Afternoon: 13:30–17:30",
+      "translation": "День: 13:30–17:30",
+      "kind": "text"
+    },
+    {
+      "source": "Available every day",
+      "translation": "Доступно ежедневно",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Что взять с собой",
+      "kind": "text"
+    },
+    {
+      "source": "Bandana or face cover",
+      "translation": "Бандана или защита для лица",
+      "kind": "text"
+    },
+    {
+      "source": "Weather-appropriate clothes",
+      "translation": "Одежда по погоде",
+      "kind": "text"
+    },
+    {
+      "source": "Camera & phone",
+      "translation": "Камера и телефон",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Солнцезащитные очки",
+      "kind": "text"
+    },
+    {
+      "source": "Sunscreen",
+      "translation": "Солнцезащитный крем",
+      "kind": "text"
+    },
+    {
+      "source": "Swimsuit & towel",
+      "translation": "Купальник и полотенце",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Правила для детей",
+      "kind": "text"
+    },
+    {
+      "source": "Children 5–11 years can ride as the second passenger in a shared buggy",
+      "translation": "Дети 5–11 лет могут ехать вторым пассажиром в общем багги",
+      "kind": "text"
+    },
+    {
+      "source": "Shared buggy for 2 people — €50 per buggy",
+      "translation": "Общий багги для 2 человек — €50 за багги",
+      "kind": "text"
+    },
+    {
+      "source": "Guests aged 12 and older are charged at the adult rate",
+      "translation": "Гости от 12 лет оплачивают взрослый тариф",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Информация о трансфере",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from hotel or apartment",
+      "translation": "Трансфер из отеля или апартаментов",
+      "kind": "text"
+    },
+    {
+      "source": "Exact pickup time after booking",
+      "translation": "Точное время трансфера после бронирования",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Часто задаваемые вопросы",
+      "kind": "text"
+    },
+    {
+      "source": "Q:",
+      "translation": "Вопрос:",
+      "kind": "text"
+    },
+    {
+      "source": "Do I need a driving licence?",
+      "translation": "Нужны ли водительские права?",
+      "kind": "text"
+    },
+    {
+      "source": "A:",
+      "translation": "Ответ:",
+      "kind": "text"
+    },
+    {
+      "source": "A B1 driving licence is required to independently drive a qualifying buggy on public roads in Turkey. Requirements for this guided off-road tour may differ depending on the vehicle classification and operator rules, so please confirm them when booking.",
+      "translation": "Для самостоятельного управления подходящим багги на дорогах общего пользования в Турции требуется водительское удостоверение категории B1. Для этого организованного внедорожного тура требования могут отличаться в зависимости от классификации транспортного средства и правил оператора, поэтому уточните их при бронировании.",
+      "kind": "text"
+    },
+    {
+      "source": "Can beginners drive a buggy?",
+      "translation": "Могут ли новички управлять багги?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. No previous buggy-driving experience is required. A safety briefing and approximately 15-minute test drive are provided before the main route.",
+      "translation": "Да. Предыдущий опыт не требуется. Перед основным маршрутом проводится инструктаж по безопасности и тестовая поездка примерно на 15 минут.",
+      "kind": "text"
+    },
+    {
+      "source": "Can children join the tour?",
+      "translation": "Могут ли дети участвовать в туре?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Children aged 5–11 can ride as the second passenger in a shared buggy. Guests aged 12 and older are charged at the adult rate.",
+      "translation": "Да. Дети 5–11 лет могут ехать вторым пассажиром в общем багги. Гости от 12 лет оплачивают взрослый тариф.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the tour suitable during pregnancy?",
+      "translation": "Подходит ли тур во время беременности?",
+      "kind": "text"
+    },
+    {
+      "source": "No. Buggy riding during pregnancy is strongly discouraged because the route may include vibration, sudden movement, uneven ground, mud, and off-road impacts.",
+      "translation": "Нет. Катание на багги во время беременности настоятельно не рекомендуется, поскольку маршрут может включать вибрацию, резкие движения, неровный грунт, грязь и внедорожные удары.",
+      "kind": "text"
+    },
+    {
+      "source": "Will our clothes get dusty or wet?",
+      "translation": "Одежда может испачкаться или намокнуть?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. The route may include dusty, muddy, and wet sections. Wear comfortable clothes that can get dirty and bring a bandana, sunglasses, and a change of clothes if needed.",
+      "translation": "Да. На маршруте могут быть пыльные, грязевые и мокрые участки. Наденьте удобную одежду, которую не жалко испачкать, и возьмите бандану, солнцезащитные очки и при необходимости сменную одежду.",
+      "kind": "text"
+    },
+    {
+      "source": "What happens in bad weather?",
+      "translation": "Что происходит при плохой погоде?",
+      "kind": "text"
+    },
+    {
+      "source": "The route may be adjusted, delayed, or cancelled if weather conditions make the tour unsafe. Final information is provided before departure.",
+      "translation": "Маршрут может быть изменён, задержан или отменён, если погодные условия делают тур небезопасным. Окончательная информация предоставляется перед отправлением.",
+      "kind": "text"
+    },
+    {
+      "source": "Is hotel transfer included?",
+      "translation": "Включён ли трансфер из отеля?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Pickup and return transfer from your hotel or apartment are included. The exact pickup time is confirmed after booking.",
+      "translation": "Да. Трансфер из отеля или апартаментов и обратно включён. Точное время подтверждается после бронирования.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Есть вопросы?",
+      "kind": "text"
+    },
+    {
+      "source": "Write to us on WhatsApp — we will help you book Family Buggy Safari and answer all your questions.",
+      "translation": "Напишите нам в WhatsApp — мы поможем забронировать Family Buggy Safari и ответим на все вопросы.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp",
+      "translation": "Написать в WhatsApp",
+      "kind": "text"
+    },
+    {
+      "source": "Important Family Buggy Safari Safety Rules",
+      "translation": "Важные правила безопасности Family Buggy Safari",
+      "kind": "text"
+    },
+    {
+      "source": "Although this is presented as a family experience, the route includes vibration, uneven terrain, mud, dust and sudden movement. Participation, driver approval, passenger seating and route access remain subject to the operator’s final safety assessment.",
+      "translation": "Хотя тур позиционируется как семейный, маршрут включает вибрацию, неровный рельеф, грязь, пыль и резкие движения. Участие, допуск водителя, размещение пассажиров и доступ к маршруту зависят от окончательной оценки безопасности оператором.",
+      "kind": "text"
+    },
+    {
+      "source": "Briefing & Instructor Rules",
+      "translation": "Инструктаж и правила инструктора",
+      "kind": "text"
+    },
+    {
+      "source": "Every driver must attend the briefing and complete the test drive. Guests must follow the instructor, keep their place in the group and stop immediately when directed.",
+      "translation": "Каждый водитель обязан пройти инструктаж и тестовую поездку. Гости должны следовать за инструктором, сохранять своё место в группе и немедленно останавливаться по команде.",
+      "kind": "text"
+    },
+    {
+      "source": "Children & Passenger Seating",
+      "translation": "Дети и размещение пассажиров",
+      "kind": "text"
+    },
+    {
+      "source": "Children may ride only in the passenger position approved by the operator. They must remain seated, use the fitted restraint and stay under continuous adult supervision throughout the route and stops.",
+      "translation": "Дети могут ехать только на пассажирском месте, одобренном оператором. Они должны оставаться сидя, использовать предусмотренное удерживающее устройство и постоянно находиться под присмотром взрослого на маршруте и остановках.",
+      "kind": "text"
+    },
+    {
+      "source": "Protective Equipment & Clothing",
+      "translation": "Защитное снаряжение и одежда",
+      "kind": "text"
+    },
+    {
+      "source": "Use all protective equipment supplied by the operator. Wear closed secure footwear and practical clothing. Loose scarves, jewellery, phones and unsecured belongings must not interfere with driving or moving parts.",
+      "translation": "Используйте всё защитное снаряжение, предоставленное оператором. Надевайте закрытую устойчивую обувь и практичную одежду. Свободные шарфы, украшения, телефоны и незакреплённые вещи не должны мешать управлению или движущимся частям.",
+      "kind": "text"
+    },
+    {
+      "source": "River Stop, Weather & Route",
+      "translation": "Остановка у реки, погода и маршрут",
+      "kind": "text"
+    },
+    {
+      "source": "At the river stop, children must remain with an adult and avoid slippery rocks or moving water. The operator may change, shorten, delay or cancel the route because of weather, terrain, vehicle condition or participant safety.",
+      "translation": "На остановке у реки дети должны оставаться со взрослым и избегать скользких камней и течения. Оператор может изменить, сократить, задержать или отменить маршрут из-за погоды, рельефа, состояния техники или безопасности участников.",
+      "kind": "text"
+    },
+    {
+      "source": "The operator’s briefing, vehicle-specific rules, child-passenger approval and instructor decisions always take priority over the advertised route, timing, river stop and general participation information.",
+      "translation": "Инструктаж оператора, правила конкретного транспортного средства, допуск ребёнка-пассажира и решения инструктора всегда имеют приоритет над заявленным маршрутом, временем, остановкой у реки и общей информацией об участии.",
+      "kind": "text"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Предыдущее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Family Buggy Safari briefing",
+      "translation": "Инструктаж Family Buggy Safari",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Следующее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Миниатюры галереи",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Family Buggy Safari muddy route",
+      "translation": "Грязевой маршрут Family Buggy Safari",
+      "kind": "alt"
+    },
+    {
+      "source": "Family Buggy Safari river stop",
+      "translation": "Остановка у реки на Family Buggy Safari",
+      "kind": "alt"
+    },
+    {
+      "source": "Family Buggy Safari river crossing",
+      "translation": "Переправа через реку на Family Buggy Safari",
+      "kind": "alt"
+    },
+    {
+      "source": "Family Buggy Safari collage",
+      "translation": "Коллаж Family Buggy Safari",
+      "kind": "alt"
+    },
+    {
+      "source": "Family Buggy Safari mountain route",
+      "translation": "Горный маршрут Family Buggy Safari",
+      "kind": "alt"
+    },
+    {
+      "source": "Essential tour information",
+      "translation": "Основная информация о туре",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Important family buggy safari safety rules",
+      "translation": "Важные правила безопасности семейного багги-сафари",
+      "kind": "aria-label"
+    }
+  ]
+}

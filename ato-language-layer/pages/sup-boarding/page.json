@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "sup-boarding.html",
+  "approved_sha256": "cfd55cb1125899604a7e8b4f6d68c7c27f20cf8641917946c5a8a09bab035769",
+  "translation_entries": 153,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

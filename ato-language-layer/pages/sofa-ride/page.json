@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "sofa-ride.html",
+  "approved_sha256": "f63e91fcc5f0d555864a6569ed1ab86599e396157614c0832dbf653e46ad0ded",
+  "translation_entries": 149,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

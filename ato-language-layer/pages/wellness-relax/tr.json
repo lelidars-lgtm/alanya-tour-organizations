@@ -1,0 +1,268 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "wellness-relax.html",
+  "approved_sha256": "0937699d8aaf188d0ba083e47241d99ce028b916deb83a1ed2efbfc3bc9e8002",
+  "entries": [
+    {
+      "source": "Wellness & Relax | ALANYA TOUR ORGANIZATIONS",
+      "translation": "Wellness & Rahatlama | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "Wellness & Relax in Alanya: Turkish Hammam and Turkish Massage & Spa with authentic rituals, professional service, relaxing atmosphere and hotel transfer.",
+      "translation": "Alanya'da Wellness & Relax: otantik ritüeller, profesyonel hizmet, dinlendirici atmosfer ve otel transferiyle Türk Hamamı ve Türk Masajı & Spa.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › Tours ›",
+      "translation": "Ana Sayfa › Turlar ›",
+      "kind": "text"
+    },
+    {
+      "source": "Wellness & Relax",
+      "translation": "Wellness & Rahatlama",
+      "kind": "text"
+    },
+    {
+      "source": "Authentic Turkish Wellness in Alanya",
+      "translation": "Alanya'da Otantik Türk Wellness Deneyimi",
+      "kind": "text"
+    },
+    {
+      "source": "Wellness",
+      "translation": "Wellness",
+      "kind": "text"
+    },
+    {
+      "source": "& Relax",
+      "translation": "& Rahatlama",
+      "kind": "text"
+    },
+    {
+      "source": "Restore your body, relax your mind and enjoy authentic Turkish wellness rituals in Alanya. Choose a traditional hammam experience or professional massage and spa treatments for complete relaxation.",
+      "translation": "Bedeninizi yenileyin, zihninizi dinlendirin ve Alanya'da otantik Türk wellness ritüellerinin keyfini çıkarın. Tam rahatlama için geleneksel hamamı veya profesyonel masaj ve spa uygulamalarını seçin.",
+      "kind": "text"
+    },
+    {
+      "source": "Authentic",
+      "translation": "Otantik",
+      "kind": "text"
+    },
+    {
+      "source": "Turkish Hammam",
+      "translation": "Türk Hamamı",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury",
+      "translation": "Lüks",
+      "kind": "text"
+    },
+    {
+      "source": "Spa Rituals",
+      "translation": "Spa Ritüelleri",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel Pickup",
+      "translation": "Otelden Alınma",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Ultimate",
+      "translation": "Üst Düzey",
+      "kind": "text"
+    },
+    {
+      "source": "Relaxation",
+      "translation": "Rahatlama",
+      "kind": "text"
+    },
+    {
+      "source": "Featured Wellness Experiences",
+      "translation": "Öne Çıkan Wellness Deneyimleri",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "WhatsApp'tan Rezerve Et →",
+      "kind": "text"
+    },
+    {
+      "source": "Hammam",
+      "translation": "Hamam",
+      "kind": "text"
+    },
+    {
+      "source": "1",
+      "translation": "1",
+      "kind": "text"
+    },
+    {
+      "source": "From",
+      "translation": "Başlangıç",
+      "kind": "text"
+    },
+    {
+      "source": "€35",
+      "translation": "€35",
+      "kind": "text"
+    },
+    {
+      "source": "/ person",
+      "translation": "/ kişi",
+      "kind": "text"
+    },
+    {
+      "source": "Traditional Turkish bath with steam, peeling and foam massage for deep purification, relaxation and a true hammam ritual.",
+      "translation": "Derin arınma, rahatlama ve gerçek bir hamam ritüeli için buhar, kese ve köpük masajlı geleneksel Türk hamamı.",
+      "kind": "text"
+    },
+    {
+      "source": "Steam Bath",
+      "translation": "Buhar Banyosu",
+      "kind": "text"
+    },
+    {
+      "source": "Peeling",
+      "translation": "Kese",
+      "kind": "text"
+    },
+    {
+      "source": "Foam Massage",
+      "translation": "Köpük Masajı",
+      "kind": "text"
+    },
+    {
+      "source": "Daily",
+      "translation": "Her Gün",
+      "kind": "text"
+    },
+    {
+      "source": "Classic",
+      "translation": "Klasik",
+      "kind": "text"
+    },
+    {
+      "source": "→",
+      "translation": "→",
+      "kind": "text"
+    },
+    {
+      "source": "Spa",
+      "translation": "Spa",
+      "kind": "text"
+    },
+    {
+      "source": "2",
+      "translation": "2",
+      "kind": "text"
+    },
+    {
+      "source": "Turkish Massage & Spa",
+      "translation": "Türk Masajı & Spa",
+      "kind": "text"
+    },
+    {
+      "source": "€45",
+      "translation": "€45",
+      "kind": "text"
+    },
+    {
+      "source": "Professional massage and spa treatments to relieve stress, ease tension and restore your energy after travel or active tours.",
+      "translation": "Seyahat veya aktif turlar sonrasında stresi azaltmak, kas gerginliğini hafifletmek ve enerjinizi yenilemek için profesyonel masaj ve spa uygulamaları.",
+      "kind": "text"
+    },
+    {
+      "source": "Massage",
+      "translation": "Masaj",
+      "kind": "text"
+    },
+    {
+      "source": "Spa Treatments",
+      "translation": "Spa Uygulamaları",
+      "kind": "text"
+    },
+    {
+      "source": "Gold",
+      "translation": "Altın",
+      "kind": "text"
+    },
+    {
+      "source": "Book Your Wellness Experience",
+      "translation": "Wellness Deneyimini Rezerve Et",
+      "kind": "text"
+    },
+    {
+      "source": "Choose Turkish Hammam or Turkish Massage & Spa and confirm your preferred time via WhatsApp.",
+      "translation": "Türk Hamamı veya Turkish Massage & Spa seçin ve tercih ettiğiniz saati WhatsApp üzerinden teyit edin.",
+      "kind": "text"
+    },
+    {
+      "source": "FREE HOTEL TRANSFER",
+      "translation": "ÜCRETSİZ OTEL TRANSFERİ",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup & Drop-off Included",
+      "translation": "Alış & Bırakış Dahil",
+      "kind": "text"
+    },
+    {
+      "source": "DAILY AVAILABLE",
+      "translation": "HER GÜN MÜSAİT",
+      "kind": "text"
+    },
+    {
+      "source": "Morning • Afternoon • Evening",
+      "translation": "Sabah • Öğleden Sonra • Akşam",
+      "kind": "text"
+    },
+    {
+      "source": "PRIVATE & GROUP OPTIONS",
+      "translation": "ÖZEL & GRUP SEÇENEKLERİ",
+      "kind": "text"
+    },
+    {
+      "source": "Solo • Couples • Families",
+      "translation": "Solo • Çiftler • Aileler",
+      "kind": "text"
+    },
+    {
+      "source": "TOP RATED EXPERIENCE",
+      "translation": "YÜKSEK PUANLI DENEYİM",
+      "kind": "text"
+    },
+    {
+      "source": "Relax • Recharge • Feel Renewed",
+      "translation": "Rahatla • Yenilen • Tazelen",
+      "kind": "text"
+    },
+    {
+      "source": "Wellness and relaxation symbol",
+      "translation": "Wellness ve rahatlama sembolü",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Turkish Hammam in Alanya",
+      "translation": "Alanya'da Türk Hamamı",
+      "kind": "alt"
+    },
+    {
+      "source": "Turkish Massage and Spa in Alanya",
+      "translation": "Alanya'da Türk Masajı ve Spa",
+      "kind": "alt"
+    }
+  ]
+}

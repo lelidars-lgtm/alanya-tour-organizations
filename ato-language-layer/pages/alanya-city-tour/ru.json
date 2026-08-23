@@ -1,0 +1,768 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "alanya-city-tour.html",
+  "approved_sha256": "809be8573248853f2344d40a50b784011250ba388101ea7a1162aefe1bed707a",
+  "entries": [
+    {
+      "source": "Alanya Sunset City Tour with Cable Car | Alanya Tour Organizations",
+      "translation": "Вечерний обзорный тур по Алании с канатной дорогой | Alanya Tour Organizations",
+      "kind": "title"
+    },
+    {
+      "source": "Explore Alanya Panorama, Alanya Castle, Cleopatra Beach and the Damlataş area on a sunset city tour with hotel transfer, guide service, insurance and round-trip cable-car ticket included.",
+      "translation": "Исследуйте панораму Алании, крепость Алании, пляж Клеопатры и район Дамлаташ во время вечернего обзорного тура с включёнными трансфером из отеля, гидом, страховкой и билетом на канатную дорогу туда и обратно.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › History & Culture ›",
+      "translation": "Главная › История и культура ›",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya Sunset City Tour",
+      "translation": "Вечерняя обзорная экскурсия по Аланье",
+      "kind": "text"
+    },
+    {
+      "source": "History & Culture • Sunset Experience",
+      "translation": "История и культура • Впечатления на закате",
+      "kind": "text"
+    },
+    {
+      "source": "Panorama • Alanya Castle • Round-Trip Cable Car • Cleopatra Beach • Damlataş Area",
+      "translation": "Панорама • Крепость Алании • Канатная дорога туда и обратно • Пляж Клеопатры • Район Дамлаташ",
+      "kind": "text"
+    },
+    {
+      "source": "Discover Alanya’s main viewpoints and historic castle district, ride the cable car, enjoy free time and seasonal swimming at Cleopatra Beach, and explore the Damlataş area.",
+      "translation": "Откройте главные смотровые площадки Алании и исторический район крепости, прокатитесь по канатной дороге, проведите свободное время и искупайтесь по сезону на пляже Клеопатры, а также исследуйте район Дамлаташ.",
+      "kind": "text"
+    },
+    {
+      "source": "APPROX. 5–6 HOURS",
+      "translation": "ПРИМЕРНО 5–6 ЧАСОВ",
+      "kind": "text"
+    },
+    {
+      "source": "ROUND-TRIP CABLE CAR",
+      "translation": "КАНАТНАЯ ДОРОГА ТУДА И ОБРАТНО",
+      "kind": "text"
+    },
+    {
+      "source": "SUNSET PANORAMA",
+      "translation": "ПАНОРАМА ЗАКАТА",
+      "kind": "text"
+    },
+    {
+      "source": "HOTEL TRANSFER",
+      "translation": "ТРАНСФЕР ИЗ ОТЕЛЯ",
+      "kind": "text"
+    },
+    {
+      "source": "Sunset Tour",
+      "translation": "Закатный тур",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya Panorama",
+      "translation": "Панорама Алании",
+      "kind": "text"
+    },
+    {
+      "source": "Castle District",
+      "translation": "Район крепости",
+      "kind": "text"
+    },
+    {
+      "source": "Cable Car Included",
+      "translation": "Канатная дорога включена",
+      "kind": "text"
+    },
+    {
+      "source": "Cleopatra Beach",
+      "translation": "Пляж Клеопатры",
+      "kind": "text"
+    },
+    {
+      "source": "Seasonal Swimming",
+      "translation": "Сезонное купание",
+      "kind": "text"
+    },
+    {
+      "source": "Damlataş Area",
+      "translation": "Район Дамлаташ",
+      "kind": "text"
+    },
+    {
+      "source": "Daily by Confirmation",
+      "translation": "Ежедневно по подтверждению",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Забронировать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "Об этом впечатлении",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya Sunset City Tour is an afternoon and evening route combining the city’s panoramic terrace, castle district, cable car and famous western coastline.",
+      "translation": "Alanya Sunset City Tour — дневной и вечерний маршрут, объединяющий панорамную террасу города, район крепости, канатную дорогу и знаменитое западное побережье.",
+      "kind": "text"
+    },
+    {
+      "source": "The bus makes confirmed stops at the Alanya panoramic terrace and in the castle area before continuing to Cleopatra Beach and the Damlataş district.",
+      "translation": "Автобус делает подтверждённые остановки на панорамной террасе Алании и в районе крепости, после чего направляется к пляжу Клеопатры и в район Дамлаташ.",
+      "kind": "text"
+    },
+    {
+      "source": "A round-trip cable-car ticket is included. The cable car connects the Damlataş area with the upper castle district and offers elevated views of Cleopatra Beach, the city and the Mediterranean.",
+      "translation": "Билет на канатную дорогу туда и обратно включён. Канатная дорога соединяет район Дамлаташ с верхней частью крепости и открывает виды на пляж Клеопатры, город и Средиземное море.",
+      "kind": "text"
+    },
+    {
+      "source": "At Cleopatra Beach, guests receive free time for relaxing and seasonal swimming, subject to weather and sea conditions. Damlataş Cave can be visited during the stop; its entrance fee is paid separately unless otherwise confirmed.",
+      "translation": "На пляже Клеопатры гости получают свободное время для отдыха и сезонного купания при подходящей погоде и состоянии моря. Во время остановки можно посетить пещеру Дамлаташ; вход оплачивается отдельно, если не подтверждено иное.",
+      "kind": "text"
+    },
+    {
+      "source": "The exact route order and timing may change according to season, sunset time, weather, traffic, cable-car operation and local access conditions.",
+      "translation": "Точный порядок маршрута и время могут меняться в зависимости от сезона, времени заката, погоды, трафика, работы канатной дороги и местных условий доступа.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Главные впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya panoramic terrace and I LOVE ALANYA viewpoint area",
+      "translation": "Панорамная терраса Алании и смотровая зона I LOVE ALANYA",
+      "kind": "text"
+    },
+    {
+      "source": "Bus stop and photo time in the Alanya Castle district",
+      "translation": "Остановка автобуса и время для фото в районе крепости Алании",
+      "kind": "text"
+    },
+    {
+      "source": "Round-trip Alanya Cable Car ticket included",
+      "translation": "Билет на канатную дорогу Алании туда и обратно включён",
+      "kind": "text"
+    },
+    {
+      "source": "Cleopatra Beach free time with seasonal swimming",
+      "translation": "Свободное время на пляже Клеопатры с сезонным купанием",
+      "kind": "text"
+    },
+    {
+      "source": "Damlataş district and optional cave visit",
+      "translation": "Район Дамлаташ и факультативное посещение пещеры",
+      "kind": "text"
+    },
+    {
+      "source": "Sunset views over the Mediterranean and Alanya coastline",
+      "translation": "Виды заката над Средиземным морем и побережьем Алании",
+      "kind": "text"
+    },
+    {
+      "source": "Guide service, hotel transfer and travel insurance included",
+      "translation": "Услуги гида, трансфер из отеля и туристическая страховка включены",
+      "kind": "text"
+    },
+    {
+      "source": "Sunset Route",
+      "translation": "Маршрут на закате",
+      "kind": "text"
+    },
+    {
+      "source": "Timing follows the season",
+      "translation": "Время зависит от сезона",
+      "kind": "text"
+    },
+    {
+      "source": "Round-trip ticket",
+      "translation": "Билет туда и обратно",
+      "kind": "text"
+    },
+    {
+      "source": "Beach Free Time",
+      "translation": "Свободное время на пляже",
+      "kind": "text"
+    },
+    {
+      "source": "Seasonal swimming",
+      "translation": "Сезонное купание",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Детали",
+      "kind": "text"
+    },
+    {
+      "source": "Approximate duration: 5–6 hours",
+      "translation": "Примерная продолжительность: 5–6 часов",
+      "kind": "text"
+    },
+    {
+      "source": "Approximate pickup: 15:00–16:00",
+      "translation": "Примерное время трансфера: 15:00–16:00",
+      "kind": "text"
+    },
+    {
+      "source": "Approximate return: 21:00–22:00",
+      "translation": "Примерное возвращение: 21:00–22:00",
+      "kind": "text"
+    },
+    {
+      "source": "Planned operation: daily",
+      "translation": "Плановое проведение: ежедневно",
+      "kind": "text"
+    },
+    {
+      "source": "Availability depends on season and weather",
+      "translation": "Доступность зависит от сезона и погоды",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Цена",
+      "kind": "text"
+    },
+    {
+      "source": "€35",
+      "translation": "€35",
+      "kind": "text"
+    },
+    {
+      "source": "per person",
+      "translation": "за человека",
+      "kind": "text"
+    },
+    {
+      "source": "Children 0–5: Free",
+      "translation": "Дети 0–5 лет: бесплатно",
+      "kind": "text"
+    },
+    {
+      "source": "Children 6–11: Child price",
+      "translation": "Дети 6–11 лет: детская цена",
+      "kind": "text"
+    },
+    {
+      "source": "Children 12+: Adult price",
+      "translation": "Дети от 12 лет: взрослая цена",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Включено",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel pickup and return transfer",
+      "translation": "Трансфер из отеля и обратно",
+      "kind": "text"
+    },
+    {
+      "source": "Guide service",
+      "translation": "Услуги гида",
+      "kind": "text"
+    },
+    {
+      "source": "Round-trip cable-car ticket",
+      "translation": "Билет на канатную дорогу туда и обратно",
+      "kind": "text"
+    },
+    {
+      "source": "Travel insurance",
+      "translation": "Туристическая страховка",
+      "kind": "text"
+    },
+    {
+      "source": "Panorama and castle stops",
+      "translation": "Остановки на панораме и в районе крепости",
+      "kind": "text"
+    },
+    {
+      "source": "Cleopatra Beach free time",
+      "translation": "Свободное время на пляже Клеопатры",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Не включено",
+      "kind": "text"
+    },
+    {
+      "source": "Damlataş Cave entrance fee",
+      "translation": "Входной билет в пещеру Дамлаташ",
+      "kind": "text"
+    },
+    {
+      "source": "Food and drinks",
+      "translation": "Еда и напитки",
+      "kind": "text"
+    },
+    {
+      "source": "Sunbeds and beach services",
+      "translation": "Шезлонги и пляжные услуги",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Личные расходы",
+      "kind": "text"
+    },
+    {
+      "source": "Program",
+      "translation": "Программа",
+      "kind": "text"
+    },
+    {
+      "source": "An afternoon and evening route through Alanya’s main panoramic, historical and coastal locations.",
+      "translation": "Дневной и вечерний маршрут по главным панорамным, историческим и прибрежным локациям Алании.",
+      "kind": "text"
+    },
+    {
+      "source": "The order and duration of stops may change according to sunset time, season, weather, traffic, cable-car operation, prayer times and the confirmed daily program.",
+      "translation": "Порядок и продолжительность остановок могут меняться в зависимости от времени заката, сезона, погоды, трафика, работы канатной дороги, времени молитв и подтверждённой программы дня.",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment pickup",
+      "translation": "Трансфер из отеля или апартаментов",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from the confirmed address in Alanya or the selected nearby transfer area.",
+      "translation": "Трансфер от подтверждённого адреса в Алании или выбранной ближайшей зоне трансфера.",
+      "kind": "text"
+    },
+    {
+      "source": "Bus stop at the panoramic terrace for views of the city, coastline, castle peninsula and Mediterranean.",
+      "translation": "Остановка автобуса на панорамной террасе с видами на город, побережье, полуостров крепости и Средиземное море.",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya Castle district",
+      "translation": "Район крепости Алании",
+      "kind": "text"
+    },
+    {
+      "source": "Bus stop in the castle area for accessible viewpoints, photographs and a short guided introduction to Alanya’s history.",
+      "translation": "Остановка автобуса в районе крепости для доступных смотровых площадок, фотографий и короткого рассказа гида об истории Алании.",
+      "kind": "text"
+    },
+    {
+      "source": "Round-trip cable-car ride",
+      "translation": "Поездка на канатной дороге туда и обратно",
+      "kind": "text"
+    },
+    {
+      "source": "The cable-car ticket is included. Enjoy elevated views between the Damlataş area and the upper castle district.",
+      "translation": "Билет на канатную дорогу включён. Наслаждайтесь видами с высоты между районом Дамлаташ и верхней частью крепости.",
+      "kind": "text"
+    },
+    {
+      "source": "Free time on the beach. Seasonal swimming is allowed when weather and sea conditions are suitable.",
+      "translation": "Свободное время на пляже. Сезонное купание разрешено при подходящей погоде и состоянии моря.",
+      "kind": "text"
+    },
+    {
+      "source": "Damlataş area",
+      "translation": "Район Дамлаташ",
+      "kind": "text"
+    },
+    {
+      "source": "Free time near Damlataş Cave and the lower cable-car station. Cave entry is optional and paid separately.",
+      "translation": "Свободное время возле пещеры Дамлаташ и нижней станции канатной дороги. Вход в пещеру факультативный и оплачивается отдельно.",
+      "kind": "text"
+    },
+    {
+      "source": "Sunset and evening views",
+      "translation": "Закат и вечерние виды",
+      "kind": "text"
+    },
+    {
+      "source": "Photo time at the most suitable viewpoint according to the season and confirmed route order.",
+      "translation": "Время для фото на наиболее подходящей смотровой площадке в соответствии с сезоном и подтверждённым порядком маршрута.",
+      "kind": "text"
+    },
+    {
+      "source": "Return transfer",
+      "translation": "Обратный трансфер",
+      "kind": "text"
+    },
+    {
+      "source": "Return to the pickup area and drop-off at the confirmed hotel or apartment address.",
+      "translation": "Возвращение в зону трансфера и высадка у подтверждённого адреса отеля или апартаментов.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Фотогалерея",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Время тура",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Продолжительность:",
+      "kind": "text"
+    },
+    {
+      "source": "Approx. 5–6 hours",
+      "translation": "Примерно 5–6 часов",
+      "kind": "text"
+    },
+    {
+      "source": "Pick-up:",
+      "translation": "Трансфер:",
+      "kind": "text"
+    },
+    {
+      "source": "Approx. 15:00–16:00",
+      "translation": "Примерно 15:00–16:00",
+      "kind": "text"
+    },
+    {
+      "source": "Return:",
+      "translation": "Возвращение:",
+      "kind": "text"
+    },
+    {
+      "source": "Approx. 21:00–22:00",
+      "translation": "Примерно 21:00–22:00",
+      "kind": "text"
+    },
+    {
+      "source": "Tour days:",
+      "translation": "Дни тура:",
+      "kind": "text"
+    },
+    {
+      "source": "Daily by confirmation",
+      "translation": "Ежедневно по подтверждению",
+      "kind": "text"
+    },
+    {
+      "source": "Operation depends on season, weather and cable-car conditions.",
+      "translation": "Проведение зависит от сезона, погоды и условий работы канатной дороги.",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Что взять с собой",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable walking shoes",
+      "translation": "Удобная обувь для ходьбы",
+      "kind": "text"
+    },
+    {
+      "source": "Swimsuit and towel",
+      "translation": "Купальник и полотенце",
+      "kind": "text"
+    },
+    {
+      "source": "Sunscreen",
+      "translation": "Солнцезащитный крем",
+      "kind": "text"
+    },
+    {
+      "source": "Hat or cap",
+      "translation": "Шляпа или кепка",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Солнцезащитные очки",
+      "kind": "text"
+    },
+    {
+      "source": "Drinking water",
+      "translation": "Питьевая вода",
+      "kind": "text"
+    },
+    {
+      "source": "Light jacket for the evening",
+      "translation": "Лёгкая куртка на вечер",
+      "kind": "text"
+    },
+    {
+      "source": "Cash for Damlataş Cave and personal expenses",
+      "translation": "Наличные на пещеру Дамлаташ и личные расходы",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Правила для детей",
+      "kind": "text"
+    },
+    {
+      "source": "0–5 years:",
+      "translation": "0–5 лет:",
+      "kind": "text"
+    },
+    {
+      "source": "free",
+      "translation": "бесплатно",
+      "kind": "text"
+    },
+    {
+      "source": "6–11 years:",
+      "translation": "6–11 лет:",
+      "kind": "text"
+    },
+    {
+      "source": "child price",
+      "translation": "детская цена",
+      "kind": "text"
+    },
+    {
+      "source": "12+ years:",
+      "translation": "12+ лет:",
+      "kind": "text"
+    },
+    {
+      "source": "adult price",
+      "translation": "взрослая цена",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Информация о трансфере",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup and drop-off are available from hotels and apartment addresses in the confirmed transfer zones.",
+      "translation": "Трансфер туда и обратно доступен из отелей и апартаментов в подтверждённых зонах трансфера.",
+      "kind": "text"
+    },
+    {
+      "source": "The exact pickup time is confirmed after booking.",
+      "translation": "Точное время трансфера подтверждается после бронирования.",
+      "kind": "text"
+    },
+    {
+      "source": "Children booked on the tour are included in the transport and cable-car arrangements according to the confirmed reservation.",
+      "translation": "Дети, забронированные на тур, включены в транспорт и организацию канатной дороги в соответствии с подтверждённым бронированием.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Часто задаваемые вопросы",
+      "kind": "text"
+    },
+    {
+      "source": "Is the round-trip cable-car ticket included?",
+      "translation": "Билет на канатную дорогу туда и обратно включён?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. The round-trip Alanya Cable Car ticket is included in the tour price for confirmed participants.",
+      "translation": "Да. Билет на канатную дорогу Алании туда и обратно включён в стоимость тура для подтверждённых участников.",
+      "kind": "text"
+    },
+    {
+      "source": "Which places are included?",
+      "translation": "Какие места входят в маршрут?",
+      "kind": "text"
+    },
+    {
+      "source": "The route includes stops at Alanya Panorama, the Alanya Castle district, Cleopatra Beach and the Damlataş area.",
+      "translation": "Маршрут включает остановки на панораме Алании, в районе крепости Алании, на пляже Клеопатры и в районе Дамлаташ.",
+      "kind": "text"
+    },
+    {
+      "source": "Can we swim at Cleopatra Beach?",
+      "translation": "Можно купаться на пляже Клеопатры?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Seasonal swimming is allowed during the beach stop when weather and sea conditions are suitable.",
+      "translation": "Да. Сезонное купание разрешено во время пляжной остановки при подходящей погоде и состоянии моря.",
+      "kind": "text"
+    },
+    {
+      "source": "Is Damlataş Cave included?",
+      "translation": "Пещера Дамлаташ включена?",
+      "kind": "text"
+    },
+    {
+      "source": "The Damlataş area is included. Entering the cave is optional, and the cave entrance fee is paid separately unless a different arrangement is confirmed.",
+      "translation": "Район Дамлаташ включён. Посещение пещеры факультативное, а входной билет оплачивается отдельно, если не подтверждено иное.",
+      "kind": "text"
+    },
+    {
+      "source": "Does the tour operate every day?",
+      "translation": "Тур проводится каждый день?",
+      "kind": "text"
+    },
+    {
+      "source": "The planned operation is daily, but availability depends on season, weather, minimum participation and cable-car operating conditions. Advance confirmation is required.",
+      "translation": "Плановое проведение — ежедневно, но доступность зависит от сезона, погоды, минимального числа участников и условий работы канатной дороги. Требуется предварительное подтверждение.",
+      "kind": "text"
+    },
+    {
+      "source": "How long does the tour take?",
+      "translation": "Сколько длится тур?",
+      "kind": "text"
+    },
+    {
+      "source": "The approximate duration is 5–6 hours. Exact timing depends on pickup location, traffic, sunset time and the confirmed route.",
+      "translation": "Примерная продолжительность — 5–6 часов. Точное время зависит от места трансфера, трафика, времени заката и подтверждённого маршрута.",
+      "kind": "text"
+    },
+    {
+      "source": "What is the child policy?",
+      "translation": "Какие условия для детей?",
+      "kind": "text"
+    },
+    {
+      "source": "Children aged 0–5 join free of charge, children aged 6–11 use the child price, and guests aged 12 and above use the adult price.",
+      "translation": "Дети 0–5 лет участвуют бесплатно, дети 6–11 лет оплачиваются по детской цене, а с 12 лет действует взрослая цена.",
+      "kind": "text"
+    },
+    {
+      "source": "Are children included in transport and cable-car arrangements?",
+      "translation": "Включены ли дети в транспорт и организацию канатной дороги?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Children included in the confirmed booking are included in the tour’s transport and cable-car arrangements according to the reservation details.",
+      "translation": "Да. Дети, включённые в подтверждённое бронирование, входят в транспорт и организацию канатной дороги в соответствии с деталями резервации.",
+      "kind": "text"
+    },
+    {
+      "source": "Is guide service included?",
+      "translation": "Услуги гида включены?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Guide service is included.",
+      "translation": "Да. Услуги гида включены.",
+      "kind": "text"
+    },
+    {
+      "source": "Can the program change?",
+      "translation": "Может ли программа измениться?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. The order and duration may change according to season, sunset time, weather, traffic, cable-car operation and local access conditions.",
+      "translation": "Да. Порядок и продолжительность могут меняться в зависимости от сезона, времени заката, погоды, трафика, работы канатной дороги и местных условий доступа.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Есть вопросы?",
+      "kind": "text"
+    },
+    {
+      "source": "Contact us on WhatsApp to confirm the operating date, exact pickup time, child price and current cable-car and weather conditions.",
+      "translation": "Свяжитесь с нами в WhatsApp, чтобы подтвердить дату проведения, точное время трансфера, детскую цену и актуальные условия работы канатной дороги и погоды.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Написать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Предыдущее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Cleopatra Beach in Alanya",
+      "translation": "Пляж Клеопатры в Алании",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Следующее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Миниатюры галереи",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Damlataş Cave",
+      "translation": "Пещера Дамлаташ",
+      "kind": "alt"
+    },
+    {
+      "source": "Cable car ride up",
+      "translation": "Подъём на канатной дороге",
+      "kind": "alt"
+    },
+    {
+      "source": "Alanya Castle",
+      "translation": "Крепость Алании",
+      "kind": "alt"
+    },
+    {
+      "source": "Sultan Suleyman Mosque",
+      "translation": "Мечеть Султана Сулеймана",
+      "kind": "alt"
+    },
+    {
+      "source": "Old Town streets",
+      "translation": "Улицы Старого города",
+      "kind": "alt"
+    },
+    {
+      "source": "Sunset viewpoint",
+      "translation": "Смотровая площадка на закате",
+      "kind": "alt"
+    },
+    {
+      "source": "Cable car ride down",
+      "translation": "Спуск на канатной дороге",
+      "kind": "alt"
+    },
+    {
+      "source": "I LOVE ALANYA viewpoint",
+      "translation": "Смотровая площадка I LOVE ALANYA",
+      "kind": "alt"
+    },
+    {
+      "source": "Main tour information",
+      "translation": "Основная информация о туре",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Close gallery",
+      "translation": "Закрыть галерею",
+      "kind": "aria-label"
+    }
+  ]
+}

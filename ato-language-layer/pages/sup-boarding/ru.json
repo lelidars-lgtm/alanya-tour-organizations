@@ -1,0 +1,773 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "sup-boarding.html",
+  "approved_sha256": "cfd55cb1125899604a7e8b4f6d68c7c27f20cf8641917946c5a8a09bab035769",
+  "entries": [
+    {
+      "source": "Stand Up Paddleboarding in Alanya | ALANYA TOUR ORGANIZATIONS",
+      "translation": "SUP в Аланье | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "Stand Up Paddleboarding in Alanya. Premium sunrise SUP experience with Red Tower views, calm Mediterranean water, professional instruction and equipment. From €35 per person.",
+      "translation": "Stand Up Paddleboarding в Аланье. Премиальная рассветная SUP-сессия с видом на Красную башню, спокойной водой Средиземного моря, профессиональным инструктажем и снаряжением. От €35 с человека.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home / Water Sports /",
+      "translation": "Главная / Водные виды спорта /",
+      "kind": "text"
+    },
+    {
+      "source": "Stand Up Paddleboarding",
+      "translation": "SUP-паддлбординг",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "Stand Up Paddleboarding in Alanya",
+      "translation": "SUP-паддлбординг в Аланье",
+      "kind": "text"
+    },
+    {
+      "source": "Peaceful sunrise SUP adventure with Red Tower views and golden Mediterranean reflections",
+      "translation": "Спокойное рассветное SUP-приключение с видом на Красную башню и золотыми отражениями Средиземного моря",
+      "kind": "text"
+    },
+    {
+      "source": "Start the day with a peaceful stand up paddleboarding session in Alanya. Learn the basic technique, paddle on calm Mediterranean water and enjoy coastal views in the soft morning light.",
+      "translation": "Начните день со спокойной SUP-сессии в Аланье. Освойте базовую технику, гребите по спокойной воде Средиземного моря и наслаждайтесь видами побережья в мягком утреннем свете.",
+      "kind": "text"
+    },
+    {
+      "source": "From €35",
+      "translation": "От €35",
+      "kind": "text"
+    },
+    {
+      "source": "Approx. 1 Hour",
+      "translation": "Примерно 1 час",
+      "kind": "text"
+    },
+    {
+      "source": "Beginner Friendly",
+      "translation": "Подходит новичкам",
+      "kind": "text"
+    },
+    {
+      "source": "Water Sports",
+      "translation": "Водные виды спорта",
+      "kind": "text"
+    },
+    {
+      "source": "SUP",
+      "translation": "SUP",
+      "kind": "text"
+    },
+    {
+      "source": "Sunrise",
+      "translation": "Рассвет",
+      "kind": "text"
+    },
+    {
+      "source": "Red Tower View",
+      "translation": "Вид на Красную башню",
+      "kind": "text"
+    },
+    {
+      "source": "Daily Activity",
+      "translation": "Ежедневная активность",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Забронировать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About This Experience",
+      "translation": "Об этом впечатлении",
+      "kind": "text"
+    },
+    {
+      "source": "Stand Up Paddleboarding is a calm guided sea activity designed for both first-time and experienced paddlers.",
+      "translation": "Stand Up Paddleboarding — спокойная морская активность с инструктором, подходящая как новичкам, так и опытным участникам.",
+      "kind": "text"
+    },
+    {
+      "source": "The session begins with instruction on board position, balance, paddle grip, turning, stopping and safe entry into the water.",
+      "translation": "Сессия начинается с инструктажа по положению на доске, балансу, хвату весла, поворотам, остановке и безопасному входу в воду.",
+      "kind": "text"
+    },
+    {
+      "source": "The experience lasts approximately one hour. The exact route and whether Red Tower or castle views are reached depend on the departure point, wind, currents, visibility and the instructor’s safety decision.",
+      "translation": "Продолжительность — примерно один час. Точный маршрут и возможность добраться до Красной башни или видов крепости зависят от точки старта, ветра, течений, видимости и решения инструктора по безопасности.",
+      "kind": "text"
+    },
+    {
+      "source": "Sunrise or early-morning sessions may be available, but the exact time must be confirmed before booking and cannot be guaranteed every day.",
+      "translation": "Рассветные или ранние утренние сессии могут быть доступны, но точное время необходимо подтвердить до бронирования и оно не гарантируется ежедневно.",
+      "kind": "text"
+    },
+    {
+      "source": "Calm Morning",
+      "translation": "Спокойное утро",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy gentle movement and quieter sea conditions when available.",
+      "translation": "Наслаждайтесь плавным движением и более спокойным морем, когда это возможно.",
+      "kind": "text"
+    },
+    {
+      "source": "Beginner Support",
+      "translation": "Поддержка новичков",
+      "kind": "text"
+    },
+    {
+      "source": "Learn balance, paddle technique and safe board control step by step.",
+      "translation": "Пошагово освойте баланс, технику гребли и безопасное управление доской.",
+      "kind": "text"
+    },
+    {
+      "source": "Coastal Views",
+      "translation": "Виды побережья",
+      "kind": "text"
+    },
+    {
+      "source": "Discover Alanya from the water, subject to route and conditions.",
+      "translation": "Откройте Аланью с воды — в зависимости от маршрута и условий.",
+      "kind": "text"
+    },
+    {
+      "source": "Active Wellness",
+      "translation": "Активный wellness",
+      "kind": "text"
+    },
+    {
+      "source": "A low-impact activity combining balance, focus and fresh sea air.",
+      "translation": "Низкоударная активность, сочетающая баланс, концентрацию и свежий морской воздух.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Главные впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "Approximately one-hour guided SUP session.",
+      "translation": "Примерно часовая SUP-сессия с инструктором.",
+      "kind": "text"
+    },
+    {
+      "source": "Board, paddle and required safety equipment included.",
+      "translation": "Доска, весло и необходимое оборудование безопасности включены.",
+      "kind": "text"
+    },
+    {
+      "source": "Beginner instruction before entering the water.",
+      "translation": "Инструктаж для новичков перед выходом на воду.",
+      "kind": "text"
+    },
+    {
+      "source": "Sunrise or calm-morning times subject to availability.",
+      "translation": "Рассветные или спокойные утренние слоты — в зависимости от доступности.",
+      "kind": "text"
+    },
+    {
+      "source": "Route and coastal views depend on weather and sea conditions.",
+      "translation": "Маршрут и виды побережья зависят от погоды и состояния моря.",
+      "kind": "text"
+    },
+    {
+      "source": "FIND YOUR BALANCE",
+      "translation": "НАЙДИТЕ СВОЙ БАЛАНС",
+      "kind": "text"
+    },
+    {
+      "source": "SUP Tour",
+      "translation": "SUP-тур",
+      "kind": "text"
+    },
+    {
+      "source": "€35",
+      "translation": "€35",
+      "kind": "text"
+    },
+    {
+      "source": "per person / approximately 1 hour",
+      "translation": "за человека / примерно 1 час",
+      "kind": "text"
+    },
+    {
+      "source": "Morning SUP experience, subject to availability",
+      "translation": "Утренняя SUP-сессия — в зависимости от доступности",
+      "kind": "text"
+    },
+    {
+      "source": "Professional instruction included",
+      "translation": "Профессиональный инструктаж включён",
+      "kind": "text"
+    },
+    {
+      "source": "All equipment included",
+      "translation": "Всё оборудование включено",
+      "kind": "text"
+    },
+    {
+      "source": "Format",
+      "translation": "Формат",
+      "kind": "text"
+    },
+    {
+      "source": "1h",
+      "translation": "1 ч",
+      "kind": "text"
+    },
+    {
+      "source": "calm sea activity",
+      "translation": "спокойная морская активность",
+      "kind": "text"
+    },
+    {
+      "source": "Suitable for beginners",
+      "translation": "Подходит для новичков",
+      "kind": "text"
+    },
+    {
+      "source": "Group activity",
+      "translation": "Групповая активность",
+      "kind": "text"
+    },
+    {
+      "source": "Minimum group size confirmed before booking",
+      "translation": "Минимальный размер группы подтверждается до бронирования",
+      "kind": "text"
+    },
+    {
+      "source": "Schedule",
+      "translation": "Расписание",
+      "kind": "text"
+    },
+    {
+      "source": "Every day",
+      "translation": "Ежедневно",
+      "kind": "text"
+    },
+    {
+      "source": "Operating and booking times confirmed in advance",
+      "translation": "Время проведения и бронирования подтверждается заранее",
+      "kind": "text"
+    },
+    {
+      "source": "Sunrise or calm morning slots subject to availability",
+      "translation": "Рассветные или спокойные утренние слоты — в зависимости от доступности",
+      "kind": "text"
+    },
+    {
+      "source": "Sea and weather dependent",
+      "translation": "Зависит от состояния моря и погоды",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer Zone",
+      "translation": "Зона трансфера",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya City Center",
+      "translation": "Центр Аланьи",
+      "kind": "text"
+    },
+    {
+      "source": "Oba",
+      "translation": "Оба",
+      "kind": "text"
+    },
+    {
+      "source": "Tosmur",
+      "translation": "Тосмур",
+      "kind": "text"
+    },
+    {
+      "source": "Kestel",
+      "translation": "Кестель",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Включено",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer when included and confirmed for the selected hotel zone.",
+      "translation": "Трансфер предоставляется, если он включён и подтверждён для выбранной зоны отеля.",
+      "kind": "text"
+    },
+    {
+      "source": "Approximately 1-hour SUP experience.",
+      "translation": "Примерно 1-часовая SUP-сессия.",
+      "kind": "text"
+    },
+    {
+      "source": "SUP board and paddle.",
+      "translation": "SUP-доска и весло.",
+      "kind": "text"
+    },
+    {
+      "source": "Required buoyancy and safety equipment provided by the operator.",
+      "translation": "Необходимые средства плавучести и безопасности предоставляет оператор.",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance during the activity.",
+      "translation": "Страховка на время активности.",
+      "kind": "text"
+    },
+    {
+      "source": "Professional instruction and guidance.",
+      "translation": "Профессиональный инструктаж и сопровождение.",
+      "kind": "text"
+    },
+    {
+      "source": "Not Included",
+      "translation": "Не включено",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photos and videos.",
+      "translation": "Профессиональные фото и видео.",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses.",
+      "translation": "Личные расходы.",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer outside Alanya Center, Oba, Tosmur and Kestel.",
+      "translation": "Трансфер за пределами центра Аланьи, Обы, Тосмура и Кестеля.",
+      "kind": "text"
+    },
+    {
+      "source": "Tour Program",
+      "translation": "Программа тура",
+      "kind": "text"
+    },
+    {
+      "source": "The sequence remains the same, while exact timing, route and time on the water may change because of transfer logistics, wind, waves, currents, visibility and the instructor’s safety decision.",
+      "translation": "Последовательность остаётся прежней, но точное время, маршрут и время на воде могут меняться из-за логистики трансфера, ветра, волн, течений, видимости и решения инструктора по безопасности.",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup / Meeting",
+      "translation": "Трансфер / Встреча",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer or Direct Arrival",
+      "translation": "Трансфер или самостоятельное прибытие",
+      "kind": "text"
+    },
+    {
+      "source": "Use the confirmed transfer service or meet directly at the SUP activity point.",
+      "translation": "Воспользуйтесь подтверждённым трансфером или приезжайте напрямую к точке SUP-активности.",
+      "kind": "text"
+    },
+    {
+      "source": "Check-in",
+      "translation": "Регистрация",
+      "kind": "text"
+    },
+    {
+      "source": "Participant and Equipment Check",
+      "translation": "Проверка участника и снаряжения",
+      "kind": "text"
+    },
+    {
+      "source": "The team confirms the reservation, swimming ability, equipment fit and current sea conditions.",
+      "translation": "Команда подтверждает бронирование, умение плавать, правильность подбора снаряжения и текущие условия на море.",
+      "kind": "text"
+    },
+    {
+      "source": "Briefing",
+      "translation": "Инструктаж",
+      "kind": "text"
+    },
+    {
+      "source": "SUP Technique and Safety",
+      "translation": "Техника SUP и безопасность",
+      "kind": "text"
+    },
+    {
+      "source": "Learn board position, balance, paddle grip, direction control, stopping and how to return to the board after falling.",
+      "translation": "Освойте положение на доске, баланс, хват весла, контроль направления, остановку и возвращение на доску после падения.",
+      "kind": "text"
+    },
+    {
+      "source": "Practice",
+      "translation": "Практика",
+      "kind": "text"
+    },
+    {
+      "source": "Kneeling and Standing Practice",
+      "translation": "Практика на коленях и стоя",
+      "kind": "text"
+    },
+    {
+      "source": "Begin in a stable position and progress to standing when you feel comfortable and the instructor approves.",
+      "translation": "Начните в устойчивом положении и переходите к стойке, когда почувствуете уверенность и инструктор одобрит.",
+      "kind": "text"
+    },
+    {
+      "source": "Paddle",
+      "translation": "Гребля",
+      "kind": "text"
+    },
+    {
+      "source": "Guided SUP Session",
+      "translation": "SUP-сессия с инструктором",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy the planned paddling route for approximately one hour, depending on conditions and group pace.",
+      "translation": "Наслаждайтесь запланированным маршрутом примерно один час — в зависимости от условий и темпа группы.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Time",
+      "translation": "Время для фото",
+      "kind": "text"
+    },
+    {
+      "source": "Personal Photos and Views",
+      "translation": "Личные фото и виды",
+      "kind": "text"
+    },
+    {
+      "source": "Take personal photos when the instructor confirms that the location and sea conditions are safe.",
+      "translation": "Делайте личные фотографии, когда инструктор подтвердит, что место и состояние моря безопасны.",
+      "kind": "text"
+    },
+    {
+      "source": "Return",
+      "translation": "Возвращение",
+      "kind": "text"
+    },
+    {
+      "source": "Equipment Return and Transfer",
+      "translation": "Возврат снаряжения и трансфер",
+      "kind": "text"
+    },
+    {
+      "source": "Return the SUP equipment and use the hotel transfer only when included and confirmed for your area.",
+      "translation": "Верните SUP-снаряжение и воспользуйтесь трансфером в отель только если он включён и подтверждён для вашего района.",
+      "kind": "text"
+    },
+    {
+      "source": "The instructor may change the route, keep participants kneeling, shorten, delay, reschedule or cancel the session when weather, currents, visibility or participant ability do not allow safe paddling.",
+      "translation": "Инструктор может изменить маршрут, оставить участников на коленях, сократить, задержать, перенести или отменить сессию, если погода, течения, видимость или способности участника не позволяют безопасную греблю.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Фотогалерея",
+      "kind": "text"
+    },
+    {
+      "source": "Tour Time",
+      "translation": "Время тура",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Продолжительность:",
+      "kind": "text"
+    },
+    {
+      "source": "approximately 1 hour",
+      "translation": "примерно 1 час",
+      "kind": "text"
+    },
+    {
+      "source": "Start time:",
+      "translation": "Время начала:",
+      "kind": "text"
+    },
+    {
+      "source": "confirmed before booking",
+      "translation": "подтверждается до бронирования",
+      "kind": "text"
+    },
+    {
+      "source": "Days:",
+      "translation": "Дни:",
+      "kind": "text"
+    },
+    {
+      "source": "weather and sea conditions permitting",
+      "translation": "при подходящих погоде и состоянии моря",
+      "kind": "text"
+    },
+    {
+      "source": "Format:",
+      "translation": "Формат:",
+      "kind": "text"
+    },
+    {
+      "source": "beginner-friendly group SUP",
+      "translation": "групповой SUP для новичков",
+      "kind": "text"
+    },
+    {
+      "source": "What To Bring",
+      "translation": "Что взять с собой",
+      "kind": "text"
+    },
+    {
+      "source": "Waterproof high-SPF sunscreen",
+      "translation": "Водостойкий солнцезащитный крем с высоким SPF",
+      "kind": "text"
+    },
+    {
+      "source": "Cap or hat with secure strap",
+      "translation": "Кепка или шляпа с фиксирующим ремешком",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses with retention strap",
+      "translation": "Солнцезащитные очки с фиксирующим шнурком",
+      "kind": "text"
+    },
+    {
+      "source": "Quick-dry sportswear or rashguard",
+      "translation": "Быстросохнущая спортивная одежда или рашгард",
+      "kind": "text"
+    },
+    {
+      "source": "At least 1 liter of drinking water",
+      "translation": "Не менее 1 литра питьевой воды",
+      "kind": "text"
+    },
+    {
+      "source": "Towel and dry clothes for after the activity",
+      "translation": "Полотенце и сухая одежда после активности",
+      "kind": "text"
+    },
+    {
+      "source": "Important Information",
+      "translation": "Важная информация",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming:",
+      "translation": "Купание:",
+      "kind": "text"
+    },
+    {
+      "source": "participants must be comfortable in the water",
+      "translation": "участники должны уверенно чувствовать себя в воде",
+      "kind": "text"
+    },
+    {
+      "source": "Participation:",
+      "translation": "Участие:",
+      "kind": "text"
+    },
+    {
+      "source": "subject to instructor approval and equipment fit",
+      "translation": "зависит от одобрения инструктора и подходящего снаряжения",
+      "kind": "text"
+    },
+    {
+      "source": "Not suitable for:",
+      "translation": "Не подходит для:",
+      "kind": "text"
+    },
+    {
+      "source": "intoxication or conditions preventing safe balance and paddling",
+      "translation": "состояние опьянения или состояния, мешающие безопасному балансу и гребле",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup Information",
+      "translation": "Информация о трансфере",
+      "kind": "text"
+    },
+    {
+      "source": "Meeting point:",
+      "translation": "Место встречи:",
+      "kind": "text"
+    },
+    {
+      "source": "hotel or apartment address",
+      "translation": "адрес отеля или апартаментов",
+      "kind": "text"
+    },
+    {
+      "source": "Included zone:",
+      "translation": "Включённая зона:",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya Center, Oba, Tosmur and Kestel",
+      "translation": "Центр Аланьи, Оба, Тосмур и Кестель",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup time:",
+      "translation": "Время трансфера:",
+      "kind": "text"
+    },
+    {
+      "source": "confirmed after booking",
+      "translation": "подтверждается после бронирования",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Часто задаваемые вопросы",
+      "kind": "text"
+    },
+    {
+      "source": "Do I need previous SUP experience?",
+      "translation": "Нужен ли предыдущий опыт SUP?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "No previous SUP experience is normally required. Beginners receive instruction and may start by kneeling before attempting to stand.",
+      "translation": "Предыдущий опыт SUP обычно не требуется. Новички получают инструктаж и могут начать с положения на коленях, прежде чем пробовать вставать.",
+      "kind": "text"
+    },
+    {
+      "source": "Do I need to know how to swim?",
+      "translation": "Нужно ли уметь плавать?",
+      "kind": "text"
+    },
+    {
+      "source": "Participants should be comfortable in the water and able to follow the instructor’s recovery instructions after falling from the board.",
+      "translation": "Участники должны уверенно чувствовать себя в воде и уметь выполнять инструкции по возвращению на доску после падения.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the sunrise session guaranteed?",
+      "translation": "Рассветная сессия гарантирована?",
+      "kind": "text"
+    },
+    {
+      "source": "No. Sunrise and early-morning sessions depend on season, weather, sea conditions and operating availability.",
+      "translation": "Нет. Рассветные и ранние утренние сессии зависят от сезона, погоды, состояния моря и операционной доступности.",
+      "kind": "text"
+    },
+    {
+      "source": "Will we definitely paddle near the Red Tower?",
+      "translation": "Мы точно будем грести возле Красной башни?",
+      "kind": "text"
+    },
+    {
+      "source": "The route depends on the departure point, currents, wind, visibility and the instructor’s safety decision, so a specific landmark cannot be guaranteed.",
+      "translation": "Маршрут зависит от точки старта, течений, ветра, видимости и решения инструктора по безопасности, поэтому конкретную достопримечательность гарантировать нельзя.",
+      "kind": "text"
+    },
+    {
+      "source": "What happens in bad weather?",
+      "translation": "Что происходит при плохой погоде?",
+      "kind": "text"
+    },
+    {
+      "source": "The session may be delayed, shortened, rerouted, rescheduled or cancelled when conditions do not allow safe paddling.",
+      "translation": "Сессия может быть задержана, сокращена, перенаправлена, перенесена или отменена, если условия не позволяют безопасную греблю.",
+      "kind": "text"
+    },
+    {
+      "source": "Is hotel transfer included?",
+      "translation": "Включён ли трансфер из отеля?",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer is included only for the confirmed service zone and booking option. Other areas may require an additional charge or direct arrival.",
+      "translation": "Трансфер включён только для подтверждённой зоны обслуживания и выбранного варианта бронирования. Для других районов может потребоваться доплата или самостоятельное прибытие.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Есть вопросы?",
+      "kind": "text"
+    },
+    {
+      "source": "Contact us on WhatsApp — we will help you choose the best SUP time, calm sea conditions and transfer details.",
+      "translation": "Свяжитесь с нами в WhatsApp — мы поможем выбрать лучшее время для SUP, спокойные условия на море и детали трансфера.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Написать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Предыдущее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Следующее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Миниатюры галереи",
+      "kind": "aria-label"
+    },
+    {
+      "source": "SUP paddling at sunrise",
+      "translation": "SUP на рассвете",
+      "kind": "alt"
+    },
+    {
+      "source": "SUP participant close-up",
+      "translation": "Крупный план участника SUP",
+      "kind": "alt"
+    },
+    {
+      "source": "Drone view over SUP boards",
+      "translation": "Вид с дрона на SUP-доски",
+      "kind": "alt"
+    },
+    {
+      "source": "SUP near Red Tower",
+      "translation": "SUP возле Красной башни",
+      "kind": "alt"
+    },
+    {
+      "source": "SUP safety briefing",
+      "translation": "Инструктаж по безопасности SUP",
+      "kind": "alt"
+    },
+    {
+      "source": "SUP at sunrise",
+      "translation": "SUP на рассвете",
+      "kind": "alt"
+    }
+  ]
+}

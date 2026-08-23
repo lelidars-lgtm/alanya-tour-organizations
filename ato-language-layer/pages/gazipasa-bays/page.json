@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "gazipasa-bays.html",
+  "approved_sha256": "7400a5e054664b386d07930dc49e2f8b8ca089340189e9655d726d69f028f521",
+  "translation_entries": 128,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

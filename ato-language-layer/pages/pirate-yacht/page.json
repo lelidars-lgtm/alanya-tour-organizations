@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "pirate-yacht.html",
+  "approved_sha256": "70e322eb724daa6668ae8b1b8b9fe8b538eafb5a7fcbdb8f6b6d80755540b85e",
+  "translation_entries": 127,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

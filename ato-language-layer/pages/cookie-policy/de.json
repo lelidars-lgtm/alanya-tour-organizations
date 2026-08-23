@@ -1,0 +1,363 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "DE",
+  "approved_page": "cookie-policy.html",
+  "approved_sha256": "2ccdefff03482ef5c3d198a865cbc5a29d8d385e59a4005155de511decc019b3",
+  "entries": [
+    {
+      "source": "Cookie Policy — ALANYA TOUR ORGANIZATIONS",
+      "translation": "Cookie-Richtlinie — ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "COOKIE POLICY",
+      "translation": "COOKIE-RICHTLINIE",
+      "kind": "text"
+    },
+    {
+      "source": "Home",
+      "translation": "Startseite",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Cookie Policy",
+      "translation": "Cookie-Richtlinie",
+      "kind": "text"
+    },
+    {
+      "source": "Legal Information",
+      "translation": "Rechtliche Informationen",
+      "kind": "text"
+    },
+    {
+      "source": "Booking & Cancellation",
+      "translation": "Buchung & Stornierung",
+      "kind": "text"
+    },
+    {
+      "source": "KVKK & Privacy",
+      "translation": "KVKK & Datenschutz",
+      "kind": "text"
+    },
+    {
+      "source": "Contact",
+      "translation": "Kontakt",
+      "kind": "text"
+    },
+    {
+      "source": "Website technologies",
+      "translation": "Website-Technologien",
+      "kind": "text"
+    },
+    {
+      "source": "ÇEREZ AYDINLATMA METNİ / COOKIE & BROWSER STORAGE NOTICE",
+      "translation": "HINWEIS ZU COOKIES & BROWSER-SPEICHERUNG",
+      "kind": "text"
+    },
+    {
+      "source": "This notice describes the first-party browser storage and external-content technologies intentionally used by the current website implementation.",
+      "translation": "Dieser Hinweis beschreibt die First-Party-Browserspeicherung und Technologien für externe Inhalte, die in der aktuellen Website-Implementierung bewusst eingesetzt werden.",
+      "kind": "text"
+    },
+    {
+      "source": "Last updated: 13 August 2026",
+      "translation": "Zuletzt aktualisiert: 13. August 2026",
+      "kind": "text"
+    },
+    {
+      "source": "Our Current Approach",
+      "translation": "Unser aktueller Ansatz",
+      "kind": "text"
+    },
+    {
+      "source": "The current site is designed so that optional advertising and behavioural-marketing trackers are not intentionally activated by default. The site uses limited first-party browser storage to provide functions requested by visitors, such as remembering a selected language, keeping tour filters and preserving Trip Planner selections while the visitor moves between pages.",
+      "translation": "Die aktuelle Website ist so gestaltet, dass optionale Werbe- und verhaltensbasierte Marketing-Tracker standardmäßig nicht bewusst aktiviert werden. Die Website nutzt in begrenztem Umfang First-Party-Browserspeicher für vom Besucher gewünschte Funktionen, etwa zum Merken der gewählten Sprache, der Tourfilter und der Trip-Planner-Auswahl beim Wechsel zwischen Seiten.",
+      "kind": "text"
+    },
+    {
+      "source": "Browser storage such as",
+      "translation": "Browserspeicher wie",
+      "kind": "text"
+    },
+    {
+      "source": "localStorage",
+      "translation": "localStorage",
+      "kind": "text"
+    },
+    {
+      "source": "and",
+      "translation": "und",
+      "kind": "text"
+    },
+    {
+      "source": "sessionStorage",
+      "translation": "sessionStorage",
+      "kind": "text"
+    },
+    {
+      "source": "is not technically the same as a traditional HTTP cookie, but it is covered by this notice because it can serve a similar persistence/functionality purpose.",
+      "translation": "ist technisch nicht dasselbe wie ein klassisches HTTP-Cookie, wird aber von diesem Hinweis erfasst, weil es einem ähnlichen Speicher-/Funktionszweck dienen kann.",
+      "kind": "text"
+    },
+    {
+      "source": "First-party Storage Used by the Site",
+      "translation": "Von der Website genutzter First-Party-Speicher",
+      "kind": "text"
+    },
+    {
+      "source": "Name / Function",
+      "translation": "Name / Funktion",
+      "kind": "text"
+    },
+    {
+      "source": "Technology & Party",
+      "translation": "Technologie & Partei",
+      "kind": "text"
+    },
+    {
+      "source": "Purpose",
+      "translation": "Zweck",
+      "kind": "text"
+    },
+    {
+      "source": "Typical duration",
+      "translation": "Typische Dauer",
+      "kind": "text"
+    },
+    {
+      "source": "atoLanguage",
+      "translation": "atoLanguage",
+      "kind": "text"
+    },
+    {
+      "source": "localStorage · first party",
+      "translation": "localStorage · First Party",
+      "kind": "text"
+    },
+    {
+      "source": "Keeps the current site language consistent across pages and future visits.",
+      "translation": "Hält die gewählte Websitesprache über Seiten und zukünftige Besuche hinweg konsistent.",
+      "kind": "text"
+    },
+    {
+      "source": "Until the visitor changes/clears it or browser storage is deleted.",
+      "translation": "Bis der Besucher den Wert ändert/löscht oder der Browserspeicher gelöscht wird.",
+      "kind": "text"
+    },
+    {
+      "source": "alanyaTourFilters",
+      "translation": "alanyaTourFilters",
+      "kind": "text"
+    },
+    {
+      "source": "Keeps tour-search/filter choices needed for the site’s shared filtering experience.",
+      "translation": "Speichert die für die gemeinsame Filterfunktion der Website benötigten Tour-Such-/Filtereinstellungen.",
+      "kind": "text"
+    },
+    {
+      "source": "Until reset/cleared or browser storage is deleted.",
+      "translation": "Bis zum Zurücksetzen/Löschen oder bis der Browserspeicher gelöscht wird.",
+      "kind": "text"
+    },
+    {
+      "source": "alanyaMapMode",
+      "translation": "alanyaMapMode",
+      "kind": "text"
+    },
+    {
+      "source": "Remembers the map display mode selected for Explore Map.",
+      "translation": "Merkt sich den für Explore Map gewählten Kartenanzeigemodus.",
+      "kind": "text"
+    },
+    {
+      "source": "Until changed/cleared or browser storage is deleted.",
+      "translation": "Bis zur Änderung/Löschung oder bis der Browserspeicher gelöscht wird.",
+      "kind": "text"
+    },
+    {
+      "source": "geoDismissed",
+      "translation": "geoDismissed",
+      "kind": "text"
+    },
+    {
+      "source": "sessionStorage · first party",
+      "translation": "sessionStorage · First Party",
+      "kind": "text"
+    },
+    {
+      "source": "Remembers that the visitor dismissed the optional geolocation prompt during the current session.",
+      "translation": "Merkt sich, dass der Besucher die optionale Geolokalisierungsabfrage in der aktuellen Sitzung geschlossen hat.",
+      "kind": "text"
+    },
+    {
+      "source": "Current browser tab/session.",
+      "translation": "Aktueller Browser-Tab/Sitzung.",
+      "kind": "text"
+    },
+    {
+      "source": "Trip Planner selection pool",
+      "translation": "Trip-Planner-Auswahlpool",
+      "kind": "text"
+    },
+    {
+      "source": "Keeps tours deliberately selected for comparison/planning while the visitor moves between category, map and planner pages.",
+      "translation": "Speichert bewusst für Vergleich/Planung ausgewählte Touren, während der Besucher zwischen Kategorie-, Karten- und Planner-Seiten wechselt.",
+      "kind": "text"
+    },
+    {
+      "source": "Until the visitor removes/resets selections or browser storage is deleted.",
+      "translation": "Bis der Besucher die Auswahl entfernt/zurücksetzt oder der Browserspeicher gelöscht wird.",
+      "kind": "text"
+    },
+    {
+      "source": "atoTPYourIntroSeen",
+      "translation": "atoTPYourIntroSeen",
+      "kind": "text"
+    },
+    {
+      "source": "Prevents the Trip Planner opening animation from repeating unnecessarily in the same browser session.",
+      "translation": "Verhindert, dass die Trip-Planner-Startanimation in derselben Browsersitzung unnötig wiederholt wird.",
+      "kind": "text"
+    },
+    {
+      "source": "atoHeartPhone",
+      "translation": "atoHeartPhone",
+      "kind": "text"
+    },
+    {
+      "source": "Temporarily retains the WhatsApp/phone number entered for the Heart Offer during the current session so eligibility/claim flow can continue without repeated entry.",
+      "translation": "Speichert die für das Heart Offer eingegebene WhatsApp-/Telefonnummer vorübergehend in der aktuellen Sitzung, damit Berechtigungs-/Einlöseablauf ohne erneute Eingabe fortgesetzt werden kann.",
+      "kind": "text"
+    },
+    {
+      "source": "Current browser tab/session, unless removed earlier.",
+      "translation": "Aktueller Browser-Tab/Sitzung, sofern nicht früher entfernt.",
+      "kind": "text"
+    },
+    {
+      "source": "Maps, Map Tiles & External Content",
+      "translation": "Karten, Kartenkacheln & externe Inhalte",
+      "kind": "text"
+    },
+    {
+      "source": "The privacy-ready homepage version supplied with this legal package does not automatically load the Google Maps iframe. The map is loaded only after the visitor actively chooses to load the external map. Once loaded, the browser connects to Google and Google may use its own cookies or similar technologies under its own policies and settings.",
+      "translation": "Die mit diesem Rechtspaket bereitgestellte datenschutzorientierte Homepage-Version lädt den Google-Maps-Iframe nicht automatisch. Die Karte wird erst geladen, nachdem der Besucher aktiv das Laden der externen Karte auswählt. Danach verbindet sich der Browser mit Google; Google kann nach eigenen Richtlinien und Einstellungen eigene Cookies oder ähnliche Technologien verwenden.",
+      "kind": "text"
+    },
+    {
+      "source": "The separate Explore Map feature uses MapLibre and configured external map/tile infrastructure (including map-style or imagery providers) to render the interactive map. When the visitor opens that feature, those technical providers may receive ordinary connection information such as IP address and device/browser request data necessary to deliver map resources.",
+      "translation": "Die separate Explore-Map-Funktion nutzt MapLibre und konfigurierte externe Karten-/Tile-Infrastruktur (einschließlich Kartenstil- oder Bildanbieter), um die interaktive Karte darzustellen. Beim Öffnen können diese technischen Anbieter übliche Verbindungsdaten wie IP-Adresse und Geräte-/Browser-Anfragedaten erhalten, die zur Auslieferung der Kartenressourcen erforderlich sind.",
+      "kind": "text"
+    },
+    {
+      "source": "Analytics & Marketing",
+      "translation": "Analyse & Marketing",
+      "kind": "text"
+    },
+    {
+      "source": "No Google Analytics or Meta Pixel is intentionally included in the audited current homepage source used for this package. If optional analytics, advertising, behavioural tracking or another non-essential technology is introduced later and the applicable legal ground requires consent, it must remain disabled by default until the visitor makes an affirmative choice.",
+      "translation": "Google Analytics oder Meta Pixel sind im geprüften aktuellen Homepage-Quellcode dieses Pakets bewusst nicht enthalten. Werden später optionale Analyse-, Werbe-, Verhaltens-Tracking- oder andere nicht notwendige Technologien eingeführt und verlangt die anwendbare Rechtsgrundlage eine Einwilligung, müssen sie standardmäßig deaktiviert bleiben, bis der Besucher ausdrücklich zustimmt.",
+      "kind": "text"
+    },
+    {
+      "source": "Your Controls",
+      "translation": "Ihre Einstellungen",
+      "kind": "text"
+    },
+    {
+      "source": "You can clear first-party browser storage through your browser/device settings. Trip Planner selections and saved site preferences can also be reset through the relevant site controls where provided. Clearing storage may reset the selected language, filters, planner selections or current-session offer information.",
+      "translation": "Sie können First-Party-Browserspeicher über die Browser-/Geräteeinstellungen löschen. Trip-Planner-Auswahl und gespeicherte Website-Einstellungen können, sofern vorgesehen, auch über entsprechende Website-Steuerelemente zurückgesetzt werden. Das Löschen kann Sprache, Filter, Planner-Auswahl oder Angebotsinformationen der aktuellen Sitzung zurücksetzen.",
+      "kind": "text"
+    },
+    {
+      "source": "If the site later uses non-essential technologies that require consent, the visitor will be given an appropriate opt-in preference mechanism before those technologies are activated.",
+      "translation": "Sollte die Website später nicht notwendige einwilligungspflichtige Technologien einsetzen, erhält der Besucher vor deren Aktivierung einen geeigneten Opt-in-Mechanismus.",
+      "kind": "text"
+    },
+    {
+      "source": "NO FAKE “ACCEPT ALL”:",
+      "translation": "KEIN SCHEINBARES „ALLE AKZEPTIEREN“:",
+      "kind": "text"
+    },
+    {
+      "source": "Because this privacy-ready version is intended not to run optional analytics/marketing trackers by default, the legal pages do not display a decorative or non-functional cookie-consent button. If optional tracking is later enabled, the consent interface must be implemented technically as well as described here.",
+      "translation": "Da diese datenschutzorientierte Version standardmäßig keine optionalen Analyse-/Marketing-Tracker ausführen soll, zeigen die Rechtsseiten keinen dekorativen oder funktionslosen Cookie-Einwilligungsbutton. Wird optionales Tracking später aktiviert, muss die Einwilligungsoberfläche technisch implementiert und nicht nur hier beschrieben werden.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR",
+      "translation": "UNION TOUR",
+      "kind": "text"
+    },
+    {
+      "source": "•",
+      "translation": "•",
+      "kind": "text"
+    },
+    {
+      "source": "TÜRSAB Belge No / License No: 2156",
+      "translation": "TÜRSAB Belge No / Lizenz-Nr.: 2156",
+      "kind": "text"
+    },
+    {
+      "source": "© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "translation": "© 2026 ALANYA TOUR ORGANIZATIONS — REISEN SIE MIT LIEBE. REISEN SIE MIT UNS.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "translation": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB Nr. 2156",
+      "kind": "text"
+    },
+    {
+      "source": "Company & Legal Information",
+      "translation": "Unternehmen & Rechtliches",
+      "kind": "text"
+    },
+    {
+      "source": "·",
+      "translation": "·",
+      "kind": "text"
+    },
+    {
+      "source": "Privacy & Cookies",
+      "translation": "Datenschutz & Cookies",
+      "kind": "text"
+    },
+    {
+      "source": "<",
+      "translation": "<",
+      "kind": "text"
+    },
+    {
+      "source": "/body>",
+      "translation": "/body>",
+      "kind": "text"
+    },
+    {
+      "source": "Legal pages",
+      "translation": "Rechtliche Seiten",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Company and legal links",
+      "translation": "Unternehmens- und Rechtslinks",
+      "kind": "aria-label"
+    }
+  ]
+}

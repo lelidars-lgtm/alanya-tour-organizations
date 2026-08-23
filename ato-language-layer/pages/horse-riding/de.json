@@ -1,0 +1,803 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "DE",
+  "approved_page": "horse-riding.html",
+  "approved_sha256": "adce812072f2b6d576b20183ae28260c8bca1924014406b03fbebd504d436e52",
+  "entries": [
+    {
+      "source": "Horse Riding in Alanya | Horse Farm Tour | Alanya Tour Organizations",
+      "translation": "Reiten in Alanya | Pferdehof-Tour | Alanya Tour Organizations",
+      "kind": "title"
+    },
+    {
+      "source": "Enjoy a horse riding experience with an instructor in Alanya with hotel transfer, safety briefing, trial ride, scenic mountain trails and panoramic nature stops.",
+      "translation": "Genießen Sie ein Reiterlebnis mit Instruktor in Alanya inklusive Hoteltransfer, Sicherheitseinweisung, Proberitt, malerischen Bergwegen und Panorama-Naturstopps.",
+      "kind": "meta"
+    },
+    {
+      "source": "Horse Riding in Alanya | Alanya Tour Organizations",
+      "translation": "Reiten in Alanya | Alanya Tour Organizations",
+      "kind": "meta"
+    },
+    {
+      "source": "Horse riding with an instructor, mountain trails, nature views and hotel transfer in Alanya.",
+      "translation": "Reiten mit Instruktor, Bergwege, Naturblicke und Hoteltransfer in Alanya.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home ›",
+      "translation": "Startseite ›",
+      "kind": "text"
+    },
+    {
+      "source": "Nature & Adventure",
+      "translation": "Natur & Abenteuer",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Horse Riding / Horse Farm",
+      "translation": "Reiten / Pferdefarm",
+      "kind": "text"
+    },
+    {
+      "source": "Horse Farm • Mountain Trails • Nature Experience",
+      "translation": "Pferdehof • Bergwege • Naturerlebnis",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy a peaceful horse riding experience with an instructor in Alanya through mountain trails, natural landscapes and panoramic countryside views.",
+      "translation": "Genießen Sie ein ruhiges Reiterlebnis mit Instruktor in Alanya auf Bergwegen, durch Naturlandschaften und mit Panoramablick auf die Umgebung.",
+      "kind": "text"
+    },
+    {
+      "source": "3–4 HOURS",
+      "translation": "3–4 STUNDEN",
+      "kind": "text"
+    },
+    {
+      "source": "HORSE FARM",
+      "translation": "PFERDEHOF",
+      "kind": "text"
+    },
+    {
+      "source": "TRANSFER",
+      "translation": "TRANSFER",
+      "kind": "text"
+    },
+    {
+      "source": "HORSE RIDING",
+      "translation": "REITEN",
+      "kind": "text"
+    },
+    {
+      "source": "NATURE ROUTE",
+      "translation": "NATURROUTE",
+      "kind": "text"
+    },
+    {
+      "source": "FAMILY FRIENDLY",
+      "translation": "FAMILIENFREUNDLICH",
+      "kind": "text"
+    },
+    {
+      "source": "BEGINNERS FRIENDLY",
+      "translation": "FÜR ANFÄNGER GEEIGNET",
+      "kind": "text"
+    },
+    {
+      "source": "MOUNTAIN VIEWS",
+      "translation": "BERGBLICKE",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Über WhatsApp buchen →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "Über dieses Erlebnis",
+      "kind": "text"
+    },
+    {
+      "source": "is a calm nature experience in Alanya for guests who want to discover a different side of the region: mountain trails, fresh air, countryside landscapes and panoramic views.",
+      "translation": "ist ein ruhiges Naturerlebnis in Alanya für Gäste, die eine andere Seite der Region entdecken möchten: Bergwege, frische Luft, ländliche Landschaften und Panoramablicke.",
+      "kind": "text"
+    },
+    {
+      "source": "The experience begins with transfer from your hotel or apartment to the horse farm. On arrival, the instructor introduces the route and safety rules, helps with equipment and prepares guests for a short trial ride.",
+      "translation": "Das Erlebnis beginnt mit dem Transfer vom Hotel oder Apartment zum Pferdehof. Bei Ankunft erklärt der Instruktor Route und Sicherheitsregeln, hilft mit der Ausrüstung und bereitet die Gäste auf einen kurzen Proberitt vor.",
+      "kind": "text"
+    },
+    {
+      "source": "The main route follows scenic mountain roads and natural trails. Depending on operational conditions, the program may include countryside viewpoints, peaceful village surroundings and stops for rest and photographs.",
+      "translation": "Die Hauptroute führt über malerische Bergwege und Naturpfade. Je nach Betriebsbedingungen kann das Programm Aussichtspunkte in ländlicher Umgebung, ruhige Dorfgebiete sowie Rast- und Fotostopps umfassen.",
+      "kind": "text"
+    },
+    {
+      "source": "No previous riding experience is required. Participation and horse selection are confirmed on site according to the guest’s age, height, confidence and the instructor’s safety assessment.",
+      "translation": "Vorkenntnisse im Reiten sind nicht erforderlich. Teilnahme und Pferdeauswahl werden vor Ort entsprechend Alter, Größe, Sicherheit des Gastes und der Sicherheitsbewertung des Instruktors bestätigt.",
+      "kind": "text"
+    },
+    {
+      "source": "Morning departures are usually the most comfortable during the warmer months. Exact pickup and return times may vary depending on hotel location, traffic and route conditions.",
+      "translation": "In den wärmeren Monaten sind morgendliche Abfahrten meist am angenehmsten. Genaue Abhol- und Rückkehrzeiten können je nach Hotellage, Verkehr und Routenbedingungen variieren.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Highlights",
+      "kind": "text"
+    },
+    {
+      "source": "Horse riding with an instructor through the natural landscapes of Alanya",
+      "translation": "Reiten mit Instruktor durch die Naturlandschaften von Alanya",
+      "kind": "text"
+    },
+    {
+      "source": "Calm, trained horses selected according to each guest",
+      "translation": "Ruhige, trainierte Pferde passend zu jedem Gast",
+      "kind": "text"
+    },
+    {
+      "source": "Safety briefing and guidance before the route",
+      "translation": "Sicherheitseinweisung und Anleitung vor der Route",
+      "kind": "text"
+    },
+    {
+      "source": "Short trial ride before departure",
+      "translation": "Kurzer Proberitt vor dem Start",
+      "kind": "text"
+    },
+    {
+      "source": "Scenic mountain roads and natural trails",
+      "translation": "Malerische Bergwege und Naturpfade",
+      "kind": "text"
+    },
+    {
+      "source": "Countryside atmosphere and panoramic viewpoints",
+      "translation": "Ländliche Atmosphäre und Panorama-Aussichtspunkte",
+      "kind": "text"
+    },
+    {
+      "source": "Stops for rest and photographs",
+      "translation": "Rast- und Fotostopps",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment transfer included",
+      "translation": "Hotel- oder Apartmenttransfer inklusive",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Details",
+      "kind": "text"
+    },
+    {
+      "source": "Duration: 3–4 hours",
+      "translation": "Dauer: 3–4 Stunden",
+      "kind": "text"
+    },
+    {
+      "source": "Morning: approximately 09:00–12:30",
+      "translation": "Vormittag: ca. 09:00–12:30",
+      "kind": "text"
+    },
+    {
+      "source": "Afternoon: approximately 14:00–18:00",
+      "translation": "Nachmittag: ca. 14:00–18:00",
+      "kind": "text"
+    },
+    {
+      "source": "Days: every day",
+      "translation": "Tage: täglich",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup: hotel / apartment address",
+      "translation": "Abholung: Hotel- / Apartmentadresse",
+      "kind": "text"
+    },
+    {
+      "source": "Rider suitability: confirmed individually by the horse club",
+      "translation": "Eignung des Reiters: wird individuell vom Reitclub bestätigt",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Preis",
+      "kind": "text"
+    },
+    {
+      "source": "€50",
+      "translation": "€50",
+      "kind": "text"
+    },
+    {
+      "source": "per person",
+      "translation": "pro Person",
+      "kind": "text"
+    },
+    {
+      "source": "Children: full ticket price",
+      "translation": "Kinder: voller Ticketpreis",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Inklusive",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer from / to hotel",
+      "translation": "Transfer vom / zum Hotel",
+      "kind": "text"
+    },
+    {
+      "source": "Instructor assistance",
+      "translation": "Unterstützung durch den Instruktor",
+      "kind": "text"
+    },
+    {
+      "source": "Protective riding helmet fitted to size",
+      "translation": "Passend angepasster Reithelm",
+      "kind": "text"
+    },
+    {
+      "source": "Saddle and bridle",
+      "translation": "Sattel und Zaumzeug",
+      "kind": "text"
+    },
+    {
+      "source": "Safety briefing",
+      "translation": "Sicherheitseinweisung",
+      "kind": "text"
+    },
+    {
+      "source": "Trial ride",
+      "translation": "Proberitt",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance",
+      "translation": "Versicherung",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Nicht inklusive",
+      "kind": "text"
+    },
+    {
+      "source": "Personal riding clothes and footwear",
+      "translation": "Eigene Reitkleidung und Schuhe",
+      "kind": "text"
+    },
+    {
+      "source": "Sunscreen, sunglasses and drinking water",
+      "translation": "Sonnencreme, Sonnenbrille und Trinkwasser",
+      "kind": "text"
+    },
+    {
+      "source": "Photo and video shooting",
+      "translation": "Foto- und Videoaufnahmen",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Persönliche Ausgaben",
+      "kind": "text"
+    },
+    {
+      "source": "Program",
+      "translation": "Programm",
+      "kind": "text"
+    },
+    {
+      "source": "A relaxed horse-riding experience combining hotel transfer, introduction at the horse farm, safety briefing, a trial ride and a scenic route through the natural landscapes of Alanya.",
+      "translation": "Ein entspanntes Reiterlebnis mit Hoteltransfer, Einführung auf dem Pferdehof, Sicherheitseinweisung, Proberitt und einer landschaftlich schönen Route durch die Natur von Alanya.",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup",
+      "translation": "Abholung",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel / Apartment Pickup",
+      "translation": "Abholung vom Hotel / Apartment",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer from your hotel or apartment address to the horse farm. Exact pickup time is confirmed after booking.",
+      "translation": "Transfer von Ihrem Hotel oder Ihrer Apartmentadresse zum Pferdehof. Die genaue Abholzeit wird nach der Buchung bestätigt.",
+      "kind": "text"
+    },
+    {
+      "source": "Horse Farm",
+      "translation": "Pferdefarm",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival at the Horse Farm",
+      "translation": "Ankunft auf dem Pferdehof",
+      "kind": "text"
+    },
+    {
+      "source": "Meet the horses, discover the farm and receive an introduction to the experience.",
+      "translation": "Lernen Sie die Pferde kennen, entdecken Sie den Hof und erhalten Sie eine Einführung in das Erlebnis.",
+      "kind": "text"
+    },
+    {
+      "source": "Briefing",
+      "translation": "Einweisung",
+      "kind": "text"
+    },
+    {
+      "source": "Safety Briefing & Equipment",
+      "translation": "Sicherheitseinweisung & Ausrüstung",
+      "kind": "text"
+    },
+    {
+      "source": "The instructor explains the safety rules, prepares the equipment and selects a suitable horse.",
+      "translation": "Der Instruktor erklärt die Sicherheitsregeln, bereitet die Ausrüstung vor und wählt ein geeignetes Pferd aus.",
+      "kind": "text"
+    },
+    {
+      "source": "Trial Ride",
+      "translation": "Proberitt",
+      "kind": "text"
+    },
+    {
+      "source": "Practice Before the Route",
+      "translation": "Übung vor der Route",
+      "kind": "text"
+    },
+    {
+      "source": "A short controlled trial ride with the instructor before the main route begins.",
+      "translation": "Ein kurzer kontrollierter Proberitt mit dem Instruktor, bevor die Hauptroute beginnt.",
+      "kind": "text"
+    },
+    {
+      "source": "Main Route",
+      "translation": "Hauptroute",
+      "kind": "text"
+    },
+    {
+      "source": "Mountain Trails",
+      "translation": "Bergwege",
+      "kind": "text"
+    },
+    {
+      "source": "Ride with the instructor along scenic mountain roads, natural trails and quiet countryside landscapes.",
+      "translation": "Reiten Sie mit dem Instruktor über malerische Bergwege, Naturpfade und durch ruhige ländliche Landschaften.",
+      "kind": "text"
+    },
+    {
+      "source": "Views",
+      "translation": "Aussichten",
+      "kind": "text"
+    },
+    {
+      "source": "Countryside & Viewpoints",
+      "translation": "Landschaft & Aussichtspunkte",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy peaceful surroundings and panoramic stops depending on route and operational conditions.",
+      "translation": "Genießen Sie ruhige Umgebung und Panoramastopps je nach Route und Betriebsbedingungen.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Stop",
+      "translation": "Fotostopp",
+      "kind": "text"
+    },
+    {
+      "source": "Rest & Photo Stops",
+      "translation": "Rast- & Fotostopps",
+      "kind": "text"
+    },
+    {
+      "source": "Time for short breaks and photographs with the horses and surrounding nature.",
+      "translation": "Zeit für kurze Pausen und Fotos mit den Pferden und der umgebenden Natur.",
+      "kind": "text"
+    },
+    {
+      "source": "Return",
+      "translation": "Rückkehr",
+      "kind": "text"
+    },
+    {
+      "source": "Return Transfer",
+      "translation": "Rücktransfer",
+      "kind": "text"
+    },
+    {
+      "source": "Return to the horse farm followed by transfer back to your hotel or apartment.",
+      "translation": "Rückkehr zum Pferdehof, anschließend Transfer zurück zu Ihrem Hotel oder Apartment.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Fotogalerie",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Tourzeit",
+      "kind": "text"
+    },
+    {
+      "source": "Morning:",
+      "translation": "Vormittag:",
+      "kind": "text"
+    },
+    {
+      "source": "Approximately 09:00 – 12:30",
+      "translation": "Ca. 09:00–12:30",
+      "kind": "text"
+    },
+    {
+      "source": "Afternoon:",
+      "translation": "Nachmittag:",
+      "kind": "text"
+    },
+    {
+      "source": "Approximately 14:00 – 18:00",
+      "translation": "Ca. 14:00–18:00",
+      "kind": "text"
+    },
+    {
+      "source": "Days:",
+      "translation": "Tage:",
+      "kind": "text"
+    },
+    {
+      "source": "Every day",
+      "translation": "Täglich",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Was Sie mitbringen sollten",
+      "kind": "text"
+    },
+    {
+      "source": "Long trousers: leggings, soft jeans or sports pants",
+      "translation": "Lange Hose: Leggings, weiche Jeans oder Sporthose",
+      "kind": "text"
+    },
+    {
+      "source": "Shorts and skirts are not permitted",
+      "translation": "Shorts und Röcke sind nicht erlaubt",
+      "kind": "text"
+    },
+    {
+      "source": "Closed riding footwear with a secure fit and a small heel is preferred",
+      "translation": "Geschlossene, sicher sitzende Reitschuhe mit kleinem Absatz werden bevorzugt",
+      "kind": "text"
+    },
+    {
+      "source": "Flip-flops, slides, backless sandals and loose laces are not permitted",
+      "translation": "Flip-Flops, Slides, Sandalen ohne Fersenhalt und lose Schnürsenkel sind nicht erlaubt",
+      "kind": "text"
+    },
+    {
+      "source": "T-shirt and a light windbreaker if needed",
+      "translation": "T-Shirt und bei Bedarf leichte Windjacke",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses and sunscreen",
+      "translation": "Sonnenbrille und Sonnencreme",
+      "kind": "text"
+    },
+    {
+      "source": "Drinking water",
+      "translation": "Trinkwasser",
+      "kind": "text"
+    },
+    {
+      "source": "Hat for use before and after riding",
+      "translation": "Kopfbedeckung vor und nach dem Reiten",
+      "kind": "text"
+    },
+    {
+      "source": "Gloves if needed",
+      "translation": "Handschuhe bei Bedarf",
+      "kind": "text"
+    },
+    {
+      "source": "Camera / phone",
+      "translation": "Kamera / Telefon",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Kinderregelung",
+      "kind": "text"
+    },
+    {
+      "source": "Minimum age:",
+      "translation": "Mindestalter:",
+      "kind": "text"
+    },
+    {
+      "source": "3 years for this offer, subject to advance confirmation by the horse club.",
+      "translation": "3 Jahre für dieses Angebot, vorbehaltlich vorheriger Bestätigung durch den Reitclub.",
+      "kind": "text"
+    },
+    {
+      "source": "Riding format:",
+      "translation": "Reitformat:",
+      "kind": "text"
+    },
+    {
+      "source": "younger children may only ride in the format specifically approved by the instructor and horse club.",
+      "translation": "jüngere Kinder dürfen nur in einem vom Instruktor und Reitclub ausdrücklich genehmigten Format reiten.",
+      "kind": "text"
+    },
+    {
+      "source": "Independent riding:",
+      "translation": "Selbstständiges Reiten:",
+      "kind": "text"
+    },
+    {
+      "source": "usually from 6–7 years, depending on balance, confidence, ability to reach the stirrups and follow instructions.",
+      "translation": "in der Regel ab 6–7 Jahren, abhängig von Gleichgewicht, Sicherheit, Erreichen der Steigbügel und der Fähigkeit, Anweisungen zu befolgen.",
+      "kind": "text"
+    },
+    {
+      "source": "Ticket:",
+      "translation": "Ticket:",
+      "kind": "text"
+    },
+    {
+      "source": "children pay the full ticket price.",
+      "translation": "Kinder zahlen den vollen Ticketpreis.",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Informationen zur Abholung",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup from hotel or apartment address.",
+      "translation": "Abholung von der Hotel- oder Apartmentadresse.",
+      "kind": "text"
+    },
+    {
+      "source": "Exact pickup time is confirmed after booking.",
+      "translation": "Die genaue Abholzeit wird nach der Buchung bestätigt.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Häufig gestellte Fragen",
+      "kind": "text"
+    },
+    {
+      "source": "Do I need previous horse riding experience?",
+      "translation": "Ist vorherige Reiterfahrung erforderlich?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "No. A safety briefing and trial ride are provided before the route. The instructor selects a suitable horse according to each guest’s confidence and ability.",
+      "translation": "Nein. Vor der Route gibt es eine Sicherheitseinweisung und einen Proberitt. Der Instruktor wählt je nach Sicherheit und Können jedes Gastes ein passendes Pferd aus.",
+      "kind": "text"
+    },
+    {
+      "source": "Are hotel transfers included?",
+      "translation": "Sind Hoteltransfers inklusive?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Pickup and return transfer from your hotel or apartment address are included. The exact pickup time is confirmed after booking.",
+      "translation": "Ja. Abholung und Rücktransfer von Ihrem Hotel oder Ihrer Apartmentadresse sind inklusive. Die genaue Abholzeit wird nach der Buchung bestätigt.",
+      "kind": "text"
+    },
+    {
+      "source": "Are the listed times exact?",
+      "translation": "Sind die angegebenen Zeiten genau?",
+      "kind": "text"
+    },
+    {
+      "source": "The times are approximate. Pickup and return may vary depending on hotel location, traffic, group organisation and route conditions.",
+      "translation": "Die Zeiten sind ungefähr. Abholung und Rückkehr können je nach Hotellage, Verkehr, Gruppenorganisation und Routenbedingungen variieren.",
+      "kind": "text"
+    },
+    {
+      "source": "Can a child ride together with an adult?",
+      "translation": "Kann ein Kind zusammen mit einem Erwachsenen reiten?",
+      "kind": "text"
+    },
+    {
+      "source": "Only when the horse club and instructor explicitly approve this format before the ride. The decision depends on the selected horse, combined rider suitability, saddle and equipment fit, route conditions and horse welfare. It must not be assumed automatically from the child’s age.",
+      "translation": "Nur wenn Reitclub und Instruktor dieses Format vor dem Ritt ausdrücklich genehmigen. Die Entscheidung hängt vom ausgewählten Pferd, der gemeinsamen Eignung der Reiter, Passform von Sattel und Ausrüstung, Routenbedingungen und dem Wohl des Pferdes ab. Sie darf nicht automatisch allein aus dem Alter des Kindes abgeleitet werden.",
+      "kind": "text"
+    },
+    {
+      "source": "Is parental consent required?",
+      "translation": "Ist eine elterliche Zustimmung erforderlich?",
+      "kind": "text"
+    },
+    {
+      "source": "If a child joins the tour without a parent or legal guardian and is accompanied by relatives, family friends or another third party, official adult supervision or written consent from the child’s parent or legal guardian may be required when completing the horse club’s insurance and participation form before the ride.",
+      "translation": "Wenn ein Kind ohne Elternteil oder gesetzlichen Vormund teilnimmt und von Verwandten, Familienfreunden oder einer anderen dritten Person begleitet wird, können beim Ausfüllen des Versicherungs- und Teilnahmeformulars des Reitclubs vor dem Ritt eine offizielle erwachsene Aufsicht oder eine schriftliche Zustimmung des Elternteils/gesetzlichen Vormunds erforderlich sein.",
+      "kind": "text"
+    },
+    {
+      "source": "What equipment is provided free of charge?",
+      "translation": "Welche Ausrüstung wird kostenlos gestellt?",
+      "kind": "text"
+    },
+    {
+      "source": "A protective riding helmet is provided for every participant and is mandatory throughout the ride. For children, the helmet is selected according to head size. The saddle and bridle are standard riding equipment and are already fitted to the horse.",
+      "translation": "Für jeden Teilnehmer wird ein Schutzhelm bereitgestellt, der während des gesamten Ritts verpflichtend ist. Bei Kindern wird der Helm nach Kopfgröße ausgewählt. Sattel und Zaumzeug gehören zur Standardausrüstung und sind bereits am Pferd angebracht.",
+      "kind": "text"
+    },
+    {
+      "source": "What should children and adults wear?",
+      "translation": "Was sollten Kinder und Erwachsene tragen?",
+      "kind": "text"
+    },
+    {
+      "source": "Long trousers are required to reduce rubbing from the saddle. Wear closed, secure footwear that stays firmly on the foot; riding boots or ankle boots with a small heel are preferred because they help prevent the foot sliding through the stirrup. Flip-flops, slides, backless sandals and loose laces are not permitted. Bring sunscreen, sunglasses and drinking water.",
+      "translation": "Lange Hosen sind erforderlich, um Reibung durch den Sattel zu reduzieren. Tragen Sie geschlossene, sicher sitzende Schuhe; Reitstiefel oder Stiefeletten mit kleinem Absatz werden bevorzugt, da sie verhindern, dass der Fuß durch den Steigbügel rutscht. Flip-Flops, Slides, Sandalen ohne Fersenhalt und lose Schnürsenkel sind nicht erlaubt. Bringen Sie Sonnencreme, Sonnenbrille und Trinkwasser mit.",
+      "kind": "text"
+    },
+    {
+      "source": "Are photos included?",
+      "translation": "Sind Fotos inklusive?",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photo and video services are not included and may be offered separately during the experience.",
+      "translation": "Professionelle Foto- und Videoservices sind nicht enthalten und können während des Erlebnisses separat angeboten werden.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Noch Fragen?",
+      "kind": "text"
+    },
+    {
+      "source": "Contact us on WhatsApp to check availability, pickup time, route details, price and what to bring for Horse Riding / Horse Farm.",
+      "translation": "Kontaktieren Sie uns auf WhatsApp für Verfügbarkeit, Abholzeit, Routendetails, Preis und Packliste für Horse Riding / Horse Farm.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Auf WhatsApp schreiben →",
+      "kind": "text"
+    },
+    {
+      "source": "Important Horse Riding Safety Rules",
+      "translation": "Wichtige Sicherheitsregeln beim Reiten",
+      "kind": "text"
+    },
+    {
+      "source": "Participation is subject to the horse club’s final safety assessment. Horse selection, route access, riding format and permission to continue are determined according to the rider’s age, height, weight, balance and experience, as well as horse welfare, equipment fit and current conditions.",
+      "translation": "Die Teilnahme unterliegt der endgültigen Sicherheitsbewertung des Reitclubs. Pferdeauswahl, Routenzugang, Reitformat und Erlaubnis zur Fortsetzung werden anhand von Alter, Größe, Gewicht, Gleichgewicht und Erfahrung des Reiters sowie Pferdewohl, Ausrüstungspassform und aktuellen Bedingungen bestimmt.",
+      "kind": "text"
+    },
+    {
+      "source": "Instructor Instructions",
+      "translation": "Anweisungen des Instruktors",
+      "kind": "text"
+    },
+    {
+      "source": "Guests must attend the full briefing and follow the instructor during mounting, the trial ride, the route, stops and dismounting. Riding away from the group or ignoring commands is not permitted.",
+      "translation": "Gäste müssen an der vollständigen Einweisung teilnehmen und beim Aufsteigen, Proberitt, auf der Route, bei Stopps und beim Absteigen den Anweisungen des Instruktors folgen. Vom Team wegzureiten oder Befehle zu ignorieren ist nicht erlaubt.",
+      "kind": "text"
+    },
+    {
+      "source": "Helmet, Clothing & Footwear",
+      "translation": "Helm, Kleidung & Schuhe",
+      "kind": "text"
+    },
+    {
+      "source": "A correctly fitted riding helmet must remain fastened while mounted. Long trousers and closed secure footwear are required; riding or ankle boots with a small heel are preferred. Loose footwear and unsecured items are prohibited.",
+      "translation": "Ein korrekt sitzender Reithelm muss während des Reitens geschlossen bleiben. Lange Hosen und geschlossene, sichere Schuhe sind Pflicht; Reit- oder Stiefeletten mit kleinem Absatz werden bevorzugt. Lose Schuhe und ungesicherte Gegenstände sind verboten.",
+      "kind": "text"
+    },
+    {
+      "source": "Behaviour Around Horses",
+      "translation": "Verhalten bei Pferden",
+      "kind": "text"
+    },
+    {
+      "source": "Approach horses calmly from a visible side, keep a safe distance from other horses and never stand directly behind one. Running, shouting, sudden movements, feeding or touching horses without permission are not allowed.",
+      "translation": "Nähern Sie sich Pferden ruhig von einer sichtbaren Seite, halten Sie sicheren Abstand zu anderen Pferden und stehen Sie niemals direkt hinter einem Pferd. Rennen, Rufen, plötzliche Bewegungen, Füttern oder Berühren ohne Erlaubnis sind nicht gestattet.",
+      "kind": "text"
+    },
+    {
+      "source": "Health, Route & Conditions",
+      "translation": "Gesundheit, Route & Bedingungen",
+      "kind": "text"
+    },
+    {
+      "source": "Pregnant guests cannot participate. Riders must disclose relevant health or mobility concerns. The instructor may shorten, change or cancel the route because of weather, terrain, horse condition or rider safety.",
+      "translation": "Schwangere Gäste können nicht teilnehmen. Relevante Gesundheits- oder Mobilitätsprobleme müssen angegeben werden. Der Instruktor kann die Route wegen Wetter, Gelände, Zustand des Pferdes oder Reitersicherheit verkürzen, ändern oder absagen.",
+      "kind": "text"
+    },
+    {
+      "source": "The horse club’s briefing, helmet rules, rider assessment, horse allocation and instructor decisions always take priority over the advertised route, timing and general participation information.",
+      "translation": "Einweisung des Reitclubs, Helmregeln, Reiterbewertung, Pferdezuteilung und Entscheidungen des Instruktors haben stets Vorrang vor ausgeschriebener Route, Zeitplan und allgemeinen Teilnahmeinformationen.",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Vorheriges Foto",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Nächstes Foto",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Galerie-Vorschaubilder",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Horse riding mountain views",
+      "translation": "Bergblicke beim Reiten",
+      "kind": "alt"
+    },
+    {
+      "source": "Horse farm in Alanya",
+      "translation": "Pferdehof in Alanya",
+      "kind": "alt"
+    },
+    {
+      "source": "Beginners horse riding briefing",
+      "translation": "Reiteinweisung für Anfänger",
+      "kind": "alt"
+    },
+    {
+      "source": "Traditional village horse route",
+      "translation": "Reitroute durch ein traditionelles Dorf",
+      "kind": "alt"
+    },
+    {
+      "source": "Family friendly horse riding",
+      "translation": "Familienfreundliches Reiten",
+      "kind": "alt"
+    },
+    {
+      "source": "Основная информация о туре",
+      "translation": "Wichtigste Tourinformationen",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Important horse riding safety rules",
+      "translation": "Wichtige Sicherheitsregeln beim Reiten",
+      "kind": "aria-label"
+    }
+  ]
+}

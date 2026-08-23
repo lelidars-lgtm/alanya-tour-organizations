@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "cappadocia.html",
+  "approved_sha256": "d14889688640bd0fd6906d9a994423d215740fbada67d9fd5c82befd3e1f5034",
+  "translation_entries": 171,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

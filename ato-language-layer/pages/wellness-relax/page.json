@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "wellness-relax.html",
+  "approved_sha256": "0937699d8aaf188d0ba083e47241d99ce028b916deb83a1ed2efbfc3bc9e8002",
+  "translation_entries": 52,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

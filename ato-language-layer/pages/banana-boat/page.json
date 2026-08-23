@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "banana-boat.html",
+  "approved_sha256": "eb4ff66b8d2c6b32191f6a4c11f08c2c801d692656418ac48b70b53615f36c99",
+  "translation_entries": 150,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

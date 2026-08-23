@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "private-photographer.html",
+  "approved_sha256": "5551627bbdbfcd3618b83033a4e97d72fb83cb755ed38dfb98d5f389ac2cdc19",
+  "translation_entries": 167,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

@@ -1,0 +1,643 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "RU",
+  "approved_page": "pirate-yacht.html",
+  "approved_sha256": "70e322eb724daa6668ae8b1b8b9fe8b538eafb5a7fcbdb8f6b6d80755540b85e",
+  "entries": [
+    {
+      "source": "Pirate Yacht Tour in Alanya | ADMIRAL BLACK",
+      "translation": "Pirate Yacht Tour в Алании | ADMIRAL BLACK",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › Sea Experiences ›",
+      "translation": "Главная › Морские развлечения ›",
+      "kind": "text"
+    },
+    {
+      "source": "Pirate Yacht Tour",
+      "translation": "Пиратская яхта",
+      "kind": "text"
+    },
+    {
+      "source": "Sea Experience",
+      "translation": "Морское приключение",
+      "kind": "text"
+    },
+    {
+      "source": "Pirate Yacht Tour in Alanya",
+      "translation": "Пиратская яхта в Аланье",
+      "kind": "text"
+    },
+    {
+      "source": "A full day at sea with music, swimming, a foam party and unforgettable family fun.",
+      "translation": "Полный день в море с музыкой, купанием, пенной вечеринкой и незабываемым семейным весельем.",
+      "kind": "text"
+    },
+    {
+      "source": "Cruise aboard the spacious ADMIRAL BLACK yacht, swim along the Alanya coast, discover famous sea caves and enjoy views of the Red Tower, Cleopatra Beach and Alanya Castle.",
+      "translation": "Отправляйтесь в круиз на просторной яхте ADMIRAL BLACK, купайтесь у побережья Алании, откройте знаменитые морские пещеры и наслаждайтесь видами на Красную башню, пляж Клеопатры и крепость Алании.",
+      "kind": "text"
+    },
+    {
+      "source": "6 hours",
+      "translation": "6 часов",
+      "kind": "text"
+    },
+    {
+      "source": "Buffet Lunch",
+      "translation": "Обед-буфет",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer",
+      "translation": "Трансфер",
+      "kind": "text"
+    },
+    {
+      "source": "Foam Party",
+      "translation": "Пенная вечеринка",
+      "kind": "text"
+    },
+    {
+      "source": "All Inclusive",
+      "translation": "Всё включено",
+      "kind": "text"
+    },
+    {
+      "source": "Pirate Yacht",
+      "translation": "Пиратская яхта",
+      "kind": "text"
+    },
+    {
+      "source": "Family Friendly",
+      "translation": "Для всей семьи",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming Stops",
+      "translation": "Остановки для купания",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer Included",
+      "translation": "Трансфер включён",
+      "kind": "text"
+    },
+    {
+      "source": "Best Seller",
+      "translation": "Хит продаж",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Забронировать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "Об этом впечатлении",
+      "kind": "text"
+    },
+    {
+      "source": "The Pirate Yacht Tour in Alanya is more than a boat trip — it is a full day of swimming, music, entertainment and a joyful holiday atmosphere.",
+      "translation": "Pirate Yacht Tour в Алании — это больше, чем прогулка на лодке: целый день купания, музыки, развлечений и радостной отпускной атмосферы.",
+      "kind": "text"
+    },
+    {
+      "source": "The cruise starts from Alanya Harbour, with panoramic views of the Red Tower and the historic castle.",
+      "translation": "Круиз начинается в порту Алании с панорамными видами на Красную башню и историческую крепость.",
+      "kind": "text"
+    },
+    {
+      "source": "The route continues past the historic Tersane Shipyard, Pirate Cave, Lovers Cave and Phosphorus Cave, with refreshing swimming stops along the coast.",
+      "translation": "Маршрут проходит мимо исторической судоверфи Tersane, Пиратской пещеры, Пещеры влюблённых и Фосфорной пещеры, с освежающими остановками для купания вдоль побережья.",
+      "kind": "text"
+    },
+    {
+      "source": "Later, enjoy views of Cleopatra Beach and the New Harbour. With a little luck, you may see dolphins in their natural habitat.",
+      "translation": "Позже вы увидите пляж Клеопатры и Новый порт. Если повезёт, можно встретить дельфинов в естественной среде.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Главные впечатления",
+      "kind": "text"
+    },
+    {
+      "source": "Foam party and entertainment on board",
+      "translation": "Пенная вечеринка и развлечения на борту",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming stop near the historic Tersane Shipyard",
+      "translation": "Остановка для купания у исторической судоверфи Tersane",
+      "kind": "text"
+    },
+    {
+      "source": "Pirate Cave, Lovers Cave and Phosphorus Cave",
+      "translation": "Пиратская пещера, Пещера влюблённых и Фосфорная пещера",
+      "kind": "text"
+    },
+    {
+      "source": "Views of the Red Tower and Alanya Castle",
+      "translation": "Виды на Красную башню и крепость Алании",
+      "kind": "text"
+    },
+    {
+      "source": "Cleopatra Beach and the New Harbour",
+      "translation": "Пляж Клеопатры и Новый порт",
+      "kind": "text"
+    },
+    {
+      "source": "A chance to see dolphins in the open sea",
+      "translation": "Шанс увидеть дельфинов в открытом море",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Детали",
+      "kind": "text"
+    },
+    {
+      "source": "Duration: 6 hours",
+      "translation": "Продолжительность: 6 часов",
+      "kind": "text"
+    },
+    {
+      "source": "09:00–15:00",
+      "translation": "09:00–15:00",
+      "kind": "text"
+    },
+    {
+      "source": "Every day",
+      "translation": "Ежедневно",
+      "kind": "text"
+    },
+    {
+      "source": "Departure from Alanya Harbour",
+      "translation": "Отправление из порта Аланьи",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Цена",
+      "kind": "text"
+    },
+    {
+      "source": "€25",
+      "translation": "€25",
+      "kind": "text"
+    },
+    {
+      "source": "per person",
+      "translation": "за человека",
+      "kind": "text"
+    },
+    {
+      "source": "Children 0–4: Free",
+      "translation": "Дети 0–4: бесплатно",
+      "kind": "text"
+    },
+    {
+      "source": "Children 5–11: Half price",
+      "translation": "Дети 5–11: половина цены",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Включено",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance",
+      "translation": "Страховка",
+      "kind": "text"
+    },
+    {
+      "source": "Buffet lunch",
+      "translation": "Обед-буфет",
+      "kind": "text"
+    },
+    {
+      "source": "Unlimited soft drinks",
+      "translation": "Безлимитные безалкогольные напитки",
+      "kind": "text"
+    },
+    {
+      "source": "Foam party and entertainment",
+      "translation": "Пенная вечеринка и развлечения",
+      "kind": "text"
+    },
+    {
+      "source": "Wi-Fi, shower and restroom",
+      "translation": "Wi‑Fi, душ и туалет",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Не включено",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photos",
+      "translation": "Профессиональные фотографии",
+      "kind": "text"
+    },
+    {
+      "source": "Imported drinks",
+      "translation": "Импортные напитки",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Личные расходы",
+      "kind": "text"
+    },
+    {
+      "source": "Program",
+      "translation": "Программа",
+      "kind": "text"
+    },
+    {
+      "source": "A carefully planned day at sea with sightseeing, swimming, lunch and entertainment aboard the ADMIRAL BLACK pirate yacht.",
+      "translation": "Тщательно спланированный день в море с осмотром достопримечательностей, купанием, обедом и развлечениями на пиратской яхте ADMIRAL BLACK.",
+      "kind": "text"
+    },
+    {
+      "source": "09:00",
+      "translation": "09:00",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel Pickup",
+      "translation": "Трансфер из отеля",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable transfer from your hotel or apartment to Alanya Harbour.",
+      "translation": "Комфортный трансфер из вашего отеля или апартаментов в порт Алании.",
+      "kind": "text"
+    },
+    {
+      "source": "10:00",
+      "translation": "10:00",
+      "kind": "text"
+    },
+    {
+      "source": "Board the ADMIRAL BLACK pirate yacht and begin your cruise along the historic Alanya coastline.",
+      "translation": "Поднимитесь на борт пиратской яхты ADMIRAL BLACK и начните круиз вдоль исторического побережья Алании.",
+      "kind": "text"
+    },
+    {
+      "source": "Coastal Route",
+      "translation": "Маршрут вдоль побережья",
+      "kind": "text"
+    },
+    {
+      "source": "Famous Sea Caves",
+      "translation": "Знаменитые морские пещеры",
+      "kind": "text"
+    },
+    {
+      "source": "Sail past Pirate Cave, Lovers Cave and Phosphorus Cave with panoramic views of Alanya Castle.",
+      "translation": "Пройдите мимо Пиратской пещеры, Пещеры влюблённых и Фосфорной пещеры с панорамными видами на крепость Алании.",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming Stop",
+      "translation": "Остановка для купания",
+      "kind": "text"
+    },
+    {
+      "source": "Tersane Bay",
+      "translation": "Бухта Tersane",
+      "kind": "text"
+    },
+    {
+      "source": "Swim in clear Mediterranean water near the historic Seljuk shipyard.",
+      "translation": "Искупайтесь в чистой воде Средиземного моря рядом с исторической сельджукской судоверфью.",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch",
+      "translation": "Обед",
+      "kind": "text"
+    },
+    {
+      "source": "Buffet on Board",
+      "translation": "Буфет на борту",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy a freshly prepared buffet lunch together with unlimited soft drinks.",
+      "translation": "Насладитесь свежеприготовленным обедом-буфетом и безлимитными безалкогольными напитками.",
+      "kind": "text"
+    },
+    {
+      "source": "Scenic Stop",
+      "translation": "Живописная остановка",
+      "kind": "text"
+    },
+    {
+      "source": "Cleopatra Beach",
+      "translation": "Пляж Клеопатры",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy another swimming break, coastal views and a chance to spot dolphins in the open sea.",
+      "translation": "Насладитесь ещё одной остановкой для купания, видами побережья и шансом увидеть дельфинов в открытом море.",
+      "kind": "text"
+    },
+    {
+      "source": "Entertainment",
+      "translation": "Развлечения",
+      "kind": "text"
+    },
+    {
+      "source": "Foam Party & Pirate Show",
+      "translation": "Пенная вечеринка и пиратское шоу",
+      "kind": "text"
+    },
+    {
+      "source": "Music, dancing, games and pirate-themed entertainment for adults and children.",
+      "translation": "Музыка, танцы, игры и развлечения в пиратской тематике для взрослых и детей.",
+      "kind": "text"
+    },
+    {
+      "source": "15:00",
+      "translation": "15:00",
+      "kind": "text"
+    },
+    {
+      "source": "Return & Hotel Transfer",
+      "translation": "Возвращение и трансфер в отель",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival back at Alanya Harbour followed by a comfortable transfer to your hotel.",
+      "translation": "Возвращение в порт Алании, затем комфортный трансфер обратно в отель.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Фотогалерея",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Время тура",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Продолжительность:",
+      "kind": "text"
+    },
+    {
+      "source": "6 Hours",
+      "translation": "6 часов",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time:",
+      "translation": "Время тура:",
+      "kind": "text"
+    },
+    {
+      "source": "Availability:",
+      "translation": "Доступность:",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Что взять с собой",
+      "kind": "text"
+    },
+    {
+      "source": "Towel",
+      "translation": "Полотенце",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Солнцезащитные очки",
+      "kind": "text"
+    },
+    {
+      "source": "Swimsuit",
+      "translation": "Купальник",
+      "kind": "text"
+    },
+    {
+      "source": "Sunscreen",
+      "translation": "Солнцезащитный крем",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable shoes",
+      "translation": "Удобная обувь",
+      "kind": "text"
+    },
+    {
+      "source": "Water",
+      "translation": "Вода",
+      "kind": "text"
+    },
+    {
+      "source": "Camera / phone",
+      "translation": "Камера / телефон",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Правила для детей",
+      "kind": "text"
+    },
+    {
+      "source": "0–4 years:",
+      "translation": "0–4 года:",
+      "kind": "text"
+    },
+    {
+      "source": "Free",
+      "translation": "Бесплатно",
+      "kind": "text"
+    },
+    {
+      "source": "5–11 years:",
+      "translation": "5–11 лет:",
+      "kind": "text"
+    },
+    {
+      "source": "Half price",
+      "translation": "Половина цены",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Информация о трансфере",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup is available from your hotel or apartment address.",
+      "translation": "Трансфер доступен от вашего отеля или адреса апартаментов.",
+      "kind": "text"
+    },
+    {
+      "source": "The exact pickup time is confirmed after booking.",
+      "translation": "Точное время трансфера подтверждается после бронирования.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Часто задаваемые вопросы",
+      "kind": "text"
+    },
+    {
+      "source": "Is hotel pickup included?",
+      "translation": "Трансфер из отеля включён?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Hotel or apartment pickup and return within the Alanya area are included.",
+      "translation": "Да. Трансфер из отеля или апартаментов и обратно в пределах Алании включён.",
+      "kind": "text"
+    },
+    {
+      "source": "Is lunch included?",
+      "translation": "Обед включён?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. A buffet lunch and unlimited soft drinks are served on board.",
+      "translation": "Да. На борту подаются обед-буфет и безлимитные безалкогольные напитки.",
+      "kind": "text"
+    },
+    {
+      "source": "Are there swimming stops?",
+      "translation": "Есть ли остановки для купания?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Several swimming stops are made in beautiful bays during the cruise.",
+      "translation": "Да. Во время круиза делается несколько остановок для купания в красивых бухтах.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the tour suitable for children?",
+      "translation": "Подходит ли тур для детей?",
+      "kind": "text"
+    },
+    {
+      "source": "Absolutely. The Pirate Yacht Tour is family-friendly and ideal for all ages.",
+      "translation": "Конечно. Pirate Yacht Tour подходит семьям и гостям любого возраста.",
+      "kind": "text"
+    },
+    {
+      "source": "Can I see dolphins?",
+      "translation": "Можно ли увидеть дельфинов?",
+      "kind": "text"
+    },
+    {
+      "source": "Dolphins are wild animals, so sightings cannot be guaranteed, but they are often seen along the route.",
+      "translation": "Дельфины — дикие животные, поэтому встречу нельзя гарантировать, но их нередко видят вдоль маршрута.",
+      "kind": "text"
+    },
+    {
+      "source": "What should I bring?",
+      "translation": "Что взять с собой?",
+      "kind": "text"
+    },
+    {
+      "source": "Please bring swimwear, a towel, sunscreen, sunglasses and a camera.",
+      "translation": "Возьмите купальник, полотенце, солнцезащитный крем, очки и камеру.",
+      "kind": "text"
+    },
+    {
+      "source": "Is insurance included?",
+      "translation": "Страхование включено?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Insurance is included in the tour price.",
+      "translation": "Да. Страхование включено в стоимость тура.",
+      "kind": "text"
+    },
+    {
+      "source": "Should I book in advance?",
+      "translation": "Нужно ли бронировать заранее?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Early booking is recommended, especially during the high season.",
+      "translation": "Да. Рекомендуем бронировать заранее, особенно в высокий сезон.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Есть вопросы?",
+      "kind": "text"
+    },
+    {
+      "source": "Message us on WhatsApp for availability, route details and your exact pickup time.",
+      "translation": "Напишите нам в WhatsApp, чтобы уточнить доступность, детали маршрута и точное время трансфера.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Написать в WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Предыдущее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "ADMIRAL BLACK yacht in Alanya",
+      "translation": "Яхта ADMIRAL BLACK в Алании",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Следующее фото",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Миниатюры галереи",
+      "kind": "aria-label"
+    },
+    {
+      "source": "ADMIRAL BLACK yacht at sunset",
+      "translation": "Яхта ADMIRAL BLACK на закате",
+      "kind": "alt"
+    },
+    {
+      "source": "Foam party on board",
+      "translation": "Пенная вечеринка на борту",
+      "kind": "alt"
+    },
+    {
+      "source": "Essential tour information",
+      "translation": "Основная информация о туре",
+      "kind": "aria-label"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "anamur.html",
+  "approved_sha256": "bee9466c1ec00b5a438fe964e35a1b8f81aedb4d785ceeccf04b223a04654af8",
+  "translation_entries": 139,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

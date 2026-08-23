@@ -1,0 +1,363 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "cookie-policy.html",
+  "approved_sha256": "2ccdefff03482ef5c3d198a865cbc5a29d8d385e59a4005155de511decc019b3",
+  "entries": [
+    {
+      "source": "Cookie Policy — ALANYA TOUR ORGANIZATIONS",
+      "translation": "Çerez Politikası — ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "COOKIE POLICY",
+      "translation": "ÇEREZ POLİTİKASI",
+      "kind": "text"
+    },
+    {
+      "source": "Home",
+      "translation": "Ana Sayfa",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Cookie Policy",
+      "translation": "Çerez Politikası",
+      "kind": "text"
+    },
+    {
+      "source": "Legal Information",
+      "translation": "Yasal Bilgiler",
+      "kind": "text"
+    },
+    {
+      "source": "Booking & Cancellation",
+      "translation": "Rezervasyon & İptal",
+      "kind": "text"
+    },
+    {
+      "source": "KVKK & Privacy",
+      "translation": "KVKK & Gizlilik",
+      "kind": "text"
+    },
+    {
+      "source": "Contact",
+      "translation": "İletişim",
+      "kind": "text"
+    },
+    {
+      "source": "Website technologies",
+      "translation": "Web sitesi teknolojileri",
+      "kind": "text"
+    },
+    {
+      "source": "ÇEREZ AYDINLATMA METNİ / COOKIE & BROWSER STORAGE NOTICE",
+      "translation": "ÇEREZ AYDINLATMA METNİ / TARAYICI DEPOLAMA BİLDİRİMİ",
+      "kind": "text"
+    },
+    {
+      "source": "This notice describes the first-party browser storage and external-content technologies intentionally used by the current website implementation.",
+      "translation": "Bu bildirim, mevcut web sitesi uygulamasında bilinçli olarak kullanılan birinci taraf tarayıcı depolama ve harici içerik teknolojilerini açıklar.",
+      "kind": "text"
+    },
+    {
+      "source": "Last updated: 13 August 2026",
+      "translation": "Son güncelleme: 13 Ağustos 2026",
+      "kind": "text"
+    },
+    {
+      "source": "Our Current Approach",
+      "translation": "Mevcut Yaklaşımımız",
+      "kind": "text"
+    },
+    {
+      "source": "The current site is designed so that optional advertising and behavioural-marketing trackers are not intentionally activated by default. The site uses limited first-party browser storage to provide functions requested by visitors, such as remembering a selected language, keeping tour filters and preserving Trip Planner selections while the visitor moves between pages.",
+      "translation": "Mevcut site, isteğe bağlı reklam ve davranışsal pazarlama izleyicileri varsayılan olarak bilinçli biçimde etkinleştirilmeyecek şekilde tasarlanmıştır. Site; seçilen dili hatırlamak, tur filtrelerini korumak ve ziyaretçi sayfalar arasında gezerken Trip Planner seçimlerini saklamak gibi ziyaretçinin talep ettiği işlevler için sınırlı birinci taraf tarayıcı depolaması kullanır.",
+      "kind": "text"
+    },
+    {
+      "source": "Browser storage such as",
+      "translation": "Tarayıcı depolaması, örneğin",
+      "kind": "text"
+    },
+    {
+      "source": "localStorage",
+      "translation": "localStorage",
+      "kind": "text"
+    },
+    {
+      "source": "and",
+      "translation": "ve",
+      "kind": "text"
+    },
+    {
+      "source": "sessionStorage",
+      "translation": "sessionStorage",
+      "kind": "text"
+    },
+    {
+      "source": "is not technically the same as a traditional HTTP cookie, but it is covered by this notice because it can serve a similar persistence/functionality purpose.",
+      "translation": "teknik olarak geleneksel bir HTTP çereziyle aynı değildir; ancak benzer kalıcılık/işlevsellik amacı taşıyabildiği için bu bildirim kapsamındadır.",
+      "kind": "text"
+    },
+    {
+      "source": "First-party Storage Used by the Site",
+      "translation": "Site Tarafından Kullanılan Birinci Taraf Depolama",
+      "kind": "text"
+    },
+    {
+      "source": "Name / Function",
+      "translation": "Ad / İşlev",
+      "kind": "text"
+    },
+    {
+      "source": "Technology & Party",
+      "translation": "Teknoloji & Taraf",
+      "kind": "text"
+    },
+    {
+      "source": "Purpose",
+      "translation": "Amaç",
+      "kind": "text"
+    },
+    {
+      "source": "Typical duration",
+      "translation": "Tipik süre",
+      "kind": "text"
+    },
+    {
+      "source": "atoLanguage",
+      "translation": "atoLanguage",
+      "kind": "text"
+    },
+    {
+      "source": "localStorage · first party",
+      "translation": "localStorage · birinci taraf",
+      "kind": "text"
+    },
+    {
+      "source": "Keeps the current site language consistent across pages and future visits.",
+      "translation": "Mevcut site dilini sayfalar ve sonraki ziyaretler arasında tutarlı tutar.",
+      "kind": "text"
+    },
+    {
+      "source": "Until the visitor changes/clears it or browser storage is deleted.",
+      "translation": "Ziyaretçi değiştirene/temizleyene veya tarayıcı depolaması silinene kadar.",
+      "kind": "text"
+    },
+    {
+      "source": "alanyaTourFilters",
+      "translation": "alanyaTourFilters",
+      "kind": "text"
+    },
+    {
+      "source": "Keeps tour-search/filter choices needed for the site’s shared filtering experience.",
+      "translation": "Sitenin ortak filtreleme deneyimi için gerekli tur arama/filtre seçimlerini saklar.",
+      "kind": "text"
+    },
+    {
+      "source": "Until reset/cleared or browser storage is deleted.",
+      "translation": "Sıfırlanana/temizlenene veya tarayıcı depolaması silinene kadar.",
+      "kind": "text"
+    },
+    {
+      "source": "alanyaMapMode",
+      "translation": "alanyaMapMode",
+      "kind": "text"
+    },
+    {
+      "source": "Remembers the map display mode selected for Explore Map.",
+      "translation": "Explore Map için seçilen harita görüntüleme modunu hatırlar.",
+      "kind": "text"
+    },
+    {
+      "source": "Until changed/cleared or browser storage is deleted.",
+      "translation": "Değiştirilene/temizlenene veya tarayıcı depolaması silinene kadar.",
+      "kind": "text"
+    },
+    {
+      "source": "geoDismissed",
+      "translation": "geoDismissed",
+      "kind": "text"
+    },
+    {
+      "source": "sessionStorage · first party",
+      "translation": "sessionStorage · birinci taraf",
+      "kind": "text"
+    },
+    {
+      "source": "Remembers that the visitor dismissed the optional geolocation prompt during the current session.",
+      "translation": "Ziyaretçinin mevcut oturum sırasında isteğe bağlı konum istemini kapattığını hatırlar.",
+      "kind": "text"
+    },
+    {
+      "source": "Current browser tab/session.",
+      "translation": "Mevcut tarayıcı sekmesi/oturumu.",
+      "kind": "text"
+    },
+    {
+      "source": "Trip Planner selection pool",
+      "translation": "Trip Planner seçim havuzu",
+      "kind": "text"
+    },
+    {
+      "source": "Keeps tours deliberately selected for comparison/planning while the visitor moves between category, map and planner pages.",
+      "translation": "Ziyaretçi kategori, harita ve planlayıcı sayfaları arasında geçerken karşılaştırma/planlama için bilerek seçilen turları saklar.",
+      "kind": "text"
+    },
+    {
+      "source": "Until the visitor removes/resets selections or browser storage is deleted.",
+      "translation": "Ziyaretçi seçimleri kaldırana/sıfırlayana veya tarayıcı depolaması silinene kadar.",
+      "kind": "text"
+    },
+    {
+      "source": "atoTPYourIntroSeen",
+      "translation": "atoTPYourIntroSeen",
+      "kind": "text"
+    },
+    {
+      "source": "Prevents the Trip Planner opening animation from repeating unnecessarily in the same browser session.",
+      "translation": "Trip Planner açılış animasyonunun aynı tarayıcı oturumunda gereksiz yere tekrarlanmasını önler.",
+      "kind": "text"
+    },
+    {
+      "source": "atoHeartPhone",
+      "translation": "atoHeartPhone",
+      "kind": "text"
+    },
+    {
+      "source": "Temporarily retains the WhatsApp/phone number entered for the Heart Offer during the current session so eligibility/claim flow can continue without repeated entry.",
+      "translation": "Heart Offer için girilen WhatsApp/telefon numarasını mevcut oturumda geçici olarak saklar; böylece uygunluk/talep akışı tekrar giriş gerektirmeden devam eder.",
+      "kind": "text"
+    },
+    {
+      "source": "Current browser tab/session, unless removed earlier.",
+      "translation": "Daha önce kaldırılmadığı sürece mevcut tarayıcı sekmesi/oturumu.",
+      "kind": "text"
+    },
+    {
+      "source": "Maps, Map Tiles & External Content",
+      "translation": "Haritalar, Harita Döşemeleri & Harici İçerik",
+      "kind": "text"
+    },
+    {
+      "source": "The privacy-ready homepage version supplied with this legal package does not automatically load the Google Maps iframe. The map is loaded only after the visitor actively chooses to load the external map. Once loaded, the browser connects to Google and Google may use its own cookies or similar technologies under its own policies and settings.",
+      "translation": "Bu yasal paketle sunulan gizlilik uyumlu ana sayfa sürümü Google Maps iframe’ini otomatik olarak yüklemez. Harita yalnızca ziyaretçi harici haritayı aktif olarak yüklemeyi seçtikten sonra yüklenir. Yüklendiğinde tarayıcı Google’a bağlanır ve Google kendi politika ve ayarları kapsamında kendi çerezlerini veya benzer teknolojileri kullanabilir.",
+      "kind": "text"
+    },
+    {
+      "source": "The separate Explore Map feature uses MapLibre and configured external map/tile infrastructure (including map-style or imagery providers) to render the interactive map. When the visitor opens that feature, those technical providers may receive ordinary connection information such as IP address and device/browser request data necessary to deliver map resources.",
+      "translation": "Ayrı Explore Map özelliği, etkileşimli haritayı göstermek için MapLibre ve yapılandırılmış harici harita/döşeme altyapısını (harita stili veya görüntü sağlayıcıları dahil) kullanır. Ziyaretçi bu özelliği açtığında söz konusu teknik sağlayıcılar, harita kaynaklarını sunmak için gerekli IP adresi ve cihaz/tarayıcı istek verileri gibi olağan bağlantı bilgilerini alabilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Analytics & Marketing",
+      "translation": "Analiz & Pazarlama",
+      "kind": "text"
+    },
+    {
+      "source": "No Google Analytics or Meta Pixel is intentionally included in the audited current homepage source used for this package. If optional analytics, advertising, behavioural tracking or another non-essential technology is introduced later and the applicable legal ground requires consent, it must remain disabled by default until the visitor makes an affirmative choice.",
+      "translation": "Bu paket için denetlenen mevcut ana sayfa kaynak koduna Google Analytics veya Meta Pixel bilinçli olarak dahil edilmemiştir. İleride isteğe bağlı analiz, reklam, davranışsal izleme veya başka bir zorunlu olmayan teknoloji eklenir ve geçerli hukuki dayanak rıza gerektirirse, ziyaretçi açıkça seçim yapana kadar varsayılan olarak devre dışı kalmalıdır.",
+      "kind": "text"
+    },
+    {
+      "source": "Your Controls",
+      "translation": "Kontrolleriniz",
+      "kind": "text"
+    },
+    {
+      "source": "You can clear first-party browser storage through your browser/device settings. Trip Planner selections and saved site preferences can also be reset through the relevant site controls where provided. Clearing storage may reset the selected language, filters, planner selections or current-session offer information.",
+      "translation": "Birinci taraf tarayıcı depolamasını tarayıcı/cihaz ayarlarınızdan temizleyebilirsiniz. Trip Planner seçimleri ve kaydedilmiş site tercihleri, sunulduğu yerlerde ilgili site kontrollerinden de sıfırlanabilir. Depolamanın temizlenmesi seçilen dili, filtreleri, planlayıcı seçimlerini veya mevcut oturum teklif bilgilerini sıfırlayabilir.",
+      "kind": "text"
+    },
+    {
+      "source": "If the site later uses non-essential technologies that require consent, the visitor will be given an appropriate opt-in preference mechanism before those technologies are activated.",
+      "translation": "Site ileride rıza gerektiren zorunlu olmayan teknolojiler kullanırsa, bu teknolojiler etkinleştirilmeden önce ziyaretçiye uygun bir açık katılım (opt-in) tercih mekanizması sunulur.",
+      "kind": "text"
+    },
+    {
+      "source": "NO FAKE “ACCEPT ALL”:",
+      "translation": "SAHTE “TÜMÜNÜ KABUL ET” YOK:",
+      "kind": "text"
+    },
+    {
+      "source": "Because this privacy-ready version is intended not to run optional analytics/marketing trackers by default, the legal pages do not display a decorative or non-functional cookie-consent button. If optional tracking is later enabled, the consent interface must be implemented technically as well as described here.",
+      "translation": "Bu gizlilik uyumlu sürümün varsayılan olarak isteğe bağlı analiz/pazarlama izleyicilerini çalıştırmaması amaçlandığından, yasal sayfalarda dekoratif veya işlevsiz bir çerez onay düğmesi gösterilmez. İsteğe bağlı izleme ileride etkinleştirilirse, onay arayüzü burada açıklanmasının yanı sıra teknik olarak da uygulanmalıdır.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR",
+      "translation": "UNION TOUR",
+      "kind": "text"
+    },
+    {
+      "source": "•",
+      "translation": "•",
+      "kind": "text"
+    },
+    {
+      "source": "TÜRSAB Belge No / License No: 2156",
+      "translation": "TÜRSAB Belge No / Lisans No: 2156",
+      "kind": "text"
+    },
+    {
+      "source": "© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "translation": "© 2026 ALANYA TOUR ORGANIZATIONS — SEVGİYLE SEYAHAT EDİN. BİZİMLE SEYAHAT EDİN.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "translation": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "kind": "text"
+    },
+    {
+      "source": "Company & Legal Information",
+      "translation": "Şirket ve Yasal Bilgiler",
+      "kind": "text"
+    },
+    {
+      "source": "·",
+      "translation": "·",
+      "kind": "text"
+    },
+    {
+      "source": "Privacy & Cookies",
+      "translation": "Gizlilik & Çerezler",
+      "kind": "text"
+    },
+    {
+      "source": "<",
+      "translation": "<",
+      "kind": "text"
+    },
+    {
+      "source": "/body>",
+      "translation": "/body>",
+      "kind": "text"
+    },
+    {
+      "source": "Legal pages",
+      "translation": "Yasal sayfalar",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Company and legal links",
+      "translation": "Şirket ve yasal bağlantılar",
+      "kind": "aria-label"
+    }
+  ]
+}

@@ -1,0 +1,578 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "EN",
+  "approved_page": "interactive-map/index.html",
+  "approved_sha256": "b37dc0457604912c4e304b7e688fb34c4661bf0069274a4bf2007a2438cf892d",
+  "entries": [
+    {
+      "source": "Interactive Map — ALANYA TOUR ORGANIZATIONS",
+      "translation": "Interactive Map — ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "Interactive travel map of tours and routes by ALANYA TOUR ORGANIZATIONS.",
+      "translation": "Interactive travel map of tours and routes by ALANYA TOUR ORGANIZATIONS.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "EXPERIENCE",
+      "translation": "EXPERIENCE",
+      "kind": "text"
+    },
+    {
+      "source": "TURKEY",
+      "translation": "TURKEY",
+      "kind": "text"
+    },
+    {
+      "source": "Discover more. Feel more. Travel better.",
+      "translation": "Discover more. Feel more. Travel better.",
+      "kind": "text"
+    },
+    {
+      "source": "BEST FOR YOU",
+      "translation": "BEST FOR YOU",
+      "kind": "text"
+    },
+    {
+      "source": "FAMILY",
+      "translation": "FAMILY",
+      "kind": "text"
+    },
+    {
+      "source": "COUPLES",
+      "translation": "COUPLES",
+      "kind": "text"
+    },
+    {
+      "source": "FRIENDS",
+      "translation": "FRIENDS",
+      "kind": "text"
+    },
+    {
+      "source": "ADVENTURE",
+      "translation": "ADVENTURE",
+      "kind": "text"
+    },
+    {
+      "source": "LUXURY",
+      "translation": "LUXURY",
+      "kind": "text"
+    },
+    {
+      "source": "TODAY",
+      "translation": "TODAY",
+      "kind": "text"
+    },
+    {
+      "source": "SMART FILTERS",
+      "translation": "SMART FILTERS",
+      "kind": "text"
+    },
+    {
+      "source": "Find the right experience faster",
+      "translation": "Find the right experience faster",
+      "kind": "text"
+    },
+    {
+      "source": "QUICK FILTERS",
+      "translation": "QUICK FILTERS",
+      "kind": "text"
+    },
+    {
+      "source": "BEST PRICE",
+      "translation": "BEST PRICE",
+      "kind": "text"
+    },
+    {
+      "source": "HALF DAY",
+      "translation": "HALF DAY",
+      "kind": "text"
+    },
+    {
+      "source": "WITH TRANSFER",
+      "translation": "WITH TRANSFER",
+      "kind": "text"
+    },
+    {
+      "source": "PRIVATE",
+      "translation": "PRIVATE",
+      "kind": "text"
+    },
+    {
+      "source": "POPULAR",
+      "translation": "POPULAR",
+      "kind": "text"
+    },
+    {
+      "source": "REFINE YOUR SEARCH",
+      "translation": "REFINE YOUR SEARCH",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Price",
+      "kind": "text"
+    },
+    {
+      "source": "Any",
+      "translation": "Any",
+      "kind": "text"
+    },
+    {
+      "source": "Up to €50",
+      "translation": "Up to €50",
+      "kind": "text"
+    },
+    {
+      "source": "Up to €100",
+      "translation": "Up to €100",
+      "kind": "text"
+    },
+    {
+      "source": "Up to €200",
+      "translation": "Up to €200",
+      "kind": "text"
+    },
+    {
+      "source": "Up to €500",
+      "translation": "Up to €500",
+      "kind": "text"
+    },
+    {
+      "source": "Any⌄",
+      "translation": "Any⌄",
+      "kind": "text"
+    },
+    {
+      "source": "Duration",
+      "translation": "Duration",
+      "kind": "text"
+    },
+    {
+      "source": "Half Day",
+      "translation": "Half Day",
+      "kind": "text"
+    },
+    {
+      "source": "Full Day",
+      "translation": "Full Day",
+      "kind": "text"
+    },
+    {
+      "source": "Multi Day",
+      "translation": "Multi Day",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel Transfer Included",
+      "translation": "Hotel Transfer Included",
+      "kind": "text"
+    },
+    {
+      "source": "Family Friendly",
+      "translation": "Family Friendly",
+      "kind": "text"
+    },
+    {
+      "source": "Private Experience",
+      "translation": "Private Experience",
+      "kind": "text"
+    },
+    {
+      "source": "↻ CLEAR FILTERS",
+      "translation": "↻ CLEAR FILTERS",
+      "kind": "text"
+    },
+    {
+      "source": "Reset all selections",
+      "translation": "Reset all selections",
+      "kind": "text"
+    },
+    {
+      "source": "NEARBY EXPERIENCES",
+      "translation": "NEARBY EXPERIENCES",
+      "kind": "text"
+    },
+    {
+      "source": "Use the location button on the map to show the closest tours.",
+      "translation": "Use the location button on the map to show the closest tours.",
+      "kind": "text"
+    },
+    {
+      "source": "⚙ FILTERS",
+      "translation": "⚙ FILTERS",
+      "kind": "text"
+    },
+    {
+      "source": "TIP",
+      "translation": "TIP",
+      "kind": "text"
+    },
+    {
+      "source": "Choose a category or zoom in to discover more",
+      "translation": "Choose a category or zoom in to discover more",
+      "kind": "text"
+    },
+    {
+      "source": "‹",
+      "translation": "‹",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "HYBRID",
+      "translation": "HYBRID",
+      "kind": "text"
+    },
+    {
+      "source": "STREETS",
+      "translation": "STREETS",
+      "kind": "text"
+    },
+    {
+      "source": "SATELLITE",
+      "translation": "SATELLITE",
+      "kind": "text"
+    },
+    {
+      "source": "OVERVIEW MODE · INTERACTIVE JOURNEY STARTS IN 5 SECONDS",
+      "translation": "OVERVIEW MODE · INTERACTIVE JOURNEY STARTS IN 5 SECONDS",
+      "kind": "text"
+    },
+    {
+      "source": "VIEW TOURS AS LIST →",
+      "translation": "VIEW TOURS AS LIST →",
+      "kind": "text"
+    },
+    {
+      "source": "Category Experiences",
+      "translation": "Category Experiences",
+      "kind": "text"
+    },
+    {
+      "source": "Experiences near you",
+      "translation": "Experiences near you",
+      "kind": "text"
+    },
+    {
+      "source": "Allow location access to see nearby excursions and estimated transfer time. Your location is used only in this browser.",
+      "translation": "Allow location access to see nearby excursions and estimated transfer time. Your location is used only in this browser.",
+      "kind": "text"
+    },
+    {
+      "source": "SHOW NEARBY",
+      "translation": "SHOW NEARBY",
+      "kind": "text"
+    },
+    {
+      "source": "NOT NOW",
+      "translation": "NOT NOW",
+      "kind": "text"
+    },
+    {
+      "source": "Nearby Experiences",
+      "translation": "Nearby Experiences",
+      "kind": "text"
+    },
+    {
+      "source": "Finding the closest tours…",
+      "translation": "Finding the closest tours…",
+      "kind": "text"
+    },
+    {
+      "source": "10 km",
+      "translation": "10 km",
+      "kind": "text"
+    },
+    {
+      "source": "25 km",
+      "translation": "25 km",
+      "kind": "text"
+    },
+    {
+      "source": "50 km",
+      "translation": "50 km",
+      "kind": "text"
+    },
+    {
+      "source": "All",
+      "translation": "All",
+      "kind": "text"
+    },
+    {
+      "source": "TRIP PLANNER · 1/8 TOUR",
+      "translation": "TRIP PLANNER · 1/8 TOUR",
+      "kind": "text"
+    },
+    {
+      "source": "Select up to 8 tours · Open planner",
+      "translation": "Select up to 8 tours · Open planner",
+      "kind": "text"
+    },
+    {
+      "source": "COMPARE TOURS",
+      "translation": "COMPARE TOURS",
+      "kind": "text"
+    },
+    {
+      "source": "COMPLETE YOUR REQUEST",
+      "translation": "COMPLETE YOUR REQUEST",
+      "kind": "text"
+    },
+    {
+      "source": "SELECTED TOURS & PREFERRED DATES",
+      "translation": "SELECTED TOURS & PREFERRED DATES",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR DETAILS",
+      "translation": "YOUR DETAILS",
+      "kind": "text"
+    },
+    {
+      "source": "NAME *",
+      "translation": "NAME *",
+      "kind": "text"
+    },
+    {
+      "source": "HOTEL OR ACCOMMODATION *",
+      "translation": "HOTEL OR ACCOMMODATION *",
+      "kind": "text"
+    },
+    {
+      "source": "ARRIVAL DATE",
+      "translation": "ARRIVAL DATE",
+      "kind": "text"
+    },
+    {
+      "source": "DEPARTURE DATE",
+      "translation": "DEPARTURE DATE",
+      "kind": "text"
+    },
+    {
+      "source": "ADULTS *",
+      "translation": "ADULTS *",
+      "kind": "text"
+    },
+    {
+      "source": "CHILDREN",
+      "translation": "CHILDREN",
+      "kind": "text"
+    },
+    {
+      "source": "CHILDREN'S AGES",
+      "translation": "CHILDREN'S AGES",
+      "kind": "text"
+    },
+    {
+      "source": "HOTEL PICKUP",
+      "translation": "HOTEL PICKUP",
+      "kind": "text"
+    },
+    {
+      "source": "Required",
+      "translation": "Required",
+      "kind": "text"
+    },
+    {
+      "source": "Not required",
+      "translation": "Not required",
+      "kind": "text"
+    },
+    {
+      "source": "Please advise",
+      "translation": "Please advise",
+      "kind": "text"
+    },
+    {
+      "source": "PREFERRED LANGUAGE",
+      "translation": "PREFERRED LANGUAGE",
+      "kind": "text"
+    },
+    {
+      "source": "English",
+      "translation": "English",
+      "kind": "text"
+    },
+    {
+      "source": "Russian",
+      "translation": "Russian",
+      "kind": "text"
+    },
+    {
+      "source": "Turkish",
+      "translation": "Turkish",
+      "kind": "text"
+    },
+    {
+      "source": "German",
+      "translation": "German",
+      "kind": "text"
+    },
+    {
+      "source": "Polish",
+      "translation": "Polish",
+      "kind": "text"
+    },
+    {
+      "source": "Pregnancy",
+      "translation": "Pregnancy",
+      "kind": "text"
+    },
+    {
+      "source": "Baby stroller",
+      "translation": "Baby stroller",
+      "kind": "text"
+    },
+    {
+      "source": "Wheelchair",
+      "translation": "Wheelchair",
+      "kind": "text"
+    },
+    {
+      "source": "Reduced mobility",
+      "translation": "Reduced mobility",
+      "kind": "text"
+    },
+    {
+      "source": "Elderly guest",
+      "translation": "Elderly guest",
+      "kind": "text"
+    },
+    {
+      "source": "ADDITIONAL NOTES",
+      "translation": "ADDITIONAL NOTES",
+      "kind": "text"
+    },
+    {
+      "source": "SEND COMPLETE REQUEST VIA WHATSAPP",
+      "translation": "SEND COMPLETE REQUEST VIA WHATSAPP",
+      "kind": "text"
+    },
+    {
+      "source": "Availability, dates and final price are confirmed by the manager.",
+      "translation": "Availability, dates and final price are confirmed by the manager.",
+      "kind": "text"
+    },
+    {
+      "source": "ody>",
+      "translation": "ody>",
+      "kind": "text"
+    },
+    {
+      "source": "Close filters",
+      "translation": "Close filters",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Search tours or places…",
+      "translation": "Search tours or places…",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Search tours or places",
+      "translation": "Search tours or places",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Quick experience filters",
+      "translation": "Quick experience filters",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Quick tour filters",
+      "translation": "Quick tour filters",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Hotel transfer filter",
+      "translation": "Hotel transfer filter",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Family friendly filter",
+      "translation": "Family friendly filter",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Private tour filter",
+      "translation": "Private tour filter",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Interactive tour map",
+      "translation": "Interactive tour map",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Open filters",
+      "translation": "Open filters",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Previous categories",
+      "translation": "Previous categories",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Experience categories",
+      "translation": "Experience categories",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Next categories",
+      "translation": "Next categories",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Map style",
+      "translation": "Map style",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Close",
+      "translation": "Close",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Open tour comparison",
+      "translation": "Open tour comparison",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Clear comparison",
+      "translation": "Clear comparison",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Example: 3, 7",
+      "translation": "Example: 3, 7",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Anything the manager should know",
+      "translation": "Anything the manager should know",
+      "kind": "placeholder"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS original site footer",
+      "translation": "ALANYA TOUR ORGANIZATIONS original site footer",
+      "kind": "aria-label"
+    }
+  ]
+}

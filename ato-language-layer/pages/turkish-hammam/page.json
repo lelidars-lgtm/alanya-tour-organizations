@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "turkish-hammam.html",
+  "approved_sha256": "69fa57ddea237e9bc96b5a3a566110b4a3d3a94f4beab2ef368a3bf5680f7eb3",
+  "translation_entries": 160,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

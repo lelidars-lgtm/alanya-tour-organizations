@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "pamukkale-salda.html",
+  "approved_sha256": "73c240c34430ebb1748f675229fc4ba887ea16950df25c5f1c7cf33af3688c96",
+  "translation_entries": 173,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "e-ticket.html",
+  "approved_sha256": "7899ce66cf08e3f028fb12214a5736c1ef068b26cf1e3d987fd0e466f2f6833d",
+  "translation_entries": 66,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

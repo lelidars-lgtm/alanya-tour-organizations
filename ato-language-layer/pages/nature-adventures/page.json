@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "nature-adventures.html",
+  "approved_sha256": "185b07dbfdcadd339c41d34c9a61d104b5f2efe14705ec677f2cf38feb1728ce",
+  "translation_entries": 69,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

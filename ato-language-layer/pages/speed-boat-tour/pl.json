@@ -1,0 +1,768 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "PL",
+  "approved_page": "speed-boat-tour.html",
+  "approved_sha256": "a0359567fe5f5c3c5058786d44c2be9ea2ee2be95581aeba622eac8ec8817c9d",
+  "entries": [
+    {
+      "source": "VIP Speed Boat Tour in Alanya | ALANYA TOUR ORGANIZATIONS",
+      "translation": "VIP Speed Boat Tour w Alanyi | ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "VIP Speed Boat Tour in Alanya. Private luxury speed boat experience for up to 8 guests. 90 minutes on the Mediterranean Sea with guidance, insurance and transfer from selected areas. From €300.",
+      "translation": "VIP Speed Boat Tour w Alanyi. Prywatny luksusowy rejs łodzią motorową dla grupy do 8 osób. 90 minut na Morzu Śródziemnym z opieką, ubezpieczeniem i transferem z wybranych stref. Od 300 €.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home / Water Sports /",
+      "translation": "Strona główna / Sporty wodne /",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Speed Boat Tour",
+      "translation": "Rejs VIP motorówką",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Speed Boat Tour in Alanya",
+      "translation": "Rejs VIP motorówką w Alanyi",
+      "kind": "text"
+    },
+    {
+      "source": "Private luxury speed boat experience on the Mediterranean Sea",
+      "translation": "Prywatny luksusowy rejs łodzią motorową po Morzu Śródziemnym",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy a premium 90-minute speed boat tour in Alanya with a private group of up to 8 guests. Feel the power of the sea, enjoy the coastline, swim in beautiful waters and experience a luxury boat ride with professional safety support.",
+      "translation": "Ciesz się 90-minutowym premium rejsem łodzią motorową w Alanyi dla prywatnej grupy do 8 osób. Poczuj siłę morza, podziwiaj wybrzeże, popływaj w pięknych wodach i przeżyj luksusowy rejs z profesjonalnym wsparciem bezpieczeństwa.",
+      "kind": "text"
+    },
+    {
+      "source": "From €300",
+      "translation": "Od 300 €",
+      "kind": "text"
+    },
+    {
+      "source": "90 Min Tour",
+      "translation": "Rejs 90 minut",
+      "kind": "text"
+    },
+    {
+      "source": "Private Group up to 8",
+      "translation": "Prywatna grupa do 8 osób",
+      "kind": "text"
+    },
+    {
+      "source": "Water Sports",
+      "translation": "Sporty wodne",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Experience",
+      "translation": "Doświadczenie VIP",
+      "kind": "text"
+    },
+    {
+      "source": "Private Group",
+      "translation": "Prywatna grupa",
+      "kind": "text"
+    },
+    {
+      "source": "Luxury Boat",
+      "translation": "Luksusowa łódź",
+      "kind": "text"
+    },
+    {
+      "source": "Daily Activity",
+      "translation": "Codzienna atrakcja",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "Zarezerwuj przez WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "About This Experience",
+      "translation": "O tym doświadczeniu",
+      "kind": "text"
+    },
+    {
+      "source": "VIP Speed Boat Tour is a private 90-minute sea experience for groups of up to eight guests.",
+      "translation": "VIP Speed Boat Tour to prywatny, 90-minutowy rejs morski dla grup do ośmiu osób.",
+      "kind": "text"
+    },
+    {
+      "source": "The boat is reserved for your group, creating a more personal atmosphere than a shared excursion. The route and speed are adjusted by the captain according to sea conditions, local restrictions and the selected time slot.",
+      "translation": "Łódź jest zarezerwowana wyłącznie dla Twojej grupy, co zapewnia bardziej prywatną atmosferę niż podczas wspólnej wycieczki. Trasa i prędkość są dostosowywane przez kapitana do warunków morskich, lokalnych ograniczeń i wybranej godziny.",
+      "kind": "text"
+    },
+    {
+      "source": "A swimming stop may be included when conditions and timing allow. It is not guaranteed at a specific bay, and the captain makes the final safety decision.",
+      "translation": "Postój na pływanie może zostać uwzględniony, jeśli warunki i czas na to pozwalają. Konkretna zatoka nie jest gwarantowana, a ostateczną decyzję dotyczącą bezpieczeństwa podejmuje kapitan.",
+      "kind": "text"
+    },
+    {
+      "source": "The listed price is for the private boat session, not per person. Advance reservation is recommended, especially for sunset and summer time slots.",
+      "translation": "Podana cena dotyczy prywatnego rejsu łodzią, a nie każdej osoby osobno. Zalecamy wcześniejszą rezerwację, szczególnie na godziny zachodu słońca i w sezonie letnim.",
+      "kind": "text"
+    },
+    {
+      "source": "Private Boat",
+      "translation": "Prywatna łódź",
+      "kind": "text"
+    },
+    {
+      "source": "The speed boat is reserved for your own group of up to eight guests.",
+      "translation": "Łódź motorowa jest zarezerwowana wyłącznie dla Twojej grupy do ośmiu osób.",
+      "kind": "text"
+    },
+    {
+      "source": "Coastal Views",
+      "translation": "Widoki wybrzeża",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy the Alanya coastline from a fast and comfortable private boat.",
+      "translation": "Podziwiaj wybrzeże Alanyi z szybkiej i komfortowej prywatnej łodzi.",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming Option",
+      "translation": "Możliwość pływania",
+      "kind": "text"
+    },
+    {
+      "source": "A swim stop may be added when sea conditions and timing are suitable.",
+      "translation": "Postój na pływanie może zostać dodany, jeśli warunki na morzu i czas są odpowiednie.",
+      "kind": "text"
+    },
+    {
+      "source": "Flexible Occasion",
+      "translation": "Elastyczny format okazji",
+      "kind": "text"
+    },
+    {
+      "source": "A premium option for couples, families and private groups of friends.",
+      "translation": "Opcja premium dla par, rodzin i prywatnych grup przyjaciół.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Najważniejsze atrakcje",
+      "kind": "text"
+    },
+    {
+      "source": "Private 90-minute speed boat session for up to eight guests.",
+      "translation": "Prywatny 90-minutowy rejs łodzią motorową dla grupy do ośmiu osób.",
+      "kind": "text"
+    },
+    {
+      "source": "Price applies to the private boat, not individually per guest.",
+      "translation": "Cena dotyczy prywatnej łodzi, a nie każdej osoby osobno.",
+      "kind": "text"
+    },
+    {
+      "source": "Captain and required safety equipment included.",
+      "translation": "Kapitan i wymagany sprzęt bezpieczeństwa są wliczone.",
+      "kind": "text"
+    },
+    {
+      "source": "Optional swimming stop when sea conditions allow.",
+      "translation": "Opcjonalny postój na pływanie przy odpowiednich warunkach na morzu.",
+      "kind": "text"
+    },
+    {
+      "source": "Sunset-time sessions may be available by prior confirmation.",
+      "translation": "Godziny zachodu słońca mogą być dostępne po wcześniejszym potwierdzeniu.",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR PRIVATE SEA ESCAPE",
+      "translation": "TWÓJ PRYWATNY MORSKI ESCAPE",
+      "kind": "text"
+    },
+    {
+      "source": "Private Tour",
+      "translation": "Prywatna wycieczka",
+      "kind": "text"
+    },
+    {
+      "source": "€300",
+      "translation": "€300",
+      "kind": "text"
+    },
+    {
+      "source": "private boat / up to 8 guests / 90 minutes",
+      "translation": "prywatna łódź / do 8 osób / 90 minut",
+      "kind": "text"
+    },
+    {
+      "source": "Private speed boat experience",
+      "translation": "Prywatny rejs łodzią motorową",
+      "kind": "text"
+    },
+    {
+      "source": "Up to 8 guests",
+      "translation": "Do 8 osób",
+      "kind": "text"
+    },
+    {
+      "source": "Advance reservation required",
+      "translation": "Wymagana wcześniejsza rezerwacja",
+      "kind": "text"
+    },
+    {
+      "source": "Group Format",
+      "translation": "Format grupowy",
+      "kind": "text"
+    },
+    {
+      "source": "8",
+      "translation": "8",
+      "kind": "text"
+    },
+    {
+      "source": "maximum guests",
+      "translation": "maksymalna liczba gości",
+      "kind": "text"
+    },
+    {
+      "source": "Ideal for friends and families",
+      "translation": "Idealne dla przyjaciół i rodzin",
+      "kind": "text"
+    },
+    {
+      "source": "Private group atmosphere",
+      "translation": "Atmosfera prywatnej grupy",
+      "kind": "text"
+    },
+    {
+      "source": "Exact time confirmed after booking",
+      "translation": "Dokładna godzina potwierdzana po rezerwacji",
+      "kind": "text"
+    },
+    {
+      "source": "Schedule",
+      "translation": "Harmonogram",
+      "kind": "text"
+    },
+    {
+      "source": "Every day",
+      "translation": "Codziennie",
+      "kind": "text"
+    },
+    {
+      "source": "Operating hours usually 09:00–19:00",
+      "translation": "Godziny działania zwykle 09:00–19:00",
+      "kind": "text"
+    },
+    {
+      "source": "Tour duration: 90 minutes",
+      "translation": "Czas wycieczki: 90 minut",
+      "kind": "text"
+    },
+    {
+      "source": "Sunset slots subject to availability",
+      "translation": "Terminy o zachodzie słońca zależne od dostępności",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer Zone",
+      "translation": "Strefa transferu",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya City Center",
+      "translation": "Centrum Alanyi",
+      "kind": "text"
+    },
+    {
+      "source": "Oba",
+      "translation": "Oba",
+      "kind": "text"
+    },
+    {
+      "source": "Tosmur",
+      "translation": "Tosmur",
+      "kind": "text"
+    },
+    {
+      "source": "Kestel",
+      "translation": "Kestel",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "W cenie",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer when included and confirmed for the selected hotel zone.",
+      "translation": "Transfer jest dostępny, jeśli jest wliczony i potwierdzony dla wybranej strefy hotelowej.",
+      "kind": "text"
+    },
+    {
+      "source": "Approximately 90-minute VIP speed boat tour.",
+      "translation": "Około 90-minutowy rejs VIP łodzią motorową.",
+      "kind": "text"
+    },
+    {
+      "source": "Captain, life jackets and required safety equipment.",
+      "translation": "Kapitan, kamizelki ratunkowe i wymagany sprzęt bezpieczeństwa.",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance during the activity.",
+      "translation": "Ubezpieczenie podczas aktywności.",
+      "kind": "text"
+    },
+    {
+      "source": "Safety briefing and guidance.",
+      "translation": "Instruktaż bezpieczeństwa i opieka.",
+      "kind": "text"
+    },
+    {
+      "source": "Not Included",
+      "translation": "Nie w cenie",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photos and videos.",
+      "translation": "Profesjonalne zdjęcia i filmy.",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses.",
+      "translation": "Wydatki osobiste.",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer outside Alanya Center, Oba, Tosmur and Kestel.",
+      "translation": "Transfer poza centrum Alanyi, Obą, Tosmurem i Kestelem.",
+      "kind": "text"
+    },
+    {
+      "source": "Tour Program",
+      "translation": "Program wycieczki",
+      "kind": "text"
+    },
+    {
+      "source": "The sequence remains the same, while the exact route, speed and swimming opportunity may change because of wind, waves, visibility, marine traffic and the captain’s safety decision.",
+      "translation": "Kolejność programu pozostaje taka sama, ale dokładna trasa, prędkość i możliwość pływania mogą się zmienić z powodu wiatru, fal, widoczności, ruchu morskiego i decyzji kapitana dotyczącej bezpieczeństwa.",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup / Meeting",
+      "translation": "Odbiór / Spotkanie",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer or Direct Arrival",
+      "translation": "Transfer lub dojazd własny",
+      "kind": "text"
+    },
+    {
+      "source": "Use the confirmed transfer service or meet directly at the departure point.",
+      "translation": "Skorzystaj z potwierdzonego transferu lub przyjedź bezpośrednio na miejsce wypłynięcia.",
+      "kind": "text"
+    },
+    {
+      "source": "Check-in",
+      "translation": "Rejestracja",
+      "kind": "text"
+    },
+    {
+      "source": "Private Group Confirmation",
+      "translation": "Potwierdzenie grupy prywatnej",
+      "kind": "text"
+    },
+    {
+      "source": "The team confirms the booking, departure time and final guest count of up to eight people.",
+      "translation": "Zespół potwierdza rezerwację, godzinę wypłynięcia i ostateczną liczbę gości — maksymalnie osiem osób.",
+      "kind": "text"
+    },
+    {
+      "source": "Briefing",
+      "translation": "Instruktaż",
+      "kind": "text"
+    },
+    {
+      "source": "Safety Instructions",
+      "translation": "Instrukcje bezpieczeństwa",
+      "kind": "text"
+    },
+    {
+      "source": "The captain explains seating, movement on board, life jackets and the rules for any swimming stop.",
+      "translation": "Kapitan wyjaśnia zasady siedzenia, poruszania się po pokładzie, używania kamizelek i ewentualnego postoju na pływanie.",
+      "kind": "text"
+    },
+    {
+      "source": "Departure",
+      "translation": "Wyjazd",
+      "kind": "text"
+    },
+    {
+      "source": "Private Speed Boat Tour",
+      "translation": "Prywatny rejs łodzią motorową",
+      "kind": "text"
+    },
+    {
+      "source": "Begin the approximately 90-minute private ride along the Alanya coast.",
+      "translation": "Rozpocznij około 90-minutowy prywatny rejs wzdłuż wybrzeża Alanyi.",
+      "kind": "text"
+    },
+    {
+      "source": "Optional Stop",
+      "translation": "Opcjonalny postój",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming and Photo Time",
+      "translation": "Pływanie i czas na zdjęcia",
+      "kind": "text"
+    },
+    {
+      "source": "When conditions permit, the captain may stop for swimming and photos. The location and duration are not guaranteed in advance.",
+      "translation": "Jeśli warunki pozwalają, kapitan może zatrzymać się na pływanie i zdjęcia. Miejsce i czas postoju nie są gwarantowane z góry.",
+      "kind": "text"
+    },
+    {
+      "source": "Return",
+      "translation": "Powrót",
+      "kind": "text"
+    },
+    {
+      "source": "Return to the Departure Point",
+      "translation": "Powrót do miejsca wypłynięcia",
+      "kind": "text"
+    },
+    {
+      "source": "Finish the private tour and return to shore.",
+      "translation": "Zakończ prywatny rejs i wróć na brzeg.",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer",
+      "translation": "Transfer",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel Return",
+      "translation": "Powrót do hotelu",
+      "kind": "text"
+    },
+    {
+      "source": "Return transfer is provided only when included and confirmed for the selected hotel zone.",
+      "translation": "Transfer powrotny jest zapewniany tylko wtedy, gdy jest wliczony i potwierdzony dla wybranej strefy hotelowej.",
+      "kind": "text"
+    },
+    {
+      "source": "The captain may change the route, reduce speed, delay departure, omit swimming or reschedule the tour when conditions do not allow safe operation.",
+      "translation": "Kapitan może zmienić trasę, zmniejszyć prędkość, opóźnić wypłynięcie, pominąć pływanie lub przełożyć rejs, jeśli warunki nie pozwalają na bezpieczną realizację.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Galeria zdjęć",
+      "kind": "text"
+    },
+    {
+      "source": "Tour Time",
+      "translation": "Czas wycieczki",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Czas trwania:",
+      "kind": "text"
+    },
+    {
+      "source": "approximately 90 minutes",
+      "translation": "około 90 minut",
+      "kind": "text"
+    },
+    {
+      "source": "Operating hours:",
+      "translation": "Godziny działania:",
+      "kind": "text"
+    },
+    {
+      "source": "usually 09:00–19:00",
+      "translation": "zwykle 09:00–19:00",
+      "kind": "text"
+    },
+    {
+      "source": "Days:",
+      "translation": "Dni:",
+      "kind": "text"
+    },
+    {
+      "source": "every day, weather permitting",
+      "translation": "codziennie, jeśli pogoda pozwala",
+      "kind": "text"
+    },
+    {
+      "source": "Format:",
+      "translation": "Format:",
+      "kind": "text"
+    },
+    {
+      "source": "private group up to 8 guests",
+      "translation": "prywatna grupa do 8 osób",
+      "kind": "text"
+    },
+    {
+      "source": "What To Bring",
+      "translation": "Co zabrać ze sobą",
+      "kind": "text"
+    },
+    {
+      "source": "Waterproof high-SPF sunscreen",
+      "translation": "Wodoodporny krem z wysokim SPF",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses with strap and hat with lanyard",
+      "translation": "Okulary przeciwsłoneczne na pasku i nakrycie głowy z zabezpieczeniem",
+      "kind": "text"
+    },
+    {
+      "source": "Swimsuit or trunks and quick-drying towel",
+      "translation": "Strój kąpielowy i szybkoschnący ręcznik",
+      "kind": "text"
+    },
+    {
+      "source": "Light windbreaker or long-sleeved shirt",
+      "translation": "Lekka wiatrówka lub koszula z długim rękawem",
+      "kind": "text"
+    },
+    {
+      "source": "Waterproof phone case or action camera",
+      "translation": "Wodoodporne etui na telefon lub kamera sportowa",
+      "kind": "text"
+    },
+    {
+      "source": "Beach flip-flops, aqua shoes or sandals",
+      "translation": "Klapki plażowe, buty do wody lub sandały",
+      "kind": "text"
+    },
+    {
+      "source": "Important Information",
+      "translation": "Ważne informacje",
+      "kind": "text"
+    },
+    {
+      "source": "Capacity:",
+      "translation": "Liczba miejsc:",
+      "kind": "text"
+    },
+    {
+      "source": "maximum 8 guests in the private group",
+      "translation": "maksymalnie 8 osób w prywatnej grupie",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming:",
+      "translation": "Pływanie:",
+      "kind": "text"
+    },
+    {
+      "source": "stop available only when the captain approves conditions",
+      "translation": "postój możliwy tylko po akceptacji warunków przez kapitana",
+      "kind": "text"
+    },
+    {
+      "source": "Personal items:",
+      "translation": "Rzeczy osobiste:",
+      "kind": "text"
+    },
+    {
+      "source": "phones, hats and sunglasses must be secured",
+      "translation": "telefony, nakrycia głowy i okulary przeciwsłoneczne muszą być zabezpieczone",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup Information",
+      "translation": "Informacje o odbiorze",
+      "kind": "text"
+    },
+    {
+      "source": "Meeting point:",
+      "translation": "Miejsce spotkania:",
+      "kind": "text"
+    },
+    {
+      "source": "hotel or apartment address",
+      "translation": "adres hotelu lub apartamentu",
+      "kind": "text"
+    },
+    {
+      "source": "Included zone:",
+      "translation": "Strefa w cenie:",
+      "kind": "text"
+    },
+    {
+      "source": "Alanya Center, Oba, Tosmur and Kestel",
+      "translation": "Centrum Alanyi, Oba, Tosmur i Kestel",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup time:",
+      "translation": "Godzina odbioru:",
+      "kind": "text"
+    },
+    {
+      "source": "confirmed after booking",
+      "translation": "potwierdzane po rezerwacji",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Najczęściej zadawane pytania",
+      "kind": "text"
+    },
+    {
+      "source": "Is the price per person or per boat?",
+      "translation": "Czy cena jest za osobę czy za łódź?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "The €300 price applies to the private boat session for a group of up to eight guests.",
+      "translation": "Cena 300 € dotyczy prywatnego rejsu dla grupy do ośmiu osób.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the boat shared with other guests?",
+      "translation": "Czy łódź jest dzielona z innymi gośćmi?",
+      "kind": "text"
+    },
+    {
+      "source": "No. The boat is reserved for your private group.",
+      "translation": "Nie. Łódź jest zarezerwowana wyłącznie dla Twojej prywatnej grupy.",
+      "kind": "text"
+    },
+    {
+      "source": "Is swimming guaranteed?",
+      "translation": "Czy pływanie jest gwarantowane?",
+      "kind": "text"
+    },
+    {
+      "source": "No. A swimming stop may be included when timing, sea conditions and the captain’s safety decision allow it.",
+      "translation": "Nie. Postój na pływanie może zostać uwzględniony tylko wtedy, gdy pozwalają na to czas, warunki na morzu i decyzja kapitana dotycząca bezpieczeństwa.",
+      "kind": "text"
+    },
+    {
+      "source": "Can we book a sunset time?",
+      "translation": "Czy można zarezerwować godzinę na zachód słońca?",
+      "kind": "text"
+    },
+    {
+      "source": "Sunset-time sessions may be available depending on season, operating hours, weather and prior reservations.",
+      "translation": "Godziny zachodu słońca mogą być dostępne zależnie od sezonu, godzin pracy, pogody i wcześniejszych rezerwacji.",
+      "kind": "text"
+    },
+    {
+      "source": "Are photos and videos included?",
+      "translation": "Czy zdjęcia i filmy są w cenie?",
+      "kind": "text"
+    },
+    {
+      "source": "No. Professional photos and videos are not included unless they are specifically confirmed as an additional service.",
+      "translation": "Nie. Profesjonalne zdjęcia i filmy nie są wliczone, chyba że zostaną osobno potwierdzone jako usługa dodatkowa.",
+      "kind": "text"
+    },
+    {
+      "source": "Is hotel transfer included?",
+      "translation": "Czy transfer z hotelu jest w cenie?",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer is included only for the confirmed service zone and booking option. Other areas may require an extra charge or direct arrival.",
+      "translation": "Transfer jest wliczony tylko dla potwierdzonej strefy obsługi i wybranej opcji rezerwacji. W innych rejonach może obowiązywać dopłata lub dojazd własny.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Masz pytania?",
+      "kind": "text"
+    },
+    {
+      "source": "Contact us on WhatsApp — we will help you choose the best VIP speed boat time, private group format and transfer details.",
+      "translation": "Skontaktuj się z nami przez WhatsApp — pomożemy wybrać najlepszą godzinę VIP Speed Boat, format prywatnej grupy i szczegóły transferu.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "Napisz na WhatsApp →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Poprzednie zdjęcie",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Następne zdjęcie",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Miniatury galerii",
+      "kind": "aria-label"
+    },
+    {
+      "source": "VIP speed boat near Alanya Castle",
+      "translation": "VIP Speed Boat w pobliżu zamku w Alanyi",
+      "kind": "alt"
+    },
+    {
+      "source": "Friends on VIP speed boat",
+      "translation": "Przyjaciele na VIP Speed Boat",
+      "kind": "alt"
+    },
+    {
+      "source": "Aerial speed boat circle on turquoise sea",
+      "translation": "Widok z drona na krąg łodzi motorowej na turkusowym morzu",
+      "kind": "alt"
+    },
+    {
+      "source": "Couple on VIP speed boat at sunset",
+      "translation": "Para na VIP Speed Boat o zachodzie słońca",
+      "kind": "alt"
+    },
+    {
+      "source": "Luxury speed boat cockpit",
+      "translation": "Luksusowy kokpit łodzi motorowej",
+      "kind": "alt"
+    },
+    {
+      "source": "VIP speed boat in secret bay",
+      "translation": "VIP Speed Boat w ukrytej zatoce",
+      "kind": "alt"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "aspendos.html",
+  "approved_sha256": "df2192b397b9ef8cae122a2349e21339d687b34050847446d3d81763a5be0181",
+  "translation_entries": 142,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

@@ -1,0 +1,643 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "pirate-yacht.html",
+  "approved_sha256": "70e322eb724daa6668ae8b1b8b9fe8b538eafb5a7fcbdb8f6b6d80755540b85e",
+  "entries": [
+    {
+      "source": "Pirate Yacht Tour in Alanya | ADMIRAL BLACK",
+      "translation": "Alanya'da Pirate Yacht Tour | ADMIRAL BLACK",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › Sea Experiences ›",
+      "translation": "Ana Sayfa › Deniz Deneyimleri ›",
+      "kind": "text"
+    },
+    {
+      "source": "Pirate Yacht Tour",
+      "translation": "Korsan Tekne Turu",
+      "kind": "text"
+    },
+    {
+      "source": "Sea Experience",
+      "translation": "Deniz Deneyimi",
+      "kind": "text"
+    },
+    {
+      "source": "Pirate Yacht Tour in Alanya",
+      "translation": "Alanya Korsan Tekne Turu",
+      "kind": "text"
+    },
+    {
+      "source": "A full day at sea with music, swimming, a foam party and unforgettable family fun.",
+      "translation": "Müzik, yüzme, köpük partisi ve unutulmaz aile eğlencesiyle denizde tam gün.",
+      "kind": "text"
+    },
+    {
+      "source": "Cruise aboard the spacious ADMIRAL BLACK yacht, swim along the Alanya coast, discover famous sea caves and enjoy views of the Red Tower, Cleopatra Beach and Alanya Castle.",
+      "translation": "Geniş ADMIRAL BLACK yatıyla tura çıkın, Alanya kıyısında yüzün, ünlü deniz mağaralarını keşfedin ve Kızıl Kule, Kleopatra Plajı ve Alanya Kalesi manzaralarının tadını çıkarın.",
+      "kind": "text"
+    },
+    {
+      "source": "6 hours",
+      "translation": "6 saat",
+      "kind": "text"
+    },
+    {
+      "source": "Buffet Lunch",
+      "translation": "Açık Büfe Öğle Yemeği",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer",
+      "translation": "Transfer",
+      "kind": "text"
+    },
+    {
+      "source": "Foam Party",
+      "translation": "Köpük Partisi",
+      "kind": "text"
+    },
+    {
+      "source": "All Inclusive",
+      "translation": "Her Şey Dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Pirate Yacht",
+      "translation": "Korsan Yatı",
+      "kind": "text"
+    },
+    {
+      "source": "Family Friendly",
+      "translation": "Aile Dostu",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming Stops",
+      "translation": "Yüzme Molaları",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer Included",
+      "translation": "Transfer Dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Best Seller",
+      "translation": "Çok Satan",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "WhatsApp'tan Rezerve Et →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "Bu deneyim hakkında",
+      "kind": "text"
+    },
+    {
+      "source": "The Pirate Yacht Tour in Alanya is more than a boat trip — it is a full day of swimming, music, entertainment and a joyful holiday atmosphere.",
+      "translation": "Alanya Pirate Yacht Tour bir tekne gezisinden fazlasıdır — yüzme, müzik, eğlence ve neşeli tatil atmosferiyle dolu tam bir gün.",
+      "kind": "text"
+    },
+    {
+      "source": "The cruise starts from Alanya Harbour, with panoramic views of the Red Tower and the historic castle.",
+      "translation": "Tur Alanya Limanı'ndan Kızıl Kule ve tarihi kalenin panoramik manzaralarıyla başlar.",
+      "kind": "text"
+    },
+    {
+      "source": "The route continues past the historic Tersane Shipyard, Pirate Cave, Lovers Cave and Phosphorus Cave, with refreshing swimming stops along the coast.",
+      "translation": "Rota tarihi Tersane, Korsan Mağarası, Aşıklar Mağarası ve Fosforlu Mağara'nın önünden geçer; kıyı boyunca serinletici yüzme molaları verilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Later, enjoy views of Cleopatra Beach and the New Harbour. With a little luck, you may see dolphins in their natural habitat.",
+      "translation": "Daha sonra Kleopatra Plajı ve Yeni Liman manzaralarını görün. Şanslıysanız doğal yaşam alanlarında yunusları görebilirsiniz.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Öne Çıkanlar",
+      "kind": "text"
+    },
+    {
+      "source": "Foam party and entertainment on board",
+      "translation": "Teknede köpük partisi ve eğlence",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming stop near the historic Tersane Shipyard",
+      "translation": "Tarihi Tersane yakınında yüzme molası",
+      "kind": "text"
+    },
+    {
+      "source": "Pirate Cave, Lovers Cave and Phosphorus Cave",
+      "translation": "Korsan Mağarası, Aşıklar Mağarası ve Fosforlu Mağara",
+      "kind": "text"
+    },
+    {
+      "source": "Views of the Red Tower and Alanya Castle",
+      "translation": "Kızıl Kule ve Alanya Kalesi manzaraları",
+      "kind": "text"
+    },
+    {
+      "source": "Cleopatra Beach and the New Harbour",
+      "translation": "Kleopatra Plajı ve Yeni Liman",
+      "kind": "text"
+    },
+    {
+      "source": "A chance to see dolphins in the open sea",
+      "translation": "Açık denizde yunus görme şansı",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Detaylar",
+      "kind": "text"
+    },
+    {
+      "source": "Duration: 6 hours",
+      "translation": "Süre: 6 saat",
+      "kind": "text"
+    },
+    {
+      "source": "09:00–15:00",
+      "translation": "09:00–15:00",
+      "kind": "text"
+    },
+    {
+      "source": "Every day",
+      "translation": "Her gün",
+      "kind": "text"
+    },
+    {
+      "source": "Departure from Alanya Harbour",
+      "translation": "Alanya Limanı'ndan hareket",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Fiyat",
+      "kind": "text"
+    },
+    {
+      "source": "€25",
+      "translation": "€25",
+      "kind": "text"
+    },
+    {
+      "source": "per person",
+      "translation": "kişi başı",
+      "kind": "text"
+    },
+    {
+      "source": "Children 0–4: Free",
+      "translation": "Çocuklar 0–4: Ücretsiz",
+      "kind": "text"
+    },
+    {
+      "source": "Children 5–11: Half price",
+      "translation": "5–11 yaş çocuklar: yarı fiyat",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Insurance",
+      "translation": "Sigorta",
+      "kind": "text"
+    },
+    {
+      "source": "Buffet lunch",
+      "translation": "Açık büfe öğle yemeği",
+      "kind": "text"
+    },
+    {
+      "source": "Unlimited soft drinks",
+      "translation": "Sınırsız alkolsüz içecekler",
+      "kind": "text"
+    },
+    {
+      "source": "Foam party and entertainment",
+      "translation": "Köpük partisi ve eğlence",
+      "kind": "text"
+    },
+    {
+      "source": "Wi-Fi, shower and restroom",
+      "translation": "Wi‑Fi, duş ve tuvalet",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Dahil değil",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photos",
+      "translation": "Profesyonel fotoğraflar",
+      "kind": "text"
+    },
+    {
+      "source": "Imported drinks",
+      "translation": "İthal içecekler",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Kişisel harcamalar",
+      "kind": "text"
+    },
+    {
+      "source": "Program",
+      "translation": "Program",
+      "kind": "text"
+    },
+    {
+      "source": "A carefully planned day at sea with sightseeing, swimming, lunch and entertainment aboard the ADMIRAL BLACK pirate yacht.",
+      "translation": "ADMIRAL BLACK korsan yatında gezi, yüzme, öğle yemeği ve eğlenceyle özenle planlanmış bir deniz günü.",
+      "kind": "text"
+    },
+    {
+      "source": "09:00",
+      "translation": "09:00",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel Pickup",
+      "translation": "Otelden Alınma",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable transfer from your hotel or apartment to Alanya Harbour.",
+      "translation": "Otelinizden veya dairenizden Alanya Limanı'na konforlu transfer.",
+      "kind": "text"
+    },
+    {
+      "source": "10:00",
+      "translation": "10:00",
+      "kind": "text"
+    },
+    {
+      "source": "Board the ADMIRAL BLACK pirate yacht and begin your cruise along the historic Alanya coastline.",
+      "translation": "ADMIRAL BLACK korsan yatına binin ve Alanya'nın tarihi kıyısı boyunca tura başlayın.",
+      "kind": "text"
+    },
+    {
+      "source": "Coastal Route",
+      "translation": "Sahil Rotası",
+      "kind": "text"
+    },
+    {
+      "source": "Famous Sea Caves",
+      "translation": "Ünlü Deniz Mağaraları",
+      "kind": "text"
+    },
+    {
+      "source": "Sail past Pirate Cave, Lovers Cave and Phosphorus Cave with panoramic views of Alanya Castle.",
+      "translation": "Korsan Mağarası, Aşıklar Mağarası ve Fosforlu Mağara'nın önünden Alanya Kalesi panoramasıyla geçin.",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming Stop",
+      "translation": "Yüzme Molası",
+      "kind": "text"
+    },
+    {
+      "source": "Tersane Bay",
+      "translation": "Tersane Koyu",
+      "kind": "text"
+    },
+    {
+      "source": "Swim in clear Mediterranean water near the historic Seljuk shipyard.",
+      "translation": "Tarihi Selçuklu tersanesi yakınında berrak Akdeniz suyunda yüzün.",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch",
+      "translation": "Öğle yemeği",
+      "kind": "text"
+    },
+    {
+      "source": "Buffet on Board",
+      "translation": "Teknede Açık Büfe",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy a freshly prepared buffet lunch together with unlimited soft drinks.",
+      "translation": "Taze hazırlanmış açık büfe öğle yemeğinin ve sınırsız alkolsüz içeceklerin tadını çıkarın.",
+      "kind": "text"
+    },
+    {
+      "source": "Scenic Stop",
+      "translation": "Manzaralı Mola",
+      "kind": "text"
+    },
+    {
+      "source": "Cleopatra Beach",
+      "translation": "Kleopatra Plajı",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy another swimming break, coastal views and a chance to spot dolphins in the open sea.",
+      "translation": "Bir başka yüzme molasının, kıyı manzaralarının ve açık denizde yunus görme şansının tadını çıkarın.",
+      "kind": "text"
+    },
+    {
+      "source": "Entertainment",
+      "translation": "Eğlence",
+      "kind": "text"
+    },
+    {
+      "source": "Foam Party & Pirate Show",
+      "translation": "Köpük Partisi & Korsan Gösterisi",
+      "kind": "text"
+    },
+    {
+      "source": "Music, dancing, games and pirate-themed entertainment for adults and children.",
+      "translation": "Yetişkinler ve çocuklar için müzik, dans, oyunlar ve korsan temalı eğlence.",
+      "kind": "text"
+    },
+    {
+      "source": "15:00",
+      "translation": "15:00",
+      "kind": "text"
+    },
+    {
+      "source": "Return & Hotel Transfer",
+      "translation": "Dönüş & otel transferi",
+      "kind": "text"
+    },
+    {
+      "source": "Arrival back at Alanya Harbour followed by a comfortable transfer to your hotel.",
+      "translation": "Alanya Limanı'na dönüş, ardından otelinize konforlu transfer.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Fotoğraf Galerisi",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Tur saati",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Süre:",
+      "kind": "text"
+    },
+    {
+      "source": "6 Hours",
+      "translation": "6 saat",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time:",
+      "translation": "Tur saati:",
+      "kind": "text"
+    },
+    {
+      "source": "Availability:",
+      "translation": "Müsaitlik:",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Yanınıza ne almalısınız",
+      "kind": "text"
+    },
+    {
+      "source": "Towel",
+      "translation": "Havlu",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Güneş gözlüğü",
+      "kind": "text"
+    },
+    {
+      "source": "Swimsuit",
+      "translation": "Mayo",
+      "kind": "text"
+    },
+    {
+      "source": "Sunscreen",
+      "translation": "Güneş kremi",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable shoes",
+      "translation": "Rahat ayakkabılar",
+      "kind": "text"
+    },
+    {
+      "source": "Water",
+      "translation": "Su",
+      "kind": "text"
+    },
+    {
+      "source": "Camera / phone",
+      "translation": "Kamera / telefon",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Çocuk politikası",
+      "kind": "text"
+    },
+    {
+      "source": "0–4 years:",
+      "translation": "0–4 yaş:",
+      "kind": "text"
+    },
+    {
+      "source": "Free",
+      "translation": "Ücretsiz",
+      "kind": "text"
+    },
+    {
+      "source": "5–11 years:",
+      "translation": "5–11 yaş:",
+      "kind": "text"
+    },
+    {
+      "source": "Half price",
+      "translation": "Yarı fiyat",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Alınma bilgileri",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup is available from your hotel or apartment address.",
+      "translation": "Otelinizden veya daire adresinizden alınma hizmeti mevcuttur.",
+      "kind": "text"
+    },
+    {
+      "source": "The exact pickup time is confirmed after booking.",
+      "translation": "Kesin alınma saati rezervasyondan sonra onaylanır.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Sıkça Sorulan Sorular",
+      "kind": "text"
+    },
+    {
+      "source": "Is hotel pickup included?",
+      "translation": "Otel transferi dahil mi?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Hotel or apartment pickup and return within the Alanya area are included.",
+      "translation": "Evet. Alanya bölgesinde otel veya daireden gidiş-dönüş transfer dahildir.",
+      "kind": "text"
+    },
+    {
+      "source": "Is lunch included?",
+      "translation": "Öğle yemeği dahil mi?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. A buffet lunch and unlimited soft drinks are served on board.",
+      "translation": "Evet. Teknede açık büfe öğle yemeği ve sınırsız alkolsüz içecekler servis edilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Are there swimming stops?",
+      "translation": "Yüzme molaları var mı?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Several swimming stops are made in beautiful bays during the cruise.",
+      "translation": "Evet. Tur sırasında güzel koylarda birkaç yüzme molası verilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the tour suitable for children?",
+      "translation": "Tur çocuklar için uygun mu?",
+      "kind": "text"
+    },
+    {
+      "source": "Absolutely. The Pirate Yacht Tour is family-friendly and ideal for all ages.",
+      "translation": "Kesinlikle. Pirate Yacht Tour aile dostudur ve her yaş için uygundur.",
+      "kind": "text"
+    },
+    {
+      "source": "Can I see dolphins?",
+      "translation": "Yunus görebilir miyim?",
+      "kind": "text"
+    },
+    {
+      "source": "Dolphins are wild animals, so sightings cannot be guaranteed, but they are often seen along the route.",
+      "translation": "Yunuslar vahşi hayvanlardır, bu nedenle görülmeleri garanti edilemez; ancak rota boyunca sıkça görülebilirler.",
+      "kind": "text"
+    },
+    {
+      "source": "What should I bring?",
+      "translation": "Yanıma ne almalıyım?",
+      "kind": "text"
+    },
+    {
+      "source": "Please bring swimwear, a towel, sunscreen, sunglasses and a camera.",
+      "translation": "Mayo, havlu, güneş kremi, güneş gözlüğü ve kamera getirin.",
+      "kind": "text"
+    },
+    {
+      "source": "Is insurance included?",
+      "translation": "Sigorta dahil mi?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Insurance is included in the tour price.",
+      "translation": "Evet. Sigorta tur fiyatına dahildir.",
+      "kind": "text"
+    },
+    {
+      "source": "Should I book in advance?",
+      "translation": "Önceden rezervasyon yapmalı mıyım?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Early booking is recommended, especially during the high season.",
+      "translation": "Evet. Özellikle yüksek sezonda erken rezervasyon önerilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Sorunuz mu var?",
+      "kind": "text"
+    },
+    {
+      "source": "Message us on WhatsApp for availability, route details and your exact pickup time.",
+      "translation": "Müsaitlik, rota detayları ve kesin alınış saatiniz için bize WhatsApp'tan yazın.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "WhatsApp'tan Yaz →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Önceki fotoğraf",
+      "kind": "aria-label"
+    },
+    {
+      "source": "ADMIRAL BLACK yacht in Alanya",
+      "translation": "Alanya'da ADMIRAL BLACK yatı",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Sonraki fotoğraf",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Galeri küçük resimleri",
+      "kind": "aria-label"
+    },
+    {
+      "source": "ADMIRAL BLACK yacht at sunset",
+      "translation": "Gün batımında ADMIRAL BLACK yatı",
+      "kind": "alt"
+    },
+    {
+      "source": "Foam party on board",
+      "translation": "Teknede köpük partisi",
+      "kind": "alt"
+    },
+    {
+      "source": "Essential tour information",
+      "translation": "Tur hakkında temel bilgiler",
+      "kind": "aria-label"
+    }
+  ]
+}

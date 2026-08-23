@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "vip-service.html",
+  "approved_sha256": "30ce217ad3a54f8356af7aab7ced45d286ac3969dca993abf45cc83d7d64ab3f",
+  "translation_entries": 79,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

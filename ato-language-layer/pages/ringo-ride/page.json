@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "ringo-ride.html",
+  "approved_sha256": "6f561c8e9ebd3e17911b7b54fe1ea8b0b387db54c3eb13b5ad866136315b8636",
+  "translation_entries": 149,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

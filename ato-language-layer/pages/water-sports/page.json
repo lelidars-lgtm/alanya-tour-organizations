@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "water-sports.html",
+  "approved_sha256": "049f01330ba17dd5bc981c46a85d8910cdf40552dc0dd8e9c6d504d746231788",
+  "translation_entries": 150,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

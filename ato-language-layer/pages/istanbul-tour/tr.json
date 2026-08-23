@@ -1,0 +1,758 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "istanbul-tour.html",
+  "approved_sha256": "6d616e52752d8fa2822bd68ee6b62712f0e720e63e9b09ad03a5a83e16757d22",
+  "entries": [
+    {
+      "source": "Istanbul by Plane from Alanya | Alanya Tour Organizations",
+      "translation": "Alanya'dan Uçakla İstanbul | Alanya Tour Organizations",
+      "kind": "title"
+    },
+    {
+      "source": "Discover Istanbul from Alanya by plane on a full-day tour with round-trip flights, hotel and airport transfers, guide service, entrance tickets, meals and a shared Bosphorus cruise.",
+      "translation": "Alanya'dan İstanbul'u uçakla keşfedin: gidiş-dönüş uçuşlar, otel ve havalimanı transferleri, rehberlik, giriş biletleri, yemekler ve paylaşımlı Boğaz turu dahil tam günlük gezi.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home ›",
+      "translation": "Ana Sayfa ›",
+      "kind": "text"
+    },
+    {
+      "source": "History & Culture",
+      "translation": "Tarih & Kültür",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Istanbul by Plane",
+      "translation": "Uçakla İstanbul",
+      "kind": "text"
+    },
+    {
+      "source": "Historic Peninsula • Blue Mosque • Hagia Sophia • Topkapi Palace • Bosphorus",
+      "translation": "Tarihi Yarımada • Sultanahmet Camii • Ayasofya • Topkapı Sarayı • Boğaz",
+      "kind": "text"
+    },
+    {
+      "source": "Discover Istanbul in one intensive day with round-trip domestic flights, hotel and airport transfers, guide service, included entrance tickets, meals and a shared Bosphorus sightseeing cruise.",
+      "translation": "Gidiş-dönüş iç hat uçuşları, otel ve havalimanı transferleri, rehberlik, dahil giriş biletleri, yemekler ve paylaşımlı Boğaz gezi turuyla İstanbul'u yoğun bir günde keşfedin.",
+      "kind": "text"
+    },
+    {
+      "source": "APPROX. 20 HOURS",
+      "translation": "YAKLAŞIK 20 SAAT",
+      "kind": "text"
+    },
+    {
+      "source": "ROUND-TRIP FLIGHTS",
+      "translation": "GİDİŞ-DÖNÜŞ UÇUŞLAR",
+      "kind": "text"
+    },
+    {
+      "source": "BOSPHORUS CRUISE",
+      "translation": "BOĞAZ TURU",
+      "kind": "text"
+    },
+    {
+      "source": "TRANSFERS INCLUDED",
+      "translation": "TRANSFERLER DAHİL",
+      "kind": "text"
+    },
+    {
+      "source": "ISTANBUL",
+      "translation": "İSTANBUL",
+      "kind": "text"
+    },
+    {
+      "source": "HISTORIC PENINSULA",
+      "translation": "TARİHİ YARIMADA",
+      "kind": "text"
+    },
+    {
+      "source": "BLUE MOSQUE",
+      "translation": "SULTANAHMET CAMİİ",
+      "kind": "text"
+    },
+    {
+      "source": "HAGIA SOPHIA",
+      "translation": "AYASOFYA",
+      "kind": "text"
+    },
+    {
+      "source": "TOPKAPI PALACE",
+      "translation": "TOPKAPI SARAYI",
+      "kind": "text"
+    },
+    {
+      "source": "TICKETS INCLUDED",
+      "translation": "BİLETLER DAHİL",
+      "kind": "text"
+    },
+    {
+      "source": "DATE BY CONFIRMATION",
+      "translation": "TARİH ONAYLA BELİRLENİR",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "WhatsApp'tan Rezerve Et →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "Bu deneyim hakkında",
+      "kind": "text"
+    },
+    {
+      "source": "is a full-day cultural journey from Alanya to Türkiye’s largest city and former imperial capital. The tour is designed for guests who want to experience the Historic Peninsula, major monuments and the Bosphorus without a long road journey.",
+      "translation": "Alanya'dan Türkiye'nin en büyük şehri ve eski imparatorluk başkentine tam günlük kültürel bir yolculuktur. Tur, uzun kara yolculuğu yapmadan Tarihi Yarımada'yı, önemli anıtları ve Boğaz'ı görmek isteyen misafirler için tasarlanmıştır.",
+      "kind": "text"
+    },
+    {
+      "source": "The program combines round-trip domestic flights, airport and hotel transfers, guide service, meals, entrance tickets and a shared Bosphorus sightseeing cruise. Istanbul’s historic areas preserve landmarks from the Roman, Byzantine and Ottoman periods, creating one of the world’s most distinctive cityscapes.",
+      "translation": "Program; gidiş-dönüş iç hat uçuşlarını, havalimanı ve otel transferlerini, rehberlik hizmetini, yemekleri, giriş biletlerini ve paylaşımlı Boğaz gezi turunu bir araya getirir. İstanbul'un tarihi bölgeleri Roma, Bizans ve Osmanlı dönemlerinden kalan eserleri korur ve dünyanın en kendine özgü şehir manzaralarından birini oluşturur.",
+      "kind": "text"
+    },
+    {
+      "source": "Visits may include Hagia Sophia, the Blue Mosque, Topkapi Palace and other confirmed attractions in the Historic Peninsula. Access and the order of visits may change because of flight schedules, traffic, prayer times, attraction opening conditions and the local partner’s daily program.",
+      "translation": "Ziyaretler Ayasofya, Sultanahmet Camii, Topkapı Sarayı ve Tarihi Yarımada'daki diğer onaylanmış noktaları içerebilir. Erişim ve ziyaret sırası; uçuş programları, trafik, namaz saatleri, mekânların açılış koşulları ve yerel partnerin günlük programı nedeniyle değişebilir.",
+      "kind": "text"
+    },
+    {
+      "source": "The Bosphorus cruise offers views of waterfront palaces, historic mansions, fortresses, bridges and the meeting point of Europe and Asia.",
+      "translation": "Boğaz turu, sahil sarayları, tarihi yalılar, kaleler, köprüler ve Avrupa ile Asya'nın buluştuğu noktaya manzaralar sunar.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Öne Çıkanlar",
+      "kind": "text"
+    },
+    {
+      "source": "Round-trip domestic flights between the Antalya region and Istanbul",
+      "translation": "Antalya bölgesi ile İstanbul arasında gidiş-dönüş iç hat uçuşları",
+      "kind": "text"
+    },
+    {
+      "source": "Historic Peninsula and the heritage of Roman, Byzantine and Ottoman Istanbul",
+      "translation": "Tarihi Yarımada ve Roma, Bizans, Osmanlı İstanbul mirası",
+      "kind": "text"
+    },
+    {
+      "source": "Entrance tickets to attractions listed in the confirmed program",
+      "translation": "Onaylanan programda belirtilen yerlere giriş biletleri",
+      "kind": "text"
+    },
+    {
+      "source": "Blue Mosque visit subject to prayer times and visitor access",
+      "translation": "Sultanahmet Camii ziyareti namaz saatlerine ve ziyaretçi erişimine bağlıdır",
+      "kind": "text"
+    },
+    {
+      "source": "Hagia Sophia and Topkapi Palace according to the confirmed itinerary",
+      "translation": "Ayasofya ve Topkapı Sarayı onaylanan programa göre",
+      "kind": "text"
+    },
+    {
+      "source": "Shared Bosphorus sightseeing cruise included",
+      "translation": "Paylaşımlı Boğaz gezi turu dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Guide service, meals, insurance and transfers included",
+      "translation": "Rehberlik, yemekler, sigorta ve transferler dahil",
+      "kind": "text"
+    },
+    {
+      "source": "One-day experience with hotel return around midnight",
+      "translation": "Otele gece yarısı civarında dönüşlü bir günlük deneyim",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Detaylar",
+      "kind": "text"
+    },
+    {
+      "source": "Approximate duration: 20 hours",
+      "translation": "Yaklaşık süre: 20 saat",
+      "kind": "text"
+    },
+    {
+      "source": "Early-morning pickup",
+      "translation": "Sabah erken alınış",
+      "kind": "text"
+    },
+    {
+      "source": "Expected hotel return: around 00:00",
+      "translation": "Beklenen otele dönüş: yaklaşık 00:00",
+      "kind": "text"
+    },
+    {
+      "source": "Operating dates must be confirmed in advance",
+      "translation": "Çalışma tarihleri önceden teyit edilmelidir",
+      "kind": "text"
+    },
+    {
+      "source": "Exact flight and pickup times confirmed after booking",
+      "translation": "Kesin uçuş ve alınış saatleri rezervasyondan sonra onaylanır",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Fiyat",
+      "kind": "text"
+    },
+    {
+      "source": "€290",
+      "translation": "€290",
+      "kind": "text"
+    },
+    {
+      "source": "per person",
+      "translation": "kişi başı",
+      "kind": "text"
+    },
+    {
+      "source": "Child pricing is confirmed on request.",
+      "translation": "Çocuk fiyatı talep üzerine onaylanır.",
+      "kind": "text"
+    },
+    {
+      "source": "The current price must be reconfirmed before booking and may change if airline fares, airport charges or seat availability change.",
+      "translation": "Mevcut fiyat rezervasyon öncesinde yeniden teyit edilmelidir ve havayolu ücretleri, havalimanı vergileri veya koltuk müsaitliği değişirse değişebilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Round-trip domestic flight tickets",
+      "translation": "Gidiş-dönüş iç hat uçak biletleri",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel and airport transfers",
+      "translation": "Otel ve havalimanı transferleri",
+      "kind": "text"
+    },
+    {
+      "source": "Transportation in Istanbul",
+      "translation": "İstanbul içi ulaşım",
+      "kind": "text"
+    },
+    {
+      "source": "Guide service and insurance",
+      "translation": "Rehberlik hizmeti ve sigorta",
+      "kind": "text"
+    },
+    {
+      "source": "Meals according to the confirmed program",
+      "translation": "Onaylanan programa göre yemekler",
+      "kind": "text"
+    },
+    {
+      "source": "Shared Bosphorus sightseeing cruise",
+      "translation": "Paylaşımlı Boğaz gezi turu",
+      "kind": "text"
+    },
+    {
+      "source": "All entrance tickets listed in the confirmed itinerary",
+      "translation": "Onaylanan rotada belirtilen tüm giriş biletleri",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Dahil değil",
+      "kind": "text"
+    },
+    {
+      "source": "Drinks",
+      "translation": "İçecekler",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Kişisel harcamalar",
+      "kind": "text"
+    },
+    {
+      "source": "Optional purchases and souvenirs",
+      "translation": "İsteğe bağlı alışveriş ve hediyelik eşyalar",
+      "kind": "text"
+    },
+    {
+      "source": "Services not listed in the confirmed program",
+      "translation": "Onaylanan programda listelenmeyen hizmetler",
+      "kind": "text"
+    },
+    {
+      "source": "Program",
+      "translation": "Program",
+      "kind": "text"
+    },
+    {
+      "source": "The exact order and duration of visits may change according to flight times, traffic, prayer times, attraction access and the local partner’s confirmed daily program.",
+      "translation": "Ziyaretlerin kesin sırası ve süresi; uçuş saatleri, trafik, namaz saatleri, mekân erişimi ve yerel partnerin onaylanmış günlük programına göre değişebilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Flight times, Istanbul airport, airline and pickup time are confirmed after booking. Guests must carry a valid passport or identification document accepted for the domestic flight.",
+      "translation": "Uçuş saatleri, İstanbul havalimanı, havayolu ve alınış saati rezervasyondan sonra onaylanır. Misafirler iç hat uçuşunda kabul edilen geçerli pasaport veya kimlik belgesi taşımalıdır.",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment pickup",
+      "translation": "Otel veya daireden alınma",
+      "kind": "text"
+    },
+    {
+      "source": "Early pickup from the confirmed address and transfer toward the departure airport.",
+      "translation": "Onaylanan adresten sabah erken alınış ve kalkış havalimanına transfer.",
+      "kind": "text"
+    },
+    {
+      "source": "Flight to Istanbul",
+      "translation": "İstanbul'a Uçuş",
+      "kind": "text"
+    },
+    {
+      "source": "Domestic flight to Istanbul. The airport and airline are confirmed according to the final reservation.",
+      "translation": "İstanbul'a iç hat uçuşu. Havalimanı ve havayolu nihai rezervasyona göre onaylanır.",
+      "kind": "text"
+    },
+    {
+      "source": "Meeting with the guide",
+      "translation": "Rehberle Buluşma",
+      "kind": "text"
+    },
+    {
+      "source": "Meet the guide and continue with the confirmed city transportation and sightseeing program.",
+      "translation": "Rehberle buluşun ve onaylanan şehir içi ulaşım ile gezi programına devam edin.",
+      "kind": "text"
+    },
+    {
+      "source": "Historic Peninsula",
+      "translation": "Tarihi Yarımada",
+      "kind": "text"
+    },
+    {
+      "source": "Explore the historic heart of Istanbul and its Roman, Byzantine and Ottoman heritage.",
+      "translation": "İstanbul'un tarihi kalbini ve Roma, Bizans, Osmanlı mirasını keşfedin.",
+      "kind": "text"
+    },
+    {
+      "source": "Blue Mosque",
+      "translation": "Sultanahmet Camii",
+      "kind": "text"
+    },
+    {
+      "source": "Visit subject to prayer times, visitor access and the day’s confirmed route. Appropriate clothing is required.",
+      "translation": "Ziyaret namaz saatlerine, ziyaretçi erişimine ve günün onaylanan rotasına bağlıdır. Uygun kıyafet gereklidir.",
+      "kind": "text"
+    },
+    {
+      "source": "Hagia Sophia",
+      "translation": "Ayasofya",
+      "kind": "text"
+    },
+    {
+      "source": "Visit and entrance according to the confirmed itinerary and current visitor-access rules.",
+      "translation": "Ziyaret ve giriş, onaylanan rota ve güncel ziyaretçi erişim kurallarına göre yapılır.",
+      "kind": "text"
+    },
+    {
+      "source": "Topkapi Palace",
+      "translation": "Topkapı Sarayı",
+      "kind": "text"
+    },
+    {
+      "source": "Entrance and sightseeing according to the confirmed program. Included areas are confirmed before departure.",
+      "translation": "Giriş ve gezi onaylanan programa göre yapılır. Dahil alanlar hareket öncesinde onaylanır.",
+      "kind": "text"
+    },
+    {
+      "source": "Meal break",
+      "translation": "Yemek Molası",
+      "kind": "text"
+    },
+    {
+      "source": "Meals are included according to the confirmed daily program. Drinks are paid separately.",
+      "translation": "Yemekler onaylanan günlük programa göre dahildir. İçecekler ayrıca ödenir.",
+      "kind": "text"
+    },
+    {
+      "source": "Bosphorus sightseeing cruise",
+      "translation": "Boğaz Gezi Turu",
+      "kind": "text"
+    },
+    {
+      "source": "Shared cruise with views of waterfront palaces, mansions, bridges and the Europe–Asia panorama.",
+      "translation": "Sahil sarayları, yalılar, köprüler ve Avrupa–Asya panoramasına manzaralar sunan paylaşımlı tekne turu.",
+      "kind": "text"
+    },
+    {
+      "source": "Return flight and hotel transfer",
+      "translation": "Dönüş Uçuşu & Otel Transferi",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer to the airport, return flight and final transfer to the hotel or apartment. Arrival is expected around midnight and may vary.",
+      "translation": "Havalimanına transfer, dönüş uçuşu ve otel veya daireye son transfer. Varış gece yarısı civarında beklenir ve değişebilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Fotoğraf Galerisi",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Tur saati",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Süre:",
+      "kind": "text"
+    },
+    {
+      "source": "Approximately 20 hours",
+      "translation": "Yaklaşık 20 saat",
+      "kind": "text"
+    },
+    {
+      "source": "Return:",
+      "translation": "Dönüş:",
+      "kind": "text"
+    },
+    {
+      "source": "Around 00:00",
+      "translation": "Yaklaşık 00:00",
+      "kind": "text"
+    },
+    {
+      "source": "Availability:",
+      "translation": "Müsaitlik:",
+      "kind": "text"
+    },
+    {
+      "source": "Confirm in advance",
+      "translation": "Önceden onaylayın",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Yanınıza ne almalısınız",
+      "kind": "text"
+    },
+    {
+      "source": "Passport or valid ID for the flight",
+      "translation": "Uçuş için pasaport veya geçerli kimlik",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable walking shoes",
+      "translation": "Rahat yürüyüş ayakkabıları",
+      "kind": "text"
+    },
+    {
+      "source": "Modest clothing for mosque visits",
+      "translation": "Cami ziyaretleri için uygun ve ölçülü kıyafet",
+      "kind": "text"
+    },
+    {
+      "source": "Headscarf or light scarf for women",
+      "translation": "Kadınlar için başörtüsü veya hafif şal",
+      "kind": "text"
+    },
+    {
+      "source": "Weather-appropriate outer layer",
+      "translation": "Hava durumuna uygun dış katman",
+      "kind": "text"
+    },
+    {
+      "source": "Water and personal medication",
+      "translation": "Su ve kişisel ilaçlar",
+      "kind": "text"
+    },
+    {
+      "source": "Bank card or cash for personal expenses",
+      "translation": "Kişisel harcamalar için banka kartı veya nakit",
+      "kind": "text"
+    },
+    {
+      "source": "Phone and power bank",
+      "translation": "Telefon ve powerbank",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Çocuk politikası",
+      "kind": "text"
+    },
+    {
+      "source": "Child pricing:",
+      "translation": "Çocuk fiyatı:",
+      "kind": "text"
+    },
+    {
+      "source": "Confirmed on request",
+      "translation": "Talep üzerine onaylanır",
+      "kind": "text"
+    },
+    {
+      "source": "Families:",
+      "translation": "Aileler:",
+      "kind": "text"
+    },
+    {
+      "source": "Welcome",
+      "translation": "Hoş geldiniz",
+      "kind": "text"
+    },
+    {
+      "source": "Identification:",
+      "translation": "Kimlik:",
+      "kind": "text"
+    },
+    {
+      "source": "Required for the flight",
+      "translation": "Uçuş için gereklidir",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Alınma bilgileri",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment pickup is included.",
+      "translation": "Otel veya daireden alınış dahildir.",
+      "kind": "text"
+    },
+    {
+      "source": "Exact pickup and flight times are confirmed after booking.",
+      "translation": "Kesin alınış ve uçuş saatleri rezervasyondan sonra onaylanır.",
+      "kind": "text"
+    },
+    {
+      "source": "Airport and airline may vary according to the final reservation.",
+      "translation": "Havalimanı ve havayolu nihai rezervasyona göre değişebilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Sıkça Sorulan Sorular",
+      "kind": "text"
+    },
+    {
+      "source": "Are round-trip flights included?",
+      "translation": "Gidiş-dönüş uçuşlar dahil mi?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Round-trip domestic flight tickets are included according to the confirmed reservation.",
+      "translation": "Evet. Gidiş-dönüş iç hat uçak biletleri onaylanan rezervasyona göre dahildir.",
+      "kind": "text"
+    },
+    {
+      "source": "Which Istanbul airport will we use?",
+      "translation": "İstanbul'da hangi havalimanını kullanacağız?",
+      "kind": "text"
+    },
+    {
+      "source": "The airport and airline are confirmed after booking and depend on the final flight schedule and availability.",
+      "translation": "Havalimanı ve havayolu rezervasyondan sonra onaylanır ve nihai uçuş programı ile müsaitliğe bağlıdır.",
+      "kind": "text"
+    },
+    {
+      "source": "Are entrance tickets included?",
+      "translation": "Giriş biletleri dahil mi?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Entrance tickets for all attractions listed in the confirmed itinerary are included.",
+      "translation": "Evet. Onaylanan rotada belirtilen tüm yerlere giriş biletleri dahildir.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the Bosphorus cruise included?",
+      "translation": "Boğaz turu dahil mi?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. A shared Bosphorus sightseeing cruise is included in the program.",
+      "translation": "Evet. Paylaşımlı Boğaz gezi turu programa dahildir.",
+      "kind": "text"
+    },
+    {
+      "source": "Do we enter Hagia Sophia and Topkapi Palace?",
+      "translation": "Ayasofya ve Topkapı Sarayı'na giriyor muyuz?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes, according to the confirmed itinerary and current visitor-access rules. Included areas are confirmed before departure.",
+      "translation": "Evet, onaylanan rota ve güncel ziyaretçi erişim kurallarına göre. Dahil alanlar hareket öncesinde onaylanır.",
+      "kind": "text"
+    },
+    {
+      "source": "Can the Blue Mosque visit change?",
+      "translation": "Sultanahmet Camii ziyareti değişebilir mi?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Access depends on prayer times, visitor rules and the daily operating program.",
+      "translation": "Evet. Erişim namaz saatlerine, ziyaretçi kurallarına ve günlük operasyon programına bağlıdır.",
+      "kind": "text"
+    },
+    {
+      "source": "Which language does the guide speak?",
+      "translation": "Rehber hangi dilde konuşuyor?",
+      "kind": "text"
+    },
+    {
+      "source": "Guide service is included. The operating language is arranged according to the confirmed group and tour date.",
+      "translation": "Rehberlik hizmeti dahildir. Operasyon dili onaylanan grup ve tur tarihine göre düzenlenir.",
+      "kind": "text"
+    },
+    {
+      "source": "Are meals included?",
+      "translation": "Yemekler dahil mi?",
+      "kind": "text"
+    },
+    {
+      "source": "What document is required for the flight?",
+      "translation": "Uçuş için hangi belge gerekli?",
+      "kind": "text"
+    },
+    {
+      "source": "Each guest must carry a valid passport or identification document accepted for the domestic flight. Names must match the booking.",
+      "translation": "Her misafir iç hat uçuşunda kabul edilen geçerli pasaport veya kimlik belgesi taşımalıdır. İsimler rezervasyonla eşleşmelidir.",
+      "kind": "text"
+    },
+    {
+      "source": "Can the program change?",
+      "translation": "Program değişebilir mi?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. The order and duration of visits may change because of flight schedules, traffic, prayer times, attraction access and operational conditions.",
+      "translation": "Evet. Ziyaretlerin sırası ve süresi uçuş programları, trafik, namaz saatleri, mekân erişimi ve operasyon koşulları nedeniyle değişebilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the €290 price guaranteed?",
+      "translation": "€290 fiyat garantili mi?",
+      "kind": "text"
+    },
+    {
+      "source": "€290 is the current advertised price. It must be reconfirmed before booking and may change if airline fares, airport charges or seat availability change.",
+      "translation": "€290 mevcut ilan edilen fiyattır. Rezervasyon öncesinde yeniden teyit edilmelidir ve havayolu ücretleri, havalimanı vergileri veya koltuk müsaitliği değişirse değişebilir.",
+      "kind": "text"
+    },
+    {
+      "source": "When will we return to the hotel?",
+      "translation": "Otele ne zaman döneceğiz?",
+      "kind": "text"
+    },
+    {
+      "source": "Return is expected around midnight. The exact time depends on the flight, traffic and hotel location.",
+      "translation": "Dönüş gece yarısı civarında beklenir. Kesin saat uçuşa, trafiğe ve otel konumuna bağlıdır.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Sorunuz mu var?",
+      "kind": "text"
+    },
+    {
+      "source": "Message us on WhatsApp to confirm the tour date, current flight price, included attractions, pickup time and required documents.",
+      "translation": "Tur tarihini, güncel uçuş fiyatını, dahil olan yerleri, alınış saatini ve gerekli belgeleri onaylamak için WhatsApp'tan bize yazın.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "WhatsApp'tan Yaz →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "‹",
+      "translation": "‹",
+      "kind": "text"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Önceki fotoğraf",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Bosphorus and Istanbul skyline",
+      "translation": "Boğaz ve İstanbul silüeti",
+      "kind": "alt"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Sonraki fotoğraf",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Galeri küçük resimleri",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Bosphorus cruise",
+      "translation": "Boğaz turu",
+      "kind": "alt"
+    },
+    {
+      "source": "Galata Tower and historic streets",
+      "translation": "Galata Kulesi ve tarihi sokaklar",
+      "kind": "alt"
+    },
+    {
+      "source": "Bosphorus sunset",
+      "translation": "Boğaz'da gün batımı",
+      "kind": "alt"
+    },
+    {
+      "source": "Family visiting Istanbul",
+      "translation": "İstanbul'u gezen aile",
+      "kind": "alt"
+    },
+    {
+      "source": "Main tour information",
+      "translation": "Ana tur bilgileri",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Close gallery",
+      "translation": "Galeriyi kapat",
+      "kind": "aria-label"
+    }
+  ]
+}

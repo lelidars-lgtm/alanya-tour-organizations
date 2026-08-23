@@ -1,0 +1,633 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "relax-boat-tour.html",
+  "approved_sha256": "e473caff84621a70fc5a11b2bd0d42203915bc607e6683bbf68ee9de8217a4a5",
+  "entries": [
+    {
+      "source": "Relax Boat Tour in Alanya | Alanya Tour Organizations",
+      "translation": "Alanya Relax Boat Tour | Alanya Tour Organizations",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "Home › Sea Experiences ›",
+      "translation": "Ana Sayfa › Deniz Deneyimleri ›",
+      "kind": "text"
+    },
+    {
+      "source": "Relax Boat Tour",
+      "translation": "Relax Tekne Turu",
+      "kind": "text"
+    },
+    {
+      "source": "Sea Experience",
+      "translation": "Deniz Deneyimi",
+      "kind": "text"
+    },
+    {
+      "source": "Relax Boat Tour in Alanya",
+      "translation": "Alanya Relax Tekne Turu",
+      "kind": "text"
+    },
+    {
+      "source": "A peaceful day at sea with hidden bays, crystal-clear water and a calm premium atmosphere.",
+      "translation": "Gizli koylar, kristal berraklığında su ve sakin premium atmosferle denizde huzurlu bir gün.",
+      "kind": "text"
+    },
+    {
+      "source": "Escape the crowds aboard a small boat for only 10–15 guests. Discover secluded Mediterranean bays, enjoy refreshing swimming stops, a freshly prepared BBQ lunch and unlimited soft drinks.",
+      "translation": "Yalnızca 10–15 misafirin bulunduğu küçük bir teknede kalabalıktan uzaklaşın. Akdeniz’in sakin koylarını keşfedin; yüzme molalarının, taze hazırlanmış BBQ öğle yemeğinin ve sınırsız alkolsüz içeceklerin tadını çıkarın.",
+      "kind": "text"
+    },
+    {
+      "source": "6 Hours",
+      "translation": "6 saat",
+      "kind": "text"
+    },
+    {
+      "source": "BBQ Lunch",
+      "translation": "BBQ öğle yemeği",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer",
+      "translation": "Transfer",
+      "kind": "text"
+    },
+    {
+      "source": "Small Group",
+      "translation": "Küçük Grup",
+      "kind": "text"
+    },
+    {
+      "source": "Hidden Bays",
+      "translation": "Gizli koylar",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming Stops",
+      "translation": "Yüzme Molaları",
+      "kind": "text"
+    },
+    {
+      "source": "Soft Drinks",
+      "translation": "Alkolsüz içecekler",
+      "kind": "text"
+    },
+    {
+      "source": "Transfer Included",
+      "translation": "Transfer Dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Family Friendly",
+      "translation": "Aile Dostu",
+      "kind": "text"
+    },
+    {
+      "source": "Relax Atmosphere",
+      "translation": "Rahat atmosfer",
+      "kind": "text"
+    },
+    {
+      "source": "Book on WhatsApp →",
+      "translation": "WhatsApp'tan Rezerve Et →",
+      "kind": "text"
+    },
+    {
+      "source": "About this experience",
+      "translation": "Bu deneyim hakkında",
+      "kind": "text"
+    },
+    {
+      "source": "The Relax Boat Tour offers a quieter and more intimate way to experience the Mediterranean coast of Alanya.",
+      "translation": "Relax Boat Tour, Alanya’nın Akdeniz kıyılarını daha sakin ve samimi bir şekilde deneyimleme imkânı sunar.",
+      "kind": "text"
+    },
+    {
+      "source": "Unlike large party boats, this small-group cruise welcomes only 10–15 guests, creating a peaceful atmosphere without loud music, animation or crowded decks.",
+      "translation": "Büyük parti teknelerinin aksine bu küçük grup turuna yalnızca 10–15 misafir katılır; yüksek sesli müzik, animasyon ve kalabalık güverteler olmadan huzurlu bir atmosfer sunar.",
+      "kind": "text"
+    },
+    {
+      "source": "The route focuses on secluded bays and hidden coves that larger yachts cannot easily reach. During the day, you can swim in clear water, sunbathe on deck, relax in the shade and enjoy the sound of the sea.",
+      "translation": "Rota, büyük yatların kolayca ulaşamadığı sakin koylara ve gizli körfezlere odaklanır. Gün boyunca berrak suda yüzebilir, güvertede güneşlenebilir, gölgede dinlenebilir ve denizin sesinin tadını çıkarabilirsiniz.",
+      "kind": "text"
+    },
+    {
+      "source": "This experience is ideal for couples, families and guests who prefer comfort, privacy and genuine relaxation away from busy tourist routes.",
+      "translation": "Bu deneyim; konforu, mahremiyeti ve kalabalık turistik rotalardan uzakta gerçek dinlenmeyi tercih eden çiftler, aileler ve misafirler için idealdir.",
+      "kind": "text"
+    },
+    {
+      "source": "Highlights",
+      "translation": "Öne Çıkanlar",
+      "kind": "text"
+    },
+    {
+      "source": "Small group of only 10–15 guests",
+      "translation": "Yalnızca 10–15 kişilik küçük grup",
+      "kind": "text"
+    },
+    {
+      "source": "No loud music, animation or party atmosphere",
+      "translation": "Yüksek sesli müzik, animasyon ve parti atmosferi yok",
+      "kind": "text"
+    },
+    {
+      "source": "Hidden bays and secluded Mediterranean coves",
+      "translation": "Gizli koylar ve sakin Akdeniz körfezleri",
+      "kind": "text"
+    },
+    {
+      "source": "Multiple swimming stops in clear water",
+      "translation": "Berrak suda birden fazla yüzme molası",
+      "kind": "text"
+    },
+    {
+      "source": "Freshly prepared BBQ lunch with salads and snacks",
+      "translation": "Salata ve atıştırmalıklarla taze hazırlanmış BBQ öğle yemeği",
+      "kind": "text"
+    },
+    {
+      "source": "Unlimited soft drinks throughout the day",
+      "translation": "Gün boyunca sınırsız alkolsüz içecek",
+      "kind": "text"
+    },
+    {
+      "source": "Perfect for couples, families and peaceful relaxation",
+      "translation": "Çiftler, aileler ve huzurlu dinlenme için ideal",
+      "kind": "text"
+    },
+    {
+      "source": "Details",
+      "translation": "Detaylar",
+      "kind": "text"
+    },
+    {
+      "source": "Duration: 6 hours",
+      "translation": "Süre: 6 saat",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time: 09:00–15:00",
+      "translation": "Tur saati: 09:00–15:00",
+      "kind": "text"
+    },
+    {
+      "source": "Group size: 10–15 guests",
+      "translation": "Grup büyüklüğü: 10–15 misafir",
+      "kind": "text"
+    },
+    {
+      "source": "Available every day",
+      "translation": "Her gün mevcut",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel or apartment pickup",
+      "translation": "Otel veya daireden alınma",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Fiyat",
+      "kind": "text"
+    },
+    {
+      "source": "€25",
+      "translation": "€25",
+      "kind": "text"
+    },
+    {
+      "source": "per person",
+      "translation": "kişi başı",
+      "kind": "text"
+    },
+    {
+      "source": "Children 0–3: Free",
+      "translation": "0–3 yaş çocuklar: Ücretsiz",
+      "kind": "text"
+    },
+    {
+      "source": "Children 4–11: Half price",
+      "translation": "4–11 yaş çocuklar: yarım ücret",
+      "kind": "text"
+    },
+    {
+      "source": "Included",
+      "translation": "Dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel transfer",
+      "translation": "Otel transferi",
+      "kind": "text"
+    },
+    {
+      "source": "BBQ lunch",
+      "translation": "BBQ öğle yemeği",
+      "kind": "text"
+    },
+    {
+      "source": "Fresh salads and snacks",
+      "translation": "Taze salatalar ve atıştırmalıklar",
+      "kind": "text"
+    },
+    {
+      "source": "Unlimited soft drinks",
+      "translation": "Sınırsız alkolsüz içecekler",
+      "kind": "text"
+    },
+    {
+      "source": "Swimming stops",
+      "translation": "Yüzme molaları",
+      "kind": "text"
+    },
+    {
+      "source": "Small-group boat cruise",
+      "translation": "Küçük grup tekne turu",
+      "kind": "text"
+    },
+    {
+      "source": "Not included",
+      "translation": "Dahil değil",
+      "kind": "text"
+    },
+    {
+      "source": "Alcoholic drinks",
+      "translation": "Alkollü içecekler",
+      "kind": "text"
+    },
+    {
+      "source": "Professional photos or videos",
+      "translation": "Profesyonel fotoğraf veya videolar",
+      "kind": "text"
+    },
+    {
+      "source": "Personal expenses",
+      "translation": "Kişisel harcamalar",
+      "kind": "text"
+    },
+    {
+      "source": "Program",
+      "translation": "Program",
+      "kind": "text"
+    },
+    {
+      "source": "A carefully balanced day of cruising, swimming, dining and complete relaxation in the quieter bays of the Alanya coastline.",
+      "translation": "Alanya kıyılarının daha sakin koylarında tekne turu, yüzme, yemek ve tam dinlenmeyi dengeli biçimde birleştiren özenle planlanmış bir gün.",
+      "kind": "text"
+    },
+    {
+      "source": "09:00",
+      "translation": "09:00",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel Pickup",
+      "translation": "Otelden Alınma",
+      "kind": "text"
+    },
+    {
+      "source": "Comfortable pickup from your hotel or apartment and transfer to the departure point.",
+      "translation": "Otelinizden veya dairenizden rahat karşılama ve kalkış noktasına transfer.",
+      "kind": "text"
+    },
+    {
+      "source": "Departure",
+      "translation": "Kalkış",
+      "kind": "text"
+    },
+    {
+      "source": "Welcome Aboard",
+      "translation": "Tekneye hoş geldiniz",
+      "kind": "text"
+    },
+    {
+      "source": "Meet the crew and begin your peaceful cruise in a relaxed small-group atmosphere.",
+      "translation": "Ekiple tanışın ve küçük grubun rahat atmosferinde huzurlu tekne turunuzu başlatın.",
+      "kind": "text"
+    },
+    {
+      "source": "Coastal Route",
+      "translation": "Sahil Rotası",
+      "kind": "text"
+    },
+    {
+      "source": "Discover secluded coves and scenic parts of the Mediterranean coastline away from large tourist boats.",
+      "translation": "Büyük turistik teknelerden uzakta, Akdeniz kıyısının sakin koylarını ve manzaralı bölümlerini keşfedin.",
+      "kind": "text"
+    },
+    {
+      "source": "Crystal-Clear Water",
+      "translation": "Kristal berraklığında su",
+      "kind": "text"
+    },
+    {
+      "source": "Swim and snorkel in calm bays with time to sunbathe, relax on deck or rest in the shade.",
+      "translation": "Sakin koylarda yüzün ve şnorkel yapın; güneşlenmek, güvertede dinlenmek veya gölgede vakit geçirmek için zaman ayırın.",
+      "kind": "text"
+    },
+    {
+      "source": "Lunch",
+      "translation": "Öğle yemeği",
+      "kind": "text"
+    },
+    {
+      "source": "BBQ Lunch on Board",
+      "translation": "Teknede BBQ öğle yemeği",
+      "kind": "text"
+    },
+    {
+      "source": "Enjoy freshly grilled dishes, salads and snacks together with unlimited soft drinks.",
+      "translation": "Taze ızgara yemeklerin, salataların ve atıştırmalıkların sınırsız alkolsüz içeceklerle tadını çıkarın.",
+      "kind": "text"
+    },
+    {
+      "source": "Relax",
+      "translation": "Rahatla",
+      "kind": "text"
+    },
+    {
+      "source": "Free Time at Sea",
+      "translation": "Denizde serbest zaman",
+      "kind": "text"
+    },
+    {
+      "source": "Read, sunbathe and enjoy the peaceful Mediterranean atmosphere without loud entertainment.",
+      "translation": "Kitap okuyun, güneşlenin ve yüksek sesli eğlenceler olmadan huzurlu Akdeniz atmosferinin tadını çıkarın.",
+      "kind": "text"
+    },
+    {
+      "source": "15:00",
+      "translation": "15:00",
+      "kind": "text"
+    },
+    {
+      "source": "Return & Hotel Transfer",
+      "translation": "Dönüş & otel transferi",
+      "kind": "text"
+    },
+    {
+      "source": "Return to the departure point followed by a comfortable transfer back to your hotel or apartment.",
+      "translation": "Kalkış noktasına dönüşün ardından otelinize veya dairenize rahat transfer.",
+      "kind": "text"
+    },
+    {
+      "source": "Photo Gallery",
+      "translation": "Fotoğraf Galerisi",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time",
+      "translation": "Tur saati",
+      "kind": "text"
+    },
+    {
+      "source": "Duration:",
+      "translation": "Süre:",
+      "kind": "text"
+    },
+    {
+      "source": "Tour time:",
+      "translation": "Tur saati:",
+      "kind": "text"
+    },
+    {
+      "source": "09:00–15:00",
+      "translation": "09:00–15:00",
+      "kind": "text"
+    },
+    {
+      "source": "Availability:",
+      "translation": "Müsaitlik:",
+      "kind": "text"
+    },
+    {
+      "source": "Every day",
+      "translation": "Her gün",
+      "kind": "text"
+    },
+    {
+      "source": "What to bring",
+      "translation": "Yanınıza ne almalısınız",
+      "kind": "text"
+    },
+    {
+      "source": "Towel",
+      "translation": "Havlu",
+      "kind": "text"
+    },
+    {
+      "source": "Sunglasses",
+      "translation": "Güneş gözlüğü",
+      "kind": "text"
+    },
+    {
+      "source": "Swimsuit",
+      "translation": "Mayo",
+      "kind": "text"
+    },
+    {
+      "source": "Sunscreen",
+      "translation": "Güneş kremi",
+      "kind": "text"
+    },
+    {
+      "source": "Flip-flops or sandals",
+      "translation": "Terlik veya sandalet",
+      "kind": "text"
+    },
+    {
+      "source": "Camera / phone",
+      "translation": "Kamera / telefon",
+      "kind": "text"
+    },
+    {
+      "source": "Child policy",
+      "translation": "Çocuk politikası",
+      "kind": "text"
+    },
+    {
+      "source": "0–3 years:",
+      "translation": "0–3 yaş:",
+      "kind": "text"
+    },
+    {
+      "source": "Free",
+      "translation": "Ücretsiz",
+      "kind": "text"
+    },
+    {
+      "source": "4–11 years:",
+      "translation": "4–11 yaş:",
+      "kind": "text"
+    },
+    {
+      "source": "Half price",
+      "translation": "Yarı fiyat",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup information",
+      "translation": "Alınma bilgileri",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup is available from your hotel or apartment address.",
+      "translation": "Otelinizden veya daire adresinizden alınma hizmeti mevcuttur.",
+      "kind": "text"
+    },
+    {
+      "source": "The exact pickup time is confirmed after booking.",
+      "translation": "Kesin alınma saati rezervasyondan sonra onaylanır.",
+      "kind": "text"
+    },
+    {
+      "source": "Frequently Asked Questions",
+      "translation": "Sıkça Sorulan Sorular",
+      "kind": "text"
+    },
+    {
+      "source": "Is hotel transfer included?",
+      "translation": "Otel transferi dahil mi?",
+      "kind": "text"
+    },
+    {
+      "source": "+",
+      "translation": "+",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Pickup and return from hotels and apartments in the Alanya area are included.",
+      "translation": "Evet. Alanya bölgesindeki otel ve dairelerden gidiş-dönüş transfer dahildir.",
+      "kind": "text"
+    },
+    {
+      "source": "Is BBQ lunch included?",
+      "translation": "BBQ öğle yemeği dahil mi?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Fresh BBQ lunch together with unlimited soft drinks is included.",
+      "translation": "Evet. Taze BBQ öğle yemeği ve sınırsız alkolsüz içecekler dahildir.",
+      "kind": "text"
+    },
+    {
+      "source": "How many guests are on the boat?",
+      "translation": "Teknede kaç misafir var?",
+      "kind": "text"
+    },
+    {
+      "source": "The tour is limited to approximately 10–15 guests for a peaceful atmosphere.",
+      "translation": "Huzurlu atmosfer için tur yaklaşık 10–15 misafirle sınırlıdır.",
+      "kind": "text"
+    },
+    {
+      "source": "Are there swimming stops?",
+      "translation": "Yüzme molaları var mı?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Several swimming stops are made in beautiful secluded bays.",
+      "translation": "Evet. Güzel ve sakin koylarda birkaç yüzme molası verilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Is the tour suitable for children?",
+      "translation": "Tur çocuklar için uygun mu?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. The tour is family-friendly and ideal for couples and families.",
+      "translation": "Evet. Tur aile dostudur ve çiftler ile aileler için idealdir.",
+      "kind": "text"
+    },
+    {
+      "source": "What should I bring?",
+      "translation": "Yanıma ne almalıyım?",
+      "kind": "text"
+    },
+    {
+      "source": "Please bring swimwear, a towel, sunscreen, sunglasses and a camera.",
+      "translation": "Mayo, havlu, güneş kremi, güneş gözlüğü ve kamera getirin.",
+      "kind": "text"
+    },
+    {
+      "source": "Is insurance included?",
+      "translation": "Sigorta dahil mi?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Insurance is included in the tour price.",
+      "translation": "Evet. Sigorta tur fiyatına dahildir.",
+      "kind": "text"
+    },
+    {
+      "source": "Should I book in advance?",
+      "translation": "Önceden rezervasyon yapmalı mıyım?",
+      "kind": "text"
+    },
+    {
+      "source": "Yes. Early booking is recommended, especially during the summer season.",
+      "translation": "Evet. Özellikle yaz sezonunda erken rezervasyon önerilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Have questions?",
+      "translation": "Sorunuz mu var?",
+      "kind": "text"
+    },
+    {
+      "source": "Message us on WhatsApp for availability, route details, boat information and your exact pickup time.",
+      "translation": "Müsaitlik, rota detayları, tekne bilgisi ve kesin alma saatiniz için WhatsApp’tan bize yazın.",
+      "kind": "text"
+    },
+    {
+      "source": "Chat on WhatsApp →",
+      "translation": "WhatsApp'tan Yaz →",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "Previous photo",
+      "translation": "Önceki fotoğraf",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Next photo",
+      "translation": "Sonraki fotoğraf",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Gallery thumbnails",
+      "translation": "Galeri küçük resimleri",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Hidden Mediterranean bays",
+      "translation": "Gizli Akdeniz koyları",
+      "kind": "alt"
+    },
+    {
+      "source": "Peaceful atmosphere on board",
+      "translation": "Teknede huzurlu atmosfer",
+      "kind": "alt"
+    },
+    {
+      "source": "Essential tour information",
+      "translation": "Tur hakkında temel bilgiler",
+      "kind": "aria-label"
+    }
+  ]
+}

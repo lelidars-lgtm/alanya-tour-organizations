@@ -1,0 +1,8 @@
+{
+  "format": "ATO approved page translation reference v1",
+  "approved_page": "luxury-jet-car.html",
+  "approved_sha256": "f1760ff4537c994dec40d0a09c45605a539d255eed9ad0bc657d185f3a506a0c",
+  "translation_entries": 150,
+  "unmapped_reference_strings": 0,
+  "safety": "This folder contains translations only. The approved source page is external and must not be overwritten."
+}

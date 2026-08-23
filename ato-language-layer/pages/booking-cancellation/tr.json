@@ -1,0 +1,258 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "booking-cancellation.html",
+  "approved_sha256": "5a9cfd869b97029c5c08e327c64c7a7503b77d021f5c42931650e8ec003a8b6e",
+  "entries": [
+    {
+      "source": "Booking & Cancellation — ALANYA TOUR ORGANIZATIONS",
+      "translation": "Rezervasyon & İptal — ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "BOOKING & CANCELLATION",
+      "translation": "REZERVASYON & İPTAL",
+      "kind": "text"
+    },
+    {
+      "source": "Home",
+      "translation": "Ana Sayfa",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "Booking & Cancellation",
+      "translation": "Rezervasyon & İptal",
+      "kind": "text"
+    },
+    {
+      "source": "Legal Information",
+      "translation": "Yasal Bilgiler",
+      "kind": "text"
+    },
+    {
+      "source": "KVKK & Privacy",
+      "translation": "KVKK & Gizlilik",
+      "kind": "text"
+    },
+    {
+      "source": "Cookie Policy",
+      "translation": "Çerez Politikası",
+      "kind": "text"
+    },
+    {
+      "source": "Contact",
+      "translation": "İletişim",
+      "kind": "text"
+    },
+    {
+      "source": "Reservation conditions",
+      "translation": "Rezervasyon koşulları",
+      "kind": "text"
+    },
+    {
+      "source": "REZERVASYON & İPTAL / BOOKING & CANCELLATION",
+      "translation": "REZERVASYON & İPTAL",
+      "kind": "text"
+    },
+    {
+      "source": "How booking requests, confirmation, electronic tickets, changes, cancellations, refunds and consumer remedies are handled.",
+      "translation": "Rezervasyon taleplerinin, onayın, elektronik biletlerin, değişikliklerin, iptallerin, iadelerin ve tüketici başvuru yollarının nasıl ele alındığı.",
+      "kind": "text"
+    },
+    {
+      "source": "Last updated: 13 August 2026",
+      "translation": "Son güncelleme: 13 Ağustos 2026",
+      "kind": "text"
+    },
+    {
+      "source": "Booking / Rezervasyon",
+      "translation": "Rezervasyon",
+      "kind": "text"
+    },
+    {
+      "source": "A request sent through ALANYA TOUR ORGANIZATIONS is not automatically a confirmed reservation. The booking becomes confirmed only after availability, date, participant details, applicable price and service conditions are checked and the customer receives written confirmation and/or an electronic ticket.",
+      "translation": "ALANYA TOUR ORGANIZATIONS üzerinden gönderilen bir talep otomatik olarak onaylanmış rezervasyon sayılmaz. Rezervasyon; müsaitlik, tarih, katılımcı bilgileri, geçerli fiyat ve hizmet koşulları kontrol edildikten ve müşteriye yazılı onay ve/veya elektronik bilet gönderildikten sonra onaylanmış olur.",
+      "kind": "text"
+    },
+    {
+      "source": "Licensed travel agency services are provided through",
+      "translation": "Lisanslı seyahat acentası hizmetleri şu kuruluş üzerinden sunulur:",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI — TÜRSAB Belge No 2156",
+      "translation": "UNION TOUR SEYAHAT ACENTASI — TÜRSAB Belge No 2156",
+      "kind": "text"
+    },
+    {
+      "source": ".",
+      "translation": ".",
+      "kind": "text"
+    },
+    {
+      "source": "Pre-contract Information / Ön Bilgilendirme",
+      "translation": "Ön Bilgilendirme",
+      "kind": "text"
+    },
+    {
+      "source": "Before a booking is finally confirmed, the customer is informed, as applicable to the selected service, about the main characteristics of the service, provider details, total price and additional charges, included and excluded services, date and pickup information, cancellation or withdrawal conditions and available consumer-remedy channels.",
+      "translation": "Rezervasyon kesin olarak onaylanmadan önce müşteriye, seçilen hizmete uygun olarak; hizmetin temel özellikleri, hizmet sağlayıcı bilgileri, toplam fiyat ve ek ücretler, dahil ve hariç hizmetler, tarih ve alınış bilgileri, iptal veya cayma koşulları ile mevcut tüketici başvuru yolları hakkında bilgi verilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Price & Payment / Fiyat & Ödeme",
+      "translation": "Fiyat & Ödeme",
+      "kind": "text"
+    },
+    {
+      "source": "The applicable tour price, included and excluded services, pickup information, date, time and any payment requirements are communicated before final confirmation. A price shown on a tour page may be subject to the participant composition, child tariff, hotel/transfer zone, selected date or separately identified optional services.",
+      "translation": "Geçerli tur fiyatı, dahil ve hariç hizmetler, alınış bilgileri, tarih, saat ve ödeme şartları kesin onaydan önce bildirilir. Tur sayfasında gösterilen fiyat; katılımcı yapısına, çocuk tarifesine, otel/transfer bölgesine, seçilen tarihe veya ayrıca belirtilen isteğe bağlı hizmetlere bağlı olabilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Cancellation & Changes / İptal & Değişiklik",
+      "translation": "İptal & Değişiklik",
+      "kind": "text"
+    },
+    {
+      "source": "Cancellation and refund conditions may differ by tour, date and service provider. The conditions applicable to the selected booking are communicated before confirmation.",
+      "translation": "İptal ve iade koşulları tura, tarihe ve hizmet sağlayıcıya göre değişebilir. Seçilen rezervasyona uygulanacak koşullar onaydan önce bildirilir.",
+      "kind": "text"
+    },
+    {
+      "source": "For leisure or other services tied to a specific date or period, statutory withdrawal rules may contain exceptions. Where an exception applies to the selected service, the customer is informed before confirmation.",
+      "translation": "Belirli bir tarihe veya döneme bağlı eğlence ya da diğer hizmetlerde yasal cayma hakkı kuralları istisnalar içerebilir. Seçilen hizmete bir istisna uygulanıyorsa müşteri onaydan önce bilgilendirilir.",
+      "kind": "text"
+    },
+    {
+      "source": "Weather, Safety & Operations",
+      "translation": "Hava, Güvenlik & Operasyon",
+      "kind": "text"
+    },
+    {
+      "source": "Weather, sea conditions, safety requirements, force majeure or operational circumstances may require a change of pickup time, route, program or service. Where a material change occurs, the customer is informed and the available options are communicated.",
+      "translation": "Hava, deniz koşulları, güvenlik gereklilikleri, mücbir sebep veya operasyonel koşullar alınış saati, rota, program ya da hizmette değişiklik gerektirebilir. Önemli bir değişiklik olması halinde müşteri bilgilendirilir ve mevcut seçenekler açıklanır.",
+      "kind": "text"
+    },
+    {
+      "source": "Şikâyet ve Hak Arama Yolları / Complaints & Consumer Rights",
+      "translation": "Şikâyet ve Hak Arama Yolları",
+      "kind": "text"
+    },
+    {
+      "source": "Customers may first contact us at",
+      "translation": "Müşteriler öncelikle bize şu adresten ulaşabilir:",
+      "kind": "text"
+    },
+    {
+      "source": "alanyatourorganizations@gmail.com",
+      "translation": "alanyatourorganizations@gmail.com",
+      "kind": "text"
+    },
+    {
+      "source": "or",
+      "translation": "veya",
+      "kind": "text"
+    },
+    {
+      "source": "+90 (535) 207 27 68",
+      "translation": "+90 (535) 207 27 68",
+      "kind": "text"
+    },
+    {
+      "source": "so that the matter can be reviewed promptly.",
+      "translation": "konunun hızlıca incelenebilmesi için.",
+      "kind": "text"
+    },
+    {
+      "source": "Nothing on this page limits mandatory rights granted to consumers by applicable Turkish consumer law. Depending on the value and nature of the dispute and the statutory monetary limit in force at the relevant time, a consumer may apply to the competent İl/İlçe Tüketici Hakem Heyeti. Disputes outside the jurisdiction of the Consumer Arbitration Committees are subject to the applicable dispute-resolution route, including mandatory mediation where required and the competent consumer court.",
+      "translation": "Bu sayfadaki hiçbir ifade, yürürlükteki Türk tüketici mevzuatının tüketicilere tanıdığı emredici hakları sınırlamaz. Uyuşmazlığın değeri ve niteliği ile ilgili dönemde geçerli yasal parasal sınıra göre tüketici, yetkili İl/İlçe Tüketici Hakem Heyeti’ne başvurabilir. Tüketici Hakem Heyetlerinin görev alanı dışında kalan uyuşmazlıklar, gerekli hallerde zorunlu arabuluculuk ve yetkili tüketici mahkemesi dahil olmak üzere uygulanabilir uyuşmazlık çözüm yoluna tabidir.",
+      "kind": "text"
+    },
+    {
+      "source": "Applications to Consumer Arbitration Committees may also be made electronically through the e-Devlet / TÜBİS system in accordance with the applicable rules.",
+      "translation": "Tüketici Hakem Heyetlerine başvurular, ilgili kurallara uygun olarak e-Devlet / TÜBİS sistemi üzerinden elektronik ortamda da yapılabilir.",
+      "kind": "text"
+    },
+    {
+      "source": "E‑TICKET:",
+      "translation": "E‑BİLET:",
+      "kind": "text"
+    },
+    {
+      "source": "For ordinary excursion bookings, the customer receives an electronic ticket/booking confirmation. This page does not replace separate information or documentation that may be legally required for a specific package-tour or other regulated product.",
+      "translation": "Standart gezi rezervasyonlarında müşteriye elektronik bilet/rezervasyon onayı verilir. Bu sayfa, belirli bir paket tur veya diğer düzenlemeye tabi ürün için yasal olarak gerekli olabilecek ayrı bilgi veya belgelerin yerine geçmez.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR",
+      "translation": "UNION TOUR",
+      "kind": "text"
+    },
+    {
+      "source": "•",
+      "translation": "•",
+      "kind": "text"
+    },
+    {
+      "source": "TÜRSAB Belge No / License No: 2156",
+      "translation": "TÜRSAB Belge No / Lisans No: 2156",
+      "kind": "text"
+    },
+    {
+      "source": "© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "translation": "© 2026 ALANYA TOUR ORGANIZATIONS — SEVGİYLE SEYAHAT EDİN. BİZİMLE SEYAHAT EDİN.",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "translation": "UNION TOUR SEYAHAT ACENTASI · TÜRSAB No. 2156",
+      "kind": "text"
+    },
+    {
+      "source": "Company & Legal Information",
+      "translation": "Şirket ve Yasal Bilgiler",
+      "kind": "text"
+    },
+    {
+      "source": "·",
+      "translation": "·",
+      "kind": "text"
+    },
+    {
+      "source": "Privacy & Cookies",
+      "translation": "Gizlilik & Çerezler",
+      "kind": "text"
+    },
+    {
+      "source": "y>",
+      "translation": "y>",
+      "kind": "text"
+    },
+    {
+      "source": "Legal pages",
+      "translation": "Yasal sayfalar",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Company and legal links",
+      "translation": "Şirket ve yasal bağlantılar",
+      "kind": "aria-label"
+    }
+  ]
+}

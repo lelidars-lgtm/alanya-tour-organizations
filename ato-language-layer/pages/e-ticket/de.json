@@ -1,0 +1,338 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "DE",
+  "approved_page": "e-ticket.html",
+  "approved_sha256": "7899ce66cf08e3f028fb12214a5736c1ef068b26cf1e3d987fd0e466f2f6833d",
+  "entries": [
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS — E‑Ticket",
+      "translation": "ALANYA TOUR ORGANIZATIONS — E‑Ticket",
+      "kind": "title"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR",
+      "translation": "ALANYA TOUR",
+      "kind": "text"
+    },
+    {
+      "source": "ORGANIZATIONS",
+      "translation": "ORGANIZATIONS",
+      "kind": "text"
+    },
+    {
+      "source": "TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "translation": "REISEN SIE MIT LIEBE. REISEN SIE MIT UNS.",
+      "kind": "text"
+    },
+    {
+      "source": "Trusted since 2010",
+      "translation": "Vertrauen seit 2010",
+      "kind": "text"
+    },
+    {
+      "source": "◆",
+      "translation": "◆",
+      "kind": "text"
+    },
+    {
+      "source": "ELEKTRONİK BİLET",
+      "translation": "ELEKTRONISCHES TICKET",
+      "kind": "text"
+    },
+    {
+      "source": "/ ELECTRONIC TICKET",
+      "translation": "/ ELEKTRONISCHES TICKET",
+      "kind": "text"
+    },
+    {
+      "source": "Booking confirmation / Rezervasyon onayı",
+      "translation": "Buchungsbestätigung / Rezervasyon onayı",
+      "kind": "text"
+    },
+    {
+      "source": "PENDING CONFIRMATION",
+      "translation": "BESTÄTIGUNG AUSSTEHEND",
+      "kind": "text"
+    },
+    {
+      "source": "Request received. Pickup time and final price are awaiting manager confirmation.",
+      "translation": "Anfrage erhalten. Abholzeit und Endpreis warten auf die Bestätigung durch den Manager.",
+      "kind": "text"
+    },
+    {
+      "source": "BİLET NO / TICKET NO",
+      "translation": "TICKETNUMMER / TICKET NO",
+      "kind": "text"
+    },
+    {
+      "source": "TKT-88185596",
+      "translation": "TKT-88185596",
+      "kind": "text"
+    },
+    {
+      "source": "AD SOYAD / NAME",
+      "translation": "VOR- UND NACHNAME / NAME",
+      "kind": "text"
+    },
+    {
+      "source": "Elena",
+      "translation": "Elena",
+      "kind": "text"
+    },
+    {
+      "source": "OTEL / HOTEL",
+      "translation": "HOTEL",
+      "kind": "text"
+    },
+    {
+      "source": "Sarıtaş Otel",
+      "translation": "Sarıtaş Otel",
+      "kind": "text"
+    },
+    {
+      "source": "ODA NO / ROOM NUMBER",
+      "translation": "ZIMMERNUMMER",
+      "kind": "text"
+    },
+    {
+      "source": "304",
+      "translation": "304",
+      "kind": "text"
+    },
+    {
+      "source": "MİSAFİRLER / GUESTS",
+      "translation": "GÄSTE / GUESTS",
+      "kind": "text"
+    },
+    {
+      "source": "2 Adults / 1 Child",
+      "translation": "2 Erwachsene / 1 Kind",
+      "kind": "text"
+    },
+    {
+      "source": "TUR / TOUR",
+      "translation": "TOUR / TOUR",
+      "kind": "text"
+    },
+    {
+      "source": "Sofa Ride in Alanya",
+      "translation": "Sofa-Fahrt in Alanya",
+      "kind": "text"
+    },
+    {
+      "source": "TARİH / DATE",
+      "translation": "DATUM / DATE",
+      "kind": "text"
+    },
+    {
+      "source": "18 August 2026",
+      "translation": "18. August 2026",
+      "kind": "text"
+    },
+    {
+      "source": "ALINMA YERİ / PICKUP",
+      "translation": "ABHOLORT / PICKUP",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel Lobby",
+      "translation": "Hotellobby",
+      "kind": "text"
+    },
+    {
+      "source": "SAAT / TIME",
+      "translation": "UHRZEIT",
+      "kind": "text"
+    },
+    {
+      "source": "09:30",
+      "translation": "09:30",
+      "kind": "text"
+    },
+    {
+      "source": "€",
+      "translation": "€",
+      "kind": "text"
+    },
+    {
+      "source": "TOPLAM / TOTAL",
+      "translation": "GESAMT / TOTAL",
+      "kind": "text"
+    },
+    {
+      "source": "€25",
+      "translation": "€25",
+      "kind": "text"
+    },
+    {
+      "source": "UNION TOUR • TÜRSAB Belge No / License No: 2156",
+      "translation": "UNION TOUR • TÜRSAB Belge No / License No: 2156",
+      "kind": "text"
+    },
+    {
+      "source": "Web sitesi doğrulaması",
+      "translation": "Website-Verifizierung",
+      "kind": "text"
+    },
+    {
+      "source": "/ Website verification",
+      "translation": "/ Website-Verifizierung",
+      "kind": "text"
+    },
+    {
+      "source": "QR eklenecek",
+      "translation": "QR wird ergänzt",
+      "kind": "text"
+    },
+    {
+      "source": "/ QR to be added",
+      "translation": "/ QR wird ergänzt",
+      "kind": "text"
+    },
+    {
+      "source": "Hotline / Acil destek:",
+      "translation": "Hotline / Notfallhilfe:",
+      "kind": "text"
+    },
+    {
+      "source": "+90 (535) 207 27 68",
+      "translation": "+90 (535) 207 27 68",
+      "kind": "text"
+    },
+    {
+      "source": "© 2026 ALANYA TOUR ORGANIZATIONS — TRAVEL WITH LOVE. TRAVEL WITH US.",
+      "translation": "© 2026 ALANYA TOUR ORGANIZATIONS — REISEN SIE MIT LIEBE. REISEN SIE MIT UNS.",
+      "kind": "text"
+    },
+    {
+      "source": "PAGE 02 · PRE-TOUR GUIDE",
+      "translation": "SEITE 02 · REISEVORBEREITUNG",
+      "kind": "text"
+    },
+    {
+      "source": "Weather & What to Bring",
+      "translation": "Wetter & Was Sie mitbringen sollten",
+      "kind": "text"
+    },
+    {
+      "source": "Date-specific preparation for your confirmed excursion. Weather is updated when reliable live forecast coverage is available; the packing list comes from the specific tour page.",
+      "translation": "Datumsspezifische Vorbereitung für Ihren bestätigten Ausflug. Das Wetter wird aktualisiert, sobald eine zuverlässige aktuelle Vorhersage verfügbar ist; die Packliste stammt von der jeweiligen Tourseite.",
+      "kind": "text"
+    },
+    {
+      "source": "Tour",
+      "translation": "Tour",
+      "kind": "text"
+    },
+    {
+      "source": "—",
+      "translation": "—",
+      "kind": "text"
+    },
+    {
+      "source": "Date",
+      "translation": "Datum",
+      "kind": "text"
+    },
+    {
+      "source": "Time",
+      "translation": "Uhrzeit",
+      "kind": "text"
+    },
+    {
+      "source": "Pickup",
+      "translation": "Abholung",
+      "kind": "text"
+    },
+    {
+      "source": "HAVA DURUMU / WEATHER",
+      "translation": "WETTER",
+      "kind": "text"
+    },
+    {
+      "source": "Forecast for your tour date",
+      "translation": "Wettervorhersage für Ihren Tourtermin",
+      "kind": "text"
+    },
+    {
+      "source": "Checking your tour date…",
+      "translation": "Ihr Tourdatum wird geprüft…",
+      "kind": "text"
+    },
+    {
+      "source": "Weather guidance will appear here.",
+      "translation": "Wetterhinweise werden hier angezeigt.",
+      "kind": "text"
+    },
+    {
+      "source": "YANINIZA ALIN / WHAT TO BRING",
+      "translation": "WAS SIE MITBRINGEN SOLLTEN",
+      "kind": "text"
+    },
+    {
+      "source": "Tour-specific checklist",
+      "translation": "Tour-spezifische Checkliste",
+      "kind": "text"
+    },
+    {
+      "source": "Loading the current tour requirements…",
+      "translation": "Aktuelle Anforderungen für die Tour werden geladen…",
+      "kind": "text"
+    },
+    {
+      "source": "Source: confirmed tour information.",
+      "translation": "Quelle: bestätigte Tourinformationen.",
+      "kind": "text"
+    },
+    {
+      "source": "Important:",
+      "translation": "Wichtig:",
+      "kind": "text"
+    },
+    {
+      "source": "Weather can change and operational conditions are rechecked by the tour provider. Follow the manager/operator’s final instructions if they differ from this forecast.",
+      "translation": "Das Wetter kann sich ändern; die Durchführungsbedingungen werden vom Touranbieter erneut geprüft. Weichen die endgültigen Anweisungen des Managers/Veranstalters von dieser Prognose ab, folgen Sie bitte diesen.",
+      "kind": "text"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS electronic ticket",
+      "translation": "Elektronisches Ticket von ALANYA TOUR ORGANIZATIONS",
+      "kind": "aria-label"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS",
+      "translation": "ALANYA TOUR ORGANIZATIONS",
+      "kind": "alt"
+    },
+    {
+      "source": "TÜRSAB information",
+      "translation": "TÜRSAB-Informationen",
+      "kind": "aria-label"
+    },
+    {
+      "source": "TÜRSAB",
+      "translation": "TÜRSAB",
+      "kind": "alt"
+    },
+    {
+      "source": "Website verification and QR notice",
+      "translation": "Website-Verifizierung und QR-Hinweis",
+      "kind": "aria-label"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS pre-tour guide",
+      "translation": "ALANYA TOUR ORGANIZATIONS Reisevorbereitung",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Confirmed tour details",
+      "translation": "Bestätigte Tourdetails",
+      "kind": "aria-label"
+    }
+  ]
+}

@@ -1,0 +1,578 @@
+{
+  "format": "ATO page translation document v1",
+  "language": "TR",
+  "approved_page": "interactive-map/index.html",
+  "approved_sha256": "b37dc0457604912c4e304b7e688fb34c4661bf0069274a4bf2007a2438cf892d",
+  "entries": [
+    {
+      "source": "Interactive Map — ALANYA TOUR ORGANIZATIONS",
+      "translation": "İnteraktif Harita — ALANYA TOUR ORGANIZATIONS",
+      "kind": "title"
+    },
+    {
+      "source": "Interactive travel map of tours and routes by ALANYA TOUR ORGANIZATIONS.",
+      "translation": "ALANYA TOUR ORGANIZATIONS tur ve rotalarının interaktif seyahat haritası.",
+      "kind": "meta"
+    },
+    {
+      "source": "html",
+      "translation": "html",
+      "kind": "text"
+    },
+    {
+      "source": "×",
+      "translation": "×",
+      "kind": "text"
+    },
+    {
+      "source": "EXPERIENCE",
+      "translation": "DENEYİM",
+      "kind": "text"
+    },
+    {
+      "source": "TURKEY",
+      "translation": "TÜRKİYE",
+      "kind": "text"
+    },
+    {
+      "source": "Discover more. Feel more. Travel better.",
+      "translation": "Daha fazlasını keşfedin. Daha fazlasını hissedin. Daha iyi seyahat edin.",
+      "kind": "text"
+    },
+    {
+      "source": "BEST FOR YOU",
+      "translation": "SİZE EN UYGUN",
+      "kind": "text"
+    },
+    {
+      "source": "FAMILY",
+      "translation": "AİLE",
+      "kind": "text"
+    },
+    {
+      "source": "COUPLES",
+      "translation": "ÇİFTLER",
+      "kind": "text"
+    },
+    {
+      "source": "FRIENDS",
+      "translation": "ARKADAŞLAR",
+      "kind": "text"
+    },
+    {
+      "source": "ADVENTURE",
+      "translation": "MACERA",
+      "kind": "text"
+    },
+    {
+      "source": "LUXURY",
+      "translation": "LÜKS",
+      "kind": "text"
+    },
+    {
+      "source": "TODAY",
+      "translation": "BUGÜN",
+      "kind": "text"
+    },
+    {
+      "source": "SMART FILTERS",
+      "translation": "AKILLI FİLTRELER",
+      "kind": "text"
+    },
+    {
+      "source": "Find the right experience faster",
+      "translation": "Size uygun deneyimi daha hızlı bulun",
+      "kind": "text"
+    },
+    {
+      "source": "QUICK FILTERS",
+      "translation": "HIZLI FİLTRELER",
+      "kind": "text"
+    },
+    {
+      "source": "BEST PRICE",
+      "translation": "EN İYİ FİYAT",
+      "kind": "text"
+    },
+    {
+      "source": "HALF DAY",
+      "translation": "YARIM GÜN",
+      "kind": "text"
+    },
+    {
+      "source": "WITH TRANSFER",
+      "translation": "TRANSFER DAHİL",
+      "kind": "text"
+    },
+    {
+      "source": "PRIVATE",
+      "translation": "ÖZEL",
+      "kind": "text"
+    },
+    {
+      "source": "POPULAR",
+      "translation": "POPÜLER",
+      "kind": "text"
+    },
+    {
+      "source": "REFINE YOUR SEARCH",
+      "translation": "ARAMANIZI DARALTIN",
+      "kind": "text"
+    },
+    {
+      "source": "Price",
+      "translation": "Fiyat",
+      "kind": "text"
+    },
+    {
+      "source": "Any",
+      "translation": "Farketmez",
+      "kind": "text"
+    },
+    {
+      "source": "Up to €50",
+      "translation": "€50'ye kadar",
+      "kind": "text"
+    },
+    {
+      "source": "Up to €100",
+      "translation": "€100'e kadar",
+      "kind": "text"
+    },
+    {
+      "source": "Up to €200",
+      "translation": "€200'YE KADAR",
+      "kind": "text"
+    },
+    {
+      "source": "Up to €500",
+      "translation": "€500'E KADAR",
+      "kind": "text"
+    },
+    {
+      "source": "Any⌄",
+      "translation": "Farketmez⌄",
+      "kind": "text"
+    },
+    {
+      "source": "Duration",
+      "translation": "Süre",
+      "kind": "text"
+    },
+    {
+      "source": "Half Day",
+      "translation": "Yarım Gün",
+      "kind": "text"
+    },
+    {
+      "source": "Full Day",
+      "translation": "Tam Gün",
+      "kind": "text"
+    },
+    {
+      "source": "Multi Day",
+      "translation": "Çok Günlük",
+      "kind": "text"
+    },
+    {
+      "source": "Hotel Transfer Included",
+      "translation": "Otel Transferi Dahil",
+      "kind": "text"
+    },
+    {
+      "source": "Family Friendly",
+      "translation": "Aile Dostu",
+      "kind": "text"
+    },
+    {
+      "source": "Private Experience",
+      "translation": "Özel Deneyim",
+      "kind": "text"
+    },
+    {
+      "source": "↻ CLEAR FILTERS",
+      "translation": "↻ FİLTRELERİ TEMİZLE",
+      "kind": "text"
+    },
+    {
+      "source": "Reset all selections",
+      "translation": "Tüm seçimleri sıfırla",
+      "kind": "text"
+    },
+    {
+      "source": "NEARBY EXPERIENCES",
+      "translation": "YAKINDAKİ DENEYİMLER",
+      "kind": "text"
+    },
+    {
+      "source": "Use the location button on the map to show the closest tours.",
+      "translation": "En yakın turları görmek için haritadaki konum düğmesini kullanın.",
+      "kind": "text"
+    },
+    {
+      "source": "⚙ FILTERS",
+      "translation": "⚙ FİLTRELER",
+      "kind": "text"
+    },
+    {
+      "source": "TIP",
+      "translation": "İPUCU",
+      "kind": "text"
+    },
+    {
+      "source": "Choose a category or zoom in to discover more",
+      "translation": "Daha fazlasını keşfetmek için bir kategori seçin veya haritayı yakınlaştırın",
+      "kind": "text"
+    },
+    {
+      "source": "‹",
+      "translation": "‹",
+      "kind": "text"
+    },
+    {
+      "source": "›",
+      "translation": "›",
+      "kind": "text"
+    },
+    {
+      "source": "HYBRID",
+      "translation": "HİBRİT",
+      "kind": "text"
+    },
+    {
+      "source": "STREETS",
+      "translation": "SOKAKLAR",
+      "kind": "text"
+    },
+    {
+      "source": "SATELLITE",
+      "translation": "UYDU",
+      "kind": "text"
+    },
+    {
+      "source": "OVERVIEW MODE · INTERACTIVE JOURNEY STARTS IN 5 SECONDS",
+      "translation": "GENEL BAKIŞ · ETKİLEŞİMLİ YOLCULUK 5 SANİYE İÇİNDE BAŞLAR",
+      "kind": "text"
+    },
+    {
+      "source": "VIEW TOURS AS LIST →",
+      "translation": "TURLARI LİSTE OLARAK GÖR →",
+      "kind": "text"
+    },
+    {
+      "source": "Category Experiences",
+      "translation": "Kategori Deneyimleri",
+      "kind": "text"
+    },
+    {
+      "source": "Experiences near you",
+      "translation": "Yakınınızdaki deneyimler",
+      "kind": "text"
+    },
+    {
+      "source": "Allow location access to see nearby excursions and estimated transfer time. Your location is used only in this browser.",
+      "translation": "Yakındaki turları ve tahmini transfer süresini görmek için konum erişimine izin verin. Konumunuz yalnızca bu tarayıcıda kullanılır.",
+      "kind": "text"
+    },
+    {
+      "source": "SHOW NEARBY",
+      "translation": "YAKINDAKİLERİ GÖSTER",
+      "kind": "text"
+    },
+    {
+      "source": "NOT NOW",
+      "translation": "ŞİMDİ DEĞİL",
+      "kind": "text"
+    },
+    {
+      "source": "Nearby Experiences",
+      "translation": "Yakındaki Deneyimler",
+      "kind": "text"
+    },
+    {
+      "source": "Finding the closest tours…",
+      "translation": "En yakın turlar bulunuyor…",
+      "kind": "text"
+    },
+    {
+      "source": "10 km",
+      "translation": "10 km",
+      "kind": "text"
+    },
+    {
+      "source": "25 km",
+      "translation": "25 km",
+      "kind": "text"
+    },
+    {
+      "source": "50 km",
+      "translation": "50 km",
+      "kind": "text"
+    },
+    {
+      "source": "All",
+      "translation": "Tümü",
+      "kind": "text"
+    },
+    {
+      "source": "TRIP PLANNER · 1/8 TOUR",
+      "translation": "SEYAHAT PLANLAYICI · 1/8 TUR",
+      "kind": "text"
+    },
+    {
+      "source": "Select up to 8 tours · Open planner",
+      "translation": "En fazla 8 tur seçin · Planlayıcıyı açın",
+      "kind": "text"
+    },
+    {
+      "source": "COMPARE TOURS",
+      "translation": "TURLARI KARŞILAŞTIR",
+      "kind": "text"
+    },
+    {
+      "source": "COMPLETE YOUR REQUEST",
+      "translation": "TALEBİNİZİ TAMAMLAYIN",
+      "kind": "text"
+    },
+    {
+      "source": "SELECTED TOURS & PREFERRED DATES",
+      "translation": "SEÇİLEN TURLAR & TERCİH EDİLEN TARİHLER",
+      "kind": "text"
+    },
+    {
+      "source": "YOUR DETAILS",
+      "translation": "BİLGİLERİNİZ",
+      "kind": "text"
+    },
+    {
+      "source": "NAME *",
+      "translation": "AD SOYAD *",
+      "kind": "text"
+    },
+    {
+      "source": "HOTEL OR ACCOMMODATION *",
+      "translation": "OTEL VEYA KONAKLAMA *",
+      "kind": "text"
+    },
+    {
+      "source": "ARRIVAL DATE",
+      "translation": "VARIŞ TARİHİ",
+      "kind": "text"
+    },
+    {
+      "source": "DEPARTURE DATE",
+      "translation": "AYRILIŞ TARİHİ",
+      "kind": "text"
+    },
+    {
+      "source": "ADULTS *",
+      "translation": "YETİŞKİNLER *",
+      "kind": "text"
+    },
+    {
+      "source": "CHILDREN",
+      "translation": "ÇOCUKLAR",
+      "kind": "text"
+    },
+    {
+      "source": "CHILDREN'S AGES",
+      "translation": "ÇOCUKLARIN YAŞLARI",
+      "kind": "text"
+    },
+    {
+      "source": "HOTEL PICKUP",
+      "translation": "OTELDEN ALINMA",
+      "kind": "text"
+    },
+    {
+      "source": "Required",
+      "translation": "Gerekli",
+      "kind": "text"
+    },
+    {
+      "source": "Not required",
+      "translation": "Gerekli değil",
+      "kind": "text"
+    },
+    {
+      "source": "Please advise",
+      "translation": "Lütfen önerin",
+      "kind": "text"
+    },
+    {
+      "source": "PREFERRED LANGUAGE",
+      "translation": "TERCİH EDİLEN DİL",
+      "kind": "text"
+    },
+    {
+      "source": "English",
+      "translation": "İngilizce",
+      "kind": "text"
+    },
+    {
+      "source": "Russian",
+      "translation": "Rusça",
+      "kind": "text"
+    },
+    {
+      "source": "Turkish",
+      "translation": "Türkçe",
+      "kind": "text"
+    },
+    {
+      "source": "German",
+      "translation": "Almanca",
+      "kind": "text"
+    },
+    {
+      "source": "Polish",
+      "translation": "Lehçe",
+      "kind": "text"
+    },
+    {
+      "source": "Pregnancy",
+      "translation": "Hamilelik",
+      "kind": "text"
+    },
+    {
+      "source": "Baby stroller",
+      "translation": "Bebek arabası",
+      "kind": "text"
+    },
+    {
+      "source": "Wheelchair",
+      "translation": "Tekerlekli sandalye",
+      "kind": "text"
+    },
+    {
+      "source": "Reduced mobility",
+      "translation": "Hareket kısıtlılığı",
+      "kind": "text"
+    },
+    {
+      "source": "Elderly guest",
+      "translation": "Yaşlı misafir",
+      "kind": "text"
+    },
+    {
+      "source": "ADDITIONAL NOTES",
+      "translation": "EK NOTLAR",
+      "kind": "text"
+    },
+    {
+      "source": "SEND COMPLETE REQUEST VIA WHATSAPP",
+      "translation": "TAM TALEBİ WHATSAPP İLE GÖNDER",
+      "kind": "text"
+    },
+    {
+      "source": "Availability, dates and final price are confirmed by the manager.",
+      "translation": "Müsaitlik, tarihler ve nihai fiyat yönetici tarafından onaylanır.",
+      "kind": "text"
+    },
+    {
+      "source": "ody>",
+      "translation": "ody>",
+      "kind": "text"
+    },
+    {
+      "source": "Close filters",
+      "translation": "Filtreleri kapat",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Search tours or places…",
+      "translation": "Tur veya yer ara…",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Search tours or places",
+      "translation": "Tur veya yer ara",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Quick experience filters",
+      "translation": "Hızlı deneyim filtreleri",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Quick tour filters",
+      "translation": "Hızlı tur filtreleri",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Hotel transfer filter",
+      "translation": "Otel transferi filtresi",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Family friendly filter",
+      "translation": "Aile dostu filtresi",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Private tour filter",
+      "translation": "Özel tur filtresi",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Interactive tour map",
+      "translation": "İnteraktif tur haritası",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Open filters",
+      "translation": "Filtreleri aç",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Previous categories",
+      "translation": "Önceki kategoriler",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Experience categories",
+      "translation": "Deneyim kategorileri",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Next categories",
+      "translation": "Sonraki kategoriler",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Map style",
+      "translation": "Harita stili",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Close",
+      "translation": "Kapat",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Open tour comparison",
+      "translation": "Tur karşılaştırmasını aç",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Clear comparison",
+      "translation": "Karşılaştırmayı temizle",
+      "kind": "aria-label"
+    },
+    {
+      "source": "Example: 3, 7",
+      "translation": "Örnek: 3, 7",
+      "kind": "placeholder"
+    },
+    {
+      "source": "Anything the manager should know",
+      "translation": "Yöneticinin bilmesi gereken başka bir şey",
+      "kind": "placeholder"
+    },
+    {
+      "source": "ALANYA TOUR ORGANIZATIONS original site footer",
+      "translation": "ALANYA TOUR ORGANIZATIONS orijinal site alt bilgisi",
+      "kind": "aria-label"
+    }
+  ]
+}
