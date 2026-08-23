@@ -1,0 +1,14 @@
+{
+  "name": "ato-web-protection-layer",
+  "private": true,
+  "version": "5.0.0",
+  "type": "module",
+  "scripts": {
+    "ato:baseline": "node tools/ato-media-baseline.mjs --apply",
+    "ato:check": "node tools/ato-protection-build.mjs --check-only",
+    "build": "node tools/ato-protection-build.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.34.3"
+  }
+}

@@ -1,0 +1,71 @@
+/* ALANYA TOUR ORGANIZATIONS — WEB PROTECTION LAYER
+   Add-only module. Does not alter existing site layout; adds an ultra-faint full-screen forensic layer. */
+
+html.ato-protected-public,
+html.ato-protected-public body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+html.ato-protected-public input,
+html.ato-protected-public textarea,
+html.ato-protected-public select,
+html.ato-protected-public [contenteditable="true"],
+html.ato-protected-public .ato-allow-select {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default !important;
+}
+
+html.ato-protected-public img,
+html.ato-protected-public picture,
+html.ato-protected-public svg {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+
+#ato-screen-watermark {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+  opacity: 0.017;
+  mix-blend-mode: soft-light;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 96vw 96vh;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='1000' viewBox='0 0 1600 1000'%3E%3Cg transform='rotate(-24 800 500)' fill='white' text-anchor='middle' font-family='Arial,sans-serif'%3E%3Ctext x='800' y='420' font-size='88' font-weight='700' letter-spacing='12'%3EALANYA TOUR ORGANIZATIONS%3C/text%3E%3Ctext x='800' y='500' font-size='28' letter-spacing='8'%3ETRAVEL WITH LOVE %E2%80%A2 TRAVEL WITH US%3C/text%3E%3Ctext x='800' y='610' font-size='20' letter-spacing='6'%3EALANYA %E2%80%A2 T%C3%9CRK%C4%B0YE%3C/text%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Extra faint edge marks make cropped screenshots still attributable. */
+#ato-screen-watermark::before,
+#ato-screen-watermark::after {
+  content: "ALANYA TOUR ORGANIZATIONS";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  font: 700 11px/1 Arial, sans-serif;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,.65);
+}
+#ato-screen-watermark::before { top: 18px; }
+#ato-screen-watermark::after { bottom: 18px; }
+
+@media print {
+  html.ato-protected-public body > * {
+    display: none !important;
+  }
+
+  html.ato-protected-public body::before {
+    content: "ALANYA TOUR ORGANIZATIONS — PRINTING IS DISABLED";
+    display: block !important;
+    padding: 48px 24px;
+    font: 600 16px/1.5 Arial, sans-serif;
+    text-align: center;
+  }
+}
+
