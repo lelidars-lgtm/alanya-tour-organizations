@@ -50,12 +50,33 @@
     const digest=await crypto.subtle.digest('SHA-256',buf);
     return Array.from(new Uint8Array(digest)).map(x=>x.toString(16).padStart(2,'0')).join('');
   }
+  // Vercel build may add exactly one approved loader marker to the DEPLOYED copy.
+  // Strip only that exact byte sequence before checking the approved source hash.
+  const BUILD_INJECT='<!-- ATO-LANGUAGE-BUILD-INJECT --><script src=\"/ato-language-layer/runtime/ato-language-live.js\" data-ato-language-build=\"1\"></script>\n';
+  const BUILD_INJECT_NO_NL='<!-- ATO-LANGUAGE-BUILD-INJECT --><script src=\"/ato-language-layer/runtime/ato-language-live.js\" data-ato-language-build=\"1\"></script>';
+  function stripExactBytes(buf,needleText){
+    const bytes=new Uint8Array(buf), needle=new TextEncoder().encode(needleText);
+    outer: for(let i=0;i<=bytes.length-needle.length;i++){
+      for(let j=0;j<needle.length;j++) if(bytes[i+j]!==needle[j]) continue outer;
+      const out=new Uint8Array(bytes.length-needle.length);
+      out.set(bytes.subarray(0,i),0); out.set(bytes.subarray(i+needle.length),i);
+      return out.buffer;
+    }
+    return buf;
+  }
+  function normalizeApprovedDeploymentBytes(buf){
+    let out=stripExactBytes(buf,BUILD_INJECT);
+    if(out===buf) out=stripExactBytes(buf,BUILD_INJECT_NO_NL);
+    return out;
+  }
   async function verifyApprovedPage(path){
     const meta=await pageMeta(path); if(!meta) return {ok:false,reason:'not-in-manifest'};
     const url=new URL('/'+meta.path,location.origin);
     const r=await fetch(url,{cache:'no-store'}); if(!r.ok) return {ok:false,reason:'http-'+r.status,expected:meta.approved_sha256};
-    const actual=await sha256Buffer(await r.arrayBuffer());
-    return {ok:actual===meta.approved_sha256,expected:meta.approved_sha256,actual,path:meta.path};
+    const deployed=await r.arrayBuffer();
+    const normalized=normalizeApprovedDeploymentBytes(deployed);
+    const actual=await sha256Buffer(normalized);
+    return {ok:actual===meta.approved_sha256,expected:meta.approved_sha256,actual,path:meta.path,build_injection_ignored:normalized.byteLength!==deployed.byteLength};
   }
   function remember(node,key,value){
     let rec=state.originals.get(node); if(!rec){rec={};state.originals.set(node,rec);} if(!(key in rec)) rec[key]=value;
@@ -153,7 +174,7 @@
   async function translateText(value,lang){ const gd=await loadGlobal(lang); const k=norm(value); return Object.prototype.hasOwnProperty.call(gd,k)?gd[k]:String(value??''); }
 
   global.ATOLanguageLayer={
-    version:'1.0.0-safe',supportedLanguages:LANGS.slice(),setBase,loadManifest,pageMeta,loadPageDocument,
+    version:'1.1.0-safe-vercel-build',supportedLanguages:LANGS.slice(),setBase,loadManifest,pageMeta,loadPageDocument,
     loadGlobal,verifyApprovedPage,applyToDocument,restoreDocument,translateText,normalizePagePath
   };
 })(window);

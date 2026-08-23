@@ -1,10 +1,12 @@
 /*
-  ALANYA TOUR ORGANIZATIONS — LANGUAGE LIVE LOADER v1
-  New standalone file. It does not replace any approved site file.
-  It becomes active only when this exact script is loaded by an integration point.
+  ALANYA TOUR ORGANIZATIONS — LANGUAGE LIVE LOADER v1.1
+  Safe to load more than once: duplicate boot is ignored.
 */
 (function(){
   'use strict';
+  if(window.__ATO_LANGUAGE_LIVE_BOOTSTRAPPED__) return;
+  window.__ATO_LANGUAGE_LIVE_BOOTSTRAPPED__=true;
+
   const LANGS=['en','ru','tr','de','pl'];
   const self=document.currentScript;
   const src=self&&self.src?self.src:'';
@@ -23,9 +25,17 @@
   function loadCore(){
     if(window.ATOLanguageLayer) return Promise.resolve();
     return new Promise((resolve,reject)=>{
+      const existing=document.querySelector('script[data-ato-language-core="1"]');
+      if(existing){
+        if(window.ATOLanguageLayer){resolve();return;}
+        existing.addEventListener('load',resolve,{once:true});
+        existing.addEventListener('error',()=>reject(new Error('ATO Language Layer core could not be loaded')),{once:true});
+        return;
+      }
       const s=document.createElement('script');
       s.src=new URL('runtime/ato-language-layer.js',base).href;
       s.async=false;
+      s.dataset.atoLanguageCore='1';
       s.onload=resolve;
       s.onerror=()=>reject(new Error('ATO Language Layer core could not be loaded'));
       (document.head||document.documentElement).appendChild(s);
@@ -41,9 +51,10 @@
         document.documentElement.dataset.atoLanguageLayer='page-not-registered';
         return {ok:false,reason:'page-not-registered',page};
       }
-      const result=await ATOLanguageLayer.applyToDocument(lang||selectedLanguage(),document,page,{verify:true,observe:true});
+      const useLang=LANGS.includes(lang)?lang:selectedLanguage();
+      const result=await ATOLanguageLayer.applyToDocument(useLang,document,page,{verify:true,observe:true});
       document.documentElement.dataset.atoLanguageLayer='active';
-      document.documentElement.dataset.atoLanguage=(lang||selectedLanguage());
+      document.documentElement.dataset.atoLanguage=useLang;
       return {ok:true,result};
     }catch(error){
       document.documentElement.dataset.atoLanguageLayer='safety-stop';
