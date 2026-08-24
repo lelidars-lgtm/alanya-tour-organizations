@@ -1,6 +1,6 @@
 /**
  * ALANYA TOUR ORGANIZATIONS — WEB PROTECTION LAYER
- * Version: 2026-08-24-v7
+ * Version: 2026-08-24-v8-fixed
  * Add-only module: existing page code is not replaced.
  */
 (() => {
@@ -31,7 +31,7 @@
   }
 
   // Load the separate stylesheet. No CSS needs to be inserted into existing pages.
-  const cssHref = "/assets/protection/ato-web-protection.css?v=20260823";
+  const cssHref = "/assets/protection/ato-web-protection.css?v=20260824v8fixed";
   if (!document.querySelector('link[data-ato-protection-css]')) {
     const link = document.createElement("link");
     link.rel = "stylesheet";
