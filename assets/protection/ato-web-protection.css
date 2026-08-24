@@ -74,3 +74,6 @@ html.ato-protected-public svg {
   -webkit-user-drag: none !important;
   user-drag: none !important;
 }
+
+html.ato-protected-public body *::selection{background:transparent!important;color:inherit!important}
+html.ato-protected-public body *::-moz-selection{background:transparent!important;color:inherit!important}

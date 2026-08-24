@@ -1,7 +1,7 @@
 {
   "name": "ato-web-protection-layer",
   "private": true,
-  "version": "6.0.0",
+  "version": "7.0.0",
   "type": "module",
   "scripts": {
     "ato:baseline": "node tools/ato-media-baseline.mjs --apply",

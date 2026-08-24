@@ -1,6 +1,6 @@
 /**
  * ALANYA TOUR ORGANIZATIONS — WEB PROTECTION LAYER
- * Version: 2026-08-24-v6
+ * Version: 2026-08-24-v7
  * Add-only module: existing page code is not replaced.
  */
 (() => {
@@ -115,11 +115,18 @@
   }, { capture: true });
 
   document.addEventListener("copy", (e) => {
-    if (!isEditable(e.target)) e.preventDefault();
+    if (isEditable(e.target)) return;
+    e.preventDefault();
+    try { e.stopImmediatePropagation(); } catch (_) {}
+    try { e.clipboardData?.setData("text/plain", ""); } catch (_) {}
+    try { e.clipboardData?.setData("text/html", ""); } catch (_) {}
   }, { capture: true });
 
   document.addEventListener("cut", (e) => {
-    if (!isEditable(e.target)) e.preventDefault();
+    if (isEditable(e.target)) return;
+    e.preventDefault();
+    try { e.stopImmediatePropagation(); } catch (_) {}
+    try { e.clipboardData?.setData("text/plain", ""); } catch (_) {}
   }, { capture: true });
 
   document.addEventListener("dragstart", (e) => {
