@@ -1,4 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "node scripts/ato-vercel-language-build.mjs"
+  "buildCommand": "node scripts/ato-vercel-language-build.mjs",
+  "outputDirectory": "."
 }
