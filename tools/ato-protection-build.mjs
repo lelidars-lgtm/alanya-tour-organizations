@@ -123,7 +123,7 @@ if (unprotected.length) throw new Error("FAIL-CLOSED: unprotected HTML: "+JSON.s
 // Private build manifest is useful for diagnostics; no source originals are included in DIST beyond previews.
 fs.writeFileSync(path.join(DIST,"assets","protection","ato-media-map.json"), JSON.stringify({generatedAt:new Date().toISOString(), assets:manifest},null,2)+"\n","utf8");
 
-console.log("ATO COMPLETE PROTECTION V3");
+console.log("ATO COMPLETE PROTECTION V6 — COPY LOCK");
 console.log(`HTML protected in deployment copy: ${htmlProtected}`);
 console.log(`Approved current photos copied unchanged: ${currentCopied}`);
 console.log(`New/changed photos forensic-protected: ${futureProtected}`);

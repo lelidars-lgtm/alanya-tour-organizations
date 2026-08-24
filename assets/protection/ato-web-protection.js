@@ -1,6 +1,6 @@
 /**
  * ALANYA TOUR ORGANIZATIONS — WEB PROTECTION LAYER
- * Version: 2026-08-23-v5
+ * Version: 2026-08-24-v6
  * Add-only module: existing page code is not replaced.
  */
 (() => {
@@ -47,6 +47,34 @@
   }
 
   document.documentElement.classList.add("ato-protected-public");
+
+  // V6 CRITICAL COPY LOCK: inline fallback so copy protection does not depend
+  // on the external stylesheet winning the cascade.
+  if (!document.getElementById("ato-copy-lock-critical")) {
+    const critical = document.createElement("style");
+    critical.id = "ato-copy-lock-critical";
+    critical.textContent = `
+      html.ato-protected-public,html.ato-protected-public body,
+      html.ato-protected-public body *{
+        -webkit-user-select:none!important;
+        -moz-user-select:none!important;
+        user-select:none!important;
+        -webkit-touch-callout:none!important
+      }
+      html.ato-protected-public input,
+      html.ato-protected-public textarea,
+      html.ato-protected-public select,
+      html.ato-protected-public [contenteditable="true"],
+      html.ato-protected-public .ato-allow-select,
+      html.ato-protected-public .ato-allow-select *{
+        -webkit-user-select:text!important;
+        -moz-user-select:text!important;
+        user-select:text!important;
+        -webkit-touch-callout:default!important
+      }`;
+    document.head.appendChild(critical);
+  }
+
 
   const isEditable = (node) => {
     if (!node || node.nodeType !== 1) return false;
@@ -98,6 +126,39 @@
     if (e.target?.closest?.("img, picture")) e.preventDefault();
   }, { capture: true });
 
+
+  // V6: stop text selection before the browser can expose Copy.
+  document.addEventListener("selectstart", (e) => {
+    if (!isEditable(e.target)) e.preventDefault();
+  }, { capture: true, passive: false });
+
+  // beforecopy is supported by some Chromium/WebKit builds.
+  document.addEventListener("beforecopy", (e) => {
+    if (!isEditable(e.target)) e.preventDefault();
+  }, { capture: true });
+
+  // If a browser/site script still creates a selection, collapse it immediately.
+  document.addEventListener("selectionchange", () => {
+    const active = document.activeElement;
+    if (isEditable(active)) return;
+    const sel = window.getSelection?.();
+    if (sel && !sel.isCollapsed) {
+      try { sel.removeAllRanges(); } catch (_) {}
+    }
+  }, { capture: true });
+
+  // Block Select All / Copy / Cut / Save / Print on public pages.
+  document.addEventListener("keydown", (e) => {
+    if (isEditable(e.target)) return;
+    const mod = e.ctrlKey || e.metaKey;
+    const key = String(e.key || "").toLowerCase();
+    if (mod && ["a", "c", "x", "s", "p"].includes(key)) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+  }, { capture: true });
+
+
   document.addEventListener("keydown", (e) => {
     if (isEditable(e.target)) return;
     const mod = e.ctrlKey || e.metaKey;
@@ -108,22 +169,6 @@
       e.stopPropagation();
     }
   }, { capture: true });
-
-  // Very faint viewport watermark. It appears in normal screenshots without
-  // changing or recompressing any existing image file.
-  const addWatermark = () => {
-    if (document.getElementById("ato-screen-watermark")) return;
-    const mark = document.createElement("div");
-    mark.id = "ato-screen-watermark";
-    mark.setAttribute("aria-hidden", "true");
-    document.body.appendChild(mark);
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", addWatermark, { once: true });
-  } else {
-    addWatermark();
-  }
 })();
 /* AUTO-FUTURE MEDIA GUARD
    Applies to future images and download links added after this module was installed. */
