@@ -2,6 +2,33 @@ import fs from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
 import {
+
+const ATO_V8_EARLY_STYLE = "<style id=\"ato-v8-early-lock\">\nhtml,body,body *,body *::before,body *::after{\n-webkit-user-select:none!important;\n-moz-user-select:none!important;\n-ms-user-select:none!important;\nuser-select:none!important;\n-webkit-touch-callout:none!important\n}\ninput,textarea,select,option,[contenteditable=\"true\"],.ato-allow-select,.ato-allow-select *{\n-webkit-user-select:text!important;\n-moz-user-select:text!important;\n-ms-user-select:text!important;\nuser-select:text!important;\n-webkit-touch-callout:default!important\n}\nimg,picture,video,canvas,svg,source{\n-webkit-user-drag:none!important;\nuser-drag:none!important\n}\n</style>";
+const ATO_V8_EARLY_SCRIPT = "<script id=\"ato-v8-early-guard\">\n(function(){\n\"use strict\";\nvar isEditable=function(t){\nvar e=t&&t.nodeType===1?t:t&&t.parentElement;\nreturn !!(e&&e.closest&&e.closest('input,textarea,select,option,[contenteditable=\"true\"],.ato-allow-select'));\n};\nvar stop=function(e){if(isEditable(e.target))return;e.preventDefault();try{e.stopImmediatePropagation()}catch(_){}};\n[\"copy\",\"cut\",\"contextmenu\",\"selectstart\",\"dragstart\",\"beforecopy\"].forEach(function(t){\ndocument.addEventListener(t,stop,true);\nwindow.addEventListener(t,stop,true);\n});\ndocument.addEventListener(\"keydown\",function(e){\nif(isEditable(e.target))return;\nvar k=String(e.key||\"\").toLowerCase(),m=e.ctrlKey||e.metaKey;\nif((m&&[\"a\",\"c\",\"x\",\"s\",\"p\",\"u\"].indexOf(k)!==-1)||k===\"f12\"||(m&&e.shiftKey&&[\"i\",\"j\",\"c\"].indexOf(k)!==-1)){\ne.preventDefault();try{e.stopImmediatePropagation()}catch(_){}\n}\n},true);\ndocument.addEventListener(\"selectionchange\",function(){\nif(isEditable(document.activeElement))return;\nvar s=window.getSelection&&window.getSelection();\nif(s&&!s.isCollapsed){try{s.removeAllRanges()}catch(_){}}\n},true);\n})();\n</script>";
+
+
+function atoApplyV8EarlyLock(html, relPath = "") {
+  const p = String(relPath || "").toLowerCase();
+  const limited =
+    p.includes("/booking-manager/") ||
+    p.endsWith("/e-ticket.html") ||
+    p === "e-ticket.html" ||
+    p.includes("/admin/");
+
+  if (limited) return html;
+
+  if (!html.includes('id="ato-v8-early-lock"')) {
+    const lower = html.toLowerCase();
+    const idx = lower.lastIndexOf("</head>");
+    if (idx >= 0) {
+      html = html.slice(0, idx) + ATO_V8_EARLY_STYLE + "\n" + ATO_V8_EARLY_SCRIPT + "\n" + html.slice(idx);
+    } else {
+      html = ATO_V8_EARLY_STYLE + "\n" + ATO_V8_EARLY_SCRIPT + "\n" + html;
+    }
+  }
+  return html;
+}
+
   ROOT, BASELINE_FILE, walk, isImage, rel, hashFile, metadata, isLikelyPhoto,
   assetId, forensicSvg, visibleDownloadSvg, xmpPacket, writeSameFormat, SKIP_DIRS
 } from "./ato-media-common.mjs";
@@ -202,7 +229,53 @@ if (unprotected.length || missingEarlyLock.length) {
 // Private build manifest is useful for diagnostics; no source originals are included in DIST beyond previews.
 fs.writeFileSync(path.join(DIST,"assets","protection","ato-media-map.json"), JSON.stringify({generatedAt:new Date().toISOString(), assets:manifest},null,2)+"\n","utf8");
 
-console.log("ATO COMPLETE PROTECTION V7 — TOTAL PUBLIC COPY LOCK");
+
+// V8 FINAL HTML PASS — guarantee every PUBLIC deployed HTML has early copy lock.
+{
+  const htmlFilesV8 = [];
+  const walkV8 = (dir) => {
+    for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, ent.name);
+      if (ent.isDirectory()) walkV8(full);
+      else if (ent.isFile() && ent.name.toLowerCase().endsWith(".html")) htmlFilesV8.push(full);
+    }
+  };
+  walkV8(OUTPUT_DIR);
+
+  let missingV8 = 0;
+  let publicV8 = 0;
+  for (const file of htmlFilesV8) {
+    const rel = path.relative(OUTPUT_DIR, file).split(path.sep).join("/");
+    const p = rel.toLowerCase();
+    const limited =
+      p.includes("booking-manager/") ||
+      p.endsWith("e-ticket.html") ||
+      p.includes("admin/");
+
+    if (limited) continue;
+    publicV8++;
+
+    let html = fs.readFileSync(file, "utf8");
+    html = atoApplyV8EarlyLock(html, rel);
+    fs.writeFileSync(file, html, "utf8");
+
+    const check = fs.readFileSync(file, "utf8");
+    if (!check.includes('id="ato-v8-early-lock"') ||
+        !check.includes('id="ato-v8-early-guard"')) {
+      missingV8++;
+      console.error("V8 COPY LOCK MISSING:", rel);
+    }
+  }
+
+  console.log("V8 public HTML early-locked:", publicV8);
+  console.log("V8 public HTML missing early lock:", missingV8);
+
+  if (missingV8 > 0) {
+    throw new Error(`V8 fail-closed: ${missingV8} public HTML files missing TOTAL COPY LOCK`);
+  }
+}
+
+console.log("ATO COMPLETE PROTECTION V8 — TOTAL PUBLIC LOCK");
 console.log(`HTML protected in deployment copy: ${htmlProtected}`);
 console.log(`Approved current photos copied unchanged: ${currentCopied}`);
 console.log(`New/changed photos forensic-protected: ${futureProtected}`);

@@ -48,6 +48,118 @@
 
   document.documentElement.classList.add("ato-protected-public");
 
+  // =====================================================================
+  // ATO V8 — TOTAL PUBLIC LOCK
+  // Runs on every protected public page and catches dynamically added text.
+  // =====================================================================
+
+  const atoIsEditable = (target) => {
+    const el = target && target.nodeType === 1 ? target : target?.parentElement;
+    if (!el) return false;
+    return !!el.closest(
+      'input, textarea, select, option, [contenteditable="true"], .ato-allow-select'
+    );
+  };
+
+  const atoStop = (event) => {
+    if (atoIsEditable(event.target)) return;
+    event.preventDefault();
+    try { event.stopImmediatePropagation(); } catch (_) {}
+    try { event.stopPropagation(); } catch (_) {}
+  };
+
+  // Browser UI copy/select/save/print/context actions.
+  [
+    "copy",
+    "cut",
+    "contextmenu",
+    "selectstart",
+    "dragstart",
+    "beforecopy"
+  ].forEach((type) => {
+    document.addEventListener(type, atoStop, {
+      capture: true,
+      passive: false
+    });
+    window.addEventListener(type, atoStop, {
+      capture: true,
+      passive: false
+    });
+  });
+
+  // Collapse any unexpected selection immediately.
+  document.addEventListener("selectionchange", () => {
+    const active = document.activeElement;
+    if (atoIsEditable(active)) return;
+    const sel = window.getSelection?.();
+    if (sel && !sel.isCollapsed) {
+      try { sel.removeAllRanges(); } catch (_) {}
+    }
+  }, true);
+
+  // Disable common browser keyboard copy/export/view-source/devtools shortcuts
+  // on PUBLIC pages only. This is deterrence, not a cryptographic boundary.
+  document.addEventListener("keydown", (event) => {
+    if (atoIsEditable(event.target)) return;
+
+    const key = String(event.key || "").toLowerCase();
+    const mod = event.ctrlKey || event.metaKey;
+
+    const blockedModKeys = new Set([
+      "a", "c", "x", "s", "p", "u"
+    ]);
+
+    const blockedDevTools =
+      key === "f12" ||
+      (mod && event.shiftKey && ["i", "j", "c"].includes(key));
+
+    if ((mod && blockedModKeys.has(key)) || blockedDevTools) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      event.stopPropagation();
+    }
+  }, { capture: true, passive: false });
+
+  // Make all current/future media non-draggable at DOM level.
+  const atoHardenMedia = (root = document) => {
+    root.querySelectorAll?.("img, picture, video, canvas, svg, source").forEach((el) => {
+      try { el.setAttribute("draggable", "false"); } catch (_) {}
+      try { el.addEventListener("dragstart", atoStop, { capture: true, passive: false }); } catch (_) {}
+    });
+  };
+
+  atoHardenMedia();
+
+  const atoObserver = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      for (const node of mutation.addedNodes || []) {
+        if (node.nodeType !== 1) continue;
+        if (node.matches?.("img, picture, video, canvas, svg, source")) {
+          try { node.setAttribute("draggable", "false"); } catch (_) {}
+        }
+        atoHardenMedia(node);
+      }
+    }
+  });
+
+  atoObserver.observe(document.documentElement, {
+    childList: true,
+    subtree: true
+  });
+
+  // Clear selection after pointer/touch release as an extra mobile/desktop guard.
+  ["mouseup", "touchend", "pointerup"].forEach((type) => {
+    document.addEventListener(type, (event) => {
+      if (atoIsEditable(event.target)) return;
+      const sel = window.getSelection?.();
+      if (sel && !sel.isCollapsed) {
+        try { sel.removeAllRanges(); } catch (_) {}
+      }
+    }, { capture: true, passive: true });
+  });
+
+
+
   // V6 CRITICAL COPY LOCK: inline fallback so copy protection does not depend
   // on the external stylesheet winning the cascade.
   if (!document.getElementById("ato-copy-lock-critical")) {

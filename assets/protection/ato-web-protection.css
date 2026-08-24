@@ -77,3 +77,66 @@ html.ato-protected-public svg {
 
 html.ato-protected-public body *::selection{background:transparent!important;color:inherit!important}
 html.ato-protected-public body *::-moz-selection{background:transparent!important;color:inherit!important}
+
+/* ======================================================================
+   ATO V8 — TOTAL PUBLIC LOCK
+   Entire public UI is non-selectable/non-draggable.
+   Editable user inputs remain editable so forms keep working.
+   ====================================================================== */
+
+html.ato-protected-public,
+html.ato-protected-public body,
+html.ato-protected-public body *,
+html.ato-protected-public body *::before,
+html.ato-protected-public body *::after {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+html.ato-protected-public img,
+html.ato-protected-public picture,
+html.ato-protected-public video,
+html.ato-protected-public canvas,
+html.ato-protected-public svg,
+html.ato-protected-public source {
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+}
+
+/* Keep forms usable. This only permits users to edit/select what THEY typed. */
+html.ato-protected-public input,
+html.ato-protected-public textarea,
+html.ato-protected-public select,
+html.ato-protected-public option,
+html.ato-protected-public [contenteditable="true"],
+html.ato-protected-public .ato-allow-select,
+html.ato-protected-public .ato-allow-select * {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default !important;
+}
+
+/* Printing / Save as PDF: public pages render only the protection notice. */
+@media print {
+  html.ato-protected-public body {
+    visibility: hidden !important;
+  }
+  html.ato-protected-public body::before {
+    content: "ALANYA TOUR ORGANIZATIONS — PRINTING DISABLED";
+    visibility: visible !important;
+    display: block !important;
+    position: fixed !important;
+    inset: 0 !important;
+    padding: 48px 24px !important;
+    background: #fff !important;
+    color: #111 !important;
+    font: 700 18px/1.5 Arial, sans-serif !important;
+    text-align: center !important;
+    z-index: 2147483647 !important;
+  }
+}
