@@ -172,7 +172,7 @@ function atoApplyHeaderLanguage(lang=atoHeaderLanguage()){
  const toursTitle=q('[data-header-dropdown="tours"] .ato-dropdown-title');if(toursTitle)toursTitle.textContent=t.tours;
  const tourLinks=[['.ato-tours-menu a:nth-child(1)',t.sea],['.ato-tours-menu a:nth-child(2)',t.extreme],['.ato-tours-menu a:nth-child(3)',t.nature],['.ato-tours-menu a:nth-child(4)',t.history],['.ato-tours-menu a:nth-child(5)',t.family],['.ato-tours-menu a:nth-child(6)',t.water],['.ato-tours-menu a:nth-child(7)',t.air],['.ato-tours-menu a:nth-child(8)',t.wellness]];
  tourLinks.forEach(([sel,val])=>atoSetDropdownLabel(q(sel),val));
- const map=q('.nav > a[href="/interactive-map/"] span');if(map)map.textContent=t.map;
+ const map=q('.nav > a[href*="interactive-map"] span');if(map)map.textContent=t.map;
  const planner=q('.nav > a[href="/trip-planner.html"] span');if(planner)planner.textContent=t.planner;
  const combo=q('.nav > a[href="/combo-deals.html"] span');if(combo)combo.textContent=t.combo;
  const offersTitle=q('[data-header-dropdown="offers"] .ato-dropdown-title');if(offersTitle)offersTitle.textContent=t.offers;
@@ -231,6 +231,38 @@ function atoInitGlobalHeader(){
    mobileBtn?.setAttribute('aria-expanded','false');
    closeDropdowns();setLanguage(false);syncMobileModal();
  };
+ const applyMobileNativeLinks=()=>{
+   const ua=navigator.userAgent||'';
+   const mobileDevice=/Android|iPhone|iPad|iPod|Mobile/i.test(ua)||(/Macintosh/i.test(ua)&&navigator.maxTouchPoints>1);
+   if(!isMobile()&&!mobileDevice)return;
+   const routes=[
+     ['.ato-tours-menu a:nth-child(1)','/sea-experiences.html'],
+     ['.ato-tours-menu a:nth-child(2)','/extreme-adventure.html'],
+     ['.ato-tours-menu a:nth-child(3)','/nature-adventures.html'],
+     ['.ato-tours-menu a:nth-child(4)','/history-culture.html'],
+     ['.ato-tours-menu a:nth-child(5)','/family-experiences.html'],
+     ['.ato-tours-menu a:nth-child(6)','/water-sports.html'],
+     ['.ato-tours-menu a:nth-child(7)','/air-experiences.html'],
+     ['.ato-tours-menu a:nth-child(8)','/wellness-relax.html'],
+     ['.nav > a[href*="interactive-map"]','/interactive-map/interactive-map.html'],
+     ['.nav > a[href*="trip-planner"]','/trip-planner.html'],
+     ['.nav > a[href*="combo-deals"]','/combo-deals.html'],
+     ['.ato-special-menu [data-offer-link="group"]','/special-offers.html#special-privileges'],
+     ['.ato-special-menu [data-offer-link="journey"]','/special-offers.html#journey'],
+     ['.ato-special-menu [data-offer-link="gift"]','/special-offers.html#gift'],
+     ['.nav > a[href*="vip-service"]','/vip-service.html'],
+     ['.ato-about-menu > a:first-child','/index.html#about'],
+     ['.ato-about-menu a[href*="legal-information"]','/legal-information.html'],
+     ['.ato-about-menu > a:last-child','/contact.html']
+   ];
+   routes.forEach(([selector,href])=>{
+     const link=root.querySelector(selector);
+     if(!link)return;
+     link.setAttribute('href',href);
+     link.setAttribute('data-ato-mobile-native-link','true');
+   });
+ };
+ applyMobileNativeLinks();
  if(mobileBtn&&nav&&overlay){
    mobileBtn.setAttribute('role','button');mobileBtn.setAttribute('tabindex','0');mobileBtn.setAttribute('aria-label','Open navigation');mobileBtn.setAttribute('aria-expanded','false');
    const toggleMobile=()=>{const on=!nav.classList.contains('active');setLanguage(false);setMenu(on)};
@@ -262,8 +294,7 @@ function atoInitGlobalHeader(){
  nav?.querySelectorAll('a[href]').forEach(a=>a.addEventListener('click',e=>{
    const href=a.getAttribute('href'),target=a.getAttribute('target');
    if(isMobile()&&href&&href!=='#'){
-     /* Mobile navigation is owned by ato-mobile-navigation.js.
-        Never cancel the anchor's native browser navigation here. */
+     /* Keep the direct mobile href native. Never cancel browser navigation. */
      closeMobilePanels();return;
    }
    closeDropdowns();if(isMobile())closeMobilePanels();
@@ -275,7 +306,7 @@ function atoInitGlobalHeader(){
  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDropdowns();setLanguage(false);if(isMobile())closeMobilePanels()}});
  window.addEventListener('resize',()=>{
    if(!isMobile()){nav?.classList.remove('active');mobileBtn?.classList.remove('active');overlay?.classList.remove('active');document.body.classList.remove('ato-mobile-header-modal-open');setLanguage(false)}
-   closeDropdowns();atoApplyHeaderLanguage();
+   applyMobileNativeLinks();closeDropdowns();atoApplyHeaderLanguage();
  },{passive:true});
 
  // Current-page cue without falsely marking all Special Offers anchors on the same pathname.
