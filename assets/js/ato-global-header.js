@@ -262,8 +262,9 @@ function atoInitGlobalHeader(){
  nav?.querySelectorAll('a[href]').forEach(a=>a.addEventListener('click',e=>{
    const href=a.getAttribute('href'),target=a.getAttribute('target');
    if(isMobile()&&href&&href!=='#'){
-     e.preventDefault();e.stopPropagation();const url=new URL(href,location.href).href;closeMobilePanels();
-     requestAnimationFrame(()=>{if(target==='_blank')window.open(url,'_blank','noopener');else location.assign(url)});return;
+     /* Mobile navigation is owned by ato-mobile-navigation.js.
+        Never cancel the anchor's native browser navigation here. */
+     closeMobilePanels();return;
    }
    closeDropdowns();if(isMobile())closeMobilePanels();
  }));
