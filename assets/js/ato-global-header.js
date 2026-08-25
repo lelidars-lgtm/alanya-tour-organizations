@@ -473,35 +473,22 @@ render();
     return clean;
   };
 
-  /* 7 — Mobile drawer links: capture the tap before any overlay/bubble handler can eat it. */
-  document.addEventListener('click', (e) => {
-    if (!isMobile()) return;
-    const target = e.target instanceof Element ? e.target : null;
-    const a = target?.closest('#atoGlobalHeaderRoot .nav a[href]');
-    if (!a) return;
-    const href = a.getAttribute('href');
-    if (!href || href === '#') return;
-
-    e.preventDefault();
-    e.stopPropagation();
-    e.stopImmediatePropagation();
-
-    const url = new URL(href, location.href).href;
-    if (a.getAttribute('target') === '_blank') {
-      window.open(url, '_blank', 'noopener');
-    } else {
-      window.location.assign(url);
-    }
-  }, true);
+  /* Drawer links already have one canonical handler in atoInitGlobalHeader().
+     Do not add a second capture-phase interceptor: on iOS it can race the
+     normal navigation and leave WebKit waiting on an aborted transition. */
 
   /* 6 — Language close is always a real ×, never an inherited arrow/icon. */
   const fixLanguageClose = () => {
     if (!isMobile()) return;
     const close = document.querySelector('#atoGlobalHeaderRoot .language-close');
     if (!close) return;
-    close.textContent = '×';
-    close.setAttribute('aria-label', 'Close languages');
-    close.classList.add('ato-mobile-language-x');
+    if (close.textContent !== '×') close.textContent = '×';
+    if (close.getAttribute('aria-label') !== 'Close languages') {
+      close.setAttribute('aria-label', 'Close languages');
+    }
+    if (!close.classList.contains('ato-mobile-language-x')) {
+      close.classList.add('ato-mobile-language-x');
+    }
   };
 
   /* 3 — Hero: remove the broken custom pseudo-arrow and keep exactly one clean gold arrow. */
@@ -509,9 +496,11 @@ render();
     const arrow = document.querySelector('#atoLivingHero .ato-living-hero__arrow');
     if (!arrow) return;
     if (isMobile()) {
-      if (!arrow.dataset.atoOriginalHtml) arrow.dataset.atoOriginalHtml = arrow.innerHTML || '↗';
-      arrow.textContent = '↗';
-      arrow.classList.add('ato-mobile-hero-arrow-fixed');
+      if (!arrow.classList.contains('ato-mobile-hero-arrow-fixed')) {
+        if (!arrow.dataset.atoOriginalHtml) arrow.dataset.atoOriginalHtml = arrow.innerHTML || '↗';
+        arrow.textContent = '↗';
+        arrow.classList.add('ato-mobile-hero-arrow-fixed');
+      }
     } else if (arrow.classList.contains('ato-mobile-hero-arrow-fixed')) {
       arrow.innerHTML = arrow.dataset.atoOriginalHtml || '↗';
       arrow.classList.remove('ato-mobile-hero-arrow-fixed');
@@ -596,8 +585,10 @@ render();
 
       const added = pool.includes(key);
       btn.classList.toggle('is-added', added);
-      btn.setAttribute('aria-pressed', added ? 'true' : 'false');
-      btn.textContent = added ? '✓ ADDED' : '＋ COMPARE';
+      const pressed = added ? 'true' : 'false';
+      const text = added ? '✓ ADDED' : '＋ COMPARE';
+      if (btn.getAttribute('aria-pressed') !== pressed) btn.setAttribute('aria-pressed', pressed);
+      if (btn.textContent !== text) btn.textContent = text;
     });
   };
 
@@ -748,14 +739,26 @@ render();
     }
   };
 
+  let mo = null;
+  const observe = () => {
+    if (!mo) return;
+    mo.observe(document.documentElement, {childList:true, subtree:true});
+  };
+
   const applyAll = () => {
     if (!isMobile()) return;
-    fixLanguageClose();
-    fixHeroArrow();
-    fixPopularViewAll();
-    syncFinderCompareButtons();
-    fixMapAndGeo();
-    fixAssistantArrow();
+    /* Ignore mutations created by these idempotent UI fixes themselves. */
+    mo?.disconnect();
+    try {
+      fixLanguageClose();
+      fixHeroArrow();
+      fixPopularViewAll();
+      syncFinderCompareButtons();
+      fixMapAndGeo();
+      fixAssistantArrow();
+    } finally {
+      observe();
+    }
   };
 
   let raf = 0;
@@ -770,8 +773,8 @@ render();
     queue();
   }
 
-  const mo = new MutationObserver(queue);
-  mo.observe(document.documentElement, {childList:true, subtree:true});
+  mo = new MutationObserver(queue);
+  observe();
 
   window.addEventListener('resize', queue, {passive:true});
   window.addEventListener('orientationchange', () => setTimeout(queue, 120), {passive:true});
@@ -1772,29 +1775,4 @@ render();
   s.defer=true;
   s.dataset.atoAssistantLoader='global-header';
   document.head.appendChild(s);
-})();
-
-
-/* ======================================================================
-   ATO LANGUAGE LAYER — SAFE PRODUCTION ACTIVATION
-   2026-08-23
-   Single integration point via the canonical global header.
-   The approved HTML/CSS/page JS files remain unchanged.
-   Translation data is loaded only from /ato-language-layer/.
-   ====================================================================== */
-(function atoLoadSafeLanguageLayer(){
-  'use strict';
-  const SCRIPT_ID='ato-language-live-loader';
-  if(window.ATOLanguageLive || document.getElementById(SCRIPT_ID)) return;
-
-  const s=document.createElement('script');
-  s.id=SCRIPT_ID;
-  s.src='/ato-language-layer/runtime/ato-language-live.js?v=20260823-1430';
-  s.async=true;
-  s.dataset.atoLanguageIntegration='global-header';
-  s.onerror=function(){
-    document.documentElement.dataset.atoLanguageLayer='loader-error';
-    console.warn('[ATO Language Layer] live loader could not be loaded. The approved page remains unchanged.');
-  };
-  (document.head||document.documentElement).appendChild(s);
 })();
