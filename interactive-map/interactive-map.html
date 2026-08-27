@@ -3364,12 +3364,14 @@ window.addEventListener('resize',()=>map.resize());window.addEventListener('orie
     overlay?.classList.toggle('active');
   }
 
-  if (mobileBtn && nav && overlay) {
+  /* The direct global header already owns the mobile drawer. Binding this
+     legacy map handler as well toggles the same drawer twice (open -> closed). */
+  if (!window.__ATO_MAP_DIRECT_HEADER__ && mobileBtn && nav && overlay) {
     mobileBtn.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu);
   }
 
-  if (aboutDropdown) {
+  if (!window.__ATO_MAP_DIRECT_HEADER__ && aboutDropdown) {
     aboutDropdown.addEventListener('click', function(e) {
       if (window.innerWidth <= 980) {
         e.stopPropagation();
@@ -3378,7 +3380,7 @@ window.addEventListener('resize',()=>map.resize());window.addEventListener('orie
     });
   }
 
-  if (languageDropdown) {
+  if (!window.__ATO_MAP_DIRECT_HEADER__ && languageDropdown) {
     languageDropdown.addEventListener('click', function(e) {
       if (window.innerWidth <= 980) {
         e.stopPropagation();
@@ -3387,7 +3389,7 @@ window.addEventListener('resize',()=>map.resize());window.addEventListener('orie
     });
   }
 
-  if (languageClose && languageDropdown) {
+  if (!window.__ATO_MAP_DIRECT_HEADER__ && languageClose && languageDropdown) {
     languageClose.addEventListener('click', function(e) {
       e.stopPropagation();
       languageDropdown.classList.remove('open');
