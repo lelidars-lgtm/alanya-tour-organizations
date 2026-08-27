@@ -116,7 +116,7 @@
     if (/(^|\/)(booking-manager|ato-manager|manager|admin)(\/|$)/.test(path)) return;
     if (/(e-ticket|virtual[-_]?pos|secure[-_]?payment|card[-_]?payment)/.test(path)) return;
     const headerScript = document.createElement("script");
-    headerScript.src = "/assets/js/ato-global-header.js?v=20260827-mobile-menu-audit-v7";
+    headerScript.src = "/assets/js/ato-global-header.js?v=20260827-mobile-menu-layout-v8";
     headerScript.dataset.atoMobileNavigation = "central";
     document.head.appendChild(headerScript);
   };

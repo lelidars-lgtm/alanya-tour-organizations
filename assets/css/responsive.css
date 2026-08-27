@@ -1385,6 +1385,9 @@ button,a,[role="button"]{
     stroke:#e6f9ff!important;
     stroke-width:3!important;
     filter:drop-shadow(0 0 8px rgba(66,189,245,.95))!important;
+    transform-box:fill-box!important;
+    transform-origin:center!important;
+    animation:atoAboutGeoDot 1.35s ease-in-out infinite!important;
   }
   #atoAboutLiveMap #aboutUserMapPin .about-user-core{
     fill:#ffffff!important;
@@ -1960,20 +1963,20 @@ button,a,[role="button"]{
    ======================================================================== */
 @media (max-width:980px){
 
-  /* 1. RED TÜRKİYE MAP — centered and fully visible inside the phone viewport. */
+  /* 1. RED TÜRKİYE MAP — restored full-device layout with a true centred title. */
   #about #atoAboutLiveMap,
   #atoAboutLiveMap,
   #atoAboutLiveMap.ato-v8-map{
     position:relative!important;
     left:50%!important;
     right:auto!important;
-    width:calc(100vw - 28px)!important;
-    max-width:calc(100vw - 28px)!important;
-    min-width:0!important;
+    width:100vw!important;
+    max-width:100vw!important;
+    min-width:100vw!important;
     margin:0!important;
     padding:0!important;
     transform:translateX(-50%)!important;
-    overflow:hidden!important;
+    overflow:visible!important;
     box-sizing:border-box!important;
   }
 
@@ -1981,8 +1984,11 @@ button,a,[role="button"]{
     display:block!important;
     position:relative!important;
     z-index:30!important;
-    width:100%!important;
-    max-width:100%!important;
+    left:0!important;
+    right:0!important;
+    top:auto!important;
+    width:100vw!important;
+    max-width:100vw!important;
     margin:0 0 12px!important;
     padding:0 16px!important;
     color:#ead6aa!important;
@@ -1991,34 +1997,35 @@ button,a,[role="button"]{
     transform:none!important;
     text-align:center!important;
     white-space:nowrap!important;
+    box-sizing:border-box!important;
   }
 
   #atoAboutLiveMap .about-live-map-inner,
   #atoAboutLiveMap .ato-v8-map-inner{
     position:relative!important;
     display:block!important;
-    width:100%!important;
-    max-width:100%!important;
-    min-width:0!important;
+    width:100vw!important;
+    max-width:100vw!important;
+    min-width:100vw!important;
     margin:0!important;
     padding:0!important;
-    overflow:hidden!important;
+    overflow:visible!important;
     transform:none!important;
   }
 
   #atoAboutLiveMap .final-turkiye-map,
   #atoAboutLiveMap .ato-v8-map-svg{
     display:block!important;
-    width:100%!important;
-    max-width:100%!important;
-    min-width:0!important;
+    width:100vw!important;
+    max-width:none!important;
+    min-width:100vw!important;
     height:auto!important;
     aspect-ratio:2 / 1!important;
     margin:0!important;
     padding:0!important;
     transform:none!important;
     transform-origin:center center!important;
-    overflow:hidden!important;
+    overflow:visible!important;
   }
 
   #atoAboutLiveMap .about-live-geolocate{
@@ -2034,7 +2041,7 @@ button,a,[role="button"]{
   /* 2. CONTACT PHONES — absolutely identical mobile number size. */
   #contacts .contact-grid > div:first-child > a[href*="wa.me"],
   #contacts .contact-hotline a[href^="tel:"]{
-    font-size:clamp(30px,8.2vw,38px)!important;
+    font-size:clamp(30px,7.4vw,35px)!important;
     line-height:1.08!important;
   }
   #contacts .contact-hotline{
@@ -2180,6 +2187,6 @@ button,a,[role="button"]{
   }
   #contacts .contact-grid > div:first-child > a[href*="wa.me"],
   #contacts .contact-hotline a[href^="tel:"]{
-    font-size:clamp(30px,8.4vw,36px)!important;
+    font-size:clamp(30px,7.4vw,35px)!important;
   }
 }

@@ -158,7 +158,23 @@ const atoPremiumDropdownCss=`
 @media(max-width:980px){
   /* V22: premium mobile accordion cards. Desktop rules are untouched. */
   #atoGlobalHeaderRoot .nav .ato-header-dropdown.open{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+    flex:0 0 auto!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
     padding-bottom:4px!important;
+    overflow:visible!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-header-dropdown:not(.open){
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    flex:0 0 auto!important;
+    height:auto!important;
   }
   #atoGlobalHeaderRoot .nav .ato-header-dropdown>.ato-dropdown-trigger{
     position:relative!important;
@@ -183,6 +199,9 @@ const atoPremiumDropdownCss=`
   }
   #atoGlobalHeaderRoot .nav .ato-header-dropdown>.dropdown-menu{
     position:relative!important;
+    z-index:8!important;
+    isolation:isolate!important;
+    flex:0 0 auto!important;
     width:100%!important;
     max-height:min(54dvh,510px)!important;
     margin:9px 0 3px!important;
@@ -195,7 +214,7 @@ const atoPremiumDropdownCss=`
     border-radius:20px!important;
     background:
       radial-gradient(circle at 12% 0,rgba(232,191,101,.13),transparent 34%),
-      linear-gradient(155deg,rgba(13,34,54,.985),rgba(5,19,34,.99))!important;
+      linear-gradient(155deg,#0d263b,#061626)!important;
     box-shadow:0 18px 42px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.045)!important;
     scrollbar-width:thin!important;
     scrollbar-color:rgba(222,179,83,.58) transparent!important;
@@ -240,15 +259,24 @@ const atoPremiumDropdownCss=`
   #atoGlobalHeaderRoot .nav .dropdown-menu .ato-grid-symbol{
     grid-column:1!important;
     grid-row:1!important;
+    align-self:center!important;
     justify-self:center!important;
+    flex:0 0 38px!important;
     width:38px!important;
+    min-width:38px!important;
+    max-width:38px!important;
     height:38px!important;
+    min-height:38px!important;
+    max-height:38px!important;
+    aspect-ratio:1 / 1!important;
     padding:0!important;
     border:1px solid rgba(225,181,83,.34)!important;
     border-radius:50%!important;
     background:radial-gradient(circle at 35% 25%,rgba(244,207,126,.16),rgba(213,163,59,.055))!important;
     color:#edc66e!important;
     box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 0 14px rgba(212,166,74,.07)!important;
+    box-sizing:border-box!important;
+    transform:none!important;
   }
   #atoGlobalHeaderRoot .nav .dropdown-menu .ato-grid-symbol .ato-cat-svg{
     width:20px!important;
