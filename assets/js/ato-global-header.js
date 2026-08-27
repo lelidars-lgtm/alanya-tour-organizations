@@ -156,6 +156,146 @@ const atoPremiumDropdownCss=`
 /* Mobile drawer must own the entire touch layer while it is open. Map canvas,
    assistant widgets and page modals must never intercept lower menu rows. */
 @media(max-width:980px){
+  /* V22: premium mobile accordion cards. Desktop rules are untouched. */
+  #atoGlobalHeaderRoot .nav .ato-header-dropdown.open{
+    padding-bottom:4px!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-header-dropdown>.ato-dropdown-trigger{
+    position:relative!important;
+    min-height:48px!important;
+    padding:0 4px!important;
+    border-radius:14px!important;
+    transition:color .2s ease,background .2s ease!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-header-dropdown.open>.ato-dropdown-trigger{
+    padding:0 13px!important;
+    color:#f3cf7a!important;
+    background:linear-gradient(90deg,rgba(221,180,93,.12),rgba(38,78,111,.07))!important;
+    box-shadow:inset 0 0 0 1px rgba(221,180,93,.18)!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-header-dropdown>.ato-dropdown-trigger .arrow-icon{
+    width:17px!important;
+    height:17px!important;
+    padding:3px!important;
+    border:1px solid rgba(221,180,93,.34)!important;
+    border-radius:50%!important;
+    box-sizing:border-box!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-header-dropdown>.dropdown-menu{
+    position:relative!important;
+    width:100%!important;
+    max-height:min(54dvh,510px)!important;
+    margin:9px 0 3px!important;
+    padding:8px!important;
+    overflow-x:hidden!important;
+    overflow-y:auto!important;
+    overscroll-behavior:contain!important;
+    -webkit-overflow-scrolling:touch!important;
+    border:1px solid rgba(226,185,96,.34)!important;
+    border-radius:20px!important;
+    background:
+      radial-gradient(circle at 12% 0,rgba(232,191,101,.13),transparent 34%),
+      linear-gradient(155deg,rgba(13,34,54,.985),rgba(5,19,34,.99))!important;
+    box-shadow:0 18px 42px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.045)!important;
+    scrollbar-width:thin!important;
+    scrollbar-color:rgba(222,179,83,.58) transparent!important;
+    animation:atoMobileDropdownReveal .22s cubic-bezier(.22,.61,.36,1) both!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-header-dropdown>.dropdown-menu::before{
+    content:""!important;
+    display:block!important;
+    position:sticky!important;
+    top:-8px!important;
+    z-index:3!important;
+    height:2px!important;
+    margin:-8px 25% 6px!important;
+    border-radius:999px!important;
+    background:linear-gradient(90deg,transparent,#d9a947,transparent)!important;
+    box-shadow:0 0 12px rgba(217,169,71,.36)!important;
+  }
+  #atoGlobalHeaderRoot .nav .dropdown-menu>.ato-grid-row,
+  #atoGlobalHeaderRoot .nav .dropdown-menu>.ato-menu-group>.ato-grid-row{
+    position:relative!important;
+    display:grid!important;
+    grid-template-columns:50px minmax(0,1fr) 18px!important;
+    min-height:56px!important;
+    padding:4px 12px 4px 4px!important;
+    margin:3px 0!important;
+    border:1px solid rgba(255,255,255,.055)!important;
+    border-radius:15px!important;
+    background:linear-gradient(90deg,rgba(255,255,255,.038),rgba(255,255,255,.012))!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.025)!important;
+    color:#f5f7fb!important;
+  }
+  #atoGlobalHeaderRoot .nav .dropdown-menu a.ato-grid-row::after{
+    content:"›"!important;
+    grid-column:3!important;
+    grid-row:1!important;
+    align-self:center!important;
+    justify-self:end!important;
+    color:#dcb35c!important;
+    font:300 23px/1 Arial,sans-serif!important;
+    opacity:.88!important;
+  }
+  #atoGlobalHeaderRoot .nav .dropdown-menu .ato-grid-symbol{
+    grid-column:1!important;
+    grid-row:1!important;
+    justify-self:center!important;
+    width:38px!important;
+    height:38px!important;
+    padding:0!important;
+    border:1px solid rgba(225,181,83,.34)!important;
+    border-radius:50%!important;
+    background:radial-gradient(circle at 35% 25%,rgba(244,207,126,.16),rgba(213,163,59,.055))!important;
+    color:#edc66e!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 0 14px rgba(212,166,74,.07)!important;
+  }
+  #atoGlobalHeaderRoot .nav .dropdown-menu .ato-grid-symbol .ato-cat-svg{
+    width:20px!important;
+    height:20px!important;
+    stroke:#edc66e!important;
+    stroke-width:1.55!important;
+  }
+  #atoGlobalHeaderRoot .nav .dropdown-menu .ato-dropdown-label{
+    grid-column:2!important;
+    grid-row:1!important;
+    align-self:center!important;
+    min-width:0!important;
+    padding:0 8px!important;
+    color:#f5f7fb!important;
+    font:750 12.5px/1.25 "Segoe UI",Arial,sans-serif!important;
+    letter-spacing:.045em!important;
+  }
+  #atoGlobalHeaderRoot .nav .dropdown-menu a.ato-grid-row:active{
+    transform:scale(.985)!important;
+    border-color:rgba(225,181,83,.48)!important;
+    background:linear-gradient(90deg,rgba(225,181,83,.14),rgba(35,77,111,.08))!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-about-menu .ato-menu-group{
+    gap:3px!important;
+    margin:3px 0!important;
+    padding:5px!important;
+    border:1px solid rgba(225,181,83,.13)!important;
+    border-radius:17px!important;
+    background:rgba(0,0,0,.09)!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-about-menu .ato-menu-group-label{
+    cursor:default!important;
+    border-color:transparent!important;
+    background:transparent!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-about-menu .ato-menu-group-label .ato-dropdown-label{
+    color:#e7c476!important;
+    font-size:11.5px!important;
+  }
+  #atoGlobalHeaderRoot .nav .ato-about-menu .ato-subitem{
+    margin:3px 0!important;
+  }
+  @keyframes atoMobileDropdownReveal{
+    from{opacity:0;transform:translateY(-7px) scale(.985)}
+    to{opacity:1;transform:translateY(0) scale(1)}
+  }
+
   body.ato-mobile-header-modal-open > *:not(#atoGlobalHeaderRoot){pointer-events:none!important}
   body.ato-mobile-header-modal-open #atoGlobalHeaderRoot{
     z-index:2147483647!important;
@@ -297,19 +437,6 @@ function atoInitGlobalHeader(){
    const tr=dd.querySelector(':scope > .ato-dropdown-trigger');
    tr?.addEventListener('click',e=>{
      e.preventDefault();e.stopPropagation();
-     /* On mobile the main SPECIAL OFFERS and ABOUT US rows are destinations,
-        not dead accordion labels. Keep desktop dropdown behaviour unchanged. */
-     if(isMobile()){
-       const section=dd.getAttribute('data-header-dropdown');
-       if(section==='offers'){
-         window.location.href='/special-offers.html';
-         return;
-       }
-       if(section==='about'){
-         window.location.href='/index.html#about';
-         return;
-       }
-     }
      const on=!dd.classList.contains('open');
      setLanguage(false);closeDropdowns(dd);setDropdown(dd,on);
      if(isMobile()&&on)setTimeout(()=>dd.scrollIntoView({block:'nearest',behavior:'smooth'}),40);
@@ -937,20 +1064,6 @@ render();
       if(menu) menu.classList.add('ato-v8-mobile-submenu');
     });
 
-    /* Make opening trigger deterministic. */
-    root.querySelectorAll('.ato-header-dropdown > .ato-dropdown-trigger').forEach(btn=>{
-      if(btn.dataset.v8Bound) return;
-      btn.dataset.v8Bound='1';
-      btn.addEventListener('click',()=>{
-        setTimeout(()=>{
-          if(!isMobile()) return;
-          const dd=btn.closest('.ato-header-dropdown');
-          if(dd?.classList.contains('open')){
-            dd.scrollIntoView({block:'nearest',behavior:'smooth'});
-          }
-        },40);
-      });
-    });
   }
 
   /* 4. Search X — gold from the start and guaranteed to close. */

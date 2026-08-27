@@ -1960,20 +1960,20 @@ button,a,[role="button"]{
    ======================================================================== */
 @media (max-width:980px){
 
-  /* 1. RED TÜRKİYE MAP — full viewport width + Republic title restored. */
+  /* 1. RED TÜRKİYE MAP — centered and fully visible inside the phone viewport. */
   #about #atoAboutLiveMap,
   #atoAboutLiveMap,
   #atoAboutLiveMap.ato-v8-map{
     position:relative!important;
     left:50%!important;
     right:auto!important;
-    width:100vw!important;
-    max-width:100vw!important;
-    min-width:100vw!important;
+    width:calc(100vw - 28px)!important;
+    max-width:calc(100vw - 28px)!important;
+    min-width:0!important;
     margin:0!important;
     padding:0!important;
     transform:translateX(-50%)!important;
-    overflow:visible!important;
+    overflow:hidden!important;
     box-sizing:border-box!important;
   }
 
@@ -1981,8 +1981,8 @@ button,a,[role="button"]{
     display:block!important;
     position:relative!important;
     z-index:30!important;
-    width:100vw!important;
-    max-width:100vw!important;
+    width:100%!important;
+    max-width:100%!important;
     margin:0 0 12px!important;
     padding:0 16px!important;
     color:#ead6aa!important;
@@ -1997,28 +1997,28 @@ button,a,[role="button"]{
   #atoAboutLiveMap .ato-v8-map-inner{
     position:relative!important;
     display:block!important;
-    width:100vw!important;
-    max-width:100vw!important;
-    min-width:100vw!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
     margin:0!important;
     padding:0!important;
-    overflow:visible!important;
+    overflow:hidden!important;
     transform:none!important;
   }
 
   #atoAboutLiveMap .final-turkiye-map,
   #atoAboutLiveMap .ato-v8-map-svg{
     display:block!important;
-    width:100vw!important;
-    max-width:none!important;
-    min-width:100vw!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
     height:auto!important;
     aspect-ratio:2 / 1!important;
     margin:0!important;
     padding:0!important;
     transform:none!important;
     transform-origin:center center!important;
-    overflow:visible!important;
+    overflow:hidden!important;
   }
 
   #atoAboutLiveMap .about-live-geolocate{
@@ -2183,4 +2183,3 @@ button,a,[role="button"]{
     font-size:clamp(30px,8.4vw,36px)!important;
   }
 }
-
