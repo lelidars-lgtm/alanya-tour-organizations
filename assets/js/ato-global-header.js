@@ -121,7 +121,7 @@ const atoPremiumDropdownCss=`
   #atoGlobalHeaderRoot .nav-dropdown.open>.ato-dropdown-trigger{color:#e0b65e!important}
 
   #atoGlobalHeaderRoot .ato-grid-row,
-  #atoGlobalHeaderRoot .language-menu a[data-lang]{grid-template-columns:46px minmax(0,1fr) 18px!important;min-height:49px!important;font-size:12.5px!important;border-radius:12px!important}
+  #atoGlobalHeaderRoot .language-menu a[data-lang]{grid-template-columns:42px minmax(0,1fr) 16px!important;min-height:44px!important;font-size:12px!important;border-radius:11px!important}
   #atoGlobalHeaderRoot .ato-grid-symbol,
   #atoGlobalHeaderRoot .language-menu .ato-lang-code,
   #atoGlobalHeaderRoot .language-menu .ato-v8-lang-code{height:28px!important;padding:0 10px 0 7px!important}
@@ -130,8 +130,8 @@ const atoPremiumDropdownCss=`
   #atoGlobalHeaderRoot .language-menu .ato-v8-lang-name{padding-left:12px!important}
 
   #atoGlobalHeaderRoot .language-menu{
-    position:fixed!important;top:84px!important;right:16px!important;left:auto!important;width:calc(100% - 32px)!important;max-width:320px!important;
-    margin:0!important;padding:46px 7px 7px!important;border:1px solid rgba(221,180,93,.28)!important;border-radius:18px!important;
+    position:fixed!important;top:84px!important;right:12px!important;left:auto!important;width:230px!important;max-width:calc(100vw - 24px)!important;
+    margin:0!important;padding:7px!important;border:1px solid rgba(221,180,93,.28)!important;border-radius:16px!important;
     background:
       radial-gradient(circle at 20% 0,rgba(221,180,93,.075),transparent 35%),
       linear-gradient(155deg,rgba(8,23,38,.985),rgba(5,15,27,.98))!important;
@@ -141,11 +141,10 @@ const atoPremiumDropdownCss=`
     transition:opacity .2s ease,visibility .2s ease,transform .22s cubic-bezier(.22,.61,.36,1)!important;
   }
   #atoGlobalHeaderRoot .language-dropdown.open>.language-menu{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translateY(0)!important}
+  #atoGlobalHeaderRoot .header.ato-language-panel-open{z-index:260!important}
   #atoGlobalHeaderRoot .language-menu a:first-of-type{margin-top:0!important}
   #atoGlobalHeaderRoot .language-close{
-    display:grid!important;place-items:center!important;position:absolute!important;right:10px!important;top:8px!important;width:34px!important;height:34px!important;
-    padding:0!important;border:1px solid rgba(221,180,93,.28)!important;border-radius:50%!important;background:rgba(221,180,93,.055)!important;
-    color:#e2b95f!important;font:300 25px/1 Arial,sans-serif!important;cursor:pointer!important;z-index:2!important;
+    display:none!important;
   }
 }
 
@@ -345,15 +344,15 @@ const atoPremiumDropdownCss=`
 }
 `;
 const style=document.createElement('style');style.id='ato-global-header-style';style.textContent=css+atoPremiumDropdownCss;document.head.appendChild(style);
-const markup="<div data-ato-global-root=\"true\" id=\"atoGlobalHeaderRoot\">\n<header class=\"header ato-global-header\" data-ato-global=\"true\">\n<a aria-label=\"ALANYA TOUR ORGANIZATIONS — Home\" class=\"logo\" href=\"/index.html\">\n<img alt=\"ALANYA TOUR ORGANIZATIONS\" src=\"/logo.png\"/>\n<div class=\"logo-text\">\n<div class=\"logo-title\">ALANYA TOUR</div>\n<div class=\"logo-subtitle\">ORGANIZATIONS</div>\n</div>\n</a>\n<div class=\"mobile-menu-btn\" id=\"mobileMenuBtn\">\n<span></span>\n<span></span>\n<span></span>\n</div>\n<div class=\"mobile-overlay\" id=\"mobileOverlay\"></div>\n<nav aria-label=\"Main navigation\" class=\"nav\">\n<div class=\"nav-item nav-dropdown ato-header-dropdown\" data-header-dropdown=\"tours\">\n<button aria-controls=\"atoToursMenu\" aria-expanded=\"false\" aria-haspopup=\"true\" class=\"ato-dropdown-trigger\" type=\"button\">\n<span class=\"ato-dropdown-title\">TOURS</span>\n<svg aria-hidden=\"true\" class=\"arrow-icon\" viewbox=\"0 0 24 24\"><path d=\"M7 10L12 15L17 10\"></path></svg>\n</button>\n<div class=\"dropdown-menu ato-tours-menu\" id=\"atoToursMenu\" role=\"menu\">\n<a class=\"ato-grid-row\" href=\"/sea-experiences.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"M3 18c2.2 0 2.2 1.5 4.4 1.5S9.6 18 11.8 18s2.2 1.5 4.4 1.5S18.4 18 20.6 18\"></path><path d=\"M12 4v10\"></path><path d=\"M12 5 6.5 12H12\"></path><path d=\"M12 6.5 17.5 12H12\"></path></svg></span><span class=\"ato-dropdown-label\">SEA EXPERIENCES</span></a>\n<a class=\"ato-grid-row\" href=\"/extreme-adventure.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"M13.2 2 5.5 13h5.2L9.8 22 18.5 9.7h-5.3z\"></path></svg></span><span class=\"ato-dropdown-label\">EXTREME &amp; ADVENTURE</span></a>\n<a class=\"ato-grid-row\" href=\"/nature-adventures.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"M5 20c4.5-1 8-4.5 10-9\"></path><path d=\"M7 14c-2.2-3.5.4-7.7 8.8-9-1 8-4.7 11.3-8.8 9Z\"></path><path d=\"M13 9c1.7.1 3.7.8 5.8 2.1-2 4.8-5.2 6.4-8.2 5\"></path></svg></span><span class=\"ato-dropdown-label\">NATURE &amp; ADVENTURE</span></a>\n<a class=\"ato-grid-row\" href=\"/history-culture.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"m4 9 8-5 8 5\"></path><path d=\"M5 10h14\"></path><path d=\"M7 10v8M11 10v8M15 10v8M19 10v8\"></path><path d=\"M4 19h16M3 21h18\"></path></svg></span><span class=\"ato-dropdown-label\">HISTORY &amp; CULTURE</span></a>\n<a class=\"ato-grid-row\" href=\"/family-experiences.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><circle cx=\"8\" cy=\"8\" r=\"2.3\"></circle><circle cx=\"16\" cy=\"8\" r=\"2.3\"></circle><circle cx=\"12\" cy=\"13\" r=\"1.8\"></circle><path d=\"M3.5 19c.5-3.5 2.2-5.3 4.5-5.3 1.2 0 2.2.4 3 1.1M20.5 19c-.5-3.5-2.2-5.3-4.5-5.3-1.2 0-2.2.4-3 1.1\"></path><path d=\"M8.5 20c.4-2.6 1.6-4 3.5-4s3.1 1.4 3.5 4\"></path></svg></span><span class=\"ato-dropdown-label\">FAMILY EXPERIENCES</span></a>\n<a class=\"ato-grid-row\" href=\"/water-sports.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"M3 8c2.2 0 2.2 1.5 4.4 1.5S9.6 8 11.8 8s2.2 1.5 4.4 1.5S18.4 8 20.6 8\"></path><path d=\"M3 13c2.2 0 2.2 1.5 4.4 1.5s2.2-1.5 4.4-1.5 2.2 1.5 4.4 1.5 2.2-1.5 4.4-1.5\"></path><path d=\"M3 18c2.2 0 2.2 1.5 4.4 1.5s2.2-1.5 4.4-1.5 2.2 1.5 4.4 1.5 2.2-1.5 4.4-1.5\"></path></svg></span><span class=\"ato-dropdown-label\">WATER SPORTS</span></a>\n<a class=\"ato-grid-row\" href=\"/air-experiences.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"M4 9c2-4 5-6 8-6s6 2 8 6\"></path><path d=\"M4 9h16\"></path><path d=\"M4 9 10 16M20 9l-6 7\"></path><path d=\"M10 16h4l1 4h-6z\"></path></svg></span><span class=\"ato-dropdown-label\">AIR EXPERIENCES</span></a>\n<a class=\"ato-grid-row\" href=\"/wellness-relax.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"M12 20c-4-2.5-6.5-5.8-6.5-9.2 2.9.2 5.1 1.4 6.5 3.5 1.4-2.1 3.6-3.3 6.5-3.5 0 3.4-2.5 6.7-6.5 9.2Z\"></path><path d=\"M12 14.3C9.8 11.7 9.8 8.8 12 5c2.2 3.8 2.2 6.7 0 9.3Z\"></path></svg></span><span class=\"ato-dropdown-label\">WELLNESS &amp; RELAX</span></a>\n</div>\n</div>\n<a class=\"nav-item\" href=\"/interactive-map/\">\n<span>EXPLORE MAP</span>\n</a>\n<a class=\"nav-item\" href=\"/trip-planner.html\" title=\"Compare tours and build your itinerary\">\n<span>TRIP PLANNER</span>\n</a>\n<a class=\"nav-item\" href=\"/combo-deals.html\" title=\"Ready-made tour combinations\">\n<span>COMBO DEALS</span>\n</a>\n<div class=\"nav-item special nav-dropdown ato-header-dropdown\" data-header-dropdown=\"offers\">\n<button aria-controls=\"atoSpecialOffersMenu\" aria-expanded=\"false\" aria-haspopup=\"true\" class=\"ato-dropdown-trigger\" type=\"button\">\n<span aria-hidden=\"true\" class=\"fire\">🔥</span>\n<span class=\"ato-dropdown-title\">SPECIAL OFFERS</span>\n<svg aria-hidden=\"true\" class=\"arrow-icon\" viewbox=\"0 0 24 24\"><path d=\"M7 10L12 15L17 10\"></path></svg>\n</button>\n<div class=\"dropdown-menu ato-special-menu\" id=\"atoSpecialOffersMenu\" role=\"menu\">\n<a class=\"ato-grid-row\" data-offer-link=\"group\" href=\"/special-offers.html#special-privileges\" role=\"menuitem\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><circle cx=\"8\" cy=\"8\" r=\"2.2\"></circle><circle cx=\"16\" cy=\"8\" r=\"2.2\"></circle><path d=\"M3.8 18.5c.5-3.2 2-5 4.2-5s3.7 1.8 4.2 5\"></path><path d=\"M11.8 18.5c.5-3.2 2-5 4.2-5s3.7 1.8 4.2 5\"></path><path d=\"M12 4v3M10.5 5.5h3\"></path></svg></span>\n<span class=\"ato-dropdown-label\">GROUP &amp; EVENT OFFERS</span>\n</a>\n<a class=\"ato-grid-row\" data-offer-link=\"journey\" href=\"/special-offers.html#journey\" role=\"menuitem\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"7.5\"></circle><path d=\"M5 13.5c2.5-2.5 5.5-3.8 9-3.8 2.1 0 4 .5 5.7 1.5\"></path><path d=\"m14.8 5.1.8 1.7 1.8.8-1.8.8-.8 1.7-.8-1.7-1.8-.8 1.8-.8z\"></path></svg></span>\n<span class=\"ato-dropdown-label\">SURPRISE JOURNEY</span>\n</a>\n<a class=\"ato-grid-row\" data-offer-link=\"gift\" href=\"/special-offers.html#gift\" role=\"menuitem\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><path d=\"M4 10h16v10H4z\"></path><path d=\"M3 7h18v4H3zM12 7v13\"></path><path d=\"M12 7c-2.8 0-4.5-.9-4.5-2.3C7.5 3.6 8.4 3 9.4 3c1.5 0 2.6 1.4 2.6 4Z\"></path><path d=\"M12 7c2.8 0 4.5-.9 4.5-2.3 0-1.1-.9-1.7-1.9-1.7C13.1 3 12 4.4 12 7Z\"></path></svg></span>\n<span class=\"ato-dropdown-label\">GIFT CERTIFICATE</span>\n</a>\n</div>\n</div>\n<a class=\"nav-item\" href=\"/vip-service.html\">\n<span>VIP SERVICE</span>\n</a>\n<div class=\"nav-item nav-dropdown ato-header-dropdown\" data-header-dropdown=\"about\">\n<button aria-controls=\"atoAboutMenu\" aria-expanded=\"false\" aria-haspopup=\"true\" class=\"ato-dropdown-trigger\" type=\"button\">\n<span class=\"ato-dropdown-title\">ABOUT US</span>\n<svg aria-hidden=\"true\" class=\"arrow-icon\" viewbox=\"0 0 24 24\"><path d=\"M7 10L12 15L17 10\"></path></svg>\n</button>\n<div class=\"dropdown-menu ato-about-menu\" id=\"atoAboutMenu\" role=\"menu\">\n<a class=\"ato-grid-row\" href=\"/index.html#about\" role=\"menuitem\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><path d=\"M4 20V8l8-4 8 4v12\"></path><path d=\"M8 20v-5h8v5M8 10h2M14 10h2\"></path></svg></span>\n<span class=\"ato-dropdown-label\">OUR COMPANY</span>\n</a>\n<div aria-label=\"Licenses and certifications\" class=\"ato-menu-group\">\n<div class=\"ato-menu-group-label ato-grid-row\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><path d=\"M12 3 19 6v5c0 4.7-2.7 8-7 10-4.3-2-7-5.3-7-10V6z\"></path><path d=\"m9 12 2 2 4-5\"></path></svg></span>\n<span class=\"ato-dropdown-label\">LICENSES &amp; CERTIFICATIONS</span>\n</div>\n<a class=\"ato-subitem ato-grid-row\" href=\"/legal-information.html\" role=\"menuitem\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><path d=\"M6 3h8l4 4v14H6z\"></path><path d=\"M14 3v5h5M9 12h6M9 16h6\"></path></svg></span>\n<span class=\"ato-dropdown-label\">Legal Information</span>\n</a>\n<a class=\"ato-subitem ato-grid-row\" href=\"https://www.tursab.org.tr/acenta-arama\" rel=\"noopener\" role=\"menuitem\" target=\"_blank\" title=\"Official TÜRSAB agency search — verify Belge No 2156\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"8\"></circle><path d=\"m8.8 12 2.1 2.1 4.6-4.6\"></path><path d=\"M17 4.8 19.2 7 17 9.2\"></path></svg></span>\n<span class=\"ato-dropdown-label\">TÜRSAB Verification ↗</span>\n</a>\n</div>\n<a class=\"ato-grid-row\" href=\"/contact.html\" role=\"menuitem\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><path d=\"M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z\"></path><circle cx=\"12\" cy=\"10\" r=\"2\"></circle></svg></span>\n<span class=\"ato-dropdown-label\">CONTACT / COMPANY DETAILS</span>\n</a>\n</div>\n</div>\n<button aria-controls=\"atoHeaderSearchShell\" aria-expanded=\"false\" class=\"nav-item header-tour-search ato-search-trigger\" id=\"headerTourSearch\" type=\"button\">\n<span class=\"ato-search-trigger-label\">SEARCH</span>\n<svg aria-hidden=\"true\" class=\"ato-search-trigger-icon\" viewbox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"></circle><path d=\"m16 16 4 4\"></path></svg>\n</button>\n</nav>\n<button aria-controls=\"atoHeaderSearchShell\" aria-expanded=\"false\" aria-label=\"Search tours\" class=\"ato-mobile-search-trigger\" id=\"atoMobileSearchTrigger\" type=\"button\">\n<svg aria-hidden=\"true\" viewbox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"></circle><path d=\"m16 16 4 4\"></path></svg>\n</button>\n<div aria-hidden=\"true\" class=\"ato-header-search-shell\" id=\"atoHeaderSearchShell\">\n<div class=\"ato-hs-bar\">\n<span aria-hidden=\"true\" class=\"ato-hs-search-icon\"><svg viewbox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"></circle><path d=\"m16 16 4 4\"></path></svg></span>\n<input aria-label=\"Search tours, places or experiences\" autocomplete=\"off\" id=\"atoHeaderSmartSearch\" placeholder=\"Search tours, places or experiences...\" spellcheck=\"false\" type=\"search\"/>\n<button class=\"ato-hs-filters\" id=\"atoHeaderFilters\" type=\"button\"><span class=\"ato-hs-filters-label\">FILTERS</span><b id=\"atoHeaderFilterCount\">0</b></button>\n<button aria-label=\"Close search\" class=\"ato-hs-close\" id=\"atoHeaderSearchClose\" type=\"button\">×</button>\n</div>\n<div aria-live=\"polite\" class=\"ato-hs-panel\" id=\"atoHeaderSearchPanel\" role=\"region\"></div>\n</div>\n<div class=\"language language-dropdown\">\n<button aria-controls=\"atoLanguageMenu\" aria-expanded=\"false\" aria-haspopup=\"true\" class=\"ato-language-trigger\" type=\"button\"><svg class=\"globe-icon\" viewbox=\"0 0 24 24\">\n<circle cx=\"12\" cy=\"12\" r=\"9\"></circle>\n<path d=\"M3 12H21\"></path>\n<path d=\"M12 3C15 6 16.5 9 16.5 12C16.5 15 15 18 12 21\"></path>\n<path d=\"M12 3C9 6 7.5 9 7.5 12C7.5 15 9 18 12 21\"></path>\n</svg><span class=\"ato-language-code-current\">EN</span><svg class=\"arrow-icon\" viewbox=\"0 0 24 24\">\n<path d=\"M7 10L12 15L17 10\"></path>\n</svg></button>\n\n\n<div class=\"language-menu\" id=\"atoLanguageMenu\">\n<button aria-label=\"Close languages\" class=\"language-close\" type=\"button\">×</button>\n\n\n\n\n\n<a class=\"ato-grid-row ato-lang-row\" data-lang=\"en\" href=\"#\"><span class=\"ato-lang-code\">EN</span><span class=\"ato-lang-name\">English</span><span aria-hidden=\"true\" class=\"ato-lang-check\">✓</span></a><a class=\"ato-grid-row ato-lang-row\" data-lang=\"ru\" href=\"#\"><span class=\"ato-lang-code\">RU</span><span class=\"ato-lang-name\">Русский</span><span aria-hidden=\"true\" class=\"ato-lang-check\">✓</span></a><a class=\"ato-grid-row ato-lang-row\" data-lang=\"tr\" href=\"#\"><span class=\"ato-lang-code\">TR</span><span class=\"ato-lang-name\">Türkçe</span><span aria-hidden=\"true\" class=\"ato-lang-check\">✓</span></a><a class=\"ato-grid-row ato-lang-row\" data-lang=\"de\" href=\"#\"><span class=\"ato-lang-code\">DE</span><span class=\"ato-lang-name\">Deutsch</span><span aria-hidden=\"true\" class=\"ato-lang-check\">✓</span></a><a class=\"ato-grid-row ato-lang-row\" data-lang=\"pl\" href=\"#\"><span class=\"ato-lang-code\">PL</span><span class=\"ato-lang-name\">Polski</span><span aria-hidden=\"true\" class=\"ato-lang-check\">✓</span></a></div>\n</div>\n</header>\n<div aria-hidden=\"true\" class=\"ato-header-search-scrim\" id=\"atoHeaderSearchScrim\"></div>\n<div aria-label=\"Special offers\" class=\"promo-bar ato-global-promo\" id=\"atoPromoRibbon\">\n<div class=\"promo-track\">\n<div class=\"promo-group\">\n<span class=\"promo-text\" data-de=\"🔥 SONDERANGEBOT — 2 TOUREN BUCHEN, DIE 3. GRATIS\" data-en=\"🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE\" data-pl=\"🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI, 3. GRATIS\" data-ru=\"🔥 СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ — 2 ТУРА + 3-Й В ПОДАРОК\" data-tr=\"🔥 ÖZEL TEKLİF — 2 TUR AL, 3. TUR HEDİYE\">\n        🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE\n      </span>\n<span aria-hidden=\"true\" class=\"promo-dot\">◆</span>\n<span class=\"promo-slogan\">TRAVEL WITH LOVE. TRAVEL WITH US.</span>\n<span aria-hidden=\"true\" class=\"promo-dot\">◆</span>\n<span class=\"promo-services\">PRIVATE TOURS • VIP TRANSFERS • FAMILY EXPERIENCES</span>\n<span aria-hidden=\"true\" class=\"promo-dot\">◆</span>\n</div>\n<div aria-hidden=\"true\" class=\"promo-group\">\n<span class=\"promo-text\" data-de=\"🔥 SONDERANGEBOT — 2 TOUREN BUCHEN, DIE 3. GRATIS\" data-en=\"🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE\" data-pl=\"🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI, 3. GRATIS\" data-ru=\"🔥 СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ — 2 ТУРА + 3-Й В ПОДАРОК\" data-tr=\"🔥 ÖZEL TEKLİF — 2 TUR AL, 3. TUR HEDİYE\">\n        🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE\n      </span>\n<span aria-hidden=\"true\" class=\"promo-dot\">◆</span>\n<span class=\"promo-slogan\">TRAVEL WITH LOVE. TRAVEL WITH US.</span>\n<span aria-hidden=\"true\" class=\"promo-dot\">◆</span>\n<span class=\"promo-services\">PRIVATE TOURS • VIP TRANSFERS • FAMILY EXPERIENCES</span>\n<span aria-hidden=\"true\" class=\"promo-dot\">◆</span>\n</div>\n</div>\n</div>\n</div>";
+const markup="<div data-ato-global-root=\"true\" id=\"atoGlobalHeaderRoot\">\n<header class=\"header ato-global-header\" data-ato-global=\"true\">\n<a aria-label=\"ALANYA TOUR ORGANIZATIONS — Home\" class=\"logo\" href=\"/index.html\">\n<img alt=\"ALANYA TOUR ORGANIZATIONS\" src=\"/logo.png\"/>\n<div class=\"logo-text\">\n<div class=\"logo-title\">ALANYA TOUR</div>\n<div class=\"logo-subtitle\">ORGANIZATIONS</div>\n</div>\n</a>\n<div class=\"mobile-menu-btn\" id=\"mobileMenuBtn\">\n<span></span>\n<span></span>\n<span></span>\n</div>\n<div class=\"mobile-overlay\" id=\"mobileOverlay\"></div>\n<nav aria-label=\"Main navigation\" class=\"nav\">\n<div class=\"nav-item nav-dropdown ato-header-dropdown\" data-header-dropdown=\"tours\">\n<button aria-controls=\"atoToursMenu\" aria-expanded=\"false\" aria-haspopup=\"true\" class=\"ato-dropdown-trigger\" type=\"button\">\n<span class=\"ato-dropdown-title\">TOURS</span>\n<svg aria-hidden=\"true\" class=\"arrow-icon\" viewbox=\"0 0 24 24\"><path d=\"M7 10L12 15L17 10\"></path></svg>\n</button>\n<div class=\"dropdown-menu ato-tours-menu\" id=\"atoToursMenu\" role=\"menu\">\n<a class=\"ato-grid-row\" href=\"/sea-experiences.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"M3 18c2.2 0 2.2 1.5 4.4 1.5S9.6 18 11.8 18s2.2 1.5 4.4 1.5S18.4 18 20.6 18\"></path><path d=\"M12 4v10\"></path><path d=\"M12 5 6.5 12H12\"></path><path d=\"M12 6.5 17.5 12H12\"></path></svg></span><span class=\"ato-dropdown-label\">SEA EXPERIENCES</span></a>\n<a class=\"ato-grid-row\" href=\"/extreme-adventure.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"M13.2 2 5.5 13h5.2L9.8 22 18.5 9.7h-5.3z\"></path></svg></span><span class=\"ato-dropdown-label\">EXTREME &amp; ADVENTURE</span></a>\n<a class=\"ato-grid-row\" href=\"/nature-adventures.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"M5 20c4.5-1 8-4.5 10-9\"></path><path d=\"M7 14c-2.2-3.5.4-7.7 8.8-9-1 8-4.7 11.3-8.8 9Z\"></path><path d=\"M13 9c1.7.1 3.7.8 5.8 2.1-2 4.8-5.2 6.4-8.2 5\"></path></svg></span><span class=\"ato-dropdown-label\">NATURE &amp; ADVENTURE</span></a>\n<a class=\"ato-grid-row\" href=\"/history-culture.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"m4 9 8-5 8 5\"></path><path d=\"M5 10h14\"></path><path d=\"M7 10v8M11 10v8M15 10v8M19 10v8\"></path><path d=\"M4 19h16M3 21h18\"></path></svg></span><span class=\"ato-dropdown-label\">HISTORY &amp; CULTURE</span></a>\n<a class=\"ato-grid-row\" href=\"/family-experiences.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><circle cx=\"8\" cy=\"8\" r=\"2.3\"></circle><circle cx=\"16\" cy=\"8\" r=\"2.3\"></circle><circle cx=\"12\" cy=\"13\" r=\"1.8\"></circle><path d=\"M3.5 19c.5-3.5 2.2-5.3 4.5-5.3 1.2 0 2.2.4 3 1.1M20.5 19c-.5-3.5-2.2-5.3-4.5-5.3-1.2 0-2.2.4-3 1.1\"></path><path d=\"M8.5 20c.4-2.6 1.6-4 3.5-4s3.1 1.4 3.5 4\"></path></svg></span><span class=\"ato-dropdown-label\">FAMILY EXPERIENCES</span></a>\n<a class=\"ato-grid-row\" href=\"/water-sports.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"M3 8c2.2 0 2.2 1.5 4.4 1.5S9.6 8 11.8 8s2.2 1.5 4.4 1.5S18.4 8 20.6 8\"></path><path d=\"M3 13c2.2 0 2.2 1.5 4.4 1.5s2.2-1.5 4.4-1.5 2.2 1.5 4.4 1.5 2.2-1.5 4.4-1.5\"></path><path d=\"M3 18c2.2 0 2.2 1.5 4.4 1.5s2.2-1.5 4.4-1.5 2.2 1.5 4.4 1.5 2.2-1.5 4.4-1.5\"></path></svg></span><span class=\"ato-dropdown-label\">WATER SPORTS</span></a>\n<a class=\"ato-grid-row\" href=\"/air-experiences.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"M4 9c2-4 5-6 8-6s6 2 8 6\"></path><path d=\"M4 9h16\"></path><path d=\"M4 9 10 16M20 9l-6 7\"></path><path d=\"M10 16h4l1 4h-6z\"></path></svg></span><span class=\"ato-dropdown-label\">AIR EXPERIENCES</span></a>\n<a class=\"ato-grid-row\" href=\"/wellness-relax.html\" role=\"menuitem\"><span class=\"dropdown-icon ato-grid-symbol ato-dropdown-svg-icon\"><svg aria-hidden=\"true\" class=\"ato-cat-svg\" viewbox=\"0 0 24 24\"><path d=\"M12 20c-4-2.5-6.5-5.8-6.5-9.2 2.9.2 5.1 1.4 6.5 3.5 1.4-2.1 3.6-3.3 6.5-3.5 0 3.4-2.5 6.7-6.5 9.2Z\"></path><path d=\"M12 14.3C9.8 11.7 9.8 8.8 12 5c2.2 3.8 2.2 6.7 0 9.3Z\"></path></svg></span><span class=\"ato-dropdown-label\">WELLNESS &amp; RELAX</span></a>\n</div>\n</div>\n<a class=\"nav-item\" href=\"/interactive-map/\">\n<span>EXPLORE MAP</span>\n</a>\n<a class=\"nav-item\" href=\"/trip-planner.html\" title=\"Compare tours and build your itinerary\">\n<span>TRIP PLANNER</span>\n</a>\n<a class=\"nav-item\" href=\"/combo-deals.html\" title=\"Ready-made tour combinations\">\n<span>COMBO DEALS</span>\n</a>\n<div class=\"nav-item special nav-dropdown ato-header-dropdown\" data-header-dropdown=\"offers\">\n<button aria-controls=\"atoSpecialOffersMenu\" aria-expanded=\"false\" aria-haspopup=\"true\" class=\"ato-dropdown-trigger\" type=\"button\">\n<span aria-hidden=\"true\" class=\"fire\">🔥</span>\n<span class=\"ato-dropdown-title\">SPECIAL OFFERS</span>\n<svg aria-hidden=\"true\" class=\"arrow-icon\" viewbox=\"0 0 24 24\"><path d=\"M7 10L12 15L17 10\"></path></svg>\n</button>\n<div class=\"dropdown-menu ato-special-menu\" id=\"atoSpecialOffersMenu\" role=\"menu\">\n<a class=\"ato-grid-row\" data-offer-link=\"group\" href=\"/special-offers.html#special-privileges\" role=\"menuitem\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><circle cx=\"8\" cy=\"8\" r=\"2.2\"></circle><circle cx=\"16\" cy=\"8\" r=\"2.2\"></circle><path d=\"M3.8 18.5c.5-3.2 2-5 4.2-5s3.7 1.8 4.2 5\"></path><path d=\"M11.8 18.5c.5-3.2 2-5 4.2-5s3.7 1.8 4.2 5\"></path><path d=\"M12 4v3M10.5 5.5h3\"></path></svg></span>\n<span class=\"ato-dropdown-label\">GROUP &amp; EVENT OFFERS</span>\n</a>\n<a class=\"ato-grid-row\" data-offer-link=\"journey\" href=\"/special-offers.html#journey\" role=\"menuitem\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"7.5\"></circle><path d=\"M5 13.5c2.5-2.5 5.5-3.8 9-3.8 2.1 0 4 .5 5.7 1.5\"></path><path d=\"m14.8 5.1.8 1.7 1.8.8-1.8.8-.8 1.7-.8-1.7-1.8-.8 1.8-.8z\"></path></svg></span>\n<span class=\"ato-dropdown-label\">SURPRISE JOURNEY</span>\n</a>\n<a class=\"ato-grid-row\" data-offer-link=\"gift\" href=\"/special-offers.html#gift\" role=\"menuitem\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><path d=\"M4 10h16v10H4z\"></path><path d=\"M3 7h18v4H3zM12 7v13\"></path><path d=\"M12 7c-2.8 0-4.5-.9-4.5-2.3C7.5 3.6 8.4 3 9.4 3c1.5 0 2.6 1.4 2.6 4Z\"></path><path d=\"M12 7c2.8 0 4.5-.9 4.5-2.3 0-1.1-.9-1.7-1.9-1.7C13.1 3 12 4.4 12 7Z\"></path></svg></span>\n<span class=\"ato-dropdown-label\">GIFT CERTIFICATE</span>\n</a>\n</div>\n</div>\n<a class=\"nav-item\" href=\"/vip-service.html\">\n<span>VIP SERVICE</span>\n</a>\n<div class=\"nav-item nav-dropdown ato-header-dropdown\" data-header-dropdown=\"about\">\n<button aria-controls=\"atoAboutMenu\" aria-expanded=\"false\" aria-haspopup=\"true\" class=\"ato-dropdown-trigger\" type=\"button\">\n<span class=\"ato-dropdown-title\">ABOUT US</span>\n<svg aria-hidden=\"true\" class=\"arrow-icon\" viewbox=\"0 0 24 24\"><path d=\"M7 10L12 15L17 10\"></path></svg>\n</button>\n<div class=\"dropdown-menu ato-about-menu\" id=\"atoAboutMenu\" role=\"menu\">\n<a class=\"ato-grid-row\" href=\"/index.html#about\" role=\"menuitem\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><path d=\"M4 20V8l8-4 8 4v12\"></path><path d=\"M8 20v-5h8v5M8 10h2M14 10h2\"></path></svg></span>\n<span class=\"ato-dropdown-label\">OUR COMPANY</span>\n</a>\n<div aria-label=\"Licenses and certifications\" class=\"ato-menu-group\">\n<div class=\"ato-menu-group-label ato-grid-row\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><path d=\"M12 3 19 6v5c0 4.7-2.7 8-7 10-4.3-2-7-5.3-7-10V6z\"></path><path d=\"m9 12 2 2 4-5\"></path></svg></span>\n<span class=\"ato-dropdown-label\">LICENSES &amp; CERTIFICATIONS</span>\n</div>\n<a class=\"ato-subitem ato-grid-row\" href=\"/legal-information.html\" role=\"menuitem\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><path d=\"M6 3h8l4 4v14H6z\"></path><path d=\"M14 3v5h5M9 12h6M9 16h6\"></path></svg></span>\n<span class=\"ato-dropdown-label\">Legal Information</span>\n</a>\n<a class=\"ato-subitem ato-grid-row\" href=\"https://www.tursab.org.tr/acenta-arama\" rel=\"noopener\" role=\"menuitem\" target=\"_blank\" title=\"Official TÜRSAB agency search — verify Belge No 2156\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"8\"></circle><path d=\"m8.8 12 2.1 2.1 4.6-4.6\"></path><path d=\"M17 4.8 19.2 7 17 9.2\"></path></svg></span>\n<span class=\"ato-dropdown-label\">TÜRSAB Verification</span>\n</a>\n</div>\n<a class=\"ato-grid-row\" href=\"/contact.html\" role=\"menuitem\">\n<span aria-hidden=\"true\" class=\"dropdown-icon ato-dropdown-svg-icon ato-grid-symbol\"><svg class=\"ato-cat-svg\" focusable=\"false\" viewbox=\"0 0 24 24\"><path d=\"M12 21s6-5.1 6-11a6 6 0 1 0-12 0c0 5.9 6 11 6 11Z\"></path><circle cx=\"12\" cy=\"10\" r=\"2\"></circle></svg></span>\n<span class=\"ato-dropdown-label\">CONTACT / COMPANY DETAILS</span>\n</a>\n</div>\n</div>\n<button aria-controls=\"atoHeaderSearchShell\" aria-expanded=\"false\" class=\"nav-item header-tour-search ato-search-trigger\" id=\"headerTourSearch\" type=\"button\">\n<span class=\"ato-search-trigger-label\">SEARCH</span>\n<svg aria-hidden=\"true\" class=\"ato-search-trigger-icon\" viewbox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"></circle><path d=\"m16 16 4 4\"></path></svg>\n</button>\n</nav>\n<button aria-controls=\"atoHeaderSearchShell\" aria-expanded=\"false\" aria-label=\"Search tours\" class=\"ato-mobile-search-trigger\" id=\"atoMobileSearchTrigger\" type=\"button\">\n<svg aria-hidden=\"true\" viewbox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"></circle><path d=\"m16 16 4 4\"></path></svg>\n</button>\n<div aria-hidden=\"true\" class=\"ato-header-search-shell\" id=\"atoHeaderSearchShell\">\n<div class=\"ato-hs-bar\">\n<span aria-hidden=\"true\" class=\"ato-hs-search-icon\"><svg viewbox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"></circle><path d=\"m16 16 4 4\"></path></svg></span>\n<input aria-label=\"Search tours, places or experiences\" autocomplete=\"off\" id=\"atoHeaderSmartSearch\" placeholder=\"Search tours, places or experiences...\" spellcheck=\"false\" type=\"search\"/>\n<button class=\"ato-hs-filters\" id=\"atoHeaderFilters\" type=\"button\"><span class=\"ato-hs-filters-label\">FILTERS</span><b id=\"atoHeaderFilterCount\">0</b></button>\n<button aria-label=\"Close search\" class=\"ato-hs-close\" id=\"atoHeaderSearchClose\" type=\"button\">×</button>\n</div>\n<div aria-live=\"polite\" class=\"ato-hs-panel\" id=\"atoHeaderSearchPanel\" role=\"region\"></div>\n</div>\n<div class=\"language language-dropdown\">\n<button aria-controls=\"atoLanguageMenu\" aria-expanded=\"false\" aria-haspopup=\"true\" class=\"ato-language-trigger\" type=\"button\"><svg class=\"globe-icon\" viewbox=\"0 0 24 24\">\n<circle cx=\"12\" cy=\"12\" r=\"9\"></circle>\n<path d=\"M3 12H21\"></path>\n<path d=\"M12 3C15 6 16.5 9 16.5 12C16.5 15 15 18 12 21\"></path>\n<path d=\"M12 3C9 6 7.5 9 7.5 12C7.5 15 9 18 12 21\"></path>\n</svg><span class=\"ato-language-code-current\">EN</span><svg class=\"arrow-icon\" viewbox=\"0 0 24 24\">\n<path d=\"M7 10L12 15L17 10\"></path>\n</svg></button>\n\n\n<div class=\"language-menu\" id=\"atoLanguageMenu\">\n<button aria-label=\"Close languages\" class=\"language-close\" type=\"button\">×</button>\n\n\n\n\n\n<a class=\"ato-grid-row ato-lang-row\" data-lang=\"en\" href=\"#\"><span class=\"ato-lang-code\">EN</span><span class=\"ato-lang-name\">English</span><span aria-hidden=\"true\" class=\"ato-lang-check\">✓</span></a><a class=\"ato-grid-row ato-lang-row\" data-lang=\"ru\" href=\"#\"><span class=\"ato-lang-code\">RU</span><span class=\"ato-lang-name\">Русский</span><span aria-hidden=\"true\" class=\"ato-lang-check\">✓</span></a><a class=\"ato-grid-row ato-lang-row\" data-lang=\"tr\" href=\"#\"><span class=\"ato-lang-code\">TR</span><span class=\"ato-lang-name\">Türkçe</span><span aria-hidden=\"true\" class=\"ato-lang-check\">✓</span></a><a class=\"ato-grid-row ato-lang-row\" data-lang=\"de\" href=\"#\"><span class=\"ato-lang-code\">DE</span><span class=\"ato-lang-name\">Deutsch</span><span aria-hidden=\"true\" class=\"ato-lang-check\">✓</span></a><a class=\"ato-grid-row ato-lang-row\" data-lang=\"pl\" href=\"#\"><span class=\"ato-lang-code\">PL</span><span class=\"ato-lang-name\">Polski</span><span aria-hidden=\"true\" class=\"ato-lang-check\">✓</span></a></div>\n</div>\n</header>\n<div aria-hidden=\"true\" class=\"ato-header-search-scrim\" id=\"atoHeaderSearchScrim\"></div>\n<div aria-label=\"Special offers\" class=\"promo-bar ato-global-promo\" id=\"atoPromoRibbon\">\n<div class=\"promo-track\">\n<div class=\"promo-group\">\n<span class=\"promo-text\" data-de=\"🔥 SONDERANGEBOT — 2 TOUREN BUCHEN, DIE 3. GRATIS\" data-en=\"🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE\" data-pl=\"🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI, 3. GRATIS\" data-ru=\"🔥 СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ — 2 ТУРА + 3-Й В ПОДАРОК\" data-tr=\"🔥 ÖZEL TEKLİF — 2 TUR AL, 3. TUR HEDİYE\">\n        🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE\n      </span>\n<span aria-hidden=\"true\" class=\"promo-dot\">◆</span>\n<span class=\"promo-slogan\">TRAVEL WITH LOVE. TRAVEL WITH US.</span>\n<span aria-hidden=\"true\" class=\"promo-dot\">◆</span>\n<span class=\"promo-services\">PRIVATE TOURS • VIP TRANSFERS • FAMILY EXPERIENCES</span>\n<span aria-hidden=\"true\" class=\"promo-dot\">◆</span>\n</div>\n<div aria-hidden=\"true\" class=\"promo-group\">\n<span class=\"promo-text\" data-de=\"🔥 SONDERANGEBOT — 2 TOUREN BUCHEN, DIE 3. GRATIS\" data-en=\"🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE\" data-pl=\"🔥 OFERTA SPECJALNA — KUP 2 WYCIECZKI, 3. GRATIS\" data-ru=\"🔥 СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ — 2 ТУРА + 3-Й В ПОДАРОК\" data-tr=\"🔥 ÖZEL TEKLİF — 2 TUR AL, 3. TUR HEDİYE\">\n        🔥 SPECIAL OFFER — BUY 2 TOURS, GET THE 3RD FREE\n      </span>\n<span aria-hidden=\"true\" class=\"promo-dot\">◆</span>\n<span class=\"promo-slogan\">TRAVEL WITH LOVE. TRAVEL WITH US.</span>\n<span aria-hidden=\"true\" class=\"promo-dot\">◆</span>\n<span class=\"promo-services\">PRIVATE TOURS • VIP TRANSFERS • FAMILY EXPERIENCES</span>\n<span aria-hidden=\"true\" class=\"promo-dot\">◆</span>\n</div>\n</div>\n</div>\n</div>";
 document.body.insertAdjacentHTML('afterbegin',markup);
 
 const ATO_HEADER_LANG={
- en:{tours:'TOURS',sea:'SEA EXPERIENCES',extreme:'EXTREME & ADVENTURE',nature:'NATURE & ADVENTURE',history:'HISTORY & CULTURE',family:'FAMILY EXPERIENCES',water:'WATER SPORTS',air:'AIR EXPERIENCES',wellness:'WELLNESS & RELAX',map:'EXPLORE MAP',planner:'TRIP PLANNER',combo:'COMBO DEALS',offers:'SPECIAL OFFERS',groupOffers:'GROUP & EVENT OFFERS',surpriseJourney:'SURPRISE JOURNEY',giftCertificate:'GIFT CERTIFICATE',vip:'VIP SERVICE',about:'ABOUT US',company:'OUR COMPANY',licenses:'LICENSES & CERTIFICATIONS',legal:'Legal Information',verify:'TÜRSAB Verification ↗',contact:'CONTACT / COMPANY DETAILS',search:'SEARCH',ph:'Search tours, places or experiences...',filters:'FILTERS'},
- ru:{tours:'ТУРЫ',sea:'МОРСКИЕ ПРИКЛЮЧЕНИЯ',extreme:'ЭКСТРИМ И ПРИКЛЮЧЕНИЯ',nature:'ПРИРОДА И ПРИКЛЮЧЕНИЯ',history:'ИСТОРИЯ И КУЛЬТУРА',family:'СЕМЕЙНЫЙ ОТДЫХ',water:'ВОДНЫЕ ВИДЫ СПОРТА',air:'ВОЗДУШНЫЕ ПРИКЛЮЧЕНИЯ',wellness:'ВЕЛНЕС И ОТДЫХ',map:'ИЗУЧИТЬ КАРТУ',planner:'ПЛАНИРОВЩИК ПОЕЗДКИ',combo:'КОМБО-ПРЕДЛОЖЕНИЯ',offers:'СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ',groupOffers:'ГРУППЫ И МЕРОПРИЯТИЯ',surpriseJourney:'ПУТЕШЕСТВИЕ-СЮРПРИЗ',giftCertificate:'ПОДАРОЧНЫЙ СЕРТИФИКАТ',vip:'VIP-СЕРВИС',about:'О НАС',company:'О КОМПАНИИ',licenses:'ЛИЦЕНЗИИ И СЕРТИФИКАТЫ',legal:'Юридическая информация',verify:'Проверить TÜRSAB ↗',contact:'КОНТАКТЫ / ДАННЫЕ КОМПАНИИ',search:'ПОИСК',ph:'Поиск туров, мест или впечатлений...',filters:'ФИЛЬТРЫ'},
- tr:{tours:'TURLAR',sea:'DENİZ DENEYİMLERİ',extreme:'EKSTREM & MACERA',nature:'DOĞA & MACERA',history:'TARİH & KÜLTÜR',family:'AİLE DENEYİMLERİ',water:'SU SPORLARI',air:'HAVA DENEYİMLERİ',wellness:'WELLNESS & RAHATLAMA',map:'HARİTAYI KEŞFET',planner:'SEYAHAT PLANLAYICI',combo:'KOMBO FIRSATLAR',offers:'ÖZEL FIRSATLAR',groupOffers:'GRUP & ETKİNLİK TEKLİFLERİ',surpriseJourney:'SÜRPRİZ YOLCULUK',giftCertificate:'HEDİYE SERTİFİKASI',vip:'VIP HİZMET',about:'HAKKIMIZDA',company:'ŞİRKETİMİZ',licenses:'LİSANSLAR & SERTİFİKALAR',legal:'Yasal Bilgiler',verify:'TÜRSAB Doğrulama ↗',contact:'İLETİŞİM / ŞİRKET BİLGİLERİ',search:'ARA',ph:'Tur, yer veya deneyim ara...',filters:'FİLTRELER'},
- de:{tours:'TOUREN',sea:'MEERESERLEBNISSE',extreme:'EXTREM & ABENTEUER',nature:'NATUR & ABENTEUER',history:'GESCHICHTE & KULTUR',family:'FAMILIENERLEBNISSE',water:'WASSERSPORT',air:'LUFTERLEBNISSE',wellness:'WELLNESS & ENTSPANNUNG',map:'KARTE ENTDECKEN',planner:'REISEPLANER',combo:'KOMBI-ANGEBOTE',offers:'SONDERANGEBOTE',groupOffers:'GRUPPEN- & EVENTANGEBOTE',surpriseJourney:'ÜBERRASCHUNGSREISE',giftCertificate:'GESCHENKGUTSCHEIN',vip:'VIP-SERVICE',about:'ÜBER UNS',company:'UNSER UNTERNEHMEN',licenses:'LIZENZEN & ZERTIFIKATE',legal:'Rechtliche Informationen',verify:'TÜRSAB prüfen ↗',contact:'KONTAKT / FIRMENDATEN',search:'SUCHE',ph:'Touren, Orte oder Erlebnisse suchen...',filters:'FILTER'},
- pl:{tours:'WYCIECZKI',sea:'MORSKIE PRZYGODY',extreme:'EKSTREMALNE PRZYGODY',nature:'NATURA I PRZYGODA',history:'HISTORIA I KULTURA',family:'RODZINNE ATRAKCJE',water:'SPORTY WODNE',air:'PRZYGODY W POWIETRZU',wellness:'WELLNESS I RELAKS',map:'ODKRYJ MAPĘ',planner:'PLANER PODRÓŻY',combo:'PAKIETY COMBO',offers:'OFERTY SPECJALNE',groupOffers:'OFERTY GRUPOWE I EVENTOWE',surpriseJourney:'PODRÓŻ-NIESPODZIANKA',giftCertificate:'BON PODARUNKOWY',vip:'USŁUGI VIP',about:'O NAS',company:'O FIRMIE',licenses:'LICENCJE I CERTYFIKATY',legal:'Informacje prawne',verify:'Weryfikacja TÜRSAB ↗',contact:'KONTAKT / DANE FIRMY',search:'SZUKAJ',ph:'Szukaj wycieczek, miejsc lub atrakcji...',filters:'FILTRY'}
+ en:{tours:'TOURS',sea:'SEA EXPERIENCES',extreme:'EXTREME & ADVENTURE',nature:'NATURE & ADVENTURE',history:'HISTORY & CULTURE',family:'FAMILY EXPERIENCES',water:'WATER SPORTS',air:'AIR EXPERIENCES',wellness:'WELLNESS & RELAX',map:'EXPLORE MAP',planner:'TRIP PLANNER',combo:'COMBO DEALS',offers:'SPECIAL OFFERS',groupOffers:'GROUP & EVENT OFFERS',surpriseJourney:'SURPRISE JOURNEY',giftCertificate:'GIFT CERTIFICATE',vip:'VIP SERVICE',about:'ABOUT US',company:'OUR COMPANY',licenses:'LICENSES & CERTIFICATIONS',legal:'Legal Information',verify:'TÜRSAB Verification',contact:'CONTACT / COMPANY DETAILS',search:'SEARCH',ph:'Search tours, places or experiences...',filters:'FILTERS'},
+ ru:{tours:'ТУРЫ',sea:'МОРСКИЕ ПРИКЛЮЧЕНИЯ',extreme:'ЭКСТРИМ И ПРИКЛЮЧЕНИЯ',nature:'ПРИРОДА И ПРИКЛЮЧЕНИЯ',history:'ИСТОРИЯ И КУЛЬТУРА',family:'СЕМЕЙНЫЙ ОТДЫХ',water:'ВОДНЫЕ ВИДЫ СПОРТА',air:'ВОЗДУШНЫЕ ПРИКЛЮЧЕНИЯ',wellness:'ВЕЛНЕС И ОТДЫХ',map:'ИЗУЧИТЬ КАРТУ',planner:'ПЛАНИРОВЩИК ПОЕЗДКИ',combo:'КОМБО-ПРЕДЛОЖЕНИЯ',offers:'СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ',groupOffers:'ГРУППЫ И МЕРОПРИЯТИЯ',surpriseJourney:'ПУТЕШЕСТВИЕ-СЮРПРИЗ',giftCertificate:'ПОДАРОЧНЫЙ СЕРТИФИКАТ',vip:'VIP-СЕРВИС',about:'О НАС',company:'О КОМПАНИИ',licenses:'ЛИЦЕНЗИИ И СЕРТИФИКАТЫ',legal:'Юридическая информация',verify:'Проверить TÜRSAB',contact:'КОНТАКТЫ / ДАННЫЕ КОМПАНИИ',search:'ПОИСК',ph:'Поиск туров, мест или впечатлений...',filters:'ФИЛЬТРЫ'},
+ tr:{tours:'TURLAR',sea:'DENİZ DENEYİMLERİ',extreme:'EKSTREM & MACERA',nature:'DOĞA & MACERA',history:'TARİH & KÜLTÜR',family:'AİLE DENEYİMLERİ',water:'SU SPORLARI',air:'HAVA DENEYİMLERİ',wellness:'WELLNESS & RAHATLAMA',map:'HARİTAYI KEŞFET',planner:'SEYAHAT PLANLAYICI',combo:'KOMBO FIRSATLAR',offers:'ÖZEL FIRSATLAR',groupOffers:'GRUP & ETKİNLİK TEKLİFLERİ',surpriseJourney:'SÜRPRİZ YOLCULUK',giftCertificate:'HEDİYE SERTİFİKASI',vip:'VIP HİZMET',about:'HAKKIMIZDA',company:'ŞİRKETİMİZ',licenses:'LİSANSLAR & SERTİFİKALAR',legal:'Yasal Bilgiler',verify:'TÜRSAB Doğrulama',contact:'İLETİŞİM / ŞİRKET BİLGİLERİ',search:'ARA',ph:'Tur, yer veya deneyim ara...',filters:'FİLTRELER'},
+ de:{tours:'TOUREN',sea:'MEERESERLEBNISSE',extreme:'EXTREM & ABENTEUER',nature:'NATUR & ABENTEUER',history:'GESCHICHTE & KULTUR',family:'FAMILIENERLEBNISSE',water:'WASSERSPORT',air:'LUFTERLEBNISSE',wellness:'WELLNESS & ENTSPANNUNG',map:'KARTE ENTDECKEN',planner:'REISEPLANER',combo:'KOMBI-ANGEBOTE',offers:'SONDERANGEBOTE',groupOffers:'GRUPPEN- & EVENTANGEBOTE',surpriseJourney:'ÜBERRASCHUNGSREISE',giftCertificate:'GESCHENKGUTSCHEIN',vip:'VIP-SERVICE',about:'ÜBER UNS',company:'UNSER UNTERNEHMEN',licenses:'LIZENZEN & ZERTIFIKATE',legal:'Rechtliche Informationen',verify:'TÜRSAB prüfen',contact:'KONTAKT / FIRMENDATEN',search:'SUCHE',ph:'Touren, Orte oder Erlebnisse suchen...',filters:'FILTER'},
+ pl:{tours:'WYCIECZKI',sea:'MORSKIE PRZYGODY',extreme:'EKSTREMALNE PRZYGODY',nature:'NATURA I PRZYGODA',history:'HISTORIA I KULTURA',family:'RODZINNE ATRAKCJE',water:'SPORTY WODNE',air:'PRZYGODY W POWIETRZU',wellness:'WELLNESS I RELAKS',map:'ODKRYJ MAPĘ',planner:'PLANER PODRÓŻY',combo:'PAKIETY COMBO',offers:'OFERTY SPECJALNE',groupOffers:'OFERTY GRUPOWE I EVENTOWE',surpriseJourney:'PODRÓŻ-NIESPODZIANKA',giftCertificate:'BON PODARUNKOWY',vip:'USŁUGI VIP',about:'O NAS',company:'O FIRMIE',licenses:'LICENCJE I CERTYFIKATY',legal:'Informacje prawne',verify:'Weryfikacja TÜRSAB',contact:'KONTAKT / DANE FIRMY',search:'SZUKAJ',ph:'Szukaj wycieczek, miejsc lub atrakcji...',filters:'FILTRY'}
 };
 function atoHeaderLanguage(){const x=localStorage.getItem('atoLanguage')||document.documentElement.lang||'en';return ATO_HEADER_LANG[x]?x:'en'}
 function atoSetDropdownLabel(el,text){if(!el)return;const label=el.matches?.('.ato-dropdown-label')?el:el.querySelector?.('.ato-dropdown-label');if(label)label.textContent=text;else el.textContent=text}
@@ -404,6 +403,7 @@ function atoInitGlobalHeader(){
  const setLanguage=on=>{
    if(!languageDropdown)return;
    languageDropdown.classList.toggle('open',!!on);
+   root.querySelector('.header')?.classList.toggle('ato-language-panel-open',!!on);
    languageTrigger?.setAttribute('aria-expanded',on?'true':'false');
    syncMobileModal();
  };
@@ -1054,17 +1054,7 @@ render();
 
     const close=menu.querySelector('.language-close');
     if(close){
-      close.textContent='×';
-      close.classList.add('ato-v8-language-close');
-      if(!close.dataset.v8Bound){
-        close.dataset.v8Bound='1';
-        close.addEventListener('click',e=>{
-          e.preventDefault();
-          e.stopPropagation();
-          e.stopImmediatePropagation();
-          closeLanguageMenu();
-        },true);
-      }
+      close.remove();
     }
 
     menu.querySelectorAll('a[data-lang]').forEach(a=>{
@@ -1074,6 +1064,10 @@ render();
       const code=a.querySelector('.ato-lang-code,.ato-v8-lang-code'); if(code){code.classList.add('ato-v8-lang-code');code.textContent=langCodes[lang];}
       const name=a.querySelector('.ato-lang-name,.ato-v8-lang-name'); if(name){name.classList.add('ato-v8-lang-name');name.textContent=langNames[lang];}
       if(!a.querySelector('.ato-lang-check')){const check=document.createElement('span');check.className='ato-lang-check';check.setAttribute('aria-hidden','true');check.textContent='✓';a.appendChild(check);}
+      if(!a.dataset.atoAutoCloseBound){
+        a.dataset.atoAutoCloseBound='1';
+        a.addEventListener('click',closeLanguageMenu,true);
+      }
     });
   }
 
@@ -1716,7 +1710,7 @@ render();
       ''
     ).replace(/\s+/g,' ').trim();
 
-    const fallback = kind === 'legal' ? 'Legal Information' : 'TÜRSAB Verification ↗';
+    const fallback = kind === 'legal' ? 'Legal Information' : 'TÜRSAB Verification';
     const cleanText = currentText || fallback;
 
     let symbol = link.querySelector(':scope > .ato-grid-symbol');
@@ -1742,14 +1736,7 @@ render();
 
     if(kind === 'verify'){
       label.textContent = cleanText.replace(/\s*↗\s*$/,'').trim() || 'TÜRSAB Verification';
-      let arrow = link.querySelector(':scope > .ato-external-arrow');
-      if(!arrow){
-        arrow=document.createElement('span');
-        arrow.className='ato-external-arrow';
-        arrow.setAttribute('aria-hidden','true');
-        arrow.textContent='↗';
-        link.appendChild(arrow);
-      }
+      link.querySelector(':scope > .ato-external-arrow')?.remove();
     }else{
       label.textContent = cleanText.replace(/\s*↗\s*$/,'').trim() || 'Legal Information';
       link.querySelector(':scope > .ato-external-arrow')?.remove();
@@ -1971,6 +1958,284 @@ render();
   }
 
   window.addEventListener('ato-language-changed',()=>setTimeout(normalize,0));
+})();
+
+/* ==========================================================
+   ATO MOBILE DROPDOWNS V6 — PROFESSIONAL PANEL SYSTEM
+   One visual language for Tours, Offers, About and Languages.
+   Mobile only: desktop navigation and page destinations stay intact.
+   ========================================================== */
+(function atoMobileDropdownProfessionalV6(){
+  'use strict';
+
+  function install(){
+    if(document.getElementById('ato-mobile-dropdown-professional-v6')) return;
+
+    const style=document.createElement('style');
+    style.id='ato-mobile-dropdown-professional-v6';
+    style.textContent=`
+      @media (max-width:980px){
+        #atoGlobalHeaderRoot{
+          --ato-panel-gold:#e0b653;
+          --ato-panel-gold-soft:rgba(224,182,83,.22);
+          --ato-panel-line:rgba(224,182,83,.16);
+          --ato-panel-ink:#f7f4ed;
+          --ato-panel-muted:#aeb9c7;
+          --ato-panel-navy:#061321;
+        }
+
+        /* One clean shell: no nested frames and no transparent gaps. */
+        #atoGlobalHeaderRoot .nav .ato-header-dropdown>.dropdown-menu,
+        #atoGlobalHeaderRoot .language-menu{
+          border:1px solid var(--ato-panel-line)!important;
+          border-radius:18px!important;
+          background:
+            radial-gradient(120% 100% at 0 0,rgba(224,182,83,.095),transparent 46%),
+            linear-gradient(145deg,rgba(10,27,43,.995),rgba(4,15,28,.995))!important;
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.045),
+            0 22px 54px rgba(0,0,0,.42)!important;
+          backdrop-filter:blur(22px) saturate(1.12)!important;
+          -webkit-backdrop-filter:blur(22px) saturate(1.12)!important;
+        }
+
+        #atoGlobalHeaderRoot .nav .ato-header-dropdown>.dropdown-menu{
+          width:calc(100% - 20px)!important;
+          max-width:none!important;
+          margin:7px 10px 4px!important;
+          padding:7px!important;
+          gap:0!important;
+          overflow:hidden!important;
+        }
+
+        /* Premium reveal with a short, controlled movement. */
+        #atoGlobalHeaderRoot .nav .ato-header-dropdown.open>.dropdown-menu{
+          animation:atoMobilePanelReveal .28s cubic-bezier(.22,1,.36,1) both!important;
+          transform-origin:50% 0!important;
+        }
+        #atoGlobalHeaderRoot .language-dropdown.open>.language-menu{
+          animation:atoMobileLanguageReveal .24s cubic-bezier(.22,1,.36,1) both!important;
+          transform-origin:100% 0!important;
+        }
+        #atoGlobalHeaderRoot .nav .ato-header-dropdown.open>.dropdown-menu>*{
+          animation:atoMobileRowReveal .24s cubic-bezier(.22,1,.36,1) both!important;
+        }
+        #atoGlobalHeaderRoot .nav .ato-header-dropdown.open>.dropdown-menu>*:nth-child(2){animation-delay:.025s!important}
+        #atoGlobalHeaderRoot .nav .ato-header-dropdown.open>.dropdown-menu>*:nth-child(3){animation-delay:.05s!important}
+        #atoGlobalHeaderRoot .nav .ato-header-dropdown.open>.dropdown-menu>*:nth-child(4){animation-delay:.075s!important}
+        #atoGlobalHeaderRoot .nav .ato-header-dropdown.open>.dropdown-menu>*:nth-child(n+5){animation-delay:.09s!important}
+
+        @keyframes atoMobilePanelReveal{
+          from{opacity:0;transform:translateY(-8px) scale(.985)}
+          to{opacity:1;transform:translateY(0) scale(1)}
+        }
+        @keyframes atoMobileLanguageReveal{
+          from{opacity:0;transform:translateY(-7px) scale(.975)}
+          to{opacity:1;transform:translateY(0) scale(1)}
+        }
+        @keyframes atoMobileRowReveal{
+          from{opacity:0;transform:translateY(-4px)}
+          to{opacity:1;transform:translateY(0)}
+        }
+
+        /* Professional rows shared by Tours, Offers and About. */
+        #atoGlobalHeaderRoot .nav .dropdown-menu>.ato-grid-row,
+        #atoGlobalHeaderRoot .nav .dropdown-menu>.ato-menu-group>.ato-grid-row,
+        #atoGlobalHeaderRoot .nav .dropdown-menu>.ato-menu-group>a.ato-grid-row{
+          display:grid!important;
+          grid-template-columns:38px minmax(0,1fr) 18px!important;
+          align-items:center!important;
+          column-gap:11px!important;
+          width:100%!important;
+          min-width:0!important;
+          min-height:52px!important;
+          height:auto!important;
+          margin:0!important;
+          padding:7px 10px!important;
+          border:0!important;
+          border-bottom:1px solid rgba(255,255,255,.055)!important;
+          border-radius:0!important;
+          background:transparent!important;
+          box-shadow:none!important;
+          color:var(--ato-panel-ink)!important;
+          font:700 13px/1.28 "Segoe UI",Arial,sans-serif!important;
+          letter-spacing:.035em!important;
+          text-transform:none!important;
+        }
+        #atoGlobalHeaderRoot .nav .dropdown-menu>.ato-grid-row:last-child,
+        #atoGlobalHeaderRoot .nav .dropdown-menu>.ato-menu-group:last-child>a.ato-grid-row:last-child{
+          border-bottom-color:transparent!important;
+        }
+        #atoGlobalHeaderRoot .nav .dropdown-menu a.ato-grid-row:active{
+          background:linear-gradient(90deg,rgba(224,182,83,.12),rgba(224,182,83,.025))!important;
+          color:#f5d589!important;
+          transform:scale(.992)!important;
+        }
+
+        /* All SVG medallions are truly circular and the same size. */
+        #atoGlobalHeaderRoot .nav .dropdown-menu .ato-grid-symbol{
+          grid-column:1!important;
+          display:grid!important;
+          place-items:center!important;
+          width:32px!important;
+          min-width:32px!important;
+          max-width:32px!important;
+          height:32px!important;
+          min-height:32px!important;
+          max-height:32px!important;
+          margin:0!important;
+          padding:0!important;
+          border:1px solid rgba(224,182,83,.34)!important;
+          border-radius:50%!important;
+          background:linear-gradient(145deg,rgba(224,182,83,.10),rgba(255,255,255,.018))!important;
+          color:#e7bd62!important;
+          box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+          aspect-ratio:1/1!important;
+        }
+        #atoGlobalHeaderRoot .nav .dropdown-menu .ato-grid-symbol .ato-cat-svg{
+          width:16px!important;
+          height:16px!important;
+          stroke-width:1.55!important;
+        }
+        #atoGlobalHeaderRoot .nav .dropdown-menu .ato-dropdown-label{
+          grid-column:2!important;
+          min-width:0!important;
+          margin:0!important;
+          padding:0!important;
+          color:inherit!important;
+          font:inherit!important;
+          letter-spacing:inherit!important;
+          white-space:normal!important;
+          overflow:visible!important;
+          text-overflow:clip!important;
+        }
+        #atoGlobalHeaderRoot .nav .dropdown-menu a.ato-grid-row::after{
+          content:"›"!important;
+          grid-column:3!important;
+          justify-self:center!important;
+          color:rgba(231,189,98,.9)!important;
+          font:300 25px/1 Georgia,serif!important;
+          transform:none!important;
+          opacity:1!important;
+        }
+
+        /* Licenses: a restrained section, not a card inside another card. */
+        #atoGlobalHeaderRoot .nav .ato-about-menu>.ato-menu-group{
+          display:block!important;
+          width:100%!important;
+          margin:3px 0 0!important;
+          padding:0!important;
+          border:0!important;
+          border-bottom:1px solid rgba(255,255,255,.055)!important;
+          border-radius:0!important;
+          background:transparent!important;
+          box-shadow:none!important;
+          overflow:hidden!important;
+        }
+        #atoGlobalHeaderRoot .nav .ato-about-menu>.ato-menu-group>.ato-menu-group-label{
+          grid-template-columns:38px minmax(0,1fr)!important;
+          min-height:48px!important;
+          padding:6px 10px!important;
+          border:0!important;
+          background:linear-gradient(90deg,rgba(224,182,83,.085),transparent 72%)!important;
+          color:#e8c36e!important;
+          font-size:11.5px!important;
+          font-weight:800!important;
+          letter-spacing:.09em!important;
+          text-transform:uppercase!important;
+        }
+        #atoGlobalHeaderRoot .nav .ato-about-menu>.ato-menu-group>a.ato-grid-row{
+          min-height:50px!important;
+          padding-left:18px!important;
+          background:rgba(255,255,255,.012)!important;
+          color:#edf1f5!important;
+        }
+        #atoGlobalHeaderRoot .nav .ato-about-menu>.ato-menu-group>a.ato-grid-row:last-child{
+          border-bottom:0!important;
+        }
+        #atoGlobalHeaderRoot .nav .ato-about-menu .ato-external-arrow{
+          display:none!important;
+        }
+
+        /* Compact language window, always above the ticker. */
+        #atoGlobalHeaderRoot .header.ato-language-panel-open{z-index:2147483100!important}
+        #atoGlobalHeaderRoot .language-menu{
+          top:84px!important;
+          right:10px!important;
+          left:auto!important;
+          width:230px!important;
+          max-width:calc(100vw - 20px)!important;
+          padding:6px!important;
+          overflow:hidden!important;
+          z-index:2147483105!important;
+        }
+        #atoGlobalHeaderRoot .language-menu .language-close{display:none!important}
+        #atoGlobalHeaderRoot .language-menu a.ato-lang-row{
+          display:grid!important;
+          grid-template-columns:42px minmax(0,1fr) 18px!important;
+          gap:8px!important;
+          min-height:44px!important;
+          margin:0!important;
+          padding:7px 10px!important;
+          border:0!important;
+          border-bottom:1px solid rgba(255,255,255,.055)!important;
+          border-radius:0!important;
+          background:transparent!important;
+          color:#f3f0e9!important;
+          font:600 13px/1.2 "Segoe UI",Arial,sans-serif!important;
+        }
+        #atoGlobalHeaderRoot .language-menu a.ato-lang-row:last-child{border-bottom:0!important}
+        #atoGlobalHeaderRoot .language-menu .ato-lang-code{
+          color:#e7bd62!important;
+          font-weight:800!important;
+          letter-spacing:.06em!important;
+        }
+        #atoGlobalHeaderRoot .language-menu .ato-lang-name{color:#e9edf2!important}
+        #atoGlobalHeaderRoot .language-menu .ato-lang-check{
+          color:#e7bd62!important;
+          font-size:14px!important;
+        }
+        #atoGlobalHeaderRoot .language-menu a.ato-lang-row:active,
+        #atoGlobalHeaderRoot .language-menu a.ato-lang-row.is-active{
+          background:linear-gradient(90deg,rgba(224,182,83,.10),rgba(224,182,83,.02))!important;
+        }
+      }
+
+      @media (max-width:380px){
+        #atoGlobalHeaderRoot .nav .dropdown-menu>.ato-grid-row,
+        #atoGlobalHeaderRoot .nav .dropdown-menu>.ato-menu-group>.ato-grid-row,
+        #atoGlobalHeaderRoot .nav .dropdown-menu>.ato-menu-group>a.ato-grid-row{
+          grid-template-columns:34px minmax(0,1fr) 16px!important;
+          column-gap:9px!important;
+          font-size:12px!important;
+        }
+        #atoGlobalHeaderRoot .nav .dropdown-menu .ato-grid-symbol{
+          width:30px!important;min-width:30px!important;max-width:30px!important;
+          height:30px!important;min-height:30px!important;max-height:30px!important;
+        }
+      }
+
+      @media (prefers-reduced-motion:reduce){
+        #atoGlobalHeaderRoot .nav .ato-header-dropdown.open>.dropdown-menu,
+        #atoGlobalHeaderRoot .nav .ato-header-dropdown.open>.dropdown-menu>*,
+        #atoGlobalHeaderRoot .language-dropdown.open>.language-menu{
+          animation:none!important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    const root=document.getElementById('atoGlobalHeaderRoot');
+    if(root){
+      root.querySelectorAll('.ato-about-menu a[href*="tursab.org.tr"] .ato-external-arrow').forEach(node=>node.remove());
+      const verify=root.querySelector('.ato-about-menu a[href*="tursab.org.tr"] .ato-dropdown-label');
+      if(verify) verify.textContent=verify.textContent.replace(/\s*↗\s*$/,'').trim();
+    }
+  }
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+  window.addEventListener('ato-language-changed',()=>setTimeout(install,0));
 })();
 
 /* ATO AI TRAVEL COMPANION — global client-page loader.

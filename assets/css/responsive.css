@@ -926,6 +926,57 @@ button,a,[role="button"]{
   }
 }
 
+/* ======================================================================
+   MOBILE CATEGORY TITLES — WHITE WITH A RESTRAINED EMERALD LIGHT PASS
+   Keeps the premium navy/gold system; the emerald is an accent, not a fill.
+   ====================================================================== */
+@media (max-width:760px){
+  .main-categories-grid .category-card .category-body h3{
+    color:#f7fbfa!important;
+    background-image:linear-gradient(
+      104deg,
+      #f7fbfa 0%,
+      #f7fbfa 40%,
+      #8fffe1 47%,
+      #22c99a 51%,
+      #d9fff5 55%,
+      #f7fbfa 62%,
+      #f7fbfa 100%
+    )!important;
+    background-size:260% 100%!important;
+    background-position:135% 50%!important;
+    background-repeat:no-repeat!important;
+    -webkit-background-clip:text!important;
+    background-clip:text!important;
+    -webkit-text-fill-color:transparent!important;
+    text-shadow:0 0 14px rgba(38,207,157,.055)!important;
+    animation:atoCategoryEmeraldPass 7.2s cubic-bezier(.22,.61,.36,1) infinite!important;
+    will-change:background-position!important;
+  }
+
+  .main-categories-grid .category-card:nth-child(2n) .category-body h3{
+    animation-delay:.55s!important;
+  }
+  .main-categories-grid .category-card:nth-child(3n) .category-body h3{
+    animation-delay:1.1s!important;
+  }
+
+  @keyframes atoCategoryEmeraldPass{
+    0%,34%{background-position:135% 50%}
+    57%,100%{background-position:-135% 50%}
+  }
+}
+
+@media (max-width:760px) and (prefers-reduced-motion:reduce){
+  .main-categories-grid .category-card .category-body h3{
+    color:#f7fbfa!important;
+    background:none!important;
+    -webkit-text-fill-color:#f7fbfa!important;
+    animation:none!important;
+    text-shadow:none!important;
+  }
+}
+
 /* ----------------------------------------------------------------------
    10. NARROW MOBILE <= 430
    ---------------------------------------------------------------------- */
@@ -1712,23 +1763,23 @@ button,a,[role="button"]{
     filter:drop-shadow(0 0 4px rgba(226,185,83,.18))!important;
   }
 
-  /* 3 — LANGUAGE PANEL: compact, letter codes like desktop, gold X. */
+  /* 3 — LANGUAGE PANEL: narrow, compact and above the promo ticker. */
   #atoGlobalHeaderRoot .language-menu.ato-v8-language-menu{
     position:fixed!important;
     top:84px!important;
-    right:14px!important;
+    right:12px!important;
     left:auto!important;
-    width:min(76vw,300px)!important;
-    max-width:300px!important;
-    padding:54px 16px 16px!important;
-    border-radius:0 0 24px 24px!important;
+    width:230px!important;
+    max-width:calc(100vw - 24px)!important;
+    padding:7px!important;
+    border-radius:16px!important;
     background:rgba(5,13,25,.985)!important;
     border:1px solid rgba(215,168,62,.22)!important;
     box-shadow:0 26px 70px rgba(0,0,0,.50)!important;
     overflow:hidden!important;
   }
   #atoGlobalHeaderRoot .language-menu .ato-v8-language-close{
-    display:grid!important;
+    display:none!important;
     place-items:center!important;
     position:absolute!important;
     top:8px!important;
@@ -1757,11 +1808,11 @@ button,a,[role="button"]{
   }
   #atoGlobalHeaderRoot .language-menu .ato-v8-lang-row{
     display:grid!important;
-    grid-template-columns:42px minmax(0,1fr)!important;
+    grid-template-columns:42px minmax(0,1fr) 16px!important;
     align-items:center!important;
-    gap:12px!important;
-    min-height:52px!important;
-    padding:10px 12px!important;
+    gap:0!important;
+    min-height:44px!important;
+    padding:0 9px 0 0!important;
     color:#fff!important;
     text-decoration:none!important;
     border-radius:12px!important;
@@ -2023,7 +2074,7 @@ button,a,[role="button"]{
     aspect-ratio:2 / 1!important;
     margin:0!important;
     padding:0!important;
-    transform:none!important;
+    transform:translateX(9vw)!important;
     transform-origin:center center!important;
     overflow:visible!important;
   }
@@ -2041,7 +2092,7 @@ button,a,[role="button"]{
   /* 2. CONTACT PHONES — absolutely identical mobile number size. */
   #contacts .contact-grid > div:first-child > a[href*="wa.me"],
   #contacts .contact-hotline a[href^="tel:"]{
-    font-size:clamp(30px,7.4vw,35px)!important;
+    font-size:clamp(25px,6.8vw,30px)!important;
     line-height:1.08!important;
   }
   #contacts .contact-hotline{
@@ -2121,15 +2172,16 @@ button,a,[role="button"]{
     padding-right:25px!important;
   }
 
-  /* 5. LANGUAGES — RU / EN / TR / DE / PL, no flags + gold working X. */
+  /* 5. LANGUAGES — RU / EN / TR / DE / PL, compact and auto-closing. */
   #atoGlobalHeaderRoot .language-menu{
-    padding-top:52px!important;
+    padding-top:7px!important;
   }
   #atoGlobalHeaderRoot .language-menu a[data-lang]{
     display:grid!important;
-    grid-template-columns:42px minmax(0,1fr)!important;
+    grid-template-columns:42px minmax(0,1fr) 16px!important;
     align-items:center!important;
-    gap:12px!important;
+    gap:0!important;
+    min-height:44px!important;
   }
   #atoGlobalHeaderRoot .ato-lang-code,
   #atoGlobalHeaderRoot .ato-v8-lang-code{
@@ -2143,13 +2195,13 @@ button,a,[role="button"]{
   #atoGlobalHeaderRoot .ato-lang-name,
   #atoGlobalHeaderRoot .ato-v8-lang-name{
     color:#fff!important;
-    font:700 15px/1.2 Arial,sans-serif!important;
+    font:700 13.5px/1.2 Arial,sans-serif!important;
   }
 
   #atoGlobalHeaderRoot .language-menu .language-close,
   #atoGlobalHeaderRoot .language-menu .language-close.ato-mobile-language-x,
   #atoGlobalHeaderRoot .language-menu .language-close.ato-v8-language-close{
-    display:grid!important;
+    display:none!important;
     place-items:center!important;
     position:absolute!important;
     top:8px!important;
@@ -2187,6 +2239,6 @@ button,a,[role="button"]{
   }
   #contacts .contact-grid > div:first-child > a[href*="wa.me"],
   #contacts .contact-hotline a[href^="tel:"]{
-    font-size:clamp(30px,7.4vw,35px)!important;
+    font-size:clamp(25px,6.8vw,30px)!important;
   }
 }
