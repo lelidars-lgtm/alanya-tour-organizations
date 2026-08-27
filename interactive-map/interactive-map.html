@@ -1483,8 +1483,9 @@ if(window.__ATO_MAP_DIRECT_HEADER__){
     z-index:120!important;
     inset:8px max(8px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left))!important;
     width:auto!important;
+    min-width:0!important;
     height:auto!important;
-    max-width:none!important;
+    max-width:calc(100% - 16px)!important;
     max-height:calc(100% - 16px)!important;
     box-sizing:border-box!important;
     padding:12px 18px calc(96px + env(safe-area-inset-bottom))!important;
@@ -1496,8 +1497,12 @@ if(window.__ATO_MAP_DIRECT_HEADER__){
     border:1px solid rgba(241,202,104,.72)!important;
     border-radius:16px!important;
     background:linear-gradient(180deg,rgba(3,17,30,.995),rgba(2,13,23,.995))!important;
+    transform:none!important;
+    zoom:1!important;
+    contain:layout paint!important;
   }
-  html.ato-map-mobile-device body.mobile-filter-open .sidebar *{box-sizing:border-box}
+  html.ato-map-mobile-device body.mobile-filter-open .sidebar *{box-sizing:border-box;max-width:100%}
+  html.ato-map-mobile-device body.mobile-filter-open .sidebar>*{min-width:0!important;width:100%}
   html.ato-map-mobile-device body.mobile-filter-open .mobile-filter-close{
     display:flex!important;
     position:sticky!important;
@@ -1516,19 +1521,21 @@ if(window.__ATO_MAP_DIRECT_HEADER__){
     font:900 27px/1 Arial,sans-serif!important;
     box-shadow:0 8px 22px rgba(0,0,0,.42)!important;
   }
-  html.ato-map-mobile-device body.mobile-filter-open .map-tour-search{width:100%!important;max-width:100%!important}
+  html.ato-map-mobile-device body.mobile-filter-open .map-search-wrap{min-width:0!important;max-width:100%!important;overflow:hidden!important}
+  html.ato-map-mobile-device body.mobile-filter-open .map-tour-search{display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;font-size:16px!important;transform:none!important}
   html.ato-map-mobile-device body.mobile-filter-open .mobile-filter-live-results{display:block!important;margin:18px 0 8px!important;padding-top:15px!important;border-top:1px solid rgba(241,202,104,.28)!important}
-  html.ato-map-mobile-device .mobile-filter-results-head{display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:10px!important;margin-bottom:10px!important}
+  html.ato-map-mobile-device .mobile-filter-results-head{display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:10px!important;min-width:0!important;max-width:100%!important;margin-bottom:10px!important}
   html.ato-map-mobile-device .mobile-filter-results-head strong{color:#f1ca68!important;font-size:12px!important;letter-spacing:.8px!important}
   html.ato-map-mobile-device .mobile-filter-compare-open{min-height:30px!important;padding:7px 9px!important;border:1px solid rgba(241,202,104,.55)!important;border-radius:8px!important;background:#073f39!important;color:#fff!important;font:900 8px/1 Arial,sans-serif!important;letter-spacing:.3px!important}
   html.ato-map-mobile-device .mobile-filter-compare-open:disabled{opacity:.45!important}
-  html.ato-map-mobile-device .mobile-filter-results-list{display:grid!important;gap:8px!important}
-  html.ato-map-mobile-device .mobile-filter-result-card{display:grid!important;grid-template-columns:76px minmax(0,1fr)!important;gap:10px!important;min-height:78px!important;padding:8px!important;border:1px solid rgba(241,202,104,.2)!important;border-radius:11px!important;background:linear-gradient(100deg,rgba(10,34,52,.98),rgba(4,20,34,.99))!important}
+  html.ato-map-mobile-device .mobile-filter-results-list{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:8px!important;min-width:0!important;width:100%!important;max-width:100%!important;overflow:hidden!important}
+  html.ato-map-mobile-device .mobile-filter-results-heading{margin:12px 0 2px;padding-top:11px;border-top:1px solid rgba(241,202,104,.22);color:#f1ca68;font:900 10px/1.2 Arial,sans-serif;letter-spacing:1.2px}
+  html.ato-map-mobile-device .mobile-filter-result-card{display:grid!important;grid-template-columns:76px minmax(0,1fr)!important;gap:10px!important;min-width:0!important;width:100%!important;max-width:100%!important;min-height:78px!important;padding:8px!important;overflow:hidden!important;border:1px solid rgba(241,202,104,.2)!important;border-radius:11px!important;background:linear-gradient(100deg,rgba(10,34,52,.98),rgba(4,20,34,.99))!important}
   html.ato-map-mobile-device .mobile-filter-result-card img{width:76px!important;height:62px!important;object-fit:cover!important;border-radius:8px!important;background:#0b2234!important}
   html.ato-map-mobile-device .mobile-filter-result-copy{min-width:0!important;display:flex!important;flex-direction:column!important;gap:5px!important}
   html.ato-map-mobile-device .mobile-filter-result-title{color:#fff!important;font-size:11px!important;font-weight:900!important;line-height:1.2!important;text-decoration:none!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
   html.ato-map-mobile-device .mobile-filter-result-meta{color:#9fb0bc!important;font-size:9px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
-  html.ato-map-mobile-device .mobile-filter-result-actions{display:flex!important;align-items:center!important;gap:6px!important;margin-top:auto!important}
+  html.ato-map-mobile-device .mobile-filter-result-actions{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:6px!important;min-width:0!important;max-width:100%!important;margin-top:auto!important}
   html.ato-map-mobile-device .mobile-filter-result-price{margin-right:auto!important;color:#f1ca68!important;font-size:12px!important;font-weight:900!important}
   html.ato-map-mobile-device .mobile-filter-result-view,html.ato-map-mobile-device .mobile-filter-result-compare{min-height:27px!important;padding:6px 7px!important;border-radius:7px!important;font:900 7px/1 Arial,sans-serif!important;letter-spacing:.25px!important;text-decoration:none!important;white-space:nowrap!important}
   html.ato-map-mobile-device .mobile-filter-result-view{border:0!important;background:linear-gradient(100deg,#a66d13,#edc75f)!important;color:#06111b!important}
@@ -2541,6 +2548,35 @@ function tourMatchesBestMode(t,mode){
 }
 
 function normalizedText(value){return String(value||'').toLocaleLowerCase('en').trim();}
+function compactSearchText(value){return normalizedText(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\u0400-\u04ff]+/g,' ').replace(/(.)\1+/g,'$1').trim();}
+function searchMatchScore(t,query){
+  const q=compactSearchText(query);if(!q)return 0;
+  const title=compactSearchText(t.title),haystack=compactSearchText(`${t.title} ${t.desc} ${t.address||''}`);
+  const words=title.split(/\s+/).filter(Boolean);
+  if(title===q)return 1000;
+  if(words.some(word=>word===q))return 900;
+  if(words.some(word=>word.startsWith(q)))return 800;
+  if(title.startsWith(q))return 700;
+  if(title.includes(q))return 600;
+  if(haystack.includes(q))return 400;
+  return -1;
+}
+function tourCardImage(t){
+  const byPage={
+    'parasailing.html':'images/parasailing-adventure-alanya/HERO.png','jet-ski.html':'images/jet-ski/HERO.png','e-foil.html':'images/e-foil/HERO.png','wakeboard.html':'images/wakeboarding/HERO.png','water-ski.html':'images/water-ski/HERO.png','luxury-jet-car.html':'images/jet-car/HERO.png','speed-boat-tour.html':'images/speed-boat-tour/HERO.png','twister.html':'images/twister/HERO.png','banana-boat.html':'images/banana-boat/HERO.png','sofa-ride.html':'images/sofa-ride/HERO.png','sup-boarding.html':'images/sup-boarding/HERO.png','scuba-diving.html':'images/scuba-diving/HERO.png',
+    'pirate-yacht.html':'images/admiral-black-hero.jpg','relax-boat-tour.html':'images/relax-boat/relax-hero.jpg','catamaran.html':'images/catamaran/catamaran-hero.jpg','private-fishing-tour.html':'images/private-fishing/private-fishing-hero.jpeg','fishing-tour.html':'images/group-fishing/group-fishing-hero.jpg','adrasan-suluada-porto-genovese.html':'images/adrasan-suluada/adrasan-hero.png','gazipasa-bays.html':'images/gazipasa-bays/gazipasa-hero.png','luxury-yacht-cruise.html':'images/luxury-yacht/luxury-hero.png',
+    'paragliding.html':'images/paragliding/hero.png','helicopter-flight.html':'images/helicopter-flight/hero.png','skydive-experience.html':'images/skydive-experience/hero.png','rafting-koprulu-canyon.html':'images/rafting/rafting.hero.png','jeep-safari.html':'images/jeep-safari/hero.png','quad-safari.html':'images/quad-safari/hero.png','family-jeep-safari.html':'images/extreme-adventure/family-jeep-hero.png','family-buggy-safari.html':'images/family-buggy/hero.png',
+    'green-canyon.html':'images/green-canyon/hero.png','sapadere-canyon.html':'images/sapadere-canyon/hero.png','pamukkale-salda.html':'images/pamukkale-salda/hero.png','horse-riding.html':'images/horse-riding/hero.png','land-of-legends.html':'images/land-of-legends/hero.png','sealanya-dolphinpark.html':'images/sealanya-dolphinpark/hero.png','eftalia-island-waterpark.html':'images/eftalia-island/hero.png','night-jeep-safari.html':'images/night-jeep-safari/hero.png',
+    'cappadocia.html':'images/cappadocia/hero.png','demre-myra-kekova.html':'images/demre-myra-kekova/demre-myra-kekova-hero.png','istanbul-tour.html':'images/istanbul-tour/istanbul-tour-hero.png','syedra-ancient-city.html':'images/syedra-ancient-city/hero.png','anamur.html':'images/anamur/hero.png','aspendos.html':'images/aspendos/hero.png','alanya-city-tour.html':'images/alanya-city-tour/alanya-city-tour-hero.png','manavgat-aspendos-side.html':'images/manavgat-aspendos-side/hero.png',
+    'airport-vip-transfer.html':'images/airport-vip-transfer/HERO.png','private-yacht-charter.html':'images/private-yacht-charter/HERO.png','personal-concierge.html':'images/personal-concierge/HERO.png','helicopter-experience.html':'images/helicopter-experience/HERO.png','private-photographer.html':'images/private-photographer/HERO.png','turkish-hammam.html':'images/turkish-hammam-alanya/HERO.png','turkish-massage-spa.html':'images/turkish-massage-spa/HERO.png'
+  };
+  const localMapImages={
+    'aspendos':'aspendos.png','syedra-ancient-city':'syedra-ancient-city.png','luxury-jet-car':'luxury-jet-car.png','quad-safari':'quad-safari-master.png','jet-ski':'jet-ski.png','airport-vip-transfer':'airport-vip-transfer.png','water-ski':'water-ski.png','horse-riding':'horse-riding.png','turkish-hammam':'turkish-hammam.png','twister':'twister.png','private-yacht-charter':'private-yacht-charter.png','family-buggy-safari':'family-buggy-safari.png','turkish-massage-spa':'turkish-massage-spa.png','istanbul-tour':'istanbul-tour.png','scuba-diving':'scuba-diving.png','personal-concierge':'personal-concierge.png','parasailing':'parasailing.png','green-canyon':'green-canyon.jpg','demre-myra-kekova':'demre-myra-kekova.png','speed-boat-tour':'speed-boat-tour.png','wakeboard':'wakeboard.png','helicopter-flight':'helicopter-flight.png','night-jeep-safari':'night-jeep-safari.png','private-photographer':'private-photographer.png','land-of-legends':'land-of-legends.png','banana-boat':'banana-boat.png','paragliding':'paragliding.png','sapadere-canyon':'sapadere-canyon.png','skydive-experience':'skydive-experience.jpeg','manavgat-aspendos-side':'manavgat-aspendos-side.png','sup-boarding':'sup-boarding.png','anamur':'anamur.png','jeep-safari':'jeep-safari.png','eftalia-island-waterpark':'eftalia-island-waterpark.png','cappadocia':'cappadocia.png','sealanya-dolphinpark':'sealanya-dolphinpark.png','alanya-city-tour':'alanya-city-tour.png','sofa-ride':'sofa-ride.png','e-foil':'e-foil.png'
+  };
+  if(localMapImages[t.id])return `assets/images/tours/${localMapImages[t.id]}`;
+  const file=String(t.page||'').split('/').pop();
+  return t.image||('../'+(byPage[file]||({sea:'sea.jpg',water:'watersports.jpg',nature:'nature.jpg',family:'family.jpg',history:'history.jpg',air:'air.jpg',wellness:'wellness.jpg',extreme:'extreme.jpg'}[t.icon]||'mobile-hero.jpg')));
+}
 function tagMatches(t,tag){
   if(tag==='family'||tag==='kids')return t.family===true||t.categories.includes('family');
   if(tag==='vip'||tag==='luxury')return t.categories.includes('vip');
@@ -2571,7 +2607,7 @@ function visible(t){
     &&(!f.hotelTransfer||t.transfer===true)
     &&(!f.familyFriendly||t.family===true||t.categories.includes('family'))
     &&(!f.privateTour||t.privateTour===true)
-    &&(!query||normalizedText(`${t.title} ${t.desc} ${t.address||''}`).includes(query))
+    &&(!query||searchMatchScore(t,query)>=0)
     &&tags.every(tag=>tagMatches(t,tag));
 }
 function currentSequence(){return tours.filter(t=>visible(t)&&hasCoords(t)).map(t=>t.id);}
@@ -2749,7 +2785,7 @@ function fitVisible(){
     map.resize();
     updateCategoryWeb();
     const mobile=window.matchMedia('(max-width:900px), (hover:none) and (pointer:coarse)').matches;
-    if(MOBILE_MAP_DEVICE&&activeCategory==='all'){
+    if(MOBILE_MAP_DEVICE&&activeCategory==='all'&&!mobileFiltersApplied){
       map.easeTo({center:ALANYA,zoom:9.15,pitch:12,bearing:0,duration:1200,essential:true,easing:t=>1-Math.pow(1-t,3)});
       return;
     }
@@ -3085,23 +3121,34 @@ setTimeout(updateCategoryArrows,100);
 
 function setToggleState(id,on){document.getElementById(id)?.classList.toggle('on',Boolean(on));}
 function escapeFilterResultText(value){return String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));}
+const MOBILE_POPULAR_COMBOS=[
+  {title:'Rafting, Buggy & Zipline 6 in 1',page:'../rafting-buggy-zipline-6-in-1.html',image:'../extreme.jpg',meta:'COMBO DEAL · FULL DAY'},
+  {title:'Night Jeep Safari',page:'../night-jeep-safari.html',image:'assets/images/tours/night-jeep-safari.png',meta:'COMBO DEAL · EVENING'},
+  {title:'The Land of Legends: Day + Night',page:'../combo-deals.html',image:'assets/images/tours/land-of-legends.png',meta:'COMBO DEAL · DAY + NIGHT'},
+  {title:'Aspendos, Side & Manavgat Waterfall',page:'../manavgat-aspendos-side.html',image:'assets/images/tours/manavgat-aspendos-side.png',meta:'COMBO DEAL · FULL DAY'},
+  {title:'Pamukkale & Salda Lake',page:'../pamukkale-salda.html',image:'../nature.jpg',meta:'COMBO DEAL · FULL DAY'},
+  {title:'Demre, Myra & Kekova',page:'../demre-myra-kekova.html',image:'assets/images/tours/demre-myra-kekova.png',meta:'COMBO DEAL · FULL DAY'}
+];
 function renderMobileFilterResults(){
   if(!MOBILE_MAP_DEVICE)return;
   const container=document.getElementById('mobileFilterResultsList');
   const countLabel=document.getElementById('mobileFilterResultsCount');
   if(!container||!countLabel)return;
-  const selected=tours.filter(t=>visible(t)&&hasCoords(t));
+  const query=sharedFilterState?.search||'';
+  const selected=tours.filter(t=>visible(t)&&hasCoords(t)).sort((a,b)=>searchMatchScore(b,query)-searchMatchScore(a,query));
   countLabel.textContent=`${selected.length} ${selected.length===1?'RESULT':'RESULTS'}`;
   if(!selected.length){
     container.innerHTML='<div class="location-help">No matching tours. Change one of the filters above.</div>';
     return;
   }
-  container.innerHTML=selected.map(t=>{
+  const tourCards=selected.map(t=>{
     const title=escapeFilterResultText(t.title),duration=escapeFilterResultText(t.duration||'Check availability');
-    const image=escapeFilterResultText(t.image||'/logo.png'),page=escapeFilterResultText(t.page||'#');
+    const image=escapeFilterResultText(tourCardImage(t)),page=escapeFilterResultText(t.page||'#');
     const price=t.price==null?'ON REQUEST':`€${escapeFilterResultText(t.price)}`;
-    return `<article class="mobile-filter-result-card"><img src="${image}" alt="${title}" loading="lazy" onerror="this.onerror=null;this.src='/logo.png'"><div class="mobile-filter-result-copy"><a class="mobile-filter-result-title" href="${page}">${title}</a><div class="mobile-filter-result-meta">${duration} · ${t.transfer?'TRANSFER INCLUDED':'SEE TOUR DETAILS'}</div><div class="mobile-filter-result-actions"><span class="mobile-filter-result-price">${price}</span><a class="mobile-filter-result-view" href="${page}">VIEW</a><button type="button" class="mobile-filter-result-compare" data-compare-id="${escapeFilterResultText(t.id)}">＋ COMPARE</button></div></div></article>`;
+    return `<article class="mobile-filter-result-card"><img src="${image}" alt="${title}" loading="lazy" onerror="this.onerror=null;this.src='../mobile-hero.jpg'"><div class="mobile-filter-result-copy"><a class="mobile-filter-result-title" href="${page}">${title}</a><div class="mobile-filter-result-meta">${duration} · ${t.transfer?'TRANSFER INCLUDED':'SEE TOUR DETAILS'}</div><div class="mobile-filter-result-actions"><span class="mobile-filter-result-price">${price}</span><a class="mobile-filter-result-view" href="${page}">VIEW</a><button type="button" class="mobile-filter-result-compare" data-compare-id="${escapeFilterResultText(t.id)}">＋ COMPARE</button></div></div></article>`;
   }).join('');
+  const comboCards=activeBestMode==='popular'&&!query?`<div class="mobile-filter-results-heading">POPULAR COMBO DEALS</div>${MOBILE_POPULAR_COMBOS.map(c=>`<article class="mobile-filter-result-card"><img src="${escapeFilterResultText(c.image)}" alt="${escapeFilterResultText(c.title)}" loading="lazy"><div class="mobile-filter-result-copy"><a class="mobile-filter-result-title" href="${escapeFilterResultText(c.page)}">${escapeFilterResultText(c.title)}</a><div class="mobile-filter-result-meta">${escapeFilterResultText(c.meta)}</div><div class="mobile-filter-result-actions"><a class="mobile-filter-result-view" href="${escapeFilterResultText(c.page)}">VIEW DEAL</a></div></div></article>`).join('')}`:'';
+  container.innerHTML=tourCards+comboCards;
   updateCompareUI();
 }
 function applySharedFilters(next){
