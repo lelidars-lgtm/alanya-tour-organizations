@@ -932,25 +932,38 @@ button,a,[role="button"]{
    ====================================================================== */
 @media (max-width:760px){
   .main-categories-grid .category-card .category-body h3{
+    display:block!important;
+    max-width:calc(100% - 74px)!important;
+    min-width:0!important;
+    margin:0 74px 0 0!important;
+    padding:0!important;
     color:#f7fbfa!important;
+    font-size:clamp(16px,4.6vw,18px)!important;
+    line-height:1.18!important;
+    white-space:normal!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+    word-break:normal!important;
+    overflow-wrap:anywhere!important;
     background-image:linear-gradient(
-      104deg,
+      100deg,
       #f7fbfa 0%,
-      #f7fbfa 40%,
-      #8fffe1 47%,
-      #22c99a 51%,
-      #d9fff5 55%,
-      #f7fbfa 62%,
+      #f7fbfa 34%,
+      #d9fff5 42%,
+      #89f5d6 47%,
+      #1dbb8d 52%,
+      #bafbea 58%,
+      #f7fbfa 66%,
       #f7fbfa 100%
     )!important;
-    background-size:260% 100%!important;
-    background-position:135% 50%!important;
+    background-size:240% 100%!important;
+    background-position:-135% 50%!important;
     background-repeat:no-repeat!important;
     -webkit-background-clip:text!important;
     background-clip:text!important;
     -webkit-text-fill-color:transparent!important;
-    text-shadow:0 0 14px rgba(38,207,157,.055)!important;
-    animation:atoCategoryEmeraldPass 7.2s cubic-bezier(.22,.61,.36,1) infinite!important;
+    text-shadow:0 0 14px rgba(38,207,157,.07)!important;
+    animation:atoCategoryEmeraldPass 6.8s cubic-bezier(.22,.61,.36,1) infinite!important;
     will-change:background-position!important;
   }
 
@@ -961,9 +974,14 @@ button,a,[role="button"]{
     animation-delay:1.1s!important;
   }
 
+  .main-categories-grid .category-card .category-body p{
+    max-width:calc(100% - 74px)!important;
+    margin-right:74px!important;
+  }
+
   @keyframes atoCategoryEmeraldPass{
-    0%,34%{background-position:135% 50%}
-    57%,100%{background-position:-135% 50%}
+    0%,34%{background-position:-135% 50%}
+    57%,100%{background-position:135% 50%}
   }
 }
 
@@ -1175,6 +1193,17 @@ button,a,[role="button"]{
   .category-card .category-body p{
     max-width:100%!important;
     overflow-wrap:anywhere!important;
+  }
+  .main-categories-grid .category-card .category-body h3{
+    max-width:calc(100% - 74px)!important;
+    margin-right:74px!important;
+    white-space:normal!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+  }
+  .main-categories-grid .category-card .category-body p{
+    max-width:calc(100% - 74px)!important;
+    margin-right:74px!important;
   }
   .category-card .category-arrow{
     right:18px!important;
@@ -2240,5 +2269,361 @@ button,a,[role="button"]{
   #contacts .contact-grid > div:first-child > a[href*="wa.me"],
   #contacts .contact-hotline a[href^="tel:"]{
     font-size:clamp(25px,6.8vw,30px)!important;
+  }
+}
+
+/* ======================================================================
+   ATO MOBILE · TOUR FINDER SEARCH SPOTLIGHT · V32
+   Mobile only. Desktop styles are intentionally untouched.
+   ====================================================================== */
+@media (max-width:760px){
+  /* Premium mobile title immediately above the Tour Finder search. */
+  .tour-sidebar > h3{
+    position:relative;
+    width:max-content;
+    max-width:100%;
+    margin:0 auto 24px!important;
+    padding:0 10px 15px!important;
+    color:#f1c765!important;
+    font-family:"Iowan Old Style","Baskerville","Palatino Linotype","Book Antiqua",Georgia,serif!important;
+    font-size:clamp(20px,5.6vw,25px)!important;
+    font-weight:500!important;
+    line-height:1.08!important;
+    letter-spacing:.075em!important;
+    text-align:center!important;
+    text-transform:uppercase!important;
+    text-wrap:balance;
+    text-shadow:
+      0 0 10px rgba(241,199,101,.18),
+      0 2px 16px rgba(0,0,0,.40)!important;
+  }
+
+  .tour-sidebar > h3::before,
+  .tour-sidebar > h3::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    width:clamp(38px,12vw,62px);
+    height:1px;
+    background:linear-gradient(90deg,transparent,rgba(241,199,101,.92));
+    box-shadow:0 0 7px rgba(241,199,101,.28);
+  }
+
+  .tour-sidebar > h3::before{
+    left:50%;
+    transform:translateX(calc(-100% - 9px));
+  }
+
+  .tour-sidebar > h3::after{
+    right:50%;
+    transform:translateX(calc(100% + 9px)) scaleX(-1);
+  }
+
+  /* Search is deliberately the visual first action in the mobile filter. */
+  #officialTourSearch{
+    display:block!important;
+    width:100%!important;
+    min-height:58px!important;
+    margin:0 auto 18px!important;
+    padding:0 18px!important;
+    border:1px solid rgba(241,199,101,.70)!important;
+    border-radius:16px!important;
+    outline:0!important;
+    -webkit-appearance:none!important;
+    appearance:none!important;
+    background:linear-gradient(180deg,rgba(9,25,39,.98),rgba(5,18,30,.99))!important;
+    color:#f7f8fb!important;
+    caret-color:#f3c968!important;
+    font-size:16px!important; /* prevents iOS input zoom */
+    line-height:1.2!important;
+    letter-spacing:.01em!important;
+    box-shadow:
+      0 0 0 1px rgba(241,199,101,.12),
+      0 0 18px rgba(241,199,101,.16),
+      0 0 34px rgba(39,193,174,.08),
+      inset 0 1px 0 rgba(255,255,255,.035)!important;
+    transition:border-color .24s ease,box-shadow .24s ease,background .24s ease!important;
+  }
+
+  #officialTourSearch::placeholder{
+    color:rgba(218,226,233,.72)!important;
+    opacity:1!important;
+    font-family:"Iowan Old Style","Baskerville",Georgia,serif!important;
+    font-weight:400!important;
+    letter-spacing:.015em!important;
+  }
+
+  #officialTourSearch:focus{
+    border-color:#f4cb6d!important;
+    background:linear-gradient(180deg,rgba(10,29,44,.995),rgba(6,20,33,.995))!important;
+    box-shadow:
+      0 0 0 2px rgba(244,203,109,.12),
+      0 0 20px rgba(244,203,109,.24),
+      0 0 38px rgba(39,193,174,.12),
+      inset 0 1px 0 rgba(255,255,255,.05)!important;
+    animation:none!important;
+  }
+
+  /* Once the visitor has typed, keep the field elegant and calm. */
+  #officialTourSearch:not(:placeholder-shown){
+    animation:none!important;
+  }
+}
+
+@media (max-width:760px) and (prefers-reduced-motion:no-preference){
+  #officialTourSearch:placeholder-shown:not(:focus){
+    animation:atoMobileFinderSearchPulse 2.15s cubic-bezier(.4,0,.2,1) infinite!important;
+  }
+
+  @keyframes atoMobileFinderSearchPulse{
+    0%,100%{
+      border-color:rgba(241,199,101,.48);
+      box-shadow:
+        0 0 0 1px rgba(241,199,101,.08),
+        0 0 12px rgba(241,199,101,.10),
+        0 0 22px rgba(39,193,174,.04),
+        inset 0 1px 0 rgba(255,255,255,.03);
+    }
+    50%{
+      border-color:rgba(255,216,126,.98);
+      box-shadow:
+        0 0 0 2px rgba(255,216,126,.15),
+        0 0 24px rgba(241,199,101,.34),
+        0 0 46px rgba(39,193,174,.15),
+        inset 0 1px 0 rgba(255,255,255,.05);
+    }
+  }
+}
+
+@media (max-width:760px) and (prefers-reduced-motion:reduce){
+  #officialTourSearch:placeholder-shown{
+    border-color:rgba(244,203,109,.88)!important;
+    box-shadow:
+      0 0 0 2px rgba(244,203,109,.10),
+      0 0 22px rgba(244,203,109,.20),
+      0 0 34px rgba(39,193,174,.08)!important;
+  }
+}
+
+
+/* ----------------------------------------------------------------------
+   MOBILE POPULAR TOURS BLOCK — CLEANER PREMIUM CARD
+   ---------------------------------------------------------------------- */
+@media (max-width:760px){
+  .tour-sidebar .popular-feature-card{
+    position:relative!important;
+    margin-top:24px!important;
+    padding:20px 14px 14px!important;
+    border:1px solid rgba(223,177,84,.34)!important;
+    border-radius:24px!important;
+    background:
+      radial-gradient(120% 90% at 50% 0%, rgba(19,61,98,.20) 0%, rgba(19,61,98,0) 58%),
+      linear-gradient(180deg, rgba(8,24,41,.985) 0%, rgba(4,15,27,.992) 100%)!important;
+    box-shadow:
+      0 18px 42px rgba(0,0,0,.28),
+      inset 0 1px 0 rgba(255,255,255,.04)!important;
+    overflow:hidden!important;
+  }
+
+  .tour-sidebar .popular-feature-card::before{
+    content:"";
+    position:absolute;
+    left:16px;
+    right:16px;
+    top:56px;
+    height:1px;
+    background:linear-gradient(90deg, rgba(223,177,84,0), rgba(223,177,84,.42) 16%, rgba(223,177,84,.20) 84%, rgba(223,177,84,0));
+    pointer-events:none;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-heading{
+    position:relative!important;
+    margin:0 0 20px!important;
+    padding:0 0 10px!important;
+    text-align:left!important;
+    display:flex!important;
+    align-items:center!important;
+    gap:8px!important;
+    font-size:11px!important;
+    letter-spacing:.11em!important;
+    text-transform:uppercase!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-heading a{
+    display:inline-flex!important;
+    align-items:center!important;
+    gap:8px!important;
+    color:#f2ddb1!important;
+    text-decoration:none!important;
+  }
+
+  .tour-sidebar .popular-feature-card .sidebar-sale-link{
+    margin:0 0 14px!important;
+  }
+
+  .tour-sidebar .popular-feature-card .sidebar-sale{
+    max-width:none!important;
+    margin:0!important;
+    padding:12px 14px!important;
+    border:1px solid rgba(223,177,84,.14)!important;
+    border-radius:16px!important;
+    background:linear-gradient(135deg, rgba(255,255,255,.028), rgba(223,177,84,.045))!important;
+    text-align:left!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:5px!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.03)!important;
+  }
+
+  .tour-sidebar .popular-feature-card .sidebar-sale__lead,
+  .tour-sidebar .popular-feature-card .sidebar-sale__tail{
+    display:block!important;
+  }
+
+  .tour-sidebar .popular-feature-card .sidebar-sale__lead{
+    color:#f6ead0!important;
+    font-size:13px!important;
+    line-height:1.18!important;
+    letter-spacing:.035em!important;
+    font-weight:700!important;
+  }
+
+  .tour-sidebar .popular-feature-card .sidebar-sale__tail{
+    color:#d8bc79!important;
+    font-size:10px!important;
+    line-height:1.35!important;
+    letter-spacing:.075em!important;
+    text-transform:uppercase!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour{
+    position:relative!important;
+    display:grid!important;
+    grid-template-columns:98px minmax(0,1fr)!important;
+    align-items:center!important;
+    gap:12px!important;
+    margin:0 0 10px!important;
+    padding:11px!important;
+    border:1px solid rgba(255,255,255,.06)!important;
+    border-radius:18px!important;
+    background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.015))!important;
+    text-decoration:none!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.02)!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour:first-of-type{
+    margin-top:0!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour:last-of-type{
+    margin-bottom:0!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour::after{
+    content:"→";
+    position:absolute!important;
+    right:12px!important;
+    top:50%!important;
+    transform:translateY(-50%)!important;
+    color:rgba(223,177,84,.88)!important;
+    font-size:18px!important;
+    line-height:1!important;
+    opacity:.95!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour img{
+    width:98px!important;
+    height:74px!important;
+    border-radius:14px!important;
+    object-fit:cover!important;
+    display:block!important;
+    box-shadow:0 8px 18px rgba(0,0,0,.22)!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour-copy{
+    min-width:0!important;
+    padding-right:20px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:4px!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour-copy b{
+    display:block!important;
+    margin:0!important;
+    color:#f6eee0!important;
+    font-size:16px!important;
+    line-height:1.16!important;
+    font-weight:600!important;
+    letter-spacing:.01em!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour-copy small{
+    display:block!important;
+    margin:0!important;
+    color:#8ea4bb!important;
+    font-size:11px!important;
+    line-height:1.3!important;
+  }
+
+  .tour-sidebar .popular-feature-card .popular-tour-copy span{
+    display:block!important;
+    margin-top:2px!important;
+    color:#e0b653!important;
+    font-size:13px!important;
+    line-height:1.2!important;
+    font-weight:700!important;
+    text-transform:none!important;
+  }
+
+  .tour-sidebar .popular-feature-card .view-all,
+  .popular-feature-card .view-all.ato-mobile-viewall-fixed{
+    position:relative!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    width:100%!important;
+    margin:14px 0 0!important;
+    min-height:60px!important;
+    padding:0 58px 0 18px!important;
+    border:1px solid rgba(223,177,84,.42)!important;
+    border-radius:18px!important;
+    background:linear-gradient(135deg, rgba(223,177,84,.10), rgba(223,177,84,.04))!important;
+    color:#f3dfb2!important;
+    font-size:12px!important;
+    font-weight:700!important;
+    letter-spacing:.10em!important;
+    text-transform:uppercase!important;
+    text-decoration:none!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.03)!important;
+  }
+
+  .popular-feature-card .ato-mobile-viewall-arrow{
+    right:18px!important;
+    width:24px!important;
+    height:24px!important;
+  }
+
+  .popular-feature-card .ato-mobile-viewall-arrow svg{
+    width:21px!important;
+    height:21px!important;
+    stroke-width:1.45!important;
+  }
+}
+
+
+/* ----------------------------------------------------------------------
+   MOBILE V37 — navigation hit-testing safety
+   The visible overlay blocks background taps. Do not disable the entire page
+   tree with pointer-events, because a stale modal class makes valid links dead.
+   ---------------------------------------------------------------------- */
+@media (max-width:980px){
+  body.ato-mobile-header-modal-open > *:not(#atoGlobalHeaderRoot){
+    pointer-events:auto!important;
+  }
+  .popular-feature-card a[href],
+  .vip-service-premium-link{
+    pointer-events:auto!important;
+    touch-action:manipulation!important;
   }
 }

@@ -442,7 +442,7 @@ function atoInitGlobalHeader(){
      ['.ato-special-menu [data-offer-link="journey"]','/special-offers.html#journey'],
      ['.ato-special-menu [data-offer-link="gift"]','/special-offers.html#gift'],
      ['.nav > a[href*="vip-service"]','/vip-service.html'],
-     ['.ato-about-menu > a:first-child','/index.html#about'],
+     ['.ato-about-menu > a:first-child','/#about'],
      ['.ato-about-menu a[href*="legal-information"]','/legal-information.html'],
      ['.ato-about-menu > a:last-child','/contact.html']
    ];
@@ -485,10 +485,12 @@ function atoInitGlobalHeader(){
  nav?.querySelectorAll('a[href]').forEach(a=>a.addEventListener('click',e=>{
    const href=a.getAttribute('href'),target=a.getAttribute('target');
    if(isMobile()&&href&&href!=='#'){
-     /* Keep the direct mobile href native. Never cancel browser navigation. */
-     closeMobilePanels();return;
+     /* IMPORTANT: let iOS/Safari complete the anchor's native default action FIRST.
+        Closing the fixed drawer synchronously during the same click can cancel/stall
+        navigation in embedded WebKit. Cleanup is deferred to the next task. */
+     setTimeout(closeMobilePanels,0);return;
    }
-   closeDropdowns();if(isMobile())closeMobilePanels();
+   closeDropdowns();if(isMobile())setTimeout(closeMobilePanels,0);
  }));
  /* All ordinary drawer anchors deliberately use native browser navigation.
     Do not intercept them: iOS in-app WebKit can stall after preventDefault(). */
@@ -745,17 +747,9 @@ render();
         icon.innerHTML = thinArrowSVG;
         link.appendChild(icon);
       }
-      if (!link.dataset.atoMobileNavBound) {
-        link.dataset.atoMobileNavBound = '1';
-        link.addEventListener('click', e => {
-          if (!isMobile()) return;
-          const href = link.getAttribute('href');
-          if (!href) return;
-          e.preventDefault();
-          e.stopPropagation();
-          window.location.assign(new URL(href, location.href).href);
-        }, true);
-      }
+      /* Navigation deliberately remains a native <a href>.
+         Do not preventDefault()/location.assign() here: that was a second navigation
+         engine competing with the mobile drawer and is unreliable in iOS WebKit. */
     });
   };
 
@@ -2251,4 +2245,141 @@ render();
   s.defer=true;
   s.dataset.atoAssistantLoader='global-header';
   document.head.appendChild(s);
+})();
+
+/* ==========================================================
+   ATO MOBILE HEADER V33 — TOURS FULL PANEL + LANGUAGE OVER TICKER
+   Mobile only. Desktop is intentionally untouched.
+   ========================================================== */
+(function atoMobileHeaderV33(){
+  'use strict';
+
+  function install(){
+    if(document.getElementById('ato-mobile-header-v33')) return;
+    const style=document.createElement('style');
+    style.id='ato-mobile-header-v33';
+    style.textContent=`
+      @media (max-width:980px){
+        /* Let the drawer own vertical scrolling. Do not crop the TOURS list. */
+        #atoGlobalHeaderRoot .nav{
+          overflow-y:auto!important;
+          overflow-x:hidden!important;
+          -webkit-overflow-scrolling:touch!important;
+          overscroll-behavior:contain!important;
+          padding-bottom:max(48px,calc(28px + env(safe-area-inset-bottom)))!important;
+        }
+        #atoGlobalHeaderRoot .nav .ato-header-dropdown>.dropdown-menu,
+        #atoGlobalHeaderRoot .nav .ato-tours-menu{
+          max-height:none!important;
+          height:auto!important;
+          overflow:visible!important;
+          overscroll-behavior:auto!important;
+        }
+        #atoGlobalHeaderRoot .nav .ato-tours-menu>.ato-grid-row{
+          flex:none!important;
+        }
+
+        /* Languages open over the promo/auction ribbon instead of below it. */
+        #atoGlobalHeaderRoot .header.ato-language-panel-open{
+          z-index:2147483646!important;
+        }
+        #atoGlobalHeaderRoot .language{
+          position:relative!important;
+          z-index:2147483647!important;
+        }
+        #atoGlobalHeaderRoot .language-menu{
+          position:fixed!important;
+          top:70px!important;
+          right:10px!important;
+          left:auto!important;
+          width:230px!important;
+          max-width:calc(100vw - 20px)!important;
+          z-index:2147483647!important;
+        }
+
+        /* On touch devices only .open controls visibility; sticky :hover must not reopen it. */
+        #atoGlobalHeaderRoot .language-dropdown:not(.open)>.language-menu{
+          opacity:0!important;
+          visibility:hidden!important;
+          pointer-events:none!important;
+          transform:translateY(-6px) scale(.985)!important;
+        }
+        #atoGlobalHeaderRoot .language-dropdown.open>.language-menu{
+          opacity:1!important;
+          visibility:visible!important;
+          pointer-events:auto!important;
+          transform:translateY(0) scale(1)!important;
+        }
+
+        /* Globe/EN arrow is an explicit state indicator. */
+        #atoGlobalHeaderRoot .ato-language-trigger .arrow-icon{
+          transform:rotate(0deg)!important;
+          transition:transform .22s cubic-bezier(.22,.61,.36,1)!important;
+          transform-origin:50% 50%!important;
+        }
+        #atoGlobalHeaderRoot .language-dropdown.open .ato-language-trigger .arrow-icon{
+          transform:rotate(180deg)!important;
+        }
+      }
+
+      @media (max-width:560px){
+        #atoGlobalHeaderRoot .language-menu{
+          top:68px!important;
+          right:8px!important;
+          width:224px!important;
+          max-width:calc(100vw - 16px)!important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',install,{once:true});
+  else install();
+})();
+
+
+/* ========================================================================
+   ATO MOBILE V37 — NAVIGATION RELIABILITY GUARD
+   One native navigation path only. No synthetic click routing.
+   ======================================================================== */
+(function atoMobileNavigationV37(){
+  'use strict';
+  const isMobile=()=>window.innerWidth<=980;
+
+  function canonicalize(){
+    if(!isMobile())return;
+    const root=document.getElementById('atoGlobalHeaderRoot');
+    const routes=[
+      ['.nav > a[href*="combo-deals"]','/combo-deals.html'],
+      ['.ato-special-menu [data-offer-link="group"]','/special-offers.html#special-privileges'],
+      ['.ato-special-menu [data-offer-link="journey"]','/special-offers.html#journey'],
+      ['.ato-special-menu [data-offer-link="gift"]','/special-offers.html#gift'],
+      ['.nav > a[href*="vip-service"]','/vip-service.html'],
+      ['.ato-about-menu > a:first-child','/#about']
+    ];
+    routes.forEach(([sel,href])=>root?.querySelector(sel)?.setAttribute('href',href));
+    document.querySelectorAll('.popular-feature-card a[href*="popular-tours"]').forEach(a=>a.setAttribute('href','/popular-tours.html'));
+    document.querySelectorAll('.vip-service-premium-link').forEach(a=>a.setAttribute('href','/vip-service.html'));
+  }
+
+  function repairStaleState(){
+    if(!isMobile())return;
+    const root=document.getElementById('atoGlobalHeaderRoot');
+    const nav=root?.querySelector('.nav');
+    const lang=root?.querySelector('.language-dropdown');
+    const overlay=root?.querySelector('.mobile-overlay');
+    const active=!!(nav?.classList.contains('active')||lang?.classList.contains('open'));
+    if(!active){
+      document.body.classList.remove('ato-mobile-header-modal-open');
+      overlay?.classList.remove('active');
+    }
+  }
+
+  function install(){canonicalize();repairStaleState();}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+  window.addEventListener('pageshow',install,{passive:true});
+  window.addEventListener('resize',install,{passive:true});
+  window.addEventListener('orientationchange',()=>setTimeout(install,80),{passive:true});
+  new MutationObserver(()=>{canonicalize();repairStaleState()}).observe(document.documentElement,{childList:true,subtree:true});
 })();
