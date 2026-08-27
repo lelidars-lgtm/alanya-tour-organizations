@@ -274,6 +274,19 @@ function atoInitGlobalHeader(){
    const tr=dd.querySelector(':scope > .ato-dropdown-trigger');
    tr?.addEventListener('click',e=>{
      e.preventDefault();e.stopPropagation();
+     /* On mobile the main SPECIAL OFFERS and ABOUT US rows are destinations,
+        not dead accordion labels. Keep desktop dropdown behaviour unchanged. */
+     if(isMobile()){
+       const section=dd.getAttribute('data-header-dropdown');
+       if(section==='offers'){
+         window.location.href='/special-offers.html';
+         return;
+       }
+       if(section==='about'){
+         window.location.href='/index.html#about';
+         return;
+       }
+     }
      const on=!dd.classList.contains('open');
      setLanguage(false);closeDropdowns(dd);setDropdown(dd,on);
      if(isMobile()&&on)setTimeout(()=>dd.scrollIntoView({block:'nearest',behavior:'smooth'}),40);
@@ -299,22 +312,8 @@ function atoInitGlobalHeader(){
    }
    closeDropdowns();if(isMobile())closeMobilePanels();
  }));
- /* iOS in-app browsers can leave a native drawer link in a pending loading
-    state while the fixed overlay is being removed. Own same-origin mobile
-    navigation once, close the drawer synchronously, then assign the exact URL. */
- nav?.addEventListener('click',e=>{
-   if(!isMobile())return;
-   const link=e.target.closest('a[href]');
-   if(!link||link.target==='_blank'||link.hasAttribute('download'))return;
-   const href=link.getAttribute('href');
-   if(!href||href==='#'||/^javascript:/i.test(href))return;
-   let destination;
-   try{destination=new URL(href,location.origin)}catch(_){return}
-   if(destination.origin!==location.origin)return;
-   e.preventDefault();e.stopImmediatePropagation();
-   closeMobilePanels();
-   requestAnimationFrame(()=>location.assign(destination.href));
- },true);
+ /* All ordinary drawer anchors deliberately use native browser navigation.
+    Do not intercept them: iOS in-app WebKit can stall after preventDefault(). */
  document.addEventListener('click',e=>{
    if(!e.target.closest('#atoGlobalHeaderRoot .ato-header-dropdown'))closeDropdowns();
    if(!e.target.closest('#atoGlobalHeaderRoot .language-dropdown'))setLanguage(false);
