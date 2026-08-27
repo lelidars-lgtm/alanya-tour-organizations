@@ -5,6 +5,8 @@
  */
 (() => {
   'use strict';
+  /* Emergency rollback: V20 standalone shell is intentionally disabled. */
+  return;
 
   const mobile = matchMedia('(max-width:980px)').matches &&
     (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || '') ||

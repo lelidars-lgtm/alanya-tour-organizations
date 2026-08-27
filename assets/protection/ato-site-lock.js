@@ -105,10 +105,7 @@
     protectMedia();
   }
 
-  /* Public mobile navigation bootstrap.
-     Every public page already loads this central file. Load the canonical
-     header once on phones/tablets when that page has no global header yet.
-     Desktop and internal manager/e-ticket pages remain unchanged. */
+  /* Public mobile navigation bootstrap. */
   const loadPublicMobileHeader = () => {
     const ua = navigator.userAgent || "";
     const mobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(ua) ||
