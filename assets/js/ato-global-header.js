@@ -299,6 +299,22 @@ function atoInitGlobalHeader(){
    }
    closeDropdowns();if(isMobile())closeMobilePanels();
  }));
+ /* iOS in-app browsers can leave a native drawer link in a pending loading
+    state while the fixed overlay is being removed. Own same-origin mobile
+    navigation once, close the drawer synchronously, then assign the exact URL. */
+ nav?.addEventListener('click',e=>{
+   if(!isMobile())return;
+   const link=e.target.closest('a[href]');
+   if(!link||link.target==='_blank'||link.hasAttribute('download'))return;
+   const href=link.getAttribute('href');
+   if(!href||href==='#'||/^javascript:/i.test(href))return;
+   let destination;
+   try{destination=new URL(href,location.origin)}catch(_){return}
+   if(destination.origin!==location.origin)return;
+   e.preventDefault();e.stopImmediatePropagation();
+   closeMobilePanels();
+   requestAnimationFrame(()=>location.assign(destination.href));
+ },true);
  document.addEventListener('click',e=>{
    if(!e.target.closest('#atoGlobalHeaderRoot .ato-header-dropdown'))closeDropdowns();
    if(!e.target.closest('#atoGlobalHeaderRoot .language-dropdown'))setLanguage(false);
