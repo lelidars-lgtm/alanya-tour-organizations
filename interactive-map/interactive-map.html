@@ -1456,15 +1456,13 @@ main.app{height:auto!important;min-height:0!important;overflow:hidden!important;
 @media(max-height:600px) and (orientation:landscape){.tour-hover-card{top:8px!important}.tour-hover-card .popup-cover{height:84px!important;min-height:84px!important}.tour-hover-card .popup-desc,.tour-hover-card .popup-meta,.tour-hover-card .popup-price{display:none!important}.mobile-filter-toggle{top:54px}}
 </style>
 <script src="/assets/protection/ato-site-lock.js?v=20260824-direct-v1" data-ato-site-lock></script>
+<script src="/assets/js/ato-mobile-navigation.js?v=20260827-control-v1" defer data-ato-mobile-navigation></script>
 </head>
 <body>
 <script>
 const atoMapDeviceUA=navigator.userAgent||'';
 window.__ATO_MAP_DIRECT_HEADER__=/Android|iPhone|iPad|iPod|Mobile/i.test(atoMapDeviceUA)||(/Macintosh/i.test(atoMapDeviceUA)&&navigator.maxTouchPoints>1);
-if(window.__ATO_MAP_DIRECT_HEADER__){
-  document.documentElement.classList.add('ato-map-mobile-device');
-  document.write('<script src="/assets/js/ato-global-header.js?v=20260827-map-direct-header-v4" data-ato-global-header><\/script>');
-}
+if(window.__ATO_MAP_DIRECT_HEADER__)document.documentElement.classList.add('ato-map-mobile-device');
 </script>
 <style id="ato-map-direct-header-layout">
   html.ato-map-mobile-device #atoOriginalHeaderHost{display:none!important}
