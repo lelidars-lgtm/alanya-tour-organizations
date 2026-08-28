@@ -1,7 +1,7 @@
 /**
  * ALANYA TOUR ORGANIZATIONS — CENTRAL PUBLIC SITE LOCK
  * One synchronous file for every public HTML page.
- * Version: 2026-08-28-mobile-nav-core-v39
+ * Version: 2026-08-24-direct-v1
  */
 (() => {
   "use strict";
@@ -116,7 +116,7 @@
     if (/(^|\/)(booking-manager|ato-manager|manager|admin)(\/|$)/.test(path)) return;
     if (/(e-ticket|virtual[-_]?pos|secure[-_]?payment|card[-_]?payment)/.test(path)) return;
     const headerScript = document.createElement("script");
-    headerScript.src = "/assets/js/ato-global-header.js?v=20260828-mobile-nav-core-v39";
+    headerScript.src = "/assets/js/ato-global-header.js?v=20260828-mobile-native-v41";
     headerScript.dataset.atoMobileNavigation = "central";
     document.head.appendChild(headerScript);
   };
