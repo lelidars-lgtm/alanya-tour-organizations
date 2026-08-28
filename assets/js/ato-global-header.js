@@ -1,4 +1,4 @@
-/* ATO GLOBAL HEADER v1.1 PREMIUM DROPDOWNS — updated 2026-08-19.
+/* ATO GLOBAL HEADER v39 CLEAN MOBILE NAV — updated 2026-08-28.
    Canonical: header + auction/promo bar + navigation + languages + search + mobile. */
 (function(){
 'use strict';
@@ -323,7 +323,24 @@ const atoPremiumDropdownCss=`
     to{opacity:1;transform:translateY(0) scale(1)}
   }
 
-  body.ato-mobile-header-modal-open > *:not(#atoGlobalHeaderRoot){pointer-events:none!important}
+  /* V39: overlay blocks background taps; never disable the entire page tree. */
+  #atoGlobalHeaderRoot .mobile-menu-btn{
+    width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;
+  }
+  #atoGlobalHeaderRoot .nav > a.nav-item,
+  #atoGlobalHeaderRoot .nav > .ato-header-dropdown > .ato-dropdown-trigger{
+    min-height:48px!important;
+    pointer-events:auto!important;
+    touch-action:manipulation!important;
+  }
+  /* On touch widths, .open is the only visibility authority. Sticky :hover/focus
+     must never resurrect a closed submenu after a tap. */
+  #atoGlobalHeaderRoot .nav-dropdown:not(.open) > .dropdown-menu{
+    display:none!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;
+  }
+  #atoGlobalHeaderRoot .nav-dropdown.open > .dropdown-menu{
+    opacity:1!important;visibility:visible!important;pointer-events:auto!important;
+  }
   body.ato-mobile-header-modal-open #atoGlobalHeaderRoot{
     z-index:2147483647!important;
     pointer-events:auto!important;
@@ -482,19 +499,26 @@ function atoInitGlobalHeader(){
    localStorage.setItem('atoLanguage',lang);document.documentElement.lang=lang;atoApplyHeaderLanguage(lang);
    window.dispatchEvent(new CustomEvent('ato-language-changed',{detail:{lang}}));setLanguage(false);setMenu(false);setTimeout(()=>location.reload(),35);
  }));
- nav?.querySelectorAll('a[href]').forEach(a=>a.addEventListener('click',e=>{
-   const href=a.getAttribute('href'),target=a.getAttribute('target');
-   if(isMobile()&&href&&href!=='#'){
-     /* IMPORTANT: let iOS/Safari complete the anchor's native default action FIRST.
-        Closing the fixed drawer synchronously during the same click can cancel/stall
-        navigation in embedded WebKit. Cleanup is deferred to the next task. */
-     setTimeout(closeMobilePanels,0);return;
-   }
-   closeDropdowns();if(isMobile())setTimeout(closeMobilePanels,0);
- }));
- /* All ordinary drawer anchors deliberately use native browser navigation.
-    Do not intercept them: iOS in-app WebKit can stall after preventDefault(). */
+ /* V39 — ONE mobile navigation path. Ordinary anchors keep their native browser action.
+    No preventDefault(), no synthetic click, no location.assign(), and no synchronous
+    hiding of the tapped anchor before WebKit has committed the navigation. */
+ nav?.addEventListener('click',e=>{
+   const a=e.target.closest('a[href]');
+   if(!a||!nav.contains(a))return;
+   if(!isMobile()){closeDropdowns();return;}
+   let sameDocumentHash=false;
+   try{
+     const u=new URL(a.href,location.href);
+     sameDocumentHash=u.origin===location.origin&&u.pathname===location.pathname&&u.search===location.search&&!!u.hash;
+   }catch(_){}
+   /* Cross-page links need no cleanup: unload will remove the drawer.
+      Same-document anchors need the drawer closed only AFTER the native hash action. */
+   if(sameDocumentHash)setTimeout(closeMobilePanels,80);
+ },{passive:true});
  document.addEventListener('click',e=>{
+   /* Never mutate/hide a tapped anchor during the same click dispatch. This is
+      specifically important for iOS/WebKit when the anchor lives in a dropdown. */
+   if(e.target.closest('#atoGlobalHeaderRoot a[href]'))return;
    if(!e.target.closest('#atoGlobalHeaderRoot .ato-header-dropdown'))closeDropdowns();
    if(!e.target.closest('#atoGlobalHeaderRoot .language-dropdown'))setLanguage(false);
  });
@@ -2340,17 +2364,19 @@ render();
 
 
 /* ========================================================================
-   ATO MOBILE V37 — NAVIGATION RELIABILITY GUARD
-   One native navigation path only. No synthetic click routing.
+   ATO MOBILE V39 — CLEAN NAVIGATION ROUTE GUARD
+   Route normalization only. The canonical header controller above owns clicks.
    ======================================================================== */
-(function atoMobileNavigationV37(){
+(function atoMobileNavigationV39(){
   'use strict';
   const isMobile=()=>window.innerWidth<=980;
-
-  function canonicalize(){
+  function install(){
     if(!isMobile())return;
     const root=document.getElementById('atoGlobalHeaderRoot');
+    if(!root)return;
     const routes=[
+      ['.nav > a[href*="interactive-map"]','/interactive-map/interactive-map.html'],
+      ['.nav > a[href*="trip-planner"]','/trip-planner.html'],
       ['.nav > a[href*="combo-deals"]','/combo-deals.html'],
       ['.ato-special-menu [data-offer-link="group"]','/special-offers.html#special-privileges'],
       ['.ato-special-menu [data-offer-link="journey"]','/special-offers.html#journey'],
@@ -2358,28 +2384,18 @@ render();
       ['.nav > a[href*="vip-service"]','/vip-service.html'],
       ['.ato-about-menu > a:first-child','/#about']
     ];
-    routes.forEach(([sel,href])=>root?.querySelector(sel)?.setAttribute('href',href));
+    routes.forEach(([sel,href])=>root.querySelector(sel)?.setAttribute('href',href));
     document.querySelectorAll('.popular-feature-card a[href*="popular-tours"]').forEach(a=>a.setAttribute('href','/popular-tours.html'));
     document.querySelectorAll('.vip-service-premium-link').forEach(a=>a.setAttribute('href','/vip-service.html'));
-  }
-
-  function repairStaleState(){
-    if(!isMobile())return;
-    const root=document.getElementById('atoGlobalHeaderRoot');
-    const nav=root?.querySelector('.nav');
-    const lang=root?.querySelector('.language-dropdown');
-    const overlay=root?.querySelector('.mobile-overlay');
-    const active=!!(nav?.classList.contains('active')||lang?.classList.contains('open'));
-    if(!active){
+    /* A stale class may lock scrolling, but it can never disable links in V39. */
+    const nav=root.querySelector('.nav'),lang=root.querySelector('.language-dropdown'),overlay=root.querySelector('.mobile-overlay');
+    if(!nav?.classList.contains('active')&&!lang?.classList.contains('open')){
       document.body.classList.remove('ato-mobile-header-modal-open');
       overlay?.classList.remove('active');
     }
   }
-
-  function install(){canonicalize();repairStaleState();}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
   window.addEventListener('pageshow',install,{passive:true});
   window.addEventListener('resize',install,{passive:true});
   window.addEventListener('orientationchange',()=>setTimeout(install,80),{passive:true});
-  new MutationObserver(()=>{canonicalize();repairStaleState()}).observe(document.documentElement,{childList:true,subtree:true});
 })();
